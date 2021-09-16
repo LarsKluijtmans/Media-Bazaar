@@ -65,7 +65,7 @@ namespace MediaBazaar
         }
         public Product GetProduct(int id)
         {
-            foreach(Product product in products)
+            foreach(Product product in Products)
             {
                 if (product.ProductId == id)
                 {
@@ -78,6 +78,7 @@ namespace MediaBazaar
         {
             products.RemoveAt(selectedIndex);
         }
+
         public void AddEmployee(Employee e)
         {
             employees.Add(e);
@@ -96,6 +97,28 @@ namespace MediaBazaar
         public void RemoveEmployee(int selectedIndex)
         {
             employees.RemoveAt(selectedIndex);
+
+        }
+        public void amountDecreaseProduct(Product p, int amount)
+        {
+            foreach ( Product product in Products) 
+            { 
+                if(product == p)
+                {
+                    p.Amount -= product.Amount;
+                }
+            }
+        }
+
+        public void amountIncreaseProduct(Product p, int amount)
+        {
+            foreach (Product product in Products)
+            {
+                if (product == p)
+                {
+                    p.Amount += product.Amount;
+                }
+            }
         }
     }
 }

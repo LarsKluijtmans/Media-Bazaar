@@ -7,8 +7,9 @@ namespace MediaBazaar
         abstract class Employee
         {
 
+        
             // fields
-
+            private static int nextEmployeeID = 1;
             private int employeeID;
             private string lastname;
             private string firstname;
@@ -20,17 +21,19 @@ namespace MediaBazaar
             private int bsn;
             private string username;
             private string password;
+            private Contract contract; /* every employee has 1 contract*/
 
-            // properties
+        // properties
 
-            public int EmployeeID { get; private set; }
+        public int EmployeeID { get; private set; }
 
 
             // constructors
 
             public Employee(int employeeID, string lastname, string firstname, string gender, int phonenumber, string email, string address, DateTime dateofbirth, int bsn, string username, string password)
             {
-                this.employeeID = employeeID;
+                this.employeeID = nextEmployeeID;
+                  nextEmployeeID+1;
                 this.lastname = lastname;
                 this.firstname = firstname;
                 this.gender = gender;
@@ -52,10 +55,22 @@ namespace MediaBazaar
                 this.password = password;
             }
 
+         // methodes
 
+        public void MostPreferedTimeToWork(string day, string time)
+        {
 
+        }
 
+         public void leastPreferedTimeToWork(string day, string time)
+        {
 
+        }
+
+         public string Tostring()
+        {
+            return null;
+        }
 
         }
     }
