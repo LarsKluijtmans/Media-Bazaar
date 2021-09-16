@@ -30,10 +30,10 @@ namespace MediaBazaar
 
             // constructors
 
-            public Employee(int employeeID, string lastname, string firstname, string gender, int phonenumber, string email, string address, DateTime dateofbirth, int bsn, string username, string password)
+        public Employee(int employeeID, string lastname, string firstname, string gender, int phonenumber, string email, string address, DateTime dateofbirth, int bsn, string username, string password)
             {
                 this.employeeID = nextEmployeeID;
-                  nextEmployeeID+1;
+                nextEmployeeID++;
                 this.lastname = lastname;
                 this.firstname = firstname;
                 this.gender = gender;
@@ -46,7 +46,7 @@ namespace MediaBazaar
                 this.password = password;
             }
 
-            public Employee(string lastname, string firstname, int bsn, string username, string password)
+        public Employee(string lastname, string firstname, int bsn, string username, string password)
             {
                 this.lastname = lastname;
                 this.firstname = firstname;
@@ -58,19 +58,19 @@ namespace MediaBazaar
          // methodes
 
         public void MostPreferedTimeToWork(string day, string time)
-        {
+            {
 
-        }
+            }
 
-         public void leastPreferedTimeToWork(string day, string time)
-        {
+         public void LeastPreferedTimeToWork(string day, string time)
+            {
 
-        }
+            }
 
          public string Tostring()
-        {
-            return null;
-        }
+            {
+                return null;
+            }
 
         }
     }

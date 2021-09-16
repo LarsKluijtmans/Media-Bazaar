@@ -22,7 +22,7 @@ namespace MediaBazaar
             {
                if( p.ProductId == productID)
                 {
-                    Depot.porductRequests.Add(p);
+                    Depot.productRequests.Add(p);
                 }
 
             }
