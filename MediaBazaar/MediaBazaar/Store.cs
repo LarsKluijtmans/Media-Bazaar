@@ -8,6 +8,7 @@ namespace MediaBazaar
     {
         private List<Complaint> complaints;
         private List<Announcement> announcements;
+        private List<Product> products;
 
         public Store()
         {
@@ -51,6 +52,17 @@ namespace MediaBazaar
         public void RemoveComplaint(int selectedIndex)
         {
             complaints.RemoveAt(selectedIndex);
+        }
+        public void AddProduct(Product p)
+        {
+            products.Add(p);
+        }
+        public Product GetProduct(int id)
+        {
+            foreach(Product product in products)
+            {
+                if(product.)
+            }
         }
     }
 }
