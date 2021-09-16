@@ -7,7 +7,7 @@ namespace MediaBazaar
     class Product
     {
         private static int productId;
-        private int barcode;
+        private string barcode;
         private string name;
         private ProductType type;
         private int amount;
@@ -16,10 +16,14 @@ namespace MediaBazaar
         public static int ProductId { get; set; }
 
         // constructor
-        public Product()
+        public Product(string barcode, string name, ProductType type, int amount)
         {
-
+            this.barcode = barcode;
+            this.name = name;
+            this.type = type;
+            this.amount = amount;
         }
         // methods
+
     }
 }
