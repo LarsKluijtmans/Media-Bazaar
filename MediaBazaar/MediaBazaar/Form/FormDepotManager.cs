@@ -14,5 +14,10 @@ namespace MediaBazaar
         {
             InitializeComponent();
         }
+
+        private void FormDepotManager_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
