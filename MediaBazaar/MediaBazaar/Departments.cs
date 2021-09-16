@@ -6,6 +6,7 @@ namespace MediaBazaar
 {
     abstract class Departments
     {
+        protected Store store;
         private int deprtmentID;
         private string departmentName;
 
