@@ -13,9 +13,9 @@ namespace MediaBazaar
             Floor = floor;
         }
 
-        public void RequestProduct( /*Product p ,*/ int Amount)
+        public void RequestProduct( Product p , int Amount)
         {
-            /* Send product and amount to the Depot department*/ 
+           
         }
     }
 }

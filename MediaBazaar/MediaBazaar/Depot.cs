@@ -6,15 +6,48 @@ namespace MediaBazaar
 {
     class Depot : Departments
     {
+        private List<Product> porductRequests;
+        private List<Product> porductRestock;
+
         public Depot(int DeprtmentID, string DepartmentName) : base(DeprtmentID, DepartmentName)
         {
-            
+            porductRequests = new List<Product>();
+            porductRestock = new List<Product>();
         }
 
-        public void RequestRestock(int amount, Porduct p)
+        public void RequestRestock(int amount, Product p)
         {
+            p.Amount = amount;
 
+            porductRestock.Add(p);
+        }
 
+        public void ViewRestockRequest()
+        {
+            /* Clear list box*/
+            foreach(Product p in porductRestock)
+            {
+                /*add to list box*/
+            }
+        }
+        public void ViewPorductRequests()
+        {
+            /* Clear list box*/
+            foreach (Product p in porductRequests)
+            {
+                /*add to list box*/
+            }
+        }
+
+        public void FinishporductRequests( Product product)
+        {
+            foreach (Product p in /*Store.Products*/)
+            { 
+                if(product.Name == p.name)
+                {
+                    p.Amount -= product.Amount;
+                }
+            }
         }
     }
 }
