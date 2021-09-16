@@ -1,0 +1,8 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+enum Jobs
+{
+    OWNER,SALESMANAGER,SALESEMPLOYEE,OFFICEMANAGER,OFFICEEMPLOYEE,DEPOTMANAGER,DEPOTEMPLOYEE
+}

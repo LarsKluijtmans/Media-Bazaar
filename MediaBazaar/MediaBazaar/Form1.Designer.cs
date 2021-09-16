@@ -31,29 +31,29 @@ namespace MediaBazaar
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lstOverviewEmployee = new System.Windows.Forms.ListBox();
-            this.lstOverviewProduct = new System.Windows.Forms.ListBox();
-            this.lstOverviewAnnoucement = new System.Windows.Forms.ListBox();
-            this.lstOverviewComplaint = new System.Windows.Forms.ListBox();
-            this.lstOverviewSchedule = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lstEmployees = new System.Windows.Forms.ListBox();
-            this.btnRemoveEmployee = new System.Windows.Forms.Button();
-            this.btnAddNewEmployee = new System.Windows.Forms.Button();
-            this.btnEditEmployee = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lstOverviewSchedule = new System.Windows.Forms.ListBox();
+            this.lstOverviewComplaint = new System.Windows.Forms.ListBox();
+            this.lstOverviewAnnoucement = new System.Windows.Forms.ListBox();
+            this.lstOverviewProduct = new System.Windows.Forms.ListBox();
+            this.lstOverviewEmployee = new System.Windows.Forms.ListBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.btnEditEmployee = new System.Windows.Forms.Button();
+            this.btnAddNewEmployee = new System.Windows.Forms.Button();
+            this.btnRemoveEmployee = new System.Windows.Forms.Button();
+            this.lstEmployees = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -92,6 +92,106 @@ namespace MediaBazaar
             this.tabPage1.Text = "Overview";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(242, 194);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 21);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Schedule:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(561, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 21);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Complaints";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(242, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(126, 21);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Announcements:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(888, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 21);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Product List:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(6, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 21);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Employee List:";
+            // 
+            // lstOverviewSchedule
+            // 
+            this.lstOverviewSchedule.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstOverviewSchedule.FormattingEnabled = true;
+            this.lstOverviewSchedule.ItemHeight = 17;
+            this.lstOverviewSchedule.Location = new System.Drawing.Point(242, 218);
+            this.lstOverviewSchedule.Name = "lstOverviewSchedule";
+            this.lstOverviewSchedule.Size = new System.Drawing.Size(632, 242);
+            this.lstOverviewSchedule.TabIndex = 4;
+            // 
+            // lstOverviewComplaint
+            // 
+            this.lstOverviewComplaint.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstOverviewComplaint.FormattingEnabled = true;
+            this.lstOverviewComplaint.ItemHeight = 17;
+            this.lstOverviewComplaint.Location = new System.Drawing.Point(561, 38);
+            this.lstOverviewComplaint.Name = "lstOverviewComplaint";
+            this.lstOverviewComplaint.Size = new System.Drawing.Size(313, 123);
+            this.lstOverviewComplaint.TabIndex = 3;
+            // 
+            // lstOverviewAnnoucement
+            // 
+            this.lstOverviewAnnoucement.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstOverviewAnnoucement.FormattingEnabled = true;
+            this.lstOverviewAnnoucement.ItemHeight = 17;
+            this.lstOverviewAnnoucement.Location = new System.Drawing.Point(242, 38);
+            this.lstOverviewAnnoucement.Name = "lstOverviewAnnoucement";
+            this.lstOverviewAnnoucement.Size = new System.Drawing.Size(313, 123);
+            this.lstOverviewAnnoucement.TabIndex = 2;
+            // 
+            // lstOverviewProduct
+            // 
+            this.lstOverviewProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstOverviewProduct.FormattingEnabled = true;
+            this.lstOverviewProduct.ItemHeight = 17;
+            this.lstOverviewProduct.Location = new System.Drawing.Point(888, 38);
+            this.lstOverviewProduct.Name = "lstOverviewProduct";
+            this.lstOverviewProduct.Size = new System.Drawing.Size(218, 429);
+            this.lstOverviewProduct.TabIndex = 1;
+            // 
+            // lstOverviewEmployee
+            // 
+            this.lstOverviewEmployee.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstOverviewEmployee.FormattingEnabled = true;
+            this.lstOverviewEmployee.ItemHeight = 17;
+            this.lstOverviewEmployee.Location = new System.Drawing.Point(6, 38);
+            this.lstOverviewEmployee.Name = "lstOverviewEmployee";
+            this.lstOverviewEmployee.Size = new System.Drawing.Size(218, 429);
+            this.lstOverviewEmployee.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridView1);
@@ -111,179 +211,6 @@ namespace MediaBazaar
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Employees";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // lstOverviewEmployee
-            // 
-            this.lstOverviewEmployee.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstOverviewEmployee.FormattingEnabled = true;
-            this.lstOverviewEmployee.ItemHeight = 17;
-            this.lstOverviewEmployee.Location = new System.Drawing.Point(6, 38);
-            this.lstOverviewEmployee.Name = "lstOverviewEmployee";
-            this.lstOverviewEmployee.Size = new System.Drawing.Size(218, 429);
-            this.lstOverviewEmployee.TabIndex = 0;
-            // 
-            // lstOverviewProduct
-            // 
-            this.lstOverviewProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstOverviewProduct.FormattingEnabled = true;
-            this.lstOverviewProduct.ItemHeight = 17;
-            this.lstOverviewProduct.Location = new System.Drawing.Point(888, 38);
-            this.lstOverviewProduct.Name = "lstOverviewProduct";
-            this.lstOverviewProduct.Size = new System.Drawing.Size(218, 429);
-            this.lstOverviewProduct.TabIndex = 1;
-            // 
-            // lstOverviewAnnoucement
-            // 
-            this.lstOverviewAnnoucement.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstOverviewAnnoucement.FormattingEnabled = true;
-            this.lstOverviewAnnoucement.ItemHeight = 17;
-            this.lstOverviewAnnoucement.Location = new System.Drawing.Point(242, 38);
-            this.lstOverviewAnnoucement.Name = "lstOverviewAnnoucement";
-            this.lstOverviewAnnoucement.Size = new System.Drawing.Size(313, 123);
-            this.lstOverviewAnnoucement.TabIndex = 2;
-            // 
-            // lstOverviewComplaint
-            // 
-            this.lstOverviewComplaint.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstOverviewComplaint.FormattingEnabled = true;
-            this.lstOverviewComplaint.ItemHeight = 17;
-            this.lstOverviewComplaint.Location = new System.Drawing.Point(561, 38);
-            this.lstOverviewComplaint.Name = "lstOverviewComplaint";
-            this.lstOverviewComplaint.Size = new System.Drawing.Size(313, 123);
-            this.lstOverviewComplaint.TabIndex = 3;
-            // 
-            // lstOverviewSchedule
-            // 
-            this.lstOverviewSchedule.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstOverviewSchedule.FormattingEnabled = true;
-            this.lstOverviewSchedule.ItemHeight = 17;
-            this.lstOverviewSchedule.Location = new System.Drawing.Point(242, 218);
-            this.lstOverviewSchedule.Name = "lstOverviewSchedule";
-            this.lstOverviewSchedule.Size = new System.Drawing.Size(632, 242);
-            this.lstOverviewSchedule.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(6, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 21);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Employee List:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(888, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 21);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Product List:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(242, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 21);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Announcements:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(561, 14);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 21);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Complaints";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(242, 194);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 21);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Schedule:";
-            // 
-            // lstEmployees
-            // 
-            this.lstEmployees.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstEmployees.FormattingEnabled = true;
-            this.lstEmployees.ItemHeight = 17;
-            this.lstEmployees.Location = new System.Drawing.Point(22, 18);
-            this.lstEmployees.Name = "lstEmployees";
-            this.lstEmployees.Size = new System.Drawing.Size(285, 361);
-            this.lstEmployees.TabIndex = 1;
-            // 
-            // btnRemoveEmployee
-            // 
-            this.btnRemoveEmployee.Location = new System.Drawing.Point(135, 453);
-            this.btnRemoveEmployee.Name = "btnRemoveEmployee";
-            this.btnRemoveEmployee.Size = new System.Drawing.Size(172, 28);
-            this.btnRemoveEmployee.TabIndex = 2;
-            this.btnRemoveEmployee.Text = "Remove Employee";
-            this.btnRemoveEmployee.UseVisualStyleBackColor = true;
-            // 
-            // btnAddNewEmployee
-            // 
-            this.btnAddNewEmployee.Location = new System.Drawing.Point(135, 385);
-            this.btnAddNewEmployee.Name = "btnAddNewEmployee";
-            this.btnAddNewEmployee.Size = new System.Drawing.Size(172, 28);
-            this.btnAddNewEmployee.TabIndex = 3;
-            this.btnAddNewEmployee.Text = "Add New Employee";
-            this.btnAddNewEmployee.UseVisualStyleBackColor = true;
-            // 
-            // btnEditEmployee
-            // 
-            this.btnEditEmployee.Location = new System.Drawing.Point(135, 419);
-            this.btnEditEmployee.Name = "btnEditEmployee";
-            this.btnEditEmployee.Size = new System.Drawing.Size(172, 28);
-            this.btnEditEmployee.TabIndex = 4;
-            this.btnEditEmployee.Text = "Edit Employee Info";
-            this.btnEditEmployee.UseVisualStyleBackColor = true;
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(343, 36);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 5;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(447, 241);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(102, 25);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(447, 210);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(102, 25);
-            this.checkBox2.TabIndex = 7;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(447, 272);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(102, 25);
-            this.checkBox3.TabIndex = 8;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -312,6 +239,79 @@ namespace MediaBazaar
             // 
             this.Time.HeaderText = "Time";
             this.Time.Name = "Time";
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(447, 272);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(102, 25);
+            this.checkBox3.TabIndex = 8;
+            this.checkBox3.Text = "checkBox3";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(447, 210);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(102, 25);
+            this.checkBox2.TabIndex = 7;
+            this.checkBox2.Text = "checkBox2";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(447, 241);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(102, 25);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(343, 36);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 5;
+            // 
+            // btnEditEmployee
+            // 
+            this.btnEditEmployee.Location = new System.Drawing.Point(135, 419);
+            this.btnEditEmployee.Name = "btnEditEmployee";
+            this.btnEditEmployee.Size = new System.Drawing.Size(172, 28);
+            this.btnEditEmployee.TabIndex = 4;
+            this.btnEditEmployee.Text = "Edit Employee Info";
+            this.btnEditEmployee.UseVisualStyleBackColor = true;
+            // 
+            // btnAddNewEmployee
+            // 
+            this.btnAddNewEmployee.Location = new System.Drawing.Point(135, 385);
+            this.btnAddNewEmployee.Name = "btnAddNewEmployee";
+            this.btnAddNewEmployee.Size = new System.Drawing.Size(172, 28);
+            this.btnAddNewEmployee.TabIndex = 3;
+            this.btnAddNewEmployee.Text = "Add New Employee";
+            this.btnAddNewEmployee.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoveEmployee
+            // 
+            this.btnRemoveEmployee.Location = new System.Drawing.Point(135, 453);
+            this.btnRemoveEmployee.Name = "btnRemoveEmployee";
+            this.btnRemoveEmployee.Size = new System.Drawing.Size(172, 28);
+            this.btnRemoveEmployee.TabIndex = 2;
+            this.btnRemoveEmployee.Text = "Remove Employee";
+            this.btnRemoveEmployee.UseVisualStyleBackColor = true;
+            // 
+            // lstEmployees
+            // 
+            this.lstEmployees.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstEmployees.FormattingEnabled = true;
+            this.lstEmployees.ItemHeight = 17;
+            this.lstEmployees.Location = new System.Drawing.Point(22, 18);
+            this.lstEmployees.Name = "lstEmployees";
+            this.lstEmployees.Size = new System.Drawing.Size(285, 361);
+            this.lstEmployees.TabIndex = 1;
             // 
             // Form1
             // 
