@@ -14,6 +14,7 @@ namespace MediaBazaar
 
         // properties
         public static int ProductId { get; set; }
+        public ProductType Type { get; set; }
 
         // constructor
         public Product(string barcode, string name, ProductType type, int amount)
@@ -24,6 +25,17 @@ namespace MediaBazaar
             this.amount = amount;
         }
         // methods
-
+        public void IncreaseProductAmount(int amount, Product p)
+        {
+            this.amount = amount;
+        }
+        public void DecreaseProductAmount(int amount, Product p)
+        {
+            this.amount = amount;
+        }
+        public override string ToString()
+        {
+            return null;
+        }
     }
 }
