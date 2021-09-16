@@ -22,33 +22,25 @@ namespace MediaBazaar
             porductRestock.Add(p);
         }
 
-        public void ViewRestockRequest()
+        public string FinishporductRequests( Product product)
         {
-
-        }
-        public void ViewPorductRequests()
-        {
-
-        }
-
-        public void FinishporductRequests( Product product)
-        {
-            foreach (Product p in store.product)
+            foreach (Product p in store.Products)
             { 
-                if(product.Name == p.name)
+                if(product.Name == p.Name)
                 {
                     if (product.Amount > p.Amount)
                     {
                         p.Amount -= product.Amount;
-                        /*Listbox.items.add("There are only "+ p.amount + p.name + "s left.")*/
+                        return "There are only " + p.Amount +" "+ p.Name + "s left.";
                     }
                     else
                     {
-                        /* listbox .clear*/
-                        /* Listbox.add("There is not enough of this product in stock at the moment")*/
+                        return "There is not enough of this product in stock at the moment";
                     }
                 }
+                return "";
             }
+            return "";
         }
     }
 }

@@ -13,9 +13,19 @@ namespace MediaBazaar
             Floor = floor;
         }
 
-        public void RequestProduct( Product p , int Amount)
+        public void RequestRequest( int ProductID, int Amount)
         {
-           
+            int amount = Amount;
+            int productID = ProductID;
+
+            foreach (Product p in store.Products)
+            {
+               if( p.ProductId == productID)
+                {
+                    Depot.porductRequests.Add(p);
+                }
+
+            }
         }
     }
 }
