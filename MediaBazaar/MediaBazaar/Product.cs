@@ -14,8 +14,10 @@ namespace MediaBazaar
 
         // properties
         public static int ProductId { get; set; }
+        public string Barcode { get; set; }
+        public string Name { get; set; }
         public ProductType Type { get; set; }
-
+        public int Amount { get; set; }
         // constructor
         public Product(string barcode, string name, ProductType type, int amount)
         {
