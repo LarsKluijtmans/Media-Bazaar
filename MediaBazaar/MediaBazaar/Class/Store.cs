@@ -9,6 +9,7 @@ namespace MediaBazaar
         private List<Complaint> complaints;
         private List<Announcement> announcements;
         private List<Product> products;
+        private List<Employee> employees;
 
         public List<Product> Products
         {
@@ -76,6 +77,25 @@ namespace MediaBazaar
         public void RemoveProduct(int selectedIndex)
         {
             products.RemoveAt(selectedIndex);
+        }
+        public void AddEmployee(Employee e)
+        {
+            employees.Add(e);
+        }
+        public Employee GetEmployee(int id)
+        {
+            foreach(Employee employee in employees)
+            {
+                if(employee.EmployeeID == id)
+                {
+                    return employee;
+                }
+            }
+            return null;
+        }
+        public void RemoveEmployee(int selectedIndex)
+        {
+            employees.RemoveAt(selectedIndex);
         }
     }
 }
