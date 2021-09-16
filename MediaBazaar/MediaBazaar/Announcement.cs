@@ -6,17 +6,24 @@ namespace MediaBazaar
 {
     class Announcement
     {
-        private static int count=1;
+        private static int counter=1;
+        private int id;
         private string message;
         
+        public int ID
+        {
+            get { return id; }
+            private set { id = value; }
+        }
         public Announcement(string message)
         {
             this.message = message;
-            count++;
+            ID = counter;
+            counter++;
         }
         public override string ToString()
         {
-            return count + " " + message;
+            return ID + " " + message;
         }
     }
 }

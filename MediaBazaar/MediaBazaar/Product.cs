@@ -6,14 +6,16 @@ namespace MediaBazaar
 {
     class Product
     {
-        private static int productId;
+        private int productId;
+        private static int nextProductID = 1;
         private string barcode;
         private string name;
         private ProductType type;
         private int amount;
 
+
         // properties
-        public static int ProductId { get; set; }
+        public int ProductId { get; set; }
         public string Barcode { get; set; }
         public string Name { get; set; }
         public ProductType Type { get; set; }
@@ -21,23 +23,26 @@ namespace MediaBazaar
         // constructor
         public Product(string barcode, string name, ProductType type, int amount)
         {
+            this.productId = nextProductID;
             this.barcode = barcode;
             this.name = name;
             this.type = type;
             this.amount = amount;
+
+            nextProductID++; 
         }
         // methods
-        public void IncreaseProductAmount(int amount, Product p)
-        {
-            this.amount = amount;
-        }
-        public void DecreaseProductAmount(int amount, Product p)
-        {
-            this.amount = amount;
-        }
+        //public void IncreaseProductAmount(int amount, Product p)
+        //{
+        //    this.amount = amount;
+        //}
+        //public void DecreaseProductAmount(int amount, Product p)
+        //{
+        //    this.amount = amount;
+        //}
         public override string ToString()
         {
-            return null;
+            return $"ID: {productId}, name: {name}, type: {type}, amount: {amount}, barcode: {barcode}";
         }
     }
 }
