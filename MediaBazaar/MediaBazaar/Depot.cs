@@ -41,11 +41,20 @@ namespace MediaBazaar
 
         public void FinishporductRequests( Product product)
         {
-            foreach (Product p in /*Store.Products*/)
+            foreach (Product p in store.product)
             { 
                 if(product.Name == p.name)
                 {
-                    p.Amount -= product.Amount;
+                    if (product.Amount > p.Amount)
+                    {
+                        p.Amount -= product.Amount;
+                        /*Listbox.items.add("There are only "+ p.amount + p.name + "s left.")*/
+                    }
+                    else
+                    {
+                        /* listbox .clear*/
+                        /* Listbox.add("There is not enough of this product in stock at the moment")*/
+                    }
                 }
             }
         }
