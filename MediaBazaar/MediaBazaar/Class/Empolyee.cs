@@ -7,6 +7,7 @@ namespace MediaBazaar
         abstract class Employee
         {
 
+        
             // fields
 
             private int employeeID;
@@ -20,10 +21,11 @@ namespace MediaBazaar
             private int bsn;
             private string username;
             private string password;
+            private Contract contract; /* every employee has 1 contract*/
 
-            // properties
+        // properties
 
-            public int EmployeeID { get; private set; }
+        public int EmployeeID { get; private set; }
 
 
             // constructors
