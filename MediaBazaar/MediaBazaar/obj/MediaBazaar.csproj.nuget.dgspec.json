@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nazib\\source\\repos\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {}
+    "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nazib\\source\\repos\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {
+    "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nazib\\source\\repos\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+        "projectUniqueName": "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
         "projectName": "MediaBazaar",
-        "projectPath": "C:\\Users\\nazib\\source\\repos\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+        "projectPath": "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
         "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nazib\\source\\repos\\MediaBazaar\\MediaBazaar\\obj\\",
+        "outputPath": "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
