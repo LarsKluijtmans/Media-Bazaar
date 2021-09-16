@@ -14,19 +14,39 @@ namespace MediaBazaar
             complaints = new List<Complaint>();
             announcements = new List<Announcement>();
         }
-        public void AddAnnouncement(string message)
+        public void AddAnnouncement(Announcement a)
         {
-            Announcement announcement = new Announcement(message);
-            announcements.Add(announcement);
+            announcements.Add(a);
+        }
+        public Announcement GetAnnouncement(int id)
+        {
+            foreach(Announcement announcement in announcements)
+            {
+                if (announcement.ID != id)
+                {
+                    return announcement;
+                }               
+            }
+            return null;
         }
         public void RemoveAnnouncement(int selectedIndex)
         {
             announcements.RemoveAt(selectedIndex);
         }
-        public void AddComplaint(string message)
+        public void AddComplaint(Complaint c)
         {
-            Complaint complaint = new Complaint(message);
-            complaints.Add(complaint);
+            complaints.Add(c);
+        }
+        public Complaint GetComplaint(int id)
+        {
+            foreach (Complaint complaint in complaints)
+            {
+                if (complaint.ID != id)
+                {
+                    return complaint;
+                }
+            }
+            return null;
         }
         public void RemoveComplaint(int selectedIndex)
         {
