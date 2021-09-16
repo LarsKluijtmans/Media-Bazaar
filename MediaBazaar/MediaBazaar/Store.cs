@@ -10,6 +10,11 @@ namespace MediaBazaar
         private List<Announcement> announcements;
         private List<Product> products;
 
+        public List<Product> Products
+        {
+            get { return products; }
+            set { products = value; }
+        }
         public Store()
         {
             complaints = new List<Complaint>();
@@ -61,8 +66,16 @@ namespace MediaBazaar
         {
             foreach(Product product in products)
             {
-                if(product.)
+                if (product.ProductId == id)
+                {
+                    return product;
+                }
             }
+            return null;
+        }
+        public void RemoveProduct(int selectedIndex)
+        {
+            products.RemoveAt(selectedIndex);
         }
     }
 }
