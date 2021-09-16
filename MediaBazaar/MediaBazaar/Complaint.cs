@@ -23,7 +23,7 @@ namespace MediaBazaar
         }
         public override string ToString()
         {
-            return ID + " " + message;
+            return ID + ": " + message;
         }
     }
 }
