@@ -41,8 +41,12 @@ namespace MediaBazaar
             this.tbxAmount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRequestReplenishment = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnEditInfo = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,13 +96,17 @@ namespace MediaBazaar
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnEditInfo);
+            this.tabPage3.Controls.Add(this.listBox1);
+            this.tabPage3.Controls.Add(this.label4);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(971, 472);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Profile";
             this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // lbxProducts
             // 
@@ -165,6 +173,33 @@ namespace MediaBazaar
             this.btnRequestReplenishment.Text = "Request replenishment";
             this.btnRequestReplenishment.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Employee info:";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(19, 48);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(283, 344);
+            this.listBox1.TabIndex = 1;
+            // 
+            // btnEditInfo
+            // 
+            this.btnEditInfo.Location = new System.Drawing.Point(208, 408);
+            this.btnEditInfo.Name = "btnEditInfo";
+            this.btnEditInfo.Size = new System.Drawing.Size(94, 29);
+            this.btnEditInfo.TabIndex = 2;
+            this.btnEditInfo.Text = "Edit info";
+            this.btnEditInfo.UseVisualStyleBackColor = true;
+            // 
             // FormSalesEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -177,6 +212,8 @@ namespace MediaBazaar
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -197,5 +234,8 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lbxProducts;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnEditInfo;
     }
 }
