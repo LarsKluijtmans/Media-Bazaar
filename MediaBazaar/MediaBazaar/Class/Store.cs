@@ -77,5 +77,27 @@ namespace MediaBazaar
         {
             products.RemoveAt(selectedIndex);
         }
+
+        public void amountDecreaseProduct(Product p, int amount)
+        {
+            foreach ( Product product in Products) 
+            { 
+                if(product == p)
+                {
+                    p.Amount -= product.Amount;
+                }
+            }
+        }
+
+        public void amountIncreaseProduct(Product p, int amount)
+        {
+            foreach (Product product in Products)
+            {
+                if (product == p)
+                {
+                    p.Amount += product.Amount;
+                }
+            }
+        }
     }
 }

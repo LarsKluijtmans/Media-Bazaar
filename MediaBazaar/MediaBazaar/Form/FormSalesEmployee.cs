@@ -8,11 +8,16 @@ using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class FormSalesEmployee : Form
+    public partial class FormSalesEmployee : Form 
     {
         public FormSalesEmployee()
         {
             InitializeComponent();
+        }
+
+        private void FormSalesEmployee_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
