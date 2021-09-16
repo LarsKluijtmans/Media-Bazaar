@@ -24,19 +24,11 @@ namespace MediaBazaar
 
         public void ViewRestockRequest()
         {
-            /* Clear list box*/
-            foreach(Product p in porductRestock)
-            {
-                /*add to list box*/
-            }
+
         }
         public void ViewPorductRequests()
         {
-            /* Clear list box*/
-            foreach (Product p in porductRequests)
-            {
-                /*add to list box*/
-            }
+
         }
 
         public void FinishporductRequests( Product product)
