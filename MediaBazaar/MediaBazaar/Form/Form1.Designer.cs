@@ -46,9 +46,9 @@ namespace MediaBazaar
             this.Employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbEvening = new System.Windows.Forms.CheckBox();
+            this.cbMorning = new System.Windows.Forms.CheckBox();
+            this.cbAfternoon = new System.Windows.Forms.CheckBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.btnEditEmployee = new System.Windows.Forms.Button();
             this.btnAddNewEmployee = new System.Windows.Forms.Button();
@@ -195,9 +195,9 @@ namespace MediaBazaar
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Controls.Add(this.checkBox3);
-            this.tabPage2.Controls.Add(this.checkBox2);
-            this.tabPage2.Controls.Add(this.checkBox1);
+            this.tabPage2.Controls.Add(this.cbEvening);
+            this.tabPage2.Controls.Add(this.cbMorning);
+            this.tabPage2.Controls.Add(this.cbAfternoon);
             this.tabPage2.Controls.Add(this.monthCalendar1);
             this.tabPage2.Controls.Add(this.btnEditEmployee);
             this.tabPage2.Controls.Add(this.btnAddNewEmployee);
@@ -240,35 +240,35 @@ namespace MediaBazaar
             this.Time.HeaderText = "Time";
             this.Time.Name = "Time";
             // 
-            // checkBox3
+            // cbEvening
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(447, 272);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(102, 25);
-            this.checkBox3.TabIndex = 8;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cbEvening.AutoSize = true;
+            this.cbEvening.Location = new System.Drawing.Point(447, 272);
+            this.cbEvening.Name = "cbEvening";
+            this.cbEvening.Size = new System.Drawing.Size(84, 25);
+            this.cbEvening.TabIndex = 8;
+            this.cbEvening.Text = "Evening";
+            this.cbEvening.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // cbMorning
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(447, 210);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(102, 25);
-            this.checkBox2.TabIndex = 7;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbMorning.AutoSize = true;
+            this.cbMorning.Location = new System.Drawing.Point(447, 210);
+            this.cbMorning.Name = "cbMorning";
+            this.cbMorning.Size = new System.Drawing.Size(89, 25);
+            this.cbMorning.TabIndex = 7;
+            this.cbMorning.Text = "Morning";
+            this.cbMorning.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // cbAfternoon
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(447, 241);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(102, 25);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbAfternoon.AutoSize = true;
+            this.cbAfternoon.Location = new System.Drawing.Point(447, 241);
+            this.cbAfternoon.Name = "cbAfternoon";
+            this.cbAfternoon.Size = new System.Drawing.Size(99, 25);
+            this.cbAfternoon.TabIndex = 6;
+            this.cbAfternoon.Text = "Afternoon";
+            this.cbAfternoon.UseVisualStyleBackColor = true;
             // 
             // monthCalendar1
             // 
@@ -350,9 +350,9 @@ namespace MediaBazaar
         private System.Windows.Forms.DataGridViewTextBoxColumn Employee;
         private System.Windows.Forms.DataGridViewTextBoxColumn Day;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbEvening;
+        private System.Windows.Forms.CheckBox cbMorning;
+        private System.Windows.Forms.CheckBox cbAfternoon;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Button btnEditEmployee;
         private System.Windows.Forms.Button btnAddNewEmployee;

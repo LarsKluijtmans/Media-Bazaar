@@ -8,11 +8,21 @@ using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class FormDepotEmployee : Form
+    public partial class FormDepotManager : Form
     {
-        public FormDepotEmployee()
+        public FormDepotManager()
         {
             InitializeComponent();
+        }
+
+        private void FormDepotManager_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
