@@ -9,7 +9,7 @@ namespace MediaBazaar
 
         
             // fields
-            private static int nextEmployeeID = 1;
+            private int nextEmployeeID = 1;
             private int employeeID;
             private string lastname;
             private string firstname;
