@@ -54,17 +54,27 @@ namespace MediaBazaar
             this.btnAddNewEmployee = new System.Windows.Forms.Button();
             this.btnRemoveEmployee = new System.Windows.Forms.Button();
             this.lstEmployees = new System.Windows.Forms.ListBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lstProduct = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lstRequest = new System.Windows.Forms.ListBox();
+            this.btnAddProduct = new System.Windows.Forms.Button();
+            this.btnRemoveProduct = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.Location = new System.Drawing.Point(36, 30);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -84,10 +94,10 @@ namespace MediaBazaar
             this.tabPage1.Controls.Add(this.lstOverviewProduct);
             this.tabPage1.Controls.Add(this.lstOverviewEmployee);
             this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPage1.Location = new System.Drawing.Point(4, 30);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1112, 504);
+            this.tabPage1.Size = new System.Drawing.Size(1112, 508);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Overview";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -194,6 +204,7 @@ namespace MediaBazaar
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Controls.Add(this.cbEvening);
             this.tabPage2.Controls.Add(this.cbMorning);
@@ -203,11 +214,11 @@ namespace MediaBazaar
             this.tabPage2.Controls.Add(this.btnAddNewEmployee);
             this.tabPage2.Controls.Add(this.btnRemoveEmployee);
             this.tabPage2.Controls.Add(this.lstEmployees);
-            this.tabPage2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPage2.Location = new System.Drawing.Point(4, 30);
+            this.tabPage2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1112, 504);
+            this.tabPage2.Size = new System.Drawing.Size(1112, 508);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Employees";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -219,7 +230,7 @@ namespace MediaBazaar
             this.Employee,
             this.Day,
             this.Time});
-            this.dataGridView1.Location = new System.Drawing.Point(594, 50);
+            this.dataGridView1.Location = new System.Drawing.Point(578, 35);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(344, 238);
@@ -243,9 +254,10 @@ namespace MediaBazaar
             // cbEvening
             // 
             this.cbEvening.AutoSize = true;
-            this.cbEvening.Location = new System.Drawing.Point(447, 272);
+            this.cbEvening.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbEvening.Location = new System.Drawing.Point(457, 271);
             this.cbEvening.Name = "cbEvening";
-            this.cbEvening.Size = new System.Drawing.Size(84, 25);
+            this.cbEvening.Size = new System.Drawing.Size(72, 21);
             this.cbEvening.TabIndex = 8;
             this.cbEvening.Text = "Evening";
             this.cbEvening.UseVisualStyleBackColor = true;
@@ -253,9 +265,10 @@ namespace MediaBazaar
             // cbMorning
             // 
             this.cbMorning.AutoSize = true;
-            this.cbMorning.Location = new System.Drawing.Point(447, 210);
+            this.cbMorning.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbMorning.Location = new System.Drawing.Point(457, 209);
             this.cbMorning.Name = "cbMorning";
-            this.cbMorning.Size = new System.Drawing.Size(89, 25);
+            this.cbMorning.Size = new System.Drawing.Size(77, 21);
             this.cbMorning.TabIndex = 7;
             this.cbMorning.Text = "Morning";
             this.cbMorning.UseVisualStyleBackColor = true;
@@ -263,22 +276,24 @@ namespace MediaBazaar
             // cbAfternoon
             // 
             this.cbAfternoon.AutoSize = true;
-            this.cbAfternoon.Location = new System.Drawing.Point(447, 241);
+            this.cbAfternoon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbAfternoon.Location = new System.Drawing.Point(457, 240);
             this.cbAfternoon.Name = "cbAfternoon";
-            this.cbAfternoon.Size = new System.Drawing.Size(99, 25);
+            this.cbAfternoon.Size = new System.Drawing.Size(85, 21);
             this.cbAfternoon.TabIndex = 6;
             this.cbAfternoon.Text = "Afternoon";
             this.cbAfternoon.UseVisualStyleBackColor = true;
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(343, 36);
+            this.monthCalendar1.Location = new System.Drawing.Point(339, 35);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 5;
             // 
             // btnEditEmployee
             // 
-            this.btnEditEmployee.Location = new System.Drawing.Point(135, 419);
+            this.btnEditEmployee.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEditEmployee.Location = new System.Drawing.Point(135, 436);
             this.btnEditEmployee.Name = "btnEditEmployee";
             this.btnEditEmployee.Size = new System.Drawing.Size(172, 28);
             this.btnEditEmployee.TabIndex = 4;
@@ -287,7 +302,8 @@ namespace MediaBazaar
             // 
             // btnAddNewEmployee
             // 
-            this.btnAddNewEmployee.Location = new System.Drawing.Point(135, 385);
+            this.btnAddNewEmployee.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddNewEmployee.Location = new System.Drawing.Point(135, 402);
             this.btnAddNewEmployee.Name = "btnAddNewEmployee";
             this.btnAddNewEmployee.Size = new System.Drawing.Size(172, 28);
             this.btnAddNewEmployee.TabIndex = 3;
@@ -296,7 +312,8 @@ namespace MediaBazaar
             // 
             // btnRemoveEmployee
             // 
-            this.btnRemoveEmployee.Location = new System.Drawing.Point(135, 453);
+            this.btnRemoveEmployee.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRemoveEmployee.Location = new System.Drawing.Point(135, 470);
             this.btnRemoveEmployee.Name = "btnRemoveEmployee";
             this.btnRemoveEmployee.Size = new System.Drawing.Size(172, 28);
             this.btnRemoveEmployee.TabIndex = 2;
@@ -308,10 +325,94 @@ namespace MediaBazaar
             this.lstEmployees.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmployees.FormattingEnabled = true;
             this.lstEmployees.ItemHeight = 17;
-            this.lstEmployees.Location = new System.Drawing.Point(22, 18);
+            this.lstEmployees.Location = new System.Drawing.Point(22, 35);
             this.lstEmployees.Name = "lstEmployees";
             this.lstEmployees.Size = new System.Drawing.Size(285, 361);
             this.lstEmployees.TabIndex = 1;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.btnRemoveProduct);
+            this.tabPage3.Controls.Add(this.btnAddProduct);
+            this.tabPage3.Controls.Add(this.lstRequest);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.lstProduct);
+            this.tabPage3.Location = new System.Drawing.Point(4, 26);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1112, 508);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Product";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // lstProduct
+            // 
+            this.lstProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstProduct.FormattingEnabled = true;
+            this.lstProduct.ItemHeight = 17;
+            this.lstProduct.Location = new System.Drawing.Point(25, 43);
+            this.lstProduct.Name = "lstProduct";
+            this.lstProduct.Size = new System.Drawing.Size(312, 327);
+            this.lstProduct.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(22, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(109, 21);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Employee List:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(25, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 17);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Product List:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(357, 19);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(118, 17);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Replenish Request:";
+            // 
+            // lstRequest
+            // 
+            this.lstRequest.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstRequest.FormattingEnabled = true;
+            this.lstRequest.ItemHeight = 17;
+            this.lstRequest.Location = new System.Drawing.Point(357, 43);
+            this.lstRequest.Name = "lstRequest";
+            this.lstRequest.Size = new System.Drawing.Size(433, 140);
+            this.lstRequest.TabIndex = 14;
+            // 
+            // btnAddProduct
+            // 
+            this.btnAddProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddProduct.Location = new System.Drawing.Point(165, 376);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(172, 32);
+            this.btnAddProduct.TabIndex = 21;
+            this.btnAddProduct.Text = "Add Product";
+            this.btnAddProduct.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoveProduct
+            // 
+            this.btnRemoveProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRemoveProduct.Location = new System.Drawing.Point(165, 414);
+            this.btnRemoveProduct.Name = "btnRemoveProduct";
+            this.btnRemoveProduct.Size = new System.Drawing.Size(172, 28);
+            this.btnRemoveProduct.TabIndex = 28;
+            this.btnRemoveProduct.Text = "Remove Product";
+            this.btnRemoveProduct.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -327,6 +428,8 @@ namespace MediaBazaar
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -358,6 +461,14 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnAddNewEmployee;
         private System.Windows.Forms.Button btnRemoveEmployee;
         private System.Windows.Forms.ListBox lstEmployees;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ListBox lstRequest;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox lstProduct;
+        private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.Button btnRemoveProduct;
     }
 }
 

@@ -6,19 +6,19 @@ namespace MediaBazaar
 {
     class Depot : Departments
     {
-        private List<Product> porductRequests;
-        private List<Product> porductRestock;
+        private List<Product> productRequests;
+        private List<Product> productRestock;
 
         public Depot(int DeprtmentID, string DepartmentName) : base(DeprtmentID, DepartmentName)
         {
-            porductRequests = new List<Product>();
-            porductRestock = new List<Product>();
+            productRequests = new List<Product>();
+            productRestock = new List<Product>();
         }
         public void RequestRestock(int amount, Product p)
         {
             p.Amount = amount;
 
-            porductRestock.Add(p);
+            productRestock.Add(p);
         }
 
         public string FinishporductRequests( Product product)
