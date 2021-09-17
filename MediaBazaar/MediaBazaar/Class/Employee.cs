@@ -28,7 +28,12 @@ namespace MediaBazaar
         public int EmployeeID { get; private set; }
 
 
-            // constructors
+        // constructors
+
+        public string Username { get; private set; }
+        public  string Password { get; private set; }
+
+        public Contract Contract { get { return contract; } private set; }
 
         public Employee(int employeeID, string lastname, string firstname, string gender, int phonenumber, string email, string address, DateTime dateofbirth, int bsn, string username, string password)
             {

@@ -14,7 +14,8 @@ namespace MediaBazaar
         private DateTime startDate;
         private DateTime endDate;
         private string reasonForTermination;
-        
+
+        public Jobs Job { get { return jobTitle; }}
         public Contract (int EmployeeID, Jobs Job, String Floor, int WorkHours,
             int Salary, DateTime StartDate, DateTime EndDate, string ReasonForTermination)
         {
