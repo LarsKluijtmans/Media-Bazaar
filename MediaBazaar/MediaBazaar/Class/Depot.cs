@@ -14,7 +14,6 @@ namespace MediaBazaar
             productRequests = new List<Product>();
             productRestock = new List<Product>();
         }
-
         public void RequestRestock(int amount, Product p)
         {
             p.Amount = amount;

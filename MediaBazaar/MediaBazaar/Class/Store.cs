@@ -11,6 +11,11 @@ namespace MediaBazaar
         private List<Product> products;
         private List<Employee> employees;
 
+        public List<Employee>Employees
+        {
+            get { return employees; }
+            set { employees = value; }
+        }
         public List<Product> Products
         {
             get { return products; }
