@@ -4,24 +4,27 @@ using System.Text;
 
 namespace MediaBazaar
     {
-        abstract class Employee
-        {
+    abstract class Employee
+    {
 
-        
-            // fields
-            private static int nextEmployeeID = 1;
-            private int employeeID;
-            private string lastname;
-            private string firstname;
-            private string gender;
-            private int phonenumber;
-            private string email;
-            private string address;
-            private DateTime dateofbirth;
-            private int bsn;
-            private string username;
-            private string password;
-            private Contract contract; /* every employee has 1 contract*/
+
+        // fields
+        private static int nextEmployeeID = 1;
+        private int employeeID;
+        private string lastname;
+        private string firstname;
+        private string gender;
+        private int phonenumber;
+        private string email;
+        private string address;
+        private DateTime dateofbirth;
+        private int bsn;
+        private string username;
+        private string password;
+        private Shift shift;
+
+
+        private Contract contract; /* every employee has 1 contract*/
 
         // properties
 
@@ -31,11 +34,16 @@ namespace MediaBazaar
         // constructors
 
         public string Username { get; private set; }
-        public  string Password { get; private set; }
+        public string Password { get; private set; }
 
-        public Contract Contract { get { return contract; } private set; }
+        public Contract Contract
+        {
+            get { return contract; }
+            private set { contract = value; }
+        }
+    
 
-        public Employee(int employeeID, string lastname, string firstname, string gender, int phonenumber, string email, string address, DateTime dateofbirth, int bsn, string username, string password)
+        public Employee(int employeeID, string lastname, string firstname, string gender, int phonenumber, string email, string address, DateTime dateofbirth, int bsn, string username, string password, Shift shift)
             {
                 this.employeeID = nextEmployeeID;
                 nextEmployeeID++;
@@ -49,6 +57,7 @@ namespace MediaBazaar
                 this.bsn = bsn;
                 this.username = username;
                 this.password = password;
+                this.shift = shift;
             }
 
         public Employee(string lastname, string firstname, int bsn, string username, string password)
@@ -62,20 +71,25 @@ namespace MediaBazaar
 
          // methodes
 
-        public void MostPreferedTimeToWork(string day, string time)
+        public Shift MostPreferedTimeToWork()
             {
-
+            return this.shift;
             }
 
-         public void LeastPreferedTimeToWork(string day, string time)
+         public Shift LeastPreferedTimeToWork() 
             {
-
+            if (this.shift == Shift.MORNING)
+            {
+                return Shift.EVENING;
+            }
+            else
+                return Shift.MORNING;
             }
 
          public string Tostring()
             {
-                return null;
-            }
+            return $"Name: {firstname}, Name: {lastname}, Email: {email}";
+        }
 
         }
     }
