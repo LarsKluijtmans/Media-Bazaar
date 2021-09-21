@@ -4,13 +4,12 @@ using System.Text;
 
 namespace MediaBazaar
     {
-    abstract class Employee
+    public class Employee
     {
 
 
         // fields
-        private static int nextEmployeeID = 1;
-        private int employeeID;
+        private static int employeeID = 1;
         private string lastname;
         private string firstname;
         private string gender;
@@ -23,8 +22,13 @@ namespace MediaBazaar
         private string password;
         private Shift shift;
 
-
-        private Contract contract; /* every employee has 1 contract*/
+        private Jobs jobTitle;
+        private string floor;
+        private int workHoursPerWeek;
+        private int salaryPerHour;
+        private DateTime startDate;
+        private DateTime endDate;
+        private string reasonForTermination;
 
         // properties
 
@@ -33,43 +37,58 @@ namespace MediaBazaar
 
         // constructors
 
+        public Jobs Jobtitle { get; set; }
+
         public string Username { get; private set; }
         public string Password { get; private set; }
 
-        public Contract Contract
+        public Contract Contract{ get; private set; }
+            public Employee(string lastname, string firstname, int bsn, string username, string password, Jobs JobTitle)
+            {
+                this.lastname = lastname;
+                this.firstname = firstname;
+                this.bsn = bsn;
+                this.username = username;
+                this.password = password;
+               this.jobTitle = JobTitle;
+            }
+        public Employee(int employeeID, string lastname, string firstname, string gender, int phonenumber, string email, string address, DateTime dateofbirth, 
+            int bsn, string username, string password, Shift shift, Jobs JobTitle, string Floor,int WorkHoursPerWeek, int SalaryPerHour,
+            DateTime StartDate, DateTime EndDate, string ReasonForTermination)
         {
-            get { return contract; }
-            private set { contract = value; }
+            this.lastname = lastname;
+            this.firstname = firstname;
+            this.gender = gender;
+            this.phonenumber = phonenumber;
+            this.email = email;
+            this.address = address;
+            this.dateofbirth = dateofbirth;
+            this.bsn = bsn;
+            this.username = username;
+            this.password = password;
+            this.shift = shift;
+            this.jobTitle = JobTitle;
+            this.floor = Floor;
+            this.workHoursPerWeek = WorkHoursPerWeek;
+            this.salaryPerHour = SalaryPerHour;
+            this.startDate = StartDate;
+            this.endDate = EndDate;
+            this.reasonForTermination = ReasonForTermination;
         }
-    
 
-        public Employee(int employeeID, string lastname, string firstname, string gender, int phonenumber, string email, string address, DateTime dateofbirth, int bsn, string username, string password, Shift shift)
-            {
-                this.employeeID = nextEmployeeID;
-                nextEmployeeID++;
-                this.lastname = lastname;
-                this.firstname = firstname;
-                this.gender = gender;
-                this.phonenumber = phonenumber;
-                this.email = email;
-                this.address = address;
-                this.dateofbirth = dateofbirth;
-                this.bsn = bsn;
-                this.username = username;
-                this.password = password;
-                this.shift = shift;
-            }
+        public void EndContract(string ReasonForTermination, DateTime EndDate)
+        {
+            reasonForTermination = ReasonForTermination;
+            endDate = EndDate;
+        }
 
-        public Employee(string lastname, string firstname, int bsn, string username, string password)
-            {
-                this.lastname = lastname;
-                this.firstname = firstname;
-                this.bsn = bsn;
-                this.username = username;
-                this.password = password;
-            }
+        public void EndContract(string ReasonForTermination)
+        {
+            reasonForTermination = ReasonForTermination; ;
+        }
 
-         // methodes
+
+        // methodes
 
         public Shift MostPreferedTimeToWork()
             {

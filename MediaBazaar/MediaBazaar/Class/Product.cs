@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar
 {
-    class Product
+    public class Product
     {
         private int productId;
         private static int nextProductID = 1;
@@ -31,7 +31,6 @@ namespace MediaBazaar
 
             nextProductID++; 
         }
-
         public override string ToString()
         {
             return $"ID: {productId}, name: {name}, type: {type}, amount: {amount}, barcode: {barcode}";

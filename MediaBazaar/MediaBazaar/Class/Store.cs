@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar
 {
-    class Store
+    public class Store
     {
         private List<Complaint> complaints;
         private List<Announcement> announcements;
@@ -25,6 +25,7 @@ namespace MediaBazaar
         {
             complaints = new List<Complaint>();
             announcements = new List<Announcement>();
+            employees = new List<Employee>();
         }
         public void AddAnnouncement(Announcement a)
         {

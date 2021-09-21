@@ -31,7 +31,7 @@ namespace MediaBazaar
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbxUserName = new System.Windows.Forms.TextBox();
+            this.tbxID = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -39,40 +39,43 @@ namespace MediaBazaar
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 52);
+            this.label1.Location = new System.Drawing.Point(26, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 20);
+            this.label1.Size = new System.Drawing.Size(21, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Username:";
+            this.label1.Text = "ID:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 108);
+            this.label2.Location = new System.Drawing.Point(26, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.Size = new System.Drawing.Size(60, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Password:";
             // 
-            // tbxUserName
+            // tbxID
             // 
-            this.tbxUserName.Location = new System.Drawing.Point(126, 49);
-            this.tbxUserName.Name = "tbxUserName";
-            this.tbxUserName.Size = new System.Drawing.Size(125, 27);
-            this.tbxUserName.TabIndex = 2;
+            this.tbxID.Location = new System.Drawing.Point(110, 37);
+            this.tbxID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxID.Name = "tbxID";
+            this.tbxID.Size = new System.Drawing.Size(110, 23);
+            this.tbxID.TabIndex = 2;
             // 
             // tbxPassword
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(126, 105);
+            this.tbxPassword.Location = new System.Drawing.Point(110, 79);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(125, 27);
+            this.tbxPassword.Size = new System.Drawing.Size(110, 23);
             this.tbxPassword.TabIndex = 3;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(157, 165);
+            this.btnLogin.Location = new System.Drawing.Point(137, 124);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(94, 34);
+            this.btnLogin.Size = new System.Drawing.Size(82, 26);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -80,14 +83,15 @@ namespace MediaBazaar
             // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 236);
+            this.ClientSize = new System.Drawing.Size(265, 177);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbxPassword);
-            this.Controls.Add(this.tbxUserName);
+            this.Controls.Add(this.tbxID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormLogin";
             this.Text = "FormLogin";
             this.ResumeLayout(false);
@@ -99,7 +103,7 @@ namespace MediaBazaar
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbxUserName;
+        private System.Windows.Forms.TextBox tbxID;
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Button btnLogin;
     }

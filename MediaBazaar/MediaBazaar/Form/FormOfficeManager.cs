@@ -10,9 +10,14 @@ namespace MediaBazaar
 {
     public partial class FormOfficeManager : Form
     {
-        public FormOfficeManager()
+        Employee e;
+        Store s;
+        public FormOfficeManager(Employee employee, Store store)
         {
             InitializeComponent();
+            store = s;
+            employee = e;
+
         }
     }
 }

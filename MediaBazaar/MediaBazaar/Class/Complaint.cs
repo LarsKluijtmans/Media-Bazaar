@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar
 {
-    class Complaint
+    public class Complaint
     {
         private static int counter = 1;
         private int id;
