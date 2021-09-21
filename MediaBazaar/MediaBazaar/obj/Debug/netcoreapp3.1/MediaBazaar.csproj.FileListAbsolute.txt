@@ -11,3 +11,20 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfoInputs.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfo.cs
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CoreCompileInputs.cache
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.AssemblyReference.cache
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.Form1.resources
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormDepotEmployee.resources
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormDepotManager.resources
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormEmployeeDetails.resources
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormLogin.resources
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormNewEmployee.resources
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormNewProduct.resources
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormOfficeEmployee.resources
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormOfficeManager.resources
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormSalesEmployee.resources
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormSalesManager.resources
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.GenerateResource.cache
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfoInputs.cache
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfo.cs
+C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CoreCompileInputs.cache
