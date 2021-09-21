@@ -34,7 +34,7 @@ namespace MediaBazaar
         {
             foreach(Announcement announcement in announcements)
             {
-                if (announcement.ID != id)
+                if (announcement.ID == id)
                 {
                     return announcement;
                 }               
@@ -53,7 +53,7 @@ namespace MediaBazaar
         {
             foreach (Complaint complaint in complaints)
             {
-                if (complaint.ID != id)
+                if (complaint.ID == id)
                 {
                     return complaint;
                 }
