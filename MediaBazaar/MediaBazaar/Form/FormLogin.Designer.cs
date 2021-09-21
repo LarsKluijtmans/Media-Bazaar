@@ -31,7 +31,7 @@ namespace MediaBazaar
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbxID = new System.Windows.Forms.TextBox();
+            this.tbxUsername = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -54,13 +54,13 @@ namespace MediaBazaar
             this.label2.TabIndex = 1;
             this.label2.Text = "Password:";
             // 
-            // tbxID
+            // tbxUsername
             // 
-            this.tbxID.Location = new System.Drawing.Point(110, 37);
-            this.tbxID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxID.Name = "tbxID";
-            this.tbxID.Size = new System.Drawing.Size(110, 23);
-            this.tbxID.TabIndex = 2;
+            this.tbxUsername.Location = new System.Drawing.Point(110, 37);
+            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.Size = new System.Drawing.Size(110, 23);
+            this.tbxUsername.TabIndex = 2;
             // 
             // tbxPassword
             // 
@@ -88,7 +88,7 @@ namespace MediaBazaar
             this.ClientSize = new System.Drawing.Size(265, 177);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbxPassword);
-            this.Controls.Add(this.tbxID);
+            this.Controls.Add(this.tbxUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -103,7 +103,7 @@ namespace MediaBazaar
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbxID;
+        private System.Windows.Forms.TextBox tbxUsername;
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Button btnLogin;
     }
