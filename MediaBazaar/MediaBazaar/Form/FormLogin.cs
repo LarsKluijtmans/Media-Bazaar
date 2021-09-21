@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MediaBazaar
@@ -11,53 +6,40 @@ namespace MediaBazaar
     public partial class FormLogin : Form
     {
         Store store;
+
+
         public FormLogin()
         {
             InitializeComponent();
             store = new Store();
+
+
+            Employee e = new Employee("lars", "lars", 1231231234, "L", "a");
+            store.Employees.Add(e);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = tbxUserName.Text;
+            string Username = tbxUsername.Text;
             string password = tbxPassword.Text;
 
-            foreach (Employee ee in store.Employees)
+            foreach (Employee eee in store.Employees)
             {
-                if(ee.Username == username)
+                if (eee.Username == Username)
                 {
-                    if (ee.Password == password)
+                    if (eee.Password == password)
                     {
-                        if (ee.Contract.Job.ToString() == "OWNER")
-                        { 
-                            /*Open admin tab*/
-                        }
-                        if (ee.Contract.Job.ToString() == "SALESMANAGER")
-                        {
-                            /*Open Sales Manager  tab*/
-                        }
-                        if (ee.Contract.Job.ToString() == "SALESEMPLOYEE")
-                        {
-                            /*Open Sales Employee tab*/
-                        }
-                        if (ee.Contract.Job.ToString() == "OFFICEMANAGER")
-                        {
-                            /*Open Office Manager  tab*/
-                        }
-                        if (ee.Contract.Job.ToString() == "OFFICEEMPLOYE")
-                        {
-                            /*Open Office Employee tab*/
-                        }
-                        if (ee.Contract.Job.ToString() == "DEPOTMANAGER")
-                        {
-                            /*Open Depot Manager tab*/
-                        }
-                        if (ee.Contract.Job.ToString() == "DEPOTEMPLOYEE")
-                        {
-                            /*Open Depot Employee tab*/
-                        }
 
-                        /**/
+                        switch (eee.Jobtitle.ToString())
+                        {
+                            case "OWNER": Form1 form1 = new Form1(store.GetEmployee(eee.EmployeeID), store); form1.Show(); break;
+                            case "SALESMANAGER": FormSalesManager formSalesManager = new FormSalesManager(store.GetEmployee(eee.EmployeeID), store); formSalesManager.Show(); break;
+                            case "SALESEMPLOYEE": FormSalesEmployee formSalesEmployee = new FormSalesEmployee(store.GetEmployee(eee.EmployeeID), store); formSalesEmployee.Show(); break;
+                            case "OFFICEMANAGER": FormOfficeManager formOfficeManager = new FormOfficeManager(store.GetEmployee(eee.EmployeeID), store); formOfficeManager.Show(); break;
+                            case "OFFICEEMPLOYE": FormOfficeEmployee formOfficeEmployee = new FormOfficeEmployee(store.GetEmployee(eee.EmployeeID), store); formOfficeEmployee.Show(); break;
+                            case "DEPOTMANAGER": FormDepotManager formDepotManager = new FormDepotManager(store.GetEmployee(eee.EmployeeID), store); formDepotManager.Show(); break;
+                            case "DEPOTEMPLOYEE": FormDepotEmployee formDepotEmployee = new FormDepotEmployee(store.GetEmployee(eee.EmployeeID), store); formDepotEmployee.Show(); break;
+                        }
                     }
                 }
             }

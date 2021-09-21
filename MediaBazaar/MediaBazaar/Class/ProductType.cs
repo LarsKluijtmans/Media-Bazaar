@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar
 {
-    enum ProductType
+    public enum ProductType
     {
         KITCHEN_HOME,
         PHOTO_VIDEO_NAVIGATION,

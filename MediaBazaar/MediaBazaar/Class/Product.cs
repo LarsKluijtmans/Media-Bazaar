@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar
 {
-    class Product
+    public class Product
     {
         private int productId;
         private static int nextProductID = 1;
@@ -23,23 +23,14 @@ namespace MediaBazaar
         // constructor
         public Product(string barcode, string name, ProductType type, int amount)
         {
-            this.productId = nextProductID;
-            this.barcode = barcode;
-            this.name = name;
-            this.type = type;
-            this.amount = amount;
+            ProductId = nextProductID;
+            Barcode = barcode;
+            Name = name;
+            Type = type;
+            Amount = amount;
 
             nextProductID++; 
         }
-        // methods
-        //public void IncreaseProductAmount(int amount, Product p)
-        //{
-        //    this.amount = amount;
-        //}
-        //public void DecreaseProductAmount(int amount, Product p)
-        //{
-        //    this.amount = amount;
-        //}
         public override string ToString()
         {
             return $"ID: {productId}, name: {name}, type: {type}, amount: {amount}, barcode: {barcode}";
