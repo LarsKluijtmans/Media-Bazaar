@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\MediaBazaar",
-    "\\MediaBazaar\\MediaBazaar"
+    "\\MediaBazaar\\MediaBazaar",
+    "\\MediaBazaar\\MediaBazaar\\Class"
   ],
-  "SelectedNode": "\\MediaBazaar\\MediaBazaar\\Form1.cs",
+  "SelectedNode": "\\MediaBazaar\\MediaBazaar\\Class\\Store.cs",
   "PreviewInSolutionExplorer": false
 }

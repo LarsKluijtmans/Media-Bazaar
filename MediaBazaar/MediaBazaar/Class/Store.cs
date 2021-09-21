@@ -9,7 +9,13 @@ namespace MediaBazaar
         private List<Complaint> complaints;
         private List<Announcement> announcements;
         private List<Product> products;
+        private List<Employee> employees;
 
+        public List<Employee>Employees
+        {
+            get { return employees; }
+            set { employees = value; }
+        }
         public List<Product> Products
         {
             get { return products; }
@@ -64,7 +70,7 @@ namespace MediaBazaar
         }
         public Product GetProduct(int id)
         {
-            foreach(Product product in products)
+            foreach(Product product in Products)
             {
                 if (product.ProductId == id)
                 {
@@ -76,6 +82,48 @@ namespace MediaBazaar
         public void RemoveProduct(int selectedIndex)
         {
             products.RemoveAt(selectedIndex);
+        }
+
+        public void AddEmployee(Employee e)
+        {
+            employees.Add(e);
+        }
+        public Employee GetEmployee(int id)
+        {
+            foreach(Employee employee in employees)
+            {
+                if(employee.EmployeeID == id)
+                {
+                    return employee;
+                }
+            }
+            return null;
+        }
+        public void RemoveEmployee(int selectedIndex)
+        {
+            employees.RemoveAt(selectedIndex);
+
+        }
+        public void amountDecreaseProduct(Product p, int amount)
+        {
+            foreach ( Product product in Products) 
+            { 
+                if(product == p)
+                {
+                    p.Amount -= product.Amount;
+                }
+            }
+        }
+
+        public void amountIncreaseProduct(Product p, int amount)
+        {
+            foreach (Product product in Products)
+            {
+                if (product == p)
+                {
+                    p.Amount += product.Amount;
+                }
+            }
         }
     }
 }

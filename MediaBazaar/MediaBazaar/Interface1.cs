@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar
 {
-    interface Interface1
+    interface INterface1
     {
         public void RequestRestock();
 
