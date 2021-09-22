@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar
 {
-    class Office : Departments
+    public class Office : Departments
     {
         public Office(int DeprtmentID, string DepartmentName) : base(DeprtmentID, DepartmentName)
         { 

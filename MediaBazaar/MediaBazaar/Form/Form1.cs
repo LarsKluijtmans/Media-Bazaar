@@ -12,9 +12,14 @@ namespace MediaBazaar
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        Employee e;
+        Store s;
+        public Form1(Employee employee, Store store)
         {
             InitializeComponent();
+            store = s;
+            employee = e;
+
         }
     }
 }

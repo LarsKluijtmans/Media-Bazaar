@@ -10,9 +10,14 @@ namespace MediaBazaar
 {
     public partial class FormDepotEmployee : Form
     {
-        public FormDepotEmployee()
+        Employee e;
+        Store s;
+        public FormDepotEmployee(Employee employee, Store store)
         {
             InitializeComponent();
+            store = s;
+            employee = e;
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)

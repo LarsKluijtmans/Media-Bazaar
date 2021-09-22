@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace MediaBazaar
 {
-    class Store
+    public class Store
     {
         private List<Complaint> complaints;
         private List<Announcement> announcements;
         private List<Product> products;
         private List<Employee> employees;
 
-        public List<Employee>Employees
+        public List<Employee> Employees
         {
             get { return employees; }
             set { employees = value; }
@@ -25,6 +23,7 @@ namespace MediaBazaar
         {
             complaints = new List<Complaint>();
             announcements = new List<Announcement>();
+            employees = new List<Employee>();
         }
         public void AddAnnouncement(Announcement a)
         {
@@ -32,12 +31,12 @@ namespace MediaBazaar
         }
         public Announcement GetAnnouncement(int id)
         {
-            foreach(Announcement announcement in announcements)
+            foreach (Announcement announcement in announcements)
             {
-                if (announcement.ID != id)
+                if (announcement.ID == id)
                 {
                     return announcement;
-                }               
+                }
             }
             return null;
         }
@@ -53,7 +52,7 @@ namespace MediaBazaar
         {
             foreach (Complaint complaint in complaints)
             {
-                if (complaint.ID != id)
+                if (complaint.ID == id)
                 {
                     return complaint;
                 }
@@ -70,7 +69,7 @@ namespace MediaBazaar
         }
         public Product GetProduct(int id)
         {
-            foreach(Product product in Products)
+            foreach (Product product in Products)
             {
                 if (product.ProductId == id)
                 {
@@ -90,9 +89,9 @@ namespace MediaBazaar
         }
         public Employee GetEmployee(int id)
         {
-            foreach(Employee employee in employees)
+            foreach (Employee employee in employees)
             {
-                if(employee.EmployeeID == id)
+                if (employee.EmployeeID == id)
                 {
                     return employee;
                 }
@@ -106,9 +105,9 @@ namespace MediaBazaar
         }
         public void amountDecreaseProduct(Product p, int amount)
         {
-            foreach ( Product product in Products) 
-            { 
-                if(product == p)
+            foreach (Product product in Products)
+            {
+                if (product == p)
                 {
                     p.Amount -= product.Amount;
                 }

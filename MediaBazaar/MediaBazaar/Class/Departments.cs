@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar
 {
-    abstract class Departments
+    public class Departments
     {
         protected Store store;
         private int deprtmentID;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar
 {
-    class Depot : Departments
+    public class Depot : Departments
     {
         private List<Product> productRequests;
         private List<Product> productRestock;

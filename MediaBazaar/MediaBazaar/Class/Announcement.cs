@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar
 {
-    class Announcement
+    public class Announcement
     {
         private static int counter=1;
         private int id;

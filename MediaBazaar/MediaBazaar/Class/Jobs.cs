@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-enum Jobs
+public enum Jobs
 {
     OWNER,SALESMANAGER,SALESEMPLOYEE,OFFICEMANAGER,OFFICEEMPLOYEE,DEPOTMANAGER,DEPOTEMPLOYEE
 }

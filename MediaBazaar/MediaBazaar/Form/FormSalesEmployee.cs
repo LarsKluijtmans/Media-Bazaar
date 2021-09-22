@@ -10,9 +10,14 @@ namespace MediaBazaar
 {
     public partial class FormSalesEmployee : Form,INterface1
     {
-        public FormSalesEmployee()
+        Employee e;
+        Store s;
+        public FormSalesEmployee(Employee employee, Store store)
         {
             InitializeComponent();
+            store = s;
+            employee = e;
+
         }
 
         public void RequestRestock()
