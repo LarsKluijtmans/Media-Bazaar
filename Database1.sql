@@ -41,8 +41,8 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Contract`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Contract` (
-  `ContractID` INT NOT NULL AUTO_INCREMENT,
-  `EmployeeId` INT NOT NULL,
+  `contractID` INT NOT NULL AUTO_INCREMENT,
+  `employeeID` INT NOT NULL,
   `jobTitle` VARCHAR(45) NOT NULL,
   `floor` VARCHAR(45) NULL,
   `workingHours` INT NOT NULL,
