@@ -6,34 +6,60 @@ namespace MediaBazaar
 {
     public class Product
     {
-        private int productId;
-        private static int nextProductID = 1;
+        //fields
+        private int productID;
+        private static int counter = 1;
         private string barcode;
         private string name;
-        private ProductType type;
+        private ProductType productType;
         private int amount;
 
 
-        // properties
-        public int ProductId { get; set; }
-        public string Barcode { get; set; }
-        public string Name { get; set; }
-        public ProductType Type { get; set; }
-        public int Amount { get; set; }
-        // constructor
+        //properties
+        public int ProductID 
+        {
+            get { return productID; }
+            set { productID = value; }
+        }
+        public string Barcode 
+        {
+            get { return barcode; }
+            set { barcode = value; }
+        }
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        public ProductType ProductType
+        {
+            get { return productType; }
+            set { productType = value; }
+        }
+        public int Amount
+        {
+            get { return amount; }
+            set { amount = value; }
+        }
+
+
+        //constructor
         public Product(string barcode, string name, ProductType type, int amount)
         {
-            ProductId = nextProductID;
+            ProductID = counter;
             Barcode = barcode;
             Name = name;
-            Type = type;
+            ProductType = type;
             Amount = amount;
 
-            nextProductID++; 
+            counter++; 
         }
+
+
+        //methods
         public override string ToString()
         {
-            return $"ID: {productId}, name: {name}, type: {type}, amount: {amount}, barcode: {barcode}";
+            return $"ID: {ProductID}, name: {Name}, type: {ProductType}, amount: {Amount}, barcode: {Barcode}";
         }
     }
 }

@@ -4,10 +4,9 @@ using System.Text;
 
 namespace MediaBazaar
 {
-     public class Contract
+    public class Contract
     {
-        private int employeeId;
-        private Jobs jobTitle;
+        private JobTitle jobTitle;
         private string floor;
         private int workHoursPerWeek;
         private int salaryPerHour;
@@ -15,11 +14,10 @@ namespace MediaBazaar
         private DateTime endDate;
         private string reasonForTermination;
 
-        public Contract(int EmployeeID, Jobs Job, String Floor, int WorkHours,
+        public Contract(JobTitle jobTitle, string Floor, int WorkHours,
             int Salary, DateTime StartDate, DateTime EndDate, string ReasonForTermination)
         {
-            employeeId = EmployeeID;
-            jobTitle = Job;
+            this.jobTitle = jobTitle;
             floor = Floor;
             workHoursPerWeek = WorkHours;
             salaryPerHour = Salary;
