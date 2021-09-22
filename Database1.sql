@@ -165,9 +165,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mydb`;
-INSERT INTO `mydb`.`Announcement` (`announcementID`, `announcementMessage`) VALUES (1, 'hello');
-INSERT INTO `mydb`.`Announcement` (`announcementID`, `announcementMessage`) VALUES (2, 'first');
-INSERT INTO `mydb`.`Announcement` (`announcementID`, `announcementMessage`) VALUES (3, 'Error');
+INSERT INTO `mydb`.`Announcement` ( `announcementMessage`) VALUES ( 'hello');
+INSERT INTO `mydb`.`Announcement` ( `announcementMessage`) VALUES ( 'first');
+INSERT INTO `mydb`.`Announcement` ( `announcementMessage`) VALUES ( 'Error');
 
 COMMIT;
 
@@ -177,8 +177,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mydb`;
-INSERT INTO `mydb`.`Complaint` (`complaintID`, `complaintMessage`) VALUES (1, 'Error');
-INSERT INTO `mydb`.`Complaint` (`complaintID`, `complaintMessage`) VALUES (2, 'hello');
+INSERT INTO `mydb`.`Complaint` (`complaintMessage`) VALUES ( 'Error');
+INSERT INTO `mydb`.`Complaint` ( `complaintMessage`) VALUES ( 'hello');
 
 COMMIT;
 
@@ -220,9 +220,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mydb`;
-INSERT INTO `mydb`.`Department` (`departmentID`, `departmentName`) VALUES (1, 'Sales');
-INSERT INTO `mydb`.`Department` (`departmentID`, `departmentName`) VALUES (2, 'Office');
-INSERT INTO `mydb`.`Department` (`departmentID`, `departmentName`) VALUES (3, 'Depot');
+INSERT INTO `mydb`.`Department` ( `departmentName`) VALUES ( 'Sales');
+INSERT INTO `mydb`.`Department` ( `departmentName`) VALUES ( 'Office');
+INSERT INTO `mydb`.`Department` ( `departmentName`) VALUES ( 'Depot');
 
 COMMIT;
 
