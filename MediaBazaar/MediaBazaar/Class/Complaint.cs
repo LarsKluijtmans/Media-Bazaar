@@ -6,24 +6,32 @@ namespace MediaBazaar
 {
     public class Complaint
     {
+        //fields
         private static int counter = 1;
-        private int id;
+        private int complaintID;
         private string message;
 
-        public int ID
+
+        //properties
+        public int ComplaintID
         {
-            get { return id; }
-            private set { id = value; }
+            get { return complaintID; }
+            private set { complaintID = value; }
         }
+
+        //constructors
         public Complaint(string message)
         {
             this.message = message;
-            ID = counter;
+            ComplaintID = counter;
             counter++;
         }
+
+
+        //methods
         public override string ToString()
         {
-            return ID + ": " + message;
+            return ComplaintID + ": " + message;
         }
     }
 }

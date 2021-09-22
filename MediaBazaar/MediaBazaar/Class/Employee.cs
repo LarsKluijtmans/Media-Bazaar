@@ -4,10 +4,9 @@ namespace MediaBazaar
 {
     public class Employee
     {
-
-
         // fields
-        private static int employeeID = 1;
+        private static int counter = 1;
+        private int employeeID;
         private string lastname;
         private string firstname;
         private int phonenumber;
@@ -17,33 +16,46 @@ namespace MediaBazaar
         private int bsn;
         private string username;
         private string password;
+        private JobTitle jobtitle;
         private Shift shift;
 
-        // properties
 
-        public int EmployeeID { get; private set; }
+        // properties
+        public int EmployeeID 
+        { 
+            get { return employeeID; } 
+            set { employeeID = value; } 
+        }
+        public JobTitle JobTitle 
+        { 
+            get { return jobtitle; }
+            set { jobtitle = value; } 
+        }
+        public string Username 
+        { 
+            get { return username; } 
+            set { username = value; } 
+        }
+        public string Password 
+        { 
+            get { return password; } 
+            set { password = value; } 
+        }
 
 
         // constructors
-
-        public Jobs Jobtitle { get; set; }
-
-        public string Username { get; set; }
-        public string Password { get; set; }
-
-        public Contract Contract { get; private set; }
         public Employee(string lastname, string firstname, int bsn, string username, string password)
         {
             this.lastname = lastname;
             this.firstname = firstname;
             this.bsn = bsn;
-            this.Username = username;
-            this.Password = password;
+            Username = username;
+            Password = password;
         }
-        public Employee(int employeeID, string lastname, string firstname,  int phonenumber, string email, string address, DateTime dateofbirth,
+        public Employee(string lastname, string firstname, int phonenumber, string email, string address, DateTime dateofbirth,
             int bsn, string username, string password, Shift shift)
         {
-            employeeID++;
+            EmployeeID = counter;
             this.lastname = lastname;
             this.firstname = firstname;
             this.phonenumber = phonenumber;
@@ -54,10 +66,12 @@ namespace MediaBazaar
             this.username = username;
             this.password = password;
             this.shift = shift;
+
+            counter++;
         }
 
-        // methodes
 
+        // methods
         public Shift MostPreferedTimeToWork()
         {
             return this.shift;
@@ -75,7 +89,7 @@ namespace MediaBazaar
 
         public string Tostring()
         {
-            return $"Name: {firstname}, Name: {lastname}, Email: {email}";
+            return $"ID: {EmployeeID}, Name: {firstname + lastname}, Email: {email}";
         }
 
     }
