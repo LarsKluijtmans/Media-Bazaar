@@ -188,7 +188,19 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mydb`;
-INSERT INTO `mydb`.`Contract` (`ContractID`, `EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) VALUES (1, 1, 'OWNER', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) VALUES ( 1, 'OWNER', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
+VALUES (2, 'SALES MANAGER', 'KITCHEN AND HOME', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
+VALUES (3, 'SALES EMPLOYEE', 'KITCHEN AND HOME', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
+VALUES (4, 'OFFICE MANAGER', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
+VALUES (5, 'OFFICE EMPLOYEE', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
+VALUES (6, 'DEPOT MANAGER', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
+VALUES (7, 'DEPOT EMPLOYEE', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
 
 COMMIT;
 
@@ -220,7 +232,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mydb`;
-INSERT INTO `mydb`.`Employee` (`employeeID`, `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES (1, 'Lars', 'Kluijtmans', 0000, 'lars@gmail.com', NULL, NULL, 1234, 'Lars', '1');
+INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'Lars', 'Kluijtmans', 0000, 'lars@gmail.com', NULL, NULL, 1234, 'Lars', '1');
+INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ('soleil', 'soleil', 0000, 'soleil@gmail.com', NULL, NULL, 1234, 'soleil', '1');
+INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'ester', 'ester', 0000, 'ester@gmail.com', NULL, NULL, 1234, 'ester', '1');
+INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'mohammad', 'mohammad', 0000, 'mohammad@gmail.com', NULL, NULL, 1234, 'mohammad', '1');
+INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ('soleil2', 'soleil2', 0000, 'soleil2@gmail.com', NULL, NULL, 1234, 'soleil2', '1');
+INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'ester2', 'ester2', 0000, 'ester2@gmail.com', NULL, NULL, 1234, 'ester2', '1');
+INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'mohammad2', 'mohammad2', 0000, 'mohammad2@gmail.com', NULL, NULL, 1234, 'mohammad2', '1');
 
 COMMIT;
 
@@ -230,7 +248,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mydb`;
-INSERT INTO `mydb`.`Jobs` (`jobID`, `jobTitle`) VALUES (1, 'Owner');
+INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('OWNER');
+INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('SALES MANAGER');
+INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('SALES EMPLOYEE');
+INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('OFFICE MANAGER');
+INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('OFFICE EMPLOYEE');
+INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('DEPOT MANAGER');
+INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('DEPOT EMPLOYEE');
 
 COMMIT;
 
@@ -240,7 +264,14 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mydb`;
-INSERT INTO `mydb`.`Product` (`productID`, `barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES (1, 'k1', 'Knife', 'Kitchen and Home', 100, 12);
+INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('k1', 'Knife', 'KITCHEN AND HOME', 100, 12);
+INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('p2', 'Phone', 'PHOTO VIDEO NAVIGATION', 100, 12);
+INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('s3', 'Oven', 'SMARTHOME APPLIANCES', 100, 12);
+INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('g4', 'Game 2', 'GAMING MUSIC COMPUTERS', 100, 12);
+INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('p5', 'Phone2.0', 'PHOTO VIDEO NAVIGATION', 100, 12);
+INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('s6', 'Freezer', 'SMARTHOME APPLIANCES', 100, 12);
+INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('g7', ' Game1', 'GAMING MUSIC COMPUTERS', 100, 12);
+INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('k8', ' Fork', 'KITCHEN AND HOME', 100, 12);
 
 COMMIT;
 
@@ -250,7 +281,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mydb`;
-INSERT INTO `mydb`.`ProductTypes` (`ProductTypeID`, `ProductTypesName`) VALUES (1, 'Kitchen and Home');
+INSERT INTO `mydb`.`ProductTypes` ( `ProductTypesName`) VALUES ('KITCHEN AND HOME');
+INSERT INTO `mydb`.`ProductTypes` ( `ProductTypesName`) VALUES ('PHOTO VIDEO NAVIGATION');
+INSERT INTO `mydb`.`ProductTypes` ( `ProductTypesName`) VALUES ('SMARTHOME APPLIANCES');
+INSERT INTO `mydb`.`ProductTypes` ( `ProductTypesName`) VALUES ('GAMING MUSIC COMPUTERS');
 
 COMMIT;
 
@@ -282,6 +316,15 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- making complaintID auto increment
+-- -----------------------------------------------------
+
+ALTER TABLE `mydb`.`complaint` 
+CHANGE COLUMN `complaintID` `complaintID` INT NOT NULL AUTO_INCREMENT ;
+
+COMMIT;
+
+-- -----------------------------------------------------
 -- Foreign key for table contract
 -- -----------------------------------------------------
 
@@ -295,3 +338,5 @@ ADD CONSTRAINT `employeeID`
   REFERENCES `mydb`.`employee` (`employeeID`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
+
+COMMIT;
