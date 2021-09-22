@@ -10,7 +10,6 @@ namespace MediaBazaar
         private static int employeeID = 1;
         private string lastname;
         private string firstname;
-        private string gender;
         private int phonenumber;
         private string email;
         private string address;
@@ -41,13 +40,12 @@ namespace MediaBazaar
             this.Username = username;
             this.Password = password;
         }
-        public Employee(int employeeID, string lastname, string firstname, string gender, int phonenumber, string email, string address, DateTime dateofbirth,
+        public Employee(int employeeID, string lastname, string firstname,  int phonenumber, string email, string address, DateTime dateofbirth,
             int bsn, string username, string password, Shift shift)
         {
             employeeID++;
             this.lastname = lastname;
             this.firstname = firstname;
-            this.gender = gender;
             this.phonenumber = phonenumber;
             this.email = email;
             this.address = address;
