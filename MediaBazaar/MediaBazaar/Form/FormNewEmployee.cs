@@ -10,9 +10,16 @@ namespace MediaBazaar
 {
     public partial class FormNewEmployee : Form
     {
+       
         public FormNewEmployee()
         {
             InitializeComponent();
+
+        }
+
+        private void BtnAddEmployee_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
