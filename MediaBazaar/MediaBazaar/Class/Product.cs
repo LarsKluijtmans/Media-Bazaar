@@ -31,15 +31,6 @@ namespace MediaBazaar
 
             nextProductID++; 
         }
-        // methods
-        //public void IncreaseProductAmount(int amount, Product p)
-        //{
-        //    this.amount = amount;
-        //}
-        //public void DecreaseProductAmount(int amount, Product p)
-        //{
-        //    this.amount = amount;
-        //}
         public override string ToString()
         {
             return $"ID: {productId}, name: {name}, type: {type}, amount: {amount}, barcode: {barcode}";
