@@ -280,3 +280,18 @@ INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('
 
 COMMIT;
 
+
+-- -----------------------------------------------------
+-- Foreign key for table contract
+-- -----------------------------------------------------
+
+
+ALTER TABLE `mydb`.`contract` 
+ADD INDEX `employeeID_idx` (`employeeID` ASC) VISIBLE;
+;
+ALTER TABLE `mydb`.`contract` 
+ADD CONSTRAINT `employeeID`
+  FOREIGN KEY (`employeeID`)
+  REFERENCES `mydb`.`employee` (`employeeID`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
