@@ -167,7 +167,6 @@ CREATE TABLE IF NOT EXISTS `DBI461266`.`Shifts` (
   `PeopleRequeredInTheMorning` INT NOT NULL DEFAULT 1,
   `PeopleRequeredInTheAfternoon` INT NOT NULL DEFAULT 1,
   `PeopleRequeredInTheevening` INT NOT NULL DEFAULT 1,
-  PRIMARY KEY (`day`))
 ENGINE = InnoDB
 
 
