@@ -19,17 +19,22 @@ namespace MediaBazaar
 
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
-            string firstN = txtFirstName.Text;
-            string lastN = txtLastN.Text;
-            int phoneN = Convert.ToInt32(txtPhoneN.Text);
-            int bsn = Convert.ToInt32(txtBsn.Text);
-            string username = txtUserN.Text;
-            string email = txtEmail.Text;
-            string password = txtPsswrd.Text;
+            string lastName = tbxLastName.Text;
+            string firstName = tbxFirstName.Text;
+            string gender = tbxGender.Text;
+            int phoneNumber = Convert.ToInt32(tbxPhoneNumber.Text);
+            string email = $"{tbxLastName.Text}@mb.com";
+            string address = tbxAddress.Text;
+            string dateOfBirth = tbxDateOfBirth.Text;
+            int bsn = Convert.ToInt32(tbxBSN.Text);
+            string username = $"{tbxLastName.Text}";
+            string password = $"{tbxLastName.Text}";
+            JobTitle type = (JobTitle)Enum.Parse(typeof(JobTitle), cbxType.SelectedItem.ToString());
 
-            Employee newEmp = new Employee(firstN, lastN, phoneN, bsn, username, password, email);
+            Employee newEmployee = new Employee(lastName, firstName, gender, phoneNumber, email, address, dateOfBirth, bsn, username, password, type);
+            mediaBazaar.AddEmployee(newEmployee);
 
-
+            tbxEmployeeID.Text = newEmployee.EmployeeID.ToString();
         }
     }
 }

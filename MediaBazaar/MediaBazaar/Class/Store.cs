@@ -12,11 +12,7 @@ namespace MediaBazaar
 
 
         //properties
-        public List<Employee> Employees
-        {
-            get { return employees; }
-            set { employees = value; }
-        }
+        public List<Employee> Employees { get; set; }
 
 
         public List<Product> Products
@@ -31,7 +27,7 @@ namespace MediaBazaar
         {
             complaints = new List<Complaint>();
             announcements = new List<Announcement>();
-            employees = new List<Employee>();
+            Employees = new List<Employee>();
             products = new List<Product>();
         }
 
@@ -120,7 +116,7 @@ namespace MediaBazaar
         //EMPLOYEE
         public void AddEmployee(Employee e)
         {
-            employees.Add(e);
+            Employees.Add(e);
         }
         public Employee GetEmployee(int id)
         {
