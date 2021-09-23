@@ -146,20 +146,5 @@ namespace MediaBazaar
         {
             employees.RemoveAt(selectedIndex);
         }
-        public bool AddEmployee(string firstName, string lastName, string gender, string email, int phoneNumber, string address, string dateOfBirth, int bsn, string username, string password, JobTitle type)
-        {
-            Employee e = GetEmployee(firstName, lastName);
-
-            if (e != null)
-            {
-                return false; // employee already exists
-            }
-            else
-            {
-                Employee newEmployee = new Employee(lastName, firstName, gender, phoneNumber, email, address, dateOfBirth, bsn, username, password, type); // create new employee
-                Employees.Add(newEmployee); // add employee to list of all employees
-                return true;
-            }
-        }
     }
 }
