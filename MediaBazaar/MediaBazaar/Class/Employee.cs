@@ -17,7 +17,7 @@ namespace MediaBazaar
         private int phonenumber;
         private string email;
         private string address;
-        private DateTime dateofbirth;
+        private string dateofbirth;
         private int bsn;
         private string username;
         private string password;
@@ -45,7 +45,7 @@ namespace MediaBazaar
         }
     
 
-        public Employee(int employeeID, string lastname, string firstname, string gender, int phonenumber, string email, string address, DateTime dateofbirth, int bsn, string username, string password, Shift shift)
+        public Employee(int employeeID, string lastname, string firstname, string gender, int phonenumber, string email, string address, string dateofbirth, int bsn, string username, string password)
             {
                 this.employeeID = nextEmployeeID;
                 nextEmployeeID++;
@@ -59,7 +59,6 @@ namespace MediaBazaar
                 this.bsn = bsn;
                 this.username = username;
                 this.password = password;
-                this.shift = shift;
             }
 
         public Employee(string lastname, string firstname, int phonenumber, int bsn, string username, string password, string email)
