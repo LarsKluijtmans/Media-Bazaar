@@ -45,7 +45,7 @@ namespace MediaBazaar
         }
     
 
-        public Employee(int employeeID, string lastname, string firstname, string gender, int phonenumber, string email, string address, string dateofbirth, int bsn, string username, string password)
+        public Employee(string lastname, string firstname, string gender, int phonenumber, string email, string address, string dateofbirth, int bsn, string username, string password)
             {
                 this.employeeID = nextEmployeeID;
                 nextEmployeeID++;

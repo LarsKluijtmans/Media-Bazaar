@@ -28,6 +28,17 @@ namespace MediaBazaar
             int bsn = Convert.ToInt32(tbxBSN.Text);
             string username = tbxEmail.Text;
             string password = tbxPassword.Text;
+            string gender = tbxGender.Text;
+            string dateOfBirth = tbxDateOfBirth.Text;
+
+            if (!mb.AddEmployees(lastName, firstName, gender, email, phoneNumber, address, dateOfBirth, bsn, username, password))
+            {
+                MessageBox.Show("error");
+            }
+            else
+            {
+                MessageBox.Show("Employee created");
+            }
         }
     }
 }
