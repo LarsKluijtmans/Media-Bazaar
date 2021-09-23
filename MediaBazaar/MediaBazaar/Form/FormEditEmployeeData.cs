@@ -34,5 +34,16 @@ namespace MediaBazaar
             tbxBSN.Text = e.BSN.ToString();
             tbxDateOfBirth.Text = e.DateOfBirth;
         }
+
+        private void btnUpdateData_Click(object sender, EventArgs e)
+        {
+            this.e.FirstName = tbxFirstName.Text;
+            this.e.LastName = tbxLastName.Text;
+            this.e.Gender = tbxGender.Text;
+            this.e.PhoneNumber = Convert.ToInt32(tbxPhoneNumber.Text);
+            this.e.Address = tbxAddress.Text;
+            this.e.Username = tbxUsername.Text;
+            this.e.Password = tbxPassword.Text;
+        }
     }
 }

@@ -166,12 +166,13 @@ namespace MediaBazaar
             // 
             // btnUpdateData
             // 
-            this.btnUpdateData.Location = new System.Drawing.Point(427, 290);
+            this.btnUpdateData.Location = new System.Drawing.Point(427, 335);
             this.btnUpdateData.Name = "btnUpdateData";
             this.btnUpdateData.Size = new System.Drawing.Size(151, 29);
             this.btnUpdateData.TabIndex = 13;
             this.btnUpdateData.Text = "Update Data";
             this.btnUpdateData.UseVisualStyleBackColor = true;
+            this.btnUpdateData.Click += new System.EventHandler(this.btnUpdateData_Click);
             // 
             // label8
             // 
