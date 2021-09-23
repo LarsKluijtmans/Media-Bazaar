@@ -144,9 +144,9 @@ namespace MediaBazaar
             }
             return null; // employee doesn't exist
         }
-        public void RemoveEmployee(int selectedIndex)
+        public void RemoveEmployee(Employee e)
         {
-            employees.RemoveAt(selectedIndex);
+            employees.Remove(e);
         }
     }
 }

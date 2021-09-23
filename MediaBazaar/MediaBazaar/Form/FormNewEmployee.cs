@@ -10,15 +10,11 @@ namespace MediaBazaar
 {
     public partial class FormNewEmployee : Form
     {
-        List<Employee> employee;
-        
-
-        public FormNewEmployee()
+        Store mediaBazaar;
+        public FormNewEmployee(Store mb)
         {
             InitializeComponent();
-            employee = new List<Employee>();
-         
-
+            this.mediaBazaar = mb;
         }
 
         private void BtnNewEmployee_Click(object sender, EventArgs e)
@@ -32,7 +28,6 @@ namespace MediaBazaar
             string password = txtPsswrd.Text;
 
             Employee newEmp = new Employee(firstN, lastN, phoneN, bsn, username, password, email);
-            employee.Add(newEmp);
 
 
         }
