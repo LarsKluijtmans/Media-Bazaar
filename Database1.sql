@@ -191,6 +191,22 @@ INSERT INTO `mydb`.`Announcement` ( `announcementMessage`) VALUES ( 'Error');
 
 COMMIT;
 
+-- -----------------------------------------------------
+-- Data for table `mydb`.`checks`
+-- -----------------------------------------------------
+
+START TRANSACTION;
+USE `mydb`;
+INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+COMMIT;
+
 
 -- -----------------------------------------------------
 -- Data for table `mydb`.`Complaint`
