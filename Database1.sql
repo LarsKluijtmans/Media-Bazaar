@@ -137,6 +137,9 @@ CREATE TABLE IF NOT EXISTS `DBI461266`.`Product` (
   PRIMARY KEY (`productID`))
 ENGINE = InnoDB;
 
+ALTER TABLE `DBI461266`.`product` 
+ADD COLUMN `MaxAmountInStore` VARCHAR(45) NOT NULL AFTER `AmountInSales`;
+
 -- -----------------------------------------------------
 -- Table `DBI461266`.`ProductTypes`
 -- -----------------------------------------------------
@@ -164,12 +167,11 @@ CREATE TABLE IF NOT EXISTS `DBI461266`.`Shifts` (
   `PeopleRequeredInTheMorning` INT NOT NULL DEFAULT 1,
   `PeopleRequeredInTheAfternoon` INT NOT NULL DEFAULT 1,
   `PeopleRequeredInTheevening` INT NOT NULL DEFAULT 1,
-  PRIMARY KEY (`day`))
 ENGINE = InnoDB
 
 
-CREATE TABLE IF NOT EXISTS `mydb`.`WorkTime` (
-  `WorkTimeID` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `DBI461266`.`WorkTime` (
+  `WorkTimeID` INT NOT NULL AUTO_INCREMENT,,
   `employeeID` INT NOT NULL,
   `day` VARCHAR(45) NOT NULL,
   `Morning` INT NOT NULL DEFAULT 1,
@@ -179,6 +181,15 @@ CREATE TABLE IF NOT EXISTS `mydb`.`WorkTime` (
   PRIMARY KEY (`WorkTimeID`))
 ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `DBI461266`.`Restock` (
+  `RestockID` INT NOT NULL auto_increment,
+  `ProductID` INT NOT NULL,
+  `Amount` INT NOT NULL,
+  `ProductName`  VARCHAR(45) NOT NULL DEFAULT 1,
+  `RestockOrRequest` bool NOT NULL,
+  PRIMARY KEY (`restockID`))
+  
+ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
