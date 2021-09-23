@@ -35,7 +35,7 @@ namespace MediaBazaar
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnAddProduct = new System.Windows.Forms.Button();
+            this.BtnNewProduct = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbxProductType
@@ -93,21 +93,22 @@ namespace MediaBazaar
             this.label9.TabIndex = 28;
             this.label9.Text = "Product Name:";
             // 
-            // btnAddProduct
+            // BtnNewProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(251, 231);
-            this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(75, 23);
-            this.btnAddProduct.TabIndex = 34;
-            this.btnAddProduct.Text = "Add Product";
-            this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.BtnNewProduct.Location = new System.Drawing.Point(155, 226);
+            this.BtnNewProduct.Name = "BtnNewProduct";
+            this.BtnNewProduct.Size = new System.Drawing.Size(141, 23);
+            this.BtnNewProduct.TabIndex = 34;
+            this.BtnNewProduct.Text = "Add Product";
+            this.BtnNewProduct.UseVisualStyleBackColor = true;
+            this.BtnNewProduct.Click += new System.EventHandler(this.BtnNewProduct_Click);
             // 
             // FormNewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 357);
-            this.Controls.Add(this.btnAddProduct);
+            this.Controls.Add(this.BtnNewProduct);
             this.Controls.Add(this.cbxProductType);
             this.Controls.Add(this.txtProductAmount);
             this.Controls.Add(this.txtProductName);
@@ -129,6 +130,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.Button BtnNewProduct;
     }
 }

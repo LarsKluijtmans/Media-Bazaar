@@ -51,7 +51,7 @@ namespace MediaBazaar
             this.btnViewContract.TabIndex = 1;
             this.btnViewContract.Text = "View Employee Contract Details";
             this.btnViewContract.UseVisualStyleBackColor = true;
-            // 
+         
             // lblDetail
             // 
             this.lblDetail.AutoSize = true;

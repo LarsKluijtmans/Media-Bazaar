@@ -150,7 +150,7 @@ ENGINE = InnoDB;
 -- Table `DBI461266`.`Scheduel`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DBI461266`.`Scheduel` (
-  `empID` INT NOT NULL,
+  `employeeID` INT NOT NULL,
   `scheduelDay` VARCHAR(45) NOT NULL,
   `time` VARCHAR(45) NOT NULL)
 ENGINE = InnoDB;
@@ -159,12 +159,26 @@ ENGINE = InnoDB;
 -- Table `DBI461266`.`Shifts`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DBI461266`.`Shifts` (
+  `Department Name` VARCHAR(45) NOT NULL,
+  `WeekDay` VARCHAR(45) NOT NULL,
+  `PeopleRequeredInTheMorning` INT NOT NULL DEFAULT 1,
+  `PeopleRequeredInTheAfternoon` INT NOT NULL DEFAULT 1,
+  `PeopleRequeredInTheevening` INT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`day`))
+ENGINE = InnoDB
+
+
+CREATE TABLE IF NOT EXISTS `mydb`.`WorkTime` (
+  `WorkTimeID` INT NOT NULL,
+  `employeeID` INT NOT NULL,
   `day` VARCHAR(45) NOT NULL,
   `Morning` INT NOT NULL DEFAULT 1,
   `Afternoon` INT NOT NULL DEFAULT 1,
   `evening` INT NOT NULL DEFAULT 1,
-  PRIMARY KEY (`day`))
+  `LeastOrMostPrefered` BOOL NOT NULL,
+  PRIMARY KEY (`WorkTimeID`))
 ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

@@ -10,36 +10,31 @@ namespace MediaBazaar
 {
     public partial class FormNewEmployee : Form
     {
-        Store mb;
-        public FormNewEmployee(Store mb)
+        List<Employee> employee;
+        
+
+        public FormNewEmployee()
         {
             InitializeComponent();
-            this.mb = mb;
+            employee = new List<Employee>();
+         
+
         }
 
-
-        private void btnCreateEmployee_Click(object sender, EventArgs e)
+        private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
-            string firstName = tbxFirstName.Text;
-            string lastName = tbxLastName.Text;
-            string email = tbxEmail.Text;
-            int phoneNumber = Convert.ToInt32(tbxPhoneNumber.Text);
-            string address = tbxAddress.Text;
-            int bsn = Convert.ToInt32(tbxBSN.Text);
-            string username = tbxEmail.Text;
-            string password = tbxPassword.Text;
-            string gender = tbxGender.Text;
-            string dateOfBirth = tbxDateOfBirth.Text;
-            JobTitle type = (JobTitle)Enum.Parse(typeof(JobTitle), cbxJobType.SelectedItem.ToString());
+            string firstN = txtFirstName.Text;
+            string lastN = txtLastN.Text;
+            int phoneN = Convert.ToInt32(txtPhoneN.Text);
+            int bsn = Convert.ToInt32(txtBsn.Text);
+            string username = txtUserN.Text;
+            string email = txtEmail.Text;
+            string password = txtPsswrd.Text;
 
-            if (!mb.AddEmployee(lastName, firstName, gender, email, phoneNumber, address, dateOfBirth, bsn, username, password, type))
-            {
-                MessageBox.Show("error");
-            }
-            else
-            {
-                MessageBox.Show("Employee created");
-            }
+            Employee newEmp = new Employee(firstN, lastN, phoneN, bsn, username, password, email);
+            employee.Add(newEmp);
+
+
         }
     }
 }

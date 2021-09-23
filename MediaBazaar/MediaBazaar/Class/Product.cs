@@ -13,6 +13,8 @@ namespace MediaBazaar
         private string name;
         private ProductType productType;
         private int amount;
+        private string productN;
+        private int productA;
 
 
         //properties
@@ -55,6 +57,18 @@ namespace MediaBazaar
             counter++; 
         }
 
+        public Product(string name, ProductType productType, int amount)
+        {
+            Name = name;
+            ProductType = productType;
+            Amount = amount;
+        }
+
+        public Product(string productN, int productA)
+        {
+            this.productN = productN;
+            this.productA = productA;
+        }
 
         //methods
         public override string ToString()

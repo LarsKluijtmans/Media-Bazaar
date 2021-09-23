@@ -30,5 +30,7 @@ namespace MediaBazaar
             int Amount = Convert.ToInt32(tbxAmount.Text);
             int ProductID = Convert.ToInt32(tbProductID);
         }
+
+       
     }
 }
