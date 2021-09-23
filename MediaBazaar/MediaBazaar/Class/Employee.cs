@@ -1,96 +1,74 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace MediaBazaar
-{
+    {
     public class Employee
     {
+
+
         // fields
-        private static int counter = 1;
+        private static int nextEmployeeID = 1;
         private int employeeID;
-        private string lastname;
-        private string firstname;
-        private int phonenumber;
+        private string lastName;
+        private string firstName;
+        private string gender;
+        private int phoneNumber;
         private string email;
         private string address;
-        private DateTime dateofbirth;
+        private string dateOfBirth;
         private int bsn;
         private string username;
         private string password;
-        private JobTitle jobtitle;
-        private Shift shift;
+        private JobTitle type;
 
+        private Contract contract; /* every employee has 1 contract*/
 
         // properties
-        public int EmployeeID 
-        { 
-            get { return employeeID; } 
-            set { employeeID = value; } 
-        }
-        public JobTitle JobTitle 
-        { 
-            get { return jobtitle; }
-            set { jobtitle = value; } 
-        }
-        public string Username 
-        { 
-            get { return username; } 
-            set { username = value; } 
-        }
-        public string Password 
-        { 
-            get { return password; } 
-            set { password = value; } 
-        }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Gender { get; set; }
+        public int PhoneNumber { get; set; }
+        public string Address { get; set; }
+        public string DateOfBirth { get; set; }
+        public int BSN { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public int EmployeeID { get; private set; }
+        public JobTitle Type { get; set; }
 
 
         // constructors
-        public Employee(string lastname, string firstname, int bsn, string username, string password)
+        public Contract Contract
         {
-            this.lastname = lastname;
-            this.firstname = firstname;
-            this.bsn = bsn;
-            Username = username;
-            Password = password;
+            get { return contract; }
+            private set { contract = value; }
         }
-        public Employee(string lastname, string firstname, int phonenumber, string email, string address, DateTime dateofbirth,
-            int bsn, string username, string password, Shift shift)
+    
+
+        public Employee(string lastname, string firstname, string gender, int phonenumber, string email, string address, string dateofbirth, int bsn, string username, string password, JobTitle type)
+         {
+                this.EmployeeID = nextEmployeeID;
+                nextEmployeeID++;
+                this.LastName = firstname;
+                this.FirstName = lastname;
+                this.Gender = gender;
+                this.PhoneNumber = phonenumber;
+                this.Email = email;
+                this.Address = address;
+                this.DateOfBirth = dateofbirth;
+                this.BSN = bsn;
+                this.Username = username;
+                this.Password = password;
+                this.Type = type;
+         }
+
+        // methodes
+        public override string ToString()
         {
-            EmployeeID = counter;
-            this.lastname = lastname;
-            this.firstname = firstname;
-            this.phonenumber = phonenumber;
-            this.email = email;
-            this.address = address;
-            this.dateofbirth = dateofbirth;
-            this.bsn = bsn;
-            this.username = username;
-            this.password = password;
-            this.shift = shift;
-
-            counter++;
+            return $"ID: {EmployeeID} - Name: {FirstName} {LastName} - Email: {Email} - Type: {Type.ToString()}";
         }
-
-
-        // methods
-        public Shift MostPreferedTimeToWork()
-        {
-            return this.shift;
-        }
-
-        public Shift LeastPreferedTimeToWork()
-        {
-            if (this.shift == Shift.MORNING)
-            {
-                return Shift.EVENING;
-            }
-            else
-                return Shift.MORNING;
-        }
-
-        public string Tostring()
-        {
-            return $"ID: {EmployeeID}, Name: {firstname + lastname}, Email: {email}";
-        }
-
     }
-}
+    }
