@@ -36,6 +36,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Complaint` (
   PRIMARY KEY (`complaintID`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- making complaintID auto increment
+-- -----------------------------------------------------
+
+ALTER TABLE `mydb`.`complaint` 
+CHANGE COLUMN `complaintID` `complaintID` INT NOT NULL AUTO_INCREMENT ;
+
+COMMIT;
+
+
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Contract`
@@ -311,16 +321,6 @@ INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('
 INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('friday', 1, 1, 1);
 INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('stareday', 1, 1, 1);
 INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('sunday', 1, 1, 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- making complaintID auto increment
--- -----------------------------------------------------
-
-ALTER TABLE `mydb`.`complaint` 
-CHANGE COLUMN `complaintID` `complaintID` INT NOT NULL AUTO_INCREMENT ;
 
 COMMIT;
 
