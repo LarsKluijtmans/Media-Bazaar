@@ -32,7 +32,7 @@ namespace MediaBazaar
             string dateOfBirth = tbxDateOfBirth.Text;
             JobTitle type = (JobTitle)Enum.Parse(typeof(JobTitle), cbxJobType.SelectedItem.ToString());
 
-            if (!mb.AddEmployees(lastName, firstName, gender, email, phoneNumber, address, dateOfBirth, bsn, username, password, type))
+            if (!mb.AddEmployee(lastName, firstName, gender, email, phoneNumber, address, dateOfBirth, bsn, username, password, type))
             {
                 MessageBox.Show("error");
             }

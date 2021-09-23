@@ -146,7 +146,7 @@ namespace MediaBazaar
         {
             employees.RemoveAt(selectedIndex);
         }
-        public bool AddEmployees(string firstName, string lastName, string gender, string email, int phoneNumber, string address, string dateOfBirth, int bsn, string username, string password, JobTitle type)
+        public bool AddEmployee(string firstName, string lastName, string gender, string email, int phoneNumber, string address, string dateOfBirth, int bsn, string username, string password, JobTitle type)
         {
             Employee e = GetEmployee(firstName, lastName);
 

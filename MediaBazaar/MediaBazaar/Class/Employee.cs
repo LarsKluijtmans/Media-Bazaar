@@ -80,20 +80,20 @@ namespace MediaBazaar
         }
          // methodes
 
-        public Shift MostPreferedTimeToWork()
-            {
-            return this.shift;
-            }
+        //public Shift MostPreferedTimeToWork()
+        //    {
+        //    return this.shift;
+        //    }
 
-         public Shift LeastPreferedTimeToWork()  
-            {
-            if (this.shift == Shift.MORNING)
-            {
-                return Shift.EVENING;
-            }
-            else
-                return Shift.MORNING;
-            }
+        // public Shift LeastPreferedTimeToWork()  
+        //    {
+        //    if (this.shift == Shift.MORNING)
+        //    {
+        //        return Shift.EVENING;
+        //    }
+        //    else
+        //        return Shift.MORNING;
+        //    }
 
          public string Tostring()
             {

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class FormSalesEmployee : Form,INterface1
+    public partial class FormSalesEmployee : Form
     {
         Employee e;
         Store s;

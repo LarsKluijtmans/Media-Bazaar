@@ -14,7 +14,7 @@ namespace MediaBazaar
             store = new Store();
 
 
-            Employee e = new Employee("lars", "lars", 1231231234, "L", "a");
+            Employee e = new Employee("Wolfs1", "Esther1", "F", 0612901749, "ewolfs@mb.com", "drunen", "01-01-1998", 1234, "esther", "wolfs", JobTitle.DEPOT_MANAGER);
             store.Employees.Add(e);
         }
 
@@ -30,7 +30,7 @@ namespace MediaBazaar
                     if (eee.Password == password)
                     {
 
-                        switch (eee.Jobtitle.ToString())
+                        switch (eee.Type.ToString())
                         {
                             case "OWNER": Form1 form1 = new Form1(store.GetEmployee(eee.EmployeeID), store); form1.Show(); break;
                             case "SALESMANAGER": FormSalesManager formSalesManager = new FormSalesManager(store.GetEmployee(eee.EmployeeID), store); formSalesManager.Show(); break;
