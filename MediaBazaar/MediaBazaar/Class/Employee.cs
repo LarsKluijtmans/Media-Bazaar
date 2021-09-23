@@ -14,23 +14,23 @@ namespace MediaBazaar
         private string lastname;
         private string firstname;
         private string gender;
-        private int phonenumber;
+        private int phoneNumber;
         private string email;
         private string address;
-        private string dateofbirth;
+        private string dateOfBirth;
         private int bsn;
         private string username;
         private string password;
-        private Shift shift;
-
+        private JobTitle type;
 
         private Contract contract; /* every employee has 1 contract*/
 
         // properties
         public string Firstname { get; set; }
         public string Lastname { get; set; }
-
+        public string Email { get; set; }
         public int EmployeeID { get; private set; }
+        public JobTitle Type { get; set; }
 
 
         // constructors
@@ -45,20 +45,21 @@ namespace MediaBazaar
         }
     
 
-        public Employee(string lastname, string firstname, string gender, int phonenumber, string email, string address, string dateofbirth, int bsn, string username, string password)
+        public Employee(string lastname, string firstname, string gender, int phonenumber, string email, string address, string dateofbirth, int bsn, string username, string password, JobTitle type)
             {
                 this.employeeID = nextEmployeeID;
                 nextEmployeeID++;
                 this.lastname = lastname;
                 this.firstname = firstname;
                 this.gender = gender;
-                this.phonenumber = phonenumber;
+                this.phoneNumber = phonenumber;
                 this.email = email;
                 this.address = address;
-                this.dateofbirth = dateofbirth;
+                this.dateOfBirth = dateofbirth;
                 this.bsn = bsn;
                 this.username = username;
                 this.password = password;
+                this.type = type;
             }
 
         public Employee(string lastname, string firstname, int phonenumber, int bsn, string username, string password, string email)
@@ -68,7 +69,7 @@ namespace MediaBazaar
                 this.bsn = bsn;
                 this.username = username;
                 this.password = password;
-                this.phonenumber = phonenumber;
+                this.phoneNumber = phonenumber;
                 this.email = email;
 
             }
@@ -97,7 +98,11 @@ namespace MediaBazaar
          public string Tostring()
             {
             return $"Name: {firstname}, Name: {lastname}, Email: {email}";
-        }
+            }
 
+        public override string ToString()
+        {
+            return $"ID: {EmployeeID }Name: {Firstname} {Lastname} - Email: {Email}";
         }
+    }
     }

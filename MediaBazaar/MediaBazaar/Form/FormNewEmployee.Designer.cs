@@ -50,11 +50,13 @@ namespace MediaBazaar
             this.label8 = new System.Windows.Forms.Label();
             this.tbxGender = new System.Windows.Forms.TextBox();
             this.tbxDateOfBirth = new System.Windows.Forms.TextBox();
+            this.cbxJobType = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCreateEmployee
             // 
-            this.btnCreateEmployee.Location = new System.Drawing.Point(244, 497);
+            this.btnCreateEmployee.Location = new System.Drawing.Point(266, 530);
             this.btnCreateEmployee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCreateEmployee.Name = "btnCreateEmployee";
             this.btnCreateEmployee.Size = new System.Drawing.Size(151, 31);
@@ -247,11 +249,38 @@ namespace MediaBazaar
             this.tbxDateOfBirth.Size = new System.Drawing.Size(125, 27);
             this.tbxDateOfBirth.TabIndex = 57;
             // 
+            // cbxJobType
+            // 
+            this.cbxJobType.FormattingEnabled = true;
+            this.cbxJobType.Items.AddRange(new object[] {
+            "OWNER",
+            "SALES_MANAGER",
+            "SALES_EMPLOYEE",
+            "OFFICE_MANAGER",
+            "OFFICE_EMPLOYEE",
+            "DEPOT_MANAGER",
+            "DEPOT_EMPLOYEE"});
+            this.cbxJobType.Location = new System.Drawing.Point(266, 483);
+            this.cbxJobType.Name = "cbxJobType";
+            this.cbxJobType.Size = new System.Drawing.Size(151, 28);
+            this.cbxJobType.TabIndex = 58;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(132, 483);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(70, 20);
+            this.label10.TabIndex = 59;
+            this.label10.Text = "Job Type:";
+            // 
             // FormNewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 597);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.cbxJobType);
             this.Controls.Add(this.tbxDateOfBirth);
             this.Controls.Add(this.tbxGender);
             this.Controls.Add(this.label8);
@@ -304,5 +333,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbxGender;
         private System.Windows.Forms.TextBox tbxDateOfBirth;
+        private System.Windows.Forms.ComboBox cbxJobType;
+        private System.Windows.Forms.Label label10;
     }
 }

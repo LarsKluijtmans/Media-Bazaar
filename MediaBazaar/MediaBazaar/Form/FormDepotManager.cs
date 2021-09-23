@@ -11,7 +11,7 @@ namespace MediaBazaar
     public partial class FormDepotManager : Form
     {
         Employee e;
-        Store s;
+        Store mediaBazaar;
         private List<Product> porductRequests;
         private List<Product> porductRestock;
 
@@ -20,14 +20,17 @@ namespace MediaBazaar
             InitializeComponent();
             porductRequests = new List<Product>();
             porductRestock = new List<Product>();
-            store = s;
+            this.mediaBazaar = store;
             employee = e;
+
+            TestEmployees();
+            UpdateListbox();
         }
 
 
         public void AddRequesteProduct(int amount, int productid)
         { 
-            foreach(Product p in s.Products)
+            foreach(Product p in mediaBazaar.Products)
             {
                 if (p.ProductId == productid)
                 {
@@ -36,39 +39,48 @@ namespace MediaBazaar
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        private void FormDepotManager_Load(object sender, EventArgs e)
+        // employees
+        public void TestEmployees()
         {
-
+            mediaBazaar.AddEmployees("Employee", "1", "employee1@mb.com", "employee", "1", JobType.SALES_MANAGER);
+            mediaBazaar.AddEmployees("Employee", "2", "employee2@mb.com", "employee", "2", JobType.DEPOT_MANAGER);
+            mediaBazaar.AddEmployees("Employee", "3", "employee3@mb.com", "employee", "3", JobType.DEPOT_EMPLOYEE);
+            mediaBazaar.AddEmployees("Employee", "4", "employee4@mb.com", "employee", "4", JobType.SALES_EMPLOYEE);
+            mediaBazaar.AddEmployees("Employee", "5", "employee5@mb.com", "employee", "5", JobType.SALES_EMPLOYEE);
+            mediaBazaar.AddEmployees("Employee", "6", "employee6@mb.com", "employee", "6", JobType.SALES_MANAGER);
+            mediaBazaar.AddEmployees("Employee", "7", "employee7@mb.com", "employee", "7", JobType.OFFICE_EMPLOYEE);
+            mediaBazaar.AddEmployees("Employee", "8", "employee8@mb.com", "employee", "8", JobType.OFFICE_MANAGER);
+            mediaBazaar.AddEmployees("Employee", "9", "employee9@mb.com", "employee", "9", JobType.SALES_EMPLOYEE);
+            mediaBazaar.AddEmployees("Employee", "10", "employee10@mb.com", "employee", "10", JobType.SALES_EMPLOYEE);
         }
-
-        private void tabPage1_Click(object sender, EventArgs e)
+        public void UpdateListbox()
         {
-
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            lbxEmployees.Items.Clear();
+            foreach (Employee e in mediaBazaar.Employees)
+            {
+                if (rbnAllEmployees.Checked)
+                {
+                    lbxEmployees.Items.Add(e.ToString());
+                } else if (rbnDepotEmployees.Checked)
+                {
+                    if (e.Type == JobTitle.DEPOT_EMPLOYEE || e.Type == JobTitle.DEPOT_MANAGER)
+                    {
+                        lbxEmployees.Items.Add(e.Tostring());
+                    }
+                } else if (rbnOfficeEmployees.Checked)
+                {
+                    if (e.Type == JobTitle.OFFICE_EMPLOYEE || e.Type == JobTitle.OFFICE_MANAGER)
+                    {
+                        lbxEmployees.Items.Add(e.Tostring());
+                    }
+                } else if (rbnSalesEmployees.Checked)
+                {
+                    if (e.Type == JobTitle.SALES_EMPLOYEE || e.Type == JobTitle.SALES_MANAGER)
+                    {
+                        lbxEmployees.Items.Add(e.Tostring());
+                    }
+                }
+            }
         }
     }
 }
