@@ -10,13 +10,55 @@ namespace MediaBazaar
 {
     public partial class FormOfficeEmployee : Form
     {
-        Employee e;
         Store s;
-        public FormOfficeEmployee(Employee employee, Store store)
+        Employee e;     
+        public FormOfficeEmployee(Store store, Employee employee)
         {
             InitializeComponent();
-            store = s;
-            employee = e;
+            s = store;
+            e = employee;
+
+            UpdateAnnouncementList();
+        }
+        public void UpdateAnnouncementList()
+        {
+            lstOverviewAnnouncement.Items.Clear();
+            lstAnnouncement.Items.Clear();
+            foreach (Announcement a in s.Announcements)
+            {
+                lstAnnouncement.Items.Add(a);
+                lstOverviewAnnouncement.Items.Add(a);
+            }
+        }
+
+        private void btnSubmitComplaint_Click(object sender, EventArgs e)
+        {
+            string message = txtComplaint.Text;
+            Complaint complaint = new Complaint(message);
+            s.AddComplaint(complaint);
+        }
+
+        private void btnSubmitAnnouncement_Click(object sender, EventArgs e)
+        {
+            string message = txtAnnouncement.Text;
+            Announcement announcement = new Announcement(message);
+            s.AddAnnouncement(announcement);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            FormLogin login = new FormLogin();
+            login.Show();
+            Close();
+        }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
 
         }
     }

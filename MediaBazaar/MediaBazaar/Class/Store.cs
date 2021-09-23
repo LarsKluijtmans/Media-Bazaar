@@ -17,12 +17,30 @@ namespace MediaBazaar
             get { return employees; }
             set { employees = value; }
         }
+        public List<Announcement> Announcements
+        {
+            get { return announcements; }
+            set { announcements = value; }
+        }
+        public List<Complaint> Complaints
+        {
+            get { return complaints; }
+            set { complaints = value; }
+        }
         public List<Product> Products
         {
             get { return products; }
             set { products = value; }
         }
-        
+        public List<Product> PendingRequestedProducts 
+        { 
+            get; set; 
+        }
+        public List<Product> History
+        {
+            get; set; 
+        }
+
 
         //constructions
         public Store()
@@ -93,25 +111,44 @@ namespace MediaBazaar
             }
             return null;
         }
-        public void RemoveProduct(int selectedIndex)
+        public void AddRequestedProduct(Product p)
         {
-            products.RemoveAt(selectedIndex);
+            PendingRequestedProducts.Add(p);
         }
-        public void AddAmountofProduct(int productID, int amount)
+        public void AddHistory(Product p)
         {
-            if (GetProduct(productID) != null)
+            History.Add(p);
+        }
+        public bool AddAmountofProduct(int id, int amount)
+        {
+            if (GetProduct(id) != null || (GetProduct(id).Amount + amount) > GetProduct(id).WarehouseAmount)
             {
-                GetProduct(productID).Amount += amount;
+                return false;
+            }
+            else
+            {
+                GetProduct(id).Amount += amount;
+                return true;
             }
         }
-        public void DecreaseAmountofProduct(int productID, int amount)
+        public void Refill(int id)
         {
-            if (GetProduct(productID) != null)
+            if (GetProduct(id) != null)
             {
-                if (GetProduct(productID).Amount > 0)
-                {
-                    GetProduct(productID).Amount -= amount;
-                }
+                GetProduct(id).WarehouseAmount -= (GetProduct(id).ShelfSpace - GetProduct(id).Amount);
+                GetProduct(id).Amount = GetProduct(id).ShelfSpace;
+            }
+        }
+        public bool DecreaseAmountofProduct(int id, int amount)
+        {
+            if (GetProduct(id) == null || amount > GetProduct(id).Amount)
+            {
+                return false;
+            }
+            else
+            {
+                GetProduct(id).Amount -= amount;
+                return true;
             }
         }
 
