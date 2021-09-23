@@ -11,12 +11,12 @@ namespace MediaBazaar
     public partial class FormRemoveEmployee : Form
     {
         Store mb;
-        Employee e;
+        Employee employee;
         public FormRemoveEmployee(Store mb, Employee e)
         {
             InitializeComponent();
             this.mb = mb;
-            this.e = e;
+            this.employee = e;
 
             lblEmployee.Text = $"{e.EmployeeID} - {e.FirstName} {e.LastName}";
         }
@@ -24,6 +24,7 @@ namespace MediaBazaar
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+            mb.RemoveEmployee(employee);
         }
     }
 }

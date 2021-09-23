@@ -35,6 +35,9 @@ namespace MediaBazaar
             mediaBazaar.AddEmployee(newEmployee);
 
             tbxEmployeeID.Text = newEmployee.EmployeeID.ToString();
+            tbxEmail.Text = newEmployee.Email;
+            tbxUsername.Text = newEmployee.Username;
+            tbxPassword.Text = newEmployee.Password;
         }
     }
 }

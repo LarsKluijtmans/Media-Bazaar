@@ -79,14 +79,14 @@ namespace MediaBazaar
 
             Employee tempEmployee = (Employee)employeeObj;
 
-            if (tempEmployee.Type != JobTitle.DEPOT_MANAGER || tempEmployee.Type != JobTitle.DEPOT_EMPLOYEE)
-            {
-                MessageBox.Show("You do not have the permission to modify this employee");
-            }
-            else
+            if (tempEmployee.Type == JobTitle.DEPOT_MANAGER || tempEmployee.Type == JobTitle.DEPOT_EMPLOYEE)
             {
                 FormEditEmployeeData formEditEmployeeData = new FormEditEmployeeData(mediaBazaar, tempEmployee);
                 formEditEmployeeData.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have the permission to modify this employee");
             }
         }
 
@@ -103,14 +103,13 @@ namespace MediaBazaar
 
             tbxEmployeeID.Text = tempEmployee.EmployeeID.ToString();
 
-            if (tempEmployee.Type != JobTitle.DEPOT_MANAGER || tempEmployee.Type != JobTitle.DEPOT_EMPLOYEE)
+            if (tempEmployee.Type == JobTitle.DEPOT_MANAGER || tempEmployee.Type == JobTitle.DEPOT_EMPLOYEE)
             {
-                MessageBox.Show("You do not have the permission to remove this employee");
-            } else
-            {
-                mediaBazaar.RemoveEmployee(tempEmployee);
                 FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(mediaBazaar, tempEmployee);
                 formRemoveEmployee.Show();
+            } else
+            {
+                MessageBox.Show("You do not have the permission to remove this employee");
             }
 
             UpdateListbox();

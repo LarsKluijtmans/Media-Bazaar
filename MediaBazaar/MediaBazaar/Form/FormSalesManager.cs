@@ -32,7 +32,7 @@ namespace MediaBazaar
                 }
                 else if (rbnSalesEmployees.Checked)
                 {
-                    if (e.Type == JobTitle.DEPOT_EMPLOYEE || e.Type == JobTitle.DEPOT_MANAGER)
+                    if (e.Type == JobTitle.SALES_EMPLOYEE || e.Type == JobTitle.SALES_MANAGER)
                     {
                         lbxEmployees.Items.Add(e);
                     }
@@ -62,13 +62,13 @@ namespace MediaBazaar
 
             Employee tempEmployee = (Employee)employeeObj;
             
-            if (tempEmployee.Type != JobTitle.SALES_MANAGER || tempEmployee.Type != JobTitle.SALES_EMPLOYEE)
-            {
-                MessageBox.Show("You do not have the permission to modify this employee");
-            } else
+            if (tempEmployee.Type == JobTitle.SALES_MANAGER || tempEmployee.Type == JobTitle.SALES_EMPLOYEE)
             {
                 FormEditEmployeeData formEditEmployeeData = new FormEditEmployeeData(mediaBazaar, tempEmployee);
                 formEditEmployeeData.Show();
+            } else
+            {
+                MessageBox.Show("You do not have the permission to modify this employee");
             }
         }
 
@@ -85,15 +85,14 @@ namespace MediaBazaar
 
             tbxEmployeeID.Text = tempEmployee.EmployeeID.ToString();
 
-            if (tempEmployee.Type != JobTitle.SALES_MANAGER || tempEmployee.Type != JobTitle.SALES_EMPLOYEE)
+            if (tempEmployee.Type == JobTitle.SALES_MANAGER || tempEmployee.Type == JobTitle.SALES_EMPLOYEE)
             {
-                MessageBox.Show("You do not have the permission to remove this employee");
+                FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(mediaBazaar, tempEmployee);
+                formRemoveEmployee.Show();
             }
             else
             {
-                mediaBazaar.RemoveEmployee(tempEmployee);
-                FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(mediaBazaar, tempEmployee);
-                formRemoveEmployee.Show();
+                MessageBox.Show("You do not have the permission to remove this employee");
             }
 
             UpdateListbox();
