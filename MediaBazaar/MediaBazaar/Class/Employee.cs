@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar
     {
-    abstract class Employee
+    public class Employee
     {
 
 
@@ -27,6 +27,8 @@ namespace MediaBazaar
         private Contract contract; /* every employee has 1 contract*/
 
         // properties
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
 
         public int EmployeeID { get; private set; }
 

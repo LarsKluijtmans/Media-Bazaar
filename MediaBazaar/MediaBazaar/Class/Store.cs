@@ -131,6 +131,17 @@ namespace MediaBazaar
             }
             return null;
         }
+        public Employee GetEmployee(string firstName, string lastName) // check if employee exists
+        {
+            foreach (Employee e in this.Employees)
+            {
+                if (firstName == e.Firstname && lastName == e.Lastname)
+                {
+                    return e; // employee exists
+                }
+            }
+            return null; // employee doesn't exist
+        }
         public void RemoveEmployee(int selectedIndex)
         {
             employees.RemoveAt(selectedIndex);
