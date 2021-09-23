@@ -147,6 +147,8 @@ namespace MediaBazaar
         public void RemoveEmployee(Employee e)
         {
             employees.Remove(e);
+
+            // add reason of termination
         }
     }
 }

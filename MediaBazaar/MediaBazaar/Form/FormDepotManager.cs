@@ -10,18 +10,18 @@ namespace MediaBazaar
 {
     public partial class FormDepotManager : Form
     {
-        Employee e;
+        Employee employee;
         Store mediaBazaar;
         private List<Product> porductRequests;
         private List<Product> porductRestock;
 
-        public FormDepotManager(Employee employee, Store store)
+        public FormDepotManager(Employee e, Store mb)
         {
             InitializeComponent();
             porductRequests = new List<Product>();
             porductRestock = new List<Product>();
-            this.mediaBazaar = store;
-            employee = e;
+            this.mediaBazaar = mb;
+            this.employee = e;
 
             UpdateListbox();
         }
@@ -46,12 +46,12 @@ namespace MediaBazaar
             {
                 if (rbnAllEmployees.Checked)
                 {
-                    lbxEmployees.Items.Add(e.ToString());
+                    lbxEmployees.Items.Add(e);
                 } else if (rbnDepotEmployees.Checked)
                 {
                     if (e.Type == JobTitle.DEPOT_EMPLOYEE || e.Type == JobTitle.DEPOT_MANAGER)
                     {
-                        lbxEmployees.Items.Add(e.Tostring());
+                        lbxEmployees.Items.Add(e);
                     }
                 } 
             }
@@ -79,8 +79,15 @@ namespace MediaBazaar
 
             Employee tempEmployee = (Employee)employeeObj;
 
-            FormEditEmployeeData formEditEmployeeData = new FormEditEmployeeData(mediaBazaar, tempEmployee);
-            formEditEmployeeData.Show();
+            if (tempEmployee.Type != JobTitle.DEPOT_MANAGER || tempEmployee.Type != JobTitle.DEPOT_EMPLOYEE)
+            {
+                MessageBox.Show("You do not have the permission to modify this employee");
+            }
+            else
+            {
+                FormEditEmployeeData formEditEmployeeData = new FormEditEmployeeData(mediaBazaar, tempEmployee);
+                formEditEmployeeData.Show();
+            }
         }
 
         private void btnDeleteEmployees_Click(object sender, EventArgs e)
@@ -96,7 +103,15 @@ namespace MediaBazaar
 
             tbxEmployeeID.Text = tempEmployee.EmployeeID.ToString();
 
-            mediaBazaar.RemoveEmployee(tempEmployee);
+            if (tempEmployee.Type != JobTitle.DEPOT_MANAGER || tempEmployee.Type != JobTitle.DEPOT_EMPLOYEE)
+            {
+                MessageBox.Show("You do not have the permission to remove this employee");
+            } else
+            {
+                mediaBazaar.RemoveEmployee(tempEmployee);
+                FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(mediaBazaar, tempEmployee);
+                formRemoveEmployee.Show();
+            }
 
             UpdateListbox();
         }
