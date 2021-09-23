@@ -45,10 +45,10 @@ namespace MediaBazaar
         //constructions
         public Store()
         {
-            complaints = new List<Complaint>();
-            announcements = new List<Announcement>();
-            employees = new List<Employee>();
-            products = new List<Product>();
+            Complaints = new List<Complaint>();
+            Announcements = new List<Announcement>();
+            Employees = new List<Employee>();
+            Products = new List<Product>();
         }
 
 
@@ -56,11 +56,11 @@ namespace MediaBazaar
         //ANNOUNCEMENT
         public void AddAnnouncement(Announcement a)
         {
-            announcements.Add(a);
+            Announcements.Add(a);
         }
         public Announcement GetAnnouncement(int id)
         {
-            foreach (Announcement announcement in announcements)
+            foreach (Announcement announcement in Announcements)
             {
                 if (announcement.AnnouncementID == id)
                 {
@@ -77,11 +77,11 @@ namespace MediaBazaar
         //COMPLAINTS
         public void AddComplaint(Complaint c)
         {
-            complaints.Add(c);
+            Complaints.Add(c);
         }
         public Complaint GetComplaint(int id)
         {
-            foreach (Complaint complaint in complaints)
+            foreach (Complaint complaint in Complaints)
             {
                 if (complaint.ComplaintID == id)
                 {
@@ -92,13 +92,13 @@ namespace MediaBazaar
         }
         public void RemoveComplaint(int selectedIndex)
         {
-            complaints.RemoveAt(selectedIndex);
+            Complaints.RemoveAt(selectedIndex);
         }
 
         //PRODUCTS
         public void AddProduct(Product p)
         {
-            products.Add(p);
+            Products.Add(p);
         }
         public Product GetProduct(int id)
         {
@@ -155,11 +155,11 @@ namespace MediaBazaar
         //EMPLOYEE
         public void AddEmployee(Employee e)
         {
-            employees.Add(e);
+            Employees.Add(e);
         }
         public Employee GetEmployee(int id)
         {
-            foreach (Employee employee in employees)
+            foreach (Employee employee in Employees)
             {
                 if (employee.EmployeeID == id)
                 {
@@ -170,7 +170,7 @@ namespace MediaBazaar
         }
         public void RemoveEmployee(int selectedIndex)
         {
-            employees.RemoveAt(selectedIndex);
+            Employees.RemoveAt(selectedIndex);
         }
         
     }

@@ -13,9 +13,6 @@
     <Compile Update="Form\FormNewProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\FormEmployeeDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Form\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

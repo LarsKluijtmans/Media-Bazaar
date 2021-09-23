@@ -11,11 +11,13 @@ namespace MediaBazaar
     public partial class FormDepotEmployee : Form, IReplenishment
     {
         Store s;
+        Employee em;
         private static int counter = 1;
-        public FormDepotEmployee(Store store)
+        public FormDepotEmployee(Store store, Employee employee)
         {
             InitializeComponent();
             s = store;
+            em = employee;
 
             UpdateHistoryList();
             UpdateWarehouseProductList();
@@ -134,7 +136,8 @@ namespace MediaBazaar
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-
+            FormEditEmployeeData editEmployeeData = new FormEditEmployeeData(s, em);
+            editEmployeeData.Show();
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
