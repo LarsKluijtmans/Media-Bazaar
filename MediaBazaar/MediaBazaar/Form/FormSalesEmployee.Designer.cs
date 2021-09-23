@@ -33,6 +33,8 @@ namespace MediaBazaar
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ProductID = new System.Windows.Forms.Label();
+            this.tbProductID = new System.Windows.Forms.TextBox();
             this.btnRequestReplenishment = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tbxAmount = new System.Windows.Forms.TextBox();
@@ -44,8 +46,6 @@ namespace MediaBazaar
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.ProductID = new System.Windows.Forms.Label();
-            this.tbProductID = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -106,6 +106,23 @@ namespace MediaBazaar
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Replenishment";
             // 
+            // ProductID
+            // 
+            this.ProductID.AutoSize = true;
+            this.ProductID.Location = new System.Drawing.Point(22, 28);
+            this.ProductID.Name = "ProductID";
+            this.ProductID.Size = new System.Drawing.Size(63, 15);
+            this.ProductID.TabIndex = 4;
+            this.ProductID.Text = "ProductID:";
+            // 
+            // tbProductID
+            // 
+            this.tbProductID.Location = new System.Drawing.Point(91, 20);
+            this.tbProductID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbProductID.Name = "tbProductID";
+            this.tbProductID.Size = new System.Drawing.Size(110, 23);
+            this.tbProductID.TabIndex = 3;
+            // 
             // btnRequestReplenishment
             // 
             this.btnRequestReplenishment.Location = new System.Drawing.Point(22, 97);
@@ -162,7 +179,7 @@ namespace MediaBazaar
             this.lbxProducts.Name = "lbxProducts";
             this.lbxProducts.Size = new System.Drawing.Size(349, 304);
             this.lbxProducts.TabIndex = 0;
-            // 
+              
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnEditInfo);
@@ -215,23 +232,6 @@ namespace MediaBazaar
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
-            // 
-            // ProductID
-            // 
-            this.ProductID.AutoSize = true;
-            this.ProductID.Location = new System.Drawing.Point(22, 28);
-            this.ProductID.Name = "ProductID";
-            this.ProductID.Size = new System.Drawing.Size(63, 15);
-            this.ProductID.TabIndex = 4;
-            this.ProductID.Text = "ProductID:";
-            // 
-            // tbProductID
-            // 
-            this.tbProductID.Location = new System.Drawing.Point(91, 20);
-            this.tbProductID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbProductID.Name = "tbProductID";
-            this.tbProductID.Size = new System.Drawing.Size(110, 23);
-            this.tbProductID.TabIndex = 3;
             // 
             // FormSalesEmployee
             // 

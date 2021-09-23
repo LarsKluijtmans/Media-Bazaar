@@ -49,8 +49,8 @@ namespace MediaBazaar
             {
                 this.employeeID = nextEmployeeID;
                 nextEmployeeID++;
-                this.lastname = lastname;
-                this.firstname = firstname;
+                this.lastname = firstname;
+                this.firstname = lastname;
                 this.gender = gender;
                 this.phoneNumber = phonenumber;
                 this.email = email;
@@ -62,7 +62,7 @@ namespace MediaBazaar
                 this.type = type;
             }
 
-        public Employee(string lastname, string firstname, int phonenumber, int bsn, string username, string password, string email)
+        public Employee(string firstname, string lastname, int phonenumber, int bsn, string username, string password, string email)
             {
                 this.lastname = lastname;
                 this.firstname = firstname;
@@ -74,7 +74,7 @@ namespace MediaBazaar
 
             }
 
-         public Employee() // need this constructor to implement formemployee
+         public Employee() 
         {
 
         }

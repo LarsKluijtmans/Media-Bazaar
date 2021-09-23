@@ -16,7 +16,9 @@ namespace MediaBazaar
         {
             get { return employees; }
             set { employees = value; }
-        }  
+        }
+
+
         public List<Product> Products
         {
             get { return products; }
