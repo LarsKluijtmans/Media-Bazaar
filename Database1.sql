@@ -8,29 +8,29 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema DBI461266
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema DBI461266
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `DBI461266` DEFAULT CHARACTER SET utf8 ;
+USE `DBI461266` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Announcement`
+-- Table `DBI461266`.`Announcement`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Announcement` (
+CREATE TABLE IF NOT EXISTS `DBI461266`.`Announcement` (
   `announcementID` INT NOT NULL AUTO_INCREMENT,
   `announcementMessage` TEXT NOT NULL,
   PRIMARY KEY (`announcementID`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `mydb`.`checks`
+-- Table `DBI461266`.`checks`
 -- -----------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Checks` (
+CREATE TABLE IF NOT EXISTS `DBI461266`.`Checks` (
   `ChecksID` INT NOT NULL AUTO_INCREMENT,
   `EmplID` INT NOT NULL,
   `CheckTime` datetime NOT NULL,
@@ -38,9 +38,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Checks` (
   PRIMARY KEY (`ChecksID`))
 ENGINE = InnoDB;
 -- -----------------------------------------------------
--- Table `mydb`.`Complaint`
+-- Table `DBI461266`.`Complaint`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Complaint` (
+CREATE TABLE IF NOT EXISTS `DBI461266`.`Complaint` (
   `complaintID` INT NOT NULL,
   `complaintMessage` TEXT NOT NULL,
   PRIMARY KEY (`complaintID`))
@@ -50,17 +50,16 @@ ENGINE = InnoDB;
 -- making complaintID auto increment
 -- -----------------------------------------------------
 
-ALTER TABLE `mydb`.`complaint` 
+ALTER TABLE `DBI461266`.`complaint` 
 CHANGE COLUMN `complaintID` `complaintID` INT NOT NULL AUTO_INCREMENT ;
 
 COMMIT;
 
 
-
 -- -----------------------------------------------------
--- Table `mydb`.`Contract`
+-- Table `DBI461266`.`Contract`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Contract` (
+CREATE TABLE IF NOT EXISTS `DBI461266`.`Contract` (
   `contractID` INT NOT NULL AUTO_INCREMENT,
   `employeeID` INT NOT NULL,
   `jobTitle` VARCHAR(45) NOT NULL,
@@ -73,11 +72,10 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Contract` (
   PRIMARY KEY (`ContractID`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
--- Table `mydb`.`DeletedEmployee`
+-- Table `DBI461266`.`DeletedEmployee`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`DeletedEmployee` (
+CREATE TABLE IF NOT EXISTS `DBI461266`.`DeletedEmployee` (
   `employeeID` INT NOT NULL AUTO_INCREMENT,
   `firstName` VARCHAR(45) NOT NULL,
   `lastName` VARCHAR(45) NOT NULL,
@@ -91,21 +89,19 @@ CREATE TABLE IF NOT EXISTS `mydb`.`DeletedEmployee` (
   PRIMARY KEY (`employeeID`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
--- Table `mydb`.`Department`
+-- Table `DBI461266`.`Department`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Department` (
+CREATE TABLE IF NOT EXISTS `DBI461266`.`Department` (
   `departmentID` INT NOT NULL AUTO_INCREMENT,
   `departmentName` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`departmentID`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
--- Table `mydb`.`Employee`
+-- Table `DBI461266`.`Employee`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Employee` (
+CREATE TABLE IF NOT EXISTS `DBI461266`.`Employee` (
   `employeeID` INT NOT NULL AUTO_INCREMENT,
   `firstName` VARCHAR(45) NOT NULL,
   `lastName` VARCHAR(45) NOT NULL,
@@ -119,21 +115,19 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Employee` (
   PRIMARY KEY (`employeeID`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
--- Table `mydb`.`Jobs`
+-- Table `DBI461266`.`Jobs`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Jobs` (
+CREATE TABLE IF NOT EXISTS `DBI461266`.`Jobs` (
   `jobID` INT NOT NULL AUTO_INCREMENT,
   `jobTitle` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`jobID`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
--- Table `mydb`.`Product`
+-- Table `DBI461266`.`Product`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Product` (
+CREATE TABLE IF NOT EXISTS `DBI461266`.`Product` (
   `productID` INT NOT NULL AUTO_INCREMENT,
   `barcode` VARCHAR(10) NOT NULL,
   `ProductName` VARCHAR(45) NOT NULL,
@@ -143,31 +137,28 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Product` (
   PRIMARY KEY (`productID`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
--- Table `mydb`.`ProductTypes`
+-- Table `DBI461266`.`ProductTypes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`ProductTypes` (
+CREATE TABLE IF NOT EXISTS `DBI461266`.`ProductTypes` (
   `ProductTypeID` INT NOT NULL AUTO_INCREMENT,
   `ProductTypesName` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`ProductTypeID`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
--- Table `mydb`.`Scheduel`
+-- Table `DBI461266`.`Scheduel`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Scheduel` (
+CREATE TABLE IF NOT EXISTS `DBI461266`.`Scheduel` (
   `empID` INT NOT NULL,
   `scheduelDay` VARCHAR(45) NOT NULL,
   `time` VARCHAR(45) NOT NULL)
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
--- Table `mydb`.`Shifts`
+-- Table `DBI461266`.`Shifts`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Shifts` (
+CREATE TABLE IF NOT EXISTS `DBI461266`.`Shifts` (
   `day` VARCHAR(45) NOT NULL,
   `Morning` INT NOT NULL DEFAULT 1,
   `Afternoon` INT NOT NULL DEFAULT 1,
@@ -175,178 +166,167 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Shifts` (
   PRIMARY KEY (`day`))
 ENGINE = InnoDB;
 
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `mydb`.`Announcement`
+-- Data for table `DBI461266`.`Announcement`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Announcement` ( `announcementMessage`) VALUES ( 'hello');
-INSERT INTO `mydb`.`Announcement` ( `announcementMessage`) VALUES ( 'first');
-INSERT INTO `mydb`.`Announcement` ( `announcementMessage`) VALUES ( 'Error');
+USE `DBI461266`;
+INSERT INTO `DBI461266`.`Announcement` ( `announcementMessage`) VALUES ( 'hello');
+INSERT INTO `DBI461266`.`Announcement` ( `announcementMessage`) VALUES ( 'first');
+INSERT INTO `DBI461266`.`Announcement` ( `announcementMessage`) VALUES ( 'Error');
 
 COMMIT;
 
 -- -----------------------------------------------------
--- Data for table `mydb`.`checks`
+-- Data for table `DBI461266`.`checks`
 -- -----------------------------------------------------
 
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `mydb`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+USE `DBI461266`;
+INSERT INTO `DBI461266`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `DBI461266`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `DBI461266`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `DBI461266`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `DBI461266`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `DBI461266`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `DBI461266`.`checks` ( `EmplID`, `CheckTime`, `CheckOutTime`) VALUES ('1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `mydb`.`Complaint`
+-- Data for table `DBI461266`.`Complaint`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Complaint` (`complaintMessage`) VALUES ( 'Error');
-INSERT INTO `mydb`.`Complaint` ( `complaintMessage`) VALUES ( 'hello');
+USE `DBI461266`;
+INSERT INTO `DBI461266`.`Complaint` (`complaintMessage`) VALUES ( 'Error');
+INSERT INTO `DBI461266`.`Complaint` ( `complaintMessage`) VALUES ( 'hello');
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `mydb`.`Contract`
+-- Data for table `DBI461266`.`Contract`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) VALUES ( 1, 'OWNER', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
-INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
+USE `DBI461266`;
+INSERT INTO `DBI461266`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) VALUES ( 1, 'OWNER', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `DBI461266`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
 VALUES (2, 'SALES MANAGER', 'KITCHEN AND HOME', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
-INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
+INSERT INTO `DBI461266`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
 VALUES (3, 'SALES EMPLOYEE', 'KITCHEN AND HOME', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
-INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
+INSERT INTO `DBI461266`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
 VALUES (4, 'OFFICE MANAGER', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
-INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
+INSERT INTO `DBI461266`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
 VALUES (5, 'OFFICE EMPLOYEE', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
-INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
+INSERT INTO `DBI461266`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
 VALUES (6, 'DEPOT MANAGER', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
-INSERT INTO `mydb`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
+INSERT INTO `DBI461266`.`Contract` (`EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) 
 VALUES (7, 'DEPOT EMPLOYEE', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `mydb`.`DeletedEmployee`
+-- Data for table `DBI461266`.`DeletedEmployee`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`DeletedEmployee` (`employeeID`, `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES (2, 'I\'ll', 'Be back', NULL, NULL, NULL, NULL, 123, 'i', '1');
+USE `DBI461266`;
+INSERT INTO `DBI461266`.`DeletedEmployee` (`employeeID`, `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES (2, 'I\'ll', 'Be back', NULL, NULL, NULL, NULL, 123, 'i', '1');
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `mydb`.`Department`
+-- Data for table `DBI461266`.`Department`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Department` ( `departmentName`) VALUES ( 'Sales');
-INSERT INTO `mydb`.`Department` ( `departmentName`) VALUES ( 'Office');
-INSERT INTO `mydb`.`Department` ( `departmentName`) VALUES ( 'Depot');
+USE `DBI461266`;
+INSERT INTO `DBI461266`.`Department` ( `departmentName`) VALUES ( 'Sales');
+INSERT INTO `DBI461266`.`Department` ( `departmentName`) VALUES ( 'Office');
+INSERT INTO `DBI461266`.`Department` ( `departmentName`) VALUES ( 'Depot');
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `mydb`.`Employee`
+-- Data for table `DBI461266`.`Employee`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'Lars', 'Kluijtmans', 0000, 'lars@gmail.com', NULL, NULL, 1234, 'Lars', '1');
-INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ('soleil', 'soleil', 0000, 'soleil@gmail.com', NULL, NULL, 1234, 'soleil', '1');
-INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'ester', 'ester', 0000, 'ester@gmail.com', NULL, NULL, 1234, 'ester', '1');
-INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'mohammad', 'mohammad', 0000, 'mohammad@gmail.com', NULL, NULL, 1234, 'mohammad', '1');
-INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ('soleil2', 'soleil2', 0000, 'soleil2@gmail.com', NULL, NULL, 1234, 'soleil2', '1');
-INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'ester2', 'ester2', 0000, 'ester2@gmail.com', NULL, NULL, 1234, 'ester2', '1');
-INSERT INTO `mydb`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'mohammad2', 'mohammad2', 0000, 'mohammad2@gmail.com', NULL, NULL, 1234, 'mohammad2', '1');
+USE `DBI461266`;
+INSERT INTO `DBI461266`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'Lars', 'Kluijtmans', 0000, 'lars@gmail.com', NULL, NULL, 1234, 'Lars', '1');
+INSERT INTO `DBI461266`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ('soleil', 'soleil', 0000, 'soleil@gmail.com', NULL, NULL, 1234, 'soleil', '1');
+INSERT INTO `DBI461266`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'ester', 'ester', 0000, 'ester@gmail.com', NULL, NULL, 1234, 'ester', '1');
+INSERT INTO `DBI461266`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'mohammad', 'mohammad', 0000, 'mohammad@gmail.com', NULL, NULL, 1234, 'mohammad', '1');
+INSERT INTO `DBI461266`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ('soleil2', 'soleil2', 0000, 'soleil2@gmail.com', NULL, NULL, 1234, 'soleil2', '1');
+INSERT INTO `DBI461266`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'ester2', 'ester2', 0000, 'ester2@gmail.com', NULL, NULL, 1234, 'ester2', '1');
+INSERT INTO `DBI461266`.`Employee` ( `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES ( 'mohammad2', 'mohammad2', 0000, 'mohammad2@gmail.com', NULL, NULL, 1234, 'mohammad2', '1');
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `mydb`.`Jobs`
+-- Data for table `DBI461266`.`Jobs`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('OWNER');
-INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('SALES MANAGER');
-INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('SALES EMPLOYEE');
-INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('OFFICE MANAGER');
-INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('OFFICE EMPLOYEE');
-INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('DEPOT MANAGER');
-INSERT INTO `mydb`.`Jobs` (`jobTitle`) VALUES ('DEPOT EMPLOYEE');
+USE `DBI461266`;
+INSERT INTO `DBI461266`.`Jobs` (`jobTitle`) VALUES ('OWNER');
+INSERT INTO `DBI461266`.`Jobs` (`jobTitle`) VALUES ('SALES MANAGER');
+INSERT INTO `DBI461266`.`Jobs` (`jobTitle`) VALUES ('SALES EMPLOYEE');
+INSERT INTO `DBI461266`.`Jobs` (`jobTitle`) VALUES ('OFFICE MANAGER');
+INSERT INTO `DBI461266`.`Jobs` (`jobTitle`) VALUES ('OFFICE EMPLOYEE');
+INSERT INTO `DBI461266`.`Jobs` (`jobTitle`) VALUES ('DEPOT MANAGER');
+INSERT INTO `DBI461266`.`Jobs` (`jobTitle`) VALUES ('DEPOT EMPLOYEE');
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `mydb`.`Product`
+-- Data for table `DBI461266`.`Product`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('k1', 'Knife', 'KITCHEN AND HOME', 100, 12);
-INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('p2', 'Phone', 'PHOTO VIDEO NAVIGATION', 100, 12);
-INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('s3', 'Oven', 'SMARTHOME APPLIANCES', 100, 12);
-INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('g4', 'Game 2', 'GAMING MUSIC COMPUTERS', 100, 12);
-INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('p5', 'Phone2.0', 'PHOTO VIDEO NAVIGATION', 100, 12);
-INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('s6', 'Freezer', 'SMARTHOME APPLIANCES', 100, 12);
-INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('g7', ' Game1', 'GAMING MUSIC COMPUTERS', 100, 12);
-INSERT INTO `mydb`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('k8', ' Fork', 'KITCHEN AND HOME', 100, 12);
+USE `DBI461266`;
+INSERT INTO `DBI461266`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('k1', 'Knife', 'KITCHEN AND HOME', 100, 12);
+INSERT INTO `DBI461266`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('p2', 'Phone', 'PHOTO VIDEO NAVIGATION', 100, 12);
+INSERT INTO `DBI461266`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('s3', 'Oven', 'SMARTHOME APPLIANCES', 100, 12);
+INSERT INTO `DBI461266`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('g4', 'Game 2', 'GAMING MUSIC COMPUTERS', 100, 12);
+INSERT INTO `DBI461266`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('p5', 'Phone2.0', 'PHOTO VIDEO NAVIGATION', 100, 12);
+INSERT INTO `DBI461266`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('s6', 'Freezer', 'SMARTHOME APPLIANCES', 100, 12);
+INSERT INTO `DBI461266`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('g7', ' Game1', 'GAMING MUSIC COMPUTERS', 100, 12);
+INSERT INTO `DBI461266`.`Product` (`barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES ('k8', ' Fork', 'KITCHEN AND HOME', 100, 12);
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `mydb`.`ProductTypes`
+-- Data for table `DBI461266`.`ProductTypes`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`ProductTypes` ( `ProductTypesName`) VALUES ('KITCHEN AND HOME');
-INSERT INTO `mydb`.`ProductTypes` ( `ProductTypesName`) VALUES ('PHOTO VIDEO NAVIGATION');
-INSERT INTO `mydb`.`ProductTypes` ( `ProductTypesName`) VALUES ('SMARTHOME APPLIANCES');
-INSERT INTO `mydb`.`ProductTypes` ( `ProductTypesName`) VALUES ('GAMING MUSIC COMPUTERS');
+USE `DBI461266`;
+INSERT INTO `DBI461266`.`ProductTypes` ( `ProductTypesName`) VALUES ('KITCHEN AND HOME');
+INSERT INTO `DBI461266`.`ProductTypes` ( `ProductTypesName`) VALUES ('PHOTO VIDEO NAVIGATION');
+INSERT INTO `DBI461266`.`ProductTypes` ( `ProductTypesName`) VALUES ('SMARTHOME APPLIANCES');
+INSERT INTO `DBI461266`.`ProductTypes` ( `ProductTypesName`) VALUES ('GAMING MUSIC COMPUTERS');
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `mydb`.`Scheduel`
+-- Data for table `DBI461266`.`Scheduel`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Scheduel` (`empID`, `scheduelDay`, `time`) VALUES (1, 'wednesday', 'morning');
+USE `DBI461266`;
+INSERT INTO `DBI461266`.`Scheduel` (`empID`, `scheduelDay`, `time`) VALUES (1, 'wednesday', 'morning');
 
 COMMIT;
 
-
 -- -----------------------------------------------------
--- Data for table `mydb`.`Shifts`
+-- Data for table `DBI461266`.`Shifts`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('monday', 1, 1, 1);
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('tuseday', 1, 1, 1);
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('wednsday', 1, 1, 1);
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('thursday', 1, 1, 1);
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('friday', 1, 1, 1);
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('stareday', 1, 1, 1);
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('sunday', 1, 1, 1);
+USE `DBI461266`;
+INSERT INTO `DBI461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('monday', 1, 1, 1);
+INSERT INTO `DBI461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('tuseday', 1, 1, 1);
+INSERT INTO `DBI461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('wednsday', 1, 1, 1);
+INSERT INTO `DBI461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('thursday', 1, 1, 1);
+INSERT INTO `DBI461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('friday', 1, 1, 1);
+INSERT INTO `DBI461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('stareday', 1, 1, 1);
+INSERT INTO `DBI461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('sunday', 1, 1, 1);
 
 COMMIT;
 
@@ -354,15 +334,16 @@ COMMIT;
 -- Foreign key for table contract
 -- -----------------------------------------------------
 
-
-ALTER TABLE `mydb`.`contract` 
+ALTER TABLE `DBI461266`.`contract` 
 ADD INDEX `employeeID_idx` (`employeeID` ASC) VISIBLE;
 ;
-ALTER TABLE `mydb`.`contract` 
+ALTER TABLE `DBI461266`.`contract` 
 ADD CONSTRAINT `employeeID`
   FOREIGN KEY (`employeeID`)
-  REFERENCES `mydb`.`employee` (`employeeID`)
+  REFERENCES `DBI461266`.`employee` (`employeeID`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
 
 COMMIT;
+
+
