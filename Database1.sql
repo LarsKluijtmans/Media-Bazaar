@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `DBI461266`.`Product` (
   PRIMARY KEY (`productID`))
 ENGINE = InnoDB;
 
-ALTER TABLE `mydb`.`product` 
+ALTER TABLE `DBI461266`.`product` 
 ADD COLUMN `MaxAmountInStore` VARCHAR(45) NOT NULL AFTER `AmountInSales`;
 
 -- -----------------------------------------------------
@@ -172,7 +172,7 @@ ENGINE = InnoDB
 
 
 CREATE TABLE IF NOT EXISTS `DBI461266`.`WorkTime` (
-  `WorkTimeID` INT NOT NULL,
+  `WorkTimeID` INT NOT NULL AUTO_INCREMENT,,
   `employeeID` INT NOT NULL,
   `day` VARCHAR(45) NOT NULL,
   `Morning` INT NOT NULL DEFAULT 1,
