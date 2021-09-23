@@ -26,7 +26,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Announcement` (
   PRIMARY KEY (`announcementID`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `mydb`.`checks`
+-- -----------------------------------------------------
 
+CREATE TABLE IF NOT EXISTS `mydb`.`Checks` (
+  `ChecksID` INT NOT NULL AUTO_INCREMENT,
+  `EmplID` INT NOT NULL,
+  `CheckTime` datetime NOT NULL,
+    `CheckOutTime` datetime NOT NULL,
+  PRIMARY KEY (`ChecksID`))
+ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Complaint`
 -- -----------------------------------------------------
