@@ -29,49 +29,50 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddProduct = new System.Windows.Forms.Button();
-            this.txtProductAmount = new System.Windows.Forms.TextBox();
-            this.txtProductName = new System.Windows.Forms.TextBox();
+            this.BtnNewEmployee = new System.Windows.Forms.Button();
+            this.txtLastN = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPhoneN = new System.Windows.Forms.TextBox();
+            this.txtUserN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtBsn = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPsswrd = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnAddProduct
+            // BtnNewEmployee
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(270, 373);
-            this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(75, 23);
-            this.btnAddProduct.TabIndex = 41;
-            this.btnAddProduct.Text = "Add Product";
-            this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.BtnNewEmployee.Location = new System.Drawing.Point(189, 355);
+            this.BtnNewEmployee.Name = "BtnNewEmployee";
+            this.BtnNewEmployee.Size = new System.Drawing.Size(199, 23);
+            this.BtnNewEmployee.TabIndex = 41;
+            this.BtnNewEmployee.Text = "Add Empolyee";
+            this.BtnNewEmployee.UseVisualStyleBackColor = true;
+            this.BtnNewEmployee.Click += new System.EventHandler(this.BtnNewEmployee_Click);
             // 
-            // txtProductAmount
+            // txtLastN
             // 
-            this.txtProductAmount.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProductAmount.Location = new System.Drawing.Point(232, 128);
-            this.txtProductAmount.Name = "txtProductAmount";
-            this.txtProductAmount.Size = new System.Drawing.Size(113, 25);
-            this.txtProductAmount.TabIndex = 39;
+            this.txtLastN.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtLastN.Location = new System.Drawing.Point(232, 128);
+            this.txtLastN.Name = "txtLastN";
+            this.txtLastN.Size = new System.Drawing.Size(113, 25);
+            this.txtLastN.TabIndex = 39;
             // 
-            // txtProductName
+            // txtFirstName
             // 
-            this.txtProductName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProductName.Location = new System.Drawing.Point(232, 97);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(113, 25);
-            this.txtProductName.TabIndex = 38;
+            this.txtFirstName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFirstName.Location = new System.Drawing.Point(232, 97);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(113, 25);
+            this.txtFirstName.TabIndex = 38;
             // 
             // label11
             // 
@@ -93,21 +94,21 @@ namespace MediaBazaar
             this.label9.TabIndex = 35;
             this.label9.Text = "First Name:";
             // 
-            // textBox1
+            // txtPhoneN
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(232, 190);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 25);
-            this.textBox1.TabIndex = 45;
+            this.txtPhoneN.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPhoneN.Location = new System.Drawing.Point(232, 190);
+            this.txtPhoneN.Name = "txtPhoneN";
+            this.txtPhoneN.Size = new System.Drawing.Size(113, 25);
+            this.txtPhoneN.TabIndex = 45;
             // 
-            // textBox2
+            // txtUserN
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(232, 314);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(113, 25);
-            this.textBox2.TabIndex = 44;
+            this.txtUserN.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUserN.Location = new System.Drawing.Point(232, 314);
+            this.txtUserN.Name = "txtUserN";
+            this.txtUserN.Size = new System.Drawing.Size(113, 25);
+            this.txtUserN.TabIndex = 44;
             // 
             // label1
             // 
@@ -129,21 +130,21 @@ namespace MediaBazaar
             this.label2.TabIndex = 42;
             this.label2.Text = "Username:";
             // 
-            // textBox3
+            // txtBsn
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(232, 252);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(113, 25);
-            this.textBox3.TabIndex = 49;
+            this.txtBsn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBsn.Location = new System.Drawing.Point(232, 252);
+            this.txtBsn.Name = "txtBsn";
+            this.txtBsn.Size = new System.Drawing.Size(113, 25);
+            this.txtBsn.TabIndex = 49;
             // 
-            // textBox4
+            // txtAddress
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(232, 221);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(113, 25);
-            this.textBox4.TabIndex = 48;
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtAddress.Location = new System.Drawing.Point(232, 221);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(113, 25);
+            this.txtAddress.TabIndex = 48;
             // 
             // label3
             // 
@@ -165,21 +166,21 @@ namespace MediaBazaar
             this.label4.TabIndex = 46;
             this.label4.Text = "Address:";
             // 
-            // textBox5
+            // txtEmail
             // 
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.Location = new System.Drawing.Point(232, 159);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(113, 25);
-            this.textBox5.TabIndex = 53;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtEmail.Location = new System.Drawing.Point(232, 159);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(113, 25);
+            this.txtEmail.TabIndex = 53;
             // 
-            // textBox6
+            // txtPsswrd
             // 
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.Location = new System.Drawing.Point(232, 283);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(113, 25);
-            this.textBox6.TabIndex = 52;
+            this.txtPsswrd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPsswrd.Location = new System.Drawing.Point(232, 283);
+            this.txtPsswrd.Name = "txtPsswrd";
+            this.txtPsswrd.Size = new System.Drawing.Size(113, 25);
+            this.txtPsswrd.TabIndex = 52;
             // 
             // label5
             // 
@@ -206,21 +207,21 @@ namespace MediaBazaar
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 448);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtPsswrd);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtBsn);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPhoneN);
+            this.Controls.Add(this.txtUserN);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnAddProduct);
-            this.Controls.Add(this.txtProductAmount);
-            this.Controls.Add(this.txtProductName);
+            this.Controls.Add(this.BtnNewEmployee);
+            this.Controls.Add(this.txtLastN);
+            this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
             this.Name = "FormNewEmployee";
@@ -232,21 +233,21 @@ namespace MediaBazaar
 
         #endregion
 
-        private System.Windows.Forms.Button btnAddProduct;
-        private System.Windows.Forms.TextBox txtProductAmount;
-        private System.Windows.Forms.TextBox txtProductName;
+        private System.Windows.Forms.Button BtnNewEmployee;
+        private System.Windows.Forms.TextBox txtLastN;
+        private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPhoneN;
+        private System.Windows.Forms.TextBox txtUserN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtBsn;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtPsswrd;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
     }

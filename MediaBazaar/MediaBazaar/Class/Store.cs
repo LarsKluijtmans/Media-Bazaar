@@ -17,6 +17,8 @@ namespace MediaBazaar
             get { return employees; }
             set { employees = value; }
         }
+
+
         public List<Product> Products
         {
             get { return products; }
@@ -131,10 +133,20 @@ namespace MediaBazaar
             }
             return null;
         }
-        public void RemoveEmployee(int selectedIndex)
+        public Employee GetEmployee(string firstName, string lastName) // check if employee exists
         {
-            employees.RemoveAt(selectedIndex);
+            foreach (Employee e in this.Employees)
+            {
+                if (firstName == e.FirstName && lastName == e.LastName)
+                {
+                    return e; // employee exists
+                }
+            }
+            return null; // employee doesn't exist
         }
-        
+        public void RemoveEmployee(Employee e)
+        {
+            employees.Remove(e);
+        }
     }
 }
