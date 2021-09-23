@@ -137,7 +137,7 @@ namespace MediaBazaar
         {
             foreach (Employee e in this.Employees)
             {
-                if (firstName == e.Firstname && lastName == e.Lastname)
+                if (firstName == e.FirstName && lastName == e.LastName)
                 {
                     return e; // employee exists
                 }
