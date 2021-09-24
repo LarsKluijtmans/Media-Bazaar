@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="Form\FormRemoveEmployee.cs">
+    <Compile Update="Form\FormDepotManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\FormEditEmployeeData.cs">
@@ -19,9 +19,6 @@
     <Compile Update="Form\FormDepotEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\FormDepotManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Form\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -29,6 +26,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\FormOfficeManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\FormRemoveEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\FormSalesEmployee.cs">
