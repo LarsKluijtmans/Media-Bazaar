@@ -11,7 +11,6 @@ namespace MediaBazaar
         private int employeeID;
         private string lastName;
         private string firstName;
-        private string gender;
         private int phoneNumber;
         private string email;
         private string city;
@@ -28,7 +27,7 @@ namespace MediaBazaar
         // properties
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Gender { get; set; }
+        
         public int PhoneNumber { get; set; }
         public string City { get; set; }
         public string DateOfBirth { get; set; }
@@ -41,7 +40,7 @@ namespace MediaBazaar
         public Contract Contract { get; set; }
         public List<Shift> Schedule { get; set; }
         // constructor
-        public Employee(string lastname, string firstname, string gender, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password, JobTitle type)
+        public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password, JobTitle type)
          {
             Schedule = new List<Shift>();
             this.EmployeeID = nextEmployeeID;
