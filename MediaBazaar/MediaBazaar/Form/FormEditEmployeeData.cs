@@ -27,7 +27,7 @@ namespace MediaBazaar
             tbxGender.Text = e.Gender;
             tbxPhoneNumber.Text = e.PhoneNumber.ToString();
             tbxEmail.Text = e.Email;
-            tbxAddress.Text = e.Address;
+            tbxAddress.Text = e.City;
             tbxUsername.Text = e.Username;
             tbxPassword.Text = e.Password;
             cbxType.Text = e.Type.ToString();
@@ -41,7 +41,7 @@ namespace MediaBazaar
             this.e.LastName = tbxLastName.Text;
             this.e.Gender = tbxGender.Text;
             this.e.PhoneNumber = Convert.ToInt32(tbxPhoneNumber.Text);
-            this.e.Address = tbxAddress.Text;
+            this.e.City = tbxAddress.Text;
             this.e.Username = tbxUsername.Text;
             this.e.Password = tbxPassword.Text;
         }
