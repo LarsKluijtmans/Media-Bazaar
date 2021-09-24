@@ -24,7 +24,7 @@ namespace MediaBazaar
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            mb.RemoveEmployee(employee);
+            //mb.RemoveEmployee(employee);
         }
     }
 }
