@@ -12,14 +12,14 @@ namespace MediaBazaar
     {
         Employee employee;
         Store mediaBazaar;
-        private List<Product> porductRequests;
-        private List<Product> porductRestock;
+        private List<Product> productRequests;
+        private List<Product> productRestock;
 
         public FormDepotManager(Employee e, Store mb)
         {
             InitializeComponent();
-            porductRequests = new List<Product>();
-            porductRestock = new List<Product>();
+            productRequests = new List<Product>();
+            productRestock = new List<Product>();
             this.mediaBazaar = mb;
             this.employee = e;
 
@@ -70,14 +70,7 @@ namespace MediaBazaar
 
         private void btnUpdateEmployees_Click(object sender, EventArgs e)
         {
-            Object employeeObj = lbxEmployees.SelectedItem;
-
-            if (!(employeeObj is Employee))
-            {
-                MessageBox.Show("Error");
-            }
-
-            Employee tempEmployee = (Employee)employeeObj;
+            Employee tempEmployee = GetTempEmployee();
 
             if (tempEmployee.Type == JobTitle.DEPOT_MANAGER || tempEmployee.Type == JobTitle.DEPOT_EMPLOYEE)
             {
@@ -92,14 +85,7 @@ namespace MediaBazaar
 
         private void btnDeleteEmployees_Click(object sender, EventArgs e)
         {
-            Object employeeObj = lbxEmployees.SelectedItem;
-
-            if (!(employeeObj is Employee))
-            {
-                MessageBox.Show("Error");
-            }
-
-            Employee tempEmployee = (Employee)employeeObj;
+            Employee tempEmployee = GetTempEmployee();
 
             tbxEmployeeID.Text = tempEmployee.EmployeeID.ToString();
 
@@ -117,6 +103,12 @@ namespace MediaBazaar
 
         private void lbxEmployees_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Employee tempEmployee = GetTempEmployee();
+
+            tbxEmployeeID.Text = tempEmployee.EmployeeID.ToString();
+        }
+        private Employee GetTempEmployee()
+        {
             Object employeeObj = lbxEmployees.SelectedItem;
 
             if (!(employeeObj is Employee))
@@ -126,7 +118,28 @@ namespace MediaBazaar
 
             Employee tempEmployee = (Employee)employeeObj;
 
-            tbxEmployeeID.Text = tempEmployee.EmployeeID.ToString();
+            return tempEmployee;
+        }
+
+        // products
+        private void lbxProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Product tempProduct = GetTempProduct();
+
+            tbxProductID.Text = tempProduct.ProductID.ToString();
+        }
+        private Product GetTempProduct()
+        {
+            Object productObj = lbxProducts.SelectedItem;
+
+            if (!(productObj is Product))
+            {
+                MessageBox.Show("Error");
+            }
+
+            Product tempProduct = (Product)productObj;
+
+            return tempProduct;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace MediaBazaar
     {
         //fields
         private int productID;
-        private static int counter = 1;
+        private static int nextProductID = 1;
         private string barcode;
         private string name;
         private ProductType productType;
@@ -44,26 +44,17 @@ namespace MediaBazaar
             set { amount = value; }
         }
 
-
         //constructor
         public Product(string barcode, string name, ProductType type, int amount)
         {
-            ProductID = counter;
+            ProductID = nextProductID;
             Barcode = barcode;
             Name = name;
             ProductType = type;
             Amount = amount;
 
-            counter++; 
+            nextProductID++; 
         }
-
-        public Product(string name, ProductType productType, int amount)
-        {
-            Name = name;
-            ProductType = productType;
-            Amount = amount;
-        }
-
         public Product(string productN, int productA)
         {
             this.productN = productN;
