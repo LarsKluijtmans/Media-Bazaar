@@ -156,7 +156,7 @@ namespace MediaBazaar
             this.btnReadEmployees.TabIndex = 5;
             this.btnReadEmployees.Text = "Read Employees";
             this.btnReadEmployees.UseVisualStyleBackColor = true;
-            //this.btnReadEmployees.Click += new System.EventHandler(this.btnReadEmployees_Click);
+           // this.btnReadEmployees.Click += new System.EventHandler(this.btnReadEmployees_Click);
             // 
             // btnUpdateEmployees
             // 
@@ -166,7 +166,7 @@ namespace MediaBazaar
             this.btnUpdateEmployees.TabIndex = 6;
             this.btnUpdateEmployees.Text = "Update Employees";
             this.btnUpdateEmployees.UseVisualStyleBackColor = true;
-            //this.btnUpdateEmployees.Click += new System.EventHandler(this.btnUpdateEmployees_Click);
+           // this.btnUpdateEmployees.Click += new System.EventHandler(this.btnUpdateEmployees_Click);
             // 
             // btnDeleteEmployees
             // 
