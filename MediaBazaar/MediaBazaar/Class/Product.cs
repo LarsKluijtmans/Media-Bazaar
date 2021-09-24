@@ -8,13 +8,13 @@ namespace MediaBazaar
     {
         //fields
         private int productID;
+        private static int counter = 1;
         private string barcode;
         private string name;
         private ProductType productType;
         private int amount;
         private int shelfSpace;
         private int warehouseAmount;
-
         private int amountRequested;
         private int requestID;
 
