@@ -6,15 +6,19 @@ namespace MediaBazaar
 {
     public class Announcement
     {
+        //fields
         private static int counter=1;
         private int announcementID;
         private string message;
         
+        //properties
         public int AnnouncementID
         {
             get { return announcementID; }
             private set { announcementID = value; }
         }
+
+        //constructor
         public Announcement(string message)
         {
             this.message = message;

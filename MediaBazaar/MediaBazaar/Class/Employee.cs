@@ -49,63 +49,26 @@ namespace MediaBazaar
     
 
         public Employee(string lastname, string firstname, string gender, int phonenumber, string email, string address, string dateofbirth, int bsn, string username, string password, JobTitle type)
-            {
-                this.employeeID = nextEmployeeID;
+         {
+                this.EmployeeID = nextEmployeeID;
                 nextEmployeeID++;
-                this.lastName = firstname;
-                this.firstName = lastname;
-                this.gender = gender;
-                this.phoneNumber = phonenumber;
-                this.email = email;
-                this.address = address;
-                this.dateOfBirth = dateofbirth;
-                this.bsn = bsn;
-                this.username = username;
-                this.password = password;
-                this.type = type;
-            }
+                this.LastName = firstname;
+                this.FirstName = lastname;
+                this.Gender = gender;
+                this.PhoneNumber = phonenumber;
+                this.Email = email;
+                this.Address = address;
+                this.DateOfBirth = dateofbirth;
+                this.BSN = bsn;
+                this.Username = username;
+                this.Password = password;
+                this.Type = type;
+         }
 
-        public Employee(string firstname, string lastname, int phonenumber, int bsn, string username, string password, string email)
-            {
-                this.lastName = lastname;
-                this.firstName = firstname;
-                this.bsn = bsn;
-                this.username = username;
-                this.password = password;
-                this.phoneNumber = phonenumber;
-                this.email = email;
-
-            }
-
-         public Employee() 
-        {
-
-        }
-         // methodes
-
-        //public Shift MostPreferedTimeToWork()
-        //    {
-        //    return this.shift;
-        //    }
-
-        // public Shift LeastPreferedTimeToWork()  
-        //    {
-        //    if (this.shift == Shift.MORNING)
-        //    {
-        //        return Shift.EVENING;
-        //    }
-        //    else
-        //        return Shift.MORNING;
-        //    }
-
-         public string Tostring()
-            {
-            return $"Name: {firstName}, Name: {lastName}, Email: {email}";
-            }
-
+        // methodes
         public override string ToString()
         {
-            return $"ID: {EmployeeID }Name: {FirstName} {LastName} - Email: {Email}";
+            return $"ID: {EmployeeID} - Name: {FirstName} {LastName} - Email: {Email} - Type: {Type.ToString()}";
         }
     }
     }

@@ -59,3 +59,10 @@ C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaa
 C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CoreCompileInputs.cache
 C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.dll
 C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.pdb
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.exe
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.deps.json
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.runtimeconfig.json
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.runtimeconfig.dev.json
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.dll
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.pdb
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.genruntimeconfig.cache
