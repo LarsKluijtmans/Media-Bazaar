@@ -54,63 +54,63 @@ namespace MediaBazaar
 
         //methods
         //ANNOUNCEMENT
-        public void AddAnnouncement(Announcement a)
-        {
-            Announcements.Add(a);
-        }
-        public Announcement GetAnnouncement(int id)
-        {
-            foreach (Announcement announcement in Announcements)
-            {
-                if (announcement.AnnouncementID == id)
-                {
-                    return announcement;
-                }
-            }
-            return null;
-        }
-        public void RemoveAnnouncement(int selectedIndex)
-        {
-            announcements.RemoveAt(selectedIndex);
-        }
+        //public void AddAnnouncement(Announcement a)
+        //{
+        //    Announcements.Add(a);
+        //}
+        //public Announcement GetAnnouncement(int id)
+        //{
+        //    foreach (Announcement announcement in Announcements)
+        //    {
+        //        if (announcement.AnnouncementID == id)
+        //        {
+        //            return announcement;
+        //        }
+        //    }
+        //    return null;
+        //}
+        //public void RemoveAnnouncement(int selectedIndex)
+        //{
+        //    announcements.RemoveAt(selectedIndex);
+        //}
 
-        //COMPLAINTS
-        public void AddComplaint(Complaint c)
-        {
-            Complaints.Add(c);
-        }
-        public Complaint GetComplaint(int id)
-        {
-            foreach (Complaint complaint in Complaints)
-            {
-                if (complaint.ComplaintID == id)
-                {
-                    return complaint;
-                }
-            }
-            return null;
-        }
-        public void RemoveComplaint(int selectedIndex)
-        {
-            Complaints.RemoveAt(selectedIndex);
-        }
+        ////COMPLAINTS
+        //public void AddComplaint(Complaint c)
+        //{
+        //    Complaints.Add(c);
+        //}
+        //public Complaint GetComplaint(int id)
+        //{
+        //    foreach (Complaint complaint in Complaints)
+        //    {
+        //        if (complaint.ComplaintID == id)
+        //        {
+        //            return complaint;
+        //        }
+        //    }
+        //    return null;
+        //}
+        //public void RemoveComplaint(int selectedIndex)
+        //{
+        //    Complaints.RemoveAt(selectedIndex);
+        //}
 
         //PRODUCTS
-        public void AddProduct(Product p)
-        {
-            Products.Add(p);
-        }
-        public Product GetProduct(int id)
-        {
-            foreach (Product product in Products)
-            {
-                if (product.ProductID == id)
-                {
-                    return product;
-                }
-            }
-            return null;
-        }
+        //public void AddProduct(Product p)
+        //{
+        //    Products.Add(p);
+        //}
+        //public Product GetProduct(int id)
+        //{
+        //    foreach (Product product in Products)
+        //    {
+        //        if (product.ProductID == id)
+        //        {
+        //            return product;
+        //        }
+        //    }
+        //    return null;
+        //}
         public void AddRequestedProduct(Product p)
         {
             PendingRequestedProducts.Add(p);
@@ -119,18 +119,18 @@ namespace MediaBazaar
         {
             History.Add(p);
         }
-        public bool AddAmountofProduct(int id, int amount)
-        {
-            if (GetProduct(id) != null || (GetProduct(id).Amount + amount) > GetProduct(id).WarehouseAmount)
-            {
-                return false;
-            }
-            else
-            {
-                GetProduct(id).Amount += amount;
-                return true;
-            }
-        }
+        //public bool AddAmountofProduct(int id, int amount)
+        //{
+        //    if (GetProduct(id) != null || (GetProduct(id).Amount + amount) > GetProduct(id).WarehouseAmount)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        GetProduct(id).Amount += amount;
+        //        return true;
+        //    }
+        //}
         public void Refill(int id)
         {
             if (GetProduct(id) != null)
