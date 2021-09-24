@@ -33,7 +33,7 @@ namespace MediaBazaar
             {
                 if (p.ProductID == productid)
                 {
-                    Product prod = new Product(p.Barcode, p.Name, p.ProductType, amount);
+                   // Product prod = new Product(p.Barcode, p.Name, p.ProductType, amount);
                     /*add p to listbox*/
                 }
             }
