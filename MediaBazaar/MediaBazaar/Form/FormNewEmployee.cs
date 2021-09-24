@@ -10,34 +10,38 @@ namespace MediaBazaar
 {
     public partial class FormNewEmployee : Form
     {
-        Store mediaBazaar;
-        public FormNewEmployee(Store mb)
+        List<Employee> employee;
+        
+
+        public FormNewEmployee()
         {
             InitializeComponent();
-            this.mediaBazaar = mb;
+            employee = new List<Employee>();
+         
+
         }
 
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
-            string lastName = tbxLastName.Text;
-            string firstName = tbxFirstName.Text;
-            string gender = tbxGender.Text;
-            int phoneNumber = Convert.ToInt32(tbxPhoneNumber.Text);
-            string email = $"{tbxLastName.Text}@mb.com";
-            string address = tbxAddress.Text;
-            string dateOfBirth = tbxDateOfBirth.Text;
-            int bsn = Convert.ToInt32(tbxBSN.Text);
-            string username = $"{tbxLastName.Text}";
-            string password = $"{tbxLastName.Text}";
-            JobTitle type = (JobTitle)Enum.Parse(typeof(JobTitle), cbxType.SelectedItem.ToString());
+            string firstN = txtFirstName.Text;
+            string lastN = txtLastN.Text;
+            int phoneN = Convert.ToInt32(txtPhoneN.Text);
+            int bsn = Convert.ToInt32(txtBsn.Text);
+            string username = txtUserN.Text;
+            string email = txtEmail.Text;
+            string password = txtPsswrd.Text;
 
-            Employee newEmployee = new Employee(lastName, firstName, gender, phoneNumber, email, address, dateOfBirth, bsn, username, password, type);
-            mediaBazaar.AddEmployee(newEmployee);
+            Employee newEmp = new Employee(firstN, lastN, phoneN, bsn, username, password, email);
+            employee.Add(newEmp);
+            OpenForm1(firstN, lastN, phoneN, bsn, username, email, password);
 
-            tbxEmployeeID.Text = newEmployee.EmployeeID.ToString();
-            tbxEmail.Text = newEmployee.Email;
-            tbxUsername.Text = newEmployee.Username;
-            tbxPassword.Text = newEmployee.Password;
+        }
+
+        public void OpenForm1(string firstN, string lastN, int phoneN, int bsn, string username, string email, string password)
+        {
+            Form1 newEmployee = new Form1(firstN, lastN, phoneN, bsn, username, email, password);
+            newEmployee.Show();
+           
         }
     }
 }
