@@ -14,7 +14,7 @@ namespace MediaBazaar.Class
         public static MySqlConnection GetConnection()
         {
             MySqlConnection conn =
-                new MySqlConnection("Server=studmysql01.fhict.local;Uid=dbi874073;Database=dbi874073;Pwd=dbi874073;SslMode=none;");
+                new MySqlConnection("Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=yourPassword;SslMode=none;");
             return conn;
         }
     }
