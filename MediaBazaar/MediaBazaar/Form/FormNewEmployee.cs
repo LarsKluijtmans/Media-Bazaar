@@ -13,7 +13,7 @@ namespace MediaBazaar
         List<Employee> employee;
         
 
-        public FormNewEmployee()
+        public FormNewEmployee(Store mb)
         {
             InitializeComponent();
             employee = new List<Employee>();

@@ -53,15 +53,8 @@ namespace MediaBazaar
 
         private void btnUpdateEmployees_Click(object sender, EventArgs e)
         {
-            Object employeeObj = lbxEmployees.SelectedItem;
+            Employee tempEmployee = GetTempEmployee();
 
-            if (!(employeeObj is Employee))
-            {
-                MessageBox.Show("Error");
-            }
-
-            Employee tempEmployee = (Employee)employeeObj;
-            
             if (tempEmployee.Type == JobTitle.SALES_MANAGER || tempEmployee.Type == JobTitle.SALES_EMPLOYEE)
             {
                 FormEditEmployeeData formEditEmployeeData = new FormEditEmployeeData(mediaBazaar, tempEmployee);
@@ -74,14 +67,7 @@ namespace MediaBazaar
 
         private void btnDeleteEmployees_Click(object sender, EventArgs e)
         {
-            Object employeeObj = lbxEmployees.SelectedItem;
-
-            if (!(employeeObj is Employee))
-            {
-                MessageBox.Show("Error");
-            }
-
-            Employee tempEmployee = (Employee)employeeObj;
+            Employee tempEmployee = GetTempEmployee();
 
             tbxEmployeeID.Text = tempEmployee.EmployeeID.ToString();
 
@@ -100,6 +86,12 @@ namespace MediaBazaar
 
         private void lbxEmployees_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Employee tempEmployee = GetTempEmployee();
+
+            tbxEmployeeID.Text = tempEmployee.EmployeeID.ToString();
+        }
+        private Employee GetTempEmployee()
+        {
             Object employeeObj = lbxEmployees.SelectedItem;
 
             if (!(employeeObj is Employee))
@@ -109,7 +101,7 @@ namespace MediaBazaar
 
             Employee tempEmployee = (Employee)employeeObj;
 
-            tbxEmployeeID.Text = tempEmployee.EmployeeID.ToString();
+            return tempEmployee;
         }
     }
 }
