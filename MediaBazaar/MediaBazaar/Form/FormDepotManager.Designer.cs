@@ -87,7 +87,7 @@ namespace MediaBazaar
             this.btnCreateNewEmployee.TabIndex = 1;
             this.btnCreateNewEmployee.Text = "Create New Employee";
             this.btnCreateNewEmployee.UseVisualStyleBackColor = true;
-            this.btnCreateNewEmployee.Click += new System.EventHandler(this.btnCreateNewEmployee_Click);
+            //this.btnCreateNewEmployee.Click += new System.EventHandler(this.btnCreateNewEmployee_Click);
             // 
             // groupBox1
             // 
@@ -115,7 +115,7 @@ namespace MediaBazaar
             this.lbxEmployees.Name = "lbxEmployees";
             this.lbxEmployees.Size = new System.Drawing.Size(543, 364);
             this.lbxEmployees.TabIndex = 4;
-            this.lbxEmployees.SelectedIndexChanged += new System.EventHandler(this.lbxEmployees_SelectedIndexChanged);
+            //this.lbxEmployees.SelectedIndexChanged += new System.EventHandler(this.lbxEmployees_SelectedIndexChanged);
             // 
             // rbnDepotEmployees
             // 
@@ -156,7 +156,7 @@ namespace MediaBazaar
             this.btnReadEmployees.TabIndex = 5;
             this.btnReadEmployees.Text = "Read Employees";
             this.btnReadEmployees.UseVisualStyleBackColor = true;
-            this.btnReadEmployees.Click += new System.EventHandler(this.btnReadEmployees_Click);
+            //this.btnReadEmployees.Click += new System.EventHandler(this.btnReadEmployees_Click);
             // 
             // btnUpdateEmployees
             // 
@@ -166,7 +166,7 @@ namespace MediaBazaar
             this.btnUpdateEmployees.TabIndex = 6;
             this.btnUpdateEmployees.Text = "Update Employees";
             this.btnUpdateEmployees.UseVisualStyleBackColor = true;
-            this.btnUpdateEmployees.Click += new System.EventHandler(this.btnUpdateEmployees_Click);
+            //this.btnUpdateEmployees.Click += new System.EventHandler(this.btnUpdateEmployees_Click);
             // 
             // btnDeleteEmployees
             // 
@@ -176,7 +176,7 @@ namespace MediaBazaar
             this.btnDeleteEmployees.TabIndex = 7;
             this.btnDeleteEmployees.Text = "Delete Employees";
             this.btnDeleteEmployees.UseVisualStyleBackColor = true;
-            this.btnDeleteEmployees.Click += new System.EventHandler(this.btnDeleteEmployees_Click);
+            //this.btnDeleteEmployees.Click += new System.EventHandler(this.btnDeleteEmployees_Click);
             // 
             // label1
             // 
