@@ -169,4 +169,16 @@ INSERT INTO `dbi461266`.`Atendance` (`AttendaceID`, `EmployeeID`, `TimesSchedule
 
 COMMIT;
 
+-- -----------------------------------------------------
+-- Conect table contract and employee
+-- -----------------------------------------------------
 
+ALTER TABLE `DBI461266`.`contract` 
+ADD INDEX `employeeID_idx` (`employeeID` ASC);
+;
+ALTER TABLE `DBI461266`.`contract` 
+ADD CONSTRAINT `employeeID`
+  FOREIGN KEY (`employeeID`)
+  REFERENCES `DBI461266`.`employee` (`employeeID`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
