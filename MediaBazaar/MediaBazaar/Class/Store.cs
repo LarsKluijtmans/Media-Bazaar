@@ -12,23 +12,43 @@ namespace MediaBazaar
 
 
         //properties
-        public List<Employee> Employees { get; set; }
-
-
+        public List<Employee> Employees
+        {
+            get { return employees; }
+            set { employees = value; }
+        }
+        public List<Announcement> Announcements
+        {
+            get { return announcements; }
+            set { announcements = value; }
+        }
+        public List<Complaint> Complaints
+        {
+            get { return complaints; }
+            set { complaints = value; }
+        }
         public List<Product> Products
         {
             get { return products; }
             set { products = value; }
         }
-        
+        public List<Product> PendingRequestedProducts 
+        { 
+            get; set; 
+        }
+        public List<Product> History
+        {
+            get; set; 
+        }
+
 
         //constructions
         public Store()
         {
-            complaints = new List<Complaint>();
-            announcements = new List<Announcement>();
+            Complaints = new List<Complaint>();
+            Announcements = new List<Announcement>();
             Employees = new List<Employee>();
-            products = new List<Product>();
+            Products = new List<Product>();
         }
 
 
@@ -36,11 +56,11 @@ namespace MediaBazaar
         //ANNOUNCEMENT
         public void AddAnnouncement(Announcement a)
         {
-            announcements.Add(a);
+            Announcements.Add(a);
         }
         public Announcement GetAnnouncement(int id)
         {
-            foreach (Announcement announcement in announcements)
+            foreach (Announcement announcement in Announcements)
             {
                 if (announcement.AnnouncementID == id)
                 {
@@ -57,11 +77,11 @@ namespace MediaBazaar
         //COMPLAINTS
         public void AddComplaint(Complaint c)
         {
-            complaints.Add(c);
+            Complaints.Add(c);
         }
         public Complaint GetComplaint(int id)
         {
-            foreach (Complaint complaint in complaints)
+            foreach (Complaint complaint in Complaints)
             {
                 if (complaint.ComplaintID == id)
                 {
@@ -72,13 +92,13 @@ namespace MediaBazaar
         }
         public void RemoveComplaint(int selectedIndex)
         {
-            complaints.RemoveAt(selectedIndex);
+            Complaints.RemoveAt(selectedIndex);
         }
 
         //PRODUCTS
         public void AddProduct(Product p)
         {
-            products.Add(p);
+            Products.Add(p);
         }
         public Product GetProduct(int id)
         {
@@ -91,25 +111,44 @@ namespace MediaBazaar
             }
             return null;
         }
-        public void RemoveProduct(int selectedIndex)
+        public void AddRequestedProduct(Product p)
         {
-            products.RemoveAt(selectedIndex);
+            PendingRequestedProducts.Add(p);
         }
-        public void AddAmountofProduct(int productID, int amount)
+        public void AddHistory(Product p)
         {
-            if (GetProduct(productID) != null)
+            History.Add(p);
+        }
+        public bool AddAmountofProduct(int id, int amount)
+        {
+            if (GetProduct(id) != null || (GetProduct(id).Amount + amount) > GetProduct(id).WarehouseAmount)
             {
-                GetProduct(productID).Amount += amount;
+                return false;
+            }
+            else
+            {
+                GetProduct(id).Amount += amount;
+                return true;
             }
         }
-        public void DecreaseAmountofProduct(int productID, int amount)
+        public void Refill(int id)
         {
-            if (GetProduct(productID) != null)
+            if (GetProduct(id) != null)
             {
-                if (GetProduct(productID).Amount > 0)
-                {
-                    GetProduct(productID).Amount -= amount;
-                }
+                GetProduct(id).WarehouseAmount -= (GetProduct(id).ShelfSpace - GetProduct(id).Amount);
+                GetProduct(id).Amount = GetProduct(id).ShelfSpace;
+            }
+        }
+        public bool DecreaseAmountofProduct(int id, int amount)
+        {
+            if (GetProduct(id) == null || amount > GetProduct(id).Amount)
+            {
+                return false;
+            }
+            else
+            {
+                GetProduct(id).Amount -= amount;
+                return true;
             }
         }
 
@@ -120,7 +159,7 @@ namespace MediaBazaar
         }
         public Employee GetEmployee(int id)
         {
-            foreach (Employee employee in employees)
+            foreach (Employee employee in Employees)
             {
                 if (employee.EmployeeID == id)
                 {
@@ -129,22 +168,10 @@ namespace MediaBazaar
             }
             return null;
         }
-        public Employee GetEmployee(string firstName, string lastName) // check if employee exists
+        public void RemoveEmployee(int selectedIndex)
         {
-            foreach (Employee e in this.Employees)
-            {
-                if (firstName == e.FirstName && lastName == e.LastName)
-                {
-                    return e; // employee exists
-                }
-            }
-            return null; // employee doesn't exist
+            Employees.RemoveAt(selectedIndex);
         }
-        public void RemoveEmployee(Employee e)
-        {
-            employees.Remove(e);
-
-            // add reason of termination
-        }
+        
     }
 }

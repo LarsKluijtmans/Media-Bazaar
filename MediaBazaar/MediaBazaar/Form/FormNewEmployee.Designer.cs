@@ -90,7 +90,7 @@ namespace MediaBazaar
             this.tbxEmail.ReadOnly = true;
             this.tbxEmail.Size = new System.Drawing.Size(149, 23);
             this.tbxEmail.TabIndex = 75;
-            // 
+            
             // label12
             // 
             this.label12.AutoSize = true;
