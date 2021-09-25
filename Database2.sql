@@ -291,3 +291,14 @@ INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('
 
 COMMIT;
 
+
+ALTER TABLE `dbi461266`.`shelf replenishment` 
+ADD INDEX `ProductID_idx` (`ProductID` ASC) VISIBLE;
+;
+ALTER TABLE `dbi461266`.`shelf replenishment` 
+ADD CONSTRAINT `ProductID`
+  FOREIGN KEY (`ProductID`)
+  REFERENCES `dbi461266`.`product` (`ProductID`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
