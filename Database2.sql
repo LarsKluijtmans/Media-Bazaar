@@ -155,6 +155,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Shifts` (
   PRIMARY KEY (`day`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- add table `mydb`.`ShelfReplenishment`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `dbi461266`.`Shelf Replenishment` (
+  `ShelfReplenishmentID` INT NOT NULL AUTO_INCREMENT,
+  `ProductID` INT NOT NULL,
+  `Amount` INT NOT NULL,
+  PRIMARY KEY (`ShelfReplenishmentID`))
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
