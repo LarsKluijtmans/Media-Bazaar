@@ -3,8 +3,8 @@
     "",
     "\\MediaBazaar",
     "\\MediaBazaar\\MediaBazaar",
-    "\\MediaBazaar\\MediaBazaar\\Class"
+    "\\MediaBazaar\\MediaBazaar\\Form"
   ],
-  "SelectedNode": "\\MediaBazaar\\MediaBazaar\\Class\\Store.cs",
+  "SelectedNode": "\\MediaBazaar\\MediaBazaar\\Form",
   "PreviewInSolutionExplorer": false
 }

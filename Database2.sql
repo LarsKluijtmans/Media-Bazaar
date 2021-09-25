@@ -155,6 +155,32 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Shifts` (
   PRIMARY KEY (`day`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- add table `mydb`.`ShelfReplenishment`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `dbi461266`.`ShelfReplenishment` (
+  `ShelfReplenishmentID` INT NOT NULL AUTO_INCREMENT,
+  `ProductID` INT NOT NULL,
+  `Amount` INT NOT NULL,
+  PRIMARY KEY (`ShelfReplenishmentID`))
+ENGINE = InnoDB;
+
+ALTER TABLE `dbi461266`.`shelfreplenishment` 
+ADD COLUMN `fufilled` TINYINT NOT NULL AFTER `Amount`;
+-- -----------------------------------------------------
+-- add table `mydb`.`Restock Requests`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `dbi461266`.`RestockReplenishment` (
+  `RestockReplenishmentID` INT NOT NULL AUTO_INCREMENT,
+  `ProductID` INT NOT NULL,
+  `Amount` INT NOT NULL,
+  PRIMARY KEY (`RestockReplenishmentID`))
+ENGINE = InnoDB;
+
+ALTER TABLE `dbi461266`.`restockreplenishment` 
+ADD COLUMN `Fufilled` TINYINT NOT NULL AFTER `Amount`;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -280,3 +306,20 @@ INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('
 
 COMMIT;
 
+
+ALTER TABLE `dbi461266`.`shelfreplenishment` 
+ADD INDEX `ProductID_idx` (`ProductID` ASC):
+;
+ALTER TABLE `dbi461266`.`shelfreplenishment` 
+ADD CONSTRAINT `ProductID`
+  FOREIGN KEY (`ProductID`)
+  REFERENCES `dbi461266`.`product` (`ProductID`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `dbi461266`.`restockreplenishment` 
+ADD CONSTRAINT `ProductID2`
+  FOREIGN KEY (`ProductID`)
+  REFERENCES `dbi461266`.`product` (`ProductID`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
