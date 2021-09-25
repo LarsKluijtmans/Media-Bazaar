@@ -166,7 +166,8 @@ CREATE TABLE IF NOT EXISTS `dbi461266`.`ShelfReplenishment` (
   PRIMARY KEY (`ShelfReplenishmentID`))
 ENGINE = InnoDB;
 
-
+ALTER TABLE `dbi461266`.`shelfreplenishment` 
+ADD COLUMN `fufilled` TINYINT NOT NULL AFTER `Amount`;
 -- -----------------------------------------------------
 -- add table `mydb`.`Restock Requests`
 -- -----------------------------------------------------
@@ -178,7 +179,8 @@ CREATE TABLE IF NOT EXISTS `dbi461266`.`RestockReplenishment` (
   PRIMARY KEY (`RestockReplenishmentID`))
 ENGINE = InnoDB;
 
-
+ALTER TABLE `dbi461266`.`restockreplenishment` 
+ADD COLUMN `Fufilled` TINYINT NOT NULL AFTER `Amount`;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
