@@ -167,6 +167,19 @@ CREATE TABLE IF NOT EXISTS `dbi461266`.`Shelf Replenishment` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- add table `mydb`.`Restock Requests`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `dbi461266`.`Restock Replenishment` (
+  `RestockReplenishmentID` INT NOT NULL AUTO_INCREMENT,
+  `ProductID` INT NOT NULL,
+  `Amount` INT NOT NULL,
+  PRIMARY KEY (`RestockReplenishmentID`))
+ENGINE = InnoDB;
+
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
@@ -293,7 +306,7 @@ COMMIT;
 
 
 ALTER TABLE `dbi461266`.`shelf replenishment` 
-ADD INDEX `ProductID_idx` (`ProductID` ASC) VISIBLE;
+ADD INDEX `ProductID_idx` (`ProductID` ASC):
 ;
 ALTER TABLE `dbi461266`.`shelf replenishment` 
 ADD CONSTRAINT `ProductID`
@@ -302,3 +315,9 @@ ADD CONSTRAINT `ProductID`
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
 
+ALTER TABLE `dbi461266`.`restock replenishment` 
+ADD CONSTRAINT `ProductID`
+  FOREIGN KEY (`ProductID`)
+  REFERENCES `dbi461266`.`product` (`ProductID`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
