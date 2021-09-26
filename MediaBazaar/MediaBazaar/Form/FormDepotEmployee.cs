@@ -14,6 +14,11 @@ namespace MediaBazaar
             InitializeComponent();
             ID = UserID;
             mediaBazaar = mb;
+
+            cbProductType.Items.Add("KITCHEN_HOME");
+            cbProductType.Items.Add("PHOTO_VIDEO_NAVIGATION");
+            cbProductType.Items.Add("SMARTHOME_APPLIANCES");
+            cbProductType.Items.Add("GAMING_MUSIC_COMPUTERS");
         }
 
         //product

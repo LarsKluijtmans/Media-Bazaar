@@ -25,6 +25,11 @@ namespace MediaBazaar
             this.mediaBazaar = mb;
             ID = UserID;
 
+            cbProductType.Items.Add("KITCHEN_HOME");
+            cbProductType.Items.Add("PHOTO_VIDEO_NAVIGATION");
+            cbProductType.Items.Add("SMARTHOME_APPLIANCES");
+            cbProductType.Items.Add("GAMING_MUSIC_COMPUTERS");
+
             UpdateListbox();
         }
 
@@ -566,6 +571,11 @@ namespace MediaBazaar
             tbRestockAmountSales.Text = restock.AmountInStore.ToString();
             RestockAmountDepot.Text = restock.AmountInDepot.ToString();
             tbRestockAmount.Text = restock.Amount.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DeleteRestockRequest();
         }
 
         //ReShelf

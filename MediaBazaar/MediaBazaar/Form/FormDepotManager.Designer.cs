@@ -63,6 +63,7 @@ namespace MediaBazaar
             this.tbID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.tbRestockID = new System.Windows.Forms.TextBox();
             this.tbRestockName = new System.Windows.Forms.TextBox();
             this.tbRestockAmountSales = new System.Windows.Forms.TextBox();
@@ -477,6 +478,7 @@ namespace MediaBazaar
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Controls.Add(this.tbRestockID);
             this.tabPage4.Controls.Add(this.tbRestockName);
             this.tabPage4.Controls.Add(this.tbRestockAmountSales);
@@ -500,6 +502,19 @@ namespace MediaBazaar
             this.tabPage4.TabIndex = 5;
             this.tabPage4.Text = "Restock";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(878, 427);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(208, 30);
+            this.button1.TabIndex = 84;
+            this.button1.Text = "Delete restock request";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tbRestockID
             // 
@@ -781,6 +796,7 @@ namespace MediaBazaar
             this.btnDeleteRequest.Name = "btnDeleteRequest";
             this.btnDeleteRequest.Size = new System.Drawing.Size(207, 30);
             this.btnDeleteRequest.TabIndex = 62;
+            this.btnDeleteRequest.Text = "Delete Request";
             this.btnDeleteRequest.UseVisualStyleBackColor = true;
             this.btnDeleteRequest.Click += new System.EventHandler(this.btnDeleteRequest_Click);
             // 
@@ -976,5 +992,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ListBox lbReshelfRequest;
+        private System.Windows.Forms.Button button1;
     }
 }
