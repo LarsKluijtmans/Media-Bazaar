@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {}
+    "C:\\Users\\csten\\Documents\\Semester2\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {}
   },
   "projects": {
-    "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {
+    "C:\\Users\\csten\\Documents\\Semester2\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+        "projectUniqueName": "C:\\Users\\csten\\Documents\\Semester2\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
         "projectName": "MediaBazaar",
-        "projectPath": "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
-        "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
-        "outputPath": "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\obj\\",
+        "projectPath": "C:\\Users\\csten\\Documents\\Semester2\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+        "packagesPath": "C:\\Users\\csten\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\csten\\Documents\\Semester2\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\csten\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

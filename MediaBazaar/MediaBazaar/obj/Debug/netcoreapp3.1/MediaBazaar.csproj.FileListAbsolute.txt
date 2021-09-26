@@ -28,7 +28,6 @@ C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\M
 C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfoInputs.cache
 C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfo.cs
 C:\Users\esthe\Documents\Semester 2\Project\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CoreCompileInputs.cache
-C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormEmployeeDetails.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormNewEmployee.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormNewProduct.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.exe
@@ -93,3 +92,5 @@ C:\Users\esthe\Documents\Semester 2\cbo3-1-soleil-lars-esther-mohammad\MediaBaza
 C:\Users\esthe\Documents\Semester 2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.dll
 C:\Users\esthe\Documents\Semester 2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.pdb
 C:\Users\esthe\Documents\Semester 2\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.genruntimeconfig.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormEditEmployeeData.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormRemoveEmployee.resources
