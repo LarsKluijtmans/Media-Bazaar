@@ -111,7 +111,14 @@ namespace MediaBazaar
             this.label23 = new System.Windows.Forms.Label();
             this.lbReshelfRequest = new System.Windows.Forms.ListBox();
             this.tpSchedule = new System.Windows.Forms.TabPage();
+            this.label30 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbScheduleEvening = new System.Windows.Forms.TextBox();
+            this.lbScheduleAfternoon = new System.Windows.Forms.TextBox();
+            this.lbScheduleMorning = new System.Windows.Forms.TextBox();
+            this.lbScheduleDay = new System.Windows.Forms.TextBox();
+            this.lbScheduleDepartment = new System.Windows.Forms.TextBox();
+            this.lbScheduleID = new System.Windows.Forms.TextBox();
             this.btnEditschedule = new System.Windows.Forms.Button();
             this.btViewSchedule = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
@@ -121,12 +128,22 @@ namespace MediaBazaar
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.lbSchedule = new System.Windows.Forms.ListBox();
-            this.lbScheduleEvening = new System.Windows.Forms.TextBox();
-            this.lbScheduleAfternoon = new System.Windows.Forms.TextBox();
-            this.lbScheduleMorning = new System.Windows.Forms.TextBox();
-            this.lbScheduleDay = new System.Windows.Forms.TextBox();
-            this.lbScheduleDepartment = new System.Windows.Forms.TextBox();
-            this.lbScheduleID = new System.Windows.Forms.TextBox();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbShift = new System.Windows.Forms.TextBox();
+            this.tbDay = new System.Windows.Forms.TextBox();
+            this.tbDepartment = new System.Windows.Forms.TextBox();
+            this.tbEmployeeID = new System.Windows.Forms.TextBox();
+            this.btnDepotPlaning = new System.Windows.Forms.Button();
+            this.btnAllPlaning = new System.Windows.Forms.Button();
+            this.Ime = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ng = new System.Windows.Forms.Button();
+            this.cePlaing = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -136,6 +153,8 @@ namespace MediaBazaar
             this.tabPage5.SuspendLayout();
             this.tpSchedule.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -146,6 +165,7 @@ namespace MediaBazaar
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tpSchedule);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.Location = new System.Drawing.Point(36, 30);
             this.tabControl1.Name = "tabControl1";
@@ -450,12 +470,13 @@ namespace MediaBazaar
             // 
             // lbProducts
             // 
+            this.lbProducts.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbProducts.FormattingEnabled = true;
-            this.lbProducts.ItemHeight = 21;
+            this.lbProducts.ItemHeight = 15;
             this.lbProducts.Location = new System.Drawing.Point(28, 44);
             this.lbProducts.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.lbProducts.Name = "lbProducts";
-            this.lbProducts.Size = new System.Drawing.Size(736, 445);
+            this.lbProducts.Size = new System.Drawing.Size(736, 439);
             this.lbProducts.TabIndex = 45;
             this.lbProducts.SelectedIndexChanged += new System.EventHandler(this.lbProducts_SelectedIndexChanged);
             // 
@@ -1050,6 +1071,7 @@ namespace MediaBazaar
             // 
             // tpSchedule
             // 
+            this.tpSchedule.Controls.Add(this.label30);
             this.tpSchedule.Controls.Add(this.groupBox2);
             this.tpSchedule.Controls.Add(this.lbSchedule);
             this.tpSchedule.Location = new System.Drawing.Point(4, 26);
@@ -1060,6 +1082,16 @@ namespace MediaBazaar
             this.tpSchedule.TabIndex = 8;
             this.tpSchedule.Text = "Schedule";
             this.tpSchedule.UseVisualStyleBackColor = true;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label30.Location = new System.Drawing.Point(24, 16);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(100, 21);
+            this.label30.TabIndex = 59;
+            this.label30.Text = "Schedule list:";
             // 
             // groupBox2
             // 
@@ -1083,6 +1115,57 @@ namespace MediaBazaar
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
+            // 
+            // lbScheduleEvening
+            // 
+            this.lbScheduleEvening.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbScheduleEvening.Location = new System.Drawing.Point(162, 231);
+            this.lbScheduleEvening.Name = "lbScheduleEvening";
+            this.lbScheduleEvening.Size = new System.Drawing.Size(164, 29);
+            this.lbScheduleEvening.TabIndex = 20;
+            // 
+            // lbScheduleAfternoon
+            // 
+            this.lbScheduleAfternoon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbScheduleAfternoon.Location = new System.Drawing.Point(162, 193);
+            this.lbScheduleAfternoon.Name = "lbScheduleAfternoon";
+            this.lbScheduleAfternoon.Size = new System.Drawing.Size(164, 29);
+            this.lbScheduleAfternoon.TabIndex = 19;
+            // 
+            // lbScheduleMorning
+            // 
+            this.lbScheduleMorning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbScheduleMorning.Location = new System.Drawing.Point(162, 154);
+            this.lbScheduleMorning.Name = "lbScheduleMorning";
+            this.lbScheduleMorning.Size = new System.Drawing.Size(164, 29);
+            this.lbScheduleMorning.TabIndex = 18;
+            // 
+            // lbScheduleDay
+            // 
+            this.lbScheduleDay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbScheduleDay.Location = new System.Drawing.Point(162, 115);
+            this.lbScheduleDay.Name = "lbScheduleDay";
+            this.lbScheduleDay.ReadOnly = true;
+            this.lbScheduleDay.Size = new System.Drawing.Size(164, 29);
+            this.lbScheduleDay.TabIndex = 17;
+            // 
+            // lbScheduleDepartment
+            // 
+            this.lbScheduleDepartment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbScheduleDepartment.Location = new System.Drawing.Point(162, 77);
+            this.lbScheduleDepartment.Name = "lbScheduleDepartment";
+            this.lbScheduleDepartment.ReadOnly = true;
+            this.lbScheduleDepartment.Size = new System.Drawing.Size(164, 29);
+            this.lbScheduleDepartment.TabIndex = 16;
+            // 
+            // lbScheduleID
+            // 
+            this.lbScheduleID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbScheduleID.Location = new System.Drawing.Point(162, 38);
+            this.lbScheduleID.Name = "lbScheduleID";
+            this.lbScheduleID.ReadOnly = true;
+            this.lbScheduleID.Size = new System.Drawing.Size(164, 29);
+            this.lbScheduleID.TabIndex = 15;
             // 
             // btnEditschedule
             // 
@@ -1170,62 +1253,180 @@ namespace MediaBazaar
             // 
             this.lbSchedule.FormattingEnabled = true;
             this.lbSchedule.ItemHeight = 17;
-            this.lbSchedule.Location = new System.Drawing.Point(24, 40);
+            this.lbSchedule.Location = new System.Drawing.Point(24, 57);
             this.lbSchedule.Name = "lbSchedule";
-            this.lbSchedule.Size = new System.Drawing.Size(706, 446);
+            this.lbSchedule.Size = new System.Drawing.Size(706, 429);
             this.lbSchedule.TabIndex = 0;
             this.lbSchedule.SelectedIndexChanged += new System.EventHandler(this.lbSchedule_SelectedIndexChanged);
             // 
-            // lbScheduleEvening
+            // tabPage6
             // 
-            this.lbScheduleEvening.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleEvening.Location = new System.Drawing.Point(162, 231);
-            this.lbScheduleEvening.Name = "lbScheduleEvening";
-            this.lbScheduleEvening.Size = new System.Drawing.Size(164, 29);
-            this.lbScheduleEvening.TabIndex = 20;
+            this.tabPage6.Controls.Add(this.label37);
+            this.tabPage6.Controls.Add(this.listBox1);
+            this.tabPage6.Controls.Add(this.groupBox1);
+            this.tabPage6.Location = new System.Drawing.Point(4, 26);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1112, 508);
+            this.tabPage6.TabIndex = 9;
+            this.tabPage6.Text = "Planing";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // lbScheduleAfternoon
+            // groupBox1
             // 
-            this.lbScheduleAfternoon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleAfternoon.Location = new System.Drawing.Point(162, 193);
-            this.lbScheduleAfternoon.Name = "lbScheduleAfternoon";
-            this.lbScheduleAfternoon.Size = new System.Drawing.Size(164, 29);
-            this.lbScheduleAfternoon.TabIndex = 19;
+            this.groupBox1.Controls.Add(this.cePlaing);
+            this.groupBox1.Controls.Add(this.ng);
+            this.groupBox1.Controls.Add(this.tbShift);
+            this.groupBox1.Controls.Add(this.tbDay);
+            this.groupBox1.Controls.Add(this.tbDepartment);
+            this.groupBox1.Controls.Add(this.tbEmployeeID);
+            this.groupBox1.Controls.Add(this.btnDepotPlaning);
+            this.groupBox1.Controls.Add(this.btnAllPlaning);
+            this.groupBox1.Controls.Add(this.Ime);
+            this.groupBox1.Controls.Add(this.label34);
+            this.groupBox1.Controls.Add(this.label35);
+            this.groupBox1.Controls.Add(this.label36);
+            this.groupBox1.Location = new System.Drawing.Point(743, 46);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(346, 443);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
-            // lbScheduleMorning
+            // tbShift
             // 
-            this.lbScheduleMorning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleMorning.Location = new System.Drawing.Point(162, 154);
-            this.lbScheduleMorning.Name = "lbScheduleMorning";
-            this.lbScheduleMorning.Size = new System.Drawing.Size(164, 29);
-            this.lbScheduleMorning.TabIndex = 18;
+            this.tbShift.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbShift.Location = new System.Drawing.Point(162, 154);
+            this.tbShift.Name = "tbShift";
+            this.tbShift.ReadOnly = true;
+            this.tbShift.Size = new System.Drawing.Size(164, 29);
+            this.tbShift.TabIndex = 18;
             // 
-            // lbScheduleDay
+            // tbDay
             // 
-            this.lbScheduleDay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleDay.Location = new System.Drawing.Point(162, 115);
-            this.lbScheduleDay.Name = "lbScheduleDay";
-            this.lbScheduleDay.ReadOnly = true;
-            this.lbScheduleDay.Size = new System.Drawing.Size(164, 29);
-            this.lbScheduleDay.TabIndex = 17;
+            this.tbDay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbDay.Location = new System.Drawing.Point(162, 115);
+            this.tbDay.Name = "tbDay";
+            this.tbDay.ReadOnly = true;
+            this.tbDay.Size = new System.Drawing.Size(164, 29);
+            this.tbDay.TabIndex = 17;
             // 
-            // lbScheduleDepartment
+            // tbDepartment
             // 
-            this.lbScheduleDepartment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleDepartment.Location = new System.Drawing.Point(162, 77);
-            this.lbScheduleDepartment.Name = "lbScheduleDepartment";
-            this.lbScheduleDepartment.ReadOnly = true;
-            this.lbScheduleDepartment.Size = new System.Drawing.Size(164, 29);
-            this.lbScheduleDepartment.TabIndex = 16;
+            this.tbDepartment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbDepartment.Location = new System.Drawing.Point(162, 77);
+            this.tbDepartment.Name = "tbDepartment";
+            this.tbDepartment.ReadOnly = true;
+            this.tbDepartment.Size = new System.Drawing.Size(164, 29);
+            this.tbDepartment.TabIndex = 16;
             // 
-            // lbScheduleID
+            // tbEmployeeID
             // 
-            this.lbScheduleID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleID.Location = new System.Drawing.Point(162, 38);
-            this.lbScheduleID.Name = "lbScheduleID";
-            this.lbScheduleID.ReadOnly = true;
-            this.lbScheduleID.Size = new System.Drawing.Size(164, 29);
-            this.lbScheduleID.TabIndex = 15;
+            this.tbEmployeeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbEmployeeID.Location = new System.Drawing.Point(162, 38);
+            this.tbEmployeeID.Name = "tbEmployeeID";
+            this.tbEmployeeID.ReadOnly = true;
+            this.tbEmployeeID.Size = new System.Drawing.Size(164, 29);
+            this.tbEmployeeID.TabIndex = 15;
+            // 
+            // btnDepotPlaning
+            // 
+            this.btnDepotPlaning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDepotPlaning.Location = new System.Drawing.Point(70, 315);
+            this.btnDepotPlaning.Name = "btnDepotPlaning";
+            this.btnDepotPlaning.Size = new System.Drawing.Size(215, 34);
+            this.btnDepotPlaning.TabIndex = 14;
+            this.btnDepotPlaning.Text = "View depot planing";
+            this.btnDepotPlaning.UseVisualStyleBackColor = true;
+            // 
+            // btnAllPlaning
+            // 
+            this.btnAllPlaning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAllPlaning.Location = new System.Drawing.Point(70, 235);
+            this.btnAllPlaning.Name = "btnAllPlaning";
+            this.btnAllPlaning.Size = new System.Drawing.Size(215, 34);
+            this.btnAllPlaning.TabIndex = 13;
+            this.btnAllPlaning.Text = "View all planing";
+            this.btnAllPlaning.UseVisualStyleBackColor = true;
+            // 
+            // Ime
+            // 
+            this.Ime.AutoSize = true;
+            this.Ime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Ime.Location = new System.Drawing.Point(102, 157);
+            this.Ime.Name = "Ime";
+            this.Ime.Size = new System.Drawing.Size(45, 21);
+            this.Ime.TabIndex = 10;
+            this.Ime.Text = "Shift:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label34.Location = new System.Drawing.Point(107, 115);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(40, 21);
+            this.label34.TabIndex = 9;
+            this.label34.Text = "Day:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label35.Location = new System.Drawing.Point(51, 77);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(96, 21);
+            this.label35.TabIndex = 8;
+            this.label35.Text = "Department:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label36.Location = new System.Drawing.Point(54, 38);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(98, 21);
+            this.label36.TabIndex = 7;
+            this.label36.Text = "Employee id:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label37.Location = new System.Drawing.Point(25, 19);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(89, 21);
+            this.label37.TabIndex = 61;
+            this.label37.Text = "Planing list:";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 17;
+            this.listBox1.Location = new System.Drawing.Point(25, 60);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(706, 429);
+            this.listBox1.TabIndex = 60;
+            // 
+            // ng
+            // 
+            this.ng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ng.Location = new System.Drawing.Point(70, 275);
+            this.ng.Name = "ng";
+            this.ng.Size = new System.Drawing.Size(215, 34);
+            this.ng.TabIndex = 21;
+            this.ng.Text = "View sales planing";
+            this.ng.UseVisualStyleBackColor = true;
+            // 
+            // cePlaing
+            // 
+            this.cePlaing.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cePlaing.Location = new System.Drawing.Point(70, 355);
+            this.cePlaing.Name = "cePlaing";
+            this.cePlaing.Size = new System.Drawing.Size(215, 34);
+            this.cePlaing.TabIndex = 22;
+            this.cePlaing.Text = "View office planing";
+            this.cePlaing.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1248,8 +1449,13 @@ namespace MediaBazaar
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.tpSchedule.ResumeLayout(false);
+            this.tpSchedule.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1354,6 +1560,27 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox lbScheduleDay;
         private System.Windows.Forms.TextBox lbScheduleDepartment;
         private System.Windows.Forms.TextBox lbScheduleID;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnOffi;
+        private System.Windows.Forms.Button btnSalesPlani;
+        private System.Windows.Forms.TextBox tbShift;
+        private System.Windows.Forms.TextBox tbDay;
+        private System.Windows.Forms.TextBox tbDepartment;
+        private System.Windows.Forms.TextBox tbEmployeeID;
+        private System.Windows.Forms.Button btn;
+        private System.Windows.Forms.Button btnAllP;
+        private System.Windows.Forms.Label Ime;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Button btnDepotPlaning;
+        private System.Windows.Forms.Button cePlaing;
+        private System.Windows.Forms.Button ng;
+        private System.Windows.Forms.Button btnAllPlaning;
     }
 }
 
