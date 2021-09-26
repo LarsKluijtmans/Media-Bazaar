@@ -240,7 +240,7 @@ START TRANSACTION;
 USE `dbi461266`;
 INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`,  `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (1, 1, 'OWNER',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
 INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`, `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (2, 1, 'SALES EMPLOYEE',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
-INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jobtitle`,  `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (3, 1, 'SALES EMPLOYEE',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`,  `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (3, 1, 'SALES EMPLOYEE',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
 INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`, `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (4, 1, 'SALES EMPLOYEE',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
 INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`,  `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (5, 1, 'SALES EMPLOYEE', 40, 100, '2020-12-12', '2020-12-12', 'NONE');
 INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`, `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (6, 1, 'SALES EMPLOYEE', 40, 100, '2020-12-12', '2020-12-12', 'NONE');
