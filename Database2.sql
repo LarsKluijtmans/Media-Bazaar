@@ -188,6 +188,24 @@ ENGINE = InnoDB;
 ALTER TABLE `dbi461266`.`restockreplenishment` 
 ADD COLUMN `Fufilled` TINYINT NOT NULL AFTER `Amount`;
 
+CREATE TABLE IF NOT EXISTS `dbi461266`.`WorkPrefrance` (
+  `PrefranceID` INT NOT NULL AUTO_INCREMENT,
+  `EmployeeID` INT NOT NULL,
+  `Prefered` TINYINT NOT NULL,
+  `Day` VARCHAR(45) NULL,
+  `Time` VARCHAR(45) NULL,
+  PRIMARY KEY (`PrefranceID`))
+ENGINE = InnoDB;
+
+
+
+
+START TRANSACTION;
+USE `dbi461266`;
+INSERT INTO `dbi461266`.`WorkPrefrance` (`PrefranceID`, `EmployeeID`, `Prefered`, `Day`, `Time`) VALUES (1, 1, 1, 'Mondag', 'Morning');
+
+COMMIT;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
