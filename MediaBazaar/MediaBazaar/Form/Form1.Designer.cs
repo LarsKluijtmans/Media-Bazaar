@@ -1572,7 +1572,7 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox tbDepartment;
         private System.Windows.Forms.TextBox tbEmployeeID;
         private System.Windows.Forms.Button btn;
-        private System.Windows.Forms.Button btnAllP;
+        private System.Windows.Forms.Button btnAllPlani;
         private System.Windows.Forms.Label Ime;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
