@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MediaBazaar.Class;
+using MySql.Data.MySqlClient;
 
 namespace MediaBazaar
 {
@@ -28,61 +30,12 @@ namespace MediaBazaar
         }
         public void UpdateProductList()
         {
-            lstOverviewProduct.Items.Clear();
-            lstProduct.Items.Clear();
-            foreach (Product product in s.Products)
-            {
-                lstProduct.Items.Add(product);
-                lstOverviewProduct.Items.Add(product.GetInfo());
-            }
         }
         public void UpdateAnnouncementList()
         {
-            lstOverviewAnnoucement.Items.Clear();
-            foreach (Announcement a in s.Announcements)
-            {
-                lstOverviewProduct.Items.Add(a);
-            }
-        }
-        private void btnRequestReplenishment_Click(object sender, EventArgs e)
-        {
-            int productID = Convert.ToInt32(txtProductIDReplenishment.Text);
-            int amountRequested = Convert.ToInt32(txtAmountReplenishment.Text);
-            Product pr = s.GetProduct(productID);
-            if (pr.Amount == pr.ShelfSpace)
-            {
-                MessageBox.Show("Shelf is full. This product doesnt need replenishment");
-            }
-            else
-            {
-                pr.AmountRequested = amountRequested;
-                foreach (IReplenishment childForm in childForms)
-                {
-                    childForm.Requested(pr);
-                }
-            }
         }
         private void btnRemoveAmount_Click(object sender, EventArgs e)
         {
-            int productID = Convert.ToInt32(txtProductIDSales.Text);
-            int amount = Convert.ToInt32(txtAmountSales.Text);
-            if (s.DecreaseAmountofProduct(productID, amount) == true)
-            {
-                s.DecreaseAmountofProduct(productID, amount);
-                Product pr = s.GetProduct(productID);
-                if (pr.Amount < 10)
-                {
-                    foreach (IReplenishment childForm in childForms)
-                    {
-                        childForm.Requested(pr);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Not enough product left in shelf");
-            }
-            UpdateProductList();
         }
         private void btnSubmitComplaint_Click(object sender, EventArgs e)
         {
@@ -113,6 +66,128 @@ namespace MediaBazaar
         private void btnCheck_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ViewAllProducts()
+        {
+            lstProduct.Items.Clear();
+
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = Utils.GET_ALL_PRODUCT;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Product product;
+
+                while (reader.Read())
+                {
+                    int ProductID = reader.GetInt32("ProductID");
+                    string barcode = reader.GetString("Barcode");
+                    string name = reader.GetString("Name");
+                    string productType = reader.GetString("Type");
+                    int amountInStore = reader.GetInt32("AmountInStore");
+                    int amountInDepot = reader.GetInt32("AmountInDepot");
+
+                    product = new Product(ProductID, name, productType, barcode, amountInDepot, amountInStore);
+
+                    lstProduct.Items.Add(product);
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void btnViewPorducts_Click(object sender, EventArgs e)
+        {
+            ViewAllProducts();
+        }
+
+        private void btnRequestReplenishment_Click(object sender, EventArgs e)
+        {
+
+            string ID = tbID.Text;
+            if (string.IsNullOrEmpty(ID))
+            {
+                lstProduct.Items.Add("'ID' field is required.");
+                return;
+            }
+
+            string Amount = tbAmount.Text;
+            if (string.IsNullOrEmpty(Amount))
+            {
+                lstProduct.Items.Add("'Amount' field is required.");
+                return;
+            }
+
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = Utils.CREATE_SHELFREPLENICHMENT;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ProductID", ID);
+                cmd.Parameters.AddWithValue("@Amount", Amount);
+
+
+                conn.Open();
+                int numCreatedRows = cmd.ExecuteNonQuery();
+                MessageBox.Show("Request was succesfull");
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong");
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+
+        private void lstProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstProduct.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            Object ProductObject = lstProduct.SelectedItem;
+            if (!(ProductObject is Product))
+            {
+                return;
+            }
+
+            Product product = (Product)ProductObject;
+            tbID.Text = product.ProductID.ToString();
+            tbName.Text = product.Name;
+            tbBarcode.Text = product.Barcode;
+            lbProductType.Text = product.ProductType;
+            tbmountInStore.Text = product.AmountInStore.ToString();
+            tbAmountInDepot.Text = product.AmountInDepot.ToString();
         }
     }
 }
