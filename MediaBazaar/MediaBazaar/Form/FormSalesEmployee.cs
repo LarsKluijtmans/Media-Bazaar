@@ -13,17 +13,17 @@ namespace MediaBazaar
     public partial class FormSalesEmployee : Form
     {
         Store s;
-        Employee em;
+        int ID;
         private List<IReplenishment> childForms;
-        public FormSalesEmployee(Store store, Employee employee)
+        public FormSalesEmployee(int UserID, Store store)
         {
             InitializeComponent();
             s = store;
-            em = employee;
+            int ID = UserID;
             childForms = new List<IReplenishment>();
 
-            FormDepotEmployee depot = new FormDepotEmployee(s,em);
-            childForms.Add(depot);
+            //FormDepotEmployee depot = new FormDepotEmployee(s,em);
+            //childForms.Add(depot);
 
             UpdateProductList();
             UpdateAnnouncementList();
@@ -59,8 +59,8 @@ namespace MediaBazaar
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            FormEditEmployeeData editEmployeeData = new FormEditEmployeeData(s, em);
-            editEmployeeData.Show();
+            //FormEditEmployeeData editEmployeeData = new FormEditEmployeeData(s, em);
+            //editEmployeeData.Show();
         }
 
         private void btnCheck_Click(object sender, EventArgs e)

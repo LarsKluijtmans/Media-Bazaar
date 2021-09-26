@@ -10,13 +10,13 @@ namespace MediaBazaar
 {
     public partial class FormOfficeManager : Form
     {
-        Employee employee;
+        int ID;
         Store mediaBazaar;
-        public FormOfficeManager(Employee e, Store mb)
+        public FormOfficeManager(int UserID, Store mb)
         {
             InitializeComponent();
             this.mediaBazaar = mb;
-            this.employee = e;
+            ID = UserID;
 
             UpdateListbox();
         }

@@ -7,13 +7,13 @@ namespace MediaBazaar
 {
     public partial class FormDepotEmployee : Form, IReplenishment
     {
-        Store s;
-        Employee em;
-        public FormDepotEmployee(Store store, Employee employee)
+        int ID;
+        Store mediaBazaar;
+        public FormDepotEmployee(int UserID , Store mb)
         {
             InitializeComponent();
-            s = store;
-            em = employee;
+            ID = UserID;
+            mediaBazaar = mb;
         }
 
         //product
@@ -714,8 +714,8 @@ namespace MediaBazaar
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            FormEditEmployeeData editEmployeeData = new FormEditEmployeeData(s, em);
-            editEmployeeData.Show();
+            //FormEditEmployeeData editEmployeeData = new FormEditEmployeeData(s, em);
+            //editEmployeeData.Show();
         }
 
         private void btnCheck_Click(object sender, EventArgs e)

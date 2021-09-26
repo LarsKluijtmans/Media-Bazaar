@@ -12,18 +12,18 @@ namespace MediaBazaar
 {
     public partial class FormDepotManager : Form
     {
-        Employee employee;
+        int ID;
         Store mediaBazaar;
         private List<Product> productRequests;
         private List<Product> productRestock;
 
-        public FormDepotManager(Employee e, Store mb)
+        public FormDepotManager(int UserID, Store mb)
         {
             InitializeComponent();
             productRequests = new List<Product>();
             productRestock = new List<Product>();
             this.mediaBazaar = mb;
-            this.employee = e;
+            ID = UserID;
 
             UpdateListbox();
         }

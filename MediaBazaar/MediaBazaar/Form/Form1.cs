@@ -12,8 +12,8 @@ namespace MediaBazaar
 {
     public partial class Form1 : Form
     {
-        Employee e;
-        Store s;
+        int ID;
+        Store MediaBazaar;
         private string productN;
         private ProductType productType;
         private int productA;
@@ -25,12 +25,11 @@ namespace MediaBazaar
         private string email;
         private string password;
 
-        public Form1(Employee employee, Store store)
+        public Form1(int userID, Store mb)
         {
             InitializeComponent();
-            store = s;
-            employee = e;
-
+            ID = userID;
+            MediaBazaar = mb;
         }
 
         public Form1(string productN, ProductType productType, int productA)

@@ -11,12 +11,13 @@ namespace MediaBazaar
     public partial class FormOfficeEmployee : Form
     {
         Store s;
-        Employee em;     
-        public FormOfficeEmployee(Store store, Employee employee)
+        int ID;
+             
+        public FormOfficeEmployee(int UserID,Store store)
         {
             InitializeComponent();
             s = store;
-            em = employee;
+            ID = UserID;
 
             UpdateAnnouncementList();
         }
@@ -54,8 +55,8 @@ namespace MediaBazaar
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            FormEditEmployeeData editEmployeeData = new FormEditEmployeeData(s, em);
-            editEmployeeData.Show();
+            //FormEditEmployeeData editEmployeeData = new FormEditEmployeeData(s, em);
+            //editEmployeeData.Show();
         }
 
         private void btnCheck_Click(object sender, EventArgs e)

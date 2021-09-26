@@ -12,13 +12,13 @@ namespace MediaBazaar
 {
     public partial class FormSalesManager : Form
     {
-        Employee employee;
+        int ID;
         Store mediaBazaar;
-        public FormSalesManager(Employee e, Store mb)
+        public FormSalesManager(int UserID, Store mb)
         {
             InitializeComponent();
             mediaBazaar = mb;
-            this.employee = e;
+            ID = UserID;
 
             UpdateListbox();
         }

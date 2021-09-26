@@ -1,17 +1,18 @@
-﻿using MySql.Data.MySqlClient;
-using MediaBazaar.Class;
+﻿using MediaBazaar.Class;
 using System;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace MediaBazaar
 {
     public partial class FormLogin : Form
     {
-        int Userid;
+        Store mb;
 
         public FormLogin()
         {
             InitializeComponent();
+            mb = new Store(); 
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -40,17 +41,17 @@ namespace MediaBazaar
                     {
                         if (reader[1].ToString() == tbxPassword.Text)
                         {
-                            
+                           int Userid = Convert.ToInt32(reader[0]);
 
                             switch (reader[2].ToString())
                             {
-                                case "OWNER": Form1 form1 = new Form1(mediaBazaar.GetEmployee(eee.EmployeeID), mediaBazaar); form1.Show(); break;
-                                case "SALES_MANAGER": FormSalesManager formSalesManager = new FormSalesManager(mediaBazaar.GetEmployee(eee.EmployeeID), mediaBazaar); formSalesManager.Show(); break;
-                                case "SALES_EMPLOYEE": FormSalesEmployee formSalesEmployee = new FormSalesEmployee(mediaBazaar.GetEmployee(eee.EmployeeID), mediaBazaar); formSalesEmployee.Show(); break;
-                                case "OFFICE_MANAGER": FormOfficeManager formOfficeManager = new FormOfficeManager(mediaBazaar.GetEmployee(eee.EmployeeID), mediaBazaar); formOfficeManager.Show(); break;
-                                case "OFFICE_EMPLOYE": FormOfficeEmployee formOfficeEmployee = new FormOfficeEmployee(mediaBazaar.GetEmployee(eee.EmployeeID), mediaBazaar); formOfficeEmployee.Show(); break;
-                                case "DEPOT_MANAGER": FormDepotManager formDepotManager = new FormDepotManager(mediaBazaar.GetEmployee(eee.EmployeeID), mediaBazaar); formDepotManager.Show(); break;
-                                case "DEPOT_EMPLOYEE": FormDepotEmployee formDepotEmployee = new FormDepotEmployee(mediaBazaar.GetEmployee(eee.EmployeeID), mediaBazaar); formDepotEmployee.Show(); break;
+                                case "OWNER": Form1 form1 = new Form1(Userid, mb); form1.Show(); break;
+                                case "SALES_MANAGER": FormSalesManager formSalesManager = new FormSalesManager(Userid, mb); formSalesManager.Show(); break;
+                                case "SALES_EMPLOYEE": FormSalesEmployee formSalesEmployee = new FormSalesEmployee(Userid, mb); formSalesEmployee.Show(); break;
+                                case "OFFICE_MANAGER": FormOfficeManager formOfficeManager = new FormOfficeManager(Userid, mb); formOfficeManager.Show(); break;
+                                case "OFFICE_EMPLOYE": FormOfficeEmployee formOfficeEmployee = new FormOfficeEmployee(Userid, mb); formOfficeEmployee.Show(); break;
+                                case "DEPOT_MANAGER": FormDepotManager formDepotManager = new FormDepotManager(Userid, mb); formDepotManager.Show(); break;
+                                case "DEPOT_EMPLOYEE": FormDepotEmployee formDepotEmployee = new FormDepotEmployee(Userid, mb); formDepotEmployee.Show(); break;
                             }
 
 
