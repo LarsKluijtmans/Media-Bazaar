@@ -31,20 +31,23 @@ namespace MediaBazaar
         {
             this.btnLogout = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtProductIDSales = new System.Windows.Forms.TextBox();
-            this.btnRemoveAmount = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtAmountSales = new System.Windows.Forms.TextBox();
+            this.btnViewPorducts = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.lstProduct = new System.Windows.Forms.ListBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ProductID = new System.Windows.Forms.Label();
-            this.txtProductIDReplenishment = new System.Windows.Forms.TextBox();
             this.btnRequestReplenishment = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtAmountReplenishment = new System.Windows.Forms.TextBox();
+            this.lstProduct = new System.Windows.Forms.ListBox();
+            this.sdfds = new System.Windows.Forms.GroupBox();
+            this.tbAmount = new System.Windows.Forms.TextBox();
+            this.Amount = new System.Windows.Forms.Label();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.lblName = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbBarcode = new System.Windows.Forms.TextBox();
+            this.tbAmountInDepot = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbmountInStore = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.tbID = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
@@ -64,9 +67,10 @@ namespace MediaBazaar
             this.txtAnnouncement = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lstAnnouncement = new System.Windows.Forms.ListBox();
+            this.lbProductType = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.sdfds.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -87,10 +91,11 @@ namespace MediaBazaar
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.btnViewPorducts);
             this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.btnRequestReplenishment);
             this.tabPage2.Controls.Add(this.lstProduct);
-            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Controls.Add(this.sdfds);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
@@ -100,67 +105,17 @@ namespace MediaBazaar
             this.tabPage2.Text = "Products ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // btnViewPorducts
             // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtProductIDSales);
-            this.groupBox2.Controls.Add(this.btnRemoveAmount);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtAmountSales);
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(423, 239);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(265, 176);
-            this.groupBox2.TabIndex = 17;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Sale";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "ProductID:";
-            // 
-            // txtProductIDSales
-            // 
-            this.txtProductIDSales.Location = new System.Drawing.Point(112, 34);
-            this.txtProductIDSales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtProductIDSales.Name = "txtProductIDSales";
-            this.txtProductIDSales.Size = new System.Drawing.Size(110, 25);
-            this.txtProductIDSales.TabIndex = 3;
-            // 
-            // btnRemoveAmount
-            // 
-            this.btnRemoveAmount.Location = new System.Drawing.Point(64, 112);
-            this.btnRemoveAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRemoveAmount.Name = "btnRemoveAmount";
-            this.btnRemoveAmount.Size = new System.Drawing.Size(170, 30);
-            this.btnRemoveAmount.TabIndex = 2;
-            this.btnRemoveAmount.Text = "Product Sold";
-            this.btnRemoveAmount.UseVisualStyleBackColor = true;
-            this.btnRemoveAmount.Click += new System.EventHandler(this.btnRemoveAmount_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(50, 69);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 17);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Amount:";
-            // 
-            // txtAmountSales
-            // 
-            this.txtAmountSales.Location = new System.Drawing.Point(112, 67);
-            this.txtAmountSales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtAmountSales.Name = "txtAmountSales";
-            this.txtAmountSales.Size = new System.Drawing.Size(110, 25);
-            this.txtAmountSales.TabIndex = 0;
+            this.btnViewPorducts.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnViewPorducts.Location = new System.Drawing.Point(748, 423);
+            this.btnViewPorducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnViewPorducts.Name = "btnViewPorducts";
+            this.btnViewPorducts.Size = new System.Drawing.Size(265, 31);
+            this.btnViewPorducts.TabIndex = 5;
+            this.btnViewPorducts.Text = "View all products";
+            this.btnViewPorducts.UseVisualStyleBackColor = true;
+            this.btnViewPorducts.Click += new System.EventHandler(this.btnViewPorducts_Click);
             // 
             // label1
             // 
@@ -172,6 +127,18 @@ namespace MediaBazaar
             this.label1.TabIndex = 16;
             this.label1.Text = "Product List:";
             // 
+            // btnRequestReplenishment
+            // 
+            this.btnRequestReplenishment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRequestReplenishment.Location = new System.Drawing.Point(748, 375);
+            this.btnRequestReplenishment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRequestReplenishment.Name = "btnRequestReplenishment";
+            this.btnRequestReplenishment.Size = new System.Drawing.Size(265, 34);
+            this.btnRequestReplenishment.TabIndex = 2;
+            this.btnRequestReplenishment.Text = "Request reshelf";
+            this.btnRequestReplenishment.UseVisualStyleBackColor = true;
+            this.btnRequestReplenishment.Click += new System.EventHandler(this.btnRequestReplenishment_Click);
+            // 
             // lstProduct
             // 
             this.lstProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -179,70 +146,161 @@ namespace MediaBazaar
             this.lstProduct.ItemHeight = 17;
             this.lstProduct.Location = new System.Drawing.Point(22, 39);
             this.lstProduct.Name = "lstProduct";
-            this.lstProduct.Size = new System.Drawing.Size(341, 429);
+            this.lstProduct.Size = new System.Drawing.Size(664, 429);
             this.lstProduct.TabIndex = 15;
+            this.lstProduct.SelectedIndexChanged += new System.EventHandler(this.lstProduct_SelectedIndexChanged);
             // 
-            // groupBox1
+            // sdfds
             // 
-            this.groupBox1.Controls.Add(this.ProductID);
-            this.groupBox1.Controls.Add(this.txtProductIDReplenishment);
-            this.groupBox1.Controls.Add(this.btnRequestReplenishment);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtAmountReplenishment);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(423, 39);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(265, 176);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Replenishment";
+            this.sdfds.Controls.Add(this.tbAmount);
+            this.sdfds.Controls.Add(this.Amount);
+            this.sdfds.Controls.Add(this.lbProductType);
+            this.sdfds.Controls.Add(this.tbName);
+            this.sdfds.Controls.Add(this.label4);
+            this.sdfds.Controls.Add(this.lblName);
+            this.sdfds.Controls.Add(this.label6);
+            this.sdfds.Controls.Add(this.tbBarcode);
+            this.sdfds.Controls.Add(this.tbAmountInDepot);
+            this.sdfds.Controls.Add(this.lblEmail);
+            this.sdfds.Controls.Add(this.label2);
+            this.sdfds.Controls.Add(this.tbmountInStore);
+            this.sdfds.Controls.Add(this.lblId);
+            this.sdfds.Controls.Add(this.tbID);
+            this.sdfds.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.sdfds.Location = new System.Drawing.Point(710, 39);
+            this.sdfds.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sdfds.Name = "sdfds";
+            this.sdfds.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sdfds.Size = new System.Drawing.Size(326, 429);
+            this.sdfds.TabIndex = 3;
+            this.sdfds.TabStop = false;
+            this.sdfds.Text = "Replenishment";
+            this.sdfds.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // ProductID
+            // tbAmount
             // 
-            this.ProductID.AutoSize = true;
-            this.ProductID.Location = new System.Drawing.Point(38, 37);
-            this.ProductID.Name = "ProductID";
-            this.ProductID.Size = new System.Drawing.Size(68, 17);
-            this.ProductID.TabIndex = 4;
-            this.ProductID.Text = "ProductID:";
+            this.tbAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbAmount.Location = new System.Drawing.Point(148, 292);
+            this.tbAmount.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbAmount.Name = "tbAmount";
+            this.tbAmount.Size = new System.Drawing.Size(162, 26);
+            this.tbAmount.TabIndex = 58;
             // 
-            // txtProductIDReplenishment
+            // Amount
             // 
-            this.txtProductIDReplenishment.Location = new System.Drawing.Point(112, 34);
-            this.txtProductIDReplenishment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtProductIDReplenishment.Name = "txtProductIDReplenishment";
-            this.txtProductIDReplenishment.Size = new System.Drawing.Size(110, 25);
-            this.txtProductIDReplenishment.TabIndex = 3;
+            this.Amount.AutoSize = true;
+            this.Amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Amount.Location = new System.Drawing.Point(54, 292);
+            this.Amount.Name = "Amount";
+            this.Amount.Size = new System.Drawing.Size(73, 20);
+            this.Amount.TabIndex = 57;
+            this.Amount.Text = "Amount: ";
             // 
-            // btnRequestReplenishment
+            // tbName
             // 
-            this.btnRequestReplenishment.Location = new System.Drawing.Point(64, 112);
-            this.btnRequestReplenishment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRequestReplenishment.Name = "btnRequestReplenishment";
-            this.btnRequestReplenishment.Size = new System.Drawing.Size(170, 30);
-            this.btnRequestReplenishment.TabIndex = 2;
-            this.btnRequestReplenishment.Text = "Request replenishment";
-            this.btnRequestReplenishment.UseVisualStyleBackColor = true;
-            this.btnRequestReplenishment.Click += new System.EventHandler(this.btnRequestReplenishment_Click);
+            this.tbName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbName.Location = new System.Drawing.Point(149, 78);
+            this.tbName.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbName.Name = "tbName";
+            this.tbName.ReadOnly = true;
+            this.tbName.Size = new System.Drawing.Size(162, 29);
+            this.tbName.TabIndex = 45;
             // 
-            // label3
+            // lblName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 17);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Amount:";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblName.Location = new System.Drawing.Point(79, 81);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(55, 21);
+            this.lblName.TabIndex = 46;
+            this.lblName.Text = "Name:";
             // 
-            // txtAmountReplenishment
+            // label6
             // 
-            this.txtAmountReplenishment.Location = new System.Drawing.Point(112, 67);
-            this.txtAmountReplenishment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtAmountReplenishment.Name = "txtAmountReplenishment";
-            this.txtAmountReplenishment.Size = new System.Drawing.Size(110, 25);
-            this.txtAmountReplenishment.TabIndex = 0;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(16, 253);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 21);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "Amount in depot:";
+            // 
+            // tbBarcode
+            // 
+            this.tbBarcode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBarcode.Location = new System.Drawing.Point(148, 120);
+            this.tbBarcode.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbBarcode.Name = "tbBarcode";
+            this.tbBarcode.ReadOnly = true;
+            this.tbBarcode.Size = new System.Drawing.Size(162, 29);
+            this.tbBarcode.TabIndex = 47;
+            // 
+            // tbAmountInDepot
+            // 
+            this.tbAmountInDepot.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbAmountInDepot.Location = new System.Drawing.Point(149, 247);
+            this.tbAmountInDepot.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbAmountInDepot.Name = "tbAmountInDepot";
+            this.tbAmountInDepot.ReadOnly = true;
+            this.tbAmountInDepot.Size = new System.Drawing.Size(162, 29);
+            this.tbAmountInDepot.TabIndex = 53;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblEmail.Location = new System.Drawing.Point(65, 123);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(69, 21);
+            this.lblEmail.TabIndex = 48;
+            this.lblEmail.Text = "Barcode:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(21, 209);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 21);
+            this.label2.TabIndex = 52;
+            this.label2.Text = "Amount in store:";
+            // 
+            // tbmountInStore
+            // 
+            this.tbmountInStore.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbmountInStore.Location = new System.Drawing.Point(148, 209);
+            this.tbmountInStore.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbmountInStore.Name = "tbmountInStore";
+            this.tbmountInStore.ReadOnly = true;
+            this.tbmountInStore.Size = new System.Drawing.Size(162, 29);
+            this.tbmountInStore.TabIndex = 51;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblId.Location = new System.Drawing.Point(105, 36);
+            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(28, 21);
+            this.lblId.TabIndex = 50;
+            this.lblId.Text = "ID:";
+            // 
+            // tbID
+            // 
+            this.tbID.Enabled = false;
+            this.tbID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbID.Location = new System.Drawing.Point(148, 33);
+            this.tbID.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbID.Name = "tbID";
+            this.tbID.ReadOnly = true;
+            this.tbID.Size = new System.Drawing.Size(162, 29);
+            this.tbID.TabIndex = 49;
             // 
             // tabPage1
             // 
@@ -452,6 +510,28 @@ namespace MediaBazaar
             this.lstAnnouncement.Size = new System.Drawing.Size(764, 208);
             this.lstAnnouncement.TabIndex = 16;
             // 
+            // lbProductType
+            // 
+            this.lbProductType.Enabled = false;
+            this.lbProductType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbProductType.Location = new System.Drawing.Point(148, 165);
+            this.lbProductType.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.lbProductType.Name = "lbProductType";
+            this.lbProductType.ReadOnly = true;
+            this.lbProductType.Size = new System.Drawing.Size(162, 29);
+            this.lbProductType.TabIndex = 56;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(33, 168);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 21);
+            this.label4.TabIndex = 55;
+            this.label4.Text = "Product type:";
+            // 
             // FormSalesEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -464,10 +544,8 @@ namespace MediaBazaar
             this.Text = "FormSalesEmployee";
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.sdfds.ResumeLayout(false);
+            this.sdfds.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -481,23 +559,13 @@ namespace MediaBazaar
 
         #endregion
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbAmount;
         private System.Windows.Forms.Label u;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtProductIDSales;
-        private System.Windows.Forms.Button btnRemoveAmount;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtAmountSales;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lstProduct;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label ProductID;
-        private System.Windows.Forms.TextBox txtProductIDReplenishment;
+        private System.Windows.Forms.GroupBox sdfds;
         private System.Windows.Forms.Button btnRequestReplenishment;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtAmountReplenishment;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Button btnCheck;
@@ -517,5 +585,19 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox txtAnnouncement;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox lstAnnouncement;
+        private System.Windows.Forms.Button btnViewPorducts;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbBarcode;
+        private System.Windows.Forms.TextBox tbAmountInDepot;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbmountInStore;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.TextBox tbID;
+        private System.Windows.Forms.Label Amount;
+        private System.Windows.Forms.TextBox lbProductType;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -119,38 +119,8 @@ namespace MediaBazaar
         {
             History.Add(p);
         }
-        public bool AddAmountofProduct(int id, int amount)
-        {
-            if (GetProduct(id) != null || (GetProduct(id).Amount + amount) > GetProduct(id).WarehouseAmount)
-            {
-                return false;
-            }
-            else
-            {
-                GetProduct(id).Amount += amount;
-                return true;
-            }
-        }
-        public void Refill(int id)
-        {
-            if (GetProduct(id) != null)
-            {
-                GetProduct(id).WarehouseAmount -= (GetProduct(id).ShelfSpace - GetProduct(id).Amount);
-                GetProduct(id).Amount = GetProduct(id).ShelfSpace;
-            }
-        }
-        public bool DecreaseAmountofProduct(int id, int amount)
-        {
-            if (GetProduct(id) == null || amount > GetProduct(id).Amount)
-            {
-                return false;
-            }
-            else
-            {
-                GetProduct(id).Amount -= amount;
-                return true;
-            }
-        }
+        
+        
 
         //EMPLOYEE
         public void AddEmployee(Employee e)

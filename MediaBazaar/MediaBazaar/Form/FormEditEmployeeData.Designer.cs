@@ -33,12 +33,10 @@ namespace MediaBazaar
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbxEmployeeID = new System.Windows.Forms.TextBox();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.tbxLastName = new System.Windows.Forms.TextBox();
-            this.tbxGender = new System.Windows.Forms.TextBox();
             this.tbxPhoneNumber = new System.Windows.Forms.TextBox();
             this.cbxType = new System.Windows.Forms.ComboBox();
             this.btnUpdateData = new System.Windows.Forms.Button();
@@ -94,19 +92,10 @@ namespace MediaBazaar
             this.label4.TabIndex = 3;
             this.label4.Text = "Last name:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(71, 139);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 15);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Gender:";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 166);
+            this.label6.Location = new System.Drawing.Point(30, 141);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 15);
             this.label6.TabIndex = 5;
@@ -137,17 +126,9 @@ namespace MediaBazaar
             this.tbxLastName.Size = new System.Drawing.Size(149, 23);
             this.tbxLastName.TabIndex = 9;
             // 
-            // tbxGender
-            // 
-            this.tbxGender.Location = new System.Drawing.Point(130, 139);
-            this.tbxGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxGender.Name = "tbxGender";
-            this.tbxGender.Size = new System.Drawing.Size(149, 23);
-            this.tbxGender.TabIndex = 10;
-            // 
             // tbxPhoneNumber
             // 
-            this.tbxPhoneNumber.Location = new System.Drawing.Point(130, 166);
+            this.tbxPhoneNumber.Location = new System.Drawing.Point(130, 141);
             this.tbxPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxPhoneNumber.Multiline = true;
             this.tbxPhoneNumber.Name = "tbxPhoneNumber";
@@ -263,7 +244,7 @@ namespace MediaBazaar
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(81, 192);
+            this.label12.Location = new System.Drawing.Point(81, 167);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(39, 15);
             this.label12.TabIndex = 24;
@@ -271,7 +252,7 @@ namespace MediaBazaar
             // 
             // tbxEmail
             // 
-            this.tbxEmail.Location = new System.Drawing.Point(130, 190);
+            this.tbxEmail.Location = new System.Drawing.Point(130, 165);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.ReadOnly = true;
@@ -317,12 +298,10 @@ namespace MediaBazaar
             this.Controls.Add(this.btnUpdateData);
             this.Controls.Add(this.cbxType);
             this.Controls.Add(this.tbxPhoneNumber);
-            this.Controls.Add(this.tbxGender);
             this.Controls.Add(this.tbxLastName);
             this.Controls.Add(this.tbxFirstName);
             this.Controls.Add(this.tbxEmployeeID);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -341,12 +320,10 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbxEmployeeID;
         private System.Windows.Forms.TextBox tbxFirstName;
         private System.Windows.Forms.TextBox tbxLastName;
-        private System.Windows.Forms.TextBox tbxGender;
         private System.Windows.Forms.TextBox tbxPhoneNumber;
         private System.Windows.Forms.ComboBox cbxType;
         private System.Windows.Forms.Button btnUpdateData;

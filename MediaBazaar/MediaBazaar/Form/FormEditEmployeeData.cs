@@ -24,7 +24,6 @@ namespace MediaBazaar
             tbxEmployeeID.Text = e.EmployeeID.ToString();
             tbxFirstName.Text = e.FirstName;
             tbxLastName.Text = e.LastName;
-            tbxGender.Text = e.Gender;
             tbxPhoneNumber.Text = e.PhoneNumber.ToString();
             tbxEmail.Text = e.Email;
             tbxAddress.Text = e.City;
@@ -39,7 +38,6 @@ namespace MediaBazaar
         {
             this.e.FirstName = tbxFirstName.Text;
             this.e.LastName = tbxLastName.Text;
-            this.e.Gender = tbxGender.Text;
             this.e.PhoneNumber = Convert.ToInt32(tbxPhoneNumber.Text);
             this.e.City = tbxAddress.Text;
             this.e.Username = tbxUsername.Text;

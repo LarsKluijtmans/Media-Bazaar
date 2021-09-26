@@ -24,9 +24,9 @@ namespace MediaBazaar
             int productA = Convert.ToInt32(txtProductAmount.Text);
             ProductType productType = (ProductType)Enum.Parse(typeof(ProductType), cbxProductType.SelectedItem.ToString());
 
-            Product newProduct = new Product(productN, productType,  productA);
+            //Product newProduct = new Product(productN, productType,  productA);
 
-            products.Add(newProduct);
+            //products.Add(newProduct);
             OpenForm1(productN, productType, productA);
         }
 

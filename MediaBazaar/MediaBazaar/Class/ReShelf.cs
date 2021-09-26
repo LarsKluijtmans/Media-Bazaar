@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace MediaBazaar.Class
 {
-    class ReShelf
+    public class ReShelf
     {
         private int shelfReplenishmentID;
         private int productID;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar.Class
 {
-    class Restock
+    public class Restock
     {
         private int restockReplenishmentID;
         private int productID;

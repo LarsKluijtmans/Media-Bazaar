@@ -3,8 +3,10 @@ using MySql.Data.MySqlClient;
 
 namespace MediaBazaar.Class
 {
-    class Utils
+    public class Utils
     {
+        public static string LOGIN_BY_EMPLOYEEID = " SELECT employee.employeeID, password, `contract`.`JodTitle` FROM employee INNER JOIN contract ON contract.employeeID = employee.Employeeid where employee.employeeid = @employeeid order by startdate;";
+
         public static string CREATE_PRODUCT = "INSERT INTO Product ( Name, Barcode, Type, AmountInStore, AmountInDepot) VALUES (@Name, @Barcode, @Type, @AmountInStore, @AmountInDepot);";
         public static string GET_ALL_PRODUCT = "SELECT ProductID, Name, Barcode, Type, AmountInStore, AmountInDepot FROM Product ORDER BY ProductID;";
         public static string UPDATE_PRODUCT = "UPDATE PRODUCT SET Name = @Name, Barcode = @Barcode, Type = @Type, AmountInStore = @AmountInStore, AmountInDepot = @AmountInDepot WHERE ProductID = @ProductID;";

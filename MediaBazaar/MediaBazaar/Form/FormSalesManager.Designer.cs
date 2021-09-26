@@ -30,12 +30,6 @@ namespace MediaBazaar
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnRequest = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtAmountRequested = new System.Windows.Forms.TextBox();
-            this.lstProductSales = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbxEmployeeID = new System.Windows.Forms.TextBox();
@@ -48,83 +42,43 @@ namespace MediaBazaar
             this.rbnSalesEmployees = new System.Windows.Forms.RadioButton();
             this.rbnAllEmployees = new System.Windows.Forms.RadioButton();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnViewPorducts = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnRequestReplenishment = new System.Windows.Forms.Button();
+            this.lstProduct = new System.Windows.Forms.ListBox();
+            this.sdfds = new System.Windows.Forms.GroupBox();
+            this.tbAmount = new System.Windows.Forms.TextBox();
+            this.Amount = new System.Windows.Forms.Label();
+            this.lbProductType = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbBarcode = new System.Windows.Forms.TextBox();
+            this.tbAmountInDepot = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbmountInStore = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.tbID = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.sdfds.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(11, 28);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(808, 374);
+            this.tabControl1.Size = new System.Drawing.Size(1081, 536);
             this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(800, 346);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.btnRequest);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.txtAmountRequested);
-            this.tabPage2.Controls.Add(this.lstProductSales);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(800, 346);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnRequest
-            // 
-            this.btnRequest.Location = new System.Drawing.Point(358, 67);
-            this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(75, 39);
-            this.btnRequest.TabIndex = 7;
-            this.btnRequest.Text = "Request";
-            this.btnRequest.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(360, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 15);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Amount:";
-            // 
-            // txtAmountRequested
-            // 
-            this.txtAmountRequested.Location = new System.Drawing.Point(360, 38);
-            this.txtAmountRequested.Name = "txtAmountRequested";
-            this.txtAmountRequested.Size = new System.Drawing.Size(56, 23);
-            this.txtAmountRequested.TabIndex = 5;
-            // 
-            // lstProductSales
-            // 
-            this.lstProductSales.FormattingEnabled = true;
-            this.lstProductSales.ItemHeight = 15;
-            this.lstProductSales.Location = new System.Drawing.Point(21, 20);
-            this.lstProductSales.Name = "lstProductSales";
-            this.lstProductSales.Size = new System.Drawing.Size(331, 304);
-            this.lstProductSales.TabIndex = 4;
             // 
             // tabPage3
             // 
@@ -264,22 +218,258 @@ namespace MediaBazaar
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.btnViewPorducts);
+            this.tabPage4.Controls.Add(this.label3);
+            this.tabPage4.Controls.Add(this.btnRequestReplenishment);
+            this.tabPage4.Controls.Add(this.lstProduct);
+            this.tabPage4.Controls.Add(this.sdfds);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage4.Size = new System.Drawing.Size(1073, 508);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Products ";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnViewPorducts
+            // 
+            this.btnViewPorducts.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnViewPorducts.Location = new System.Drawing.Point(748, 423);
+            this.btnViewPorducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnViewPorducts.Name = "btnViewPorducts";
+            this.btnViewPorducts.Size = new System.Drawing.Size(265, 31);
+            this.btnViewPorducts.TabIndex = 5;
+            this.btnViewPorducts.Text = "View all products";
+            this.btnViewPorducts.UseVisualStyleBackColor = true;
+            this.btnViewPorducts.Click += new System.EventHandler(this.btnViewPorducts_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(25, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 21);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Product List:";
+            // 
+            // btnRequestReplenishment
+            // 
+            this.btnRequestReplenishment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRequestReplenishment.Location = new System.Drawing.Point(748, 375);
+            this.btnRequestReplenishment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRequestReplenishment.Name = "btnRequestReplenishment";
+            this.btnRequestReplenishment.Size = new System.Drawing.Size(265, 34);
+            this.btnRequestReplenishment.TabIndex = 2;
+            this.btnRequestReplenishment.Text = "Request reshelf";
+            this.btnRequestReplenishment.UseVisualStyleBackColor = true;
+            this.btnRequestReplenishment.Click += new System.EventHandler(this.btnRequestReplenishment_Click);
+            // 
+            // lstProduct
+            // 
+            this.lstProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstProduct.FormattingEnabled = true;
+            this.lstProduct.ItemHeight = 17;
+            this.lstProduct.Location = new System.Drawing.Point(22, 39);
+            this.lstProduct.Name = "lstProduct";
+            this.lstProduct.Size = new System.Drawing.Size(664, 429);
+            this.lstProduct.TabIndex = 15;
+            this.lstProduct.SelectedIndexChanged += new System.EventHandler(this.lstProduct_SelectedIndexChanged);
+            // 
+            // sdfds
+            // 
+            this.sdfds.Controls.Add(this.tbAmount);
+            this.sdfds.Controls.Add(this.Amount);
+            this.sdfds.Controls.Add(this.lbProductType);
+            this.sdfds.Controls.Add(this.tbName);
+            this.sdfds.Controls.Add(this.label4);
+            this.sdfds.Controls.Add(this.lblName);
+            this.sdfds.Controls.Add(this.label6);
+            this.sdfds.Controls.Add(this.tbBarcode);
+            this.sdfds.Controls.Add(this.tbAmountInDepot);
+            this.sdfds.Controls.Add(this.lblEmail);
+            this.sdfds.Controls.Add(this.label5);
+            this.sdfds.Controls.Add(this.tbmountInStore);
+            this.sdfds.Controls.Add(this.lblId);
+            this.sdfds.Controls.Add(this.tbID);
+            this.sdfds.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.sdfds.Location = new System.Drawing.Point(710, 39);
+            this.sdfds.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sdfds.Name = "sdfds";
+            this.sdfds.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sdfds.Size = new System.Drawing.Size(326, 429);
+            this.sdfds.TabIndex = 3;
+            this.sdfds.TabStop = false;
+            this.sdfds.Text = "Replenishment";
+            // 
+            // tbAmount
+            // 
+            this.tbAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbAmount.Location = new System.Drawing.Point(148, 292);
+            this.tbAmount.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbAmount.Name = "tbAmount";
+            this.tbAmount.Size = new System.Drawing.Size(162, 26);
+            this.tbAmount.TabIndex = 58;
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSize = true;
+            this.Amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Amount.Location = new System.Drawing.Point(54, 291);
+            this.Amount.Name = "Amount";
+            this.Amount.Size = new System.Drawing.Size(73, 20);
+            this.Amount.TabIndex = 57;
+            this.Amount.Text = "Amount: ";
+            // 
+            // lbProductType
+            // 
+            this.lbProductType.Enabled = false;
+            this.lbProductType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbProductType.Location = new System.Drawing.Point(148, 165);
+            this.lbProductType.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.lbProductType.Name = "lbProductType";
+            this.lbProductType.ReadOnly = true;
+            this.lbProductType.Size = new System.Drawing.Size(162, 29);
+            this.lbProductType.TabIndex = 56;
+            // 
+            // tbName
+            // 
+            this.tbName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbName.Location = new System.Drawing.Point(149, 78);
+            this.tbName.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbName.Name = "tbName";
+            this.tbName.ReadOnly = true;
+            this.tbName.Size = new System.Drawing.Size(162, 29);
+            this.tbName.TabIndex = 45;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(33, 167);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 21);
+            this.label4.TabIndex = 55;
+            this.label4.Text = "Product type:";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblName.Location = new System.Drawing.Point(79, 80);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(55, 21);
+            this.lblName.TabIndex = 46;
+            this.lblName.Text = "Name:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(16, 252);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 21);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "Amount in depot:";
+            // 
+            // tbBarcode
+            // 
+            this.tbBarcode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBarcode.Location = new System.Drawing.Point(148, 120);
+            this.tbBarcode.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbBarcode.Name = "tbBarcode";
+            this.tbBarcode.ReadOnly = true;
+            this.tbBarcode.Size = new System.Drawing.Size(162, 29);
+            this.tbBarcode.TabIndex = 47;
+            // 
+            // tbAmountInDepot
+            // 
+            this.tbAmountInDepot.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbAmountInDepot.Location = new System.Drawing.Point(149, 247);
+            this.tbAmountInDepot.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbAmountInDepot.Name = "tbAmountInDepot";
+            this.tbAmountInDepot.ReadOnly = true;
+            this.tbAmountInDepot.Size = new System.Drawing.Size(162, 29);
+            this.tbAmountInDepot.TabIndex = 53;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblEmail.Location = new System.Drawing.Point(65, 122);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(69, 21);
+            this.lblEmail.TabIndex = 48;
+            this.lblEmail.Text = "Barcode:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(21, 208);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(125, 21);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Amount in store:";
+            // 
+            // tbmountInStore
+            // 
+            this.tbmountInStore.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbmountInStore.Location = new System.Drawing.Point(148, 209);
+            this.tbmountInStore.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbmountInStore.Name = "tbmountInStore";
+            this.tbmountInStore.ReadOnly = true;
+            this.tbmountInStore.Size = new System.Drawing.Size(162, 29);
+            this.tbmountInStore.TabIndex = 51;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblId.Location = new System.Drawing.Point(105, 35);
+            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(28, 21);
+            this.lblId.TabIndex = 50;
+            this.lblId.Text = "ID:";
+            // 
+            // tbID
+            // 
+            this.tbID.Enabled = false;
+            this.tbID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbID.Location = new System.Drawing.Point(148, 33);
+            this.tbID.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbID.Name = "tbID";
+            this.tbID.ReadOnly = true;
+            this.tbID.Size = new System.Drawing.Size(162, 29);
+            this.tbID.TabIndex = 49;
+            // 
             // FormSalesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 429);
+            this.ClientSize = new System.Drawing.Size(1115, 587);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSalesManager";
             this.Text = "FormSalesManager";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.sdfds.ResumeLayout(false);
+            this.sdfds.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -287,13 +477,7 @@ namespace MediaBazaar
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnRequest;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtAmountRequested;
-        private System.Windows.Forms.ListBox lstProductSales;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox tbxEmployeeID;
@@ -305,5 +489,25 @@ namespace MediaBazaar
         private System.Windows.Forms.ListBox lbxEmployees;
         private System.Windows.Forms.RadioButton rbnSalesEmployees;
         private System.Windows.Forms.RadioButton rbnAllEmployees;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button btnViewPorducts;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnRequestReplenishment;
+        private System.Windows.Forms.ListBox lstProduct;
+        private System.Windows.Forms.GroupBox sdfds;
+        private System.Windows.Forms.TextBox tbAmount;
+        private System.Windows.Forms.Label Amount;
+        private System.Windows.Forms.TextBox lbProductType;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbBarcode;
+        private System.Windows.Forms.TextBox tbAmountInDepot;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbmountInStore;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.TextBox tbID;
     }
 }
