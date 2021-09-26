@@ -142,7 +142,7 @@ namespace MediaBazaar
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.ng = new System.Windows.Forms.Button();
+            this.btnViewAllSalesPlaning = new System.Windows.Forms.Button();
             this.cePlaing = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1275,7 +1275,7 @@ namespace MediaBazaar
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cePlaing);
-            this.groupBox1.Controls.Add(this.ng);
+            this.groupBox1.Controls.Add(this.btnViewAllSalesPlaning);
             this.groupBox1.Controls.Add(this.tbShift);
             this.groupBox1.Controls.Add(this.tbDay);
             this.groupBox1.Controls.Add(this.tbDepartment);
@@ -1408,15 +1408,15 @@ namespace MediaBazaar
             this.listBox1.Size = new System.Drawing.Size(706, 429);
             this.listBox1.TabIndex = 60;
             // 
-            // ng
+            // btnViewAllSalesPlaning
             // 
-            this.ng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ng.Location = new System.Drawing.Point(70, 275);
-            this.ng.Name = "ng";
-            this.ng.Size = new System.Drawing.Size(215, 34);
-            this.ng.TabIndex = 21;
-            this.ng.Text = "View sales planing";
-            this.ng.UseVisualStyleBackColor = true;
+            this.btnViewAllSalesPlaning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnViewAllSalesPlaning.Location = new System.Drawing.Point(70, 275);
+            this.btnViewAllSalesPlaning.Name = "btnViewAllSalesPlaning";
+            this.btnViewAllSalesPlaning.Size = new System.Drawing.Size(215, 34);
+            this.btnViewAllSalesPlaning.TabIndex = 21;
+            this.btnViewAllSalesPlaning.Text = "View sales planing";
+            this.btnViewAllSalesPlaning.UseVisualStyleBackColor = true;
             // 
             // cePlaing
             // 
@@ -1566,7 +1566,7 @@ namespace MediaBazaar
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnOffi;
-        private System.Windows.Forms.Button btnSalesPlani;
+        private System.Windows.Forms.Button btnViewAllSalesPlani;
         private System.Windows.Forms.TextBox tbShift;
         private System.Windows.Forms.TextBox tbDay;
         private System.Windows.Forms.TextBox tbDepartment;
@@ -1581,6 +1581,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Button cePlaing;
         private System.Windows.Forms.Button ng;
         private System.Windows.Forms.Button btnAllPlaning;
+        private System.Windows.Forms.Button btnViewAllSalesPlaning;
     }
 }
 

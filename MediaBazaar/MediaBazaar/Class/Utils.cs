@@ -29,6 +29,7 @@ namespace MediaBazaar.Class
 
         public static string UPDATE_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE scheduleId = @scheduleId;";
 
+        public static string PLAN_PLANING = "SELECT PrefranceID, contract.EmployeeID, Prefered, DAY, Time, contract.JodTitle, contract.WorkHoursPerWeek FROM workprefrance INNER JOIN contract ON contract.EmployeeID = workprefrance.EmployeeID;";
 
         public static MySqlConnection GetConnection()
         {
