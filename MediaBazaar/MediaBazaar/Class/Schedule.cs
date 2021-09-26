@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaBazaar.Class
 {
-	abstract class Schedule
+	public class Schedule
 	{
 
 		private int id;
@@ -63,7 +63,7 @@ namespace MediaBazaar.Class
 		public override string ToString()
         {
 		
-				return $" Department {department}   Day: {day}   Morning: {MorningAmount}   Afternoon: {AfternoonAmount}  Evening: {EveningAmount} ";
+				return $" Id: {id}   Department: {department}   Day: {day}   Morning: {MorningAmount}   Afternoon: {AfternoonAmount}  Evening: {EveningAmount} ";
 		}
 	
 		

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MediaBazaar.Class;
+﻿using MediaBazaar.Class;
 using MySql.Data.MySqlClient;
+using System;
+using System.Windows.Forms;
 
 namespace MediaBazaar
 {
@@ -414,7 +407,7 @@ namespace MediaBazaar
         private void btnViewAllRestockRequests_Click(object sender, EventArgs e)
         {
             ViewAllRestockRequests();
-        } 
+        }
 
         private void btnFufillRestockRequest_Click(object sender, EventArgs e)
         {
@@ -707,6 +700,139 @@ namespace MediaBazaar
             tbRamountInStore.Text = Shelf.AmountInStore.ToString();
             tbRAmountInDepot.Text = Shelf.AmountInDepot.ToString();
             tbReshelfReqAmount.Text = Shelf.Amount.ToString();
+        }
+
+        //Schedule
+
+        public void ViewAllSchedule()
+        {
+            lbSchedule.Items.Clear();
+
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = Utils.GET_SCHEDULE;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Schedule schedule;
+
+                while (reader.Read())
+                {
+                    int Id = reader.GetInt32("scheduleId");
+                    string Department = reader.GetString("department");
+                    string Day = reader.GetString("day");
+                    int MorningAmount = reader.GetInt32("morning");
+                    int AfternoonAmount = reader.GetInt32("afternoon");
+                    int EveningAmount = reader.GetInt32("evening");
+
+                    schedule = new Schedule(Id, Department, Day, MorningAmount, AfternoonAmount, EveningAmount);
+
+                    lbSchedule.Items.Add(schedule);
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void btViewSchedule_Click(object sender, EventArgs e)
+        {
+            ViewAllSchedule();
+        }
+
+        private void btnEditschedule_Click(object sender, EventArgs e)
+        {
+            string Morning = lbScheduleMorning.Text;
+            if (string.IsNullOrEmpty(Morning))
+            {
+                lbSchedule.Items.Add("'Morning' field is required.");
+                return;
+            }
+
+            string Afternoon = lbScheduleAfternoon.Text;
+            if (string.IsNullOrEmpty(Afternoon))
+            {
+                lbSchedule.Items.Add("'Afternoon' field is required.");
+                return;
+            }
+
+            string Evening = lbScheduleEvening.Text;
+            if (string.IsNullOrEmpty(Evening))
+            {
+                lbSchedule.Items.Add("'Evening' field is required.");
+                return;
+            }
+            string ID = lbScheduleID.Text;
+            if (string.IsNullOrEmpty(ID))
+            {
+                lbSchedule.Items.Add("Please select a time");
+                return;
+            }
+
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = Utils.UPDATE_SCHEDULE;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@scheduleId", ID);
+                cmd.Parameters.AddWithValue("@morning", Morning);
+                cmd.Parameters.AddWithValue("@afternoon", Afternoon);
+                cmd.Parameters.AddWithValue("@evening", Evening);
+                conn.Open();
+
+                int numAffectedRows = cmd.ExecuteNonQuery();
+
+                ViewAllSchedule();
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong");
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void lbSchedule_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbSchedule.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            Object scheduleObject = lbSchedule.SelectedItem;
+            if (!(scheduleObject is Schedule))
+            {
+                return;
+            }
+
+            Schedule schedule = (Schedule)scheduleObject;
+
+            lbScheduleID.Text = schedule.ID.ToString();
+            lbScheduleDepartment.Text = schedule.Department.ToString();
+            lbScheduleDay.Text = schedule.Day;
+            lbScheduleMorning.Text = schedule.MorningAmount.ToString();
+            lbScheduleAfternoon.Text = schedule.AfternoonAmount.ToString();
+            lbScheduleEvening.Text = schedule.EveningAmount.ToString();
         }
     }
 }
