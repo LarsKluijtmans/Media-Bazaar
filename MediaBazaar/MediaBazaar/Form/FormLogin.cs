@@ -15,7 +15,7 @@ namespace MediaBazaar
 
             
 
-            employee = new Employee("Wolfs1", "Esther1", "F", 0612901749, "ewolfs@mb.com", "drunen", "01-01-1998", 1234, "esther", "wolfs", JobTitle.DEPOT_MANAGER);
+            employee = new Employee("Wolfs1", "Esther1",  0612901749, "ewolfs@mb.com", "drunen", "01-01-1998", 1234, "esther", "wolfs", JobTitle.DEPOT_MANAGER);
             mediaBazaar.Employees.Add(employee);
 
         }

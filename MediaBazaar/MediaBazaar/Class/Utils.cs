@@ -3,7 +3,7 @@ using MySql.Data.MySqlClient;
 
 namespace MediaBazaar.Class
 {
-    class Utils
+    public class Utils
     {
         public static string CREATE_PRODUCT = "INSERT INTO Product ( Name, Barcode, Type, AmountInStore, AmountInDepot) VALUES (@Name, @Barcode, @Type, @AmountInStore, @AmountInDepot);";
         public static string GET_ALL_PRODUCT = "SELECT ProductID, Name, Barcode, Type, AmountInStore, AmountInDepot FROM Product ORDER BY ProductID;";
