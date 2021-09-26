@@ -8,15 +8,12 @@ namespace MediaBazaar
     {
         //fields
         private int productID;
-        private static int counter = 1;
         private string barcode;
         private string name;
-        private ProductType productType;
-        private int amount;
-        private int shelfSpace;
-        private int warehouseAmount;
-        private int amountRequested;
-        private int requestID;
+        private string productType;
+        private int amountInStore;
+        private int amountInDepot;
+
 
         //properties
         public int ProductID
@@ -29,7 +26,7 @@ namespace MediaBazaar
             get { return barcode; }
             set { barcode = value; }
         }
-        public ProductType ProductType
+        public string ProductType
         {
             get { return productType; }
             set { productType = value; }
@@ -39,62 +36,34 @@ namespace MediaBazaar
             get { return name; }
             set { name = value; }
         }
-        public int Amount
+
+        public int AmountInStore
         {
-            get { return amount; }
-            set { amount = value; }
+            get { return amountInStore; }
+            set { amountInStore = value; }
         }
-        public int ShelfSpace
+        public int AmountInDepot
         {
-            get { return shelfSpace; }
-            set { shelfSpace = value; }
-        }
-        public int WarehouseAmount
-        {
-            get { return warehouseAmount; }
-            set { warehouseAmount = value; }
-        }
-        public int AmountRequested
-        {
-            get { return amountRequested; }
-            set { amountRequested = value; }
-        }
-        public int RequestID
-        {
-            get { return requestID; }
-            set { requestID = value; }
+            get { return amountInDepot; }
+            set { amountInDepot = value; }
         }
 
         //constructor
-        public Product(string name, ProductType type , int maxAmount)
+        public Product(int ID, string name, string type, string barcode, int AmountInDepot, int AmountInStore)
         {
-            ProductID = counter;
-            Barcode = type.ToString().Substring(0, 3) + ProductID;            
+            ProductID = ID;
+            Barcode = barcode;
             Name = name;
             ProductType = type;
-            ShelfSpace = maxAmount;
-            Amount = ShelfSpace;
-            WarehouseAmount = 1000;
-
-            counter++;
+            amountInDepot = AmountInDepot;
+            amountInStore = AmountInStore;
         }
+
 
         //methods
         public override string ToString()
         {
-            return "ID: " + ProductID + " Name: " + Name + " Amount: " + Amount + " Shelf Space: " + ShelfSpace;
-        }
-        public string GetInfo()
-        {
-            return "ID: " + ProductID + " Barcode: " + Barcode + " Name: " + Name + " Type: " + ProductType;
-        }
-        public string RequestInfo()
-        {
-            return "RequestID: " + RequestID + ": "+ AmountRequested + " amount of " + Name;
-        }
-        public string WarehouseInfo()
-        {
-            return "Name: " + Name + " Amount left in Warehouse: " + WarehouseAmount;
+            return "  ID: " + ProductID + "   Barcode: " + Barcode + "   Name: " + Name + "   Type: " + ProductType + "   Amount in depot: " + amountInDepot + "   Amoutn in store: " + AmountInStore;
         }
     }
 }
