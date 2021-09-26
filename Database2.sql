@@ -214,10 +214,10 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Data for table `mydb`.`Announcement`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Announcement` (`announcementID`, `announcementMessage`) VALUES (1, 'hello');
-INSERT INTO `mydb`.`Announcement` (`announcementID`, `announcementMessage`) VALUES (2, 'first');
-INSERT INTO `mydb`.`Announcement` (`announcementID`, `announcementMessage`) VALUES (3, 'Error');
+USE `dbi461266`;
+INSERT INTO `dbi461266`.`Announcement` (`announcementID`, `announcementMessage`) VALUES (1, 'hello');
+INSERT INTO `dbi461266`.`Announcement` (`announcementID`, `announcementMessage`) VALUES (2, 'first');
+INSERT INTO `dbi461266`.`Announcement` (`announcementID`, `announcementMessage`) VALUES (3, 'Error');
 
 COMMIT;
 
@@ -226,9 +226,9 @@ COMMIT;
 -- Data for table `mydb`.`Complaint`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Complaint` (`complaintID`, `complaintMessage`) VALUES (1, 'Error');
-INSERT INTO `mydb`.`Complaint` (`complaintID`, `complaintMessage`) VALUES (2, 'hello');
+USE `dbi461266`;
+INSERT INTO `dbi461266`.`Complaint` (`complaintID`, `complaintMessage`) VALUES (1, 'Error');
+INSERT INTO `dbi461266`.`Complaint` (`complaintID`, `complaintMessage`) VALUES (2, 'hello');
 
 COMMIT;
 
@@ -237,9 +237,17 @@ COMMIT;
 -- Data for table `mydb`.`Contract`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Contract` (`ContractID`, `EmployeeId`, `jobTitle`, `floor`, `workingHours`, `salaryPerHour`, `startDate`, `endDate`, `reasenForTermination`) VALUES (1, 1, 'OWNER', '', 100, 100, '2020-12-12', '2020-12-12', 'NONE');
-
+USE `dbi461266`;
+INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`,  `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (1, 1, 'OWNER',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`, `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (2, 1, 'SALES EMPLOYEE',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jobtitle`,  `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (3, 1, 'SALES EMPLOYEE',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`, `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (4, 1, 'SALES EMPLOYEE',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`,  `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (5, 1, 'SALES EMPLOYEE', 40, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`, `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (6, 1, 'SALES EMPLOYEE', 40, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`, `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (7, 1, 'SALES EMPLOYEE',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`,  `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (8, 1, 'SALES EMPLOYEE',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`,  `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (9, 1, 'SALES EMPLOYEE',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
+INSERT INTO `dbi461266`.`Contract` (`ContractID`, `EmployeeId`, `jodtitle`, `WorkHoursPerWeek`, `salaryPerHour`, `startDate`, `endDate`, `ReasonForTermination`) VALUES (10, 1, 'SALES EMPLOYEE',  40, 100, '2020-12-12', '2020-12-12', 'NONE');
 COMMIT;
 
 
@@ -247,8 +255,8 @@ COMMIT;
 -- Data for table `mydb`.`DeletedEmployee`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`DeletedEmployee` (`employeeID`, `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES (2, 'I\'ll', 'Be back', NULL, NULL, NULL, NULL, 123, 'i', '1');
+USE `dbi461266`;
+INSERT INTO `dbi461266`.`DeletedEmployee` (`employeeID`, `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES (2, 'I\'ll', 'Be back', NULL, NULL, NULL, NULL, 123, 'i', '1');
 
 COMMIT;
 
@@ -257,10 +265,10 @@ COMMIT;
 -- Data for table `mydb`.`Department`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Department` (`departmentID`, `departmentName`) VALUES (1, 'Sales');
-INSERT INTO `mydb`.`Department` (`departmentID`, `departmentName`) VALUES (2, 'Office');
-INSERT INTO `mydb`.`Department` (`departmentID`, `departmentName`) VALUES (3, 'Depot');
+USE `dbi461266`;
+INSERT INTO `dbi461266`.`Department` (`departmentID`, `departmentName`) VALUES (1, 'Sales');
+INSERT INTO `dbi461266`.`Department` (`departmentID`, `departmentName`) VALUES (2, 'Office');
+INSERT INTO `dbi461266`.`Department` (`departmentID`, `departmentName`) VALUES (3, 'Depot');
 
 COMMIT;
 
@@ -269,8 +277,8 @@ COMMIT;
 -- Data for table `mydb`.`Employee`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Employee` (`employeeID`, `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES (1, 'Lars', 'Kluijtmans', 0000, 'lars@gmail.com', NULL, NULL, 1234, 'Lars', '1');
+USE `dbi461266`;
+INSERT INTO `dbi461266`.`Employee` (`employeeID`, `firstName`, `lastName`, `phoneNumber`, `email`, `adress`, `dateOfBirth`, `bsn`, `userName`, `password`) VALUES (1, 'Lars', 'Kluijtmans', 0000, 'lars@gmail.com', NULL, NULL, 1234, 'Lars', '1');
 
 COMMIT;
 
@@ -279,8 +287,8 @@ COMMIT;
 -- Data for table `mydb`.`Jobs`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Jobs` (`jobID`, `jobTitle`) VALUES (1, 'Owner');
+USE `dbi461266`;
+INSERT INTO `dbi461266`.`Jobs` (`jobID`, `jobTitle`) VALUES (1, 'Owner');
 
 COMMIT;
 
@@ -289,8 +297,8 @@ COMMIT;
 -- Data for table `mydb`.`Product`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Product` (`productID`, `barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES (1, 'k1', 'Knife', 'Kitchen and Home', 100, 12);
+USE `dbi461266`;
+INSERT INTO `dbi461266`.`Product` (`productID`, `barcode`, `ProductName`, `PorductType`, `AmountInDepot`, `AmountInSales`) VALUES (1, 'k1', 'Knife', 'Kitchen and Home', 100, 12);
 
 COMMIT;
 
@@ -299,8 +307,8 @@ COMMIT;
 -- Data for table `mydb`.`ProductTypes`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`ProductTypes` (`ProductTypeID`, `ProductTypesName`) VALUES (1, 'Kitchen and Home');
+USE `dbi461266`;
+INSERT INTO `dbi461266`.`ProductTypes` (`ProductTypeID`, `ProductTypesName`) VALUES (1, 'Kitchen and Home');
 
 COMMIT;
 
@@ -309,8 +317,8 @@ COMMIT;
 -- Data for table `mydb`.`Scheduel`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Scheduel` (`empID`, `scheduelDay`, `time`) VALUES (1, 'wednesday', 'morning');
+USE `dbi461266`;
+INSERT INTO `dbi461266`.`Scheduel` (`empID`, `scheduelDay`, `time`) VALUES (1, 'wednesday', 'morning');
 
 COMMIT;
 
@@ -319,14 +327,14 @@ COMMIT;
 -- Data for table `mydb`.`Shifts`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('monday', 1, 1, 1);
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('tuseday', 1, 1, 1);
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('wednsday', 1, 1, 1);
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('thursday', 1, 1, 1);
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('friday', 1, 1, 1);
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('stareday', 1, 1, 1);
-INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('sunday', 1, 1, 1);
+USE `dbi461266`;
+INSERT INTO `dbi461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('monday', 1, 1, 1);
+INSERT INTO `dbi461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('tuseday', 1, 1, 1);
+INSERT INTO `dbi461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('wednsday', 1, 1, 1);
+INSERT INTO `dbi461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('thursday', 1, 1, 1);
+INSERT INTO `dbi461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('friday', 1, 1, 1);
+INSERT INTO `dbi461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('stareday', 1, 1, 1);
+INSERT INTO `dbi461266`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('sunday', 1, 1, 1);
 
 
 
