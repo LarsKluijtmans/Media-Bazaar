@@ -55,7 +55,7 @@ namespace MediaBazaar
 		// methodes
 		public override string ToString()
 		{
-			return $"ID: {ID} - Name: {FirstName} {LastName} - Email: {Email} ";
+			return $"ID: {ID} - Name: {FirstName} {LastName} - Email: {Email} - PhoneNumber: {PhoneNumber.ToString()}";
 		}
 
 
