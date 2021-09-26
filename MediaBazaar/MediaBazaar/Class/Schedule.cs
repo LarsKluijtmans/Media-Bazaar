@@ -4,51 +4,66 @@ using System.Text;
 
 namespace MediaBazaar.Class
 {
-	abstract class Schedule
+	public class Schedule
 	{
 
 		private int id;
-		private string firststName;
-		private string lasttName;
-		private string date;
+		private string department;
+		private string day;
+		private int morningAmount;
+		private int afternoonAmount;
+		private int eveningAmount;
 
-	public int ID
+		public int ID
         {
-
 			get { return id; }
 			set { id = value; }
-
+		}
+		public string Department
+		{
+			get { return department; }
+			set { department = value; }
 		}
 
-	 public string FirstName
-        {
-            get { return firststName; }
-			set { firststName = value; }
+		public string Day
+		{
+			get { return day; }
+			set { day = value; }
+		}
+
+		public int MorningAmount
+		{
+            get { return morningAmount; }
+			set { morningAmount = value; }
         }
 
-		public string LastName
-        {
-			get { return lasttName; }
-            set { lasttName = value; }
+		public int AfternoonAmount
+		{
+			get { return afternoonAmount; }
+            set { afternoonAmount = value; }
         }
 
-		public string Date
-        {
-			get { return date; }
-			set { date = value; }
+		public int EveningAmount
+		{
+			get { return eveningAmount; }
+			set { eveningAmount = value; }
         }
 	   
-		public Schedule(int id, string date)
+		public Schedule(int Id, string Department, string Day, int MorningAmount, int AfternoonAmount, int EveningAmount)
         {
-			ID = id;
-			Date = date;
+			id = Id;
+			department = Department;
+			day = Day;
+			morningAmount = MorningAmount;
+			afternoonAmount = AfternoonAmount;
+			eveningAmount = EveningAmount;
         }
 		
 		
-		public string Viewschedule()
+		public override string ToString()
         {
 		
-				return $" Name: {FirstName} {LastName} - Date: {Date}";
+				return $" Id: {id}   Department: {department}   Day: {day}   Morning: {MorningAmount}   Afternoon: {AfternoonAmount}  Evening: {EveningAmount} ";
 		}
 	
 		

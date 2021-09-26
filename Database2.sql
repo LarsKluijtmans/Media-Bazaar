@@ -143,6 +143,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Scheduel` (
   `time` VARCHAR(45) NOT NULL)
 ENGINE = InnoDB;
 
+ALTER TABLE `dbi461266`.`schedule` 
+ADD COLUMN `ScheduleID` INT NOT NULL FIRST,
+DROP PRIMARY KEY,
+ADD PRIMARY KEY (`ScheduleID`);
+
+
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Shifts`
@@ -303,6 +309,30 @@ INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('
 INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('friday', 1, 1, 1);
 INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('stareday', 1, 1, 1);
 INSERT INTO `mydb`.`Shifts` (`day`, `Morning`, `Afternoon`, `evening`) VALUES ('sunday', 1, 1, 1);
+
+
+
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('1', 'Sales', 'Monday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('2', 'Sales', 'Tusday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('3', 'Sales', 'Wednesday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('4', 'Sales', 'Thursday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('5', 'Sales', 'Friday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('6', 'Sales', 'Saterday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('7', 'Sales', 'Sunday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('8', 'Depot', 'Monday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('9', 'Depot', 'Tusday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('10', 'Depot', 'Wednesday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('11', 'Depot', 'Thursday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('12', 'Depot', 'Friday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('13', 'Depot', 'Saterday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('14', 'Depot', 'Sunday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('15', 'Office', 'Monday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('16', 'Office', 'Tusday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('17', 'Office', 'Wednesday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('18', 'Office', 'Thursday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('19', 'Office', 'Friday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('20', 'Office', 'Saterday');
+INSERT INTO `dbi461266`.`schedule` (`ScheduleID`, `Department`, `Day`) VALUES ('21', 'Office', 'Sunday');
 
 COMMIT;
 
