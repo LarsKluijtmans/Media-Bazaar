@@ -66,13 +66,13 @@ namespace MediaBazaar
 
         private void btnCreateNewEmployee_Click(object sender, EventArgs e)
         {
-            FormNewEmployee formNewEmployee = new FormNewEmployee(mediaBazaar);
+            FormNewEmployee formNewEmployee = new FormNewEmployee();
             formNewEmployee.Show();
         }
 
         private void btnReadEmployees_Click(object sender, EventArgs e)
         {
-            UpdateListbox();
+            //ViewAllEmployees();
         }
 
         private void btnUpdateEmployees_Click(object sender, EventArgs e)
@@ -127,6 +127,56 @@ namespace MediaBazaar
 
             return tempEmployee;
         }
+
+        public void ViewAllEmployees()
+        {
+            lbxEmployees.Items.Clear();
+
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = Utils.GET_ALL_EMPLOYEES;
+            
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Person employee;
+
+                while (reader.Read())
+                {
+                    int employeeID = reader.GetInt32("EmployeeID");
+                    string firstName = reader.GetString("FirstName");
+                    string lastName = reader.GetString("LastName");
+                    string username = reader.GetString("UserName");
+                    string password = reader.GetString("Password");
+                    int bsn = reader.GetInt32("BSN");
+                    string city = reader.GetString("Address");
+                    string email = reader.GetString("Email");
+                    int phoneNumber = reader.GetInt32("PhoneNumber");
+                    string dateOfBirth = "01-01-1998";
+
+                    employee = new ManagerDepot(employeeID, firstName, lastName, username, password, bsn, city, email, phoneNumber, dateOfBirth);
+                    lbxEmployees.Items.Add(employee);
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
 
         // products
 
