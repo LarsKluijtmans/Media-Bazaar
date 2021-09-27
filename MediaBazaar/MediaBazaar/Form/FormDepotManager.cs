@@ -72,60 +72,63 @@ namespace MediaBazaar
 
         private void btnReadEmployees_Click(object sender, EventArgs e)
         {
-            //ViewAllEmployees();
+            ViewAllEmployees();
         }
 
         private void btnUpdateEmployees_Click(object sender, EventArgs e)
         {
-            Employee tempEmployee = GetTempEmployee();
+            Person employee = GetTempEmployee();
 
-            if (tempEmployee.Type == JobTitle.DEPOT_MANAGER || tempEmployee.Type == JobTitle.DEPOT_EMPLOYEE)
-            {
-                FormEditEmployeeData formEditEmployeeData = new FormEditEmployeeData(mediaBazaar, tempEmployee);
-                formEditEmployeeData.Show();
-            }
-            else
-            {
-                MessageBox.Show("You do not have the permission to modify this employee");
-            }
+            FormViewEmployee formViewEmployee = new FormViewEmployee(employee);
+            formViewEmployee.Show();
         }
 
         private void btnDeleteEmployees_Click(object sender, EventArgs e)
         {
-            Employee tempEmployee = GetTempEmployee();
-
-            tbxEmployeeID.Text = tempEmployee.EmployeeID.ToString();
-
-            if (tempEmployee.Type == JobTitle.DEPOT_MANAGER || tempEmployee.Type == JobTitle.DEPOT_EMPLOYEE)
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = Utils.DELETE_EMPLOYEE_BY_ID;
+            try
             {
-                FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(mediaBazaar, tempEmployee);
-                formRemoveEmployee.Show();
-            } else
-            {
-                MessageBox.Show("You do not have the permission to remove this employee");
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@EmployeeID", tbxEmployeeID.Text);
+                conn.Open();
+
+                int numAffectedRows = cmd.ExecuteNonQuery();
+
+                ViewAllEmployees();
             }
-
-            UpdateListbox();
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong");
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         private void lbxEmployees_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Employee tempEmployee = GetTempEmployee();
+            Person tempPerson = GetTempEmployee();
 
-            tbxEmployeeID.Text = tempEmployee.EmployeeID.ToString();
+            tbxEmployeeID.Text = tempPerson.ID.ToString();
         }
-        private Employee GetTempEmployee()
+        private Person GetTempEmployee()
         {
-            Object employeeObj = lbxEmployees.SelectedItem;
+            Object personObj = lbxEmployees.SelectedItem;
 
-            if (!(employeeObj is Employee))
+            if (!(personObj is Person))
             {
                 MessageBox.Show("Error");
             }
 
-            Employee tempEmployee = (Employee)employeeObj;
+            Person tempPerson = (Person)personObj;
 
-            return tempEmployee;
+            return tempPerson;
         }
 
         public void ViewAllEmployees()
@@ -159,8 +162,9 @@ namespace MediaBazaar
                     int phoneNumber = reader.GetInt32("PhoneNumber");
                     string dateOfBirth = "01-01-1998";
 
-                    employee = new ManagerDepot(employeeID, firstName, lastName, username, password, bsn, city, email, phoneNumber, dateOfBirth);
+                    employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn,  username, password);
                     lbxEmployees.Items.Add(employee);
+                    
                 }
             }
             catch (MySqlException msqEx)
