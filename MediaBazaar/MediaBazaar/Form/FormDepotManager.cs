@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using MediaBazaar.Class;
+﻿using MediaBazaar.Class;
 using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace MediaBazaar
 {
@@ -35,12 +32,12 @@ namespace MediaBazaar
 
 
         public void AddRequesteProduct(int amount, int productid)
-        { 
-            foreach(Product p in mediaBazaar.Products)
+        {
+            foreach (Product p in mediaBazaar.Products)
             {
                 if (p.ProductID == productid)
                 {
-                   // Product prod = new Product(p.Barcode, p.Name, p.ProductType, amount);
+                    // Product prod = new Product(p.Barcode, p.Name, p.ProductType, amount);
                     /*add p to listbox*/
                 }
             }
@@ -54,13 +51,14 @@ namespace MediaBazaar
                 if (rbnAllEmployees.Checked)
                 {
                     lbxEmployees.Items.Add(e);
-                } else if (rbnDepotEmployees.Checked)
+                }
+                else if (rbnDepotEmployees.Checked)
                 {
                     if (e.Type == JobTitle.DEPOT_EMPLOYEE || e.Type == JobTitle.DEPOT_MANAGER)
                     {
                         lbxEmployees.Items.Add(e);
                     }
-                } 
+                }
             }
         }
 
@@ -138,7 +136,7 @@ namespace MediaBazaar
             MySqlConnection conn = Utils.GetConnection();
 
             string sql = Utils.GET_ALL_EMPLOYEES;
-            
+
 
             try
             {
@@ -162,9 +160,9 @@ namespace MediaBazaar
                     int phoneNumber = reader.GetInt32("PhoneNumber");
                     string dateOfBirth = "01-01-1998";
 
-                    employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn,  username, password);
+                    employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
                     lbxEmployees.Items.Add(employee);
-                    
+
                 }
             }
             catch (MySqlException msqEx)
@@ -890,7 +888,7 @@ namespace MediaBazaar
 
         private void btnEditschedule_Click(object sender, EventArgs e)
         {
-           
+
 
             string Morning = lbScheduleMorning.Text;
             if (string.IsNullOrEmpty(Morning))
@@ -969,6 +967,309 @@ namespace MediaBazaar
             lbScheduleMorning.Text = schedule.MorningAmount.ToString();
             lbScheduleAfternoon.Text = schedule.AfternoonAmount.ToString();
             lbScheduleEvening.Text = schedule.EveningAmount.ToString();
+        }
+
+        // shedule
+
+        public void ViewDepotSchedule()
+        {
+            lbDepotSchedule.Items.Clear();
+
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = Utils.GET_SCHEDULE_DEPOT;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Schedule schedule;
+
+                while (reader.Read())
+                {
+                    int Id = reader.GetInt32("scheduleId");
+                    string Department = reader.GetString("department");
+                    string Day = reader.GetString("day");
+                    int MorningAmount = reader.GetInt32("morning");
+                    int AfternoonAmount = reader.GetInt32("afternoon");
+                    int EveningAmount = reader.GetInt32("evening");
+
+                    schedule = new Schedule(Id, Department, Day, MorningAmount, AfternoonAmount, EveningAmount);
+
+                    lbDepotSchedule.Items.Add(schedule);
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbDepotSchedule.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            Object scheduleObject = lbDepotSchedule.SelectedItem;
+            if (!(scheduleObject is Schedule))
+            {
+                return;
+            }
+
+            Schedule schedule = (Schedule)scheduleObject;
+
+            tbDepotSheduleID.Text = schedule.ID.ToString();
+            tbDepotSheduleDepartment.Text = schedule.Department.ToString();
+            tbDepotSheduleDay.Text = schedule.Day;
+            tbDepotSheduleMorning.Text = schedule.MorningAmount.ToString();
+            tbDepotSheduleAfternoon.Text = schedule.AfternoonAmount.ToString();
+            tbDepotSheduleEvening.Text = schedule.EveningAmount.ToString();
+        }
+
+        private void btnEditDepotSchedule_Click(object sender, EventArgs e)
+        {
+            string Morning = tbDepotSheduleMorning.Text;
+            if (string.IsNullOrEmpty(Morning))
+            {
+                lbDepotSchedule.Items.Add("'Morning' field is required.");
+                return;
+            }
+
+            string Afternoon = tbDepotSheduleAfternoon.Text;
+            if (string.IsNullOrEmpty(Afternoon))
+            {
+                lbDepotSchedule.Items.Add("'Afternoon' field is required.");
+                return;
+            }
+
+            string Evening = tbDepotSheduleEvening.Text;
+            if (string.IsNullOrEmpty(Evening))
+            {
+                lbDepotSchedule.Items.Add("'Evening' field is required.");
+                return;
+            }
+            string ID = tbDepotSheduleID.Text;
+            if (string.IsNullOrEmpty(ID))
+            {
+                lbDepotSchedule.Items.Add("Please select a time");
+                return;
+            }
+
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = Utils.UPDATE_SCHEDULE;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@scheduleId", ID);
+                cmd.Parameters.AddWithValue("@morning", Morning);
+                cmd.Parameters.AddWithValue("@afternoon", Afternoon);
+                cmd.Parameters.AddWithValue("@evening", Evening);
+                conn.Open();
+
+                int numAffectedRows = cmd.ExecuteNonQuery();
+
+                ViewDepotSchedule();
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong");
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void btnViewDepotSchedule_Click(object sender, EventArgs e)
+        {
+            ViewDepotSchedule();
+        }
+
+        //Planing
+
+        public void ViewDepotPlaning()
+        {
+            lbPlaning.Items.Clear();
+
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = Utils.GET_DEPOT_PLANING;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Planing planing;
+
+                while (reader.Read())
+                {
+                    int WorkId = reader.GetInt32("workID");
+                    string Department = reader.GetString("Department");
+                    int employeeID = reader.GetInt32("employeeID");
+                    string day = reader.GetString("day");
+                    string time = reader.GetString("time");
+
+
+                    planing = new Planing(WorkId, Department, employeeID, day, time);
+
+                    lbPlaning.Items.Add(planing);
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbEmployee.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            Object employeeObject = lbEmployee.SelectedItem;
+            if (!(employeeObject is BasicEmployeeInfo))
+            {
+                return;
+            }
+
+            BasicEmployeeInfo EmployeeInfo = (BasicEmployeeInfo)employeeObject;
+
+            tbNewEmployeeId.Text = EmployeeInfo.EmployeeID.ToString();
+            tbNewEmployeeId.BackColor = Color.LightBlue;
+        }
+
+        private void lbPlaning_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbPlaning.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            Object planObject = lbPlaning.SelectedItem;
+            if (!(planObject is Planing))
+            {
+                return;
+            }
+
+            Planing planing = (Planing)planObject;
+
+            tbWorkId.Text = planing.WorkID.ToString();
+            tbNewEmployeeId.Text = planing.EmployeeID.ToString();
+            tbDep.Text = planing.Department;
+            tbDay.Text = planing.Day.ToString();
+            tbTime.Text = planing.Time.ToString();
+        }
+
+        private void btnEditPlaning_Click(object sender, EventArgs e)
+        {
+            string WorkID = tbWorkId.Text;
+            if (string.IsNullOrEmpty(WorkID))
+            {
+                lbPlaning.Items.Add("'WorkID' field is required.");
+                lbEmployee.Items.Add("'WorkID' field is required.");
+                return;
+            }
+
+            string NewEmployeeId = tbNewEmployeeId.Text;
+            if (string.IsNullOrEmpty(NewEmployeeId))
+            {
+                lbPlaning.Items.Add("'NewEmployeeId' field is required.");
+                lbEmployee.Items.Add("'NewEmployeeId' field is required.");
+                return;
+            }
+
+            string Department = tbDep.Text;
+            if (string.IsNullOrEmpty(Department))
+            {
+                lbPlaning.Items.Add("'Department' field is required.");
+                lbEmployee.Items.Add("'Department' field is required.");
+                return;
+            }
+
+            string Day = tbDay.Text;
+            if (string.IsNullOrEmpty(Day))
+            {
+                lbPlaning.Items.Add("'Day' field is required.");
+                lbEmployee.Items.Add("'Day' field is required.");
+                return;
+            }
+
+            string Time = tbTime.Text;
+            if (string.IsNullOrEmpty(Time))
+            {
+                lbPlaning.Items.Add("'Time' field is required.");
+                lbEmployee.Items.Add("'Time' field is required.");
+                return;
+            }
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = Utils.UPDATE_PLANING;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@emplyeeID", NewEmployeeId);
+                cmd.Parameters.AddWithValue("@workID", WorkID);
+
+                conn.Open();
+
+                int numAffectedRows = cmd.ExecuteNonQuery();
+
+                    ViewDepotPlaning();
+ 
+                tbNewEmployeeId.Text = "";
+                tbWorkId.Text = "";
+                tbNewEmployeeId.Text = "";
+                tbDep.Text = "";
+                tbDay.Text = "";
+                tbTime.Text = "";
+                tbNewEmployeeId.BackColor = Color.LightGray;
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong");
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void btnDepotPlan_Click(object sender, EventArgs e)
+        {
+            ViewDepotPlaning();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using MediaBazaar.Class;
 using MySql.Data.MySqlClient;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace MediaBazaar
@@ -1170,6 +1171,14 @@ namespace MediaBazaar
                 {
                     ViewDepotPlaning();
                 }
+
+                tbNewEmployeeId.Text = "";
+                tbWorkId.Text = "";
+                tbNewEmployeeId.Text = "";
+                tbDep.Text = "";
+                tbDay.Text = "";
+                tbTime.Text = "";
+                tbNewEmployeeId.BackColor = Color.LightGray;
             }
             catch (MySqlException msqEx)
             {
@@ -1183,6 +1192,67 @@ namespace MediaBazaar
             {
                 conn.Close();
             }
+        }
+
+        private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbEmployee.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            Object employeeObject = lbEmployee.SelectedItem;
+            if (!(employeeObject is BasicEmployeeInfo))
+            {
+                return;
+            }
+
+            BasicEmployeeInfo EmployeeInfo = (BasicEmployeeInfo)employeeObject;
+
+            tbNewEmployeeId.Text = EmployeeInfo.EmployeeID.ToString();
+            tbNewEmployeeId.BackColor = Color.LightBlue;
+
+        }
+
+        private void lbPlaning_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbPlaning.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            Object planObject = lbPlaning.SelectedItem;
+            if (!(planObject is Planing))
+            {
+                return;
+            }
+
+            Planing planing = (Planing)planObject;
+
+            tbWorkId.Text = planing.WorkID.ToString();
+            tbNewEmployeeId.Text = planing.EmployeeID.ToString();
+            tbDep.Text = planing.Department;
+            tbDay.Text = planing.Day.ToString();
+            tbTime.Text = planing.Time.ToString();
+
+        }
+
+        private void btnAutoPlaning_Click(object sender, EventArgs e)
+        {
+            //all employee data and the times they were schduled
+
+            //SELECT* FROM employee
+            //inner join contract
+            //on contract.EmployeeID = employee.EmployeeID
+            //right join schduledwork
+            //on schduledwork.EmployeeID = contract.EmployeeID
+            //;
+
+            // only the rows where employee didnt mark as the not prefered
+            // if work hoursper week/4  >= count(times planed in)
+            // if morning or evening and they were already planed in for the day morning or evening they are out
+            // sort by people that put this as there prefered time
+            // if not enought employees loop or something
         }
     }
 }
