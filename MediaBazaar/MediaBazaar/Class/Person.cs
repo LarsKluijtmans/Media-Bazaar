@@ -5,10 +5,9 @@ using System.Text;
 
 namespace MediaBazaar
 {
-	abstract class Pesron
+	public abstract class Pesron
     {
-		private static int nextID = 1;
-		private int iD;
+		private int employeeID;
 		private string firststName;
 		private string lasttName;
 		private int phoneNumber;
@@ -31,16 +30,14 @@ namespace MediaBazaar
 		public string Username { get; set; }
 		public string Password { get; set; }
 		public string Email { get; set; }
-		public int ID { get; private set; }
+		public int ID { get; set; }
 
 		//constructor
 
-		public Pesron(string firstname, string lastname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
+		public Pesron(int employeeID, string firstname, string lastname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
 		{
-			
-			this.ID = nextID;
-			nextID++;
 
+			this.ID = employeeID;
 			this.LastName = firstname;
 			this.FirstName = lastname;
 			this.PhoneNumber = phonenumber;
@@ -55,7 +52,7 @@ namespace MediaBazaar
 		// methodes
 		public override string ToString()
 		{
-			return $"ID: {ID} - Name: {FirstName} {LastName} - Email: {Email} - PhoneNumber: {PhoneNumber.ToString()}";
+			return $"ID: {ID} - Name: {FirstName} {LastName} - Email: {Email} - PhoneNumber: {PhoneNumber}";
 		}
 
 
