@@ -43,7 +43,5 @@ namespace MediaBazaar
             newEmployee.Show();
            
         }
-
-        
     }
 }
