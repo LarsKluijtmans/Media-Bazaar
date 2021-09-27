@@ -5,45 +5,112 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using MediaBazaar.Class;
+
 
 namespace MediaBazaar
 {
     public partial class FormNewEmployee : Form
     {
-        List<Employee> employee;
-        
-
-        public FormNewEmployee(Store mb)
+        public FormNewEmployee()
         {
             InitializeComponent();
-            employee = new List<Employee>();
-         
-
         }
 
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
-           // string firstN = txtFirstName.Text;
-            //string lastN = txtLastN.Text;
-            //int phoneN = Convert.ToInt32(txtPhoneN.Text);
-           // int bsn = Convert.ToInt32(txtBsn.Text);
-            //string username = txtUserN.Text;
-            //string email = txtEmail.Text;
-            //string password = txtPsswrd.Text;
-
-            //Employee newEmp = new Employee(firstN, lastN, phoneN, bsn, username, password, email);
-            //employee.Add(newEmp);
-            //OpenForm1(firstN, lastN, phoneN, bsn, username, email, password);
-
+            CreateEmployee();
+            CreateContract();
         }
-
-        public void OpenForm1(string firstN, string lastN, int phoneN, int bsn, string username, string email, string password)
+        public void CreateEmployee()
         {
-            Form1 newEmployee = new Form1(firstN, lastN, phoneN, bsn, username, email, password);
-            newEmployee.Show();
-           
-        }
+            string firstName = tbxFirstName.Text;
+            string lastName = tbxLastName.Text;
+            string username = $"{lastName}";
+            string password = $"{lastName}";
+            int bsn = Convert.ToInt32(tbxBSN.Text);
+            string city = tbxCity.Text;
+            string email = $"{lastName}@mb.com";
+            int phoneNumber = Convert.ToInt32(tbxPhoneNumber.Text);
+            string dateOfBirth = tbxDateOfBirth.Text;
 
-        
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = Utils.CREATE_EMPLOYEE;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@FirstName", firstName);
+                cmd.Parameters.AddWithValue("@LastName", lastName);
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Password", password);
+                cmd.Parameters.AddWithValue("@BSN", bsn);
+                cmd.Parameters.AddWithValue("@Active", 1);
+                cmd.Parameters.AddWithValue("@City", city);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                cmd.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+
+                conn.Open();
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+                long id = cmd.LastInsertedId;
+
+                tbxEmployeeID.Text = id.ToString();
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong");
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            tbxUsername.Text = username;
+            tbxPassword.Text = password;
+            tbxEmail.Text = email;
+        }
+        public void CreateContract()
+        {
+            JobTitle jobTitle = (JobTitle)Enum.Parse(typeof(JobTitle), cbxJobTitle.SelectedIndex.ToString());
+            int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+            double salary = Convert.ToDouble(tbxSalary.Text);
+            DateTime startDate = DateTime.Parse(tbxStartDate.Text);
+
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = Utils.CREATE_CONTRACT;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@JobTitle", jobTitle);
+                cmd.Parameters.AddWithValue("@WorkHoursPerWeek", workHoursPerWeek);
+                cmd.Parameters.AddWithValue("@SalaryPerHour", salary);
+                cmd.Parameters.AddWithValue("@StartDate", startDate);
+
+                conn.Open();
+
+                //int numCreatedRows = cmd.ExecuteNonQuery();
+                //long id = cmd.LastInsertedId;
+
+                //tbxEmployeeID.Text = id.ToString();
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong");
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

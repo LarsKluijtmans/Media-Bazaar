@@ -6,24 +6,30 @@ namespace MediaBazaar
 {
     public class Contract
     {
+        // fields
         private JobTitle jobTitle;
-        private string floor;
-        private int workHoursPerWeek;
-        private int salaryPerHour;
         private DateTime startDate;
-        private DateTime endDate;
+        private DateTime endDate = new DateTime(9999, 12, 31);
+        private double salaryPerHour;
+        private int workHoursPerWeek;
         private string reasonForTermination;
 
-        public Contract(JobTitle jobTitle, string Floor, int WorkHours,
-            int Salary, DateTime StartDate, DateTime EndDate, string ReasonForTermination)
+        // properties
+        public JobTitle JobTitle { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public double SalaryPerHour { get; set; }
+        public int WorkHoursPerWeek { get; set; }
+        public string ReasonForTermination { get; set; }
+
+        // constructor
+        public Contract(JobTitle jobTitle, int year, int month, int day, double salaryPerHour, int workHoursPerWeek)
         {
-            this.jobTitle = jobTitle;
-            floor = Floor;
-            workHoursPerWeek = WorkHours;
-            salaryPerHour = Salary;
-            startDate = StartDate;
-            endDate = EndDate;
-            reasonForTermination = ReasonForTermination;
+            this.JobTitle = jobTitle;
+            this.StartDate = new DateTime(year, month, day);
+            this.SalaryPerHour = salaryPerHour;
+            this.WorkHoursPerWeek = workHoursPerWeek;
+            this.ReasonForTermination = null;
         }
 
         public void EndContract(string ReasonForTermination, DateTime EndDate)
