@@ -50,6 +50,7 @@ namespace MediaBazaar
             this.label16 = new System.Windows.Forms.Label();
             this.lbReshelfRequest = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnAddRestockRequest = new System.Windows.Forms.Button();
             this.tbRestockID = new System.Windows.Forms.TextBox();
             this.tbRestockName = new System.Windows.Forms.TextBox();
             this.tbRestockAmountSales = new System.Windows.Forms.TextBox();
@@ -96,7 +97,6 @@ namespace MediaBazaar
             this.lstOverviewAnnouncement = new System.Windows.Forms.ListBox();
             this.lstOverviewPending = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.btnAddRestockRequest = new System.Windows.Forms.Button();
             this.tabPage4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -362,6 +362,18 @@ namespace MediaBazaar
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Restock";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnAddRestockRequest
+            // 
+            this.btnAddRestockRequest.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddRestockRequest.Location = new System.Drawing.Point(878, 401);
+            this.btnAddRestockRequest.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnAddRestockRequest.Name = "btnAddRestockRequest";
+            this.btnAddRestockRequest.Size = new System.Drawing.Size(208, 30);
+            this.btnAddRestockRequest.TabIndex = 83;
+            this.btnAddRestockRequest.Text = "Add restock request";
+            this.btnAddRestockRequest.UseVisualStyleBackColor = true;
+            this.btnAddRestockRequest.Click += new System.EventHandler(this.btnAddRestockRequest_Click);
             // 
             // tbRestockID
             // 
@@ -865,18 +877,7 @@ namespace MediaBazaar
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1135, 516);
             this.tabControl1.TabIndex = 1;
-            // 
-            // btnAddRestockRequest
-            // 
-            this.btnAddRestockRequest.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddRestockRequest.Location = new System.Drawing.Point(878, 401);
-            this.btnAddRestockRequest.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnAddRestockRequest.Name = "btnAddRestockRequest";
-            this.btnAddRestockRequest.Size = new System.Drawing.Size(208, 30);
-            this.btnAddRestockRequest.TabIndex = 83;
-            this.btnAddRestockRequest.Text = "Add restock request";
-            this.btnAddRestockRequest.UseVisualStyleBackColor = true;
-            this.btnAddRestockRequest.Click += new System.EventHandler(this.btnAddRestockRequest_Click);
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // FormDepotEmployee
             // 
