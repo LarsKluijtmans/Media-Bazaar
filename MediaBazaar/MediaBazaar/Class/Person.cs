@@ -8,8 +8,8 @@ namespace MediaBazaar
 	public abstract class Pesron
     {
 		private int employeeID;
-		private string firststName;
-		private string lasttName;
+		private string firstName;
+		private string lastName;
 		private int phoneNumber;
 		private string email;
 		private string city;
