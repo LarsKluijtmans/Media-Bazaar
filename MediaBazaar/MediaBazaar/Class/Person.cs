@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MediaBazaar
 {
-	public abstract class Pesron
+	public abstract class Person
     {
 		private int employeeID;
 		private string firstName;
@@ -34,7 +34,7 @@ namespace MediaBazaar
 
 		//constructor
 
-		public Pesron(int employeeID, string firstname, string lastname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
+		public Person(int employeeID, string firstname, string lastname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
 		{
 
 			this.ID = employeeID;
