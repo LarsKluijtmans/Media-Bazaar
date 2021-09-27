@@ -47,9 +47,18 @@
             time = Time;
         }
 
+
+        public Planing(string Department, int EmployeeID, string Day, string Time)
+        {
+            department = Department;
+            employeeID = EmployeeID;
+            day = Day;
+            time = Time;
+        }
+
         public override string ToString() 
         {
-            return $" workID: {workID}  department: {department}  employeeID: {employeeID}  day: {day}  time: {time}";
+            return $" department: {department}  employeeID: {employeeID}  day: {day}  time: {time}";
         }
     }
 }

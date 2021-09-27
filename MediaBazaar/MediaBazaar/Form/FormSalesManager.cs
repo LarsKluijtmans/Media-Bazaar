@@ -502,7 +502,7 @@ namespace MediaBazaar
                 int numAffectedRows = cmd.ExecuteNonQuery();
 
 
-                ViewSalesPlan()
+                ViewSalesPlan();
 
 
                 tbNewEmployeeId.Text = "";

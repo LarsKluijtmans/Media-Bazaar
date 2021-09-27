@@ -981,15 +981,15 @@ namespace MediaBazaar
 
                 while (reader.Read())
                 {
-                    int employeeID = reader.GetInt32("EMPLOYEE.EmployeeID");
+                    int employeeID = reader.GetInt32("EmployeeID");
                     string firstName = reader.GetString("FirstName");
                     string lastName = reader.GetString("LastName");
-                    string jodTitle = reader.GetString(" contract.JodTitle");
+                    string jodTitle = reader.GetString("JodTitle");
 
 
                     employee = new BasicEmployeeInfo(employeeID, firstName, lastName, jodTitle);
 
-                    lbEmployee.Items.Add(Employee);
+                    lbEmployee.Items.Add(employee);
                 }
             }
             catch (MySqlException msqEx)
@@ -1065,15 +1065,15 @@ namespace MediaBazaar
 
                 while (reader.Read())
                 {
-                    int employeeID = reader.GetInt32("EMPLOYEE.EmployeeID");
+                    int employeeID = reader.GetInt32("EmployeeID");
                     string firstName = reader.GetString("FirstName");
                     string lastName = reader.GetString("LastName");
-                    string jodTitle = reader.GetString(" contract.JodTitle");
+                    string jodTitle = reader.GetString("JodTitle");
 
 
                     employee = new BasicEmployeeInfo(employeeID, firstName, lastName, jodTitle);
 
-                    lbEmployee.Items.Add(Employee);
+                    lbEmployee.Items.Add(employee);
                 }
             }
             catch (MySqlException msqEx)
@@ -1237,22 +1237,112 @@ namespace MediaBazaar
 
         }
 
-        private void btnAutoPlaning_Click(object sender, EventArgs e)
+
+
+
+
+        private void btnEmpltySchedule_Click(object sender, EventArgs e)
         {
-            //all employee data and the times they were schduled
+            lbPlaning.Items.Clear();
 
-            //SELECT* FROM employee
-            //inner join contract
-            //on contract.EmployeeID = employee.EmployeeID
-            //right join schduledwork
-            //on schduledwork.EmployeeID = contract.EmployeeID
-            //;
+            MySqlConnection conn = Utils.GetConnection();
 
-            // only the rows where employee didnt mark as the not prefered
-            // if work hoursper week/4  >= count(times planed in)
-            // if morning or evening and they were already planed in for the day morning or evening they are out
-            // sort by people that put this as there prefered time
-            // if not enought employees loop or something
+            string sql = Utils.MAKE_EMPTY_SCHEDULE;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Planing planing;
+
+                while (reader.Read())
+                {
+                    for (int i = 1; i == reader.GetInt32("Morning"); i++)
+                    {
+                        string Department = reader.GetString("Department");
+                        int employeeID = 0;
+                        string day = reader.GetString("day");
+                        string time = "Morning";
+
+                        planing = new Planing(Department, employeeID, day, time);
+
+                        lbPlaning.Items.Add(planing);
+                    }
+
+                    for (int i = 1; i == reader.GetInt32("Afternoon"); i++)
+                    {
+                        string Department = reader.GetString("Department");
+                        int employeeID = 0;
+                        string day = reader.GetString("day");
+                        string time = "Afternoon";
+
+                        planing = new Planing(Department, employeeID, day, time);
+
+                        lbPlaning.Items.Add(planing);
+                    }
+
+                    for (int i = 1; i == reader.GetInt32("Evening"); i++)
+                    {
+                        string Department = reader.GetString("Department");
+                        int employeeID = 0;
+                        string day = reader.GetString("day");
+                        string time = "Evening";
+
+                        planing = new Planing(Department, employeeID, day, time);
+
+                        lbPlaning.Items.Add(planing);
+                    }
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            // Add to database not working now
+
+            for (int i = 1; i == Convert.ToInt32(lbPlaning.Items.Count); i++)
+            {
+                MySqlConnection connn = Utils.GetConnection();
+
+
+                    Planing plan = (Planing)lbPlaning.Items[i];
+
+                sql = Utils.CREATE_SCHDULEDWORK;
+
+                try
+                {
+
+                    MySqlCommand cmd = new MySqlCommand(sql, connn);
+                    cmd.Parameters.AddWithValue( "@depratment", plan.Department);
+                    cmd.Parameters.AddWithValue( "@EmployeeID", plan.EmployeeID);
+                    cmd.Parameters.AddWithValue( "@Day", plan.Day);
+                    cmd.Parameters.AddWithValue( "@Time", plan.Time);
+                }
+                catch (MySqlException msqEx)
+                {
+                    MessageBox.Show(msqEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something went wrong while creating the object schduledWork");
+                }
+                finally
+                {
+                    connn.Close();
+                }
+            }
         }
     }
 }

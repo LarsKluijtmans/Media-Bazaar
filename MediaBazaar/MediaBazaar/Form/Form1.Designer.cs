@@ -133,6 +133,7 @@ namespace MediaBazaar
             this.label31 = new System.Windows.Forms.Label();
             this.lbPlaning = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnEmpltySchedule = new System.Windows.Forms.Button();
             this.tbWorkId = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.btnEditPlaning = new System.Windows.Forms.Button();
@@ -150,7 +151,6 @@ namespace MediaBazaar
             this.Edit = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.btnAutoPlaning = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -1285,9 +1285,9 @@ namespace MediaBazaar
             this.lbEmployee.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbEmployee.FormattingEnabled = true;
             this.lbEmployee.ItemHeight = 15;
-            this.lbEmployee.Location = new System.Drawing.Point(373, 60);
+            this.lbEmployee.Location = new System.Drawing.Point(507, 60);
             this.lbEmployee.Name = "lbEmployee";
-            this.lbEmployee.Size = new System.Drawing.Size(347, 424);
+            this.lbEmployee.Size = new System.Drawing.Size(213, 424);
             this.lbEmployee.TabIndex = 62;
             this.lbEmployee.SelectedIndexChanged += new System.EventHandler(this.lbEmployee_SelectedIndexChanged);
             // 
@@ -1308,13 +1308,13 @@ namespace MediaBazaar
             this.lbPlaning.ItemHeight = 15;
             this.lbPlaning.Location = new System.Drawing.Point(25, 60);
             this.lbPlaning.Name = "lbPlaning";
-            this.lbPlaning.Size = new System.Drawing.Size(342, 424);
+            this.lbPlaning.Size = new System.Drawing.Size(476, 424);
             this.lbPlaning.TabIndex = 60;
             this.lbPlaning.SelectedIndexChanged += new System.EventHandler(this.lbPlaning_SelectedIndexChanged);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnAutoPlaning);
+            this.groupBox3.Controls.Add(this.btnEmpltySchedule);
             this.groupBox3.Controls.Add(this.tbWorkId);
             this.groupBox3.Controls.Add(this.label34);
             this.groupBox3.Controls.Add(this.btnEditPlaning);
@@ -1335,6 +1335,18 @@ namespace MediaBazaar
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
+            // 
+            // btnEmpltySchedule
+            // 
+            this.btnEmpltySchedule.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnEmpltySchedule.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEmpltySchedule.Location = new System.Drawing.Point(69, 416);
+            this.btnEmpltySchedule.Name = "btnEmpltySchedule";
+            this.btnEmpltySchedule.Size = new System.Drawing.Size(215, 34);
+            this.btnEmpltySchedule.TabIndex = 26;
+            this.btnEmpltySchedule.Text = "Generate empty schedule";
+            this.btnEmpltySchedule.UseVisualStyleBackColor = true;
+            this.btnEmpltySchedule.Click += new System.EventHandler(this.btnEmpltySchedule_Click);
             // 
             // tbWorkId
             // 
@@ -1505,17 +1517,6 @@ namespace MediaBazaar
             this.button6.Text = "View depot planing";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // btnAutoPlaning
-            // 
-            this.btnAutoPlaning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAutoPlaning.Location = new System.Drawing.Point(69, 416);
-            this.btnAutoPlaning.Name = "btnAutoPlaning";
-            this.btnAutoPlaning.Size = new System.Drawing.Size(215, 34);
-            this.btnAutoPlaning.TabIndex = 26;
-            this.btnAutoPlaning.Text = " Auto Planing";
-            this.btnAutoPlaning.UseVisualStyleBackColor = true;
-            this.btnAutoPlaning.Click += new System.EventHandler(this.btnAutoPlaning_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1678,7 +1679,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.TextBox tbNewEmployeeId;
         private System.Windows.Forms.TextBox tbWorkId;
-        private System.Windows.Forms.Button btnAutoPlaning;
+        private System.Windows.Forms.Button btnEmpltySchedule;
     }
 }
 
