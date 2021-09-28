@@ -198,6 +198,14 @@ CREATE TABLE IF NOT EXISTS `dbi461266`.`WorkPrefrance` (
 ENGINE = InnoDB;
 
 
+CREATE TABLE IF NOT EXISTS `dbi461266`.`atendance` (
+  `CheckDate` DATE NOT NULL,
+  `EmployeeID` INT NOT NULL,
+  `CheckInTime` TIME NULL,
+  `CheckOutTime` TIME NULL,
+  PRIMARY KEY (`CheckDate`),
+ENGINE = InnoDB;
+
 
 
 START TRANSACTION;
