@@ -1285,9 +1285,9 @@ namespace MediaBazaar
             this.lbEmployee.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbEmployee.FormattingEnabled = true;
             this.lbEmployee.ItemHeight = 15;
-            this.lbEmployee.Location = new System.Drawing.Point(507, 60);
+            this.lbEmployee.Location = new System.Drawing.Point(403, 60);
             this.lbEmployee.Name = "lbEmployee";
-            this.lbEmployee.Size = new System.Drawing.Size(213, 424);
+            this.lbEmployee.Size = new System.Drawing.Size(317, 424);
             this.lbEmployee.TabIndex = 62;
             this.lbEmployee.SelectedIndexChanged += new System.EventHandler(this.lbEmployee_SelectedIndexChanged);
             // 
@@ -1308,7 +1308,7 @@ namespace MediaBazaar
             this.lbPlaning.ItemHeight = 15;
             this.lbPlaning.Location = new System.Drawing.Point(25, 60);
             this.lbPlaning.Name = "lbPlaning";
-            this.lbPlaning.Size = new System.Drawing.Size(476, 424);
+            this.lbPlaning.Size = new System.Drawing.Size(372, 424);
             this.lbPlaning.TabIndex = 60;
             this.lbPlaning.SelectedIndexChanged += new System.EventHandler(this.lbPlaning_SelectedIndexChanged);
             // 
