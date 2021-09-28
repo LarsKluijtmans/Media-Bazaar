@@ -813,17 +813,24 @@ namespace MediaBazaar
 
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
+            Person employee = GetTempEmployee();
+            FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(employee);
+            formRemoveEmployee.Show();
+
+            string employeeID = tbxEmployeeID.Text;
+            string active = "0";
+
             MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.DELETE_EMPLOYEE_BY_ID;
+            string sql = Utils.REMOVE_EMPLOYEE_BY_ID;
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@EmployeeID", tbxEmployeeID.Text);
+                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                cmd.Parameters.AddWithValue("@Active", active);
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
-
-                ViewAllEmployees();
             }
             catch (MySqlException msqEx)
             {
