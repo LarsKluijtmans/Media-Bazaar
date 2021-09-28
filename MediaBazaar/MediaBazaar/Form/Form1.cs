@@ -920,6 +920,8 @@ namespace MediaBazaar
             {
                 conn.Close();
             }
+
+
         }
 
         public void ViewDepotPlaning()
@@ -1159,15 +1161,15 @@ namespace MediaBazaar
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
 
-                if (Department == "SALES")
+                if (Department == "Sales")
                 {
                     ViewSalesPlaning();
                 }
-                else if (Department == "OFFICE")
+                else if (Department == "Office")
                 {
                     ViewOfficePlaning();
                 }
-                else if (Department == "DEPOT")
+                else if (Department == "Depot")
                 {
                     ViewDepotPlaning();
                 }
@@ -1179,6 +1181,8 @@ namespace MediaBazaar
                 tbDay.Text = "";
                 tbTime.Text = "";
                 tbNewEmployeeId.BackColor = Color.LightGray;
+
+
             }
             catch (MySqlException msqEx)
             {

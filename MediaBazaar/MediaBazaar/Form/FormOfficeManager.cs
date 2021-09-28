@@ -641,6 +641,45 @@ namespace MediaBazaar
             {
                 conn.Close();
             }
+
+            lbEmployee.Items.Clear();
+
+            sql = Utils.GET_OFFICE_EMPLOYEE;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                BasicEmployeeInfo employee;
+
+                while (reader.Read())
+                {
+                    int employeeID = reader.GetInt32("EmployeeID");
+                    string firstName = reader.GetString("FirstName");
+                    string lastName = reader.GetString("LastName");
+                    string jodTitle = reader.GetString("JodTitle");
+
+
+                    employee = new BasicEmployeeInfo(employeeID, firstName, lastName, jodTitle);
+
+                    lbEmployee.Items.Add(employee);
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         private void lbPlaning_SelectedIndexChanged(object sender, EventArgs e)
@@ -737,6 +776,8 @@ namespace MediaBazaar
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
+
+                ViewOfficePlaning();
 
                 tbNewEmployeeId.Text = "";
                 tbWorkId.Text = "";
