@@ -466,7 +466,7 @@ namespace MediaBazaar
             this.btnViewAllRestockRequests.Name = "btnViewAllRestockRequests";
             this.btnViewAllRestockRequests.Size = new System.Drawing.Size(208, 30);
             this.btnViewAllRestockRequests.TabIndex = 74;
-            this.btnViewAllRestockRequests.Text = "View all restock requests";
+            this.btnViewAllRestockRequests.Text = "View all products";
             this.btnViewAllRestockRequests.UseVisualStyleBackColor = true;
             this.btnViewAllRestockRequests.Click += new System.EventHandler(this.btnViewAllRestockRequests_Click);
             // 
