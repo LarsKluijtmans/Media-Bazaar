@@ -16,7 +16,7 @@ namespace MediaBazaar.Class
 
         //Resock
 
-        public static string CREATE_RESTOCKREPLENISHMENT = "c";
+        public static string CREATE_RESTOCKREPLENISHMENT = "INSERT INTO restockreplenishment ( ProductID, Amount) VALUES ( @ProductID, @Amount);";
         public static string GET_ALL_RESTOCKREPLENISHMENT = "SELECT restockreplenishmentID, product.ProductID, Amount, Name, AmountInStore, AmountInDepot FROM restockreplenishment INNER JOIN product ON product.ProductID = restockreplenishment.ProductID ORDER BY restockreplenishmentID;";
         public static string UPDATE_RESTOCKREPLENISHMENT = "UPDATE PRODUCT SET AmountInDepot = @AmountInDepot WHERE ProductID = @ProductID;";
         public static string DELETE_RESTOCKREPLENISHMENT_BY_ID = "DELETE FROM restockreplenishment WHERE RestockReplenishmentID = @RestockReplenishmentID;";
@@ -46,11 +46,13 @@ namespace MediaBazaar.Class
         public static string GET_OFFICE_PLANING = "SELECT workID, Department, employeeID, day, time FROM schduledwork WHERE department = 'OFFICE'; ";
         public static string GET_SALES_PLANING = "SELECT workID, Department, employeeID, day, time FROM schduledwork WHERE department = 'SALES'; ";
 
-        public static string UPDATE_PLANING = "UPDATE employeeID = @emplyeeID FROM scheduledwork WHERE workID = @workID;";
+        public static string UPDATE_PLANING = "UPDATE schduledwork SET employeeID = @emplyeeID  WHERE workID = @workID;";
         public static string PLAN_AUTOPLANING = "SELECT PrefranceID, contract.EmployeeID, Prefered, DAY, Time, contract.JodTitle, contract.WorkHoursPerWeek FROM workprefrance INNER JOIN contract ON contract.EmployeeID = workprefrance.EmployeeID;";
        
-        public static string MAKE_EMPTY_SCHEDULE = "SELECT Department, Day, Morning , Afternoon, Evening FROM `schedule` WHERE Department = 'sales';";
-        public static string CREATE_SCHDULEDWORK = "INSERT INTO schduledwork (Department, EmployeeID, Day, Time) VALUE ( '@depratment', '@EmployeeID', '@Day', '@Time');";
+        public static string MAKE_EMPTY_SCHEDULE = "SELECT Department, Day, Morning , Afternoon, Evening FROM `schedule`;";
+        public static string CREATE_SCHDULEDWORK = "INSERT INTO schduledwork (Department, EmployeeID, Day, Time) VALUE ( @depratment , @EmployeeID , @Day , @Time);";
+
+        public static string CLEAR_PLAN = "DELETE FROM schduledwork;";
 
         // employees
         public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, Address, Email, PhoneNumber) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber);";

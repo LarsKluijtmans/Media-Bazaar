@@ -1237,17 +1237,36 @@ namespace MediaBazaar
 
         }
 
-
-
-
-
         private void btnEmpltySchedule_Click(object sender, EventArgs e)
         {
             lbPlaning.Items.Clear();
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = Utils.MAKE_EMPTY_SCHEDULE;
+            string sql = Utils.CLEAR_PLAN;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            sql = Utils.MAKE_EMPTY_SCHEDULE;
+
+            int count = 1;
 
             try
             {
@@ -1260,7 +1279,11 @@ namespace MediaBazaar
 
                 while (reader.Read())
                 {
-                    for (int i = 1; i == reader.GetInt16("Morning"); i++)
+                    count = 1;
+                    int Morning = reader.GetInt32("Morning");
+                    int Afternoon = reader.GetInt32("Afternoon");
+                    int Evening = reader.GetInt32("Evening");
+                    while (count <= Morning)
                     {
                         string Department = reader.GetString("Department");
                         int employeeID = 0;
@@ -1270,9 +1293,12 @@ namespace MediaBazaar
                         planing = new Planing(Department, employeeID, day, time);
 
                         lbPlaning.Items.Add(planing);
+                        count++;
                     }
 
-                    for (int i = 1; i == reader.GetInt32("Afternoon"); i++)
+                    count = 1;
+
+                    while ( count <= Afternoon)
                     {
                         string Department = reader.GetString("Department");
                         int employeeID = 0;
@@ -1282,9 +1308,12 @@ namespace MediaBazaar
                         planing = new Planing(Department, employeeID, day, time);
 
                         lbPlaning.Items.Add(planing);
+                        count++;
                     }
 
-                    for (int i = 1; i == reader.GetInt32("Evening"); i++)
+                    count = 1;
+
+                    while (count <= Evening)
                     {
                         string Department = reader.GetString("Department");
                         int employeeID = 0;
@@ -1294,6 +1323,7 @@ namespace MediaBazaar
                         planing = new Planing(Department, employeeID, day, time);
 
                         lbPlaning.Items.Add(planing);
+                        count++;
                     }
                 }
             }
@@ -1310,25 +1340,32 @@ namespace MediaBazaar
                 conn.Close();
             }
 
-            // Add to database not working now
+            int count2 = Convert.ToInt32( lbPlaning.Items.Count) ;
+            count = 0;
 
-            for (int i = 1; i ==lbPlaning.SelectedIndices.Count; i++)
+
+            sql = Utils.CREATE_SCHDULEDWORK;
+
+            while (count < count2 )
             {
-                MySqlConnection connn = Utils.GetConnection();
 
-
-                    Planing plan = (Planing)lbPlaning.Items[i];
-
-                sql = Utils.CREATE_SCHDULEDWORK;
+                Planing plan = (Planing)lbPlaning.Items[count];
 
                 try
                 {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    conn.Open();
 
-                    MySqlCommand cmd = new MySqlCommand(sql, connn);
-                    cmd.Parameters.AddWithValue( "@depratment", plan.Department);
-                    cmd.Parameters.AddWithValue( "@EmployeeID", plan.EmployeeID);
-                    cmd.Parameters.AddWithValue( "@Day", plan.Day);
-                    cmd.Parameters.AddWithValue( "@Time", plan.Time);
+                   
+
+                    cmd.Parameters.AddWithValue("@depratment", plan.Department);
+                    cmd.Parameters.AddWithValue("@EmployeeID", plan.EmployeeID);
+                    cmd.Parameters.AddWithValue("@Day", plan.Day);
+                    cmd.Parameters.AddWithValue("@Time", plan.Time);
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    count++;
                 }
                 catch (MySqlException msqEx)
                 {
@@ -1336,11 +1373,11 @@ namespace MediaBazaar
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Something went wrong while creating the object schduledWork");
+                    MessageBox.Show( $"Something went wrong {ex}");
                 }
                 finally
                 {
-                    connn.Close();
+                    conn.Close();
                 }
             }
         }
