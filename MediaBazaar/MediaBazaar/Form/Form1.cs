@@ -1260,7 +1260,7 @@ namespace MediaBazaar
 
                 while (reader.Read())
                 {
-                    for (int i = 1; i == reader.GetInt32("Morning"); i++)
+                    for (int i = 1; i == reader.GetInt16("Morning"); i++)
                     {
                         string Department = reader.GetString("Department");
                         int employeeID = 0;
@@ -1312,7 +1312,7 @@ namespace MediaBazaar
 
             // Add to database not working now
 
-            for (int i = 1; i == Convert.ToInt32(lbPlaning.Items.Count); i++)
+            for (int i = 1; i ==lbPlaning.SelectedIndices.Count; i++)
             {
                 MySqlConnection connn = Utils.GetConnection();
 

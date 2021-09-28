@@ -46,7 +46,7 @@ namespace MediaBazaar.Class
         public static string GET_OFFICE_PLANING = "SELECT workID, Department, employeeID, day, time FROM schduledwork WHERE department = 'OFFICE'; ";
         public static string GET_SALES_PLANING = "SELECT workID, Department, employeeID, day, time FROM schduledwork WHERE department = 'SALES'; ";
 
-        public static string UPDATE_PLANING = "UPDATE employeeID = @emplyeeID FROM scheduledwork WHERE workID = @workID; ";
+        public static string UPDATE_PLANING = "UPDATE employeeID = @emplyeeID FROM scheduledwork WHERE workID = @workID;";
         public static string PLAN_AUTOPLANING = "SELECT PrefranceID, contract.EmployeeID, Prefered, DAY, Time, contract.JodTitle, contract.WorkHoursPerWeek FROM workprefrance INNER JOIN contract ON contract.EmployeeID = workprefrance.EmployeeID;";
        
         public static string MAKE_EMPTY_SCHEDULE = "SELECT Department, Day, Morning , Afternoon, Evening FROM `schedule` WHERE Department = 'sales';";
