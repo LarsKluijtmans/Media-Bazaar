@@ -38,7 +38,9 @@ namespace MediaBazaar
             this.sdfds = new System.Windows.Forms.GroupBox();
             this.tbAmount = new System.Windows.Forms.TextBox();
             this.Amount = new System.Windows.Forms.Label();
+            this.lbProductType = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbBarcode = new System.Windows.Forms.TextBox();
@@ -67,8 +69,6 @@ namespace MediaBazaar
             this.txtAnnouncement = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lstAnnouncement = new System.Windows.Forms.ListBox();
-            this.lbProductType = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.sdfds.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -91,9 +91,7 @@ namespace MediaBazaar
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.btnViewPorducts);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.btnRequestReplenishment);
             this.tabPage2.Controls.Add(this.lstProduct);
             this.tabPage2.Controls.Add(this.sdfds);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
@@ -108,7 +106,7 @@ namespace MediaBazaar
             // btnViewPorducts
             // 
             this.btnViewPorducts.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnViewPorducts.Location = new System.Drawing.Point(748, 423);
+            this.btnViewPorducts.Location = new System.Drawing.Point(33, 349);
             this.btnViewPorducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnViewPorducts.Name = "btnViewPorducts";
             this.btnViewPorducts.Size = new System.Drawing.Size(265, 31);
@@ -130,7 +128,7 @@ namespace MediaBazaar
             // btnRequestReplenishment
             // 
             this.btnRequestReplenishment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRequestReplenishment.Location = new System.Drawing.Point(748, 375);
+            this.btnRequestReplenishment.Location = new System.Drawing.Point(33, 384);
             this.btnRequestReplenishment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRequestReplenishment.Name = "btnRequestReplenishment";
             this.btnRequestReplenishment.Size = new System.Drawing.Size(265, 34);
@@ -152,6 +150,8 @@ namespace MediaBazaar
             // 
             // sdfds
             // 
+            this.sdfds.Controls.Add(this.btnViewPorducts);
+            this.sdfds.Controls.Add(this.btnRequestReplenishment);
             this.sdfds.Controls.Add(this.tbAmount);
             this.sdfds.Controls.Add(this.Amount);
             this.sdfds.Controls.Add(this.lbProductType);
@@ -196,6 +196,17 @@ namespace MediaBazaar
             this.Amount.TabIndex = 57;
             this.Amount.Text = "Amount: ";
             // 
+            // lbProductType
+            // 
+            this.lbProductType.Enabled = false;
+            this.lbProductType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbProductType.Location = new System.Drawing.Point(148, 165);
+            this.lbProductType.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.lbProductType.Name = "lbProductType";
+            this.lbProductType.ReadOnly = true;
+            this.lbProductType.Size = new System.Drawing.Size(162, 29);
+            this.lbProductType.TabIndex = 56;
+            // 
             // tbName
             // 
             this.tbName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -205,6 +216,17 @@ namespace MediaBazaar
             this.tbName.ReadOnly = true;
             this.tbName.Size = new System.Drawing.Size(162, 29);
             this.tbName.TabIndex = 45;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(33, 168);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 21);
+            this.label4.TabIndex = 55;
+            this.label4.Text = "Product type:";
             // 
             // lblName
             // 
@@ -509,28 +531,6 @@ namespace MediaBazaar
             this.lstAnnouncement.Name = "lstAnnouncement";
             this.lstAnnouncement.Size = new System.Drawing.Size(764, 208);
             this.lstAnnouncement.TabIndex = 16;
-            // 
-            // lbProductType
-            // 
-            this.lbProductType.Enabled = false;
-            this.lbProductType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbProductType.Location = new System.Drawing.Point(148, 165);
-            this.lbProductType.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.lbProductType.Name = "lbProductType";
-            this.lbProductType.ReadOnly = true;
-            this.lbProductType.Size = new System.Drawing.Size(162, 29);
-            this.lbProductType.TabIndex = 56;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(33, 168);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 21);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "Product type:";
             // 
             // FormSalesEmployee
             // 
