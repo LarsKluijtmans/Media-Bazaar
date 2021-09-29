@@ -235,8 +235,7 @@ namespace MediaBazaar
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
-
-                lbProducts.Items.Insert(0, $"users updated: {numAffectedRows}.");
+               
                 ViewAllProducts();
             }
             catch (MySqlException msqEx)

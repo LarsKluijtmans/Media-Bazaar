@@ -175,6 +175,7 @@ namespace MediaBazaar
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // tabPage2
             // 
@@ -186,7 +187,7 @@ namespace MediaBazaar
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Size = new System.Drawing.Size(1130, 480);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Employee overview";
+            this.tabPage2.Text = "Employee";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox3
