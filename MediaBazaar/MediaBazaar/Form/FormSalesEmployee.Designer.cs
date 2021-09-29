@@ -61,10 +61,28 @@ namespace MediaBazaar
             this.lstOverviewProduct = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rbnEveningLeastPrefered = new System.Windows.Forms.RadioButton();
+            this.rbnAfternoonLeastPrefered = new System.Windows.Forms.RadioButton();
+            this.rbnMorningLeastPrefered = new System.Windows.Forms.RadioButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbxLeastPreferedDay = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.rbnEveningPrefered = new System.Windows.Forms.RadioButton();
+            this.rbnAfternoonPrefered = new System.Windows.Forms.RadioButton();
+            this.rbnMorningPrefered = new System.Windows.Forms.RadioButton();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cbxPreferedDay = new System.Windows.Forms.ComboBox();
             this.tabPage2.SuspendLayout();
             this.sdfds.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -430,13 +448,190 @@ namespace MediaBazaar
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnSubmit);
+            this.tabPage3.Controls.Add(this.groupBox2);
+            this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1056, 487);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Availability";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(260, 290);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 11;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.rbnEveningLeastPrefered);
+            this.groupBox2.Controls.Add(this.rbnAfternoonLeastPrefered);
+            this.groupBox2.Controls.Add(this.rbnMorningLeastPrefered);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.cbxLeastPreferedDay);
+            this.groupBox2.Location = new System.Drawing.Point(6, 154);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(334, 130);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Least prefered work time:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 15);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Select shift:";
+            // 
+            // rbnEveningLeastPrefered
+            // 
+            this.rbnEveningLeastPrefered.AutoSize = true;
+            this.rbnEveningLeastPrefered.Location = new System.Drawing.Point(258, 78);
+            this.rbnEveningLeastPrefered.Name = "rbnEveningLeastPrefered";
+            this.rbnEveningLeastPrefered.Size = new System.Drawing.Size(67, 19);
+            this.rbnEveningLeastPrefered.TabIndex = 5;
+            this.rbnEveningLeastPrefered.TabStop = true;
+            this.rbnEveningLeastPrefered.Text = "Evening";
+            this.rbnEveningLeastPrefered.UseVisualStyleBackColor = true;
+            // 
+            // rbnAfternoonLeastPrefered
+            // 
+            this.rbnAfternoonLeastPrefered.AutoSize = true;
+            this.rbnAfternoonLeastPrefered.Location = new System.Drawing.Point(168, 78);
+            this.rbnAfternoonLeastPrefered.Name = "rbnAfternoonLeastPrefered";
+            this.rbnAfternoonLeastPrefered.Size = new System.Drawing.Size(79, 19);
+            this.rbnAfternoonLeastPrefered.TabIndex = 4;
+            this.rbnAfternoonLeastPrefered.TabStop = true;
+            this.rbnAfternoonLeastPrefered.Text = "Afternoon";
+            this.rbnAfternoonLeastPrefered.UseVisualStyleBackColor = true;
+            // 
+            // rbnMorningLeastPrefered
+            // 
+            this.rbnMorningLeastPrefered.AutoSize = true;
+            this.rbnMorningLeastPrefered.Location = new System.Drawing.Point(86, 78);
+            this.rbnMorningLeastPrefered.Name = "rbnMorningLeastPrefered";
+            this.rbnMorningLeastPrefered.Size = new System.Drawing.Size(71, 19);
+            this.rbnMorningLeastPrefered.TabIndex = 3;
+            this.rbnMorningLeastPrefered.TabStop = true;
+            this.rbnMorningLeastPrefered.Text = "Morning";
+            this.rbnMorningLeastPrefered.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(94, 15);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Day of the week:";
+            // 
+            // cbxLeastPreferedDay
+            // 
+            this.cbxLeastPreferedDay.FormattingEnabled = true;
+            this.cbxLeastPreferedDay.Items.AddRange(new object[] {
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"});
+            this.cbxLeastPreferedDay.Location = new System.Drawing.Point(116, 33);
+            this.cbxLeastPreferedDay.Name = "cbxLeastPreferedDay";
+            this.cbxLeastPreferedDay.Size = new System.Drawing.Size(121, 23);
+            this.cbxLeastPreferedDay.TabIndex = 2;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.rbnEveningPrefered);
+            this.groupBox1.Controls.Add(this.rbnAfternoonPrefered);
+            this.groupBox1.Controls.Add(this.rbnMorningPrefered);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.cbxPreferedDay);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(334, 130);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Prefered work time:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 78);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 15);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Select shift:";
+            // 
+            // rbnEveningPrefered
+            // 
+            this.rbnEveningPrefered.AutoSize = true;
+            this.rbnEveningPrefered.Location = new System.Drawing.Point(258, 78);
+            this.rbnEveningPrefered.Name = "rbnEveningPrefered";
+            this.rbnEveningPrefered.Size = new System.Drawing.Size(67, 19);
+            this.rbnEveningPrefered.TabIndex = 5;
+            this.rbnEveningPrefered.TabStop = true;
+            this.rbnEveningPrefered.Text = "Evening";
+            this.rbnEveningPrefered.UseVisualStyleBackColor = true;
+            // 
+            // rbnAfternoonPrefered
+            // 
+            this.rbnAfternoonPrefered.AutoSize = true;
+            this.rbnAfternoonPrefered.Location = new System.Drawing.Point(168, 78);
+            this.rbnAfternoonPrefered.Name = "rbnAfternoonPrefered";
+            this.rbnAfternoonPrefered.Size = new System.Drawing.Size(79, 19);
+            this.rbnAfternoonPrefered.TabIndex = 4;
+            this.rbnAfternoonPrefered.TabStop = true;
+            this.rbnAfternoonPrefered.Text = "Afternoon";
+            this.rbnAfternoonPrefered.UseVisualStyleBackColor = true;
+            // 
+            // rbnMorningPrefered
+            // 
+            this.rbnMorningPrefered.AutoSize = true;
+            this.rbnMorningPrefered.Location = new System.Drawing.Point(86, 78);
+            this.rbnMorningPrefered.Name = "rbnMorningPrefered";
+            this.rbnMorningPrefered.Size = new System.Drawing.Size(71, 19);
+            this.rbnMorningPrefered.TabIndex = 3;
+            this.rbnMorningPrefered.TabStop = true;
+            this.rbnMorningPrefered.Text = "Morning";
+            this.rbnMorningPrefered.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 15);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Day of the week:";
+            // 
+            // cbxPreferedDay
+            // 
+            this.cbxPreferedDay.FormattingEnabled = true;
+            this.cbxPreferedDay.Items.AddRange(new object[] {
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"});
+            this.cbxPreferedDay.Location = new System.Drawing.Point(116, 33);
+            this.cbxPreferedDay.Name = "cbxPreferedDay";
+            this.cbxPreferedDay.Size = new System.Drawing.Size(121, 23);
+            this.cbxPreferedDay.TabIndex = 2;
             // 
             // FormSalesEmployee
             // 
@@ -455,6 +650,11 @@ namespace MediaBazaar
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -493,5 +693,20 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox lbProductType;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton rbnEveningLeastPrefered;
+        private System.Windows.Forms.RadioButton rbnAfternoonLeastPrefered;
+        private System.Windows.Forms.RadioButton rbnMorningLeastPrefered;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbxLeastPreferedDay;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RadioButton rbnEveningPrefered;
+        private System.Windows.Forms.RadioButton rbnAfternoonPrefered;
+        private System.Windows.Forms.RadioButton rbnMorningPrefered;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cbxPreferedDay;
     }
 }

@@ -97,11 +97,30 @@ namespace MediaBazaar
             this.lstOverviewAnnouncement = new System.Windows.Forms.ListBox();
             this.lstOverviewPending = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.rbnEveningLeastPrefered = new System.Windows.Forms.RadioButton();
+            this.rbnAfternoonLeastPrefered = new System.Windows.Forms.RadioButton();
+            this.rbnMorningLeastPrefered = new System.Windows.Forms.RadioButton();
+            this.label23 = new System.Windows.Forms.Label();
+            this.cbxLeastPreferedDay = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.rbnEveningPrefered = new System.Windows.Forms.RadioButton();
+            this.rbnAfternoonPrefered = new System.Windows.Forms.RadioButton();
+            this.rbnMorningPrefered = new System.Windows.Forms.RadioButton();
+            this.label25 = new System.Windows.Forms.Label();
+            this.cbxPreferedDay = new System.Windows.Forms.ComboBox();
             this.tabPage4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -871,6 +890,7 @@ namespace MediaBazaar
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.Location = new System.Drawing.Point(22, 38);
             this.tabControl1.Name = "tabControl1";
@@ -878,6 +898,193 @@ namespace MediaBazaar
             this.tabControl1.Size = new System.Drawing.Size(1135, 516);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.btnSubmit);
+            this.tabPage5.Controls.Add(this.groupBox2);
+            this.tabPage5.Controls.Add(this.groupBox1);
+            this.tabPage5.Location = new System.Drawing.Point(4, 26);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1127, 486);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "Availability";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(260, 290);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 11;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.rbnEveningLeastPrefered);
+            this.groupBox2.Controls.Add(this.rbnAfternoonLeastPrefered);
+            this.groupBox2.Controls.Add(this.rbnMorningLeastPrefered);
+            this.groupBox2.Controls.Add(this.label23);
+            this.groupBox2.Controls.Add(this.cbxLeastPreferedDay);
+            this.groupBox2.Location = new System.Drawing.Point(6, 154);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(334, 130);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Least prefered work time:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(9, 78);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(73, 17);
+            this.label22.TabIndex = 6;
+            this.label22.Text = "Select shift:";
+            // 
+            // rbnEveningLeastPrefered
+            // 
+            this.rbnEveningLeastPrefered.AutoSize = true;
+            this.rbnEveningLeastPrefered.Location = new System.Drawing.Point(258, 78);
+            this.rbnEveningLeastPrefered.Name = "rbnEveningLeastPrefered";
+            this.rbnEveningLeastPrefered.Size = new System.Drawing.Size(71, 21);
+            this.rbnEveningLeastPrefered.TabIndex = 5;
+            this.rbnEveningLeastPrefered.TabStop = true;
+            this.rbnEveningLeastPrefered.Text = "Evening";
+            this.rbnEveningLeastPrefered.UseVisualStyleBackColor = true;
+            // 
+            // rbnAfternoonLeastPrefered
+            // 
+            this.rbnAfternoonLeastPrefered.AutoSize = true;
+            this.rbnAfternoonLeastPrefered.Location = new System.Drawing.Point(168, 78);
+            this.rbnAfternoonLeastPrefered.Name = "rbnAfternoonLeastPrefered";
+            this.rbnAfternoonLeastPrefered.Size = new System.Drawing.Size(84, 21);
+            this.rbnAfternoonLeastPrefered.TabIndex = 4;
+            this.rbnAfternoonLeastPrefered.TabStop = true;
+            this.rbnAfternoonLeastPrefered.Text = "Afternoon";
+            this.rbnAfternoonLeastPrefered.UseVisualStyleBackColor = true;
+            // 
+            // rbnMorningLeastPrefered
+            // 
+            this.rbnMorningLeastPrefered.AutoSize = true;
+            this.rbnMorningLeastPrefered.Location = new System.Drawing.Point(86, 78);
+            this.rbnMorningLeastPrefered.Name = "rbnMorningLeastPrefered";
+            this.rbnMorningLeastPrefered.Size = new System.Drawing.Size(76, 21);
+            this.rbnMorningLeastPrefered.TabIndex = 3;
+            this.rbnMorningLeastPrefered.TabStop = true;
+            this.rbnMorningLeastPrefered.Text = "Morning";
+            this.rbnMorningLeastPrefered.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 33);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(104, 17);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Day of the week:";
+            // 
+            // cbxLeastPreferedDay
+            // 
+            this.cbxLeastPreferedDay.FormattingEnabled = true;
+            this.cbxLeastPreferedDay.Items.AddRange(new object[] {
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"});
+            this.cbxLeastPreferedDay.Location = new System.Drawing.Point(116, 33);
+            this.cbxLeastPreferedDay.Name = "cbxLeastPreferedDay";
+            this.cbxLeastPreferedDay.Size = new System.Drawing.Size(121, 25);
+            this.cbxLeastPreferedDay.TabIndex = 2;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.rbnEveningPrefered);
+            this.groupBox1.Controls.Add(this.rbnAfternoonPrefered);
+            this.groupBox1.Controls.Add(this.rbnMorningPrefered);
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.cbxPreferedDay);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(334, 130);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Prefered work time:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(9, 78);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(73, 17);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "Select shift:";
+            // 
+            // rbnEveningPrefered
+            // 
+            this.rbnEveningPrefered.AutoSize = true;
+            this.rbnEveningPrefered.Location = new System.Drawing.Point(258, 78);
+            this.rbnEveningPrefered.Name = "rbnEveningPrefered";
+            this.rbnEveningPrefered.Size = new System.Drawing.Size(71, 21);
+            this.rbnEveningPrefered.TabIndex = 5;
+            this.rbnEveningPrefered.TabStop = true;
+            this.rbnEveningPrefered.Text = "Evening";
+            this.rbnEveningPrefered.UseVisualStyleBackColor = true;
+            // 
+            // rbnAfternoonPrefered
+            // 
+            this.rbnAfternoonPrefered.AutoSize = true;
+            this.rbnAfternoonPrefered.Location = new System.Drawing.Point(168, 78);
+            this.rbnAfternoonPrefered.Name = "rbnAfternoonPrefered";
+            this.rbnAfternoonPrefered.Size = new System.Drawing.Size(84, 21);
+            this.rbnAfternoonPrefered.TabIndex = 4;
+            this.rbnAfternoonPrefered.TabStop = true;
+            this.rbnAfternoonPrefered.Text = "Afternoon";
+            this.rbnAfternoonPrefered.UseVisualStyleBackColor = true;
+            // 
+            // rbnMorningPrefered
+            // 
+            this.rbnMorningPrefered.AutoSize = true;
+            this.rbnMorningPrefered.Location = new System.Drawing.Point(86, 78);
+            this.rbnMorningPrefered.Name = "rbnMorningPrefered";
+            this.rbnMorningPrefered.Size = new System.Drawing.Size(76, 21);
+            this.rbnMorningPrefered.TabIndex = 3;
+            this.rbnMorningPrefered.TabStop = true;
+            this.rbnMorningPrefered.Text = "Morning";
+            this.rbnMorningPrefered.UseVisualStyleBackColor = true;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(6, 33);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(104, 17);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "Day of the week:";
+            // 
+            // cbxPreferedDay
+            // 
+            this.cbxPreferedDay.FormattingEnabled = true;
+            this.cbxPreferedDay.Items.AddRange(new object[] {
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"});
+            this.cbxPreferedDay.Location = new System.Drawing.Point(116, 33);
+            this.cbxPreferedDay.Name = "cbxPreferedDay";
+            this.cbxPreferedDay.Size = new System.Drawing.Size(121, 25);
+            this.cbxPreferedDay.TabIndex = 2;
             // 
             // FormDepotEmployee
             // 
@@ -898,6 +1105,11 @@ namespace MediaBazaar
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -971,5 +1183,21 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ListBox lbProducts;
         private System.Windows.Forms.Button btnAddRestockRequest;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.RadioButton rbnEveningLeastPrefered;
+        private System.Windows.Forms.RadioButton rbnAfternoonLeastPrefered;
+        private System.Windows.Forms.RadioButton rbnMorningLeastPrefered;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox cbxLeastPreferedDay;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.RadioButton rbnEveningPrefered;
+        private System.Windows.Forms.RadioButton rbnAfternoonPrefered;
+        private System.Windows.Forms.RadioButton rbnMorningPrefered;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ComboBox cbxPreferedDay;
     }
 }
