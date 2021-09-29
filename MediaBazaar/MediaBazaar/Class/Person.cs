@@ -17,7 +17,8 @@ namespace MediaBazaar
 		private int bsn;
 		private string username;
 		private string password;
-
+		private string preferedWorkTime;
+		private string leastPreferedWorkTime;
 
 		// properties
 		public string FirstName { get; set; }
@@ -54,8 +55,11 @@ namespace MediaBazaar
 		{
 			return $"ID: {ID} - Name: {FirstName} {LastName} - Email: {Email} - PhoneNumber: {PhoneNumber}";
 		}
-
-
+		public void SelectWorkTime(string preferedWorkTime, string leastPreferedWorkTime)
+        {
+			this.preferedWorkTime = preferedWorkTime;
+			this.leastPreferedWorkTime = leastPreferedWorkTime;
+        }
 	}
 }
  

@@ -32,9 +32,9 @@ namespace MediaBazaar
             this.label1 = new System.Windows.Forms.Label();
             this.tbxReasonTermination = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dtpContractEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblEmployee = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.tbxEndDate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -49,8 +49,9 @@ namespace MediaBazaar
             // tbxReasonTermination
             // 
             this.tbxReasonTermination.Location = new System.Drawing.Point(166, 51);
+            this.tbxReasonTermination.Multiline = true;
             this.tbxReasonTermination.Name = "tbxReasonTermination";
-            this.tbxReasonTermination.Size = new System.Drawing.Size(139, 23);
+            this.tbxReasonTermination.Size = new System.Drawing.Size(139, 47);
             this.tbxReasonTermination.TabIndex = 1;
             // 
             // label2
@@ -61,13 +62,6 @@ namespace MediaBazaar
             this.label2.Size = new System.Drawing.Size(105, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Contract end date:";
-            // 
-            // dtpContractEndDate
-            // 
-            this.dtpContractEndDate.Location = new System.Drawing.Point(166, 101);
-            this.dtpContractEndDate.Name = "dtpContractEndDate";
-            this.dtpContractEndDate.Size = new System.Drawing.Size(139, 23);
-            this.dtpContractEndDate.TabIndex = 3;
             // 
             // lblEmployee
             // 
@@ -89,14 +83,21 @@ namespace MediaBazaar
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tbxEndDate
+            // 
+            this.tbxEndDate.Location = new System.Drawing.Point(166, 104);
+            this.tbxEndDate.Name = "tbxEndDate";
+            this.tbxEndDate.Size = new System.Drawing.Size(139, 23);
+            this.tbxEndDate.TabIndex = 6;
+            // 
             // FormRemoveEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 177);
+            this.Controls.Add(this.tbxEndDate);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblEmployee);
-            this.Controls.Add(this.dtpContractEndDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxReasonTermination);
             this.Controls.Add(this.label1);
@@ -112,8 +113,8 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxReasonTermination;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpContractEndDate;
         private System.Windows.Forms.Label lblEmployee;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tbxEndDate;
     }
 }
