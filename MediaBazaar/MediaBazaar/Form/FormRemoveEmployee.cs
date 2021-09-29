@@ -27,7 +27,7 @@ namespace MediaBazaar
         }
         public void UpdateContract()
         {
-            string employeeID = p.EmployeeID.ToString();
+            string employeeID = employee.ID.ToString();
             string reasonForTermination = tbxReasonTermination.Text;
             string contractEndDate = tbxEndDate.Text;
 

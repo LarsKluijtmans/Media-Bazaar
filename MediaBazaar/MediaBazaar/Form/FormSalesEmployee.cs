@@ -21,34 +21,8 @@ namespace MediaBazaar
             s = store;
             int ID = UserID;
             childForms = new List<IReplenishment>();
-
-            //FormDepotEmployee depot = new FormDepotEmployee(s,em);
-            //childForms.Add(depot);
-
-            UpdateProductList();
-            UpdateAnnouncementList();
         }
-        public void UpdateProductList()
-        {
-        }
-        public void UpdateAnnouncementList()
-        {
-        }
-        private void btnRemoveAmount_Click(object sender, EventArgs e)
-        {
-        }
-        private void btnSubmitComplaint_Click(object sender, EventArgs e)
-        {
-            string message = txtComplaint.Text;
-            Complaint complaint = new Complaint(message);
-            s.AddComplaint(complaint);
-        }
-        private void btnSubmitAnnouncement_Click(object sender, EventArgs e)
-        {
-            string message = txtAnnouncement.Text;
-            Announcement announcement = new Announcement(message);
-            s.AddAnnouncement(announcement);
-        }
+       
 
         private void btnLogout_Click(object sender, EventArgs e)
         {

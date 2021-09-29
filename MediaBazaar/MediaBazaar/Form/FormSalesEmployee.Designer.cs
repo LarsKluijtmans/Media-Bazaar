@@ -38,7 +38,9 @@ namespace MediaBazaar
             this.sdfds = new System.Windows.Forms.GroupBox();
             this.tbAmount = new System.Windows.Forms.TextBox();
             this.Amount = new System.Windows.Forms.Label();
+            this.lbProductType = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbBarcode = new System.Windows.Forms.TextBox();
@@ -59,22 +61,10 @@ namespace MediaBazaar
             this.lstOverviewProduct = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnSubmitComplaint = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtComplaint = new System.Windows.Forms.TextBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btnSubmitAnnouncement = new System.Windows.Forms.Button();
-            this.txtAnnouncement = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lstAnnouncement = new System.Windows.Forms.ListBox();
-            this.lbProductType = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.sdfds.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -175,7 +165,6 @@ namespace MediaBazaar
             this.sdfds.TabIndex = 3;
             this.sdfds.TabStop = false;
             this.sdfds.Text = "Replenishment";
-            this.sdfds.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // tbAmount
             // 
@@ -196,6 +185,17 @@ namespace MediaBazaar
             this.Amount.TabIndex = 57;
             this.Amount.Text = "Amount: ";
             // 
+            // lbProductType
+            // 
+            this.lbProductType.Enabled = false;
+            this.lbProductType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbProductType.Location = new System.Drawing.Point(148, 165);
+            this.lbProductType.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.lbProductType.Name = "lbProductType";
+            this.lbProductType.ReadOnly = true;
+            this.lbProductType.Size = new System.Drawing.Size(162, 29);
+            this.lbProductType.TabIndex = 56;
+            // 
             // tbName
             // 
             this.tbName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -205,6 +205,17 @@ namespace MediaBazaar
             this.tbName.ReadOnly = true;
             this.tbName.Size = new System.Drawing.Size(162, 29);
             this.tbName.TabIndex = 45;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(33, 168);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 21);
+            this.label4.TabIndex = 55;
+            this.label4.Text = "Product type:";
             // 
             // lblName
             // 
@@ -410,7 +421,6 @@ namespace MediaBazaar
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(11, 24);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
@@ -420,117 +430,13 @@ namespace MediaBazaar
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.btnSubmitComplaint);
-            this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Controls.Add(this.txtComplaint);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1056, 487);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Complaint";
+            this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // btnSubmitComplaint
-            // 
-            this.btnSubmitComplaint.Location = new System.Drawing.Point(626, 311);
-            this.btnSubmitComplaint.Name = "btnSubmitComplaint";
-            this.btnSubmitComplaint.Size = new System.Drawing.Size(77, 29);
-            this.btnSubmitComplaint.TabIndex = 17;
-            this.btnSubmitComplaint.Text = "Submit";
-            this.btnSubmitComplaint.UseVisualStyleBackColor = true;
-            this.btnSubmitComplaint.Click += new System.EventHandler(this.btnSubmitComplaint_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(43, 33);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(85, 21);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Complaint:";
-            // 
-            // txtComplaint
-            // 
-            this.txtComplaint.Location = new System.Drawing.Point(43, 57);
-            this.txtComplaint.Multiline = true;
-            this.txtComplaint.Name = "txtComplaint";
-            this.txtComplaint.Size = new System.Drawing.Size(660, 248);
-            this.txtComplaint.TabIndex = 15;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.btnSubmitAnnouncement);
-            this.tabPage4.Controls.Add(this.txtAnnouncement);
-            this.tabPage4.Controls.Add(this.label10);
-            this.tabPage4.Controls.Add(this.lstAnnouncement);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1056, 487);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Announcement";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // btnSubmitAnnouncement
-            // 
-            this.btnSubmitAnnouncement.Location = new System.Drawing.Point(716, 296);
-            this.btnSubmitAnnouncement.Name = "btnSubmitAnnouncement";
-            this.btnSubmitAnnouncement.Size = new System.Drawing.Size(77, 29);
-            this.btnSubmitAnnouncement.TabIndex = 19;
-            this.btnSubmitAnnouncement.Text = "Submit";
-            this.btnSubmitAnnouncement.UseVisualStyleBackColor = true;
-            this.btnSubmitAnnouncement.Click += new System.EventHandler(this.btnSubmitAnnouncement_Click);
-            // 
-            // txtAnnouncement
-            // 
-            this.txtAnnouncement.Location = new System.Drawing.Point(29, 265);
-            this.txtAnnouncement.Name = "txtAnnouncement";
-            this.txtAnnouncement.Size = new System.Drawing.Size(764, 23);
-            this.txtAnnouncement.TabIndex = 18;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(29, 27);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(126, 21);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "Announcements:";
-            // 
-            // lstAnnouncement
-            // 
-            this.lstAnnouncement.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstAnnouncement.FormattingEnabled = true;
-            this.lstAnnouncement.ItemHeight = 17;
-            this.lstAnnouncement.Location = new System.Drawing.Point(29, 51);
-            this.lstAnnouncement.Name = "lstAnnouncement";
-            this.lstAnnouncement.Size = new System.Drawing.Size(764, 208);
-            this.lstAnnouncement.TabIndex = 16;
-            // 
-            // lbProductType
-            // 
-            this.lbProductType.Enabled = false;
-            this.lbProductType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbProductType.Location = new System.Drawing.Point(148, 165);
-            this.lbProductType.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.lbProductType.Name = "lbProductType";
-            this.lbProductType.ReadOnly = true;
-            this.lbProductType.Size = new System.Drawing.Size(162, 29);
-            this.lbProductType.TabIndex = 56;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(33, 168);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 21);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "Product type:";
             // 
             // FormSalesEmployee
             // 
@@ -549,10 +455,6 @@ namespace MediaBazaar
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -576,15 +478,6 @@ namespace MediaBazaar
         private System.Windows.Forms.ListBox lstOverviewAnnoucement;
         private System.Windows.Forms.ListBox lstOverviewProduct;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button btnSubmitComplaint;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtComplaint;
-        private System.Windows.Forms.Button btnSubmitAnnouncement;
-        private System.Windows.Forms.TextBox txtAnnouncement;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListBox lstAnnouncement;
         private System.Windows.Forms.Button btnViewPorducts;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblName;
@@ -599,5 +492,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label Amount;
         private System.Windows.Forms.TextBox lbProductType;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }
