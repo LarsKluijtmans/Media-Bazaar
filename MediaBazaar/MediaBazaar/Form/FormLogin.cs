@@ -7,12 +7,9 @@ namespace MediaBazaar
 {
     public partial class FormLogin : Form
     {
-        Store mb;
-
         public FormLogin()
         {
             InitializeComponent();
-            mb = new Store(); 
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -45,13 +42,13 @@ namespace MediaBazaar
 
                             switch (reader[2].ToString())
                             {
-                                case "OWNER": Form1 form1 = new Form1(Userid, mb); form1.Show(); break;
-                                case "SALES MANAGER": FormSalesManager formSalesManager = new FormSalesManager(Userid, mb); formSalesManager.Show(); break;
-                                case "SALES EMPLOYEE": FormSalesEmployee formSalesEmployee = new FormSalesEmployee(Userid, mb); formSalesEmployee.Show(); break;
-                                case "OFFICE MANAGER": FormOfficeManager formOfficeManager = new FormOfficeManager(Userid, mb); formOfficeManager.Show(); break;
-                                case "OFFICE EMPLOYE": FormOfficeEmployee formOfficeEmployee = new FormOfficeEmployee(Userid, mb); formOfficeEmployee.Show(); break;
-                                case "DEPOT MANAGER": FormDepotManager formDepotManager = new FormDepotManager(Userid, mb); formDepotManager.Show(); break;
-                                case "DEPOT EMPLOYEE": FormDepotEmployee formDepotEmployee = new FormDepotEmployee(Userid, mb); formDepotEmployee.Show(); break;
+                                case "OWNER": Form1 form1 = new Form1(Userid); form1.Show(); break;
+                                case "SALES MANAGER": FormSalesManager formSalesManager = new FormSalesManager(Userid); formSalesManager.Show(); break;
+                                case "SALES EMPLOYEE": FormSalesEmployee formSalesEmployee = new FormSalesEmployee(Userid); formSalesEmployee.Show(); break;
+                                case "OFFICE MANAGER": FormOfficeManager formOfficeManager = new FormOfficeManager(Userid); formOfficeManager.Show(); break;
+                                case "OFFICE EMPLOYE": FormOfficeEmployee formOfficeEmployee = new FormOfficeEmployee(Userid); formOfficeEmployee.Show(); break;
+                                case "DEPOT MANAGER": FormDepotManager formDepotManager = new FormDepotManager(Userid); formDepotManager.Show(); break;
+                                case "DEPOT EMPLOYEE": FormDepotEmployee formDepotEmployee = new FormDepotEmployee(Userid); formDepotEmployee.Show(); break;
                             }
 
 
@@ -74,7 +71,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }

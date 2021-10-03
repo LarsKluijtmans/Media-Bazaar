@@ -49,21 +49,29 @@ namespace MediaBazaar
         }
 
         //constructor
-        public Product(int ID, string name, string type, string barcode, int AmountInDepot, int AmountInStore)
+        public Product(int id, string name, string type, string barcode, int amountInDepot, int amountInStore)
         {
-            ProductID = ID;
+            ProductID = id;
             Barcode = barcode;
             Name = name;
             ProductType = type;
-            amountInDepot = AmountInDepot;
-            amountInStore = AmountInStore;
+            AmountInDepot = amountInDepot;
+            AmountInStore = amountInStore;
         }
 
 
         //methods
         public override string ToString()
         {
-            return "  ID: " + ProductID + "   Barcode: " + Barcode + "   Name: " + Name + "   Type: " + ProductType + "   Amount in depot: " + amountInDepot + "   Amoutn in store: " + AmountInStore;
+            return "  ID: " + ProductID + "   Barcode: " + Barcode + "   Name: " + Name + "   Type: " + ProductType + "   Amount in depot: " + AmountInDepot + "   Amoutn in store: " + AmountInStore;
+        }
+        public string GetInfoForSale()
+        {
+            return "  ID: " + ProductID + "   Barcode: " + Barcode + "   Name: " + Name + "   Type: " + ProductType + "   Amoutn in store: " + AmountInStore;
+        }
+        public string GetInfoForDepot()
+        {
+            return "  ID: " + ProductID + "   Barcode: " + Barcode + "   Name: " + Name + "   Type: " + ProductType + "   Amount in depot: " + AmountInDepot;
         }
     }
 }

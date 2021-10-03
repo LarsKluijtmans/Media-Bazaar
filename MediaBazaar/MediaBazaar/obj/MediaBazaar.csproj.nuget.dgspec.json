@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {}
+    "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {
+    "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+        "projectUniqueName": "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
         "projectName": "MediaBazaar",
-        "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
-        "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\obj\\",
+        "projectPath": "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+        "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
+        "outputPath": "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\MediaBazaar\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
