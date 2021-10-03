@@ -1121,7 +1121,7 @@ namespace MediaBazaar
             this.groupBox2.Size = new System.Drawing.Size(346, 414);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "schedule";
             // 
             // lbScheduleEvening
             // 
@@ -1334,7 +1334,7 @@ namespace MediaBazaar
             this.groupBox3.Size = new System.Drawing.Size(346, 467);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "Plan";
             // 
             // btnEmpltySchedule
             // 
