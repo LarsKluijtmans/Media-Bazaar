@@ -115,28 +115,10 @@ namespace MediaBazaar
             this.label21 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lbReshelfRequest = new System.Windows.Forms.ListBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label30 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.tbDepotSheduleEvening = new System.Windows.Forms.TextBox();
-            this.tbDepotSheduleAfternoon = new System.Windows.Forms.TextBox();
-            this.tbDepotSheduleMorning = new System.Windows.Forms.TextBox();
-            this.tbDepotSheduleDay = new System.Windows.Forms.TextBox();
-            this.tbDepotSheduleDepartment = new System.Windows.Forms.TextBox();
-            this.tbDepotSheduleID = new System.Windows.Forms.TextBox();
-            this.btnEditDepotSchedule = new System.Windows.Forms.Button();
-            this.btnViewDepotSchedule = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.lbDepotSchedule = new System.Windows.Forms.ListBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.lbEmployee = new System.Windows.Forms.ListBox();
             this.label32 = new System.Windows.Forms.Label();
-            this.lbPlaning = new System.Windows.Forms.ListBox();
+            this.lbPlanning = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tbWorkId = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
@@ -160,8 +142,6 @@ namespace MediaBazaar
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
@@ -352,7 +332,7 @@ namespace MediaBazaar
             this.groupBox2.Size = new System.Drawing.Size(338, 414);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Manage Schedule";
             // 
             // btnEditschedule
             // 
@@ -504,7 +484,6 @@ namespace MediaBazaar
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Location = new System.Drawing.Point(10, 22);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1142,208 +1121,18 @@ namespace MediaBazaar
             this.lbReshelfRequest.TabIndex = 36;
             this.lbReshelfRequest.SelectedIndexChanged += new System.EventHandler(this.lbReshelfRequest_SelectedIndexChanged);
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label30);
-            this.tabPage1.Controls.Add(this.groupBox4);
-            this.tabPage1.Controls.Add(this.lbDepotSchedule);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1130, 480);
-            this.tabPage1.TabIndex = 9;
-            this.tabPage1.Text = "Schedule";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label30.Location = new System.Drawing.Point(27, 18);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(100, 21);
-            this.label30.TabIndex = 59;
-            this.label30.Text = "Schedule list:";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.tbDepotSheduleEvening);
-            this.groupBox4.Controls.Add(this.tbDepotSheduleAfternoon);
-            this.groupBox4.Controls.Add(this.tbDepotSheduleMorning);
-            this.groupBox4.Controls.Add(this.tbDepotSheduleDay);
-            this.groupBox4.Controls.Add(this.tbDepotSheduleDepartment);
-            this.groupBox4.Controls.Add(this.tbDepotSheduleID);
-            this.groupBox4.Controls.Add(this.btnEditDepotSchedule);
-            this.groupBox4.Controls.Add(this.btnViewDepotSchedule);
-            this.groupBox4.Controls.Add(this.label25);
-            this.groupBox4.Controls.Add(this.label26);
-            this.groupBox4.Controls.Add(this.label27);
-            this.groupBox4.Controls.Add(this.label28);
-            this.groupBox4.Controls.Add(this.label29);
-            this.groupBox4.Controls.Add(this.label31);
-            this.groupBox4.Location = new System.Drawing.Point(751, 40);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(346, 414);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
-            // 
-            // tbDepotSheduleEvening
-            // 
-            this.tbDepotSheduleEvening.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbDepotSheduleEvening.Location = new System.Drawing.Point(162, 231);
-            this.tbDepotSheduleEvening.Name = "tbDepotSheduleEvening";
-            this.tbDepotSheduleEvening.Size = new System.Drawing.Size(164, 29);
-            this.tbDepotSheduleEvening.TabIndex = 20;
-            // 
-            // tbDepotSheduleAfternoon
-            // 
-            this.tbDepotSheduleAfternoon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbDepotSheduleAfternoon.Location = new System.Drawing.Point(162, 193);
-            this.tbDepotSheduleAfternoon.Name = "tbDepotSheduleAfternoon";
-            this.tbDepotSheduleAfternoon.Size = new System.Drawing.Size(164, 29);
-            this.tbDepotSheduleAfternoon.TabIndex = 19;
-            // 
-            // tbDepotSheduleMorning
-            // 
-            this.tbDepotSheduleMorning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbDepotSheduleMorning.Location = new System.Drawing.Point(162, 154);
-            this.tbDepotSheduleMorning.Name = "tbDepotSheduleMorning";
-            this.tbDepotSheduleMorning.Size = new System.Drawing.Size(164, 29);
-            this.tbDepotSheduleMorning.TabIndex = 18;
-            // 
-            // tbDepotSheduleDay
-            // 
-            this.tbDepotSheduleDay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbDepotSheduleDay.Location = new System.Drawing.Point(162, 115);
-            this.tbDepotSheduleDay.Name = "tbDepotSheduleDay";
-            this.tbDepotSheduleDay.ReadOnly = true;
-            this.tbDepotSheduleDay.Size = new System.Drawing.Size(164, 29);
-            this.tbDepotSheduleDay.TabIndex = 17;
-            // 
-            // tbDepotSheduleDepartment
-            // 
-            this.tbDepotSheduleDepartment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbDepotSheduleDepartment.Location = new System.Drawing.Point(162, 77);
-            this.tbDepotSheduleDepartment.Name = "tbDepotSheduleDepartment";
-            this.tbDepotSheduleDepartment.ReadOnly = true;
-            this.tbDepotSheduleDepartment.Size = new System.Drawing.Size(164, 29);
-            this.tbDepotSheduleDepartment.TabIndex = 16;
-            // 
-            // tbDepotSheduleID
-            // 
-            this.tbDepotSheduleID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbDepotSheduleID.Location = new System.Drawing.Point(162, 38);
-            this.tbDepotSheduleID.Name = "tbDepotSheduleID";
-            this.tbDepotSheduleID.ReadOnly = true;
-            this.tbDepotSheduleID.Size = new System.Drawing.Size(164, 29);
-            this.tbDepotSheduleID.TabIndex = 15;
-            // 
-            // btnEditDepotSchedule
-            // 
-            this.btnEditDepotSchedule.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditDepotSchedule.Location = new System.Drawing.Point(79, 353);
-            this.btnEditDepotSchedule.Name = "btnEditDepotSchedule";
-            this.btnEditDepotSchedule.Size = new System.Drawing.Size(215, 34);
-            this.btnEditDepotSchedule.TabIndex = 14;
-            this.btnEditDepotSchedule.Text = "Edit schedule";
-            this.btnEditDepotSchedule.UseVisualStyleBackColor = true;
-            this.btnEditDepotSchedule.Click += new System.EventHandler(this.btnEditDepotSchedule_Click);
-            // 
-            // btnViewDepotSchedule
-            // 
-            this.btnViewDepotSchedule.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnViewDepotSchedule.Location = new System.Drawing.Point(79, 301);
-            this.btnViewDepotSchedule.Name = "btnViewDepotSchedule";
-            this.btnViewDepotSchedule.Size = new System.Drawing.Size(215, 34);
-            this.btnViewDepotSchedule.TabIndex = 13;
-            this.btnViewDepotSchedule.Text = "View schedule";
-            this.btnViewDepotSchedule.UseVisualStyleBackColor = true;
-            this.btnViewDepotSchedule.Click += new System.EventHandler(this.btnViewDepotSchedule_Click);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label25.Location = new System.Drawing.Point(79, 231);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(68, 21);
-            this.label25.TabIndex = 12;
-            this.label25.Text = "Evening:";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label26.Location = new System.Drawing.Point(64, 193);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(83, 21);
-            this.label26.TabIndex = 11;
-            this.label26.Text = "Afternoon:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label27.Location = new System.Drawing.Point(77, 154);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(70, 21);
-            this.label27.TabIndex = 10;
-            this.label27.Text = "Monday:";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label28.Location = new System.Drawing.Point(107, 115);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(40, 21);
-            this.label28.TabIndex = 9;
-            this.label28.Text = "Day:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label29.Location = new System.Drawing.Point(51, 77);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(96, 21);
-            this.label29.TabIndex = 8;
-            this.label29.Text = "Department:";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label31.Location = new System.Drawing.Point(54, 38);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(93, 21);
-            this.label31.TabIndex = 7;
-            this.label31.Text = "Schedule id:";
-            // 
-            // lbDepotSchedule
-            // 
-            this.lbDepotSchedule.FormattingEnabled = true;
-            this.lbDepotSchedule.ItemHeight = 15;
-            this.lbDepotSchedule.Location = new System.Drawing.Point(27, 42);
-            this.lbDepotSchedule.Name = "lbDepotSchedule";
-            this.lbDepotSchedule.Size = new System.Drawing.Size(706, 424);
-            this.lbDepotSchedule.TabIndex = 0;
-            this.lbDepotSchedule.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.lbEmployee);
             this.tabPage7.Controls.Add(this.label32);
-            this.tabPage7.Controls.Add(this.lbPlaning);
+            this.tabPage7.Controls.Add(this.lbPlanning);
             this.tabPage7.Controls.Add(this.groupBox5);
             this.tabPage7.Location = new System.Drawing.Point(4, 24);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage7.Size = new System.Drawing.Size(1130, 480);
             this.tabPage7.TabIndex = 11;
-            this.tabPage7.Text = "Planing";
+            this.tabPage7.Text = "Planning";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // lbEmployee
@@ -1363,20 +1152,20 @@ namespace MediaBazaar
             this.label32.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label32.Location = new System.Drawing.Point(31, 25);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(89, 21);
+            this.label32.Size = new System.Drawing.Size(98, 21);
             this.label32.TabIndex = 61;
-            this.label32.Text = "Planing list:";
+            this.label32.Text = "Planning list:";
             // 
-            // lbPlaning
+            // lbPlanning
             // 
-            this.lbPlaning.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbPlaning.FormattingEnabled = true;
-            this.lbPlaning.ItemHeight = 15;
-            this.lbPlaning.Location = new System.Drawing.Point(25, 60);
-            this.lbPlaning.Name = "lbPlaning";
-            this.lbPlaning.Size = new System.Drawing.Size(342, 424);
-            this.lbPlaning.TabIndex = 60;
-            this.lbPlaning.SelectedIndexChanged += new System.EventHandler(this.lbPlaning_SelectedIndexChanged);
+            this.lbPlanning.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbPlanning.FormattingEnabled = true;
+            this.lbPlanning.ItemHeight = 15;
+            this.lbPlanning.Location = new System.Drawing.Point(25, 60);
+            this.lbPlanning.Name = "lbPlanning";
+            this.lbPlanning.Size = new System.Drawing.Size(342, 424);
+            this.lbPlanning.TabIndex = 60;
+            this.lbPlanning.SelectedIndexChanged += new System.EventHandler(this.lbPlaning_SelectedIndexChanged);
             // 
             // groupBox5
             // 
@@ -1397,7 +1186,7 @@ namespace MediaBazaar
             this.groupBox5.Size = new System.Drawing.Size(346, 443);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "groupBox5";
+            this.groupBox5.Text = "Manage Planning:";
             // 
             // tbWorkId
             // 
@@ -1549,10 +1338,6 @@ namespace MediaBazaar
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -1648,29 +1433,11 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox lbScheduleID;
         private System.Windows.Forms.ListBox lbSchedule;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox tbDepotSheduleEvening;
-        private System.Windows.Forms.TextBox tbDepotSheduleAfternoon;
-        private System.Windows.Forms.TextBox tbDepotSheduleMorning;
-        private System.Windows.Forms.TextBox tbDepotSheduleDay;
-        private System.Windows.Forms.TextBox tbDepotSheduleDepartment;
-        private System.Windows.Forms.TextBox tbDepotSheduleID;
-        private System.Windows.Forms.Button btnEditDepotSchedule;
-        private System.Windows.Forms.Button btnViewDepotSchedule;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.ListBox lbDepotSchedule;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.ListBox lbEmployee;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.ListBox lbPlaning;
+        private System.Windows.Forms.ListBox lbPlanning;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox tbWorkId;
         private System.Windows.Forms.Label label34;

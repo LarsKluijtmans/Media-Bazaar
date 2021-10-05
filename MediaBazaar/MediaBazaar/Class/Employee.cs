@@ -18,11 +18,9 @@ namespace MediaBazaar
         private int bsn;
         private string username;
         private string password;
-        private JobTitle type;
 
         private Contract contract; /* every employee has 1 contract*/
 
-        private List<Shift> schedule; // list of shifts for schedule
 
         // properties
         public string FirstName { get; set; }
@@ -36,13 +34,10 @@ namespace MediaBazaar
         public string Password { get; set; }
         public string Email { get; set; }
         public int EmployeeID { get; private set; }
-        public JobTitle Type { get; set; }
         public Contract Contract { get; set; }
-        public List<Shift> Schedule { get; set; }
         // constructor
-        public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password, JobTitle type)
+        public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
          {
-            Schedule = new List<Shift>();
             this.EmployeeID = nextEmployeeID;
             nextEmployeeID++;
 
@@ -55,13 +50,12 @@ namespace MediaBazaar
             this.BSN = bsn;
             this.Username = username;
             this.Password = password;
-            this.Type = type;
               
          }
         // methodes
         public override string ToString()
         {
-            return $"ID: {EmployeeID} - Name: {FirstName} {LastName} - Email: {Email} - Type: {Type.ToString()}";
+            return $"ID: {EmployeeID} - Name: {FirstName} {LastName} - Email: {Email}";
         }
     }
     }

@@ -22,18 +22,17 @@ namespace MediaBazaar
         {
             string productN = txtProductName.Text;
             int productA = Convert.ToInt32(txtProductAmount.Text);
-            ProductType productType = (ProductType)Enum.Parse(typeof(ProductType), cbxProductType.SelectedItem.ToString());
 
             //Product newProduct = new Product(productN, productType,  productA);
 
             //products.Add(newProduct);
-            OpenForm1(productN, productType, productA);
+            //OpenForm1(productN, productA);
         }
 
-        public void OpenForm1(string productN, ProductType productType, int productA)
+        public void OpenForm1(int id)
         {
 
-            Form1 newProduct = new Form1(productN, productType, productA);
+            Form1 newProduct = new Form1(id);
             newProduct.Show();
         }
     }

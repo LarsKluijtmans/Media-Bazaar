@@ -9,11 +9,9 @@ namespace MediaBazaar
     public partial class FormOfficeManager : Form
     {
         int ID;
-        Store mediaBazaar;
-        public FormOfficeManager(int UserID, Store mb)
+        public FormOfficeManager(int UserID)
         {
             InitializeComponent();
-            this.mediaBazaar = mb;
             ID = UserID;
 
         }

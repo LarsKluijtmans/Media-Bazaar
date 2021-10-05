@@ -1225,7 +1225,7 @@ namespace MediaBazaar
             }
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong";
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -1301,7 +1301,7 @@ namespace MediaBazaar
             }
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong";
+                MessageBox.Show("Something went wrong");
             }
             finally
             {

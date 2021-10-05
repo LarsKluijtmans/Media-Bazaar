@@ -13,11 +13,9 @@ namespace MediaBazaar
     public partial class FormSalesManager : Form
     {
         int ID;
-        Store mediaBazaar;
-        public FormSalesManager(int UserID, Store mb)
+        public FormSalesManager(int UserID)
         {
             InitializeComponent();
-            mediaBazaar = mb;
             ID = UserID;
 
         }

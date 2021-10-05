@@ -10,13 +10,11 @@ namespace MediaBazaar
 {
     public partial class FormEditEmployeeData : Form
     {
-        Store mb;
         Employee e;
 
-        public FormEditEmployeeData(Store mb, Employee e)
+        public FormEditEmployeeData(Employee e)
         {
             InitializeComponent();
-            this.mb = mb;
             this.e = e;
 
             lblEmployeeName.Text = $"{e.FirstName} {e.LastName}";
@@ -29,7 +27,6 @@ namespace MediaBazaar
             tbxAddress.Text = e.City;
             tbxUsername.Text = e.Username;
             tbxPassword.Text = e.Password;
-            cbxType.Text = e.Type.ToString();
             tbxBSN.Text = e.BSN.ToString();
             tbxDateOfBirth.Text = e.DateOfBirth;
         }
