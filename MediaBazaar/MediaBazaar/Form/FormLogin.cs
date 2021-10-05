@@ -50,8 +50,6 @@ namespace MediaBazaar
                                 case "DEPOT MANAGER": FormDepotManager formDepotManager = new FormDepotManager(Userid); formDepotManager.Show(); break;
                                 case "DEPOT EMPLOYEE": FormDepotEmployee formDepotEmployee = new FormDepotEmployee(Userid); formDepotEmployee.Show(); break;
                             }
-
-
                             break;
                         }
                         else
