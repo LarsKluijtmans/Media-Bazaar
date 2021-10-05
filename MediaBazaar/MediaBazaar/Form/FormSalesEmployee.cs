@@ -12,16 +12,13 @@ namespace MediaBazaar
 {
     public partial class FormSalesEmployee : Form
     {
-        Store s;
         int ID;
         Person employee;
-        private List<IReplenishment> childForms;
-        public FormSalesEmployee(int UserID, Store store)
+        public FormSalesEmployee(int UserID)
         {
             InitializeComponent();
-            s = store;
             int ID = UserID;
-            childForms = new List<IReplenishment>();
+            ViewAllProducts();
         }
        
 
@@ -39,11 +36,6 @@ namespace MediaBazaar
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
@@ -77,6 +69,7 @@ namespace MediaBazaar
                     product = new Product(ProductID, name, productType, barcode, amountInDepot, amountInStore);
 
                     lstProduct.Items.Add(product);
+                    lstOverviewProduct.Items.Add(product);
                 }
             }
             catch (MySqlException msqEx)
@@ -393,11 +386,6 @@ namespace MediaBazaar
                 }
             }
             return null;
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

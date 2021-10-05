@@ -5,16 +5,14 @@ using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class FormDepotEmployee : Form, IReplenishment
+    public partial class FormDepotEmployee : Form
     {
         int ID;
-        Store mediaBazaar;
         Person employee;
-        public FormDepotEmployee(int UserID , Store mb)
+        public FormDepotEmployee(int UserID)
         {
             InitializeComponent();
             ID = UserID;
-            mediaBazaar = mb;
 
             cbProductType.Items.Add("KITCHEN_HOME");
             cbProductType.Items.Add("PHOTO_VIDEO_NAVIGATION");
@@ -210,7 +208,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -289,7 +287,7 @@ namespace MediaBazaar
         //Restock
         public void ViewAllRestockRequests()
         {
-            lbRestock.Items.Clear();
+            lbProduct.Items.Clear();
 
             MySqlConnection conn = Utils.GetConnection();
 
@@ -315,16 +313,16 @@ namespace MediaBazaar
 
                     restock = new Restock(restockReplenishmentID, productID, amount, name, amountInDepot, amountInStore);
 
-                    lbRestock.Items.Add(restock);
+                    lbProduct.Items.Add(restock);
                 }
             }
             catch (MySqlException msqEx)
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -334,13 +332,13 @@ namespace MediaBazaar
 
         public void DeleteRestockRequest()
         {
-            lbRestock.Items.Clear();
+            lbProduct.Items.Clear();
 
             string RestokID = tbRestockID.Text;
             if (string.IsNullOrEmpty(RestokID))
             {
-                lbRestock.Items.Clear();
-                lbRestock.Items.Add("'RestokID' field is required.");
+                lbProduct.Items.Clear();
+                lbProduct.Items.Add("'RestokID' field is required.");
                 return;
             }
 
@@ -354,14 +352,14 @@ namespace MediaBazaar
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
 
-                lbRestock.Items.Clear();
+                lbProduct.Items.Clear();
                 ViewAllRestockRequests();
             }
             catch (MySqlException msqEx)
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -381,20 +379,20 @@ namespace MediaBazaar
             string amount = tbRestockAmount.Text;
             if (string.IsNullOrEmpty(amount))
             {
-                lbRestock.Items.Add("'amount' field is required.");
+                lbProduct.Items.Add("'amount' field is required.");
                 return;
             }
 
             string AmountInDepot = RestockAmountDepot.Text;
             if (string.IsNullOrEmpty(AmountInDepot))
             {
-                lbRestock.Items.Add("'AmountInDepot' field is required.");
+                lbProduct.Items.Add("'AmountInDepot' field is required.");
                 return;
             }
             string ID = tbProductID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                lbRestock.Items.Add("Please select a product");
+                lbProduct.Items.Add("Please select a product");
                 return;
             }
 
@@ -427,7 +425,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -440,12 +438,12 @@ namespace MediaBazaar
         private void lbRestock_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (lbRestock.SelectedIndex < 0)
+            if (lbProduct.SelectedIndex < 0)
             {
                 return;
             }
 
-            Object RestockObject = lbRestock.SelectedItem;
+            Object RestockObject = lbProduct.SelectedItem;
             if (!(RestockObject is Restock))
             {
                 return;
@@ -494,7 +492,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -534,7 +532,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -585,9 +583,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -670,7 +668,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -726,21 +724,65 @@ namespace MediaBazaar
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-        }
+            if (btnCheck.Text == "Check In")
+            {
+                var date = DateTime.Now;
+                MySqlConnection conn = Utils.GetConnection();
+                string sql = Utils.CREATE_CHECKIN;
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", 9.ToString());
+                    cmd.Parameters.AddWithValue("@CheckInTime", date.ToString("HH:mm:ss"));
+                    cmd.Parameters.AddWithValue("@CheckOutTime", null);
+                    cmd.Parameters.AddWithValue("@CheckDate", date.ToString("yyyy-MM-dd"));
 
-        public void Requested(Product p)
-        {
-            throw new NotImplementedException();
-        }
+                    conn.Open();
+                    int n = cmd.ExecuteNonQuery();
+                    MessageBox.Show(n.ToString());
+                }
+                catch (MySqlException msqEx)
+                {
+                    MessageBox.Show(msqEx.Message);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Something went wrong");
+                }
+                finally
+                {
+                    conn.Close();
+                    btnCheck.Text = "Check Out";
+                }
+            }
+            else if (btnCheck.Text == "Check Out")
+            {
+                var date = DateTime.Now;
+                MySqlConnection conn = Utils.GetConnection();
+                string sql = Utils.CREATE_CHECKOUT;
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@CheckOutTime", date.ToString("HH:mm:ss"));
 
-        public void Replenish(Product p)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+                    conn.Open();
+                    int n = cmd.ExecuteNonQuery();
+                    MessageBox.Show(n.ToString());
+                }
+                catch (MySqlException msqEx)
+                {
+                    MessageBox.Show(msqEx.Message);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Something went wrong");
+                }
+                finally
+                {
+                    conn.Close();
+                    btnCheck.Text = "Check In";
+                }
+            }
         }
         // availability
         private void btnSubmit_Click(object sender, EventArgs e)

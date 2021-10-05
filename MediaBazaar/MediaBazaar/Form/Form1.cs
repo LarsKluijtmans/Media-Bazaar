@@ -9,50 +9,15 @@ namespace MediaBazaar
     public partial class Form1 : Form
     {
         int ID;
-        Store MediaBazaar;
-        private string productN;
-        private ProductType productType;
-        private int productA;
-        private string firstN;
-        private string lastN;
-        private int phoneN;
-        private int bsn;
-        private string username;
-        private string email;
-        private string password;
 
-        public Form1(int userID, Store mb)
+        public Form1(int userID)
         {
             InitializeComponent();
             ID = userID;
-            MediaBazaar = mb;
             cbProductType.Items.Add("KITCHEN_HOME");
             cbProductType.Items.Add("PHOTO_VIDEO_NAVIGATION");
             cbProductType.Items.Add("SMARTHOME_APPLIANCES");
             cbProductType.Items.Add("GAMING_MUSIC_COMPUTERS");
-        }
-
-        public Form1(string productN, ProductType productType, int productA)
-        {
-            this.productN = productN;
-            this.productType = productType;
-            this.productA = productA;
-        }
-
-        public Form1(string firstN, string lastN, int phoneN, int bsn, string username, string email, string password)
-        {
-            this.firstN = firstN;
-            this.lastN = lastN;
-            this.phoneN = phoneN;
-            this.bsn = bsn;
-            this.username = username;
-            this.email = email;
-            this.password = password;
-        }
-
-        public static implicit operator Form1(FormDepotManager v)
-        {
-            throw new NotImplementedException();
         }
 
         //Products
@@ -91,9 +56,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -167,7 +132,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -242,7 +207,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -280,7 +245,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -355,9 +320,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -394,7 +359,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -460,7 +425,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -528,7 +493,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -579,9 +544,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -664,7 +629,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -739,9 +704,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -802,7 +767,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -872,9 +837,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -911,9 +876,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -958,9 +923,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -997,9 +962,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -1042,9 +1007,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -1081,9 +1046,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong");
             }
             finally
             {
@@ -1187,7 +1152,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong");
             }
@@ -1258,9 +1223,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong";
             }
             finally
             {
@@ -1334,9 +1299,9 @@ namespace MediaBazaar
             {
                 MessageBox.Show(msqEx.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                MessageBox.Show("Something went wrong";
             }
             finally
             {
@@ -1374,9 +1339,9 @@ namespace MediaBazaar
                 {
                     MessageBox.Show(msqEx.Message);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show( $"Something went wrong {ex}");
+                    MessageBox.Show( $"Something went wrong");
                 }
                 finally
                 {
