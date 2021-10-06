@@ -25,6 +25,7 @@ namespace MediaBazaar
             cbProductType.Items.Add("SMARTHOME_APPLIANCES");
             cbProductType.Items.Add("GAMING_MUSIC_COMPUTERS");
 
+            ViewAllEmployees();
             //UpdateListbox();
         }
 
@@ -100,6 +101,8 @@ namespace MediaBazaar
             {
                 conn.Close();
             }
+
+            ViewAllEmployees();
         }
 
         private void lbxEmployees_SelectedIndexChanged(object sender, EventArgs e)
@@ -142,21 +145,25 @@ namespace MediaBazaar
 
                 while (reader.Read())
                 {
-                    int employeeID = reader.GetInt32("EmployeeID");
-                    string firstName = reader.GetString("FirstName");
-                    string lastName = reader.GetString("LastName");
-                    string username = reader.GetString("UserName");
-                    string password = reader.GetString("Password");
-                    int bsn = reader.GetInt32("BSN");
-                    string city = reader.GetString("Address");
-                    string email = reader.GetString("Email");
-                    int phoneNumber = reader.GetInt32("PhoneNumber");
-                    string dateOfBirth = "01-01-1998";
+                    if (reader.GetInt32("Active") == 1)
+                    {
+                        int employeeID = reader.GetInt32("EmployeeID");
+                        string firstName = reader.GetString("FirstName");
+                        string lastName = reader.GetString("LastName");
+                        string username = reader.GetString("UserName");
+                        string password = reader.GetString("Password");
+                        int bsn = reader.GetInt32("BSN");
+                        string city = reader.GetString("Address");
+                        string email = reader.GetString("Email");
+                        int phoneNumber = reader.GetInt32("PhoneNumber");
+                        string dateOfBirth = "01-01-1998";
 
-                    employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
-                    lbxEmployees.Items.Add(employee);
-
+                        employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                        lbxEmployees.Items.Add(employee);
+                    }
                 }
+
+                
             }
             catch (MySqlException msqEx)
             {
