@@ -5,6 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MediaBazaar.Class;
+using MySql.Data.MySqlClient;
+
 
 namespace MediaBazaar
 {
@@ -15,6 +18,54 @@ namespace MediaBazaar
         {
             InitializeComponent();
             this.p = p;
+
+            lblEmployeeName.Text = $"{p.FirstName} {p.LastName}";
+
+            tbxEmployeeID.Text = p.ID.ToString(); // read only
+            tbxFirstName.Text = p.FirstName;
+            tbxLastName.Text = p.LastName;
+            tbxUserName.Text = p.Username; //
+            tbxBSN.Text = p.BSN.ToString(); //
+            tbxCity.Text = p.City;
+            tbxEmail.Text = p.Email; //
+            tbxPhoneNumber.Text = p.PhoneNumber.ToString();
+            tbxDateOfBirth.Text = p.DateOfBirth; //
+        }
+
+        private void btnEditData_Click(object sender, EventArgs e)
+        {
+            string employeeID = tbxEmployeeID.Text;
+            string firstName = tbxFirstName.Text;
+            string lastName = tbxLastName.Text;
+            string city = tbxCity.Text;
+            string phoneNumber = tbxPhoneNumber.Text;
+
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = Utils.UPDATE_EMPLOYEE;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                cmd.Parameters.AddWithValue("@FirstName", firstName);
+                cmd.Parameters.AddWithValue("@LastName", lastName);
+                cmd.Parameters.AddWithValue("@City", city);
+                cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                conn.Open();
+
+                int numAffectedRows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong");
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

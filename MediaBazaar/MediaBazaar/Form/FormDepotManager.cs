@@ -25,11 +25,29 @@ namespace MediaBazaar
             cbProductType.Items.Add("SMARTHOME_APPLIANCES");
             cbProductType.Items.Add("GAMING_MUSIC_COMPUTERS");
 
-            ViewAllProducts();
             ViewAllEmployees();
-            ViewAllReshelfRequests();
-            ViewAllRestockRequests();
+            //UpdateListbox();
         }
+
+        // employees
+        //public void UpdateListbox()
+        //{
+        //    lbxEmployees.Items.Clear();
+        //    foreach (Employee e in mediaBazaar.Employees)
+        //    {
+        //        if (rbnAllEmployees.Checked)
+        //        {
+        //            lbxEmployees.Items.Add(e);
+        //        }
+        //        else if (rbnDepotEmployees.Checked)
+        //        {
+        //            if (e.Type == JobTitle.DEPOT_EMPLOYEE || e.Type == JobTitle.DEPOT_MANAGER)
+        //            {
+        //                lbxEmployees.Items.Add(e);
+        //            }
+        //        }
+        //    }
+        //}
 
         private void btnCreateNewEmployee_Click(object sender, EventArgs e)
         {
@@ -83,6 +101,8 @@ namespace MediaBazaar
             {
                 conn.Close();
             }
+
+            ViewAllEmployees();
         }
 
         private void lbxEmployees_SelectedIndexChanged(object sender, EventArgs e)
@@ -125,21 +145,25 @@ namespace MediaBazaar
 
                 while (reader.Read())
                 {
-                    int employeeID = reader.GetInt32("EmployeeID");
-                    string firstName = reader.GetString("FirstName");
-                    string lastName = reader.GetString("LastName");
-                    string username = reader.GetString("UserName");
-                    string password = reader.GetString("Password");
-                    int bsn = reader.GetInt32("BSN");
-                    string city = reader.GetString("Address");
-                    string email = reader.GetString("Email");
-                    int phoneNumber = reader.GetInt32("PhoneNumber");
-                    string dateOfBirth = "01-01-1998";
+                    if (reader.GetInt32("Active") == 1)
+                    {
+                        int employeeID = reader.GetInt32("EmployeeID");
+                        string firstName = reader.GetString("FirstName");
+                        string lastName = reader.GetString("LastName");
+                        string username = reader.GetString("UserName");
+                        string password = reader.GetString("Password");
+                        int bsn = reader.GetInt32("BSN");
+                        string city = reader.GetString("Address");
+                        string email = reader.GetString("Email");
+                        int phoneNumber = reader.GetInt32("PhoneNumber");
+                        string dateOfBirth = "01-01-1998";
 
-                    employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
-                    lbxEmployees.Items.Add(employee);
-
+                        employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                        lbxEmployees.Items.Add(employee);
+                    }
                 }
+
+                
             }
             catch (MySqlException msqEx)
             {
@@ -237,35 +261,35 @@ namespace MediaBazaar
             string Name = tbName.Text;
             if (string.IsNullOrEmpty(Name))
             {
-                MessageBox.Show("'name' field is required.");
+                lbProducts.Items.Add("'name' field is required.");
                 return;
             }
 
             string Barcode = tbBarcode.Text;
             if (string.IsNullOrEmpty(Barcode))
             {
-                MessageBox.Show("'Barcode' field is required.");
+                lbProducts.Items.Add("'Barcode' field is required.");
                 return;
             }
 
             string ProductType = cbProductType.Text;
             if (string.IsNullOrEmpty(ProductType))
             {
-                MessageBox.Show("'ProductType' field is required.");
+                lbProducts.Items.Add("'ProductType' field is required.");
                 return;
             }
 
             string AmountInStore = tbmountInStore.Text;
             if (string.IsNullOrEmpty(AmountInStore))
             {
-                MessageBox.Show("'AmountInStore' field is required.");
+                lbProducts.Items.Add("'AmountInStore' field is required.");
                 return;
             }
 
             string AmountInDepot = tbAmountInDepot.Text;
             if (string.IsNullOrEmpty(AmountInDepot))
             {
-                MessageBox.Show("'AmountInDepot' field is required.");
+                lbProducts.Items.Add("'AmountInDepot' field is required.");
                 return;
             }
 
@@ -307,41 +331,41 @@ namespace MediaBazaar
             string Name = tbName.Text;
             if (string.IsNullOrEmpty(Name))
             {
-                MessageBox.Show("'name' field is required.");
+                lbProducts.Items.Add("'name' field is required.");
                 return;
             }
 
             string Barcode = tbBarcode.Text;
             if (string.IsNullOrEmpty(Barcode))
             {
-                MessageBox.Show("'Barcode' field is required.");
+                lbProducts.Items.Add("'Barcode' field is required.");
                 return;
             }
 
             string ProductType = cbProductType.Text;
             if (string.IsNullOrEmpty(ProductType))
             {
-                MessageBox.Show("'ProductType' field is required.");
+                lbProducts.Items.Add("'ProductType' field is required.");
                 return;
             }
 
             string AmountInStore = tbmountInStore.Text;
             if (string.IsNullOrEmpty(AmountInStore))
             {
-                MessageBox.Show("'AmountInStore' field is required.");
+                lbProducts.Items.Add("'AmountInStore' field is required.");
                 return;
             }
 
             string AmountInDepot = tbAmountInDepot.Text;
             if (string.IsNullOrEmpty(AmountInDepot))
             {
-                MessageBox.Show("'AmountInDepot' field is required.");
+                lbProducts.Items.Add("'AmountInDepot' field is required.");
                 return;
             }
             string ID = tbID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                MessageBox.Show("Please select a product");
+                lbProducts.Items.Add("Please select a product");
                 return;
             }
 
@@ -360,7 +384,7 @@ namespace MediaBazaar
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
 
-                MessageBox.Show(0, $"users updated: {numAffectedRows}.");
+                lbProducts.Items.Insert(0, $"users updated: {numAffectedRows}.");
                 ViewAllProducts();
             }
             catch (MySqlException msqEx)
@@ -379,10 +403,13 @@ namespace MediaBazaar
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            lbProducts.Items.Clear();
+
             string ID = tbID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                MessageBox.Show("'id' field is required.");
+                lbProducts.Items.Clear();
+                lbProducts.Items.Add("'id' field is required.");
                 return;
             }
 
@@ -467,10 +494,13 @@ namespace MediaBazaar
 
         public void DeleteRestockRequest()
         {
+            lbRestock.Items.Clear();
+
             string RestokID = tbRestockID.Text;
             if (string.IsNullOrEmpty(RestokID))
             {
-                MessageBox.Show("'RestokID' field is required.");
+                lbRestock.Items.Clear();
+                lbRestock.Items.Add("'RestokID' field is required.");
                 return;
             }
 
@@ -511,20 +541,20 @@ namespace MediaBazaar
             string amount = tbRestockAmount.Text;
             if (string.IsNullOrEmpty(amount))
             {
-                MessageBox.Show("'amount' field is required.");
+                lbRestock.Items.Add("'amount' field is required.");
                 return;
             }
 
             string AmountInDepot = RestockAmountDepot.Text;
             if (string.IsNullOrEmpty(AmountInDepot))
             {
-                MessageBox.Show("'AmountInDepot' field is required.");
+                lbRestock.Items.Add("'AmountInDepot' field is required.");
                 return;
             }
             string ID = tbProductID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                MessageBox.Show("Please select a product");
+                lbRestock.Items.Add("Please select a product");
                 return;
             }
 
@@ -536,7 +566,7 @@ namespace MediaBazaar
                 Depot += Convert.ToInt32(amount);
                 if (Depot < 0)
                 {
-                    MessageBox.Show("Insuffient amount left in depot");
+                    MessageBox.Show("nooooo don't do that you fool");
                     return;
                 }
                 else
@@ -609,7 +639,8 @@ namespace MediaBazaar
             string ReShelfID = tbRequestID.Text;
             if (string.IsNullOrEmpty(ReShelfID))
             {
-                MessageBox.Show("'ReShelfID' field is required.");
+                lbReshelfRequest.Items.Clear();
+                lbReshelfRequest.Items.Add("'ReShelfID' field is required.");
                 return;
             }
 
@@ -723,27 +754,27 @@ namespace MediaBazaar
             string amount = tbReshelfReqAmount.Text;
             if (string.IsNullOrEmpty(amount))
             {
-                MessageBox.Show("'amount' field is required.");
+                lbProducts.Items.Add("'amount' field is required.");
                 return;
             }
 
             string AmountInStore = tbRamountInStore.Text;
             if (string.IsNullOrEmpty(AmountInStore))
             {
-                MessageBox.Show("'AmountInStore' field is required.");
+                lbProducts.Items.Add("'AmountInStore' field is required.");
                 return;
             }
 
             string AmountInDepot = tbRAmountInDepot.Text;
             if (string.IsNullOrEmpty(AmountInDepot))
             {
-                MessageBox.Show("'AmountInDepot' field is required.");
+                lbProducts.Items.Add("'AmountInDepot' field is required.");
                 return;
             }
             string ID = tbRID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                MessageBox.Show("Please select a product");
+                lbProducts.Items.Add("Please select a product");
                 return;
             }
 
@@ -765,7 +796,7 @@ namespace MediaBazaar
                     Store += Convert.ToInt32(amount);
                     if (Store < 0)
                     {
-                        MessageBox.Show("Insufficient amount in store");
+                        MessageBox.Show("NOOOOOO what have you done!!!!!!!!!!!");
                         return;
                     }
                     else
@@ -862,27 +893,27 @@ namespace MediaBazaar
             string Morning = lbScheduleMorning.Text;
             if (string.IsNullOrEmpty(Morning))
             {
-                MessageBox.Show("'Morning' field is required.");
+                lbSchedule.Items.Add("'Morning' field is required.");
                 return;
             }
 
             string Afternoon = lbScheduleAfternoon.Text;
             if (string.IsNullOrEmpty(Afternoon))
             {
-                MessageBox.Show("'Afternoon' field is required.");
+                lbSchedule.Items.Add("'Afternoon' field is required.");
                 return;
             }
 
             string Evening = lbScheduleEvening.Text;
             if (string.IsNullOrEmpty(Evening))
             {
-                MessageBox.Show("'Evening' field is required.");
+                lbSchedule.Items.Add("'Evening' field is required.");
                 return;
             }
             string ID = lbScheduleID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                MessageBox.Show("Please select a time");
+                lbSchedule.Items.Add("Please select a time");
                 return;
             }
 
@@ -1149,7 +1180,7 @@ namespace MediaBazaar
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            Close();
+
         }
     }
 }
