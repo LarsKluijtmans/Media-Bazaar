@@ -217,9 +217,9 @@ namespace MediaBazaar
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(561, 14);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 21);
+            this.label4.Size = new System.Drawing.Size(64, 21);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Complaints";
+            this.label4.Text = "Reshelf:";
             // 
             // label3
             // 
@@ -227,9 +227,9 @@ namespace MediaBazaar
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(242, 14);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 21);
+            this.label3.Size = new System.Drawing.Size(67, 21);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Announcements:";
+            this.label3.Text = "Restock:";
             // 
             // label2
             // 
@@ -1305,6 +1305,7 @@ namespace MediaBazaar
             // 
             this.lbPlaning.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbPlaning.FormattingEnabled = true;
+            this.lbPlaning.HorizontalScrollbar = true;
             this.lbPlaning.ItemHeight = 15;
             this.lbPlaning.Location = new System.Drawing.Point(25, 60);
             this.lbPlaning.Name = "lbPlaning";

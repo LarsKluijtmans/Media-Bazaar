@@ -18,6 +18,11 @@ namespace MediaBazaar
             cbProductType.Items.Add("PHOTO_VIDEO_NAVIGATION");
             cbProductType.Items.Add("SMARTHOME_APPLIANCES");
             cbProductType.Items.Add("GAMING_MUSIC_COMPUTERS");
+            ViewAllProducts();
+            ViewAllReshelfRequests();
+            ViewAllRestockRequests();
+            ViewAllSchedule();
+            ViewSalesPlaning();
         }
 
         //Products
@@ -50,6 +55,7 @@ namespace MediaBazaar
                     product = new Product(ProductID, name, productType, barcode, amountInDepot, amountInStore);
 
                     lbProducts.Items.Add(product);
+                    lstOverviewProduct.Items.Add(product);
                 }
             }
             catch (MySqlException msqEx)
@@ -314,6 +320,7 @@ namespace MediaBazaar
                     restock = new Restock(restockReplenishmentID, productID, amount, name, amountInDepot, amountInStore);
 
                     lbRestock.Items.Add(restock);
+                    lstOverviewComplaint.Items.Add(restock);
                 }
             }
             catch (MySqlException msqEx)
@@ -538,6 +545,7 @@ namespace MediaBazaar
                     reshelf = new ReShelf(shelfReplenishmentID, productID, amount, name, amountInDepot, amountInStore);
 
                     lbReshelfRequest.Items.Add(reshelf);
+                    lstOverviewAnnoucement.Items.Add(reshelf);
                 }
             }
             catch (MySqlException msqEx)
@@ -698,6 +706,7 @@ namespace MediaBazaar
                     schedule = new Schedule(Id, Department, Day, MorningAmount, AfternoonAmount, EveningAmount);
 
                     lbSchedule.Items.Add(schedule);
+                    lstOverviewSchedule.Items.Add(schedule);
                 }
             }
             catch (MySqlException msqEx)

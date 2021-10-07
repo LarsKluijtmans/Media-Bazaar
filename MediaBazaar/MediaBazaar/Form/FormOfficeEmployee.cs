@@ -19,6 +19,7 @@ namespace MediaBazaar
         {
             InitializeComponent();
             ID = UserID;
+            
 
         }
         private void btnLogout_Click(object sender, EventArgs e)
@@ -30,7 +31,9 @@ namespace MediaBazaar
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            //FormEditEmployeeData editEmployeeData = new FormEditEmployeeData(s, em);
+            //iD
+
+            //FormEditEmployeeData editEmployeeData = new FormEditEmployeeData();
             //editEmployeeData.Show();
         }
 
