@@ -97,6 +97,7 @@ namespace MediaBazaar
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnCheck = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -868,12 +869,25 @@ namespace MediaBazaar
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCheck.Location = new System.Drawing.Point(912, 2);
+            this.btnCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(79, 28);
+            this.btnCheck.TabIndex = 22;
+            this.btnCheck.Text = "Check In";
+            this.btnCheck.UseVisualStyleBackColor = true;
             // 
             // FormSalesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1139, 587);
+            this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -970,5 +984,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Windows.Forms.Button btnCreateEmployee;
+        private System.Windows.Forms.Button btnCheck;
     }
 }

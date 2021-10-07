@@ -742,7 +742,6 @@ namespace MediaBazaar
 
                     conn.Open();
                     int n = cmd.ExecuteNonQuery();
-                    MessageBox.Show(n.ToString());
                 }
                 catch (MySqlException msqEx)
                 {
@@ -773,7 +772,6 @@ namespace MediaBazaar
 
                     conn.Open();
                     int n = cmd.ExecuteNonQuery();
-                    MessageBox.Show(n.ToString());
                 }
                 catch (MySqlException msqEx)
                 {
