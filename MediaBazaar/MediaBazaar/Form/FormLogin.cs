@@ -46,7 +46,7 @@ namespace MediaBazaar
                                 case "SALES MANAGER": FormSalesManager formSalesManager = new FormSalesManager(Userid); formSalesManager.Show(); break;
                                 case "SALES EMPLOYEE": FormSalesEmployee formSalesEmployee = new FormSalesEmployee(Userid); formSalesEmployee.Show(); break;
                                 case "OFFICE MANAGER": FormOfficeManager formOfficeManager = new FormOfficeManager(Userid); formOfficeManager.Show(); break;
-                                case "OFFICE EMPLOYE": FormOfficeEmployee formOfficeEmployee = new FormOfficeEmployee(Userid); formOfficeEmployee.Show(); break;
+                                case "OFFICE EMPLOYEE": FormOfficeEmployee formOfficeEmployee = new FormOfficeEmployee(Userid); formOfficeEmployee.Show(); break;
                                 case "DEPOT MANAGER": FormDepotManager formDepotManager = new FormDepotManager(Userid); formDepotManager.Show(); break;
                                 case "DEPOT EMPLOYEE": FormDepotEmployee formDepotEmployee = new FormDepotEmployee(Userid); formDepotEmployee.Show(); break;
                             }

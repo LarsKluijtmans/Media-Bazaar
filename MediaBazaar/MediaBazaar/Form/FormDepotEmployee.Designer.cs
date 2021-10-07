@@ -179,7 +179,7 @@ namespace MediaBazaar
             this.groupBox5.Controls.Add(this.label17);
             this.groupBox5.Controls.Add(this.label18);
             this.groupBox5.Controls.Add(this.btnDeleteRequest);
-            this.groupBox5.Location = new System.Drawing.Point(552, 21);
+            this.groupBox5.Location = new System.Drawing.Point(760, 21);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(355, 439);
             this.groupBox5.TabIndex = 74;
@@ -368,7 +368,7 @@ namespace MediaBazaar
             this.lbReshelfRequest.Location = new System.Drawing.Point(20, 43);
             this.lbReshelfRequest.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.lbReshelfRequest.Name = "lbReshelfRequest";
-            this.lbReshelfRequest.Size = new System.Drawing.Size(494, 395);
+            this.lbReshelfRequest.Size = new System.Drawing.Size(720, 395);
             this.lbReshelfRequest.TabIndex = 36;
             this.lbReshelfRequest.SelectedIndexChanged += new System.EventHandler(this.lbReshelfRequest_SelectedIndexChanged);
             // 
@@ -401,7 +401,7 @@ namespace MediaBazaar
             this.groupBox4.Controls.Add(this.tbRestockAmount);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Location = new System.Drawing.Point(488, 48);
+            this.groupBox4.Location = new System.Drawing.Point(761, 50);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(331, 393);
             this.groupBox4.TabIndex = 84;
@@ -577,7 +577,7 @@ namespace MediaBazaar
             this.lbProduct.Location = new System.Drawing.Point(18, 48);
             this.lbProduct.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.lbProduct.Name = "lbProduct";
-            this.lbProduct.Size = new System.Drawing.Size(435, 395);
+            this.lbProduct.Size = new System.Drawing.Size(720, 395);
             this.lbProduct.TabIndex = 56;
             this.lbProduct.SelectedIndexChanged += new System.EventHandler(this.lbRestock_SelectedIndexChanged);
             // 
@@ -846,7 +846,7 @@ namespace MediaBazaar
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(505, 24);
+            this.label5.Location = new System.Drawing.Point(574, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 20);
             this.label5.TabIndex = 19;
@@ -858,9 +858,9 @@ namespace MediaBazaar
             this.lstOverviewSchedule.FormattingEnabled = true;
             this.lstOverviewSchedule.HorizontalScrollbar = true;
             this.lstOverviewSchedule.ItemHeight = 17;
-            this.lstOverviewSchedule.Location = new System.Drawing.Point(505, 47);
+            this.lstOverviewSchedule.Location = new System.Drawing.Point(574, 47);
             this.lstOverviewSchedule.Name = "lstOverviewSchedule";
-            this.lstOverviewSchedule.Size = new System.Drawing.Size(478, 378);
+            this.lstOverviewSchedule.Size = new System.Drawing.Size(409, 378);
             this.lstOverviewSchedule.TabIndex = 18;
             // 
             // label1
@@ -881,7 +881,7 @@ namespace MediaBazaar
             this.lstOverviewRequest.ItemHeight = 17;
             this.lstOverviewRequest.Location = new System.Drawing.Point(269, 44);
             this.lstOverviewRequest.Name = "lstOverviewRequest";
-            this.lstOverviewRequest.Size = new System.Drawing.Size(218, 429);
+            this.lstOverviewRequest.Size = new System.Drawing.Size(286, 429);
             this.lstOverviewRequest.TabIndex = 9;
             // 
             // label2

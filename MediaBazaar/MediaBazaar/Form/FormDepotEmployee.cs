@@ -735,7 +735,7 @@ namespace MediaBazaar
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@ID", 9.ToString());
+                    cmd.Parameters.AddWithValue("@ID", ID.ToString());
                     cmd.Parameters.AddWithValue("@CheckInTime", date.ToString("HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@CheckOutTime", null);
                     cmd.Parameters.AddWithValue("@CheckDate", date.ToString("yyyy-MM-dd"));
@@ -767,7 +767,9 @@ namespace MediaBazaar
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", ID.ToString());
                     cmd.Parameters.AddWithValue("@CheckOutTime", date.ToString("HH:mm:ss"));
+                    cmd.Parameters.AddWithValue("@CheckDate", date.ToString("yyyy-MM-dd"));
 
                     conn.Open();
                     int n = cmd.ExecuteNonQuery();

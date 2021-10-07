@@ -19,7 +19,15 @@ namespace MediaBazaar
             InitializeComponent();
             this.p = p;
 
-            lblEmployeeName.Text = $"{p.FirstName} {p.LastName}";
+            try
+            {
+
+                lblEmployeeName.Text = $"{p.FirstName} {p.LastName}";
+            }
+            catch
+            {
+                MessageBox.Show("Please select a employee from the list.");
+            }
 
             tbxEmployeeID.Text = p.ID.ToString(); // read only
             tbxFirstName.Text = p.FirstName;
