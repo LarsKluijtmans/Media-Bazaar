@@ -133,6 +133,7 @@ namespace MediaBazaar
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnCheck = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -1313,11 +1314,22 @@ namespace MediaBazaar
             this.textBox3.Size = new System.Drawing.Size(164, 29);
             this.textBox3.TabIndex = 18;
             // 
+            // btnCheck
+            // 
+            this.btnCheck.Location = new System.Drawing.Point(1034, 9);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(86, 32);
+            this.btnCheck.TabIndex = 2;
+            this.btnCheck.Text = "Check In";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            // 
             // FormDepotManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1164, 560);
+            this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1451,5 +1463,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Button btnCheck;
     }
 }

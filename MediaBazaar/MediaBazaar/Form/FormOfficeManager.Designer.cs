@@ -131,6 +131,7 @@ namespace MediaBazaar
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnCheck = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1305,12 +1306,26 @@ namespace MediaBazaar
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCheck.Location = new System.Drawing.Point(862, 4);
+            this.btnCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(79, 28);
+            this.btnCheck.TabIndex = 21;
+            this.btnCheck.Text = "Check In";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // FormOfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1154, 549);
+            this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1446,5 +1461,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Windows.Forms.Button btnCreateEmployee;
+        private System.Windows.Forms.Button btnCheck;
     }
 }
