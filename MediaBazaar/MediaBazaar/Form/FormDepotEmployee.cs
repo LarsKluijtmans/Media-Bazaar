@@ -14,6 +14,10 @@ namespace MediaBazaar
             InitializeComponent();
             ID = UserID;
 
+            ViewAllProducts();
+            ViewAllReshelfRequests();
+            ViewAllRestockRequests();
+
             cbProductType.Items.Add("KITCHEN_HOME");
             cbProductType.Items.Add("PHOTO_VIDEO_NAVIGATION");
             cbProductType.Items.Add("SMARTHOME_APPLIANCES");
@@ -314,6 +318,7 @@ namespace MediaBazaar
                     restock = new Restock(restockReplenishmentID, productID, amount, name, amountInDepot, amountInStore);
 
                     lbProduct.Items.Add(restock);
+                    lstOverviewRequest.Items.Add(restock);
                 }
             }
             catch (MySqlException msqEx)
@@ -711,8 +716,6 @@ namespace MediaBazaar
         // other
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            FormLogin login = new FormLogin();
-            login.Show();
             Close();
         }
 
@@ -753,6 +756,7 @@ namespace MediaBazaar
                 {
                     conn.Close();
                     btnCheck.Text = "Check Out";
+                    MessageBox.Show("Check in successful");
                 }
             }
             else if (btnCheck.Text == "Check Out")
@@ -781,6 +785,7 @@ namespace MediaBazaar
                 {
                     conn.Close();
                     btnCheck.Text = "Check In";
+                    MessageBox.Show("Check out successful");
                 }
             }
         }

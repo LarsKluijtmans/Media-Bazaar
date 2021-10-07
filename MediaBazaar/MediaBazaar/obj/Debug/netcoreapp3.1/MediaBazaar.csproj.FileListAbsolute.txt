@@ -178,3 +178,40 @@ C:\Users\esthe\Documents\new git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\
 C:\Users\esthe\Documents\new git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Zstandard.Net.dll
 C:\Users\esthe\Documents\new git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CopyComplete
 C:\Users\esthe\Documents\new git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.genruntimeconfig.cache
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.exe
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.deps.json
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.runtimeconfig.json
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.runtimeconfig.dev.json
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.dll
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.pdb
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.dll
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MySql.Data.dll
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Zstandard.Net.dll
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.AssemblyReference.cache
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.Form1.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormDepotEmployee.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormDepotManager.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormEditEmployeeData.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormLogin.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormNewEmployee.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormNewProduct.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormOfficeEmployee.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormOfficeManager.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormRemoveEmployee.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormSalesEmployee.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormSalesManager.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormViewEmployee.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.GenerateResource.cache
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.GeneratedMSBuildEditorConfig.editorconfig
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfoInputs.cache
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfo.cs
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CoreCompileInputs.cache
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CopyComplete
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.dll
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.pdb
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.genruntimeconfig.cache

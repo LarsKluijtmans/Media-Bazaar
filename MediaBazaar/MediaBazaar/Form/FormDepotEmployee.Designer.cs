@@ -32,21 +32,22 @@ namespace MediaBazaar
             this.btnLogout = new System.Windows.Forms.Button();
             this.lstAnnouncement = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tbRequestID = new System.Windows.Forms.TextBox();
-            this.tbRName = new System.Windows.Forms.TextBox();
-            this.tbRamountInStore = new System.Windows.Forms.TextBox();
-            this.lbAmount = new System.Windows.Forms.Label();
-            this.tbReshelfReqAmount = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tbRID = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.btnDeleteRequest = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.btnViewAllReShelftReq = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.btnFufillReshelftRequest = new System.Windows.Forms.Button();
-            this.tbRAmountInDepot = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.tbRequestID = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.tbRName = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tbRamountInStore = new System.Windows.Forms.TextBox();
+            this.tbRAmountInDepot = new System.Windows.Forms.TextBox();
+            this.lbAmount = new System.Windows.Forms.Label();
+            this.btnFufillReshelftRequest = new System.Windows.Forms.Button();
+            this.tbReshelfReqAmount = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.btnViewAllReShelftReq = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnDeleteRequest = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.lbReshelfRequest = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -93,9 +94,9 @@ namespace MediaBazaar
             this.label5 = new System.Windows.Forms.Label();
             this.lstOverviewSchedule = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lstOverviewHistory = new System.Windows.Forms.ListBox();
+            this.lstOverviewRequest = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.lstOverviewPending = new System.Windows.Forms.ListBox();
+            this.lstOverviewProduct = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btnSubmit = new System.Windows.Forms.Button();
@@ -113,8 +114,8 @@ namespace MediaBazaar
             this.rbnMorningPrefered = new System.Windows.Forms.RadioButton();
             this.label24 = new System.Windows.Forms.Label();
             this.cbxPreferedDay = new System.Windows.Forms.ComboBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tabPage4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -124,7 +125,6 @@ namespace MediaBazaar
             this.tabPage5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -162,56 +162,29 @@ namespace MediaBazaar
             this.tabPage4.Text = "Reshelf";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // tbRequestID
+            // groupBox5
             // 
-            this.tbRequestID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbRequestID.Location = new System.Drawing.Point(160, 84);
-            this.tbRequestID.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tbRequestID.Name = "tbRequestID";
-            this.tbRequestID.ReadOnly = true;
-            this.tbRequestID.Size = new System.Drawing.Size(162, 29);
-            this.tbRequestID.TabIndex = 73;
-            // 
-            // tbRName
-            // 
-            this.tbRName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbRName.Location = new System.Drawing.Point(160, 126);
-            this.tbRName.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tbRName.Name = "tbRName";
-            this.tbRName.ReadOnly = true;
-            this.tbRName.Size = new System.Drawing.Size(162, 29);
-            this.tbRName.TabIndex = 72;
-            // 
-            // tbRamountInStore
-            // 
-            this.tbRamountInStore.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbRamountInStore.Location = new System.Drawing.Point(160, 169);
-            this.tbRamountInStore.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tbRamountInStore.Name = "tbRamountInStore";
-            this.tbRamountInStore.ReadOnly = true;
-            this.tbRamountInStore.Size = new System.Drawing.Size(162, 29);
-            this.tbRamountInStore.TabIndex = 71;
-            // 
-            // lbAmount
-            // 
-            this.lbAmount.AutoSize = true;
-            this.lbAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbAmount.Location = new System.Drawing.Point(79, 256);
-            this.lbAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbAmount.Name = "lbAmount";
-            this.lbAmount.Size = new System.Drawing.Size(69, 21);
-            this.lbAmount.TabIndex = 70;
-            this.lbAmount.Text = "Amount:";
-            // 
-            // tbReshelfReqAmount
-            // 
-            this.tbReshelfReqAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbReshelfReqAmount.Location = new System.Drawing.Point(160, 253);
-            this.tbReshelfReqAmount.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tbReshelfReqAmount.Name = "tbReshelfReqAmount";
-            this.tbReshelfReqAmount.ReadOnly = true;
-            this.tbReshelfReqAmount.Size = new System.Drawing.Size(162, 29);
-            this.tbReshelfReqAmount.TabIndex = 69;
+            this.groupBox5.Controls.Add(this.tbRID);
+            this.groupBox5.Controls.Add(this.tbRequestID);
+            this.groupBox5.Controls.Add(this.label21);
+            this.groupBox5.Controls.Add(this.tbRName);
+            this.groupBox5.Controls.Add(this.label20);
+            this.groupBox5.Controls.Add(this.tbRamountInStore);
+            this.groupBox5.Controls.Add(this.tbRAmountInDepot);
+            this.groupBox5.Controls.Add(this.lbAmount);
+            this.groupBox5.Controls.Add(this.btnFufillReshelftRequest);
+            this.groupBox5.Controls.Add(this.tbReshelfReqAmount);
+            this.groupBox5.Controls.Add(this.label19);
+            this.groupBox5.Controls.Add(this.btnViewAllReShelftReq);
+            this.groupBox5.Controls.Add(this.label17);
+            this.groupBox5.Controls.Add(this.label18);
+            this.groupBox5.Controls.Add(this.btnDeleteRequest);
+            this.groupBox5.Location = new System.Drawing.Point(552, 21);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(355, 439);
+            this.groupBox5.TabIndex = 74;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Reshelf";
             // 
             // tbRID
             // 
@@ -224,62 +197,78 @@ namespace MediaBazaar
             this.tbRID.Size = new System.Drawing.Size(162, 29);
             this.tbRID.TabIndex = 63;
             // 
-            // label17
+            // tbRequestID
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(120, 43);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(28, 21);
-            this.label17.TabIndex = 64;
-            this.label17.Text = "ID:";
+            this.tbRequestID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbRequestID.Location = new System.Drawing.Point(160, 84);
+            this.tbRequestID.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbRequestID.Name = "tbRequestID";
+            this.tbRequestID.ReadOnly = true;
+            this.tbRequestID.Size = new System.Drawing.Size(162, 29);
+            this.tbRequestID.TabIndex = 73;
             // 
-            // btnDeleteRequest
+            // label21
             // 
-            this.btnDeleteRequest.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDeleteRequest.Location = new System.Drawing.Point(81, 396);
-            this.btnDeleteRequest.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnDeleteRequest.Name = "btnDeleteRequest";
-            this.btnDeleteRequest.Size = new System.Drawing.Size(207, 30);
-            this.btnDeleteRequest.TabIndex = 62;
-            this.btnDeleteRequest.Text = "Delete reshelf request";
-            this.btnDeleteRequest.UseVisualStyleBackColor = true;
-            this.btnDeleteRequest.Click += new System.EventHandler(this.btnDeleteRequest_Click);
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label21.Location = new System.Drawing.Point(67, 87);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(81, 21);
+            this.label21.TabIndex = 60;
+            this.label21.Text = "RequestID";
             // 
-            // label18
+            // tbRName
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(93, 129);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(55, 21);
-            this.label18.TabIndex = 59;
-            this.label18.Text = "Name:";
+            this.tbRName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbRName.Location = new System.Drawing.Point(160, 126);
+            this.tbRName.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbRName.Name = "tbRName";
+            this.tbRName.ReadOnly = true;
+            this.tbRName.Size = new System.Drawing.Size(162, 29);
+            this.tbRName.TabIndex = 72;
             // 
-            // btnViewAllReShelftReq
+            // label20
             // 
-            this.btnViewAllReShelftReq.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnViewAllReShelftReq.Location = new System.Drawing.Point(81, 309);
-            this.btnViewAllReShelftReq.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnViewAllReShelftReq.Name = "btnViewAllReShelftReq";
-            this.btnViewAllReShelftReq.Size = new System.Drawing.Size(207, 30);
-            this.btnViewAllReShelftReq.TabIndex = 65;
-            this.btnViewAllReShelftReq.Text = "View all reshelf requests";
-            this.btnViewAllReShelftReq.UseVisualStyleBackColor = true;
-            this.btnViewAllReShelftReq.Click += new System.EventHandler(this.btnViewAllReShelftReq_Click);
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label20.Location = new System.Drawing.Point(23, 172);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(125, 21);
+            this.label20.TabIndex = 66;
+            this.label20.Text = "Amount in store:";
             // 
-            // label19
+            // tbRamountInStore
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label19.Location = new System.Drawing.Point(18, 215);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(130, 21);
-            this.label19.TabIndex = 68;
-            this.label19.Text = "Amount in depot:";
+            this.tbRamountInStore.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbRamountInStore.Location = new System.Drawing.Point(160, 169);
+            this.tbRamountInStore.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbRamountInStore.Name = "tbRamountInStore";
+            this.tbRamountInStore.ReadOnly = true;
+            this.tbRamountInStore.Size = new System.Drawing.Size(162, 29);
+            this.tbRamountInStore.TabIndex = 71;
+            // 
+            // tbRAmountInDepot
+            // 
+            this.tbRAmountInDepot.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbRAmountInDepot.Location = new System.Drawing.Point(160, 212);
+            this.tbRAmountInDepot.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbRAmountInDepot.Name = "tbRAmountInDepot";
+            this.tbRAmountInDepot.ReadOnly = true;
+            this.tbRAmountInDepot.Size = new System.Drawing.Size(162, 29);
+            this.tbRAmountInDepot.TabIndex = 67;
+            // 
+            // lbAmount
+            // 
+            this.lbAmount.AutoSize = true;
+            this.lbAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbAmount.Location = new System.Drawing.Point(79, 256);
+            this.lbAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbAmount.Name = "lbAmount";
+            this.lbAmount.Size = new System.Drawing.Size(69, 21);
+            this.lbAmount.TabIndex = 70;
+            this.lbAmount.Text = "Amount:";
             // 
             // btnFufillReshelftRequest
             // 
@@ -293,37 +282,72 @@ namespace MediaBazaar
             this.btnFufillReshelftRequest.UseVisualStyleBackColor = true;
             this.btnFufillReshelftRequest.Click += new System.EventHandler(this.btnFufillReshelftRequest_Click);
             // 
-            // tbRAmountInDepot
+            // tbReshelfReqAmount
             // 
-            this.tbRAmountInDepot.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbRAmountInDepot.Location = new System.Drawing.Point(160, 212);
-            this.tbRAmountInDepot.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tbRAmountInDepot.Name = "tbRAmountInDepot";
-            this.tbRAmountInDepot.ReadOnly = true;
-            this.tbRAmountInDepot.Size = new System.Drawing.Size(162, 29);
-            this.tbRAmountInDepot.TabIndex = 67;
+            this.tbReshelfReqAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbReshelfReqAmount.Location = new System.Drawing.Point(160, 253);
+            this.tbReshelfReqAmount.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbReshelfReqAmount.Name = "tbReshelfReqAmount";
+            this.tbReshelfReqAmount.ReadOnly = true;
+            this.tbReshelfReqAmount.Size = new System.Drawing.Size(162, 29);
+            this.tbReshelfReqAmount.TabIndex = 69;
             // 
-            // label20
+            // label19
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(23, 172);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(125, 21);
-            this.label20.TabIndex = 66;
-            this.label20.Text = "Amount in store:";
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label19.Location = new System.Drawing.Point(18, 215);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(130, 21);
+            this.label19.TabIndex = 68;
+            this.label19.Text = "Amount in depot:";
             // 
-            // label21
+            // btnViewAllReShelftReq
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label21.Location = new System.Drawing.Point(67, 87);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(81, 21);
-            this.label21.TabIndex = 60;
-            this.label21.Text = "RequestID";
+            this.btnViewAllReShelftReq.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnViewAllReShelftReq.Location = new System.Drawing.Point(81, 309);
+            this.btnViewAllReShelftReq.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnViewAllReShelftReq.Name = "btnViewAllReShelftReq";
+            this.btnViewAllReShelftReq.Size = new System.Drawing.Size(207, 30);
+            this.btnViewAllReShelftReq.TabIndex = 65;
+            this.btnViewAllReShelftReq.Text = "View all reshelf requests";
+            this.btnViewAllReShelftReq.UseVisualStyleBackColor = true;
+            this.btnViewAllReShelftReq.Click += new System.EventHandler(this.btnViewAllReShelftReq_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(120, 43);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(28, 21);
+            this.label17.TabIndex = 64;
+            this.label17.Text = "ID:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label18.Location = new System.Drawing.Point(93, 129);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(55, 21);
+            this.label18.TabIndex = 59;
+            this.label18.Text = "Name:";
+            // 
+            // btnDeleteRequest
+            // 
+            this.btnDeleteRequest.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDeleteRequest.Location = new System.Drawing.Point(81, 396);
+            this.btnDeleteRequest.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnDeleteRequest.Name = "btnDeleteRequest";
+            this.btnDeleteRequest.Size = new System.Drawing.Size(207, 30);
+            this.btnDeleteRequest.TabIndex = 62;
+            this.btnDeleteRequest.Text = "Delete reshelf request";
+            this.btnDeleteRequest.UseVisualStyleBackColor = true;
+            this.btnDeleteRequest.Click += new System.EventHandler(this.btnDeleteRequest_Click);
             // 
             // label16
             // 
@@ -337,12 +361,14 @@ namespace MediaBazaar
             // 
             // lbReshelfRequest
             // 
+            this.lbReshelfRequest.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbReshelfRequest.FormattingEnabled = true;
-            this.lbReshelfRequest.ItemHeight = 20;
+            this.lbReshelfRequest.HorizontalScrollbar = true;
+            this.lbReshelfRequest.ItemHeight = 17;
             this.lbReshelfRequest.Location = new System.Drawing.Point(20, 43);
             this.lbReshelfRequest.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.lbReshelfRequest.Name = "lbReshelfRequest";
-            this.lbReshelfRequest.Size = new System.Drawing.Size(494, 404);
+            this.lbReshelfRequest.Size = new System.Drawing.Size(494, 395);
             this.lbReshelfRequest.TabIndex = 36;
             this.lbReshelfRequest.SelectedIndexChanged += new System.EventHandler(this.lbReshelfRequest_SelectedIndexChanged);
             // 
@@ -546,6 +572,7 @@ namespace MediaBazaar
             // 
             this.lbProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbProduct.FormattingEnabled = true;
+            this.lbProduct.HorizontalScrollbar = true;
             this.lbProduct.ItemHeight = 17;
             this.lbProduct.Location = new System.Drawing.Point(18, 48);
             this.lbProduct.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -753,6 +780,7 @@ namespace MediaBazaar
             // 
             this.lbProducts.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbProducts.FormattingEnabled = true;
+            this.lbProducts.HorizontalScrollbar = true;
             this.lbProducts.ItemHeight = 17;
             this.lbProducts.Location = new System.Drawing.Point(28, 44);
             this.lbProducts.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -778,9 +806,9 @@ namespace MediaBazaar
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.lstOverviewSchedule);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.lstOverviewHistory);
+            this.tabPage1.Controls.Add(this.lstOverviewRequest);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.lstOverviewPending);
+            this.tabPage1.Controls.Add(this.lstOverviewProduct);
             this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
@@ -828,6 +856,7 @@ namespace MediaBazaar
             // 
             this.lstOverviewSchedule.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstOverviewSchedule.FormattingEnabled = true;
+            this.lstOverviewSchedule.HorizontalScrollbar = true;
             this.lstOverviewSchedule.ItemHeight = 17;
             this.lstOverviewSchedule.Location = new System.Drawing.Point(505, 47);
             this.lstOverviewSchedule.Name = "lstOverviewSchedule";
@@ -840,19 +869,20 @@ namespace MediaBazaar
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(269, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 20);
+            this.label1.Size = new System.Drawing.Size(174, 20);
             this.label1.TabIndex = 10;
-            this.label1.Text = "History of Requests/Restocks:";
+            this.label1.Text = "Pending Reshelf Request:";
             // 
-            // lstOverviewHistory
+            // lstOverviewRequest
             // 
-            this.lstOverviewHistory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstOverviewHistory.FormattingEnabled = true;
-            this.lstOverviewHistory.ItemHeight = 17;
-            this.lstOverviewHistory.Location = new System.Drawing.Point(269, 44);
-            this.lstOverviewHistory.Name = "lstOverviewHistory";
-            this.lstOverviewHistory.Size = new System.Drawing.Size(218, 429);
-            this.lstOverviewHistory.TabIndex = 9;
+            this.lstOverviewRequest.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstOverviewRequest.FormattingEnabled = true;
+            this.lstOverviewRequest.HorizontalScrollbar = true;
+            this.lstOverviewRequest.ItemHeight = 17;
+            this.lstOverviewRequest.Location = new System.Drawing.Point(269, 44);
+            this.lstOverviewRequest.Name = "lstOverviewRequest";
+            this.lstOverviewRequest.Size = new System.Drawing.Size(218, 429);
+            this.lstOverviewRequest.TabIndex = 9;
             // 
             // label2
             // 
@@ -860,19 +890,20 @@ namespace MediaBazaar
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(32, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 20);
+            this.label2.Size = new System.Drawing.Size(89, 20);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Pending Requests:";
+            this.label2.Text = "Product List:";
             // 
-            // lstOverviewPending
+            // lstOverviewProduct
             // 
-            this.lstOverviewPending.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstOverviewPending.FormattingEnabled = true;
-            this.lstOverviewPending.ItemHeight = 17;
-            this.lstOverviewPending.Location = new System.Drawing.Point(32, 44);
-            this.lstOverviewPending.Name = "lstOverviewPending";
-            this.lstOverviewPending.Size = new System.Drawing.Size(218, 429);
-            this.lstOverviewPending.TabIndex = 1;
+            this.lstOverviewProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstOverviewProduct.FormattingEnabled = true;
+            this.lstOverviewProduct.HorizontalScrollbar = true;
+            this.lstOverviewProduct.ItemHeight = 17;
+            this.lstOverviewProduct.Location = new System.Drawing.Point(32, 44);
+            this.lstOverviewProduct.Name = "lstOverviewProduct";
+            this.lstOverviewProduct.Size = new System.Drawing.Size(218, 429);
+            this.lstOverviewProduct.TabIndex = 1;
             // 
             // tabControl1
             // 
@@ -1075,30 +1106,6 @@ namespace MediaBazaar
             this.cbxPreferedDay.Size = new System.Drawing.Size(121, 28);
             this.cbxPreferedDay.TabIndex = 2;
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.tbRID);
-            this.groupBox5.Controls.Add(this.tbRequestID);
-            this.groupBox5.Controls.Add(this.label21);
-            this.groupBox5.Controls.Add(this.tbRName);
-            this.groupBox5.Controls.Add(this.label20);
-            this.groupBox5.Controls.Add(this.tbRamountInStore);
-            this.groupBox5.Controls.Add(this.tbRAmountInDepot);
-            this.groupBox5.Controls.Add(this.lbAmount);
-            this.groupBox5.Controls.Add(this.btnFufillReshelftRequest);
-            this.groupBox5.Controls.Add(this.tbReshelfReqAmount);
-            this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.btnViewAllReShelftReq);
-            this.groupBox5.Controls.Add(this.label17);
-            this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Controls.Add(this.btnDeleteRequest);
-            this.groupBox5.Location = new System.Drawing.Point(552, 21);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(355, 439);
-            this.groupBox5.TabIndex = 74;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Reshelf";
-            // 
             // FormDepotEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1111,6 +1118,8 @@ namespace MediaBazaar
             this.Text = "FormDepotEmployee";
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1127,8 +1136,6 @@ namespace MediaBazaar
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1163,9 +1170,9 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox lstOverviewSchedule;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lstOverviewHistory;
+        private System.Windows.Forms.ListBox lstOverviewRequest;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox lstOverviewPending;
+        private System.Windows.Forms.ListBox lstOverviewProduct;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TextBox tbRequestID;
         private System.Windows.Forms.TextBox tbRName;
