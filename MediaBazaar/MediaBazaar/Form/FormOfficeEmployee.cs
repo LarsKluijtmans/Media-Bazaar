@@ -12,14 +12,12 @@ namespace MediaBazaar
 {
     public partial class FormOfficeEmployee : Form
     {
-        Store s;
         int ID;
         Person employee;
              
-        public FormOfficeEmployee(int UserID,Store store)
+        public FormOfficeEmployee(int UserID)
         {
             InitializeComponent();
-            s = store;
             ID = UserID;
 
         }
@@ -406,6 +404,8 @@ namespace MediaBazaar
         {
             string preferedWorkTime = PreferedWorkTime();
             string leastPreferedWorkTime = LeastPreferedWorkTime();
+
+            MessageBox.Show(preferedWorkTime);
 
             employee.SelectWorkTime(preferedWorkTime, leastPreferedWorkTime);
         }

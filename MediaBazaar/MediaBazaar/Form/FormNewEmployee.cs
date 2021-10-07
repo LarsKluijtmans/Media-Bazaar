@@ -77,7 +77,6 @@ namespace MediaBazaar
         }
         public void CreateContract()
         {
-            JobTitle jobTitle = (JobTitle)Enum.Parse(typeof(JobTitle), cbxJobTitle.SelectedIndex.ToString());
             int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
             double salary = Convert.ToDouble(tbxSalary.Text);
             DateTime startDate = DateTime.Parse(tbxStartDate.Text);
@@ -87,7 +86,6 @@ namespace MediaBazaar
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@JobTitle", jobTitle);
                 cmd.Parameters.AddWithValue("@WorkHoursPerWeek", workHoursPerWeek);
                 cmd.Parameters.AddWithValue("@SalaryPerHour", salary);
                 cmd.Parameters.AddWithValue("@StartDate", startDate);

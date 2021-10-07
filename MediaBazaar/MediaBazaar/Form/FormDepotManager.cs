@@ -10,16 +10,14 @@ namespace MediaBazaar
     public partial class FormDepotManager : Form
     {
         int ID;
-        Store mediaBazaar;
         private List<Product> productRequests;
         private List<Product> productRestock;
 
-        public FormDepotManager(int UserID, Store mb)
+        public FormDepotManager(int UserID)
         {
             InitializeComponent();
             productRequests = new List<Product>();
             productRestock = new List<Product>();
-            this.mediaBazaar = mb;
             ID = UserID;
 
             cbProductType.Items.Add("KITCHEN_HOME");
@@ -27,40 +25,29 @@ namespace MediaBazaar
             cbProductType.Items.Add("SMARTHOME_APPLIANCES");
             cbProductType.Items.Add("GAMING_MUSIC_COMPUTERS");
 
-            UpdateListbox();
+            ViewAllEmployees();
+            //UpdateListbox();
         }
 
-
-        public void AddRequesteProduct(int amount, int productid)
-        {
-            foreach (Product p in mediaBazaar.Products)
-            {
-                if (p.ProductID == productid)
-                {
-                    // Product prod = new Product(p.Barcode, p.Name, p.ProductType, amount);
-                    /*add p to listbox*/
-                }
-            }
-        }
         // employees
-        public void UpdateListbox()
-        {
-            lbxEmployees.Items.Clear();
-            foreach (Employee e in mediaBazaar.Employees)
-            {
-                if (rbnAllEmployees.Checked)
-                {
-                    lbxEmployees.Items.Add(e);
-                }
-                else if (rbnDepotEmployees.Checked)
-                {
-                    if (e.Type == JobTitle.DEPOT_EMPLOYEE || e.Type == JobTitle.DEPOT_MANAGER)
-                    {
-                        lbxEmployees.Items.Add(e);
-                    }
-                }
-            }
-        }
+        //public void UpdateListbox()
+        //{
+        //    lbxEmployees.Items.Clear();
+        //    foreach (Employee e in mediaBazaar.Employees)
+        //    {
+        //        if (rbnAllEmployees.Checked)
+        //        {
+        //            lbxEmployees.Items.Add(e);
+        //        }
+        //        else if (rbnDepotEmployees.Checked)
+        //        {
+        //            if (e.Type == JobTitle.DEPOT_EMPLOYEE || e.Type == JobTitle.DEPOT_MANAGER)
+        //            {
+        //                lbxEmployees.Items.Add(e);
+        //            }
+        //        }
+        //    }
+        //}
 
         private void btnCreateNewEmployee_Click(object sender, EventArgs e)
         {
@@ -114,6 +101,8 @@ namespace MediaBazaar
             {
                 conn.Close();
             }
+
+            ViewAllEmployees();
         }
 
         private void lbxEmployees_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,21 +145,25 @@ namespace MediaBazaar
 
                 while (reader.Read())
                 {
-                    int employeeID = reader.GetInt32("EmployeeID");
-                    string firstName = reader.GetString("FirstName");
-                    string lastName = reader.GetString("LastName");
-                    string username = reader.GetString("UserName");
-                    string password = reader.GetString("Password");
-                    int bsn = reader.GetInt32("BSN");
-                    string city = reader.GetString("Address");
-                    string email = reader.GetString("Email");
-                    int phoneNumber = reader.GetInt32("PhoneNumber");
-                    string dateOfBirth = "01-01-1998";
+                    if (reader.GetInt32("Active") == 1)
+                    {
+                        int employeeID = reader.GetInt32("EmployeeID");
+                        string firstName = reader.GetString("FirstName");
+                        string lastName = reader.GetString("LastName");
+                        string username = reader.GetString("UserName");
+                        string password = reader.GetString("Password");
+                        int bsn = reader.GetInt32("BSN");
+                        string city = reader.GetString("Address");
+                        string email = reader.GetString("Email");
+                        int phoneNumber = reader.GetInt32("PhoneNumber");
+                        string dateOfBirth = "01-01-1998";
 
-                    employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
-                    lbxEmployees.Items.Add(employee);
-
+                        employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                        lbxEmployees.Items.Add(employee);
+                    }
                 }
+
+                
             }
             catch (MySqlException msqEx)
             {
@@ -976,144 +969,11 @@ namespace MediaBazaar
             lbScheduleEvening.Text = schedule.EveningAmount.ToString();
         }
 
-        // shedule
-
-        public void ViewDepotSchedule()
-        {
-            lbDepotSchedule.Items.Clear();
-
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = Utils.GET_SCHEDULE_DEPOT;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Schedule schedule;
-
-                while (reader.Read())
-                {
-                    int Id = reader.GetInt32("scheduleId");
-                    string Department = reader.GetString("department");
-                    string Day = reader.GetString("day");
-                    int MorningAmount = reader.GetInt32("morning");
-                    int AfternoonAmount = reader.GetInt32("afternoon");
-                    int EveningAmount = reader.GetInt32("evening");
-
-                    schedule = new Schedule(Id, Department, Day, MorningAmount, AfternoonAmount, EveningAmount);
-
-                    lbDepotSchedule.Items.Add(schedule);
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong" + ex);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lbDepotSchedule.SelectedIndex < 0)
-            {
-                return;
-            }
-
-            Object scheduleObject = lbDepotSchedule.SelectedItem;
-            if (!(scheduleObject is Schedule))
-            {
-                return;
-            }
-
-            Schedule schedule = (Schedule)scheduleObject;
-
-            tbDepotSheduleID.Text = schedule.ID.ToString();
-            tbDepotSheduleDepartment.Text = schedule.Department.ToString();
-            tbDepotSheduleDay.Text = schedule.Day;
-            tbDepotSheduleMorning.Text = schedule.MorningAmount.ToString();
-            tbDepotSheduleAfternoon.Text = schedule.AfternoonAmount.ToString();
-            tbDepotSheduleEvening.Text = schedule.EveningAmount.ToString();
-        }
-
-        private void btnEditDepotSchedule_Click(object sender, EventArgs e)
-        {
-            string Morning = tbDepotSheduleMorning.Text;
-            if (string.IsNullOrEmpty(Morning))
-            {
-                lbDepotSchedule.Items.Add("'Morning' field is required.");
-                return;
-            }
-
-            string Afternoon = tbDepotSheduleAfternoon.Text;
-            if (string.IsNullOrEmpty(Afternoon))
-            {
-                lbDepotSchedule.Items.Add("'Afternoon' field is required.");
-                return;
-            }
-
-            string Evening = tbDepotSheduleEvening.Text;
-            if (string.IsNullOrEmpty(Evening))
-            {
-                lbDepotSchedule.Items.Add("'Evening' field is required.");
-                return;
-            }
-            string ID = tbDepotSheduleID.Text;
-            if (string.IsNullOrEmpty(ID))
-            {
-                lbDepotSchedule.Items.Add("Please select a time");
-                return;
-            }
-
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.UPDATE_SCHEDULE;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@scheduleId", ID);
-                cmd.Parameters.AddWithValue("@morning", Morning);
-                cmd.Parameters.AddWithValue("@afternoon", Afternoon);
-                cmd.Parameters.AddWithValue("@evening", Evening);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-
-                ViewDepotSchedule();
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        private void btnViewDepotSchedule_Click(object sender, EventArgs e)
-        {
-            ViewDepotSchedule();
-        }
-
-        //Planing
+        //Planning
 
         public void ViewDepotPlaning()
         {
-            lbPlaning.Items.Clear();
+            lbPlanning.Items.Clear();
 
             MySqlConnection conn = Utils.GetConnection();
 
@@ -1139,7 +999,7 @@ namespace MediaBazaar
 
                     planing = new Planing(WorkId, Department, employeeID, day, time);
 
-                    lbPlaning.Items.Add(planing);
+                    lbPlanning.Items.Add(planing);
                 }
             }
             catch (MySqlException msqEx)
@@ -1216,12 +1076,12 @@ namespace MediaBazaar
 
         private void lbPlaning_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbPlaning.SelectedIndex < 0)
+            if (lbPlanning.SelectedIndex < 0)
             {
                 return;
             }
 
-            Object planObject = lbPlaning.SelectedItem;
+            Object planObject = lbPlanning.SelectedItem;
             if (!(planObject is Planing))
             {
                 return;
@@ -1241,7 +1101,7 @@ namespace MediaBazaar
             string WorkID = tbWorkId.Text;
             if (string.IsNullOrEmpty(WorkID))
             {
-                lbPlaning.Items.Add("'WorkID' field is required.");
+                lbPlanning.Items.Add("'WorkID' field is required.");
                 lbEmployee.Items.Add("'WorkID' field is required.");
                 return;
             }
@@ -1249,7 +1109,7 @@ namespace MediaBazaar
             string NewEmployeeId = tbNewEmployeeId.Text;
             if (string.IsNullOrEmpty(NewEmployeeId))
             {
-                lbPlaning.Items.Add("'NewEmployeeId' field is required.");
+                lbPlanning.Items.Add("'NewEmployeeId' field is required.");
                 lbEmployee.Items.Add("'NewEmployeeId' field is required.");
                 return;
             }
@@ -1257,7 +1117,7 @@ namespace MediaBazaar
             string Department = tbDep.Text;
             if (string.IsNullOrEmpty(Department))
             {
-                lbPlaning.Items.Add("'Department' field is required.");
+                lbPlanning.Items.Add("'Department' field is required.");
                 lbEmployee.Items.Add("'Department' field is required.");
                 return;
             }
@@ -1265,7 +1125,7 @@ namespace MediaBazaar
             string Day = tbDay.Text;
             if (string.IsNullOrEmpty(Day))
             {
-                lbPlaning.Items.Add("'Day' field is required.");
+                lbPlanning.Items.Add("'Day' field is required.");
                 lbEmployee.Items.Add("'Day' field is required.");
                 return;
             }
@@ -1273,7 +1133,7 @@ namespace MediaBazaar
             string Time = tbTime.Text;
             if (string.IsNullOrEmpty(Time))
             {
-                lbPlaning.Items.Add("'Time' field is required.");
+                lbPlanning.Items.Add("'Time' field is required.");
                 lbEmployee.Items.Add("'Time' field is required.");
                 return;
             }

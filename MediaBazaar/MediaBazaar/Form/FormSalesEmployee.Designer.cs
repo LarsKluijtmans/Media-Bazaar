@@ -31,13 +31,13 @@ namespace MediaBazaar
         {
             this.btnLogout = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnViewPorducts = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRequestReplenishment = new System.Windows.Forms.Button();
             this.lstProduct = new System.Windows.Forms.ListBox();
             this.sdfds = new System.Windows.Forms.GroupBox();
+            this.btnViewPorducts = new System.Windows.Forms.Button();
             this.tbAmount = new System.Windows.Forms.TextBox();
             this.Amount = new System.Windows.Forms.Label();
+            this.btnRequestReplenishment = new System.Windows.Forms.Button();
             this.lbProductType = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -104,22 +104,10 @@ namespace MediaBazaar
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(812, 482);
+            this.tabPage2.Size = new System.Drawing.Size(876, 525);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Products ";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnViewPorducts
-            // 
-            this.btnViewPorducts.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnViewPorducts.Location = new System.Drawing.Point(45, 382);
-            this.btnViewPorducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnViewPorducts.Name = "btnViewPorducts";
-            this.btnViewPorducts.Size = new System.Drawing.Size(265, 31);
-            this.btnViewPorducts.TabIndex = 5;
-            this.btnViewPorducts.Text = "View all products";
-            this.btnViewPorducts.UseVisualStyleBackColor = true;
-            this.btnViewPorducts.Click += new System.EventHandler(this.btnViewPorducts_Click);
             // 
             // label1
             // 
@@ -131,26 +119,15 @@ namespace MediaBazaar
             this.label1.TabIndex = 16;
             this.label1.Text = "Product List:";
             // 
-            // btnRequestReplenishment
-            // 
-            this.btnRequestReplenishment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRequestReplenishment.Location = new System.Drawing.Point(45, 344);
-            this.btnRequestReplenishment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRequestReplenishment.Name = "btnRequestReplenishment";
-            this.btnRequestReplenishment.Size = new System.Drawing.Size(265, 34);
-            this.btnRequestReplenishment.TabIndex = 2;
-            this.btnRequestReplenishment.Text = "Request reshelf";
-            this.btnRequestReplenishment.UseVisualStyleBackColor = true;
-            this.btnRequestReplenishment.Click += new System.EventHandler(this.btnRequestReplenishment_Click);
-            // 
             // lstProduct
             // 
             this.lstProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstProduct.FormattingEnabled = true;
+            this.lstProduct.HorizontalScrollbar = true;
             this.lstProduct.ItemHeight = 17;
             this.lstProduct.Location = new System.Drawing.Point(22, 39);
             this.lstProduct.Name = "lstProduct";
-            this.lstProduct.Size = new System.Drawing.Size(372, 429);
+            this.lstProduct.Size = new System.Drawing.Size(484, 429);
             this.lstProduct.TabIndex = 15;
             this.lstProduct.SelectedIndexChanged += new System.EventHandler(this.lstProduct_SelectedIndexChanged);
             // 
@@ -173,7 +150,7 @@ namespace MediaBazaar
             this.sdfds.Controls.Add(this.lblId);
             this.sdfds.Controls.Add(this.tbID);
             this.sdfds.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.sdfds.Location = new System.Drawing.Point(429, 39);
+            this.sdfds.Location = new System.Drawing.Point(530, 39);
             this.sdfds.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sdfds.Name = "sdfds";
             this.sdfds.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -181,6 +158,18 @@ namespace MediaBazaar
             this.sdfds.TabIndex = 3;
             this.sdfds.TabStop = false;
             this.sdfds.Text = "Replenishment";
+            // 
+            // btnViewPorducts
+            // 
+            this.btnViewPorducts.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnViewPorducts.Location = new System.Drawing.Point(45, 382);
+            this.btnViewPorducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnViewPorducts.Name = "btnViewPorducts";
+            this.btnViewPorducts.Size = new System.Drawing.Size(265, 31);
+            this.btnViewPorducts.TabIndex = 5;
+            this.btnViewPorducts.Text = "View all products";
+            this.btnViewPorducts.UseVisualStyleBackColor = true;
+            this.btnViewPorducts.Click += new System.EventHandler(this.btnViewPorducts_Click);
             // 
             // tbAmount
             // 
@@ -200,6 +189,18 @@ namespace MediaBazaar
             this.Amount.Size = new System.Drawing.Size(69, 20);
             this.Amount.TabIndex = 57;
             this.Amount.Text = "Amount: ";
+            // 
+            // btnRequestReplenishment
+            // 
+            this.btnRequestReplenishment.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRequestReplenishment.Location = new System.Drawing.Point(45, 344);
+            this.btnRequestReplenishment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRequestReplenishment.Name = "btnRequestReplenishment";
+            this.btnRequestReplenishment.Size = new System.Drawing.Size(265, 34);
+            this.btnRequestReplenishment.TabIndex = 2;
+            this.btnRequestReplenishment.Text = "Request reshelf";
+            this.btnRequestReplenishment.UseVisualStyleBackColor = true;
+            this.btnRequestReplenishment.Click += new System.EventHandler(this.btnRequestReplenishment_Click);
             // 
             // lbProductType
             // 
@@ -341,7 +342,7 @@ namespace MediaBazaar
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(812, 482);
+            this.tabPage1.Size = new System.Drawing.Size(876, 525);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Overview";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -349,7 +350,7 @@ namespace MediaBazaar
             // btnProfile
             // 
             this.btnProfile.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnProfile.Location = new System.Drawing.Point(687, 4);
+            this.btnProfile.Location = new System.Drawing.Point(776, 4);
             this.btnProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProfile.Name = "btnProfile";
             this.btnProfile.Size = new System.Drawing.Size(97, 55);
@@ -361,7 +362,7 @@ namespace MediaBazaar
             // btnCheck
             // 
             this.btnCheck.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCheck.Location = new System.Drawing.Point(687, 401);
+            this.btnCheck.Location = new System.Drawing.Point(773, 466);
             this.btnCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(97, 55);
@@ -374,7 +375,7 @@ namespace MediaBazaar
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(255, 10);
+            this.label5.Location = new System.Drawing.Point(510, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 21);
             this.label5.TabIndex = 17;
@@ -384,7 +385,7 @@ namespace MediaBazaar
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(19, 3);
+            this.label8.Location = new System.Drawing.Point(34, 18);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(95, 21);
             this.label8.TabIndex = 14;
@@ -394,20 +395,22 @@ namespace MediaBazaar
             // 
             this.lstOverviewSchedule.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstOverviewSchedule.FormattingEnabled = true;
+            this.lstOverviewSchedule.HorizontalScrollbar = true;
             this.lstOverviewSchedule.ItemHeight = 17;
-            this.lstOverviewSchedule.Location = new System.Drawing.Point(255, 34);
+            this.lstOverviewSchedule.Location = new System.Drawing.Point(510, 42);
             this.lstOverviewSchedule.Name = "lstOverviewSchedule";
-            this.lstOverviewSchedule.Size = new System.Drawing.Size(389, 412);
+            this.lstOverviewSchedule.Size = new System.Drawing.Size(248, 429);
             this.lstOverviewSchedule.TabIndex = 13;
             // 
             // lstOverviewProduct
             // 
             this.lstOverviewProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstOverviewProduct.FormattingEnabled = true;
+            this.lstOverviewProduct.HorizontalScrollbar = true;
             this.lstOverviewProduct.ItemHeight = 17;
-            this.lstOverviewProduct.Location = new System.Drawing.Point(19, 27);
+            this.lstOverviewProduct.Location = new System.Drawing.Point(34, 42);
             this.lstOverviewProduct.Name = "lstOverviewProduct";
-            this.lstOverviewProduct.Size = new System.Drawing.Size(218, 429);
+            this.lstOverviewProduct.Size = new System.Drawing.Size(436, 429);
             this.lstOverviewProduct.TabIndex = 10;
             // 
             // tabControl1
@@ -420,7 +423,7 @@ namespace MediaBazaar
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(820, 515);
+            this.tabControl1.Size = new System.Drawing.Size(884, 558);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage3
@@ -431,7 +434,7 @@ namespace MediaBazaar
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(812, 482);
+            this.tabPage3.Size = new System.Drawing.Size(876, 525);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Availability";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -614,7 +617,7 @@ namespace MediaBazaar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 586);
+            this.ClientSize = new System.Drawing.Size(940, 619);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
