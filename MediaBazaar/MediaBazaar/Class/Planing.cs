@@ -1,6 +1,6 @@
 ﻿namespace MediaBazaar.Class
 {
-    class Planing
+    public class Planing
     {
 
         private int workID;

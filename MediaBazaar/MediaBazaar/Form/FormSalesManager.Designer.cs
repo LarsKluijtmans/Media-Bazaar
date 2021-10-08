@@ -738,7 +738,7 @@ namespace MediaBazaar
             this.groupBox3.Controls.Add(this.label39);
             this.groupBox3.Location = new System.Drawing.Point(743, 46);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(346, 443);
+            this.groupBox3.Size = new System.Drawing.Size(346, 382);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
@@ -765,7 +765,7 @@ namespace MediaBazaar
             // btnEditPlaning
             // 
             this.btnEditPlaning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditPlaning.Location = new System.Drawing.Point(69, 287);
+            this.btnEditPlaning.Location = new System.Drawing.Point(69, 264);
             this.btnEditPlaning.Name = "btnEditPlaning";
             this.btnEditPlaning.Size = new System.Drawing.Size(215, 34);
             this.btnEditPlaning.TabIndex = 23;
@@ -812,7 +812,7 @@ namespace MediaBazaar
             // btnViewSalesPlan
             // 
             this.btnViewSalesPlan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnViewSalesPlan.Location = new System.Drawing.Point(69, 354);
+            this.btnViewSalesPlan.Location = new System.Drawing.Point(69, 317);
             this.btnViewSalesPlan.Name = "btnViewSalesPlan";
             this.btnViewSalesPlan.Size = new System.Drawing.Size(215, 34);
             this.btnViewSalesPlan.TabIndex = 13;

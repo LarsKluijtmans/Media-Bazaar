@@ -141,5 +141,35 @@ namespace MediaBazaar.Class
                 conn.Close();
             }
         }
+
+        public void RequestReshelf(string ID, string Amount) 
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = Utils.CREATE_SHELFREPLENICHMENT;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ProductID", ID);
+                cmd.Parameters.AddWithValue("@Amount", Amount);
+
+
+                conn.Open();
+                int numCreatedRows = cmd.ExecuteNonQuery();
+                MessageBox.Show("Request was succesfull");
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
     }
 }

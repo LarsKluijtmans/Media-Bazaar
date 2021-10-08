@@ -15,17 +15,14 @@ namespace MediaBazaar
             InitializeComponent();
             ID = UserID;
             store = s;
-            ViewAllProducts();
-            ViewAllReshelfRequests();
 
             cbProductType.Items.Add("KITCHEN_HOME");
             cbProductType.Items.Add("PHOTO_VIDEO_NAVIGATION");
             cbProductType.Items.Add("SMARTHOME_APPLIANCES");
             cbProductType.Items.Add("GAMING_MUSIC_COMPUTERS");
 
-            store.productManagment.ViewAllProducts();
-
             ViewAllProducts();
+            ViewAllReshelfRequests();
         }
 
         //Employee schedule
@@ -64,35 +61,35 @@ namespace MediaBazaar
             string Name = tbName.Text;
             if (string.IsNullOrEmpty(Name))
             {
-                lbProducts.Items.Add("'name' field is required.");
+               MessageBox.Show("'name' field is required.");
                 return;
             }
 
             string Barcode = tbBarcode.Text;
             if (string.IsNullOrEmpty(Barcode))
             {
-                lbProducts.Items.Add("'Barcode' field is required.");
+                MessageBox.Show("'Barcode' field is required.");
                 return;
             }
 
             string ProductType = cbProductType.Text;
             if (string.IsNullOrEmpty(ProductType))
             {
-                lbProducts.Items.Add("'ProductType' field is required.");
+                MessageBox.Show("'ProductType' field is required.");
                 return;
             }
 
             string AmountInStore = tbmountInStore.Text;
             if (string.IsNullOrEmpty(AmountInStore))
             {
-                lbProducts.Items.Add("'AmountInStore' field is required.");
+                MessageBox.Show("'AmountInStore' field is required.");
                 return;
             }
 
             string AmountInDepot = tbAmountInDepot.Text;
             if (string.IsNullOrEmpty(AmountInDepot))
             {
-                lbProducts.Items.Add("'AmountInDepot' field is required.");
+                MessageBox.Show("'AmountInDepot' field is required.");
                 return;
             }
 
@@ -105,41 +102,41 @@ namespace MediaBazaar
             string Name = tbName.Text;
             if (string.IsNullOrEmpty(Name))
             {
-                lbProducts.Items.Add("'name' field is required.");
+                MessageBox.Show("'name' field is required.");
                 return;
             }
 
             string Barcode = tbBarcode.Text;
             if (string.IsNullOrEmpty(Barcode))
             {
-                lbProducts.Items.Add("'Barcode' field is required.");
+                MessageBox.Show("'Barcode' field is required.");
                 return;
             }
 
             string ProductType = cbProductType.Text;
             if (string.IsNullOrEmpty(ProductType))
             {
-                lbProducts.Items.Add("'ProductType' field is required.");
+                MessageBox.Show("'ProductType' field is required.");
                 return;
             }
 
             string AmountInStore = tbmountInStore.Text;
             if (string.IsNullOrEmpty(AmountInStore))
             {
-                lbProducts.Items.Add("'AmountInStore' field is required.");
+                MessageBox.Show("'AmountInStore' field is required.");
                 return;
             }
 
             string AmountInDepot = tbAmountInDepot.Text;
             if (string.IsNullOrEmpty(AmountInDepot))
             {
-                lbProducts.Items.Add("'AmountInDepot' field is required.");
+                MessageBox.Show("'AmountInDepot' field is required.");
                 return;
             }
             string ID = tbID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                lbProducts.Items.Add("Please select a product");
+                MessageBox.Show("Please select a product");
                 return;
             }
 
@@ -154,8 +151,7 @@ namespace MediaBazaar
             string ID = tbID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                lbProducts.Items.Clear();
-                lbProducts.Items.Add("'id' field is required.");
+                MessageBox.Show("'id' field is required.");
                 return;
             }
 
@@ -210,35 +206,35 @@ namespace MediaBazaar
                 return;
             }
 
-            Object RestockObject = lbProduct.SelectedItem;
-            if (!(RestockObject is Restock))
+            Object ProductObject = lbProduct.SelectedItem;
+            if (!(ProductObject is Product))
             {
                 return;
             }
 
-            Restock restock = (Restock)RestockObject;
+            Product product = (Product)ProductObject;
 
-            tbProductID.Text = restock.ProductID.ToString();
-            tbRestockID.Text = restock.RestockReplenishmentID.ToString();
-            tbRestockName.Text = restock.Name;
-            tbRestockAmountSales.Text = restock.AmountInStore.ToString();
-            RestockAmountDepot.Text = restock.AmountInDepot.ToString();
-            tbRestockAmount.Text = restock.Amount.ToString();
+            tbProductID.Text = product.ProductID.ToString();
+            tbRestockID.Text = "Next number";
+            tbRestockName.Text = product.Name;
+            tbRestockAmountSales.Text = product.AmountInStore.ToString();
+            RestockAmountDepot.Text = product.AmountInDepot.ToString();
+            tbRestockAmount.Text = "";
         }
 
         private void btnAddRestockRequest_Click(object sender, EventArgs e)
         {
-            string ID = tbID.Text;
+            string ID = tbProductID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                lbProducts.Items.Add("'ID' field is required.");
+                MessageBox.Show("'ID' field is required.");
                 return;
             }
 
             string Amount = tbRestockAmount.Text;
             if (string.IsNullOrEmpty(Amount))
             {
-                lbProducts.Items.Add("'Amount' field is required.");
+                MessageBox.Show("'Amount' field is required.");
                 return;
             }
 
@@ -250,91 +246,39 @@ namespace MediaBazaar
 
         public void DeleteReshelfRequest()
         {
+            store.reshelfManagment.ViewAllReshelfRequests();
+
             lbReshelfRequest.Items.Clear();
 
             string ReShelfID = tbRequestID.Text;
             if (string.IsNullOrEmpty(ReShelfID))
             {
-                lbReshelfRequest.Items.Clear();
-                lbReshelfRequest.Items.Add("'ReShelfID' field is required.");
+               MessageBox.Show("'ReShelfID' field is required.");
                 return;
             }
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.DELETE_SHELFREPLENICHMENT_BY_ID;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ShelfReplenishmentID", ReShelfID);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-
-                ViewAllReshelfRequests();
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
+            store.reshelfManagment.DeleteReshelfRequest(ReShelfID);
+            ViewAllReshelfRequests();
+            
                 tbRID.Text = "";
                 tbRequestID.Text = "";
                 tbRName.Text = "";
                 tbRamountInStore.Text = "";
                 tbRAmountInDepot.Text = "";
                 tbReshelfReqAmount.Text = "";
-                conn.Close();
-            }
         }
 
         public void ViewAllReshelfRequests()
         {
+            store.reshelfManagment.ViewAllReshelfRequests();
+
             lbReshelfRequest.Items.Clear();
+            lstOverviewRequest.Items.Clear();
 
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = Utils.GET_ALL_SHELFREPLENICHMENT;
-
-            try
+            foreach (ReShelf reShelf in store.reshelfManagment.reShelves)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                ReShelf reshelf;
-
-                while (reader.Read())
-                {
-                    int shelfReplenishmentID = reader.GetInt32("ShelfReplenishmentID");
-                    int productID = reader.GetInt32("ProductID");
-                    int amount = reader.GetInt32("Amount");
-                    string name = reader.GetString("Name");
-                    int amountInStore = reader.GetInt32("AmountInStore");
-                    int amountInDepot = reader.GetInt32("AmountInDepot");
-
-                    reshelf = new ReShelf(shelfReplenishmentID, productID, amount, name, amountInDepot, amountInStore);
-
-                    lbReshelfRequest.Items.Add(reshelf);
-                    lstOverviewRequest.Items.Add(reshelf);
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
+                lbReshelfRequest.Items.Add(reShelf);
+                lstOverviewRequest.Items.Add(reShelf);
             }
         }
 
@@ -348,79 +292,35 @@ namespace MediaBazaar
             string amount = tbReshelfReqAmount.Text;
             if (string.IsNullOrEmpty(amount))
             {
-                lbProducts.Items.Add("'amount' field is required.");
+                MessageBox.Show("'amount' field is required.");
                 return;
             }
 
             string AmountInStore = tbRamountInStore.Text;
             if (string.IsNullOrEmpty(AmountInStore))
             {
-                lbProducts.Items.Add("'AmountInStore' field is required.");
+                MessageBox.Show("'AmountInStore' field is required.");
                 return;
             }
 
             string AmountInDepot = tbRAmountInDepot.Text;
             if (string.IsNullOrEmpty(AmountInDepot))
             {
-                lbProducts.Items.Add("'AmountInDepot' field is required.");
+                MessageBox.Show("'AmountInDepot' field is required.");
                 return;
             }
             string ID = tbRID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                lbProducts.Items.Add("Please select a product");
+                MessageBox.Show("Please select a product");
                 return;
             }
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.UPDATE_SHELFREPLENICHMENT;
-            try
-            {
-                int Depot = Convert.ToInt32(AmountInDepot);
-                Depot -= Convert.ToInt32(amount);
-                if (Depot < 0)
-                {
-                    MessageBox.Show("The Dpot does not have that many of this type of product");
-                    return;
-                }
-                else
-                {
+            store.reshelfManagment.FufillReshelftRequest(AmountInDepot, AmountInStore, amount, ID);
 
-                    int Store = Convert.ToInt32(AmountInStore);
-                    Store += Convert.ToInt32(amount);
-                    if (Store < 0)
-                    {
-                        MessageBox.Show("NOOOOOO what have you done!!!!!!!!!!!");
-                        return;
-                    }
-                    else
-                    {
-                        MySqlCommand cmd = new MySqlCommand(sql, conn);
-                        cmd.Parameters.AddWithValue("@ProductID", ID);
-                        cmd.Parameters.AddWithValue("@AmountInStore", Store.ToString());
-                        cmd.Parameters.AddWithValue("@AmountInDepot", Depot.ToString());
-                        conn.Open();
-
-                        int numCreatedRows = cmd.ExecuteNonQuery();
-
-                        ViewAllReshelfRequests();
-                        DeleteReshelfRequest();
-                    }
-                }
-            }
-
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
+            ViewAllReshelfRequests();
+            DeleteReshelfRequest();
+            ViewAllProducts();
         }
 
         private void btnDeleteRequest_Click(object sender, EventArgs e)
@@ -565,7 +465,7 @@ namespace MediaBazaar
             string preferedWorkTime = PreferedWorkTime();
             string leastPreferedWorkTime = LeastPreferedWorkTime();
 
-            employee.SelectWorkTime(preferedWorkTime, leastPreferedWorkTime);
+           // employee.SelectWorkTime(preferedWorkTime, leastPreferedWorkTime);
         }
 
         public string PreferedWorkTime()

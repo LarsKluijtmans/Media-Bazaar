@@ -99,49 +99,19 @@ namespace MediaBazaar
             }
         }
 
+        //Product
+
         public void ViewAllProducts()
         {
+            store.productManagment.ViewAllProducts();
+
             lstProduct.Items.Clear();
+            lstOverviewProduct.Items.Clear();
 
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = Utils.GET_ALL_PRODUCT;
-
-            try
+            foreach (Product product in store.productManagment.products)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Product product;
-
-                while (reader.Read())
-                {
-                    int ProductID = reader.GetInt32("ProductID");
-                    string barcode = reader.GetString("Barcode");
-                    string name = reader.GetString("Name");
-                    string productType = reader.GetString("Type");
-                    int amountInStore = reader.GetInt32("AmountInStore");
-                    int amountInDepot = reader.GetInt32("AmountInDepot");
-
-                    product = new Product(ProductID, name, productType, barcode, amountInDepot, amountInStore);
-
-                    lstProduct.Items.Add(product);
-                    lstOverviewProduct.Items.Add(product);
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong" + ex);
-            }
-            finally
-            {
-                conn.Close();
+                lstProduct.Items.Add(product);
+                lstOverviewProduct.Items.Add(product);
             }
         }
 
@@ -167,32 +137,7 @@ namespace MediaBazaar
                 return;
             }
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.CREATE_SHELFREPLENICHMENT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", ID);
-                cmd.Parameters.AddWithValue("@Amount", Amount);
-
-
-                conn.Open();
-                int numCreatedRows = cmd.ExecuteNonQuery();
-                MessageBox.Show("Request was succesfull");
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong" + ex);
-            }
-            finally
-            {
-
-                conn.Close();
-            }
+           store.reshelfManagment.RequestReshelf( ID, Amount);
         }
 
         private void lstProduct_SelectedIndexChanged(object sender, EventArgs e)
@@ -216,13 +161,14 @@ namespace MediaBazaar
             tbmountInStore.Text = product.AmountInStore.ToString();
             tbAmountInDepot.Text = product.AmountInDepot.ToString();
         }
+
         // availability
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string preferedWorkTime = PreferedWorkTime();
             string leastPreferedWorkTime = LeastPreferedWorkTime();
 
-            employee.SelectWorkTime(preferedWorkTime, leastPreferedWorkTime);
+          //  employee.SelectWorkTime(preferedWorkTime, leastPreferedWorkTime);
         }
         public string PreferedWorkTime()
         {

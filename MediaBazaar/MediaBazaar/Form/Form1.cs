@@ -34,6 +34,7 @@ namespace MediaBazaar
         }
 
         //Products
+
         public void ViewAllProducts()
         {
             store.productManagment.ViewAllProducts();
@@ -363,7 +364,7 @@ namespace MediaBazaar
             }
 
             store.reshelfManagment.FufillReshelftRequest(AmountInDepot, AmountInStore, amount, ID);
-            
+
             ViewAllReshelfRequests();
             DeleteReshelfRequest();
             ViewAllProducts();
@@ -411,7 +412,6 @@ namespace MediaBazaar
                 lbSchedule.Items.Add(schedule);
                 lstOverviewSchedule.Items.Add(schedule);
             }
-
         }
 
         private void btViewSchedule_Click(object sender, EventArgs e)
@@ -488,7 +488,7 @@ namespace MediaBazaar
             {
                 lbPlaning.Items.Add(planing);
             }
-          
+
 
             lbEmployee.Items.Clear();
 
@@ -596,7 +596,7 @@ namespace MediaBazaar
                 return;
             }
 
-            store.planingManagment.EditPlaning(WorkID,  NewEmployeeId, Department, Day, Time);
+            store.planingManagment.EditPlaning(WorkID, NewEmployeeId, Department, Day, Time);
 
             if (Department == "Sales")
             {
@@ -612,12 +612,12 @@ namespace MediaBazaar
             }
 
             tbNewEmployeeId.Text = "";
-                tbWorkId.Text = "";
-                tbNewEmployeeId.Text = "";
-                tbDep.Text = "";
-                tbDay.Text = "";
-                tbTime.Text = "";
-                tbNewEmployeeId.BackColor = Color.LightGray;
+            tbWorkId.Text = "";
+            tbNewEmployeeId.Text = "";
+            tbDep.Text = "";
+            tbDay.Text = "";
+            tbTime.Text = "";
+            tbNewEmployeeId.BackColor = Color.LightGray;
         }
 
         private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)

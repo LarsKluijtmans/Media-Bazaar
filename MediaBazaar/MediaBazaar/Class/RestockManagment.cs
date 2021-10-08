@@ -141,7 +141,7 @@ namespace MediaBazaar.Class
 
                 conn.Open();
                 int numCreatedRows = cmd.ExecuteNonQuery();
-
+                MessageBox.Show("Request was succesfull");
             }
             catch (MySqlException msqEx)
             {

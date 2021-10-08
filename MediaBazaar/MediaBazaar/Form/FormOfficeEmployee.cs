@@ -156,8 +156,7 @@ namespace MediaBazaar
             string ID = tbID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                lbProducts.Items.Clear();
-                lbProducts.Items.Add("'id' field is required.");
+                MessageBox.Show("'id' field is required.");
                 return;
             }
 
@@ -269,8 +268,7 @@ namespace MediaBazaar
             string RestokID = tbRestockID.Text;
             if (string.IsNullOrEmpty(RestokID))
             {
-                lbRestock.Items.Clear();
-                lbRestock.Items.Add("'RestokID' field is required.");
+                MessageBox.Show("'RestokID' field is required.");
                 return;
             }
 
@@ -343,8 +341,7 @@ namespace MediaBazaar
             string ReShelfID = tbRequestID.Text;
             if (string.IsNullOrEmpty(ReShelfID))
             {
-                lbReshelfRequest.Items.Clear();
-                lbReshelfRequest.Items.Add("'ReShelfID' field is required.");
+                MessageBox.Show("'ReShelfID' field is required.");
                 return;
             }
 
@@ -465,7 +462,7 @@ namespace MediaBazaar
 
             MessageBox.Show(preferedWorkTime);
 
-            employee.SelectWorkTime(preferedWorkTime, leastPreferedWorkTime);
+          //  employee.SelectWorkTime(preferedWorkTime, leastPreferedWorkTime);
         }
         public string PreferedWorkTime()
         {

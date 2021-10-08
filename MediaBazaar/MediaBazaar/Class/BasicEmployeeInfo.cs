@@ -1,15 +1,15 @@
 ﻿namespace MediaBazaar.Class
 {
-    class BasicEmployeeInfo
+    public class BasicEmployeeInfo
     {
         private int employeeID;
         private string firstName;
         private string lastName;
         private string jodTitle;
 
-        public int  EmployeeID
+        public int EmployeeID
         {
-            get { return employeeID;  }
+            get { return employeeID; }
             set { employeeID = value; }
         }
 
