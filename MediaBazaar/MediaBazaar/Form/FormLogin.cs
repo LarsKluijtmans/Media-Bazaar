@@ -7,6 +7,7 @@ namespace MediaBazaar
 {
     public partial class FormLogin : Form
     {
+        Store store = new Store();
         public FormLogin()
         {
             InitializeComponent();
@@ -42,13 +43,13 @@ namespace MediaBazaar
 
                             switch (reader[2].ToString())
                             {
-                                case "OWNER": Form1 form1 = new Form1(Userid); form1.Show(); break;
-                                case "SALES MANAGER": FormSalesManager formSalesManager = new FormSalesManager(Userid); formSalesManager.Show(); break;
-                                case "SALES EMPLOYEE": FormSalesEmployee formSalesEmployee = new FormSalesEmployee(Userid); formSalesEmployee.Show(); break;
-                                case "OFFICE MANAGER": FormOfficeManager formOfficeManager = new FormOfficeManager(Userid); formOfficeManager.Show(); break;
-                                case "OFFICE EMPLOYEE": FormOfficeEmployee formOfficeEmployee = new FormOfficeEmployee(Userid); formOfficeEmployee.Show(); break;
-                                case "DEPOT MANAGER": FormDepotManager formDepotManager = new FormDepotManager(Userid); formDepotManager.Show(); break;
-                                case "DEPOT EMPLOYEE": FormDepotEmployee formDepotEmployee = new FormDepotEmployee(Userid); formDepotEmployee.Show(); break;
+                                case "OWNER": Form1 form1 = new Form1(Userid, store); form1.Show(); break;
+                                case "SALES MANAGER": FormSalesManager formSalesManager = new FormSalesManager(Userid, store); formSalesManager.Show(); break;
+                                case "SALES EMPLOYEE": FormSalesEmployee formSalesEmployee = new FormSalesEmployee(Userid, store); formSalesEmployee.Show(); break;
+                                case "OFFICE MANAGER": FormOfficeManager formOfficeManager = new FormOfficeManager(Userid, store); formOfficeManager.Show(); break;
+                                case "OFFICE EMPLOYEE": FormOfficeEmployee formOfficeEmployee = new FormOfficeEmployee(Userid, store); formOfficeEmployee.Show(); break;
+                                case "DEPOT MANAGER": FormDepotManager formDepotManager = new FormDepotManager(Userid, store); formDepotManager.Show(); break;
+                                case "DEPOT EMPLOYEE": FormDepotEmployee formDepotEmployee = new FormDepotEmployee(Userid, store); formDepotEmployee.Show(); break;
                             }
                             break;
                         }

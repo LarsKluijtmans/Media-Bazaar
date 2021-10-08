@@ -9,15 +9,23 @@ namespace MediaBazaar
     public partial class Form1 : Form
     {
         int ID;
+        Store store;
 
-        public Form1(int userID)
+        public Form1(int userID, Store s)
         {
             InitializeComponent();
             ID = userID;
+            store = s;
             cbProductType.Items.Add("KITCHEN_HOME");
             cbProductType.Items.Add("PHOTO_VIDEO_NAVIGATION");
             cbProductType.Items.Add("SMARTHOME_APPLIANCES");
             cbProductType.Items.Add("GAMING_MUSIC_COMPUTERS");
+
+            store.productManagment.ViewAllProducts();
+            store.rectockManagment.ViewAllRestockRequests();
+            store.reshelfManagment.ViewAllReshelfRequests();
+            store.scheduleManagment.ViewAllSchedule();
+
             ViewAllProducts();
             ViewAllReshelfRequests();
             ViewAllRestockRequests();
@@ -28,47 +36,15 @@ namespace MediaBazaar
         //Products
         public void ViewAllProducts()
         {
+            store.productManagment.ViewAllProducts();
+
             lbProducts.Items.Clear();
+            lstOverviewProduct.Items.Clear();
 
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = Utils.GET_ALL_PRODUCT;
-
-            try
+            foreach (Product product in store.productManagment.products)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Product product;
-
-                while (reader.Read())
-                {
-                    int ProductID = reader.GetInt32("ProductID");
-                    string barcode = reader.GetString("Barcode");
-                    string name = reader.GetString("Name");
-                    string productType = reader.GetString("Type");
-                    int amountInStore = reader.GetInt32("AmountInStore");
-                    int amountInDepot = reader.GetInt32("AmountInDepot");
-
-                    product = new Product(ProductID, name, productType, barcode, amountInDepot, amountInStore);
-
-                    lbProducts.Items.Add(product);
-                    lstOverviewProduct.Items.Add(product);
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
+                lbProducts.Items.Add(product);
+                lstOverviewProduct.Items.Add(product);
             }
         }
 
@@ -84,69 +60,40 @@ namespace MediaBazaar
             string Name = tbName.Text;
             if (string.IsNullOrEmpty(Name))
             {
-                lbProducts.Items.Add("'name' field is required.");
+                MessageBox.Show("'name' field is required.");
                 return;
             }
 
             string Barcode = tbBarcode.Text;
             if (string.IsNullOrEmpty(Barcode))
             {
-                lbProducts.Items.Add("'Barcode' field is required.");
+                MessageBox.Show("'Barcode' field is required.");
                 return;
             }
 
             string ProductType = cbProductType.Text;
             if (string.IsNullOrEmpty(ProductType))
             {
-                lbProducts.Items.Add("'ProductType' field is required.");
+                MessageBox.Show("'ProductType' field is required.");
                 return;
             }
 
             string AmountInStore = tbmountInStore.Text;
             if (string.IsNullOrEmpty(AmountInStore))
             {
-                lbProducts.Items.Add("'AmountInStore' field is required.");
+                MessageBox.Show("'AmountInStore' field is required.");
                 return;
             }
 
             string AmountInDepot = tbAmountInDepot.Text;
             if (string.IsNullOrEmpty(AmountInDepot))
             {
-                lbProducts.Items.Add("'AmountInDepot' field is required.");
+                MessageBox.Show("'AmountInDepot' field is required.");
                 return;
             }
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.CREATE_PRODUCT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Name", Name);
-                cmd.Parameters.AddWithValue("@Barcode", Barcode);
-                cmd.Parameters.AddWithValue("@Type", ProductType);
-                cmd.Parameters.AddWithValue("@AmountInStore", AmountInStore);
-                cmd.Parameters.AddWithValue("@AmountInDepot", AmountInDepot);
-
-                conn.Open();
-
-                int numCreatedRows = cmd.ExecuteNonQuery();
-                long id = cmd.LastInsertedId;
-
-                tbID.Text = id.ToString();
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                ViewAllProducts();
-                conn.Close();
-            }
+            store.productManagment.AddProduct(Name, Barcode, ProductType, AmountInStore, AmountInDepot);
+            ViewAllProducts();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -154,73 +101,46 @@ namespace MediaBazaar
             string Name = tbName.Text;
             if (string.IsNullOrEmpty(Name))
             {
-                lbProducts.Items.Add("'name' field is required.");
+                MessageBox.Show("'name' field is required.");
                 return;
             }
 
             string Barcode = tbBarcode.Text;
             if (string.IsNullOrEmpty(Barcode))
             {
-                lbProducts.Items.Add("'Barcode' field is required.");
+                MessageBox.Show("'Barcode' field is required.");
                 return;
             }
 
             string ProductType = cbProductType.Text;
             if (string.IsNullOrEmpty(ProductType))
             {
-                lbProducts.Items.Add("'ProductType' field is required.");
+                MessageBox.Show("'ProductType' field is required.");
                 return;
             }
 
             string AmountInStore = tbmountInStore.Text;
             if (string.IsNullOrEmpty(AmountInStore))
             {
-                lbProducts.Items.Add("'AmountInStore' field is required.");
+                MessageBox.Show("'AmountInStore' field is required.");
                 return;
             }
 
             string AmountInDepot = tbAmountInDepot.Text;
             if (string.IsNullOrEmpty(AmountInDepot))
             {
-                lbProducts.Items.Add("'AmountInDepot' field is required.");
+                MessageBox.Show("'AmountInDepot' field is required.");
                 return;
             }
             string ID = tbID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                lbProducts.Items.Add("Please select a product");
+                MessageBox.Show("Please select a product");
                 return;
             }
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.UPDATE_PRODUCT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", ID);
-                cmd.Parameters.AddWithValue("@Name", Name);
-                cmd.Parameters.AddWithValue("@Barcode", Barcode);
-                cmd.Parameters.AddWithValue("@Type", ProductType);
-                cmd.Parameters.AddWithValue("@AmountInStore", AmountInStore);
-                cmd.Parameters.AddWithValue("@AmountInDepot", AmountInDepot);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-               
-                ViewAllProducts();
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
+            store.productManagment.EditProduct(ID, Name, Barcode, ProductType, AmountInStore, AmountInDepot);
+            ViewAllProducts();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -235,36 +155,16 @@ namespace MediaBazaar
                 return;
             }
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.DELETE_PRODUCT_BY_ID;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", ID);
-                conn.Open();
+            store.productManagment.DeleteProduct(ID);
 
-                int numAffectedRows = cmd.ExecuteNonQuery();
+            tbID.Text = "";
+            tbName.Text = "";
+            tbBarcode.Text = "";
+            cbProductType.Text = "";
+            tbmountInStore.Text = "";
+            tbAmountInDepot.Text = "";
 
-                ViewAllProducts();
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                tbID.Text = "";
-                tbName.Text = "";
-                tbBarcode.Text = "";
-                cbProductType.Text = "";
-                tbmountInStore.Text = "";
-                tbAmountInDepot.Text = "";
-                conn.Close();
-            }
+            ViewAllProducts();
         }
 
         private void lbProducts_SelectedIndexChanged(object sender, EventArgs e)
@@ -293,52 +193,22 @@ namespace MediaBazaar
 
         public void ViewAllRestockRequests()
         {
+            store.rectockManagment.ViewAllRestockRequests();
+
             lbRestock.Items.Clear();
+            lstOverviewAnnoucement.Items.Clear();
 
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = Utils.GET_ALL_RESTOCKREPLENISHMENT;
-
-            try
+            foreach (Restock restock in store.rectockManagment.restocks)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Restock restock;
-
-                while (reader.Read())
-                {
-                    int restockReplenishmentID = reader.GetInt32("restockreplenishmentID");
-                    int productID = reader.GetInt32("ProductID");
-                    int amount = reader.GetInt32("Amount");
-                    string name = reader.GetString("Name");
-                    int amountInStore = reader.GetInt32("AmountInStore");
-                    int amountInDepot = reader.GetInt32("AmountInDepot");
-
-                    restock = new Restock(restockReplenishmentID, productID, amount, name, amountInDepot, amountInStore);
-
-                    lbRestock.Items.Add(restock);
-                    lstOverviewComplaint.Items.Add(restock);
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
+                lbRestock.Items.Add(restock);
+                lstOverviewAnnoucement.Items.Add(restock);
             }
         }
 
         public void DeleteRestockRequest()
         {
+            store.rectockManagment.ViewAllRestockRequests();
+
             lbRestock.Items.Clear();
 
             string RestokID = tbRestockID.Text;
@@ -349,31 +219,9 @@ namespace MediaBazaar
                 return;
             }
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.DELETE_RESTOCKREPLENISHMENT_BY_ID;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestokID);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-
-                lbRestock.Items.Clear();
-                ViewAllRestockRequests();
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
+            store.rectockManagment.DeleteRestockRequest(RestokID);
+            lbRestock.Items.Clear();
+            ViewAllRestockRequests();
         }
 
         private void btnViewAllRestockRequests_Click(object sender, EventArgs e)
@@ -386,60 +234,29 @@ namespace MediaBazaar
             string amount = tbRestockAmount.Text;
             if (string.IsNullOrEmpty(amount))
             {
-                lbRestock.Items.Add("'amount' field is required.");
+                MessageBox.Show("'amount' field is required.");
                 return;
             }
 
             string AmountInDepot = RestockAmountDepot.Text;
             if (string.IsNullOrEmpty(AmountInDepot))
             {
-                lbRestock.Items.Add("'AmountInDepot' field is required.");
+                MessageBox.Show("'AmountInDepot' field is required.");
                 return;
             }
             string ID = tbProductID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                lbRestock.Items.Add("Please select a product");
+                MessageBox.Show("Please select a product");
                 return;
             }
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.UPDATE_RESTOCKREPLENISHMENT;
-            try
-            {
-                int Depot = Convert.ToInt32(AmountInDepot);
-                Depot += Convert.ToInt32(amount);
-                if (Depot < 0)
-                {
-                    MessageBox.Show("nooooo don't do that you fool");
-                    return;
-                }
-                else
-                {
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@ProductID", ID);
-                    cmd.Parameters.AddWithValue("@AmountInDepot", Depot.ToString());
-                    conn.Open();
+            store.rectockManagment.FufillRestockRequest(AmountInDepot, amount, ID);
 
-                    int numAffectedRows = cmd.ExecuteNonQuery();
+            ViewAllRestockRequests();
+            DeleteRestockRequest();
+            ViewAllProducts();
 
-                    ViewAllRestockRequests();
-                    DeleteRestockRequest();
-                }
-
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
         }// error
 
         private void lbRestock_SelectedIndexChanged(object sender, EventArgs e)
@@ -474,6 +291,8 @@ namespace MediaBazaar
 
         public void DeleteReshelfRequest()
         {
+            store.reshelfManagment.ViewAllReshelfRequests();
+
             lbReshelfRequest.Items.Clear();
 
             string ReShelfID = tbRequestID.Text;
@@ -484,81 +303,28 @@ namespace MediaBazaar
                 return;
             }
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.DELETE_SHELFREPLENICHMENT_BY_ID;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ShelfReplenishmentID", ReShelfID);
-                conn.Open();
+            store.reshelfManagment.DeleteReshelfRequest(ReShelfID);
+            ViewAllReshelfRequests();
 
-                int numAffectedRows = cmd.ExecuteNonQuery();
-
-                ViewAllReshelfRequests();
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                tbRID.Text = "";
-                tbRequestID.Text = "";
-                tbRName.Text = "";
-                tbRamountInStore.Text = "";
-                tbRAmountInDepot.Text = "";
-                tbReshelfReqAmount.Text = "";
-                conn.Close();
-            }
+            tbRID.Text = "";
+            tbRequestID.Text = "";
+            tbRName.Text = "";
+            tbRamountInStore.Text = "";
+            tbRAmountInDepot.Text = "";
+            tbReshelfReqAmount.Text = "";
         }
 
         public void ViewAllReshelfRequests()
         {
+            store.reshelfManagment.ViewAllReshelfRequests();
+
             lbReshelfRequest.Items.Clear();
+            lstOverviewComplaint.Items.Clear();
 
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = Utils.GET_ALL_SHELFREPLENICHMENT;
-
-            try
+            foreach (ReShelf reShelf in store.reshelfManagment.reShelves)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                ReShelf reshelf;
-
-                while (reader.Read())
-                {
-                    int shelfReplenishmentID = reader.GetInt32("ShelfReplenishmentID");
-                    int productID = reader.GetInt32("ProductID");
-                    int amount = reader.GetInt32("Amount");
-                    string name = reader.GetString("Name");
-                    int amountInStore = reader.GetInt32("AmountInStore");
-                    int amountInDepot = reader.GetInt32("AmountInDepot");
-
-                    reshelf = new ReShelf(shelfReplenishmentID, productID, amount, name, amountInDepot, amountInStore);
-
-                    lbReshelfRequest.Items.Add(reshelf);
-                    lstOverviewAnnoucement.Items.Add(reshelf);
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
+                lbReshelfRequest.Items.Add(reShelf);
+                lstOverviewComplaint.Items.Add(reShelf);
             }
         }
 
@@ -572,79 +338,35 @@ namespace MediaBazaar
             string amount = tbReshelfReqAmount.Text;
             if (string.IsNullOrEmpty(amount))
             {
-                lbProducts.Items.Add("'amount' field is required.");
+                MessageBox.Show("'amount' field is required.");
                 return;
             }
 
             string AmountInStore = tbRamountInStore.Text;
             if (string.IsNullOrEmpty(AmountInStore))
             {
-                lbProducts.Items.Add("'AmountInStore' field is required.");
+                MessageBox.Show("'AmountInStore' field is required.");
                 return;
             }
 
             string AmountInDepot = tbRAmountInDepot.Text;
             if (string.IsNullOrEmpty(AmountInDepot))
             {
-                lbProducts.Items.Add("'AmountInDepot' field is required.");
+                MessageBox.Show("'AmountInDepot' field is required.");
                 return;
             }
             string ID = tbRID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                lbProducts.Items.Add("Please select a product");
+                MessageBox.Show("Please select a product");
                 return;
             }
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.UPDATE_SHELFREPLENICHMENT;
-            try
-            {
-                int Depot = Convert.ToInt32(AmountInDepot);
-                Depot -= Convert.ToInt32(amount);
-                if (Depot < 0)
-                {
-                    MessageBox.Show("The Dpot does not have that many of this type of product");
-                    return;
-                }
-                else
-                {
-
-                    int Store = Convert.ToInt32(AmountInStore);
-                    Store += Convert.ToInt32(amount);
-                    if (Store < 0)
-                    {
-                        MessageBox.Show("NOOOOOO what have you done!!!!!!!!!!!");
-                        return;
-                    }
-                    else
-                    {
-                        MySqlCommand cmd = new MySqlCommand(sql, conn);
-                        cmd.Parameters.AddWithValue("@ProductID", ID);
-                        cmd.Parameters.AddWithValue("@AmountInStore", Store.ToString());
-                        cmd.Parameters.AddWithValue("@AmountInDepot", Depot.ToString());
-                        conn.Open();
-
-                        int numCreatedRows = cmd.ExecuteNonQuery();
-
-                        ViewAllReshelfRequests();
-                        DeleteReshelfRequest();
-                    }
-                }
-            }
-
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
+            store.reshelfManagment.FufillReshelftRequest(AmountInDepot, AmountInStore, amount, ID);
+            
+            ViewAllReshelfRequests();
+            DeleteReshelfRequest();
+            ViewAllProducts();
         }
 
         private void btnDeleteRequest_Click(object sender, EventArgs e)
@@ -679,48 +401,17 @@ namespace MediaBazaar
 
         public void ViewAllSchedule()
         {
+            store.scheduleManagment.ViewAllSchedule();
+
             lbSchedule.Items.Clear();
+            lstOverviewSchedule.Items.Clear();
 
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = Utils.GET_SCHEDULE;
-
-            try
+            foreach (Schedule schedule in store.scheduleManagment.schedules)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Schedule schedule;
-
-                while (reader.Read())
-                {
-                    int Id = reader.GetInt32("scheduleId");
-                    string Department = reader.GetString("department");
-                    string Day = reader.GetString("day");
-                    int MorningAmount = reader.GetInt32("morning");
-                    int AfternoonAmount = reader.GetInt32("afternoon");
-                    int EveningAmount = reader.GetInt32("evening");
-
-                    schedule = new Schedule(Id, Department, Day, MorningAmount, AfternoonAmount, EveningAmount);
-
-                    lbSchedule.Items.Add(schedule);
-                    lstOverviewSchedule.Items.Add(schedule);
-                }
+                lbSchedule.Items.Add(schedule);
+                lstOverviewSchedule.Items.Add(schedule);
             }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
+
         }
 
         private void btViewSchedule_Click(object sender, EventArgs e)
@@ -733,57 +424,33 @@ namespace MediaBazaar
             string Morning = lbScheduleMorning.Text;
             if (string.IsNullOrEmpty(Morning))
             {
-                lbSchedule.Items.Add("'Morning' field is required.");
+                MessageBox.Show("'Morning' field is required.");
                 return;
             }
 
             string Afternoon = lbScheduleAfternoon.Text;
             if (string.IsNullOrEmpty(Afternoon))
             {
-                lbSchedule.Items.Add("'Afternoon' field is required.");
+                MessageBox.Show("'Afternoon' field is required.");
                 return;
             }
 
             string Evening = lbScheduleEvening.Text;
             if (string.IsNullOrEmpty(Evening))
             {
-                lbSchedule.Items.Add("'Evening' field is required.");
+                MessageBox.Show("'Evening' field is required.");
                 return;
             }
             string ID = lbScheduleID.Text;
             if (string.IsNullOrEmpty(ID))
             {
-                lbSchedule.Items.Add("Please select a time");
+                MessageBox.Show("Please select a time");
                 return;
             }
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.UPDATE_SCHEDULE;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@scheduleId", ID);
-                cmd.Parameters.AddWithValue("@morning", Morning);
-                cmd.Parameters.AddWithValue("@afternoon", Afternoon);
-                cmd.Parameters.AddWithValue("@evening", Evening);
-                conn.Open();
+            store.scheduleManagment.Editschedule(ID, Morning, Afternoon, Evening);
 
-                int numAffectedRows = cmd.ExecuteNonQuery();
-
-                ViewAllSchedule();
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
+            ViewAllSchedule();
         }
 
         private void lbSchedule_SelectedIndexChanged(object sender, EventArgs e)
@@ -813,255 +480,61 @@ namespace MediaBazaar
 
         public void ViewSalesPlaning()
         {
+            store.planingManagment.ViewSalesPlaning();
+
             lbPlaning.Items.Clear();
 
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = Utils.GET_SALES_PLANING;
-
-            try
+            foreach (Planing planing in store.planingManagment.planings)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Planing planing;
-
-                while (reader.Read())
-                {
-                    int WorkId = reader.GetInt32("workID");
-                    string Department = reader.GetString("Department");
-                    int employeeID = reader.GetInt32("employeeID");
-                    string day = reader.GetString("day");
-                    string time = reader.GetString("time");
-
-
-                    planing = new Planing(WorkId, Department, employeeID, day, time);
-
-                    lbPlaning.Items.Add(planing);
-                }
+                lbPlaning.Items.Add(planing);
             }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
+          
 
             lbEmployee.Items.Clear();
 
-            sql = Utils.GET_SALES_EMPLOYEE;
-
-            try
+            foreach (BasicEmployeeInfo employee in store.planingManagment.employees)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                BasicEmployeeInfo employee;
-
-                while (reader.Read())
-                {
-                    int employeeID = reader.GetInt32("EmployeeID");
-                    string firstName = reader.GetString("FirstName");
-                    string lastName = reader.GetString("LastName");
-                    string jodTitle = reader.GetString("JodTitle");
-
-
-                    employee = new BasicEmployeeInfo(employeeID, firstName, lastName, jodTitle);
-
-                    lbEmployee.Items.Add(employee);
-                }
+                lbEmployee.Items.Add(employee);
             }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-
         }
 
         public void ViewDepotPlaning()
         {
+            store.planingManagment.ViewDepotPlaning();
+
             lbPlaning.Items.Clear();
 
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = Utils.GET_DEPOT_PLANING;
-
-            try
+            foreach (Planing planing in store.planingManagment.planings)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Planing planing;
-
-                while (reader.Read())
-                {
-                    int WorkId = reader.GetInt32("workID");
-                    string Department = reader.GetString("Department");
-                    int employeeID = reader.GetInt32("employeeID");
-                    string day = reader.GetString("day");
-                    string time = reader.GetString("time");
-
-
-                    planing = new Planing(WorkId, Department, employeeID, day, time);
-
-                    lbPlaning.Items.Add(planing);
-                }
+                lbPlaning.Items.Add(planing);
             }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
+
 
             lbEmployee.Items.Clear();
 
-            sql = Utils.GET_DEPOT_EMPLOYEE;
-
-            try
+            foreach (BasicEmployeeInfo employee in store.planingManagment.employees)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                BasicEmployeeInfo employee;
-
-                while (reader.Read())
-                {
-                    int employeeID = reader.GetInt32("EmployeeID");
-                    string firstName = reader.GetString("FirstName");
-                    string lastName = reader.GetString("LastName");
-                    string jodTitle = reader.GetString("JodTitle");
-
-
-                    employee = new BasicEmployeeInfo(employeeID, firstName, lastName, jodTitle);
-
-                    lbEmployee.Items.Add(employee);
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
+                lbEmployee.Items.Add(employee);
             }
         }
 
         public void ViewOfficePlaning()
         {
+            store.planingManagment.ViewOfficePlaning();
+
             lbPlaning.Items.Clear();
 
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = Utils.GET_OFFICE_PLANING;
-
-            try
+            foreach (Planing planing in store.planingManagment.planings)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Planing planing;
-
-                while (reader.Read())
-                {
-                    int WorkId = reader.GetInt32("workID");
-                    string Department = reader.GetString("Department");
-                    int employeeID = reader.GetInt32("employeeID");
-                    string day = reader.GetString("day");
-                    string time = reader.GetString("time");
-
-
-                    planing = new Planing(WorkId, Department, employeeID, day, time);
-
-                    lbPlaning.Items.Add(planing);
-                }
+                lbPlaning.Items.Add(planing);
             }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
+
 
             lbEmployee.Items.Clear();
 
-            sql = Utils.GET_OFFICE_EMPLOYEE;
-
-            try
+            foreach (BasicEmployeeInfo employee in store.planingManagment.employees)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                BasicEmployeeInfo employee;
-
-                while (reader.Read())
-                {
-                    int employeeID = reader.GetInt32("EmployeeID");
-                    string firstName = reader.GetString("FirstName");
-                    string lastName = reader.GetString("LastName");
-                    string jodTitle = reader.GetString("JodTitle");
-
-
-                    employee = new BasicEmployeeInfo(employeeID, firstName, lastName, jodTitle);
-
-                    lbEmployee.Items.Add(employee);
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
+                lbEmployee.Items.Add(employee);
             }
         }
 
@@ -1086,89 +559,65 @@ namespace MediaBazaar
             string WorkID = tbWorkId.Text;
             if (string.IsNullOrEmpty(WorkID))
             {
-                lbPlaning.Items.Add("'WorkID' field is required.");
-                lbEmployee.Items.Add("'WorkID' field is required.");
+                MessageBox.Show("'WorkID' field is required.");
+                MessageBox.Show("'WorkID' field is required.");
                 return;
             }
 
             string NewEmployeeId = tbNewEmployeeId.Text;
             if (string.IsNullOrEmpty(NewEmployeeId))
             {
-                lbPlaning.Items.Add("'NewEmployeeId' field is required.");
-                lbEmployee.Items.Add("'NewEmployeeId' field is required.");
+                MessageBox.Show("'NewEmployeeId' field is required.");
+                MessageBox.Show("'NewEmployeeId' field is required.");
                 return;
             }
 
             string Department = tbDep.Text;
             if (string.IsNullOrEmpty(Department))
             {
-                lbPlaning.Items.Add("'Department' field is required.");
-                lbEmployee.Items.Add("'Department' field is required.");
+                MessageBox.Show("'Department' field is required.");
+                MessageBox.Show("'Department' field is required.");
                 return;
             }
 
             string Day = tbDay.Text;
             if (string.IsNullOrEmpty(Day))
             {
-                lbPlaning.Items.Add("'Day' field is required.");
-                lbEmployee.Items.Add("'Day' field is required.");
+                MessageBox.Show("'Day' field is required.");
+                MessageBox.Show("'Day' field is required.");
                 return;
             }
 
             string Time = tbTime.Text;
             if (string.IsNullOrEmpty(Time))
             {
-                lbPlaning.Items.Add("'Time' field is required.");
-                lbEmployee.Items.Add("'Time' field is required.");
+                MessageBox.Show("'Time' field is required.");
+                MessageBox.Show("'Time' field is required.");
                 return;
             }
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.UPDATE_PLANING;
-            try
+
+            store.planingManagment.EditPlaning(WorkID,  NewEmployeeId, Department, Day, Time);
+
+            if (Department == "Sales")
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@emplyeeID", NewEmployeeId);
-                cmd.Parameters.AddWithValue("@workID", WorkID);
+                ViewSalesPlaning();
+            }
+            else if (Department == "Office")
+            {
+                ViewOfficePlaning();
+            }
+            else if (Department == "Depot")
+            {
+                ViewDepotPlaning();
+            }
 
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-
-                if (Department == "Sales")
-                {
-                    ViewSalesPlaning();
-                }
-                else if (Department == "Office")
-                {
-                    ViewOfficePlaning();
-                }
-                else if (Department == "Depot")
-                {
-                    ViewDepotPlaning();
-                }
-
-                tbNewEmployeeId.Text = "";
+            tbNewEmployeeId.Text = "";
                 tbWorkId.Text = "";
                 tbNewEmployeeId.Text = "";
                 tbDep.Text = "";
                 tbDay.Text = "";
                 tbTime.Text = "";
                 tbNewEmployeeId.BackColor = Color.LightGray;
-
-
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
         }
 
         private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)
@@ -1275,7 +724,7 @@ namespace MediaBazaar
 
                     count = 1;
 
-                    while ( count <= Afternoon)
+                    while (count <= Afternoon)
                     {
                         string Department = reader.GetString("Department");
                         int employeeID = 0;
@@ -1317,13 +766,13 @@ namespace MediaBazaar
                 conn.Close();
             }
 
-            int count2 = Convert.ToInt32( lbPlaning.Items.Count) ;
+            int count2 = Convert.ToInt32(lbPlaning.Items.Count);
             count = 0;
 
 
             sql = Utils.CREATE_SCHDULEDWORK;
 
-            while (count < count2 )
+            while (count < count2)
             {
 
                 Planing plan = (Planing)lbPlaning.Items[count];
@@ -1333,7 +782,7 @@ namespace MediaBazaar
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     conn.Open();
 
-                   
+
 
                     cmd.Parameters.AddWithValue("@depratment", plan.Department);
                     cmd.Parameters.AddWithValue("@EmployeeID", plan.EmployeeID);
@@ -1350,13 +799,13 @@ namespace MediaBazaar
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show( $"Something went wrong");
+                    MessageBox.Show($"Something went wrong");
                 }
                 finally
                 {
                     conn.Close();
                 }
             }
-        }
+        }//To do, it's a bit complicated so I couldn't move it to the PlaningManager class
     }
 }

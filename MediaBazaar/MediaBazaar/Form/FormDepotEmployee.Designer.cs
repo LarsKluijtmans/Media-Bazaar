@@ -407,6 +407,7 @@ namespace MediaBazaar
             this.groupBox4.TabIndex = 84;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Restock";
+            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // tbProductID
             // 
@@ -613,7 +614,7 @@ namespace MediaBazaar
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.tbAmountInDepot);
             this.groupBox3.Controls.Add(this.lblEmail);
-            this.groupBox3.Location = new System.Drawing.Point(496, 34);
+            this.groupBox3.Location = new System.Drawing.Point(776, 22);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(334, 436);
             this.groupBox3.TabIndex = 46;
@@ -785,7 +786,7 @@ namespace MediaBazaar
             this.lbProducts.Location = new System.Drawing.Point(28, 44);
             this.lbProducts.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.lbProducts.Name = "lbProducts";
-            this.lbProducts.Size = new System.Drawing.Size(430, 395);
+            this.lbProducts.Size = new System.Drawing.Size(711, 395);
             this.lbProducts.TabIndex = 45;
             this.lbProducts.SelectedIndexChanged += new System.EventHandler(this.lbProducts_SelectedIndexChanged);
             // 

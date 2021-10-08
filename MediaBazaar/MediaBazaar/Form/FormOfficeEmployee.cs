@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using MediaBazaar.Class;
+﻿using MediaBazaar.Class;
 using MySql.Data.MySqlClient;
+using System;
+using System.Windows.Forms;
 
 namespace MediaBazaar
 {
     public partial class FormOfficeEmployee : Form
     {
         int ID;
-        Person employee;
-             
-        public FormOfficeEmployee(int UserID)
+        Store store;
+
+        public FormOfficeEmployee(int UserID, Store s)
         {
             InitializeComponent();
             ID = UserID;
-            
+            store = s;
 
         }
         private void btnLogout_Click(object sender, EventArgs e)
@@ -184,7 +179,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -298,7 +293,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -371,7 +366,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {

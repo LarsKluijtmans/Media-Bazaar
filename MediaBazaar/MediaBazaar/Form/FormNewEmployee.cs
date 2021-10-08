@@ -64,7 +64,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -103,7 +103,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {

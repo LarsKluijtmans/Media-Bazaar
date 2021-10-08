@@ -13,10 +13,12 @@ namespace MediaBazaar
     public partial class FormSalesManager : Form
     {
         int ID;
-        public FormSalesManager(int UserID)
+        Store store;
+        public FormSalesManager(int UserID, Store s)
         {
             InitializeComponent();
             ID = UserID;
+            store = s;
 
             ViewAllEmployees();
         }
@@ -134,7 +136,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -251,7 +253,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -481,7 +483,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -540,7 +542,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {

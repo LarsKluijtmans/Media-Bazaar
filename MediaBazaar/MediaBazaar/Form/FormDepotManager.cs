@@ -10,12 +10,15 @@ namespace MediaBazaar
     public partial class FormDepotManager : Form
     {
         int ID;
+        Store store;
         private List<Product> productRequests;
         private List<Product> productRestock;
 
-        public FormDepotManager(int UserID)
+        public FormDepotManager(int UserID, Store s)
         {
             InitializeComponent();
+
+            store = s;
             productRequests = new List<Product>();
             productRestock = new List<Product>();
             ID = UserID;
@@ -75,7 +78,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -297,7 +300,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -373,7 +376,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -411,7 +414,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -503,7 +506,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -569,7 +572,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -642,7 +645,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -801,7 +804,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -918,7 +921,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
@@ -1145,7 +1148,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {

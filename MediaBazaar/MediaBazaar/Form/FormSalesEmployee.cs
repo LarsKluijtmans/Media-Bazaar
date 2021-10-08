@@ -13,11 +13,12 @@ namespace MediaBazaar
     public partial class FormSalesEmployee : Form
     {
         int ID;
-        Person employee;
-        public FormSalesEmployee(int UserID)
+        Store store;
+        public FormSalesEmployee(int UserID, Store s)
         {
             InitializeComponent();
             int ID = UserID;
+            store = s;
             ViewAllProducts();
         }
        
@@ -185,7 +186,7 @@ namespace MediaBazaar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong" + ex);
             }
             finally
             {
