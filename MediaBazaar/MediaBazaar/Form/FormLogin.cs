@@ -43,7 +43,7 @@ namespace MediaBazaar
 
                             switch (reader[2].ToString())
                             {
-                                case "OWNER": Form1 form1 = new Form1(Userid, store); form1.Show(); break;
+                                case "OWNER": Form1 form1 = new Form1(Userid, store); form1.Show();break;
                                 case "SALES MANAGER": FormSalesManager formSalesManager = new FormSalesManager(Userid, store); formSalesManager.Show(); break;
                                 case "SALES EMPLOYEE": FormSalesEmployee formSalesEmployee = new FormSalesEmployee(Userid, store); formSalesEmployee.Show(); break;
                                 case "OFFICE MANAGER": FormOfficeManager formOfficeManager = new FormOfficeManager(Userid, store); formOfficeManager.Show(); break;
