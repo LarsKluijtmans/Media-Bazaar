@@ -208,7 +208,7 @@ namespace MediaBazaar.Class
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = Utils.GET_OFFICE_PLANING;
+            string sql = GET_OFFICE_PLANING;
 
             try
             {

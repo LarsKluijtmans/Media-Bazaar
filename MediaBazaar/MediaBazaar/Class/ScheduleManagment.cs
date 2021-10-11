@@ -25,7 +25,7 @@ namespace MediaBazaar.Class
             schedules.Clear();
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = Utils.GET_SCHEDULE;
+            string sql = GET_SCHEDULE;
 
             try
             {

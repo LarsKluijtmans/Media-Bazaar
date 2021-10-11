@@ -145,7 +145,7 @@ namespace MediaBazaar.Class
         public void RequestReshelf(string ID, string Amount) 
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.CREATE_SHELFREPLENICHMENT;
+            string sql = CREATE_SHELFREPLENICHMENT;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
