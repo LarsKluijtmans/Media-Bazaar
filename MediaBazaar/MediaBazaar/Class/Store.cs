@@ -1,4 +1,5 @@
-﻿namespace MediaBazaar.Class
+﻿using MediaBazaar.Class.ManagmentClasses;
+namespace MediaBazaar.Class
 {
     public class Store
     {
@@ -7,6 +8,7 @@
         public ReshelfManagment reshelfManagment;
         public ScheduleManagment scheduleManagment;
         public PlaningManagment planingManagment;
+        public LoginManagment loginManagment;
         //public EmployeeManagment employeeManagment;
         //public ContractManagment contractManagment;
         //public check
@@ -18,6 +20,7 @@
             reshelfManagment = new ReshelfManagment();
             scheduleManagment = new ScheduleManagment();
             planingManagment = new PlaningManagment();
+            loginManagment = new LoginManagment();
             //employeeManagment = new employeeManagment();
             //contractManagment = new contractManagment();
         }
