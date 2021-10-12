@@ -21,11 +21,6 @@ namespace MediaBazaar
             cbProductType.Items.Add("SMARTHOME_APPLIANCES");
             cbProductType.Items.Add("GAMING_MUSIC_COMPUTERS");
 
-            store.productManagment.ViewAllProducts();
-            store.rectockManagment.ViewAllRestockRequests();
-            store.reshelfManagment.ViewAllReshelfRequests();
-            store.scheduleManagment.ViewAllSchedule();
-
             ViewAllProducts();
             ViewAllReshelfRequests();
             ViewAllRestockRequests();
