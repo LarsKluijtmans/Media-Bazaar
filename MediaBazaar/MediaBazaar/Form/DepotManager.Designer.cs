@@ -30,18 +30,6 @@ namespace MediaBazaar
         private void InitializeComponent()
         {
             this.btnLogout = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnDeleteEmployees = new System.Windows.Forms.Button();
-            this.tbxEmployeeID = new System.Windows.Forms.TextBox();
-            this.btnReadEmployees = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnUpdateEmployees = new System.Windows.Forms.Button();
-            this.btnCreateNewEmployee = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbxEmployees = new System.Windows.Forms.ListBox();
-            this.rbnDepotEmployees = new System.Windows.Forms.RadioButton();
-            this.rbnAllEmployees = new System.Windows.Forms.RadioButton();
             this.tpSchedule = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnEditschedule = new System.Windows.Forms.Button();
@@ -134,9 +122,6 @@ namespace MediaBazaar
             this.label39 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnCheck = new System.Windows.Forms.Button();
-            this.tabPage2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.tpSchedule.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -157,147 +142,6 @@ namespace MediaBazaar
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1130, 480);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Employee";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnDeleteEmployees);
-            this.groupBox3.Controls.Add(this.tbxEmployeeID);
-            this.groupBox3.Controls.Add(this.btnReadEmployees);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.btnUpdateEmployees);
-            this.groupBox3.Controls.Add(this.btnCreateNewEmployee);
-            this.groupBox3.Location = new System.Drawing.Point(882, 2);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(244, 466);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Manage Employees";
-            // 
-            // btnDeleteEmployees
-            // 
-            this.btnDeleteEmployees.Location = new System.Drawing.Point(34, 180);
-            this.btnDeleteEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDeleteEmployees.Name = "btnDeleteEmployees";
-            this.btnDeleteEmployees.Size = new System.Drawing.Size(168, 31);
-            this.btnDeleteEmployees.TabIndex = 7;
-            this.btnDeleteEmployees.Text = "Delete Employees";
-            this.btnDeleteEmployees.UseVisualStyleBackColor = true;
-            this.btnDeleteEmployees.Click += new System.EventHandler(this.btnDeleteEmployees_Click);
-            // 
-            // tbxEmployeeID
-            // 
-            this.tbxEmployeeID.Location = new System.Drawing.Point(34, 50);
-            this.tbxEmployeeID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxEmployeeID.Name = "tbxEmployeeID";
-            this.tbxEmployeeID.ReadOnly = true;
-            this.tbxEmployeeID.Size = new System.Drawing.Size(168, 23);
-            this.tbxEmployeeID.TabIndex = 9;
-            // 
-            // btnReadEmployees
-            // 
-            this.btnReadEmployees.Location = new System.Drawing.Point(34, 110);
-            this.btnReadEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReadEmployees.Name = "btnReadEmployees";
-            this.btnReadEmployees.Size = new System.Drawing.Size(168, 31);
-            this.btnReadEmployees.TabIndex = 5;
-            this.btnReadEmployees.Text = "Read Employees";
-            this.btnReadEmployees.UseVisualStyleBackColor = true;
-            this.btnReadEmployees.Click += new System.EventHandler(this.btnReadEmployees_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 15);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Selected Employee ID:";
-            // 
-            // btnUpdateEmployees
-            // 
-            this.btnUpdateEmployees.Location = new System.Drawing.Point(34, 145);
-            this.btnUpdateEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnUpdateEmployees.Name = "btnUpdateEmployees";
-            this.btnUpdateEmployees.Size = new System.Drawing.Size(168, 31);
-            this.btnUpdateEmployees.TabIndex = 6;
-            this.btnUpdateEmployees.Text = "Update Employees";
-            this.btnUpdateEmployees.UseVisualStyleBackColor = true;
-            this.btnUpdateEmployees.Click += new System.EventHandler(this.btnUpdateEmployees_Click);
-            // 
-            // btnCreateNewEmployee
-            // 
-            this.btnCreateNewEmployee.Location = new System.Drawing.Point(34, 74);
-            this.btnCreateNewEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCreateNewEmployee.Name = "btnCreateNewEmployee";
-            this.btnCreateNewEmployee.Size = new System.Drawing.Size(168, 31);
-            this.btnCreateNewEmployee.TabIndex = 1;
-            this.btnCreateNewEmployee.Text = "Create New Employee";
-            this.btnCreateNewEmployee.UseVisualStyleBackColor = true;
-            this.btnCreateNewEmployee.Click += new System.EventHandler(this.btnCreateNewEmployee_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lbxEmployees);
-            this.groupBox1.Controls.Add(this.rbnDepotEmployees);
-            this.groupBox1.Controls.Add(this.rbnAllEmployees);
-            this.groupBox1.Location = new System.Drawing.Point(5, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(872, 467);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "View Employees";
-            // 
-            // lbxEmployees
-            // 
-            this.lbxEmployees.FormattingEnabled = true;
-            this.lbxEmployees.ItemHeight = 15;
-            this.lbxEmployees.Location = new System.Drawing.Point(17, 58);
-            this.lbxEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbxEmployees.Name = "lbxEmployees";
-            this.lbxEmployees.Size = new System.Drawing.Size(850, 394);
-            this.lbxEmployees.TabIndex = 4;
-            this.lbxEmployees.SelectedIndexChanged += new System.EventHandler(this.lbxEmployees_SelectedIndexChanged);
-            // 
-            // rbnDepotEmployees
-            // 
-            this.rbnDepotEmployees.AutoSize = true;
-            this.rbnDepotEmployees.Checked = true;
-            this.rbnDepotEmployees.Location = new System.Drawing.Point(144, 28);
-            this.rbnDepotEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbnDepotEmployees.Name = "rbnDepotEmployees";
-            this.rbnDepotEmployees.Size = new System.Drawing.Size(117, 19);
-            this.rbnDepotEmployees.TabIndex = 2;
-            this.rbnDepotEmployees.TabStop = true;
-            this.rbnDepotEmployees.Text = "Depot employees";
-            this.rbnDepotEmployees.UseVisualStyleBackColor = true;
-            // 
-            // rbnAllEmployees
-            // 
-            this.rbnAllEmployees.AutoSize = true;
-            this.rbnAllEmployees.Location = new System.Drawing.Point(17, 27);
-            this.rbnAllEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbnAllEmployees.Name = "rbnAllEmployees";
-            this.rbnAllEmployees.Size = new System.Drawing.Size(99, 19);
-            this.rbnAllEmployees.TabIndex = 0;
-            this.rbnAllEmployees.Text = "All employees";
-            this.rbnAllEmployees.UseVisualStyleBackColor = true;
             // 
             // tpSchedule
             // 
@@ -481,7 +325,6 @@ namespace MediaBazaar
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpSchedule);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
@@ -1324,7 +1167,7 @@ namespace MediaBazaar
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
-            // FormDepotManager
+            // DepotManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1333,13 +1176,8 @@ namespace MediaBazaar
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FormDepotManager";
+            this.Name = "DepotManager";
             this.Text = "FormDepotManager";
-            this.tabPage2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.tpSchedule.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -1360,17 +1198,6 @@ namespace MediaBazaar
 
         #endregion
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox tbxEmployeeID;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnDeleteEmployees;
-        private System.Windows.Forms.Button btnUpdateEmployees;
-        private System.Windows.Forms.Button btnReadEmployees;
-        private System.Windows.Forms.Button btnCreateNewEmployee;
-        private System.Windows.Forms.ListBox lbxEmployees;
-        private System.Windows.Forms.RadioButton rbnDepotEmployees;
-        private System.Windows.Forms.RadioButton rbnAllEmployees;
         private System.Windows.Forms.TabPage tpSchedule;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage3;
@@ -1444,7 +1271,6 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox lbScheduleDepartment;
         private System.Windows.Forms.TextBox lbScheduleID;
         private System.Windows.Forms.ListBox lbSchedule;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.ListBox lbEmployee;
