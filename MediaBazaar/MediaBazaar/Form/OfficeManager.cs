@@ -23,6 +23,7 @@ namespace MediaBazaar
 
             ViewAllEmployees();
             ViewAllDepartments();
+            ViewCompany();
         }
 
         private void lbxEmployees_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,11 +170,15 @@ namespace MediaBazaar
             dgvDepartments.DataSource = store.departmentManagment.Departments;
         }
 
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             ViewAllDepartments();
             ViewAllEmployees();
+        }
+
+        private void ViewCompany()
+        {
+            store.
         }
     }
 }
