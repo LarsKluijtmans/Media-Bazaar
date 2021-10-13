@@ -10,22 +10,22 @@
     <Compile Update="Form\FormDepotManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\FormEditEmployeeData.cs">
+    <Compile Update="Form\OhterForms\FormEditEmployeeData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\FormLogin.cs">
+    <Compile Update="Form\OhterForms\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\FormNewEmployee.cs">
+    <Compile Update="Form\OhterForms\FormNewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="NotNeededAnymore\FormOfficeEmployee.cs">
+    <Compile Update="Form\FormOfficeEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\FormOfficeManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\FormRemoveEmployee.cs">
+    <Compile Update="Form\OhterForms\FormRemoveEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\FormSalesEmployee.cs">
