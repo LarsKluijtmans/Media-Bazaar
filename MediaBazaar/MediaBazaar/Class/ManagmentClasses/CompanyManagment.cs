@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 namespace MediaBazaar.Class.ManagmentClasses
 {
-    class CompanyManagment
+   public class CompanyManagment
     {
         public Company company;
         public static string GET_COMPANY = " SELECT Employee.EmployeeID, CompanyName, company.Address, company.Email, KVK, btw, company.PhoneNumber FROM `EMPLOYEE` INNER JOIN contract ON employee.EmployeeID = contract.EmployeeID INNER JOIN  jobs ON jobs.JobTitle = contract.JodTitle INNER JOIN departments ON departments.DepartmentID = jobs.DepartmentID INNER JOIN company ON company.ComapnyID = departments.CompanyID HAVING employee.EmployeeID = @EmployeeID;";

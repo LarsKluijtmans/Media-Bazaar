@@ -47,9 +47,9 @@ namespace MediaBazaar
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gbCompanyInfo = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbAdress = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbCompanyName = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -64,12 +64,13 @@ namespace MediaBazaar
             this.btnAddDepartment = new System.Windows.Forms.Button();
             this.btnEditDepartment = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbPhoneNumber = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbKVK = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbBTW = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -271,15 +272,15 @@ namespace MediaBazaar
             // gbCompanyInfo
             // 
             this.gbCompanyInfo.Controls.Add(this.label8);
-            this.gbCompanyInfo.Controls.Add(this.textBox5);
+            this.gbCompanyInfo.Controls.Add(this.tbBTW);
             this.gbCompanyInfo.Controls.Add(this.label7);
-            this.gbCompanyInfo.Controls.Add(this.textBox4);
+            this.gbCompanyInfo.Controls.Add(this.tbKVK);
             this.gbCompanyInfo.Controls.Add(this.label6);
-            this.gbCompanyInfo.Controls.Add(this.textBox3);
+            this.gbCompanyInfo.Controls.Add(this.tbPhoneNumber);
             this.gbCompanyInfo.Controls.Add(this.label3);
-            this.gbCompanyInfo.Controls.Add(this.textBox2);
+            this.gbCompanyInfo.Controls.Add(this.tbEmail);
             this.gbCompanyInfo.Controls.Add(this.label2);
-            this.gbCompanyInfo.Controls.Add(this.textBox1);
+            this.gbCompanyInfo.Controls.Add(this.tbAdress);
             this.gbCompanyInfo.Controls.Add(this.label1);
             this.gbCompanyInfo.Controls.Add(this.tbCompanyName);
             this.gbCompanyInfo.Location = new System.Drawing.Point(23, 19);
@@ -299,13 +300,13 @@ namespace MediaBazaar
             this.label3.TabIndex = 5;
             this.label3.Text = "KVK:";
             // 
-            // textBox2
+            // tbEmail
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(222, 176);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(326, 33);
-            this.textBox2.TabIndex = 4;
+            this.tbEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbEmail.Location = new System.Drawing.Point(222, 176);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(326, 33);
+            this.tbEmail.TabIndex = 4;
             // 
             // label2
             // 
@@ -317,13 +318,13 @@ namespace MediaBazaar
             this.label2.TabIndex = 3;
             this.label2.Text = "Email:";
             // 
-            // textBox1
+            // tbAdress
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(222, 112);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(326, 33);
-            this.textBox1.TabIndex = 2;
+            this.tbAdress.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbAdress.Location = new System.Drawing.Point(222, 112);
+            this.tbAdress.Name = "tbAdress";
+            this.tbAdress.Size = new System.Drawing.Size(326, 33);
+            this.tbAdress.TabIndex = 2;
             // 
             // label1
             // 
@@ -469,13 +470,13 @@ namespace MediaBazaar
             this.label6.TabIndex = 7;
             this.label6.Text = "PhoneNumber:";
             // 
-            // textBox3
+            // tbPhoneNumber
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(222, 237);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(326, 33);
-            this.textBox3.TabIndex = 6;
+            this.tbPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbPhoneNumber.Location = new System.Drawing.Point(222, 237);
+            this.tbPhoneNumber.Name = "tbPhoneNumber";
+            this.tbPhoneNumber.Size = new System.Drawing.Size(326, 33);
+            this.tbPhoneNumber.TabIndex = 6;
             // 
             // label7
             // 
@@ -487,13 +488,13 @@ namespace MediaBazaar
             this.label7.TabIndex = 9;
             this.label7.Text = "Adress:";
             // 
-            // textBox4
+            // tbKVK
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(222, 303);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(326, 33);
-            this.textBox4.TabIndex = 8;
+            this.tbKVK.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbKVK.Location = new System.Drawing.Point(222, 303);
+            this.tbKVK.Name = "tbKVK";
+            this.tbKVK.Size = new System.Drawing.Size(326, 33);
+            this.tbKVK.TabIndex = 8;
             // 
             // label8
             // 
@@ -505,13 +506,13 @@ namespace MediaBazaar
             this.label8.TabIndex = 11;
             this.label8.Text = "BTW:";
             // 
-            // textBox5
+            // tbBTW
             // 
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.Location = new System.Drawing.Point(222, 365);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(326, 33);
-            this.textBox5.TabIndex = 10;
+            this.tbBTW.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBTW.Location = new System.Drawing.Point(222, 365);
+            this.tbBTW.Name = "tbBTW";
+            this.tbBTW.Size = new System.Drawing.Size(326, 33);
+            this.tbBTW.TabIndex = 10;
             // 
             // button1
             // 
@@ -522,6 +523,14 @@ namespace MediaBazaar
             this.button1.TabIndex = 3;
             this.button1.Text = "Save Changes";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Location = new System.Drawing.Point(222, 237);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(326, 33);
+            this.textBox3.TabIndex = 6;
             // 
             // OfficeManager
             // 
@@ -574,9 +583,9 @@ namespace MediaBazaar
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox gbCompanyInfo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbAdress;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbCompanyName;
         private System.Windows.Forms.TabPage tabPage3;
@@ -589,11 +598,14 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnAddDepartment;
         private System.Windows.Forms.TextBox tbDepartmentName;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tb;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbPhoneNumber;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbKVK;
+        private System.Windows.Forms.TextBox tbBTW;
     }
 }

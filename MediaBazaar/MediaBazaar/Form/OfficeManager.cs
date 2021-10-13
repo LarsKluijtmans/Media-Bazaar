@@ -178,7 +178,13 @@ namespace MediaBazaar
 
         private void ViewCompany()
         {
-            store.
+            store.companyManagment.GetCompany(ID);
+            tbCompanyName.Text = store.companyManagment.company.CompanyName;
+            tbAdress.Text = store.companyManagment.company.Address;
+            tbBTW.Text = store.companyManagment.company.Btw;
+            tbEmail.Text = store.companyManagment.company.Email;
+            tbPhoneNumber.Text = store.companyManagment.company.PhoneNumber;
+            tbKVK.Text = store.companyManagment.company.KVK;
         }
     }
 }
