@@ -29,7 +29,7 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Comapny = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnRemoveEmployee = new System.Windows.Forms.Button();
@@ -39,28 +39,63 @@ namespace MediaBazaar
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.btnCreateEmployee = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbnSalesEmployees = new System.Windows.Forms.RadioButton();
+            this.rbnDepotEmployees = new System.Windows.Forms.RadioButton();
             this.lbxEmployees = new System.Windows.Forms.ListBox();
             this.rbnOfficeEmployees = new System.Windows.Forms.RadioButton();
             this.rbnAllEmployees = new System.Windows.Forms.RadioButton();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnEditCompany = new System.Windows.Forms.Button();
+            this.gbCompanyInfo = new System.Windows.Forms.GroupBox();
+            this.tbID = new System.Windows.Forms.TextBox();
+            this.labCompanyID = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbBTW = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbKVK = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbPhoneNumber = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbAdress = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbCompanyName = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgvDepartments = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnEditDepartment = new System.Windows.Forms.Button();
+            this.btnAddDepartment = new System.Windows.Forms.Button();
+            this.tbDepartmentName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbHeadDepartments = new System.Windows.Forms.ComboBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
-            this.rbnDepotEmployees = new System.Windows.Forms.RadioButton();
-            this.rbnSalesEmployees = new System.Windows.Forms.RadioButton();
-            this.tabControl1.SuspendLayout();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.labDepartmentID = new System.Windows.Forms.Label();
+            this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.gbCompanyInfo.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // Comapny
             // 
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(11, 20);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1131, 526);
-            this.tabControl1.TabIndex = 0;
+            this.Comapny.Controls.Add(this.tabPage2);
+            this.Comapny.Controls.Add(this.tabPage1);
+            this.Comapny.Controls.Add(this.tabPage3);
+            this.Comapny.Location = new System.Drawing.Point(11, 20);
+            this.Comapny.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Comapny.Name = "Comapny";
+            this.Comapny.SelectedIndex = 0;
+            this.Comapny.Size = new System.Drawing.Size(1131, 526);
+            this.Comapny.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -170,6 +205,26 @@ namespace MediaBazaar
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Employees";
             // 
+            // rbnSalesEmployees
+            // 
+            this.rbnSalesEmployees.AutoSize = true;
+            this.rbnSalesEmployees.Location = new System.Drawing.Point(368, 26);
+            this.rbnSalesEmployees.Name = "rbnSalesEmployees";
+            this.rbnSalesEmployees.Size = new System.Drawing.Size(111, 19);
+            this.rbnSalesEmployees.TabIndex = 6;
+            this.rbnSalesEmployees.Text = "Sales Employees";
+            this.rbnSalesEmployees.UseVisualStyleBackColor = true;
+            // 
+            // rbnDepotEmployees
+            // 
+            this.rbnDepotEmployees.AutoSize = true;
+            this.rbnDepotEmployees.Location = new System.Drawing.Point(245, 26);
+            this.rbnDepotEmployees.Name = "rbnDepotEmployees";
+            this.rbnDepotEmployees.Size = new System.Drawing.Size(117, 19);
+            this.rbnDepotEmployees.TabIndex = 5;
+            this.rbnDepotEmployees.Text = "Depot Employees";
+            this.rbnDepotEmployees.UseVisualStyleBackColor = true;
+            // 
             // lbxEmployees
             // 
             this.lbxEmployees.FormattingEnabled = true;
@@ -205,6 +260,276 @@ namespace MediaBazaar
             this.rbnAllEmployees.Text = "All employees";
             this.rbnAllEmployees.UseVisualStyleBackColor = true;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.btnEditCompany);
+            this.tabPage1.Controls.Add(this.gbCompanyInfo);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1123, 498);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Company";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnEditCompany
+            // 
+            this.btnEditCompany.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEditCompany.Location = new System.Drawing.Point(707, 363);
+            this.btnEditCompany.Name = "btnEditCompany";
+            this.btnEditCompany.Size = new System.Drawing.Size(308, 89);
+            this.btnEditCompany.TabIndex = 3;
+            this.btnEditCompany.Text = "Save Changes";
+            this.btnEditCompany.UseVisualStyleBackColor = true;
+            this.btnEditCompany.Click += new System.EventHandler(this.btnEditCompany_Click);
+            // 
+            // gbCompanyInfo
+            // 
+            this.gbCompanyInfo.Controls.Add(this.tbID);
+            this.gbCompanyInfo.Controls.Add(this.labCompanyID);
+            this.gbCompanyInfo.Controls.Add(this.label8);
+            this.gbCompanyInfo.Controls.Add(this.tbBTW);
+            this.gbCompanyInfo.Controls.Add(this.label7);
+            this.gbCompanyInfo.Controls.Add(this.tbKVK);
+            this.gbCompanyInfo.Controls.Add(this.label6);
+            this.gbCompanyInfo.Controls.Add(this.tbPhoneNumber);
+            this.gbCompanyInfo.Controls.Add(this.label3);
+            this.gbCompanyInfo.Controls.Add(this.tbEmail);
+            this.gbCompanyInfo.Controls.Add(this.label2);
+            this.gbCompanyInfo.Controls.Add(this.tbAdress);
+            this.gbCompanyInfo.Controls.Add(this.label1);
+            this.gbCompanyInfo.Controls.Add(this.tbCompanyName);
+            this.gbCompanyInfo.Location = new System.Drawing.Point(23, 17);
+            this.gbCompanyInfo.Name = "gbCompanyInfo";
+            this.gbCompanyInfo.Size = new System.Drawing.Size(629, 462);
+            this.gbCompanyInfo.TabIndex = 2;
+            this.gbCompanyInfo.TabStop = false;
+            this.gbCompanyInfo.Text = "Company info";
+            // 
+            // tbID
+            // 
+            this.tbID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbID.Location = new System.Drawing.Point(225, 32);
+            this.tbID.Name = "tbID";
+            this.tbID.ReadOnly = true;
+            this.tbID.Size = new System.Drawing.Size(326, 33);
+            this.tbID.TabIndex = 14;
+            // 
+            // labCompanyID
+            // 
+            this.labCompanyID.AutoSize = true;
+            this.labCompanyID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labCompanyID.Location = new System.Drawing.Point(85, 35);
+            this.labCompanyID.Name = "labCompanyID";
+            this.labCompanyID.Size = new System.Drawing.Size(119, 25);
+            this.labCompanyID.TabIndex = 13;
+            this.labCompanyID.Text = "CompanyID: ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(150, 401);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 25);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "BTW:";
+            // 
+            // tbBTW
+            // 
+            this.tbBTW.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBTW.Location = new System.Drawing.Point(225, 398);
+            this.tbBTW.Name = "tbBTW";
+            this.tbBTW.Size = new System.Drawing.Size(326, 33);
+            this.tbBTW.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(132, 148);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 25);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Adress:";
+            // 
+            // tbKVK
+            // 
+            this.tbKVK.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbKVK.Location = new System.Drawing.Point(225, 336);
+            this.tbKVK.Name = "tbKVK";
+            this.tbKVK.Size = new System.Drawing.Size(326, 33);
+            this.tbKVK.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(65, 273);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(139, 25);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "PhoneNumber:";
+            // 
+            // tbPhoneNumber
+            // 
+            this.tbPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbPhoneNumber.Location = new System.Drawing.Point(225, 270);
+            this.tbPhoneNumber.Name = "tbPhoneNumber";
+            this.tbPhoneNumber.Size = new System.Drawing.Size(326, 33);
+            this.tbPhoneNumber.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(154, 339);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 25);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "KVK:";
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbEmail.Location = new System.Drawing.Point(225, 209);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(326, 33);
+            this.tbEmail.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(142, 212);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 25);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Email:";
+            // 
+            // tbAdress
+            // 
+            this.tbAdress.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbAdress.Location = new System.Drawing.Point(225, 145);
+            this.tbAdress.Name = "tbAdress";
+            this.tbAdress.Size = new System.Drawing.Size(326, 33);
+            this.tbAdress.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(53, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Company Name:";
+            // 
+            // tbCompanyName
+            // 
+            this.tbCompanyName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbCompanyName.Location = new System.Drawing.Point(225, 82);
+            this.tbCompanyName.Name = "tbCompanyName";
+            this.tbCompanyName.Size = new System.Drawing.Size(326, 33);
+            this.tbCompanyName.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dgvDepartments);
+            this.tabPage3.Controls.Add(this.groupBox2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1123, 498);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Deprtments";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dgvDepartments
+            // 
+            this.dgvDepartments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDepartments.Location = new System.Drawing.Point(37, 27);
+            this.dgvDepartments.Name = "dgvDepartments";
+            this.dgvDepartments.RowTemplate.Height = 25;
+            this.dgvDepartments.Size = new System.Drawing.Size(421, 444);
+            this.dgvDepartments.TabIndex = 2;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.labDepartmentID);
+            this.groupBox2.Controls.Add(this.btnEditDepartment);
+            this.groupBox2.Controls.Add(this.btnAddDepartment);
+            this.groupBox2.Controls.Add(this.tbDepartmentName);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.cbHeadDepartments);
+            this.groupBox2.Location = new System.Drawing.Point(483, 27);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(618, 444);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // btnEditDepartment
+            // 
+            this.btnEditDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEditDepartment.Location = new System.Drawing.Point(141, 359);
+            this.btnEditDepartment.Name = "btnEditDepartment";
+            this.btnEditDepartment.Size = new System.Drawing.Size(361, 42);
+            this.btnEditDepartment.TabIndex = 5;
+            this.btnEditDepartment.Text = "Edit Department";
+            this.btnEditDepartment.UseVisualStyleBackColor = true;
+            this.btnEditDepartment.Click += new System.EventHandler(this.btnEditDepartment_Click);
+            // 
+            // btnAddDepartment
+            // 
+            this.btnAddDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddDepartment.Location = new System.Drawing.Point(141, 288);
+            this.btnAddDepartment.Name = "btnAddDepartment";
+            this.btnAddDepartment.Size = new System.Drawing.Size(361, 42);
+            this.btnAddDepartment.TabIndex = 4;
+            this.btnAddDepartment.Text = "Add Department";
+            this.btnAddDepartment.UseVisualStyleBackColor = true;
+            this.btnAddDepartment.Click += new System.EventHandler(this.btnAddDepartment_Click);
+            // 
+            // tbDepartmentName
+            // 
+            this.tbDepartmentName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbDepartmentName.Location = new System.Drawing.Point(247, 73);
+            this.tbDepartmentName.Name = "tbDepartmentName";
+            this.tbDepartmentName.Size = new System.Drawing.Size(340, 33);
+            this.tbDepartmentName.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(150, 76);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 25);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Name:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(56, 155);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(160, 25);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "HeadDepartment:";
+            // 
+            // cbHeadDepartments
+            // 
+            this.cbHeadDepartments.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbHeadDepartments.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbHeadDepartments.FormattingEnabled = true;
+            this.cbHeadDepartments.Location = new System.Drawing.Point(247, 152);
+            this.cbHeadDepartments.Name = "cbHeadDepartments";
+            this.cbHeadDepartments.Size = new System.Drawing.Size(340, 33);
+            this.cbHeadDepartments.TabIndex = 0;
+            // 
             // btnLogout
             // 
             this.btnLogout.Location = new System.Drawing.Point(971, 6);
@@ -226,27 +551,24 @@ namespace MediaBazaar
             this.btnCheck.TabIndex = 21;
             this.btnCheck.Text = "Check In";
             this.btnCheck.UseVisualStyleBackColor = true;
-            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
-            // rbnDepotEmployees
+            // textBox3
             // 
-            this.rbnDepotEmployees.AutoSize = true;
-            this.rbnDepotEmployees.Location = new System.Drawing.Point(245, 26);
-            this.rbnDepotEmployees.Name = "rbnDepotEmployees";
-            this.rbnDepotEmployees.Size = new System.Drawing.Size(117, 19);
-            this.rbnDepotEmployees.TabIndex = 5;
-            this.rbnDepotEmployees.Text = "Depot Employees";
-            this.rbnDepotEmployees.UseVisualStyleBackColor = true;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Location = new System.Drawing.Point(222, 237);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(326, 33);
+            this.textBox3.TabIndex = 6;
             // 
-            // rbnSalesEmployees
+            // labDepartmentID
             // 
-            this.rbnSalesEmployees.AutoSize = true;
-            this.rbnSalesEmployees.Location = new System.Drawing.Point(368, 26);
-            this.rbnSalesEmployees.Name = "rbnSalesEmployees";
-            this.rbnSalesEmployees.Size = new System.Drawing.Size(111, 19);
-            this.rbnSalesEmployees.TabIndex = 6;
-            this.rbnSalesEmployees.Text = "Sales Employees";
-            this.rbnSalesEmployees.UseVisualStyleBackColor = true;
+            this.labDepartmentID.AutoSize = true;
+            this.labDepartmentID.Location = new System.Drawing.Point(40, 29);
+            this.labDepartmentID.Name = "labDepartmentID";
+            this.labDepartmentID.Size = new System.Drawing.Size(81, 15);
+            this.labDepartmentID.TabIndex = 6;
+            this.labDepartmentID.Text = "DepartmentID";
+            this.labDepartmentID.Visible = false;
             // 
             // OfficeManager
             // 
@@ -255,23 +577,30 @@ namespace MediaBazaar
             this.ClientSize = new System.Drawing.Size(1154, 549);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.btnLogout);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.Comapny);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "OfficeManager";
             this.Text = "FormOfficeManager";
-            this.tabControl1.ResumeLayout(false);
+            this.Comapny.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.gbCompanyInfo.ResumeLayout(false);
+            this.gbCompanyInfo.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl Comapny;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -289,5 +618,35 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.RadioButton rbnSalesEmployees;
         private System.Windows.Forms.RadioButton rbnDepotEmployees;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox gbCompanyInfo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbAdress;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbCompanyName;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.DataGridView dgvDepartments;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cbHeadDepartments;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnEditDepartment;
+        private System.Windows.Forms.Button btnAddDepartment;
+        private System.Windows.Forms.TextBox tbDepartmentName;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tb;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbPhoneNumber;
+        private System.Windows.Forms.Button btnEditCompany;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbKVK;
+        private System.Windows.Forms.TextBox tbBTW;
+        private System.Windows.Forms.Label labCompanyID;
+        private System.Windows.Forms.TextBox tbID;
+        private System.Windows.Forms.Label labDepartmentID;
     }
 }

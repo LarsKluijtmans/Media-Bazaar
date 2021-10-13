@@ -15,12 +15,6 @@ namespace MediaBazaar.Class
 
         public static string CLEAR_PLAN = "DELETE FROM schduledwork;";
 
-        // employees
-        
-
-        // contract
-        
-
         //check
         public static string CREATE_CHECKIN = "INSERT INTO ATENDANCE(EmployeeID, CheckInTime, CheckOutTime, CheckDate) VALUES(@ID, @CheckInTime, @CheckOutTime, @CheckDate)";
         public static string CREATE_CHECKOUT = "UPDATE ATENDANCE SET CheckOutTime = @CheckOutTime WHERE CheckDate = @CheckDate && EmployeeID = @ID;";

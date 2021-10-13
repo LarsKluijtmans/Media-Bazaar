@@ -1,7 +1,6 @@
 ﻿using MediaBazaar.Class;
 using MySql.Data.MySqlClient;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace MediaBazaar
@@ -15,11 +14,17 @@ namespace MediaBazaar
             InitializeComponent();
             ID = UserID;
             store = s;
+            cbHeadDepartments.Text = "Sales";
+            cbHeadDepartments.Items.Add("Sales");
+            cbHeadDepartments.Items.Add("Depot");
+            cbHeadDepartments.Items.Add("Office");
+            cbHeadDepartments.Items.Add("Other");
 
             ViewAllEmployees();
-
-
+            ViewAllDepartments();
+            ViewCompany();
         }
+
         private void lbxEmployees_SelectedIndexChanged(object sender, EventArgs e)
         {
             Person tempPerson = GetTempEmployee();
@@ -52,13 +57,14 @@ namespace MediaBazaar
 
             return tempPerson;
         }
+
         public void ViewAllEmployees()
         {
             lbxEmployees.Items.Clear();
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = Utils.GET_ALL_EMPLOYEES;
+            string sql = "Utils.GET_ALL_EMPLOYEES";
 
 
             try
@@ -122,7 +128,7 @@ namespace MediaBazaar
             string active = "0";
 
             MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.REMOVE_EMPLOYEE_BY_ID;
+            string sql = "Utils.REMOVE_EMPLOYEE_BY_ID";
 
             try
             {
@@ -148,74 +154,156 @@ namespace MediaBazaar
             ViewAllEmployees();
         }
 
+
+        //Login
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnCheck_Click(object sender, EventArgs e)
+        //Departments
+        public void ViewAllDepartments()
         {
-            if (btnCheck.Text == "Check In")
-            {
-                var date = DateTime.Now;
-                MySqlConnection conn = Utils.GetConnection();
-                string sql = Utils.CREATE_CHECKIN;
-                try
-                {
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@ID", ID.ToString());
-                    cmd.Parameters.AddWithValue("@CheckInTime", date.ToString("HH:mm:ss"));
-                    cmd.Parameters.AddWithValue("@CheckOutTime", null);
-                    cmd.Parameters.AddWithValue("@CheckDate", date.ToString("yyyy-MM-dd"));
+            store.departmentManagment.ViewAllDepartments();
 
-                    conn.Open();
-                    int n = cmd.ExecuteNonQuery();
-                }
-                catch (MySqlException msqEx)
-                {
-                    MessageBox.Show(msqEx.Message);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Something went wrong");
-                }
-                finally
-                {
-                    conn.Close();
-                    btnCheck.Text = "Check Out";
-                    MessageBox.Show("Check in successful");
-                }
-            }
-            else if (btnCheck.Text == "Check Out")
-            {
-                var date = DateTime.Now;
-                MySqlConnection conn = Utils.GetConnection();
-                string sql = Utils.CREATE_CHECKOUT;
-                try
-                {
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@ID", ID.ToString());
-                    cmd.Parameters.AddWithValue("@CheckOutTime", date.ToString("HH:mm:ss"));
-                    cmd.Parameters.AddWithValue("@CheckDate", date.ToString("yyyy-MM-dd"));
+            dgvDepartments.DataSource = store.departmentManagment.Departments;
+        }
 
-                    conn.Open();
-                    int n = cmd.ExecuteNonQuery();
-                }
-                catch (MySqlException msqEx)
-                {
-                    MessageBox.Show(msqEx.Message);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Something went wrong");
-                }
-                finally
-                {
-                    conn.Close();
-                    btnCheck.Text = "Check In";
-                    MessageBox.Show("Check out successful");
-                }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ViewAllDepartments();
+            ViewAllEmployees();
+        }
+
+        //Selected index
+
+        private void btnAddDepartment_Click(object sender, EventArgs e)
+        {
+            string Name = tbDepartmentName.Text;
+            if (string.IsNullOrEmpty(Name))
+            {
+                MessageBox.Show("'Department name' field is required.");
+                return;
             }
+
+            string Head = cbHeadDepartments.Text;
+            if (string.IsNullOrEmpty(Head))
+            {
+                MessageBox.Show("'Head Department' field is required.");
+                return;
+            }
+
+            string CompanyID = tbID.Text;
+            if (string.IsNullOrEmpty(CompanyID))
+            {
+                MessageBox.Show("Error please restart the aplication");
+                return;
+            }
+
+            store.departmentManagment.AddDepartment(Name, Head, CompanyID);
+        }//Refrech datagridView
+
+        private void btnEditDepartment_Click(object sender, EventArgs e)
+        {
+            string Name = tbDepartmentName.Text;
+            if (string.IsNullOrEmpty(Name))
+            {
+                MessageBox.Show("'Department name' field is required.");
+                return;
+            }
+
+            string Head = cbHeadDepartments.Text;
+            if (string.IsNullOrEmpty(Head))
+            {
+                MessageBox.Show("'Head Department' field is required.");
+                return;
+            }
+
+            string DepartmentID = labDepartmentID.Text;
+            if (string.IsNullOrEmpty(DepartmentID))
+            {
+                MessageBox.Show("Make sure to select a department you want to edit");
+                return;
+            }
+
+            if (Convert.ToInt32(DepartmentID) == 1 || Convert.ToInt32(DepartmentID) == 2 || Convert.ToInt32(DepartmentID) == 3 || Convert.ToInt32(DepartmentID) == 4) 
+            {
+                MessageBox.Show("You can't edit the head Departments");
+                return;
+            }
+
+            store.departmentManagment.EditDepartment(Name, Head, DepartmentID.ToString());
+        }
+
+
+        //Company
+
+        private void ViewCompany()
+        {
+            store.companyManagment.GetCompany(ID);
+
+            tbCompanyName.Text = store.companyManagment.company.CompanyName;
+            tbAdress.Text = store.companyManagment.company.Address;
+            tbBTW.Text = store.companyManagment.company.Btw;
+            tbEmail.Text = store.companyManagment.company.Email;
+            tbPhoneNumber.Text = store.companyManagment.company.PhoneNumber;
+            tbKVK.Text = store.companyManagment.company.KVK;
+            tbID.Text = store.companyManagment.company.CompanyID;
+        }
+
+        private void btnEditCompany_Click(object sender, EventArgs e)
+        {
+            string ID = tbID.Text;
+            if (string.IsNullOrEmpty(ID))
+            {
+                MessageBox.Show("'ID' field is required.");
+                return;
+            }
+
+            string Name = tbCompanyName.Text;
+            if (string.IsNullOrEmpty(Name))
+            {
+                MessageBox.Show("'name' field is required.");
+                return;
+            }
+
+            string Adress = tbAdress.Text;
+            if (string.IsNullOrEmpty(Adress))
+            {
+                MessageBox.Show("'Adress' field is required.");
+                return;
+            }
+
+            string BTW = tbBTW.Text;
+            if (string.IsNullOrEmpty(BTW))
+            {
+                MessageBox.Show("'BTW number' field is required.");
+                return;
+            }
+
+            string Email = tbEmail.Text;
+            if (string.IsNullOrEmpty(Email))
+            {
+                MessageBox.Show("'Email' field is required.");
+                return;
+            }
+
+            string PhoneNumber = tbPhoneNumber.Text;
+            if (string.IsNullOrEmpty(PhoneNumber))
+            {
+                MessageBox.Show("'PhoneNumber' field is required.");
+                return;
+            }
+
+            string KVK = tbKVK.Text;
+            if (string.IsNullOrEmpty(KVK))
+            {
+                MessageBox.Show("'KVK number' field is required.");
+                return;
+            }
+
+            store.companyManagment.EditCompany(Name, Adress, PhoneNumber, Email, BTW, KVK, ID);
         }
     }
 }

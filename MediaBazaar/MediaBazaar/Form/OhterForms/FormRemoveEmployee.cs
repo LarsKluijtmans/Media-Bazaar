@@ -33,7 +33,7 @@ namespace MediaBazaar
 
 
             MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.UPDATE_CONTRACT;
+            string sql = "Utils.UPDATE_CONTRACT";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
