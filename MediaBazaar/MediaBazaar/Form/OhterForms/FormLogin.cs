@@ -31,7 +31,7 @@ namespace MediaBazaar
 
             switch (store.loginManagment.checkLogin(ID, Password))
             {
-                case "CEO": DepotEmployee formDepotEmployee = new DepotEmployee(Convert.ToInt32(ID), store); Hide(); formDepotEmployee.Show(); break;
+                case "CEO": CEO ceo = new CEO(Convert.ToInt32(ID), store); Hide(); ceo.Show(); break;
                 case "ADMIN": Admin admin = new Admin(Convert.ToInt32(ID), store); Hide(); admin.Show(); break;
                 case "SALES MANAGER": SalesManager salesManager = new SalesManager(Convert.ToInt32(ID), store); Hide(); salesManager.Show(); break;
                 case "SALES REPRESENTATIVE": SalesRepresentative salesEmployee = new SalesRepresentative(Convert.ToInt32(ID), store); Hide(); salesEmployee.Show(); break;

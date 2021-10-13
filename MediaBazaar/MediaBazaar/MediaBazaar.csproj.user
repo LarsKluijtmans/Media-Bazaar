@@ -10,6 +10,9 @@
     <Compile Update="Form\DepotManager.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Form\OfficeManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form\OhterForms\FormEditEmployeeData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -19,22 +22,19 @@
     <Compile Update="Form\OhterForms\FormNewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\ProductManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Form\OfficeManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Form\OhterForms\FormRemoveEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\SalesRepresentative.cs">
+    <Compile Update="Form\OhterForms\FormViewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\ProductManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\SalesManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\OhterForms\FormViewEmployee.cs">
+    <Compile Update="Form\SalesRepresentative.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
