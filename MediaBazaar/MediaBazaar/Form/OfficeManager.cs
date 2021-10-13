@@ -1,7 +1,6 @@
 ﻿using MediaBazaar.Class;
 using MySql.Data.MySqlClient;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace MediaBazaar
@@ -176,6 +175,67 @@ namespace MediaBazaar
             ViewAllDepartments();
             ViewAllEmployees();
         }
+
+        //Selected index
+
+        private void btnAddDepartment_Click(object sender, EventArgs e)
+        {
+            string Name = tbDepartmentName.Text;
+            if (string.IsNullOrEmpty(Name))
+            {
+                MessageBox.Show("'Department name' field is required.");
+                return;
+            }
+
+            string Head = cbHeadDepartments.Text;
+            if (string.IsNullOrEmpty(Head))
+            {
+                MessageBox.Show("'Head Department' field is required.");
+                return;
+            }
+
+            string CompanyID = tbID.Text;
+            if (string.IsNullOrEmpty(CompanyID))
+            {
+                MessageBox.Show("Error please restart the aplication");
+                return;
+            }
+
+            store.departmentManagment.AddDepartment(Name, Head, CompanyID);
+        }//Refrech datagridView
+
+        private void btnEditDepartment_Click(object sender, EventArgs e)
+        {
+            string Name = tbDepartmentName.Text;
+            if (string.IsNullOrEmpty(Name))
+            {
+                MessageBox.Show("'Department name' field is required.");
+                return;
+            }
+
+            string Head = cbHeadDepartments.Text;
+            if (string.IsNullOrEmpty(Head))
+            {
+                MessageBox.Show("'Head Department' field is required.");
+                return;
+            }
+
+            string DepartmentID = labDepartmentID.Text;
+            if (string.IsNullOrEmpty(DepartmentID))
+            {
+                MessageBox.Show("Make sure to select a department you want to edit");
+                return;
+            }
+
+            if (Convert.ToInt32(DepartmentID) == 1 || Convert.ToInt32(DepartmentID) == 2 || Convert.ToInt32(DepartmentID) == 3 || Convert.ToInt32(DepartmentID) == 4) 
+            {
+                MessageBox.Show("You can't edit the head Departments");
+                return;
+            }
+
+            store.departmentManagment.EditDepartment(Name, Head, DepartmentID.ToString());
+        }
+
 
         //Company
 
