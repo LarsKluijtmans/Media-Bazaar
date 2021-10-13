@@ -3,6 +3,7 @@
     public class Company
     {
         //fields
+        private string companyID;
         private string companyName;
         private string address;
         private string email;
@@ -11,6 +12,11 @@
         private string phoneNumber;
 
         //properties
+        public string CompanyID
+        {
+            get { return companyID; }
+            set { companyID = value; }
+        }
         public string CompanyName
         {
             get { return companyName; }
@@ -44,8 +50,9 @@
 
 
         //constructor
-        public Company(string CompanyName, string Address, string Email, string KVK, string Btw, string PhoneNumber)
+        public Company(string CompanyName, string Address, string Email, string KVK, string Btw, string PhoneNumber,string CompanyID)
         {
+            companyID = CompanyID;
             companyName = CompanyName;
             address = Address;
             email = Email;

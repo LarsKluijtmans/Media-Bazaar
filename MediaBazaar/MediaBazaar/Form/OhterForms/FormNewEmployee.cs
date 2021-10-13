@@ -36,7 +36,7 @@ namespace MediaBazaar
             string dateOfBirth = tbxDateOfBirth.Text;
 
             MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.CREATE_EMPLOYEE;
+            string sql = "Utils.CREATE_EMPLOYEE";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -82,7 +82,7 @@ namespace MediaBazaar
             DateTime startDate = DateTime.Parse(tbxStartDate.Text);
 
             MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.CREATE_CONTRACT;
+            string sql = "";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);

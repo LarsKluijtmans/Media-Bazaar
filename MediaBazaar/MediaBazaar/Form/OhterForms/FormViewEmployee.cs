@@ -49,7 +49,7 @@ namespace MediaBazaar
             string phoneNumber = tbxPhoneNumber.Text;
 
             MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.UPDATE_EMPLOYEE;
+            string sql = "Utils.UPDATE_EMPLOYEE";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);

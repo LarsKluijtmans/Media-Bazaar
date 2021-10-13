@@ -64,7 +64,7 @@ namespace MediaBazaar
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = Utils.GET_ALL_EMPLOYEES;
+            string sql = "Utils.GET_ALL_EMPLOYEES";
 
 
             try
@@ -128,7 +128,7 @@ namespace MediaBazaar
             string active = "0";
 
             MySqlConnection conn = Utils.GetConnection();
-            string sql = Utils.REMOVE_EMPLOYEE_BY_ID;
+            string sql = "Utils.REMOVE_EMPLOYEE_BY_ID";
 
             try
             {
@@ -176,6 +176,8 @@ namespace MediaBazaar
             ViewAllEmployees();
         }
 
+        //Company
+
         private void ViewCompany()
         {
             store.companyManagment.GetCompany(ID);
@@ -185,6 +187,55 @@ namespace MediaBazaar
             tbEmail.Text = store.companyManagment.company.Email;
             tbPhoneNumber.Text = store.companyManagment.company.PhoneNumber;
             tbKVK.Text = store.companyManagment.company.KVK;
+
+            labCompanyID.Text += store.companyManagment.company.CompanyID;
+        }
+
+        private void btnEditCompany_Click(object sender, EventArgs e)
+        {
+            string Name = tbCompanyName.Text;
+            if (string.IsNullOrEmpty(Name))
+            {
+                MessageBox.Show("'name' field is required.");
+                return;
+            }
+
+            string Adress = tbAdress.Text;
+            if (string.IsNullOrEmpty(Adress))
+            {
+                MessageBox.Show("'Adress' field is required.");
+                return;
+            }
+
+            string BTW = tbBTW.Text;
+            if (string.IsNullOrEmpty(BTW))
+            {
+                MessageBox.Show("'BTW number' field is required.");
+                return;
+            }
+
+            string Email = tbEmail.Text;
+            if (string.IsNullOrEmpty(Email))
+            {
+                MessageBox.Show("'Email' field is required.");
+                return;
+            }
+
+            string PhoneNumber = tbPhoneNumber.Text;
+            if (string.IsNullOrEmpty(PhoneNumber))
+            {
+                MessageBox.Show("'PhoneNumber' field is required.");
+                return;
+            }
+
+            string KVK = tbKVK.Text;
+            if (string.IsNullOrEmpty(KVK))
+            {
+                MessageBox.Show("'KVK number' field is required.");
+                return;
+            }
+
+            store.companyManagment.EditCompany(Name, Adress, PhoneNumber, Email, BTW, KVK);
         }
     }
 }
