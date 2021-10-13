@@ -9,6 +9,7 @@ namespace MediaBazaar.Class
         public ScheduleManagment scheduleManagment;
         public PlaningManagment planingManagment;
         public LoginManagment loginManagment;
+        public DepartmentManagment departmentManagment;
         //public EmployeeManagment employeeManagment;
         //public ContractManagment contractManagment;
         //public check
@@ -21,6 +22,7 @@ namespace MediaBazaar.Class
             scheduleManagment = new ScheduleManagment();
             planingManagment = new PlaningManagment();
             loginManagment = new LoginManagment();
+            departmentManagment = new DepartmentManagment();
             //employeeManagment = new employeeManagment();
             //contractManagment = new contractManagment();
         }
