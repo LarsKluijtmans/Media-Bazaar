@@ -44,6 +44,8 @@ namespace MediaBazaar
             this.rbnAllEmployees = new System.Windows.Forms.RadioButton();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
+            this.rbnDepotEmployees = new System.Windows.Forms.RadioButton();
+            this.rbnSalesEmployees = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -148,12 +150,14 @@ namespace MediaBazaar
             this.btnCreateEmployee.Name = "btnCreateEmployee";
             this.btnCreateEmployee.Size = new System.Drawing.Size(168, 31);
             this.btnCreateEmployee.TabIndex = 1;
-            this.btnCreateEmployee.Text = "Create New Employee";
+            this.btnCreateEmployee.Text = "Add New Employee";
             this.btnCreateEmployee.UseVisualStyleBackColor = true;
             this.btnCreateEmployee.Click += new System.EventHandler(this.btnCreateEmployee_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rbnSalesEmployees);
+            this.groupBox1.Controls.Add(this.rbnDepotEmployees);
             this.groupBox1.Controls.Add(this.lbxEmployees);
             this.groupBox1.Controls.Add(this.rbnOfficeEmployees);
             this.groupBox1.Controls.Add(this.rbnAllEmployees);
@@ -180,33 +184,33 @@ namespace MediaBazaar
             // rbnOfficeEmployees
             // 
             this.rbnOfficeEmployees.AutoSize = true;
-            this.rbnOfficeEmployees.Checked = true;
-            this.rbnOfficeEmployees.Location = new System.Drawing.Point(145, 26);
+            this.rbnOfficeEmployees.Location = new System.Drawing.Point(122, 26);
             this.rbnOfficeEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbnOfficeEmployees.Name = "rbnOfficeEmployees";
             this.rbnOfficeEmployees.Size = new System.Drawing.Size(117, 19);
             this.rbnOfficeEmployees.TabIndex = 2;
-            this.rbnOfficeEmployees.TabStop = true;
             this.rbnOfficeEmployees.Text = "Office employees";
             this.rbnOfficeEmployees.UseVisualStyleBackColor = true;
             // 
             // rbnAllEmployees
             // 
             this.rbnAllEmployees.AutoSize = true;
+            this.rbnAllEmployees.Checked = true;
             this.rbnAllEmployees.Location = new System.Drawing.Point(17, 26);
             this.rbnAllEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbnAllEmployees.Name = "rbnAllEmployees";
             this.rbnAllEmployees.Size = new System.Drawing.Size(99, 19);
             this.rbnAllEmployees.TabIndex = 0;
+            this.rbnAllEmployees.TabStop = true;
             this.rbnAllEmployees.Text = "All employees";
             this.rbnAllEmployees.UseVisualStyleBackColor = true;
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(732, 10);
+            this.btnLogout.Location = new System.Drawing.Point(971, 6);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(82, 22);
+            this.btnLogout.Size = new System.Drawing.Size(82, 28);
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -215,7 +219,7 @@ namespace MediaBazaar
             // btnCheck
             // 
             this.btnCheck.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCheck.Location = new System.Drawing.Point(862, 4);
+            this.btnCheck.Location = new System.Drawing.Point(1059, 6);
             this.btnCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(79, 28);
@@ -224,7 +228,27 @@ namespace MediaBazaar
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
-            // FormOfficeManager
+            // rbnDepotEmployees
+            // 
+            this.rbnDepotEmployees.AutoSize = true;
+            this.rbnDepotEmployees.Location = new System.Drawing.Point(245, 26);
+            this.rbnDepotEmployees.Name = "rbnDepotEmployees";
+            this.rbnDepotEmployees.Size = new System.Drawing.Size(117, 19);
+            this.rbnDepotEmployees.TabIndex = 5;
+            this.rbnDepotEmployees.Text = "Depot Employees";
+            this.rbnDepotEmployees.UseVisualStyleBackColor = true;
+            // 
+            // rbnSalesEmployees
+            // 
+            this.rbnSalesEmployees.AutoSize = true;
+            this.rbnSalesEmployees.Location = new System.Drawing.Point(368, 26);
+            this.rbnSalesEmployees.Name = "rbnSalesEmployees";
+            this.rbnSalesEmployees.Size = new System.Drawing.Size(111, 19);
+            this.rbnSalesEmployees.TabIndex = 6;
+            this.rbnSalesEmployees.Text = "Sales Employees";
+            this.rbnSalesEmployees.UseVisualStyleBackColor = true;
+            // 
+            // OfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -233,7 +257,7 @@ namespace MediaBazaar
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FormOfficeManager";
+            this.Name = "OfficeManager";
             this.Text = "FormOfficeManager";
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -263,5 +287,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Windows.Forms.Button btnCreateEmployee;
         private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.RadioButton rbnSalesEmployees;
+        private System.Windows.Forms.RadioButton rbnDepotEmployees;
     }
 }
