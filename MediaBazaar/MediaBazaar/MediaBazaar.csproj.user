@@ -19,7 +19,7 @@
     <Compile Update="Form\FormNewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\FormOfficeEmployee.cs">
+    <Compile Update="NotNeededAnymore\FormOfficeEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\FormOfficeManager.cs">
