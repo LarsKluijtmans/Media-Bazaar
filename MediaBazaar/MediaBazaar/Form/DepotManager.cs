@@ -7,14 +7,14 @@ using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class FormDepotManager : Form
+    public partial class DepotManager : Form
     {
         int ID;
         Store store;
         private List<Product> productRequests;
         private List<Product> productRestock;
 
-        public FormDepotManager(int UserID, Store s)
+        public DepotManager(int UserID, Store s)
         {
             InitializeComponent();
 

@@ -1,7 +1,7 @@
 ﻿
 namespace MediaBazaar
 {
-    partial class FormSalesEmployee
+    partial class SalesRepresentative
     {
         /// <summary>
         /// Required designer variable.

@@ -1,7 +1,7 @@
 ﻿
 namespace MediaBazaar
 {
-    partial class FormOfficeManager
+    partial class OfficeManager
     {
         /// <summary>
         /// Required designer variable.

@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class FormSalesManager : Form
+    public partial class SalesManager : Form
     {
         int ID;
         Store store;
-        public FormSalesManager(int UserID, Store s)
+        public SalesManager(int UserID, Store s)
         {
             InitializeComponent();
             ID = UserID;

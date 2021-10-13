@@ -1,7 +1,7 @@
 ﻿
 namespace MediaBazaar
 {
-    partial class FormDepotManager
+    partial class DepotManager
     {
         /// <summary>
         /// Required designer variable.

@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class FormDepotEmployee : Form
+    public partial class DepotEmployee : Form
     {
         int ID;
         Store store;
 
-        public FormDepotEmployee(int UserID, Store s)
+        public DepotEmployee(int UserID, Store s)
         {
             InitializeComponent();
             ID = UserID;

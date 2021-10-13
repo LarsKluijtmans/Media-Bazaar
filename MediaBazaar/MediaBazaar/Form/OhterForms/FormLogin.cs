@@ -31,14 +31,15 @@ namespace MediaBazaar
 
             switch (store.loginManagment.checkLogin(ID, Password))
             {
-                case "OWNER": Form1 form1 = new Form1(Convert.ToInt32(ID), store); Hide(); form1.Show(); break;
-                case "SALES MANAGER": FormSalesManager formSalesManager = new FormSalesManager(Convert.ToInt32(ID), store); Hide(); formSalesManager.Show(); break;
-                case "SALES EMPLOYEE": FormSalesEmployee formSalesEmployee = new FormSalesEmployee(Convert.ToInt32(ID), store); Hide(); formSalesEmployee.Show(); break;
-                case "OFFICE MANAGER": FormOfficeManager formOfficeManager = new FormOfficeManager(Convert.ToInt32(ID), store); Hide(); formOfficeManager.Show(); break;
-                case "OFFICE EMPLOYEE": FormOfficeEmployee formOfficeEmployee = new FormOfficeEmployee(Convert.ToInt32(ID), store); Hide(); formOfficeEmployee.Show(); break;
-                case "DEPOT MANAGER": FormDepotManager formDepotManager = new FormDepotManager(Convert.ToInt32(ID), store); Hide(); formDepotManager.Show(); break;
-                case "DEPOT EMPLOYEE": FormDepotEmployee formDepotEmployee = new FormDepotEmployee(Convert.ToInt32(ID), store); Hide(); formDepotEmployee.Show(); break;
-                case "Wrong info!": MessageBox.Show(store.loginManagment.checkLogin(ID, Password)); break;
+                case "CEO": DepotEmployee formDepotEmployee = new DepotEmployee(Convert.ToInt32(ID), store); Hide(); formDepotEmployee.Show(); break;
+                case "ADMIN": Admin admin = new Admin(Convert.ToInt32(ID), store); Hide(); admin.Show(); break;
+                case "SALES MANAGER": SalesManager salesManager = new SalesManager(Convert.ToInt32(ID), store); Hide(); salesManager.Show(); break;
+                case "SALES REPRESENTATIVE": SalesRepresentative salesEmployee = new SalesRepresentative(Convert.ToInt32(ID), store); Hide(); salesEmployee.Show(); break;
+                case "OFFICE MANAGER": OfficeManager officeManager = new OfficeManager(Convert.ToInt32(ID), store); Hide(); officeManager.Show(); break;
+                case "PRODUCT MANAGER": ProductManager officeEmployee = new ProductManager(Convert.ToInt32(ID), store); Hide(); officeEmployee.Show(); break;
+                case "DEPOT MANAGER": DepotManager depotManager = new DepotManager(Convert.ToInt32(ID), store); Hide(); depotManager.Show(); break;
+                case "DEPOT EMPLOYEE": DepotEmployee depotEmployee = new DepotEmployee(Convert.ToInt32(ID), store); Hide(); depotEmployee.Show(); break;
+                case "Wrong info!": MessageBox.Show("Wrong info!"); break;
             }
         }
     }

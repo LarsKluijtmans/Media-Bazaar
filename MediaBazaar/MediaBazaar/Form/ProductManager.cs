@@ -1,36 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using MediaBazaar.Class;
+﻿using MediaBazaar.Class;
 using MySql.Data.MySqlClient;
+using System;
+using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class FormSalesEmployee : Form
+    public partial class ProductManager : Form
     {
         int ID;
         Store store;
-        public FormSalesEmployee(int UserID, Store s)
+
+        public ProductManager(int UserID, Store s)
         {
             InitializeComponent();
-            int ID = UserID;
+            ID = UserID;
             store = s;
-            ViewAllProducts();
-        }
-       
 
+        }
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            FormLogin login = new FormLogin();
+            login.Show();
             Close();
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            //FormEditEmployeeData editEmployeeData = new FormEditEmployeeData(s, em);
+            //iD
+
+            //FormEditEmployeeData editEmployeeData = new FormEditEmployeeData();
             //editEmployeeData.Show();
         }
 
@@ -44,14 +42,13 @@ namespace MediaBazaar
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@ID", 9.ToString());
+                    cmd.Parameters.AddWithValue("@ID", ID.ToString());
                     cmd.Parameters.AddWithValue("@CheckInTime", date.ToString("HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@CheckOutTime", null);
                     cmd.Parameters.AddWithValue("@CheckDate", date.ToString("yyyy-MM-dd"));
 
                     conn.Open();
                     int n = cmd.ExecuteNonQuery();
-                    MessageBox.Show(n.ToString());
                 }
                 catch (MySqlException msqEx)
                 {
@@ -76,11 +73,12 @@ namespace MediaBazaar
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", ID.ToString());
                     cmd.Parameters.AddWithValue("@CheckOutTime", date.ToString("HH:mm:ss"));
+                    cmd.Parameters.AddWithValue("@CheckDate", date.ToString("yyyy-MM-dd"));
 
                     conn.Open();
                     int n = cmd.ExecuteNonQuery();
-                    MessageBox.Show(n.ToString());
                 }
                 catch (MySqlException msqEx)
                 {
@@ -98,75 +96,13 @@ namespace MediaBazaar
                 }
             }
         }
-
-        //Product
-
-        public void ViewAllProducts()
-        {
-            store.productManagment.ViewAllProducts();
-
-            lstProduct.Items.Clear();
-            lstOverviewProduct.Items.Clear();
-
-            foreach (Product product in store.productManagment.products)
-            {
-                lstProduct.Items.Add(product);
-                lstOverviewProduct.Items.Add(product);
-            }
-        }
-
-        private void btnViewPorducts_Click(object sender, EventArgs e)
-        {
-            ViewAllProducts();
-        }
-
-        private void btnRequestReplenishment_Click(object sender, EventArgs e)
-        {
-
-            string ID = tbID.Text;
-            if (string.IsNullOrEmpty(ID))
-            {
-                MessageBox.Show("'ID' field is required.");
-                return;
-            }
-
-            string Amount = tbAmount.Text;
-            if (string.IsNullOrEmpty(Amount))
-            {
-                MessageBox.Show("'Amount' field is required.");
-                return;
-            }
-
-           store.reshelfManagment.RequestReshelf( ID, Amount);
-        }
-
-        private void lstProduct_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lstProduct.SelectedIndex < 0)
-            {
-                return;
-            }
-
-            Object ProductObject = lstProduct.SelectedItem;
-            if (!(ProductObject is Product))
-            {
-                return;
-            }
-
-            Product product = (Product)ProductObject;
-            tbID.Text = product.ProductID.ToString();
-            tbName.Text = product.Name;
-            tbBarcode.Text = product.Barcode;
-            lbProductType.Text = product.ProductType;
-            tbmountInStore.Text = product.AmountInStore.ToString();
-            tbAmountInDepot.Text = product.AmountInDepot.ToString();
-        }
-
         // availability
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string preferedWorkTime = PreferedWorkTime();
             string leastPreferedWorkTime = LeastPreferedWorkTime();
+
+            MessageBox.Show(preferedWorkTime);
 
           //  employee.SelectWorkTime(preferedWorkTime, leastPreferedWorkTime);
         }
