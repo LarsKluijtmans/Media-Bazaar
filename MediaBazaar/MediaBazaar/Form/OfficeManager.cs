@@ -58,6 +58,7 @@ namespace MediaBazaar
 
             return tempPerson;
         }
+
         public void ViewAllEmployees()
         {
             lbxEmployees.Items.Clear();
@@ -181,18 +182,25 @@ namespace MediaBazaar
         private void ViewCompany()
         {
             store.companyManagment.GetCompany(ID);
+
             tbCompanyName.Text = store.companyManagment.company.CompanyName;
             tbAdress.Text = store.companyManagment.company.Address;
             tbBTW.Text = store.companyManagment.company.Btw;
             tbEmail.Text = store.companyManagment.company.Email;
             tbPhoneNumber.Text = store.companyManagment.company.PhoneNumber;
             tbKVK.Text = store.companyManagment.company.KVK;
-
-            labCompanyID.Text += store.companyManagment.company.CompanyID;
+            tbID.Text = store.companyManagment.company.CompanyID;
         }
 
         private void btnEditCompany_Click(object sender, EventArgs e)
         {
+            string ID = tbID.Text;
+            if (string.IsNullOrEmpty(ID))
+            {
+                MessageBox.Show("'ID' field is required.");
+                return;
+            }
+
             string Name = tbCompanyName.Text;
             if (string.IsNullOrEmpty(Name))
             {
@@ -235,7 +243,7 @@ namespace MediaBazaar
                 return;
             }
 
-            store.companyManagment.EditCompany(Name, Adress, PhoneNumber, Email, BTW, KVK);
+            store.companyManagment.EditCompany(Name, Adress, PhoneNumber, Email, BTW, KVK, ID);
         }
     }
 }

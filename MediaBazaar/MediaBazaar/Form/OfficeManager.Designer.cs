@@ -47,7 +47,6 @@ namespace MediaBazaar
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnEditCompany = new System.Windows.Forms.Button();
             this.gbCompanyInfo = new System.Windows.Forms.GroupBox();
-            this.labCompanyID = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tbBTW = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -72,6 +71,8 @@ namespace MediaBazaar
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.labCompanyID = new System.Windows.Forms.Label();
+            this.tbID = new System.Windows.Forms.TextBox();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -283,6 +284,7 @@ namespace MediaBazaar
             // 
             // gbCompanyInfo
             // 
+            this.gbCompanyInfo.Controls.Add(this.tbID);
             this.gbCompanyInfo.Controls.Add(this.labCompanyID);
             this.gbCompanyInfo.Controls.Add(this.label8);
             this.gbCompanyInfo.Controls.Add(this.tbBTW);
@@ -302,16 +304,6 @@ namespace MediaBazaar
             this.gbCompanyInfo.TabIndex = 2;
             this.gbCompanyInfo.TabStop = false;
             this.gbCompanyInfo.Text = "Company info";
-            // 
-            // labCompanyID
-            // 
-            this.labCompanyID.AutoSize = true;
-            this.labCompanyID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labCompanyID.Location = new System.Drawing.Point(90, 31);
-            this.labCompanyID.Name = "labCompanyID";
-            this.labCompanyID.Size = new System.Drawing.Size(119, 25);
-            this.labCompanyID.TabIndex = 12;
-            this.labCompanyID.Text = "CompanyID: ";
             // 
             // label8
             // 
@@ -545,6 +537,25 @@ namespace MediaBazaar
             this.textBox3.Size = new System.Drawing.Size(326, 33);
             this.textBox3.TabIndex = 6;
             // 
+            // labCompanyID
+            // 
+            this.labCompanyID.AutoSize = true;
+            this.labCompanyID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labCompanyID.Location = new System.Drawing.Point(85, 35);
+            this.labCompanyID.Name = "labCompanyID";
+            this.labCompanyID.Size = new System.Drawing.Size(119, 25);
+            this.labCompanyID.TabIndex = 13;
+            this.labCompanyID.Text = "CompanyID: ";
+            // 
+            // tbID
+            // 
+            this.tbID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbID.Location = new System.Drawing.Point(225, 32);
+            this.tbID.Name = "tbID";
+            this.tbID.ReadOnly = true;
+            this.tbID.Size = new System.Drawing.Size(326, 33);
+            this.tbID.TabIndex = 14;
+            // 
             // OfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -621,5 +632,6 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox tbKVK;
         private System.Windows.Forms.TextBox tbBTW;
         private System.Windows.Forms.Label labCompanyID;
+        private System.Windows.Forms.TextBox tbID;
     }
 }
