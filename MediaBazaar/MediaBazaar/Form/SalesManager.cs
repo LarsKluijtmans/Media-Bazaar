@@ -86,17 +86,7 @@ namespace MediaBazaar
 
         public void ViewAllSchedule()
         {
-            store.scheduleManagment.ViewAllSchedule();
-
-            lbSchedule.Items.Clear();
-
-            foreach (Schedule schedule in store.scheduleManagment.schedules)
-            {
-                if (schedule.Department == "Sales")
-                {
-                    lbSchedule.Items.Add(schedule);
-                }
-            }
+            dgvSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule();
         }
 
         private void btViewSchedule_Click(object sender, EventArgs e)
@@ -139,28 +129,6 @@ namespace MediaBazaar
             ViewAllSchedule();
         }
 
-        private void lbSchedule_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lbSchedule.SelectedIndex < 0)
-            {
-                return;
-            }
-
-            Object scheduleObject = lbSchedule.SelectedItem;
-            if (!(scheduleObject is Schedule))
-            {
-                return;
-            }
-
-            Schedule schedule = (Schedule)scheduleObject;
-
-            lbScheduleID.Text = schedule.ID.ToString();
-            lbScheduleDepartment.Text = schedule.Department.ToString();
-            lbScheduleDay.Text = schedule.Day;
-            lbScheduleMorning.Text = schedule.MorningAmount.ToString();
-            lbScheduleAfternoon.Text = schedule.AfternoonAmount.ToString();
-            lbScheduleEvening.Text = schedule.EveningAmount.ToString();
-        }
 
         //Planing
 

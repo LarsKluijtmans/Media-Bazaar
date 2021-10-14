@@ -31,6 +31,7 @@ namespace MediaBazaar
         {
             this.btnLogout = new System.Windows.Forms.Button();
             this.tpSchedule = new System.Windows.Forms.TabPage();
+            this.dgvSchedule = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnEditschedule = new System.Windows.Forms.Button();
             this.btViewSchedule = new System.Windows.Forms.Button();
@@ -38,15 +39,10 @@ namespace MediaBazaar
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lbScheduleEvening = new System.Windows.Forms.TextBox();
             this.lbScheduleAfternoon = new System.Windows.Forms.TextBox();
             this.lbScheduleMorning = new System.Windows.Forms.TextBox();
             this.lbScheduleDay = new System.Windows.Forms.TextBox();
-            this.lbScheduleDepartment = new System.Windows.Forms.TextBox();
-            this.lbScheduleID = new System.Windows.Forms.TextBox();
-            this.lbSchedule = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lbProducts = new System.Windows.Forms.ListBox();
@@ -123,6 +119,7 @@ namespace MediaBazaar
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnCheck = new System.Windows.Forms.Button();
             this.tpSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -145,8 +142,8 @@ namespace MediaBazaar
             // 
             // tpSchedule
             // 
+            this.tpSchedule.Controls.Add(this.dgvSchedule);
             this.tpSchedule.Controls.Add(this.groupBox2);
-            this.tpSchedule.Controls.Add(this.lbSchedule);
             this.tpSchedule.Location = new System.Drawing.Point(4, 24);
             this.tpSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpSchedule.Name = "tpSchedule";
@@ -156,6 +153,15 @@ namespace MediaBazaar
             this.tpSchedule.Text = "Schedule";
             this.tpSchedule.UseVisualStyleBackColor = true;
             // 
+            // dgvSchedule
+            // 
+            this.dgvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSchedule.Location = new System.Drawing.Point(26, 31);
+            this.dgvSchedule.Name = "dgvSchedule";
+            this.dgvSchedule.RowTemplate.Height = 25;
+            this.dgvSchedule.Size = new System.Drawing.Size(717, 418);
+            this.dgvSchedule.TabIndex = 5;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnEditschedule);
@@ -164,17 +170,13 @@ namespace MediaBazaar
             this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.lbScheduleEvening);
             this.groupBox2.Controls.Add(this.lbScheduleAfternoon);
             this.groupBox2.Controls.Add(this.lbScheduleMorning);
             this.groupBox2.Controls.Add(this.lbScheduleDay);
-            this.groupBox2.Controls.Add(this.lbScheduleDepartment);
-            this.groupBox2.Controls.Add(this.lbScheduleID);
-            this.groupBox2.Location = new System.Drawing.Point(768, 35);
+            this.groupBox2.Location = new System.Drawing.Point(774, 60);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(338, 414);
+            this.groupBox2.Size = new System.Drawing.Size(338, 357);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Manage Schedule";
@@ -182,7 +184,7 @@ namespace MediaBazaar
             // btnEditschedule
             // 
             this.btnEditschedule.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditschedule.Location = new System.Drawing.Point(79, 353);
+            this.btnEditschedule.Location = new System.Drawing.Point(79, 296);
             this.btnEditschedule.Name = "btnEditschedule";
             this.btnEditschedule.Size = new System.Drawing.Size(215, 34);
             this.btnEditschedule.TabIndex = 14;
@@ -193,7 +195,7 @@ namespace MediaBazaar
             // btViewSchedule
             // 
             this.btViewSchedule.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btViewSchedule.Location = new System.Drawing.Point(79, 301);
+            this.btViewSchedule.Location = new System.Drawing.Point(79, 230);
             this.btViewSchedule.Name = "btViewSchedule";
             this.btViewSchedule.Size = new System.Drawing.Size(215, 34);
             this.btViewSchedule.TabIndex = 13;
@@ -205,7 +207,7 @@ namespace MediaBazaar
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label24.Location = new System.Drawing.Point(79, 231);
+            this.label24.Location = new System.Drawing.Point(67, 164);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(68, 21);
             this.label24.TabIndex = 12;
@@ -215,7 +217,7 @@ namespace MediaBazaar
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label23.Location = new System.Drawing.Point(64, 193);
+            this.label23.Location = new System.Drawing.Point(52, 126);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(83, 21);
             this.label23.TabIndex = 11;
@@ -225,7 +227,7 @@ namespace MediaBazaar
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label22.Location = new System.Drawing.Point(77, 154);
+            this.label22.Location = new System.Drawing.Point(65, 87);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(70, 21);
             this.label22.TabIndex = 10;
@@ -235,36 +237,16 @@ namespace MediaBazaar
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(107, 115);
+            this.label5.Location = new System.Drawing.Point(95, 48);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 21);
             this.label5.TabIndex = 9;
             this.label5.Text = "Day:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(51, 77);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 21);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Department:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(54, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 21);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Schedule id:";
-            // 
             // lbScheduleEvening
             // 
             this.lbScheduleEvening.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleEvening.Location = new System.Drawing.Point(153, 228);
+            this.lbScheduleEvening.Location = new System.Drawing.Point(141, 161);
             this.lbScheduleEvening.Name = "lbScheduleEvening";
             this.lbScheduleEvening.Size = new System.Drawing.Size(164, 29);
             this.lbScheduleEvening.TabIndex = 6;
@@ -272,7 +254,7 @@ namespace MediaBazaar
             // lbScheduleAfternoon
             // 
             this.lbScheduleAfternoon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleAfternoon.Location = new System.Drawing.Point(153, 190);
+            this.lbScheduleAfternoon.Location = new System.Drawing.Point(141, 123);
             this.lbScheduleAfternoon.Name = "lbScheduleAfternoon";
             this.lbScheduleAfternoon.Size = new System.Drawing.Size(164, 29);
             this.lbScheduleAfternoon.TabIndex = 5;
@@ -280,7 +262,7 @@ namespace MediaBazaar
             // lbScheduleMorning
             // 
             this.lbScheduleMorning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleMorning.Location = new System.Drawing.Point(153, 151);
+            this.lbScheduleMorning.Location = new System.Drawing.Point(141, 84);
             this.lbScheduleMorning.Name = "lbScheduleMorning";
             this.lbScheduleMorning.Size = new System.Drawing.Size(164, 29);
             this.lbScheduleMorning.TabIndex = 4;
@@ -288,39 +270,11 @@ namespace MediaBazaar
             // lbScheduleDay
             // 
             this.lbScheduleDay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleDay.Location = new System.Drawing.Point(153, 112);
+            this.lbScheduleDay.Location = new System.Drawing.Point(141, 45);
             this.lbScheduleDay.Name = "lbScheduleDay";
             this.lbScheduleDay.ReadOnly = true;
             this.lbScheduleDay.Size = new System.Drawing.Size(164, 29);
             this.lbScheduleDay.TabIndex = 3;
-            // 
-            // lbScheduleDepartment
-            // 
-            this.lbScheduleDepartment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleDepartment.Location = new System.Drawing.Point(153, 74);
-            this.lbScheduleDepartment.Name = "lbScheduleDepartment";
-            this.lbScheduleDepartment.ReadOnly = true;
-            this.lbScheduleDepartment.Size = new System.Drawing.Size(164, 29);
-            this.lbScheduleDepartment.TabIndex = 2;
-            // 
-            // lbScheduleID
-            // 
-            this.lbScheduleID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleID.Location = new System.Drawing.Point(153, 35);
-            this.lbScheduleID.Name = "lbScheduleID";
-            this.lbScheduleID.ReadOnly = true;
-            this.lbScheduleID.Size = new System.Drawing.Size(164, 29);
-            this.lbScheduleID.TabIndex = 1;
-            // 
-            // lbSchedule
-            // 
-            this.lbSchedule.FormattingEnabled = true;
-            this.lbSchedule.ItemHeight = 15;
-            this.lbSchedule.Location = new System.Drawing.Point(24, 40);
-            this.lbSchedule.Name = "lbSchedule";
-            this.lbSchedule.Size = new System.Drawing.Size(668, 409);
-            this.lbSchedule.TabIndex = 0;
-            this.lbSchedule.SelectedIndexChanged += new System.EventHandler(this.lbSchedule_SelectedIndexChanged);
             // 
             // tabControl1
             // 
@@ -1179,6 +1133,7 @@ namespace MediaBazaar
             this.Name = "DepotManager";
             this.Text = "FormDepotManager";
             this.tpSchedule.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -1262,15 +1217,10 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox lbScheduleEvening;
         private System.Windows.Forms.TextBox lbScheduleAfternoon;
         private System.Windows.Forms.TextBox lbScheduleMorning;
         private System.Windows.Forms.TextBox lbScheduleDay;
-        private System.Windows.Forms.TextBox lbScheduleDepartment;
-        private System.Windows.Forms.TextBox lbScheduleID;
-        private System.Windows.Forms.ListBox lbSchedule;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.ListBox lbEmployee;
@@ -1290,5 +1240,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.DataGridView dgvSchedule;
     }
 }
