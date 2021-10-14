@@ -408,8 +408,6 @@ namespace MediaBazaar
 
         private void btnEditschedule_Click(object sender, EventArgs e)
         {
-
-
             string Morning = lbScheduleMorning.Text;
             if (string.IsNullOrEmpty(Morning))
             {
@@ -520,6 +518,18 @@ namespace MediaBazaar
         private void dd(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvSchedule.Rows[e.RowIndex];
+                lbScheduleDay.Text = row.Cells["Day"].Value.ToString();
+                lbScheduleEvening.Text = row.Cells["Evening"].Value.ToString();
+                lbScheduleMorning.Text = row.Cells["Morning"].Value.ToString();
+                lbScheduleAfternoon.Text = row.Cells["Afternoon"].Value.ToString();
+            }
         }
     }
 }
