@@ -28,47 +28,7 @@ namespace MediaBazaar
         }
 
         // methods
-        public void GetContract(int employeeID)
-        {
-            
-
-            //try
-            //{
-            //    MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-            //    cmd.Parameters.AddWithValue("@employeeid", employeeID);
-
-            //    conn.Open();
-
-            //    MySqlDataReader reader = cmd.ExecuteReader();
-
-            //    while (reader.Read())
-            //    {
-            //        if (Convert.ToInt32(reader[0]) == Convert.ToInt32(ID) && reader[1].ToString() == Password)
-            //        {
-            //            return reader[2].ToString();
-            //        }
-            //        else
-            //        {
-            //            return "Wrong info!";
-            //        }
-            //    }
-            //    return "Wrong info!";
-            //}
-            //catch (MySqlException msqEx)
-            //{
-            //    MessageBox.Show(msqEx.Message);
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Something went wrong");
-            //}
-            //finally
-            //{
-            //    conn.Close();
-            //}
-            //return "";
-        }
+        
 
         // end contract
 
