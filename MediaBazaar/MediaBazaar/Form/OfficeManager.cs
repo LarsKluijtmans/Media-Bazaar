@@ -313,5 +313,10 @@ namespace MediaBazaar
         {
 
         }
+
+        private void OfficeManager_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

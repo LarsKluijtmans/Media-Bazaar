@@ -53,7 +53,7 @@ namespace MediaBazaar
 		// methodes
 		public override string ToString()
 		{
-			return $"ID: {ID} - Name: {FirstName} {LastName} - Email: {Email} - PhoneNumber: {PhoneNumber}";
+			return $"ID: {ID} - Name: {FirstName} {LastName}";
 		}
 		public void SelectWorkTime(string preferedWorkTime, string leastPreferedWorkTime)
         {
