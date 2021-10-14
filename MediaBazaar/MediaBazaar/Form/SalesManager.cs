@@ -117,13 +117,13 @@ namespace MediaBazaar
                 MessageBox.Show("'Evening' field is required.");
                 return;
             }
-            if (string.IsNullOrEmpty(ID))
+            if (string.IsNullOrEmpty(ID.ToString()))
             {
                 MessageBox.Show("Please select a time");
                 return;
             }
 
-            store.scheduleManagment.Editschedule(ID, Morning, Afternoon, Evening);
+            store.scheduleManagment.Editschedule(ID.ToString(), Morning, Afternoon, Evening);
 
             ViewAllSchedule();
         }
