@@ -18,7 +18,7 @@ namespace MediaBazaar
         {
             InitializeComponent();
             this.employee = p;
-            lblEmployee.Text = $"{p.ID} - {p.FirstName} {p.LastName}";
+            lblEmployee.Text = $"{p.EmployeeID} - {p.FirstName} {p.LastName}";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,7 +27,7 @@ namespace MediaBazaar
         }
         public void UpdateContract()
         {
-            string employeeID = employee.ID.ToString();
+            string employeeID = employee.EmployeeID.ToString();
             string reasonForTermination = tbxReasonTermination.Text;
             string contractEndDate = tbxEndDate.Text;
 

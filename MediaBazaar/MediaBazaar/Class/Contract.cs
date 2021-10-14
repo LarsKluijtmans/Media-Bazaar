@@ -7,37 +7,42 @@ namespace MediaBazaar
     public class Contract
     {
         // fields
-        private DateTime startDate;
-        private DateTime endDate = new DateTime(9999, 12, 31);
-        private double salaryPerHour;
+        private int contractID;
+        private int employeeID;
+        private string jobTitle;
         private int workHoursPerWeek;
+        private int salaryPerHour;
+        private string startDate;
+        private string endDate;
         private string reasonForTermination;
 
         // properties
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public double SalaryPerHour { get; set; }
+        public int ContractID { get; set; }
+        public int EmployeeID { get; set; }
+        public string JobTitle { get; set; }
         public int WorkHoursPerWeek { get; set; }
+        public int SalaryPerHour { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
         public string ReasonForTermination { get; set; }
 
         // constructor
-        public Contract(int year, int month, int day, double salaryPerHour, int workHoursPerWeek)
+        public Contract(int employeeID, string jobTitle, int workHoursPerWeek, int salaryPerHour, string startDate)
         {
-            this.StartDate = new DateTime(year, month, day);
-            this.SalaryPerHour = salaryPerHour;
+            this.ContractID = contractID;
+            this.EmployeeID = employeeID;
+            this.JobTitle = jobTitle;
             this.WorkHoursPerWeek = workHoursPerWeek;
+            this.SalaryPerHour = salaryPerHour;
+            this.StartDate = startDate;
+            this.EndDate = null;
             this.ReasonForTermination = null;
         }
 
-        public void EndContract(string ReasonForTermination, DateTime EndDate)
+        public void EndContract(string reasonForTermination, string endDate)
         {
-            reasonForTermination = ReasonForTermination;
-            endDate = EndDate;
-        }
-
-        public void EndContract(string ReasonForTermination)
-        {
-            reasonForTermination = ReasonForTermination; ;
+            this.ReasonForTermination = reasonForTermination;
+            this.EndDate = endDate;
         }
     }
 }

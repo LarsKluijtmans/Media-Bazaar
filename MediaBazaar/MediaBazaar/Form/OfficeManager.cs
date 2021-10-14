@@ -29,7 +29,7 @@ namespace MediaBazaar
         {
             Person tempPerson = GetTempEmployee();
 
-            tbxEmployeeID.Text = tempPerson.ID.ToString();
+            tbxEmployeeID.Text = tempPerson.EmployeeID.ToString();
         }
 
         private void btnCreateEmployee_Click(object sender, EventArgs e)
@@ -55,15 +55,61 @@ namespace MediaBazaar
 
             return tempPerson;
         }
+        public Contract GetTempContract(Person p)
+        {
+            int employeeID = p.EmployeeID;
 
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = ContractManagement.CONTRACT_BY_EMPLOYEEID;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Contract c;
+
+                while (reader.Read())
+                {
+                    if ( reader.GetInt32("EmployeeID") == employeeID)
+                    {
+                        int contractID = reader.GetInt32("ContractID");
+                        string jobTitle = reader.GetString("JodTitle");
+                        int workHoursPerWeek = reader.GetInt32("WorkHoursPerWeek");
+                        int salaryPerHour = reader.GetInt32("SalaryPerHour");
+                        string startDate = reader.GetString("StartDate");
+
+                        c = new Contract(employeeID, jobTitle, workHoursPerWeek, salaryPerHour, startDate);
+
+                        return c;
+                    }
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return null;
+        }
         public void ViewAllEmployees()
         {
             lbxEmployees.Items.Clear();
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = "Utils.GET_ALL_EMPLOYEES";
-
+            string sql = EmployeeManagement.GET_ALL_EMPLOYEES;
 
             try
             {
@@ -87,7 +133,7 @@ namespace MediaBazaar
                         string city = reader.GetString("Address");
                         string email = reader.GetString("Email");
                         int phoneNumber = reader.GetInt32("PhoneNumber");
-                        string dateOfBirth = "01-01-1998";
+                        string dateOfBirth = reader.GetString("DateOfBirth");
 
                         employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
                         lbxEmployees.Items.Add(employee);
@@ -119,8 +165,10 @@ namespace MediaBazaar
         public void ViewEmployeeDetails()
         {
             Person employee = GetTempEmployee();
+            Contract contract = GetTempContract(employee);
 
-            FormViewEmployee formViewEmployee = new FormViewEmployee(employee);
+
+            FormViewEmployee formViewEmployee = new FormViewEmployee(employee, contract);
             formViewEmployee.Show();
         }
         private void btnRemoveEmployee_Click(object sender, EventArgs e)

@@ -39,6 +39,11 @@ namespace MediaBazaar
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.btnCreateEmployee = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbxSearchEmployee = new System.Windows.Forms.TextBox();
+            this.rbnDescending = new System.Windows.Forms.RadioButton();
+            this.rbnAscending = new System.Windows.Forms.RadioButton();
+            this.label9 = new System.Windows.Forms.Label();
             this.rbnSalesEmployees = new System.Windows.Forms.RadioButton();
             this.rbnDepotEmployees = new System.Windows.Forms.RadioButton();
             this.lbxEmployees = new System.Windows.Forms.ListBox();
@@ -74,12 +79,8 @@ namespace MediaBazaar
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.tbxSearchEmployee = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -89,6 +90,8 @@ namespace MediaBazaar
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // Comapny
@@ -198,17 +201,12 @@ namespace MediaBazaar
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox5);
+            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.tbxSearchEmployee);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.rbnSalesEmployees);
-            this.groupBox1.Controls.Add(this.rbnDepotEmployees);
             this.groupBox1.Controls.Add(this.lbxEmployees);
-            this.groupBox1.Controls.Add(this.rbnOfficeEmployees);
-            this.groupBox1.Controls.Add(this.rbnAllEmployees);
             this.groupBox1.Location = new System.Drawing.Point(5, 3);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
@@ -218,10 +216,58 @@ namespace MediaBazaar
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Employees";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(427, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(149, 15);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Search employee by name:";
+            // 
+            // tbxSearchEmployee
+            // 
+            this.tbxSearchEmployee.Location = new System.Drawing.Point(427, 53);
+            this.tbxSearchEmployee.Name = "tbxSearchEmployee";
+            this.tbxSearchEmployee.Size = new System.Drawing.Size(139, 23);
+            this.tbxSearchEmployee.TabIndex = 11;
+            // 
+            // rbnDescending
+            // 
+            this.rbnDescending.AutoSize = true;
+            this.rbnDescending.Location = new System.Drawing.Point(6, 53);
+            this.rbnDescending.Name = "rbnDescending";
+            this.rbnDescending.Size = new System.Drawing.Size(87, 19);
+            this.rbnDescending.TabIndex = 10;
+            this.rbnDescending.TabStop = true;
+            this.rbnDescending.Text = "Descending";
+            this.rbnDescending.UseVisualStyleBackColor = true;
+            // 
+            // rbnAscending
+            // 
+            this.rbnAscending.AutoSize = true;
+            this.rbnAscending.Checked = true;
+            this.rbnAscending.Location = new System.Drawing.Point(6, 20);
+            this.rbnAscending.Name = "rbnAscending";
+            this.rbnAscending.Size = new System.Drawing.Size(81, 19);
+            this.rbnAscending.TabIndex = 9;
+            this.rbnAscending.TabStop = true;
+            this.rbnAscending.Text = "Ascending";
+            this.rbnAscending.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(17, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(13, 15);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "  ";
+            // 
             // rbnSalesEmployees
             // 
             this.rbnSalesEmployees.AutoSize = true;
-            this.rbnSalesEmployees.Location = new System.Drawing.Point(17, 81);
+            this.rbnSalesEmployees.Location = new System.Drawing.Point(16, 54);
             this.rbnSalesEmployees.Name = "rbnSalesEmployees";
             this.rbnSalesEmployees.Size = new System.Drawing.Size(111, 19);
             this.rbnSalesEmployees.TabIndex = 6;
@@ -231,7 +277,7 @@ namespace MediaBazaar
             // rbnDepotEmployees
             // 
             this.rbnDepotEmployees.AutoSize = true;
-            this.rbnDepotEmployees.Location = new System.Drawing.Point(134, 81);
+            this.rbnDepotEmployees.Location = new System.Drawing.Point(133, 54);
             this.rbnDepotEmployees.Name = "rbnDepotEmployees";
             this.rbnDepotEmployees.Size = new System.Drawing.Size(117, 19);
             this.rbnDepotEmployees.TabIndex = 5;
@@ -242,10 +288,10 @@ namespace MediaBazaar
             // 
             this.lbxEmployees.FormattingEnabled = true;
             this.lbxEmployees.ItemHeight = 15;
-            this.lbxEmployees.Location = new System.Drawing.Point(452, 51);
+            this.lbxEmployees.Location = new System.Drawing.Point(17, 120);
             this.lbxEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbxEmployees.Name = "lbxEmployees";
-            this.lbxEmployees.Size = new System.Drawing.Size(380, 424);
+            this.lbxEmployees.Size = new System.Drawing.Size(380, 349);
             this.lbxEmployees.TabIndex = 4;
             this.lbxEmployees.SelectedIndexChanged += new System.EventHandler(this.lbxEmployees_SelectedIndexChanged);
             this.lbxEmployees.DoubleClick += new System.EventHandler(this.lbxEmployees_DoubleClick);
@@ -253,7 +299,7 @@ namespace MediaBazaar
             // rbnOfficeEmployees
             // 
             this.rbnOfficeEmployees.AutoSize = true;
-            this.rbnOfficeEmployees.Location = new System.Drawing.Point(134, 51);
+            this.rbnOfficeEmployees.Location = new System.Drawing.Point(133, 21);
             this.rbnOfficeEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbnOfficeEmployees.Name = "rbnOfficeEmployees";
             this.rbnOfficeEmployees.Size = new System.Drawing.Size(117, 19);
@@ -265,7 +311,7 @@ namespace MediaBazaar
             // 
             this.rbnAllEmployees.AutoSize = true;
             this.rbnAllEmployees.Checked = true;
-            this.rbnAllEmployees.Location = new System.Drawing.Point(17, 51);
+            this.rbnAllEmployees.Location = new System.Drawing.Point(17, 21);
             this.rbnAllEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbnAllEmployees.Name = "rbnAllEmployees";
             this.rbnAllEmployees.Size = new System.Drawing.Size(99, 19);
@@ -582,61 +628,29 @@ namespace MediaBazaar
             this.textBox3.Size = new System.Drawing.Size(326, 33);
             this.textBox3.TabIndex = 6;
             // 
-            // label9
+            // groupBox3
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 20);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(13, 15);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "  ";
+            this.groupBox3.Controls.Add(this.rbnDepotEmployees);
+            this.groupBox3.Controls.Add(this.rbnOfficeEmployees);
+            this.groupBox3.Controls.Add(this.rbnAllEmployees);
+            this.groupBox3.Controls.Add(this.rbnSalesEmployees);
+            this.groupBox3.Location = new System.Drawing.Point(17, 32);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(261, 83);
+            this.groupBox3.TabIndex = 13;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Select department:";
             // 
-            // label10
+            // groupBox5
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(17, 32);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(106, 15);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Select department:";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(452, 22);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(81, 19);
-            this.radioButton1.TabIndex = 9;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Ascending";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(585, 21);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(87, 19);
-            this.radioButton2.TabIndex = 10;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Descending";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // tbxSearchEmployee
-            // 
-            this.tbxSearchEmployee.Location = new System.Drawing.Point(172, 131);
-            this.tbxSearchEmployee.Name = "tbxSearchEmployee";
-            this.tbxSearchEmployee.Size = new System.Drawing.Size(139, 23);
-            this.tbxSearchEmployee.TabIndex = 11;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 134);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(149, 15);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Search employee by name:";
+            this.groupBox5.Controls.Add(this.rbnAscending);
+            this.groupBox5.Controls.Add(this.rbnDescending);
+            this.groupBox5.Location = new System.Drawing.Point(284, 33);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(116, 82);
+            this.groupBox5.TabIndex = 14;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Sort:";
             // 
             // OfficeManager
             // 
@@ -663,6 +677,10 @@ namespace MediaBazaar
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -719,9 +737,10 @@ namespace MediaBazaar
         private System.Windows.Forms.Label labDepartmentID;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbxSearchEmployee;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RadioButton rbnDescending;
+        private System.Windows.Forms.RadioButton rbnAscending;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

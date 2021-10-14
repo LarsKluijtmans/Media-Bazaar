@@ -106,40 +106,40 @@ namespace MediaBazaar
             // 
             // tbxDateOfBirth
             // 
-            this.tbxDateOfBirth.Location = new System.Drawing.Point(360, 153);
+            this.tbxDateOfBirth.Location = new System.Drawing.Point(326, 153);
             this.tbxDateOfBirth.Name = "tbxDateOfBirth";
             this.tbxDateOfBirth.ReadOnly = true;
-            this.tbxDateOfBirth.Size = new System.Drawing.Size(100, 23);
+            this.tbxDateOfBirth.Size = new System.Drawing.Size(134, 23);
             this.tbxDateOfBirth.TabIndex = 19;
             // 
             // tbxPhoneNumber
             // 
-            this.tbxPhoneNumber.Location = new System.Drawing.Point(360, 124);
+            this.tbxPhoneNumber.Location = new System.Drawing.Point(326, 124);
             this.tbxPhoneNumber.Name = "tbxPhoneNumber";
-            this.tbxPhoneNumber.Size = new System.Drawing.Size(100, 23);
+            this.tbxPhoneNumber.Size = new System.Drawing.Size(134, 23);
             this.tbxPhoneNumber.TabIndex = 18;
             // 
             // tbxEmail
             // 
-            this.tbxEmail.Location = new System.Drawing.Point(360, 95);
+            this.tbxEmail.Location = new System.Drawing.Point(326, 95);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.ReadOnly = true;
-            this.tbxEmail.Size = new System.Drawing.Size(100, 23);
+            this.tbxEmail.Size = new System.Drawing.Size(134, 23);
             this.tbxEmail.TabIndex = 17;
             // 
             // tbxCity
             // 
-            this.tbxCity.Location = new System.Drawing.Point(360, 61);
+            this.tbxCity.Location = new System.Drawing.Point(326, 61);
             this.tbxCity.Name = "tbxCity";
-            this.tbxCity.Size = new System.Drawing.Size(100, 23);
+            this.tbxCity.Size = new System.Drawing.Size(134, 23);
             this.tbxCity.TabIndex = 16;
             // 
             // tbxBSN
             // 
-            this.tbxBSN.Location = new System.Drawing.Point(360, 27);
+            this.tbxBSN.Location = new System.Drawing.Point(326, 27);
             this.tbxBSN.Name = "tbxBSN";
             this.tbxBSN.ReadOnly = true;
-            this.tbxBSN.Size = new System.Drawing.Size(100, 23);
+            this.tbxBSN.Size = new System.Drawing.Size(134, 23);
             this.tbxBSN.TabIndex = 15;
             // 
             // tbxPassword
@@ -229,7 +229,7 @@ namespace MediaBazaar
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(260, 157);
+            this.label14.Location = new System.Drawing.Point(230, 159);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(76, 15);
             this.label14.TabIndex = 9;
@@ -238,7 +238,7 @@ namespace MediaBazaar
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(260, 30);
+            this.label15.Location = new System.Drawing.Point(230, 32);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(32, 15);
             this.label15.TabIndex = 5;
@@ -247,7 +247,7 @@ namespace MediaBazaar
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(260, 124);
+            this.label16.Location = new System.Drawing.Point(230, 126);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(91, 15);
             this.label16.TabIndex = 8;
@@ -256,7 +256,7 @@ namespace MediaBazaar
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(260, 62);
+            this.label17.Location = new System.Drawing.Point(230, 64);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(31, 15);
             this.label17.TabIndex = 6;
@@ -265,7 +265,7 @@ namespace MediaBazaar
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(260, 96);
+            this.label18.Location = new System.Drawing.Point(230, 98);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(39, 15);
             this.label18.TabIndex = 7;
@@ -283,14 +283,14 @@ namespace MediaBazaar
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(13, 260);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(354, 166);
+            this.groupBox2.Size = new System.Drawing.Size(499, 101);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contract Data";
             // 
             // tbxStartDate
             // 
-            this.tbxStartDate.Location = new System.Drawing.Point(106, 132);
+            this.tbxStartDate.Location = new System.Drawing.Point(325, 49);
             this.tbxStartDate.Name = "tbxStartDate";
             this.tbxStartDate.ReadOnly = true;
             this.tbxStartDate.Size = new System.Drawing.Size(100, 23);
@@ -298,14 +298,14 @@ namespace MediaBazaar
             // 
             // tbxSalary
             // 
-            this.tbxSalary.Location = new System.Drawing.Point(106, 92);
+            this.tbxSalary.Location = new System.Drawing.Point(325, 16);
             this.tbxSalary.Name = "tbxSalary";
             this.tbxSalary.Size = new System.Drawing.Size(100, 23);
             this.tbxSalary.TabIndex = 16;
             // 
             // tbxWorkHours
             // 
-            this.tbxWorkHours.Location = new System.Drawing.Point(106, 48);
+            this.tbxWorkHours.Location = new System.Drawing.Point(100, 54);
             this.tbxWorkHours.Name = "tbxWorkHours";
             this.tbxWorkHours.Size = new System.Drawing.Size(100, 23);
             this.tbxWorkHours.TabIndex = 15;
@@ -314,14 +314,15 @@ namespace MediaBazaar
             // 
             this.cbxJobTitle.FormattingEnabled = true;
             this.cbxJobTitle.Items.AddRange(new object[] {
-            "OWNER",
-            "MANAGER_DEPOT",
-            "MANAGER_SALES",
-            "MANAGER_OFFICE",
-            "EMPLOYEE_DEPOT",
-            "EMPLOYEE_SALES",
-            "EMPLOYEE_OFFICE"});
-            this.cbxJobTitle.Location = new System.Drawing.Point(106, 16);
+            "CEO",
+            "Owner",
+            "Depot Manager",
+            "Depot Employee",
+            "Sales Manager",
+            "Sales Representative",
+            "Office Manager",
+            "Product Manager"});
+            this.cbxJobTitle.Location = new System.Drawing.Point(101, 19);
             this.cbxJobTitle.Name = "cbxJobTitle";
             this.cbxJobTitle.Size = new System.Drawing.Size(121, 23);
             this.cbxJobTitle.TabIndex = 14;
@@ -347,7 +348,7 @@ namespace MediaBazaar
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 135);
+            this.label5.Location = new System.Drawing.Point(229, 54);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 15);
             this.label5.TabIndex = 13;
@@ -356,7 +357,7 @@ namespace MediaBazaar
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 92);
+            this.label6.Location = new System.Drawing.Point(229, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 15);
             this.label6.TabIndex = 12;
@@ -364,7 +365,7 @@ namespace MediaBazaar
             // 
             // btnEditData
             // 
-            this.btnEditData.Location = new System.Drawing.Point(392, 276);
+            this.btnEditData.Location = new System.Drawing.Point(437, 367);
             this.btnEditData.Name = "btnEditData";
             this.btnEditData.Size = new System.Drawing.Size(75, 23);
             this.btnEditData.TabIndex = 21;
@@ -376,7 +377,7 @@ namespace MediaBazaar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 450);
+            this.ClientSize = new System.Drawing.Size(528, 396);
             this.Controls.Add(this.btnEditData);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
