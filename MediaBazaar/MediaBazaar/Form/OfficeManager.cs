@@ -24,7 +24,7 @@ namespace MediaBazaar
             ViewAllDepartments();
             ViewCompany();
         }
-
+        // employees
         private void lbxEmployees_SelectedIndexChanged(object sender, EventArgs e)
         {
             Person tempPerson = GetTempEmployee();
@@ -32,13 +32,11 @@ namespace MediaBazaar
             tbxEmployeeID.Text = tempPerson.ID.ToString();
         }
 
-        // employees
         private void btnCreateEmployee_Click(object sender, EventArgs e)
         {
             FormNewEmployee formNewEmployee = new FormNewEmployee();
             formNewEmployee.Show();
         }
-
         private void btnReadEmployee_Click(object sender, EventArgs e)
         {
             ViewAllEmployees();
