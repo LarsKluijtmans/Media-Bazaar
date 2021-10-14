@@ -430,14 +430,16 @@ namespace MediaBazaar
                 MessageBox.Show("'Evening' field is required.");
                 return;
             }
-            string ID = lbScheduleID.Text;
-            if (string.IsNullOrEmpty(ID))
+
+            string Day = lbScheduleDay.Text;
+            if (string.IsNullOrEmpty(Evening))
             {
-                MessageBox.Show("Please select a time");
+                MessageBox.Show("'Day' field is required.");
                 return;
             }
 
-            store.scheduleManagment.Editschedule(ID, Morning, Afternoon, Evening);
+
+            store.scheduleManagment.Editschedule(Day, Morning, Afternoon, Evening);
 
             ViewAllSchedule();
         }
