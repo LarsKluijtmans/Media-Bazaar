@@ -110,12 +110,19 @@ namespace MediaBazaar
 
         private void btnUpdateEmployee_Click(object sender, EventArgs e)
         {
+            ViewEmployeeDetails();
+        }
+        private void lbxEmployees_DoubleClick(object sender, EventArgs e)
+        {
+            ViewEmployeeDetails();
+        }
+        public void ViewEmployeeDetails()
+        {
             Person employee = GetTempEmployee();
 
             FormViewEmployee formViewEmployee = new FormViewEmployee(employee);
             formViewEmployee.Show();
         }
-
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
             Person employee = GetTempEmployee();
@@ -309,10 +316,7 @@ namespace MediaBazaar
 
         }
         // employee
-        private void lbxEmployees_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void OfficeManager_Load(object sender, EventArgs e)
         {

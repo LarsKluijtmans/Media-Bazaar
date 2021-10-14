@@ -456,7 +456,7 @@ namespace MediaBazaar
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1123, 498);
             this.tabPage3.TabIndex = 3;
-            this.tabPage3.Text = "Deprtments";
+            this.tabPage3.Text = "Departments";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // dgvDepartments
