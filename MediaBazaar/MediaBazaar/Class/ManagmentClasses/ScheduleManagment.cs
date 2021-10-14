@@ -11,7 +11,7 @@ namespace MediaBazaar.Class
 
         public static string GET_SCHEDULE_SALES = "SELECT  day, morning, afternoon, evening from SCHEDULE where Department = 'sales';";
         public static string GET_SCHEDULE_DEPOT = "SELECT   day, morning, afternoon, evening from SCHEDULE where Department = 'depot';";
-        public static string UPDATE_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE scheduleId = @scheduleId;";
+        public static string UPDATE_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day;";
 
         public DataTable ViewSalesSchedule()
         {
@@ -82,14 +82,14 @@ namespace MediaBazaar.Class
         }
 
       
-        public void Editschedule(string ID, string Morning, string Afternoon, string Evening)
+        public void Editschedule(string Day, string Morning, string Afternoon, string Evening)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = UPDATE_SCHEDULE;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@scheduleId", ID);
+                cmd.Parameters.AddWithValue("@Day", Day);
                 cmd.Parameters.AddWithValue("@morning", Morning);
                 cmd.Parameters.AddWithValue("@afternoon", Afternoon);
                 cmd.Parameters.AddWithValue("@evening", Evening);

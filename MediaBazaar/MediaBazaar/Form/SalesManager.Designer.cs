@@ -377,7 +377,7 @@ namespace MediaBazaar
             this.groupBox2.Size = new System.Drawing.Size(338, 366);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Manage Schedule";
             // 
             // lbScheduleEvening
             // 
