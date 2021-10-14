@@ -308,5 +308,10 @@ namespace MediaBazaar
         {
 
         }
+        // employee
+        private void lbxEmployees_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
