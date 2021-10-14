@@ -305,5 +305,10 @@ namespace MediaBazaar
 
             store.companyManagment.EditCompany(Name, Adress, PhoneNumber, Email, BTW, KVK, ID);
         }
+
+        private void Comapny_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

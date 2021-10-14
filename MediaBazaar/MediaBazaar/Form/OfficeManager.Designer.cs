@@ -64,6 +64,7 @@ namespace MediaBazaar
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvDepartments = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labDepartmentID = new System.Windows.Forms.Label();
             this.btnEditDepartment = new System.Windows.Forms.Button();
             this.btnAddDepartment = new System.Windows.Forms.Button();
             this.tbDepartmentName = new System.Windows.Forms.TextBox();
@@ -73,7 +74,6 @@ namespace MediaBazaar
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.labDepartmentID = new System.Windows.Forms.Label();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -96,6 +96,7 @@ namespace MediaBazaar
             this.Comapny.SelectedIndex = 0;
             this.Comapny.Size = new System.Drawing.Size(1131, 526);
             this.Comapny.TabIndex = 0;
+            this.Comapny.SelectedIndexChanged += new System.EventHandler(this.Comapny_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -470,6 +471,16 @@ namespace MediaBazaar
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
+            // labDepartmentID
+            // 
+            this.labDepartmentID.AutoSize = true;
+            this.labDepartmentID.Location = new System.Drawing.Point(40, 29);
+            this.labDepartmentID.Name = "labDepartmentID";
+            this.labDepartmentID.Size = new System.Drawing.Size(81, 15);
+            this.labDepartmentID.TabIndex = 6;
+            this.labDepartmentID.Text = "DepartmentID";
+            this.labDepartmentID.Visible = false;
+            // 
             // btnEditDepartment
             // 
             this.btnEditDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -559,16 +570,6 @@ namespace MediaBazaar
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(326, 33);
             this.textBox3.TabIndex = 6;
-            // 
-            // labDepartmentID
-            // 
-            this.labDepartmentID.AutoSize = true;
-            this.labDepartmentID.Location = new System.Drawing.Point(40, 29);
-            this.labDepartmentID.Name = "labDepartmentID";
-            this.labDepartmentID.Size = new System.Drawing.Size(81, 15);
-            this.labDepartmentID.TabIndex = 6;
-            this.labDepartmentID.Text = "DepartmentID";
-            this.labDepartmentID.Visible = false;
             // 
             // OfficeManager
             // 
