@@ -328,5 +328,15 @@ namespace MediaBazaar
             }
             return null;
         }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGet_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -95,6 +95,7 @@ namespace MediaBazaar
             this.Comapny.SelectedIndex = 0;
             this.Comapny.Size = new System.Drawing.Size(1293, 701);
             this.Comapny.TabIndex = 0;
+            this.Comapny.SelectedIndexChanged += new System.EventHandler(this.Comapny_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -473,16 +474,6 @@ namespace MediaBazaar
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
-            // 
-            // labDepartmentID
-            // 
-            this.labDepartmentID.AutoSize = true;
-            this.labDepartmentID.Location = new System.Drawing.Point(46, 39);
-            this.labDepartmentID.Name = "labDepartmentID";
-            this.labDepartmentID.Size = new System.Drawing.Size(104, 20);
-            this.labDepartmentID.TabIndex = 6;
-            this.labDepartmentID.Text = "DepartmentID";
-            this.labDepartmentID.Visible = false;
             // 
             // btnEditDepartment
             // 

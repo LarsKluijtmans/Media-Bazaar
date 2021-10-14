@@ -2,30 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Data;
+using MySql.Data;
 
 namespace MediaBazaar.Class.ManagmentClasses
 {
     public class DepartmentManagment
     {
-        List<Department> departments;
 
-        public static string GET_DEPARTMENTS = "SELECT `HeadDepatment`,`DepartmentName`,`DepartmentID`  FROM `departments`;";
+        public static string GET_DEPARTMENTS = "SELECT `DepartmentID` , `HeadDepatment`,`DepartmentName` FROM `departments`;";
         public static string ADD_DEPARTMENT = "INSERT INTO departments ( DepartmentName, CompanyID, HeadDepatment) VALUES (@DepartmentName, @CompanyID, @HeadDepatment);";
         public static string EDIT_DEPARTMENT = "UPDATE departments SET DepartmentName = @DepartmentName, HeadDepatment = @HeadDepatment WHERE DepartmentID = @DepartmentID;";
 
-        public DepartmentManagment()
-        {
-            departments = new List<Department>();
-        }
-
-        public List<Department> Departments
-        {
-            get { return departments; }
-            set { departments = value; }
-        }
-
-     
-        public void ViewAllDepartments()
+        public DataTable ViewAllDepartments()
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -36,15 +25,12 @@ namespace MediaBazaar.Class.ManagmentClasses
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 conn.Open();
 
-                MySqlDataReader reader = cmd.ExecuteReader();
+                MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
 
-                Department department ;
+                DataTable table = new DataTable();
+                reader.Fill(table);
 
-                while (reader.Read())
-                {
-                    department = new Department(reader[2].ToString() ,reader[1].ToString() , reader[0].ToString());
-                    departments.Add(department);
-                }
+                return table;
             }
             catch (MySqlException msqEx)
             {
@@ -58,6 +44,8 @@ namespace MediaBazaar.Class.ManagmentClasses
             {
                 conn.Close();
             }
+            DataTable a = new DataTable();
+            return a;
         }
 
         public void AddDepartment(string Name, string Head, string CompanyID)

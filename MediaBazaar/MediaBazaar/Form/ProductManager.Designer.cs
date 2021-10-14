@@ -52,23 +52,44 @@ namespace MediaBazaar
             this.label7 = new System.Windows.Forms.Label();
             this.cbxPreferedDay = new System.Windows.Forms.ComboBox();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lbProducts = new System.Windows.Forms.ListBox();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbBarcode = new System.Windows.Forms.TextBox();
+            this.tbAmountInDepot = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAddPorduct = new System.Windows.Forms.Button();
+            this.tbmountInStore = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnGet = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.lblId = new System.Windows.Forms.Label();
+            this.tbID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.Location = new System.Drawing.Point(12, 49);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1138, 513);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -328,7 +349,198 @@ namespace MediaBazaar
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // FormOfficeEmployee
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.lbProducts);
+            this.tabPage3.Controls.Add(this.tbName);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.lblName);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.tbBarcode);
+            this.tabPage3.Controls.Add(this.tbAmountInDepot);
+            this.tabPage3.Controls.Add(this.lblEmail);
+            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Controls.Add(this.btnAddPorduct);
+            this.tabPage3.Controls.Add(this.tbmountInStore);
+            this.tabPage3.Controls.Add(this.btnDelete);
+            this.tabPage3.Controls.Add(this.btnGet);
+            this.tabPage3.Controls.Add(this.btnEdit);
+            this.tabPage3.Controls.Add(this.lblId);
+            this.tabPage3.Controls.Add(this.tbID);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabPage3.Location = new System.Drawing.Point(4, 26);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1130, 483);
+            this.tabPage3.TabIndex = 10;
+            this.tabPage3.Text = "Product";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // lbProducts
+            // 
+            this.lbProducts.FormattingEnabled = true;
+            this.lbProducts.ItemHeight = 21;
+            this.lbProducts.Location = new System.Drawing.Point(28, 44);
+            this.lbProducts.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.lbProducts.Name = "lbProducts";
+            this.lbProducts.Size = new System.Drawing.Size(736, 403);
+            this.lbProducts.TabIndex = 45;
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(920, 97);
+            this.tbName.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(162, 29);
+            this.tbName.TabIndex = 29;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(808, 191);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 21);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "Product type:";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(853, 106);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(55, 21);
+            this.lblName.TabIndex = 30;
+            this.lblName.Text = "Name:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(791, 276);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 21);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "Amount in depot:";
+            // 
+            // tbBarcode
+            // 
+            this.tbBarcode.Location = new System.Drawing.Point(920, 140);
+            this.tbBarcode.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbBarcode.Name = "tbBarcode";
+            this.tbBarcode.Size = new System.Drawing.Size(162, 29);
+            this.tbBarcode.TabIndex = 31;
+            // 
+            // tbAmountInDepot
+            // 
+            this.tbAmountInDepot.Location = new System.Drawing.Point(921, 267);
+            this.tbAmountInDepot.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbAmountInDepot.Name = "tbAmountInDepot";
+            this.tbAmountInDepot.Size = new System.Drawing.Size(162, 29);
+            this.tbAmountInDepot.TabIndex = 41;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(839, 149);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(69, 21);
+            this.lblEmail.TabIndex = 32;
+            this.lblEmail.Text = "Barcode:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(796, 232);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 21);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Amount in store:";
+            // 
+            // btnAddPorduct
+            // 
+            this.btnAddPorduct.Location = new System.Drawing.Point(833, 355);
+            this.btnAddPorduct.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnAddPorduct.Name = "btnAddPorduct";
+            this.btnAddPorduct.Size = new System.Drawing.Size(236, 30);
+            this.btnAddPorduct.TabIndex = 33;
+            this.btnAddPorduct.Text = "Add Product";
+            this.btnAddPorduct.UseVisualStyleBackColor = true;
+            // 
+            // tbmountInStore
+            // 
+            this.tbmountInStore.Location = new System.Drawing.Point(921, 223);
+            this.tbmountInStore.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbmountInStore.Name = "tbmountInStore";
+            this.tbmountInStore.Size = new System.Drawing.Size(162, 29);
+            this.tbmountInStore.TabIndex = 39;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(832, 419);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(236, 30);
+            this.btnDelete.TabIndex = 34;
+            this.btnDelete.Text = "Remove Product";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnGet
+            // 
+            this.btnGet.Location = new System.Drawing.Point(833, 323);
+            this.btnGet.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnGet.Name = "btnGet";
+            this.btnGet.Size = new System.Drawing.Size(236, 30);
+            this.btnGet.TabIndex = 38;
+            this.btnGet.Text = "ViewAllProducts";
+            this.btnGet.UseVisualStyleBackColor = true;
+            this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(832, 387);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(236, 30);
+            this.btnEdit.TabIndex = 35;
+            this.btnEdit.Text = "Edit Product";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(880, 66);
+            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(28, 21);
+            this.lblId.TabIndex = 37;
+            this.lblId.Text = "ID:";
+            // 
+            // tbID
+            // 
+            this.tbID.Enabled = false;
+            this.tbID.Location = new System.Drawing.Point(920, 57);
+            this.tbID.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbID.Name = "tbID";
+            this.tbID.ReadOnly = true;
+            this.tbID.Size = new System.Drawing.Size(162, 29);
+            this.tbID.TabIndex = 36;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(31, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 21);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Product List:";
+            // 
+            // ProductManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -336,7 +548,7 @@ namespace MediaBazaar
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FormOfficeEmployee";
+            this.Name = "ProductManager";
             this.Text = "FormOfficeEmployee";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -346,6 +558,8 @@ namespace MediaBazaar
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -378,5 +592,23 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbxPreferedDay;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ListBox lbProducts;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbBarcode;
+        private System.Windows.Forms.TextBox tbAmountInDepot;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAddPorduct;
+        private System.Windows.Forms.TextBox tbmountInStore;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnGet;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.TextBox tbID;
+        private System.Windows.Forms.Label label2;
     }
 }

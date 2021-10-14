@@ -9,7 +9,7 @@ namespace MediaBazaar.Class
     {
         public static string GET_OFFICE_EMPLOYEE = "SELECT DISTINCT EMPLOYEE.EmployeeID, FirstName, LastName, contract.JodTitle FROM `employee` INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE contract.JodTitle = 'OFFICE EMPLOYEE' or contract.JodTitle = 'OFFICE MANAGER';";
         public static string GET_DEPOT_EMPLOYEE = "SELECT DISTINCT EMPLOYEE.EmployeeID, FirstName, LastName, contract.JodTitle FROM `employee` INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE contract.JodTitle = 'DEPOT EMPLOYEE' or contract.JodTitle = 'DEPOT MANAGER';";
-        public static string GET_SALES_EMPLOYEE = "SELECT DISTINCT EMPLOYEE.EmployeeID, FirstName, LastName, contract.JodTitle FROM `employee` INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE contract.JodTitle = 'SALES EMPLOYEE' or contract.JodTitle = 'SALES MANAGER';";
+        public static string GET_SALES_EMPLOYEE = "SELECT DISTINCT EMPLOYEE.EmployeeID, FirstName, LastName, contract.JodTitle FROM `employee` INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE contract.JodTitle = 'SALES Representative' or contract.JodTitle = 'SALES MANAGER';";
 
         public static string GET_DEPOT_PLANING = "SELECT workID, Department, employeeID, day, time FROM schduledwork WHERE department = 'DEPOT'; ";
         public static string GET_OFFICE_PLANING = "SELECT workID, Department, employeeID, day, time FROM schduledwork WHERE department = 'OFFICE'; ";

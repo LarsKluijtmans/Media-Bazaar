@@ -165,7 +165,7 @@ namespace MediaBazaar
         {
             store.departmentManagment.ViewAllDepartments();
 
-            dgvDepartments.DataSource = store.departmentManagment.Departments;
+            dgvDepartments.DataSource = store.departmentManagment.ViewAllDepartments();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -302,6 +302,11 @@ namespace MediaBazaar
             }
 
             store.companyManagment.EditCompany(Name, Adress, PhoneNumber, Email, BTW, KVK, ID);
+        }
+
+        private void Comapny_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
