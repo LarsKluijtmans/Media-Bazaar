@@ -185,18 +185,10 @@ E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Zstandard.Net.dll
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.AssemblyReference.cache
-E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.Form1.resources
-E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormDepotEmployee.resources
-E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormDepotManager.resources
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormEditEmployeeData.resources
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormLogin.resources
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormNewEmployee.resources
-E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormNewProduct.resources
-E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormOfficeEmployee.resources
-E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormOfficeManager.resources
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormRemoveEmployee.resources
-E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormSalesEmployee.resources
-E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormSalesManager.resources
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormViewEmployee.resources
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.GenerateResource.cache
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.GeneratedMSBuildEditorConfig.editorconfig
@@ -223,3 +215,11 @@ C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\MediaBazaa
 C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.ProductManager.resources
 C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.SalesManager.resources
 C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.SalesRepresentative.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.Admin.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.CEO.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.DepotEmployee.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.DepotManager.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.OfficeManager.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.ProductManager.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.SalesManager.resources
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.SalesRepresentative.resources

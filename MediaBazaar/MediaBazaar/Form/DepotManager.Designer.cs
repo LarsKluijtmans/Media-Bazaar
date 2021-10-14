@@ -100,13 +100,13 @@ namespace MediaBazaar
             this.label16 = new System.Windows.Forms.Label();
             this.lbReshelfRequest = new System.Windows.Forms.ListBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.btnRemoveFromSchedule = new System.Windows.Forms.Button();
+            this.btnAddToSchedule = new System.Windows.Forms.Button();
+            this.lstEmpCanWork = new System.Windows.Forms.ListBox();
+            this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnCheck = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
-            this.lstEmpCanWork = new System.Windows.Forms.ListBox();
-            this.btnAddToSchedule = new System.Windows.Forms.Button();
-            this.btnRemoveFromSchedule = new System.Windows.Forms.Button();
             this.tpSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -150,6 +150,7 @@ namespace MediaBazaar
             this.dgvSchedule.RowTemplate.Height = 25;
             this.dgvSchedule.Size = new System.Drawing.Size(717, 418);
             this.dgvSchedule.TabIndex = 5;
+            this.dgvSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSchedule_CellClick);
             // 
             // groupBox2
             // 
@@ -267,10 +268,10 @@ namespace MediaBazaar
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tpSchedule);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tpSchedule);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Location = new System.Drawing.Point(14, 25);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -923,6 +924,52 @@ namespace MediaBazaar
             this.tabPage7.Text = "Planning";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // btnRemoveFromSchedule
+            // 
+            this.btnRemoveFromSchedule.Location = new System.Drawing.Point(391, 408);
+            this.btnRemoveFromSchedule.Name = "btnRemoveFromSchedule";
+            this.btnRemoveFromSchedule.Size = new System.Drawing.Size(105, 25);
+            this.btnRemoveFromSchedule.TabIndex = 10;
+            this.btnRemoveFromSchedule.Text = "Remove Employee";
+            this.btnRemoveFromSchedule.UseVisualStyleBackColor = true;
+            // 
+            // btnAddToSchedule
+            // 
+            this.btnAddToSchedule.Location = new System.Drawing.Point(932, 76);
+            this.btnAddToSchedule.Name = "btnAddToSchedule";
+            this.btnAddToSchedule.Size = new System.Drawing.Size(105, 59);
+            this.btnAddToSchedule.TabIndex = 9;
+            this.btnAddToSchedule.Text = "Add Employee";
+            this.btnAddToSchedule.UseVisualStyleBackColor = true;
+            // 
+            // lstEmpCanWork
+            // 
+            this.lstEmpCanWork.FormattingEnabled = true;
+            this.lstEmpCanWork.ItemHeight = 15;
+            this.lstEmpCanWork.Location = new System.Drawing.Point(528, 24);
+            this.lstEmpCanWork.Name = "lstEmpCanWork";
+            this.lstEmpCanWork.Size = new System.Drawing.Size(352, 439);
+            this.lstEmpCanWork.TabIndex = 8;
+            this.lstEmpCanWork.DoubleClick += new System.EventHandler(this.dd);
+            // 
+            // lstEmpEnlisted
+            // 
+            this.lstEmpEnlisted.FormattingEnabled = true;
+            this.lstEmpEnlisted.ItemHeight = 15;
+            this.lstEmpEnlisted.Location = new System.Drawing.Point(32, 308);
+            this.lstEmpEnlisted.Name = "lstEmpEnlisted";
+            this.lstEmpEnlisted.Size = new System.Drawing.Size(464, 94);
+            this.lstEmpEnlisted.TabIndex = 7;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(32, 24);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(464, 268);
+            this.dataGridView1.TabIndex = 6;
+            // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -940,52 +987,6 @@ namespace MediaBazaar
             this.btnCheck.Text = "Check In";
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 24);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(464, 268);
-            this.dataGridView1.TabIndex = 6;
-            // 
-            // lstEmpEnlisted
-            // 
-            this.lstEmpEnlisted.FormattingEnabled = true;
-            this.lstEmpEnlisted.ItemHeight = 15;
-            this.lstEmpEnlisted.Location = new System.Drawing.Point(32, 308);
-            this.lstEmpEnlisted.Name = "lstEmpEnlisted";
-            this.lstEmpEnlisted.Size = new System.Drawing.Size(464, 94);
-            this.lstEmpEnlisted.TabIndex = 7;
-            // 
-            // lstEmpCanWork
-            // 
-            this.lstEmpCanWork.FormattingEnabled = true;
-            this.lstEmpCanWork.ItemHeight = 15;
-            this.lstEmpCanWork.Location = new System.Drawing.Point(528, 24);
-            this.lstEmpCanWork.Name = "lstEmpCanWork";
-            this.lstEmpCanWork.Size = new System.Drawing.Size(352, 439);
-            this.lstEmpCanWork.TabIndex = 8;
-            this.lstEmpCanWork.DoubleClick += new System.EventHandler(this.dd);
-            // 
-            // btnAddToSchedule
-            // 
-            this.btnAddToSchedule.Location = new System.Drawing.Point(932, 76);
-            this.btnAddToSchedule.Name = "btnAddToSchedule";
-            this.btnAddToSchedule.Size = new System.Drawing.Size(105, 59);
-            this.btnAddToSchedule.TabIndex = 9;
-            this.btnAddToSchedule.Text = "Add Employee";
-            this.btnAddToSchedule.UseVisualStyleBackColor = true;
-            // 
-            // btnRemoveFromSchedule
-            // 
-            this.btnRemoveFromSchedule.Location = new System.Drawing.Point(391, 408);
-            this.btnRemoveFromSchedule.Name = "btnRemoveFromSchedule";
-            this.btnRemoveFromSchedule.Size = new System.Drawing.Size(105, 25);
-            this.btnRemoveFromSchedule.TabIndex = 10;
-            this.btnRemoveFromSchedule.Text = "Remove Employee";
-            this.btnRemoveFromSchedule.UseVisualStyleBackColor = true;
             // 
             // DepotManager
             // 
