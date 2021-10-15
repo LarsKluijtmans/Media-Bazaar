@@ -86,8 +86,32 @@ namespace MediaBazaar
                         int phoneNumber = reader.GetInt32("PhoneNumber");
                         string dateOfBirth = reader.GetString("DateOfBirth");
 
+                        Contract c = GetContract(employeeID.ToString());
                         employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
-                        lbxEmployees.Items.Add(employee);
+
+                        if (rbnAllEmployees.Checked)
+                        {
+                            lbxEmployees.Items.Add(employee);
+                        } else if (rbnDepotEmployees.Checked)
+                        {
+                            if (c.JobTitle == "DEPOT EMPLOYEE" || c.JobTitle == "DEPOT MANAGER")
+                            {
+                                lbxEmployees.Items.Add(employee);
+                            }
+                        } else if (rbnOfficeEmployees.Checked)
+                        {
+                            if (c.JobTitle == "OFFICE MANAGER")
+                            {
+                                lbxEmployees.Items.Add(employee);
+                            }
+                        } else if (rbnSalesEmployees.Checked)
+                        {
+                            if (c.JobTitle == "SALES REPRESENTATIVE" || c.JobTitle == "SALES MANAGER")
+                            {
+                                lbxEmployees.Items.Add(employee);
+
+                            }
+                        }
                     }
                 }
             }
@@ -200,7 +224,26 @@ namespace MediaBazaar
             }
             ViewAllEmployees();
         }
+        // view employees
+        private void rbnAllEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewAllEmployees();
+        }
 
+        private void rbnOfficeEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewAllEmployees();
+        }
+
+        private void rbnSalesEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewAllEmployees();
+        }
+
+        private void rbnDepotEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewAllEmployees();
+        }
 
         //Login
 
@@ -249,7 +292,7 @@ namespace MediaBazaar
             }
 
             store.departmentManagment.AddDepartment(Name, Head, CompanyID);
-        }//Refrech datagridView
+        } //Refresh datagridView
 
         private void btnEditDepartment_Click(object sender, EventArgs e)
         {
@@ -364,5 +407,6 @@ namespace MediaBazaar
         {
 
         }
+
     }
 }
