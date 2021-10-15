@@ -45,7 +45,6 @@ namespace MediaBazaar
         private Person GetTempEmployee()
         {
             Object personObj = lbxEmployees.SelectedItem;
-
             if (!(personObj is Person))
             {
                 MessageBox.Show("Error");
@@ -54,54 +53,6 @@ namespace MediaBazaar
             Person tempPerson = (Person)personObj;
 
             return tempPerson;
-        }
-        public Contract GetTempContract(Person p)
-        {
-            int employeeID = p.EmployeeID;
-
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = ContractManagement.CONTRACT_BY_EMPLOYEEID;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Contract c;
-
-                while (reader.Read())
-                {
-                    if ( reader.GetInt32("EmployeeID") == employeeID)
-                    {
-                        int contractID = reader.GetInt32("ContractID");
-                        string jobTitle = reader.GetString("JodTitle");
-                        int workHoursPerWeek = reader.GetInt32("WorkHoursPerWeek");
-                        int salaryPerHour = reader.GetInt32("SalaryPerHour");
-                        string startDate = reader.GetString("StartDate");
-
-                        c = new Contract(employeeID, jobTitle, workHoursPerWeek, salaryPerHour, startDate);
-
-                        return c;
-                    }
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong" + ex);
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            return null;
         }
         public void ViewAllEmployees()
         {
@@ -165,10 +116,8 @@ namespace MediaBazaar
         public void ViewEmployeeDetails()
         {
             Person employee = GetTempEmployee();
-            Contract contract = GetTempContract(employee);
 
-
-            FormViewEmployee formViewEmployee = new FormViewEmployee(employee, contract);
+            FormViewEmployee formViewEmployee = new FormViewEmployee(employee);
             formViewEmployee.Show();
         }
         private void btnRemoveEmployee_Click(object sender, EventArgs e)

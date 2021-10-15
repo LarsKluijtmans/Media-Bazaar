@@ -29,7 +29,7 @@ namespace MediaBazaar
         // constructor
         public Contract(int employeeID, string jobTitle, int workHoursPerWeek, int salaryPerHour, string startDate)
         {
-            this.ContractID = contractID;
+            //this.ContractID = contractID;
             this.EmployeeID = employeeID;
             this.JobTitle = jobTitle;
             this.WorkHoursPerWeek = workHoursPerWeek;
