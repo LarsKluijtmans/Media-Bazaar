@@ -15,11 +15,11 @@ namespace MediaBazaar
     {
         Person p;
         Contract c;
-        public FormViewEmployee(Person p)
+        public FormViewEmployee(Person p, Contract c)
         {
             InitializeComponent();
             this.p = p;
-            //this.c = c;
+            this.c = c;
 
             try
             {
@@ -43,10 +43,10 @@ namespace MediaBazaar
             tbxDateOfBirth.Text = p.DateOfBirth; //
 
             // contract
-            //cbxJobTitle.Text = c.JobTitle;
-            //tbxWorkHours.Text = c.WorkHoursPerWeek.ToString();
-            //tbxSalary.Text = c.SalaryPerHour.ToString();
-            //tbxStartDate.Text = c.StartDate;
+            cbxJobTitle.Text = c.JobTitle;
+            tbxWorkHours.Text = c.WorkHoursPerWeek.ToString();
+            tbxSalary.Text = c.SalaryPerHour.ToString();
+            tbxStartDate.Text = c.StartDate;
         }
 
         private void btnEditData_Click(object sender, EventArgs e)

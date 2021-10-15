@@ -17,7 +17,7 @@ namespace MediaBazaar
         public static string UPDATE_CONTRACT = "UPDATE Contract SET JobTitle = @JobTitle, WorkHoursPerWeek = @WorkHoursPerWeek, SalaryPerHour = @SalaryPerHour, StartDate = @StartDate;";
         public static string DELETE_CONTRACT_BY_ID = "DELETE FROM Contract WHERE EmployeeID = @EmployeeID";
 
-        //public static string CONTRACT_BY_EMPLOYEEID = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID;";
+        public static string CONTRACT_BY_EMPLOYEEID = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID;";
 
 
         // properties

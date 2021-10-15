@@ -116,10 +116,55 @@ namespace MediaBazaar
         public void ViewEmployeeDetails()
         {
             Person employee = GetTempEmployee();
+            Contract contract = GetContract(employee.EmployeeID.ToString());
 
-            FormViewEmployee formViewEmployee = new FormViewEmployee(employee);
+            FormViewEmployee formViewEmployee = new FormViewEmployee(employee, contract);
             formViewEmployee.Show();
         }
+        // get contract
+        public Contract GetContract(string employeeID)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = ContractManagement.CONTRACT_BY_EMPLOYEEID;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Contract c;
+
+                while (reader.Read())
+                {
+                    string jobTitle = reader.GetString("JobTitle");
+                    int workHours = reader.GetInt32("WorkHoursPerWeek");
+                    int salary = reader.GetInt32("SalaryPerHour");
+                    string startDate = reader.GetString("StartDate");
+
+                    c = new Contract(Convert.ToInt32(employeeID), jobTitle, workHours, salary, startDate);
+
+                    return c;
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return null;
+        }
+
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
             Person employee = GetTempEmployee();
