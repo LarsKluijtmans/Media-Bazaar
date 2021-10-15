@@ -21,7 +21,6 @@ namespace MediaBazaar
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
             CreateEmployee();
-            CreateContract();
         }
         public void CreateEmployee()
         {
@@ -113,6 +112,11 @@ namespace MediaBazaar
             {
                 conn.Close();
             }
+        }
+
+        private void btnAddContract_Click(object sender, EventArgs e)
+        {
+            CreateContract();
         }
     }
 }
