@@ -192,14 +192,15 @@ namespace MediaBazaar
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
             Person employee = GetTempEmployee();
-            FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(employee);
+            Contract contract = GetContract(employee.EmployeeID.ToString());
+            FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(employee, contract);
             formRemoveEmployee.Show();
 
             string employeeID = tbxEmployeeID.Text;
             string active = "0";
 
             MySqlConnection conn = Utils.GetConnection();
-            string sql = "Utils.REMOVE_EMPLOYEE_BY_ID";
+            string sql = EmployeeManagement.REMOVE_EMPLOYEE_BY_ID;
 
             try
             {

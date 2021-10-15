@@ -14,10 +14,12 @@ namespace MediaBazaar
     public partial class FormRemoveEmployee : Form
     {
         Person employee;
-        public FormRemoveEmployee(Person p)
+        Contract contract;
+        public FormRemoveEmployee(Person p, Contract c)
         {
             InitializeComponent();
             this.employee = p;
+            this.contract = c;
             lblEmployee.Text = $"{p.EmployeeID} - {p.FirstName} {p.LastName}";
         }
 
@@ -33,10 +35,11 @@ namespace MediaBazaar
 
 
             MySqlConnection conn = Utils.GetConnection();
-            string sql = "Utils.UPDATE_CONTRACT";
+            string sql = ContractManagement.END_CONTRACT;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
                 cmd.Parameters.AddWithValue("@ReasonForTermination", reasonForTermination);
                 cmd.Parameters.AddWithValue("@EndDate", contractEndDate);
                 conn.Open();
