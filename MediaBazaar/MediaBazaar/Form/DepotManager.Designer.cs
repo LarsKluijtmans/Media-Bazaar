@@ -100,22 +100,11 @@ namespace MediaBazaar
             this.label16 = new System.Windows.Forms.Label();
             this.lbReshelfRequest = new System.Windows.Forms.ListBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.lbEmployee = new System.Windows.Forms.ListBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.lbPlanning = new System.Windows.Forms.ListBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.tbWorkId = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.btnEditPlaning = new System.Windows.Forms.Button();
-            this.tbTime = new System.Windows.Forms.TextBox();
-            this.tbDay = new System.Windows.Forms.TextBox();
-            this.tbDep = new System.Windows.Forms.TextBox();
-            this.tbNewEmployeeId = new System.Windows.Forms.TextBox();
-            this.btnDepotPlan = new System.Windows.Forms.Button();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
+            this.btnRemoveFromSchedule = new System.Windows.Forms.Button();
+            this.btnAddToSchedule = new System.Windows.Forms.Button();
+            this.lstEmpCanWork = new System.Windows.Forms.ListBox();
+            this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnCheck = new System.Windows.Forms.Button();
             this.tpSchedule.SuspendLayout();
@@ -126,7 +115,7 @@ namespace MediaBazaar
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -161,6 +150,7 @@ namespace MediaBazaar
             this.dgvSchedule.RowTemplate.Height = 25;
             this.dgvSchedule.Size = new System.Drawing.Size(717, 418);
             this.dgvSchedule.TabIndex = 5;
+            this.dgvSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSchedule_CellClick);
             // 
             // groupBox2
             // 
@@ -278,10 +268,10 @@ namespace MediaBazaar
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tpSchedule);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tpSchedule);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Location = new System.Drawing.Point(14, 25);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -921,10 +911,11 @@ namespace MediaBazaar
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.lbEmployee);
-            this.tabPage7.Controls.Add(this.label32);
-            this.tabPage7.Controls.Add(this.lbPlanning);
-            this.tabPage7.Controls.Add(this.groupBox5);
+            this.tabPage7.Controls.Add(this.btnRemoveFromSchedule);
+            this.tabPage7.Controls.Add(this.btnAddToSchedule);
+            this.tabPage7.Controls.Add(this.lstEmpCanWork);
+            this.tabPage7.Controls.Add(this.lstEmpEnlisted);
+            this.tabPage7.Controls.Add(this.dataGridView1);
             this.tabPage7.Location = new System.Drawing.Point(4, 24);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
@@ -933,175 +924,51 @@ namespace MediaBazaar
             this.tabPage7.Text = "Planning";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // lbEmployee
+            // btnRemoveFromSchedule
             // 
-            this.lbEmployee.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbEmployee.FormattingEnabled = true;
-            this.lbEmployee.ItemHeight = 15;
-            this.lbEmployee.Location = new System.Drawing.Point(373, 60);
-            this.lbEmployee.Name = "lbEmployee";
-            this.lbEmployee.Size = new System.Drawing.Size(347, 424);
-            this.lbEmployee.TabIndex = 62;
-            this.lbEmployee.SelectedIndexChanged += new System.EventHandler(this.lbEmployee_SelectedIndexChanged);
+            this.btnRemoveFromSchedule.Location = new System.Drawing.Point(391, 408);
+            this.btnRemoveFromSchedule.Name = "btnRemoveFromSchedule";
+            this.btnRemoveFromSchedule.Size = new System.Drawing.Size(105, 25);
+            this.btnRemoveFromSchedule.TabIndex = 10;
+            this.btnRemoveFromSchedule.Text = "Remove Employee";
+            this.btnRemoveFromSchedule.UseVisualStyleBackColor = true;
             // 
-            // label32
+            // btnAddToSchedule
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label32.Location = new System.Drawing.Point(31, 25);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(98, 21);
-            this.label32.TabIndex = 61;
-            this.label32.Text = "Planning list:";
+            this.btnAddToSchedule.Location = new System.Drawing.Point(932, 76);
+            this.btnAddToSchedule.Name = "btnAddToSchedule";
+            this.btnAddToSchedule.Size = new System.Drawing.Size(105, 59);
+            this.btnAddToSchedule.TabIndex = 9;
+            this.btnAddToSchedule.Text = "Add Employee";
+            this.btnAddToSchedule.UseVisualStyleBackColor = true;
             // 
-            // lbPlanning
+            // lstEmpCanWork
             // 
-            this.lbPlanning.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbPlanning.FormattingEnabled = true;
-            this.lbPlanning.ItemHeight = 15;
-            this.lbPlanning.Location = new System.Drawing.Point(25, 60);
-            this.lbPlanning.Name = "lbPlanning";
-            this.lbPlanning.Size = new System.Drawing.Size(342, 424);
-            this.lbPlanning.TabIndex = 60;
-            this.lbPlanning.SelectedIndexChanged += new System.EventHandler(this.lbPlaning_SelectedIndexChanged);
+            this.lstEmpCanWork.FormattingEnabled = true;
+            this.lstEmpCanWork.ItemHeight = 15;
+            this.lstEmpCanWork.Location = new System.Drawing.Point(528, 24);
+            this.lstEmpCanWork.Name = "lstEmpCanWork";
+            this.lstEmpCanWork.Size = new System.Drawing.Size(352, 439);
+            this.lstEmpCanWork.TabIndex = 8;
+            this.lstEmpCanWork.DoubleClick += new System.EventHandler(this.dd);
             // 
-            // groupBox5
+            // lstEmpEnlisted
             // 
-            this.groupBox5.Controls.Add(this.tbWorkId);
-            this.groupBox5.Controls.Add(this.label34);
-            this.groupBox5.Controls.Add(this.btnEditPlaning);
-            this.groupBox5.Controls.Add(this.tbTime);
-            this.groupBox5.Controls.Add(this.tbDay);
-            this.groupBox5.Controls.Add(this.tbDep);
-            this.groupBox5.Controls.Add(this.tbNewEmployeeId);
-            this.groupBox5.Controls.Add(this.btnDepotPlan);
-            this.groupBox5.Controls.Add(this.label33);
-            this.groupBox5.Controls.Add(this.label35);
-            this.groupBox5.Controls.Add(this.label38);
-            this.groupBox5.Controls.Add(this.label39);
-            this.groupBox5.Location = new System.Drawing.Point(743, 46);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(346, 443);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Manage Planning:";
+            this.lstEmpEnlisted.FormattingEnabled = true;
+            this.lstEmpEnlisted.ItemHeight = 15;
+            this.lstEmpEnlisted.Location = new System.Drawing.Point(32, 308);
+            this.lstEmpEnlisted.Name = "lstEmpEnlisted";
+            this.lstEmpEnlisted.Size = new System.Drawing.Size(464, 94);
+            this.lstEmpEnlisted.TabIndex = 7;
             // 
-            // tbWorkId
+            // dataGridView1
             // 
-            this.tbWorkId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbWorkId.Location = new System.Drawing.Point(153, 45);
-            this.tbWorkId.Name = "tbWorkId";
-            this.tbWorkId.ReadOnly = true;
-            this.tbWorkId.Size = new System.Drawing.Size(164, 29);
-            this.tbWorkId.TabIndex = 25;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label34.Location = new System.Drawing.Point(45, 45);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(67, 21);
-            this.label34.TabIndex = 24;
-            this.label34.Text = "Work id:";
-            // 
-            // btnEditPlaning
-            // 
-            this.btnEditPlaning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditPlaning.Location = new System.Drawing.Point(69, 270);
-            this.btnEditPlaning.Name = "btnEditPlaning";
-            this.btnEditPlaning.Size = new System.Drawing.Size(215, 34);
-            this.btnEditPlaning.TabIndex = 23;
-            this.btnEditPlaning.Text = "EditPlaning";
-            this.btnEditPlaning.UseVisualStyleBackColor = true;
-            this.btnEditPlaning.Click += new System.EventHandler(this.btnEditPlaning_Click);
-            // 
-            // tbTime
-            // 
-            this.tbTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbTime.Location = new System.Drawing.Point(153, 196);
-            this.tbTime.Name = "tbTime";
-            this.tbTime.ReadOnly = true;
-            this.tbTime.Size = new System.Drawing.Size(164, 29);
-            this.tbTime.TabIndex = 18;
-            // 
-            // tbDay
-            // 
-            this.tbDay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbDay.Location = new System.Drawing.Point(153, 157);
-            this.tbDay.Name = "tbDay";
-            this.tbDay.ReadOnly = true;
-            this.tbDay.Size = new System.Drawing.Size(164, 29);
-            this.tbDay.TabIndex = 17;
-            // 
-            // tbDep
-            // 
-            this.tbDep.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbDep.Location = new System.Drawing.Point(153, 119);
-            this.tbDep.Name = "tbDep";
-            this.tbDep.ReadOnly = true;
-            this.tbDep.Size = new System.Drawing.Size(164, 29);
-            this.tbDep.TabIndex = 16;
-            // 
-            // tbNewEmployeeId
-            // 
-            this.tbNewEmployeeId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbNewEmployeeId.Location = new System.Drawing.Point(153, 80);
-            this.tbNewEmployeeId.Name = "tbNewEmployeeId";
-            this.tbNewEmployeeId.ReadOnly = true;
-            this.tbNewEmployeeId.Size = new System.Drawing.Size(164, 29);
-            this.tbNewEmployeeId.TabIndex = 15;
-            // 
-            // btnDepotPlan
-            // 
-            this.btnDepotPlan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDepotPlan.Location = new System.Drawing.Point(69, 326);
-            this.btnDepotPlan.Name = "btnDepotPlan";
-            this.btnDepotPlan.Size = new System.Drawing.Size(215, 34);
-            this.btnDepotPlan.TabIndex = 14;
-            this.btnDepotPlan.Text = "View depot planing";
-            this.btnDepotPlan.UseVisualStyleBackColor = true;
-            this.btnDepotPlan.Click += new System.EventHandler(this.btnDepotPlan_Click);
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label33.Location = new System.Drawing.Point(93, 199);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(45, 21);
-            this.label33.TabIndex = 10;
-            this.label33.Text = "Shift:";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label35.Location = new System.Drawing.Point(98, 157);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(40, 21);
-            this.label35.TabIndex = 9;
-            this.label35.Text = "Day:";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label38.Location = new System.Drawing.Point(42, 119);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(96, 21);
-            this.label38.TabIndex = 8;
-            this.label38.Text = "Department:";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label39.Location = new System.Drawing.Point(45, 80);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(98, 21);
-            this.label39.TabIndex = 7;
-            this.label39.Text = "Employee id:";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(32, 24);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(464, 268);
+            this.dataGridView1.TabIndex = 6;
             // 
             // textBox3
             // 
@@ -1144,9 +1011,7 @@ namespace MediaBazaar
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1223,23 +1088,12 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox lbScheduleDay;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.ListBox lbEmployee;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.ListBox lbPlanning;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox tbWorkId;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Button btnEditPlaning;
-        private System.Windows.Forms.TextBox tbTime;
-        private System.Windows.Forms.TextBox tbDay;
-        private System.Windows.Forms.TextBox tbDep;
-        private System.Windows.Forms.TextBox tbNewEmployeeId;
-        private System.Windows.Forms.Button btnDepotPlan;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.DataGridView dgvSchedule;
+        private System.Windows.Forms.Button btnRemoveFromSchedule;
+        private System.Windows.Forms.Button btnAddToSchedule;
+        private System.Windows.Forms.ListBox lstEmpCanWork;
+        private System.Windows.Forms.ListBox lstEmpEnlisted;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -5,7 +5,7 @@
         private int employeeID;
         private string firstName;
         private string lastName;
-        private string jodTitle;
+        private string jobTitle;
 
         public int EmployeeID
         {
@@ -25,23 +25,23 @@
             set { lastName = value; }
         }
 
-        public string JodTitle
+        public string JobTitle
         {
-            get { return jodTitle; }
-            set { jodTitle = value; }
+            get { return jobTitle; }
+            set { jobTitle = value; }
         }
 
-        public BasicEmployeeInfo(int EmployeeID, string Lastname, string Firstname, string JodTitle)
+        public BasicEmployeeInfo(int EmployeeID, string Lastname, string Firstname, string JobTitle)
         {
             employeeID = EmployeeID;
             lastName = Lastname;
             firstName = Firstname;
-            jodTitle = JodTitle;
+            jobTitle = JobTitle;
         }
         // methodes
         public override string ToString()
         {
-            return $"ID: {employeeID}   Name: {firstName} {lastName}  Job: {jodTitle}";
+            return $"ID: {employeeID}   Name: {firstName} {lastName}  Job: {jobTitle}";
         }
 
     }

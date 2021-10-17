@@ -14,10 +14,12 @@ namespace MediaBazaar
     public partial class FormViewEmployee : Form
     {
         Person p;
-        public FormViewEmployee(Person p)
+        Contract c;
+        public FormViewEmployee(Person p, Contract c)
         {
             InitializeComponent();
             this.p = p;
+            this.c = c;
 
             try
             {
@@ -29,7 +31,8 @@ namespace MediaBazaar
                 MessageBox.Show("Please select a employee from the list.");
             }
 
-            tbxEmployeeID.Text = p.ID.ToString(); // read only
+            // employee
+            tbxEmployeeID.Text = p.EmployeeID.ToString(); // read only
             tbxFirstName.Text = p.FirstName;
             tbxLastName.Text = p.LastName;
             tbxUserName.Text = p.Username; //
@@ -38,6 +41,12 @@ namespace MediaBazaar
             tbxEmail.Text = p.Email; //
             tbxPhoneNumber.Text = p.PhoneNumber.ToString();
             tbxDateOfBirth.Text = p.DateOfBirth; //
+
+            // contract
+            cbxJobTitle.Text = c.JobTitle;
+            tbxWorkHours.Text = c.WorkHoursPerWeek.ToString();
+            tbxSalary.Text = c.SalaryPerHour.ToString();
+            tbxStartDate.Text = c.StartDate;
         }
 
         private void btnEditData_Click(object sender, EventArgs e)

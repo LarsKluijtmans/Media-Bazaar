@@ -7,16 +7,16 @@ namespace MediaBazaar.Class
 {
     public class PlaningManagment
     {
-        public static string GET_OFFICE_EMPLOYEE = "SELECT DISTINCT EMPLOYEE.EmployeeID, FirstName, LastName, contract.JodTitle FROM `employee` INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE contract.JodTitle = 'OFFICE EMPLOYEE' or contract.JodTitle = 'OFFICE MANAGER';";
-        public static string GET_DEPOT_EMPLOYEE = "SELECT DISTINCT EMPLOYEE.EmployeeID, FirstName, LastName, contract.JodTitle FROM `employee` INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE contract.JodTitle = 'DEPOT EMPLOYEE' or contract.JodTitle = 'DEPOT MANAGER';";
-        public static string GET_SALES_EMPLOYEE = "SELECT DISTINCT EMPLOYEE.EmployeeID, FirstName, LastName, contract.JodTitle FROM `employee` INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE contract.JodTitle = 'SALES Representative' or contract.JodTitle = 'SALES MANAGER';";
+        public static string GET_OFFICE_EMPLOYEE = "SELECT DISTINCT EMPLOYEE.EmployeeID, FirstName, LastName, contract.JobTitle FROM `employee` INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE contract.JobTitle = 'OFFICE EMPLOYEE' or contract.JobTitle = 'OFFICE MANAGER';";
+        public static string GET_DEPOT_EMPLOYEE = "SELECT DISTINCT EMPLOYEE.EmployeeID, FirstName, LastName, contract.JobTitle FROM `employee` INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE contract.JobTitle = 'DEPOT EMPLOYEE' or contract.JobTitle = 'DEPOT MANAGER';";
+        public static string GET_SALES_EMPLOYEE = "SELECT DISTINCT EMPLOYEE.EmployeeID, FirstName, LastName, contract.JobTitle FROM `employee` INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE contract.JobTitle = 'SALES Representative' or contract.JobTitle = 'SALES MANAGER';";
 
         public static string GET_DEPOT_PLANING = "SELECT workID, Department, employeeID, day, time FROM schduledwork WHERE department = 'DEPOT'; ";
         public static string GET_OFFICE_PLANING = "SELECT workID, Department, employeeID, day, time FROM schduledwork WHERE department = 'OFFICE'; ";
         public static string GET_SALES_PLANING = "SELECT workID, Department, employeeID, day, time FROM schduledwork WHERE department = 'SALES'; ";
 
         public static string UPDATE_PLANING = "UPDATE schduledwork SET employeeID = @emplyeeID  WHERE workID = @workID;";
-        public static string PLAN_AUTOPLANING = "SELECT PrefranceID, contract.EmployeeID, Prefered, DAY, Time, contract.JodTitle, contract.WorkHoursPerWeek FROM workprefrance INNER JOIN contract ON contract.EmployeeID = workprefrance.EmployeeID;";
+        public static string PLAN_AUTOPLANING = "SELECT PrefranceID, contract.EmployeeID, Prefered, DAY, Time, contract.JobTitle, contract.WorkHoursPerWeek FROM workprefrance INNER JOIN contract ON contract.EmployeeID = workprefrance.EmployeeID;";
 
         public static string MAKE_EMPTY_SCHEDULE = "SELECT Department, Day, Morning , Afternoon, Evening FROM `schedule`;";
         public static string CREATE_SCHDULEDWORK = "INSERT INTO schduledwork (Department, EmployeeID, Day, Time) VALUE ( @depratment , @EmployeeID , @Day , @Time);";
@@ -94,10 +94,10 @@ namespace MediaBazaar.Class
                     int employeeID = reader.GetInt32("EmployeeID");
                     string firstName = reader.GetString("FirstName");
                     string lastName = reader.GetString("LastName");
-                    string jodTitle = reader.GetString("JodTitle");
+                    string jobTitle = reader.GetString("JobTitle");
 
 
-                    employee = new BasicEmployeeInfo(employeeID, firstName, lastName, jodTitle);
+                    employee = new BasicEmployeeInfo(employeeID, firstName, lastName, jobTitle);
 
                     employees.Add(employee);
                 }
@@ -180,10 +180,10 @@ namespace MediaBazaar.Class
                     int employeeID = reader.GetInt32("EmployeeID");
                     string firstName = reader.GetString("FirstName");
                     string lastName = reader.GetString("LastName");
-                    string jodTitle = reader.GetString("JodTitle");
+                    string jobTitle = reader.GetString("JobTitle");
 
 
-                    employee = new BasicEmployeeInfo(employeeID, firstName, lastName, jodTitle);
+                    employee = new BasicEmployeeInfo(employeeID, firstName, lastName, jobTitle);
 
                     employees.Add(employee);
                 }
@@ -264,10 +264,10 @@ namespace MediaBazaar.Class
                     int employeeID = reader.GetInt32("EmployeeID");
                     string firstName = reader.GetString("FirstName");
                     string lastName = reader.GetString("LastName");
-                    string jodTitle = reader.GetString("JodTitle");
+                    string jobTitle = reader.GetString("JobTitle");
 
 
-                    employee = new BasicEmployeeInfo(employeeID, firstName, lastName, jodTitle);
+                    employee = new BasicEmployeeInfo(employeeID, firstName, lastName, jobTitle);
 
                     employees.Add(employee);
                 }

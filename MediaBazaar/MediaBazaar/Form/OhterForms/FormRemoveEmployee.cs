@@ -14,11 +14,13 @@ namespace MediaBazaar
     public partial class FormRemoveEmployee : Form
     {
         Person employee;
-        public FormRemoveEmployee(Person p)
+        Contract contract;
+        public FormRemoveEmployee(Person p, Contract c)
         {
             InitializeComponent();
             this.employee = p;
-            lblEmployee.Text = $"{p.ID} - {p.FirstName} {p.LastName}";
+            this.contract = c;
+            lblEmployee.Text = $"{p.EmployeeID} - {p.FirstName} {p.LastName}";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,16 +29,17 @@ namespace MediaBazaar
         }
         public void UpdateContract()
         {
-            string employeeID = employee.ID.ToString();
+            string employeeID = employee.EmployeeID.ToString();
             string reasonForTermination = tbxReasonTermination.Text;
             string contractEndDate = tbxEndDate.Text;
 
 
             MySqlConnection conn = Utils.GetConnection();
-            string sql = "Utils.UPDATE_CONTRACT";
+            string sql = ContractManagement.END_CONTRACT;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
                 cmd.Parameters.AddWithValue("@ReasonForTermination", reasonForTermination);
                 cmd.Parameters.AddWithValue("@EndDate", contractEndDate);
                 conn.Open();

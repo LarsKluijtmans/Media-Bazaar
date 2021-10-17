@@ -29,7 +29,7 @@ namespace MediaBazaar
         {
             Person tempPerson = GetTempEmployee();
 
-            tbxEmployeeID.Text = tempPerson.ID.ToString();
+            tbxEmployeeID.Text = tempPerson.EmployeeID.ToString();
         }
 
         private void btnCreateEmployee_Click(object sender, EventArgs e)
@@ -45,7 +45,6 @@ namespace MediaBazaar
         private Person GetTempEmployee()
         {
             Object personObj = lbxEmployees.SelectedItem;
-
             if (!(personObj is Person))
             {
                 MessageBox.Show("Error");
@@ -55,15 +54,13 @@ namespace MediaBazaar
 
             return tempPerson;
         }
-
         public void ViewAllEmployees()
         {
             lbxEmployees.Items.Clear();
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = "Utils.GET_ALL_EMPLOYEES";
-
+            string sql = EmployeeManagement.GET_ALL_EMPLOYEES;
 
             try
             {
@@ -87,10 +84,34 @@ namespace MediaBazaar
                         string city = reader.GetString("Address");
                         string email = reader.GetString("Email");
                         int phoneNumber = reader.GetInt32("PhoneNumber");
-                        string dateOfBirth = "01-01-1998";
+                        string dateOfBirth = reader.GetString("DateOfBirth");
 
+                        Contract c = GetContract(employeeID.ToString());
                         employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
-                        lbxEmployees.Items.Add(employee);
+
+                        if (rbnAllEmployees.Checked)
+                        {
+                            lbxEmployees.Items.Add(employee);
+                        } else if (rbnDepotEmployees.Checked)
+                        {
+                            if (c.JobTitle == "DEPOT EMPLOYEE" || c.JobTitle == "DEPOT MANAGER")
+                            {
+                                lbxEmployees.Items.Add(employee);
+                            }
+                        } else if (rbnOfficeEmployees.Checked)
+                        {
+                            if (c.JobTitle == "OFFICE MANAGER")
+                            {
+                                lbxEmployees.Items.Add(employee);
+                            }
+                        } else if (rbnSalesEmployees.Checked)
+                        {
+                            if (c.JobTitle == "SALES REPRESENTATIVE" || c.JobTitle == "SALES MANAGER")
+                            {
+                                lbxEmployees.Items.Add(employee);
+
+                            }
+                        }
                     }
                 }
             }
@@ -110,23 +131,76 @@ namespace MediaBazaar
 
         private void btnUpdateEmployee_Click(object sender, EventArgs e)
         {
+            ViewEmployeeDetails();
+        }
+        private void lbxEmployees_DoubleClick(object sender, EventArgs e)
+        {
+            ViewEmployeeDetails();
+        }
+        public void ViewEmployeeDetails()
+        {
             Person employee = GetTempEmployee();
+            Contract contract = GetContract(employee.EmployeeID.ToString());
 
-            FormViewEmployee formViewEmployee = new FormViewEmployee(employee);
+            FormViewEmployee formViewEmployee = new FormViewEmployee(employee, contract);
             formViewEmployee.Show();
+        }
+        // get contract
+        public Contract GetContract(string employeeID)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = ContractManagement.CONTRACT_BY_EMPLOYEEID;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Contract c;
+
+                while (reader.Read())
+                {
+                    string jobTitle = reader.GetString("JobTitle");
+                    int workHours = reader.GetInt32("WorkHoursPerWeek");
+                    int salary = reader.GetInt32("SalaryPerHour");
+                    string startDate = reader.GetString("StartDate");
+
+                    c = new Contract(Convert.ToInt32(employeeID), jobTitle, workHours, salary, startDate);
+
+                    return c;
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return null;
         }
 
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
             Person employee = GetTempEmployee();
-            FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(employee);
+            Contract contract = GetContract(employee.EmployeeID.ToString());
+            FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(employee, contract);
             formRemoveEmployee.Show();
 
             string employeeID = tbxEmployeeID.Text;
             string active = "0";
 
             MySqlConnection conn = Utils.GetConnection();
-            string sql = "Utils.REMOVE_EMPLOYEE_BY_ID";
+            string sql = EmployeeManagement.REMOVE_EMPLOYEE_BY_ID;
 
             try
             {
@@ -151,7 +225,26 @@ namespace MediaBazaar
             }
             ViewAllEmployees();
         }
+        // view employees
+        private void rbnAllEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewAllEmployees();
+        }
 
+        private void rbnOfficeEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewAllEmployees();
+        }
+
+        private void rbnSalesEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewAllEmployees();
+        }
+
+        private void rbnDepotEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewAllEmployees();
+        }
 
         //Login
 
@@ -200,7 +293,7 @@ namespace MediaBazaar
             }
 
             store.departmentManagment.AddDepartment(Name, Head, CompanyID);
-        }//Refrech datagridView
+        } //Refresh datagridView
 
         private void btnEditDepartment_Click(object sender, EventArgs e)
         {
@@ -308,5 +401,13 @@ namespace MediaBazaar
         {
 
         }
+        // employee
+        
+
+        private void OfficeManager_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

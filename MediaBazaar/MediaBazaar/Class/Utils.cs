@@ -5,7 +5,7 @@ namespace MediaBazaar.Class
 {
     public class Utils
     {
-        public static string LOGIN_BY_EMPLOYEEID = " SELECT employee.employeeID, password, `contract`.`JodTitle` FROM employee INNER JOIN contract ON contract.employeeID = employee.Employeeid where employee.employeeid = @employeeid order by startdate;";
+        public static string LOGIN_BY_EMPLOYEEID = " SELECT employee.employeeID, password, `contract`.`JobTitle` FROM employee INNER JOIN contract ON contract.employeeID = employee.Employeeid where employee.employeeid = @employeeid order by startdate;";
 
 
         //Planing
