@@ -9,12 +9,14 @@ namespace acr122_demo
         string last = "";
         DateTime date;
         private static MyACR122U acr122u = new MyACR122U();
+        Atendance at;
         public Form1()
         {
             InitializeComponent();
             acr122u.Init(false, 50, 4, 4, 200);  // NTAG213
             acr122u.CardInserted += Acr122u_CardInserted;
             acr122u.CardRemoved += Acr122u_CardRemoved;
+            at = new Atendance();
         }
         private void Acr122u_CardInserted(PCSC.ICardReader reader)
         {
@@ -22,12 +24,13 @@ namespace acr122_demo
         }
 
         private static void Acr122u_CardRemoved()
-        {}
+        { }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             if ((acr122u.ReadId != null && last != acr122u.ReadId) || (acr122u.ReadId != null && date.AddSeconds(5) < DateTime.Now))
             {
+                listBox1.Items.Add(at.GetEmployeeID(acr122u.ReadId.ToString()));
                 listBox1.Items.Add(acr122u.ReadId);
                 last = acr122u.ReadId;
                 date = DateTime.Now;
@@ -46,6 +49,6 @@ namespace acr122_demo
             set { readId = value; }
         }
         public MyACR122U()
-        {}
+        { }
     }
 }

@@ -1,0 +1,13 @@
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\bin\Debug\CardReader.exe.config
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\bin\Debug\CardReader.exe
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\bin\Debug\CardReader.pdb
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\bin\Debug\PCSC.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\bin\Debug\Sydesoft.NfcDevice.ACR122U.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\obj\Debug\CardReader.csprojAssemblyReference.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\obj\Debug\CardReader.Form1.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\obj\Debug\CardReader.Properties.Resources.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\obj\Debug\CardReader.csproj.GenerateResource.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\obj\Debug\CardReader.csproj.CoreCompileInputs.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\obj\Debug\CardReader.csproj.CopyComplete
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\obj\Debug\CardReader.exe
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\CardReader\CardReader\obj\Debug\CardReader.pdb
