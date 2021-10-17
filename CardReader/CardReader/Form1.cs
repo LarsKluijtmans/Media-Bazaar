@@ -9,12 +9,14 @@ namespace CardReader
         string last = "";
         DateTime date;
         private static MyACR122U acr122u = new MyACR122U();
+        Atendance at;
         public Form1()
         {
             InitializeComponent();
             acr122u.Init(false, 50, 4, 4, 200);  // NTAG213
             acr122u.CardInserted += Acr122u_CardInserted;
             acr122u.CardRemoved += Acr122u_CardRemoved;
+            at = new Atendance();
         }
         private void Acr122u_CardInserted(PCSC.ICardReader reader)
         {
@@ -28,7 +30,8 @@ namespace CardReader
         {
             if ((acr122u.ReadId != null && last != acr122u.ReadId) || (acr122u.ReadId != null && date.AddSeconds(5) < DateTime.Now))
             {
-                listBox1.Items.Add(acr122u.ReadId.ToString());
+                listBox1.Items.Add(at.GetEmployeeID(acr122u.ReadId.ToString()));
+                listBox1.Items.Add(acr122u.ReadId);
                 last = acr122u.ReadId;
                 date = DateTime.Now;
                 acr122u.ReadId = null;

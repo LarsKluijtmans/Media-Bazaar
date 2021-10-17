@@ -30,7 +30,7 @@ namespace acr122_demo
         {
             if ((acr122u.ReadId != null && last != acr122u.ReadId) || (acr122u.ReadId != null && date.AddSeconds(5) < DateTime.Now))
             {
-                listBox1.Items.Add(at.GetEmployeeID(acr122u.ReadId.ToString()));
+                at.AddCheckIn(at.GetEmployeeID(acr122u.ReadId.ToString()));
                 listBox1.Items.Add(acr122u.ReadId);
                 last = acr122u.ReadId;
                 date = DateTime.Now;
