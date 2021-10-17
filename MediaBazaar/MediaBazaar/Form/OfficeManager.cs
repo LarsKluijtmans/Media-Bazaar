@@ -19,12 +19,32 @@ namespace MediaBazaar
             cbHeadDepartments.Items.Add("Depot");
             cbHeadDepartments.Items.Add("Office");
             cbHeadDepartments.Items.Add("Other");
+        }
 
+        //Timer
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
             ViewAllEmployees();
             ViewAllDepartments();
             ViewCompany();
+            GetAtendeance();
         }
+
+        //Atendance
+
+        public void GetAtendeance()
+        {
+            store.checkinManagment.getAllAtendance();
+            lbAtendance.Items.Clear();
+            foreach (Checkin c in store.checkinManagment.check)
+            {
+                lbAtendance.Items.Add(c);
+            }
+        }
+
         // employees
+
         private void lbxEmployees_SelectedIndexChanged(object sender, EventArgs e)
         {
             Person tempPerson = GetTempEmployee();
@@ -250,6 +270,8 @@ namespace MediaBazaar
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
             Close();
         }
 
@@ -260,14 +282,6 @@ namespace MediaBazaar
 
             dgvDepartments.DataSource = store.departmentManagment.ViewAllDepartments();
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            ViewAllDepartments();
-            ViewAllEmployees();
-        }
-
-        //Selected index
 
         private void btnAddDepartment_Click(object sender, EventArgs e)
         {
@@ -401,13 +415,9 @@ namespace MediaBazaar
         {
 
         }
+        
         // employee
         
-
-        private void OfficeManager_Load(object sender, EventArgs e)
-        {
-
-        }
 
     }
 }

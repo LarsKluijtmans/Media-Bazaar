@@ -11,9 +11,9 @@ namespace MediaBazaar.Class
         public LoginManagment loginManagment;
         public DepartmentManagment departmentManagment;
         public CompanyManagment companyManagment;
+        public CheckinManagment checkinManagment;
         //public EmployeeManagment employeeManagment;
         //public ContractManagment contractManagment;
-        //public check
 
         public Store()
         {
@@ -25,6 +25,7 @@ namespace MediaBazaar.Class
             loginManagment = new LoginManagment();
             departmentManagment = new DepartmentManagment();
             companyManagment = new CompanyManagment();
+            checkinManagment = new CheckinManagment();
             //employeeManagment = new employeeManagment();
             //contractManagment = new contractManagment();
         }

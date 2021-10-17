@@ -17,7 +17,19 @@ namespace acr122_demo
             acr122u.CardInserted += Acr122u_CardInserted;
             acr122u.CardRemoved += Acr122u_CardRemoved;
             at = new Atendance();
+            GetAtendance();
         }
+
+        public void GetAtendance()
+        { 
+            listBox1.Items.Clear();
+            at.getAllAtendance();
+            foreach (Ckecks k in at.check)
+            {
+                listBox1.Items.Add(k);
+            }
+        }
+
         private void Acr122u_CardInserted(PCSC.ICardReader reader)
         {
             acr122u.ReadId = BitConverter.ToString(acr122u.GetUID(reader)).Replace("-", "");
@@ -28,13 +40,38 @@ namespace acr122_demo
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
             if ((acr122u.ReadId != null && last != acr122u.ReadId) || (acr122u.ReadId != null && date.AddSeconds(5) < DateTime.Now))
             {
-                at.AddCheckIn(at.GetEmployeeID(acr122u.ReadId.ToString()));
-                listBox1.Items.Add(acr122u.ReadId);
-                last = acr122u.ReadId;
-                date = DateTime.Now;
-                acr122u.ReadId = null;
+
+                if (at.GetEmployeeID(acr122u.ReadId.ToString()) == 0)
+                {
+                    last = acr122u.ReadId;
+                    date = DateTime.Now;
+                    acr122u.ReadId = null;
+                    return;
+                }
+                else if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == false)
+                {
+                    at.AddCheckIn(at.GetEmployeeID(acr122u.ReadId.ToString()));
+                    last = acr122u.ReadId;
+                    date = DateTime.Now;
+                    acr122u.ReadId = null;
+                    GetAtendance();
+                    return;
+                }
+
+
+                else if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == true)
+                {
+                    at.EditCheckOutTime(at.GetEmployeeID(acr122u.ReadId.ToString()));
+                    last = acr122u.ReadId;
+                    date = DateTime.Now;
+                    acr122u.ReadId = null;
+                    GetAtendance();
+                    return;
+                }
+                
             }
             acr122u.ReadId = null;
         }
