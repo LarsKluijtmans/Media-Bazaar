@@ -17,13 +17,13 @@ namespace acr122_demo
             acr122u.CardInserted += Acr122u_CardInserted;
             acr122u.CardRemoved += Acr122u_CardRemoved;
             at = new Atendance();
-            GetAtendance();
+            GetAtendanceIn();
         }
 
-        public void GetAtendance()
+        public void GetAtendanceIn()
         { 
             listBox1.Items.Clear();
-            at.getAllAtendance();
+            at.getAllAtendanceOnCheckIn();
             foreach (Ckecks k in at.check)
             {
                 listBox1.Items.Add(k);
@@ -54,10 +54,16 @@ namespace acr122_demo
                 else if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == false)
                 {
                     at.AddCheckIn(at.GetEmployeeID(acr122u.ReadId.ToString()));
+
                     last = acr122u.ReadId;
                     date = DateTime.Now;
                     acr122u.ReadId = null;
-                    GetAtendance();
+
+                    Login login = new Login();
+                    login.Show();
+
+                    GetAtendanceIn();
+
                     return;
                 }
 
@@ -65,10 +71,16 @@ namespace acr122_demo
                 else if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == true)
                 {
                     at.EditCheckOutTime(at.GetEmployeeID(acr122u.ReadId.ToString()));
+
                     last = acr122u.ReadId;
                     date = DateTime.Now;
                     acr122u.ReadId = null;
-                    GetAtendance();
+
+                    Logout logout = new Logout();
+                    logout.Show();
+
+                    GetAtendanceIn();
+
                     return;
                 }
                 

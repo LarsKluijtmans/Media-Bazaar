@@ -19,11 +19,13 @@ namespace MediaBazaar
             cbHeadDepartments.Items.Add("Depot");
             cbHeadDepartments.Items.Add("Office");
             cbHeadDepartments.Items.Add("Other");
+            timer1.Interval = 1000;
+            timer1.Start();
         }
 
         //Timer
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick_1(object sender, EventArgs e)
         {
             ViewAllEmployees();
             ViewAllDepartments();
@@ -341,6 +343,16 @@ namespace MediaBazaar
             store.departmentManagment.EditDepartment(Name, Head, DepartmentID.ToString());
         }
 
+        private void dgvDepartments_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvDepartments.Rows[e.RowIndex];
+                labDepartmentID.Text = row.Cells["departmentID"].Value.ToString();
+                tbDepartmentName.Text = row.Cells["DepartmentName"].Value.ToString();
+                cbHeadDepartments.Text = row.Cells["HeadDepatment"].Value.ToString();
+            }
+        }
 
         //Company
 
@@ -415,9 +427,9 @@ namespace MediaBazaar
         {
 
         }
-        
+
         // employee
-        
+
 
     }
 }

@@ -12,24 +12,27 @@ namespace acr122_demo
         public static string IS_CHECKED_IN = "SELECT employeeID FROM `atendance` WHERE EmployeeID = @EmployeeID AND CheckDate = @CheckDate AND `CheckOutTime` IS NULL;";
         public static string CREATE_CHECKIN = "INSERT INTO ATENDANCE(EmployeeID, CheckInTime, CheckOutTime, CheckDate) VALUES(@EmployeeID, @CheckInTime, @CheckOutTime, @CheckDate)";
         public static string UPDATE_CHECKOUT = "UPDATE ATENDANCE SET CheckOutTime = @CheckOutTime WHERE CheckDate = @CheckDate AND EmployeeID = @EmployeeID AND `CheckOutTime` IS NULL ;";
-        public static string GET_ALL_ATENDANCE = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `atendance`;";
-
+    public static string GET_ALL_ATENDANCE_CHECKIN = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `atendance` WHERE CheckDate = @CheckDate ORDER BY CheckOutTime DESC;";
 
         public Atendance()
         {
             check = new List<Ckecks>();
         }
 
-        public void getAllAtendance()
+        public void getAllAtendanceOnCheckIn()
         {
             check.Clear();
+            var date = DateTime.Now;
             MySqlConnection conn = Connection.GetConnection();
 
-            string sql = GET_ALL_ATENDANCE;
+            string sql = GET_ALL_ATENDANCE_CHECKIN;
 
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@CheckDate", date.ToString("yyyy-MM-dd"));
+
                 conn.Open();
 
                 MySqlDataReader reader = cmd.ExecuteReader();

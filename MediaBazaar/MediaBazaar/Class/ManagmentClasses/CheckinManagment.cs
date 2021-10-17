@@ -34,7 +34,7 @@ namespace MediaBazaar.Class.ManagmentClasses
 
                 while (reader.Read())
                 {
-                    a = new Checkin(Convert.ToInt32(reader[0]), Convert.ToDateTime(reader[1]), Convert.ToDateTime(reader[2]), Convert.ToDateTime(reader[3]));
+                    a = new Checkin(Convert.ToInt32(reader[0]),reader[1].ToString(), reader[2].ToString(), Convert.ToDateTime(reader[3]));
                     check.Add(a);
                 }
             }

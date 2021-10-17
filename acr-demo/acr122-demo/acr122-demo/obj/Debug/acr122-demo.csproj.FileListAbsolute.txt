@@ -59,3 +59,5 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\acr-demo\acr122-demo\acr122-demo\
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\acr-demo\acr122-demo\acr122-demo\bin\Debug\System.Memory.xml
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\acr-demo\acr122-demo\acr122-demo\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\acr-demo\acr122-demo\acr122-demo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\acr-demo\acr122-demo\acr122-demo\obj\Debug\acr122_demo.Login.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\acr-demo\acr122-demo\acr122-demo\obj\Debug\acr122_demo.Logout.resources

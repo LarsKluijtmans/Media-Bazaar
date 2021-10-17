@@ -29,6 +29,7 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Comapny = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -71,6 +72,7 @@ namespace MediaBazaar
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvDepartments = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labDepartmentName = new System.Windows.Forms.Label();
             this.labDepartmentID = new System.Windows.Forms.Label();
             this.btnEditDepartment = new System.Windows.Forms.Button();
             this.btnAddDepartment = new System.Windows.Forms.Button();
@@ -78,12 +80,13 @@ namespace MediaBazaar
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cbHeadDepartments = new System.Windows.Forms.ComboBox();
+            this.WorkHours = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lbAtendance = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.WorkHours = new System.Windows.Forms.TabPage();
-            this.lbAtendance = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -547,9 +550,11 @@ namespace MediaBazaar
             this.dgvDepartments.RowTemplate.Height = 25;
             this.dgvDepartments.Size = new System.Drawing.Size(421, 444);
             this.dgvDepartments.TabIndex = 2;
+            this.dgvDepartments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartments_CellClick);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.labDepartmentName);
             this.groupBox2.Controls.Add(this.labDepartmentID);
             this.groupBox2.Controls.Add(this.btnEditDepartment);
             this.groupBox2.Controls.Add(this.btnAddDepartment);
@@ -563,6 +568,17 @@ namespace MediaBazaar
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
+            // 
+            // labDepartmentName
+            // 
+            this.labDepartmentName.AutoSize = true;
+            this.labDepartmentName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labDepartmentName.Location = new System.Drawing.Point(22, 29);
+            this.labDepartmentName.Name = "labDepartmentName";
+            this.labDepartmentName.Size = new System.Drawing.Size(73, 25);
+            this.labDepartmentName.TabIndex = 6;
+            this.labDepartmentName.Text = "label10";
+            this.labDepartmentName.Visible = false;
             // 
             // labDepartmentID
             // 
@@ -631,6 +647,37 @@ namespace MediaBazaar
             this.cbHeadDepartments.Size = new System.Drawing.Size(340, 33);
             this.cbHeadDepartments.TabIndex = 0;
             // 
+            // WorkHours
+            // 
+            this.WorkHours.Controls.Add(this.button1);
+            this.WorkHours.Controls.Add(this.lbAtendance);
+            this.WorkHours.Location = new System.Drawing.Point(4, 24);
+            this.WorkHours.Name = "WorkHours";
+            this.WorkHours.Padding = new System.Windows.Forms.Padding(3);
+            this.WorkHours.Size = new System.Drawing.Size(1123, 498);
+            this.WorkHours.TabIndex = 4;
+            this.WorkHours.Text = "WorkHours";
+            this.WorkHours.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Sylfaen", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(542, 322);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(407, 110);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Make Exel sheet";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // lbAtendance
+            // 
+            this.lbAtendance.FormattingEnabled = true;
+            this.lbAtendance.ItemHeight = 15;
+            this.lbAtendance.Location = new System.Drawing.Point(22, 20);
+            this.lbAtendance.Name = "lbAtendance";
+            this.lbAtendance.Size = new System.Drawing.Size(436, 439);
+            this.lbAtendance.TabIndex = 0;
+            // 
             // btnLogout
             // 
             this.btnLogout.Location = new System.Drawing.Point(912, 6);
@@ -661,36 +708,9 @@ namespace MediaBazaar
             this.textBox3.Size = new System.Drawing.Size(326, 33);
             this.textBox3.TabIndex = 6;
             // 
-            // WorkHours
+            // timer1
             // 
-            this.WorkHours.Controls.Add(this.button1);
-            this.WorkHours.Controls.Add(this.lbAtendance);
-            this.WorkHours.Location = new System.Drawing.Point(4, 24);
-            this.WorkHours.Name = "WorkHours";
-            this.WorkHours.Padding = new System.Windows.Forms.Padding(3);
-            this.WorkHours.Size = new System.Drawing.Size(1123, 498);
-            this.WorkHours.TabIndex = 4;
-            this.WorkHours.Text = "WorkHours";
-            this.WorkHours.UseVisualStyleBackColor = true;
-            // 
-            // lbAtendance
-            // 
-            this.lbAtendance.FormattingEnabled = true;
-            this.lbAtendance.ItemHeight = 15;
-            this.lbAtendance.Location = new System.Drawing.Point(22, 20);
-            this.lbAtendance.Name = "lbAtendance";
-            this.lbAtendance.Size = new System.Drawing.Size(436, 439);
-            this.lbAtendance.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Sylfaen", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(542, 322);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(407, 110);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Make Exel sheet";
-            this.button1.UseVisualStyleBackColor = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // OfficeManager
             // 
@@ -703,7 +723,6 @@ namespace MediaBazaar
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "OfficeManager";
             this.Text = "FormOfficeManager";
-            this.Load += new System.EventHandler(this.timer1_Tick);
             this.Comapny.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -786,5 +805,7 @@ namespace MediaBazaar
         private System.Windows.Forms.TabPage WorkHours;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox lbAtendance;
+        private System.Windows.Forms.Label labDepartmentName;
+        private System.Windows.Forms.Timer timer1;
     }
 }
