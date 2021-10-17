@@ -60,8 +60,5 @@
             btw = Btw;
             phoneNumber = PhoneNumber;
         }
-
-
-        //methods
     }
 }

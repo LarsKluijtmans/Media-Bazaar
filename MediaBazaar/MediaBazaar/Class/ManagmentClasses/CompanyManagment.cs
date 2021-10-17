@@ -8,7 +8,7 @@ namespace MediaBazaar.Class.ManagmentClasses
     {
         public Company company;
 
-        public static string GET_COMPANY = " SELECT Employee.EmployeeID, CompanyName, company.Address, company.Email, KVK, btw, company.PhoneNumber, company.ComapnyID FROM `EMPLOYEE` INNER JOIN contract ON employee.EmployeeID = contract.EmployeeID INNER JOIN  jobs ON jobs.JobTitle = contract.JodTitle INNER JOIN departments ON departments.DepartmentID = jobs.DepartmentID INNER JOIN company ON company.ComapnyID = departments.CompanyID HAVING employee.EmployeeID = @EmployeeID;";
+        public static string GET_COMPANY = "SELECT Employee.EmployeeID, CompanyName, company.Address, company.Email, KVK, btw, company.PhoneNumber, company.ComapnyID FROM `EMPLOYEE` INNER JOIN contract ON employee.EmployeeID = contract.EmployeeID INNER JOIN  jobs ON jobs.JobTitle = contract.JodTitle INNER JOIN departments ON departments.DepartmentID = jobs.DepartmentID INNER JOIN company ON company.ComapnyID = departments.CompanyID HAVING employee.EmployeeID = @EmployeeID;";
         public static string Edit_COMPANY = "UPDATE company SET CompanyName = @CompanyName, Address = @Address, Email = @Email, KVK = @KVK, btw = @btw , PhoneNumber = @PhoneNumber WHERE ComapnyID = @ComapnyID;";
        
         

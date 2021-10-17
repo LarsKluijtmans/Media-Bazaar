@@ -31,3 +31,4 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Barcode scaner\Barcode scaner\bin
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Barcode scaner\Barcode scaner\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Barcode scaner\Barcode scaner\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Barcode scaner\Barcode scaner\obj\Debug\Barcode scaner.csproj.CopyComplete
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Barcode scaner\Barcode scaner\bin\Debug\USB-Barcode-Scanner.dll
