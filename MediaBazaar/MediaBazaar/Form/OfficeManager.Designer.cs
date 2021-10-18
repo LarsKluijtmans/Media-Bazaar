@@ -87,6 +87,20 @@ namespace MediaBazaar
             this.btnCheck = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tadCard = new System.Windows.Forms.TabPage();
+            this.lbEmployee = new System.Windows.Forms.ListBox();
+            this.btnConnectCard = new System.Windows.Forms.Button();
+            this.tbEmployeeID = new System.Windows.Forms.TextBox();
+            this.labEmployeeID = new System.Windows.Forms.Label();
+            this.labEmployeeName = new System.Windows.Forms.Label();
+            this.tbEmployeeName = new System.Windows.Forms.TextBox();
+            this.labCardNumber = new System.Windows.Forms.Label();
+            this.tbCardNumber = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -99,6 +113,8 @@ namespace MediaBazaar
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.WorkHours.SuspendLayout();
+            this.tadCard.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // Comapny
@@ -107,23 +123,23 @@ namespace MediaBazaar
             this.Comapny.Controls.Add(this.tabPage1);
             this.Comapny.Controls.Add(this.tabPage3);
             this.Comapny.Controls.Add(this.WorkHours);
+            this.Comapny.Controls.Add(this.tadCard);
             this.Comapny.Location = new System.Drawing.Point(11, 20);
             this.Comapny.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Comapny.Name = "Comapny";
             this.Comapny.SelectedIndex = 0;
             this.Comapny.Size = new System.Drawing.Size(1131, 526);
             this.Comapny.TabIndex = 0;
-            this.Comapny.SelectedIndexChanged += new System.EventHandler(this.Comapny_SelectedIndexChanged);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Location = new System.Drawing.Point(4, 39);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1123, 498);
+            this.tabPage2.Size = new System.Drawing.Size(1123, 483);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Employee overview";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -360,10 +376,10 @@ namespace MediaBazaar
             // 
             this.tabPage1.Controls.Add(this.btnEditCompany);
             this.tabPage1.Controls.Add(this.gbCompanyInfo);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 39);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1123, 498);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(1123, 483);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Company";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -533,10 +549,10 @@ namespace MediaBazaar
             // 
             this.tabPage3.Controls.Add(this.dgvDepartments);
             this.tabPage3.Controls.Add(this.groupBox2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Location = new System.Drawing.Point(4, 39);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1123, 498);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Size = new System.Drawing.Size(1123, 483);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Departments";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -651,10 +667,10 @@ namespace MediaBazaar
             // 
             this.WorkHours.Controls.Add(this.button1);
             this.WorkHours.Controls.Add(this.lbAtendance);
-            this.WorkHours.Location = new System.Drawing.Point(4, 24);
+            this.WorkHours.Location = new System.Drawing.Point(4, 39);
             this.WorkHours.Name = "WorkHours";
-            this.WorkHours.Padding = new System.Windows.Forms.Padding(3);
-            this.WorkHours.Size = new System.Drawing.Size(1123, 498);
+            this.WorkHours.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.WorkHours.Size = new System.Drawing.Size(1123, 483);
             this.WorkHours.TabIndex = 4;
             this.WorkHours.Text = "WorkHours";
             this.WorkHours.UseVisualStyleBackColor = true;
@@ -712,6 +728,159 @@ namespace MediaBazaar
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
+            // tadCard
+            // 
+            this.tadCard.Controls.Add(this.groupBox6);
+            this.tadCard.Controls.Add(this.labCardNumber);
+            this.tadCard.Controls.Add(this.tbCardNumber);
+            this.tadCard.Controls.Add(this.labEmployeeName);
+            this.tadCard.Controls.Add(this.tbEmployeeName);
+            this.tadCard.Controls.Add(this.labEmployeeID);
+            this.tadCard.Controls.Add(this.tbEmployeeID);
+            this.tadCard.Controls.Add(this.btnConnectCard);
+            this.tadCard.Controls.Add(this.lbEmployee);
+            this.tadCard.Location = new System.Drawing.Point(4, 24);
+            this.tadCard.Name = "tadCard";
+            this.tadCard.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tadCard.Size = new System.Drawing.Size(1123, 498);
+            this.tadCard.TabIndex = 5;
+            this.tadCard.Text = "Card";
+            this.tadCard.UseVisualStyleBackColor = true;
+            // 
+            // lbEmployee
+            // 
+            this.lbEmployee.FormattingEnabled = true;
+            this.lbEmployee.ItemHeight = 15;
+            this.lbEmployee.Location = new System.Drawing.Point(26, 25);
+            this.lbEmployee.Name = "lbEmployee";
+            this.lbEmployee.Size = new System.Drawing.Size(475, 439);
+            this.lbEmployee.TabIndex = 0;
+            this.lbEmployee.SelectedIndexChanged += new System.EventHandler(this.lbEmployee_SelectedIndexChanged);
+            // 
+            // btnConnectCard
+            // 
+            this.btnConnectCard.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConnectCard.Location = new System.Drawing.Point(601, 356);
+            this.btnConnectCard.Name = "btnConnectCard";
+            this.btnConnectCard.Size = new System.Drawing.Size(413, 108);
+            this.btnConnectCard.TabIndex = 1;
+            this.btnConnectCard.Text = "Connect Card To Employee";
+            this.btnConnectCard.UseVisualStyleBackColor = true;
+            // 
+            // tbEmployeeID
+            // 
+            this.tbEmployeeID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbEmployeeID.Location = new System.Drawing.Point(601, 152);
+            this.tbEmployeeID.Name = "tbEmployeeID";
+            this.tbEmployeeID.ReadOnly = true;
+            this.tbEmployeeID.Size = new System.Drawing.Size(429, 33);
+            this.tbEmployeeID.TabIndex = 2;
+            // 
+            // labEmployeeID
+            // 
+            this.labEmployeeID.AutoSize = true;
+            this.labEmployeeID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labEmployeeID.Location = new System.Drawing.Point(601, 124);
+            this.labEmployeeID.Name = "labEmployeeID";
+            this.labEmployeeID.Size = new System.Drawing.Size(121, 25);
+            this.labEmployeeID.TabIndex = 3;
+            this.labEmployeeID.Text = "Employee ID:";
+            // 
+            // labEmployeeName
+            // 
+            this.labEmployeeName.AutoSize = true;
+            this.labEmployeeName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labEmployeeName.Location = new System.Drawing.Point(601, 188);
+            this.labEmployeeName.Name = "labEmployeeName";
+            this.labEmployeeName.Size = new System.Drawing.Size(153, 25);
+            this.labEmployeeName.TabIndex = 5;
+            this.labEmployeeName.Text = "Employee Name:";
+            // 
+            // tbEmployeeName
+            // 
+            this.tbEmployeeName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbEmployeeName.Location = new System.Drawing.Point(601, 216);
+            this.tbEmployeeName.Name = "tbEmployeeName";
+            this.tbEmployeeName.ReadOnly = true;
+            this.tbEmployeeName.Size = new System.Drawing.Size(429, 33);
+            this.tbEmployeeName.TabIndex = 4;
+            // 
+            // labCardNumber
+            // 
+            this.labCardNumber.AutoSize = true;
+            this.labCardNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labCardNumber.Location = new System.Drawing.Point(601, 252);
+            this.labCardNumber.Name = "labCardNumber";
+            this.labCardNumber.Size = new System.Drawing.Size(130, 25);
+            this.labCardNumber.TabIndex = 7;
+            this.labCardNumber.Text = "Card Number:";
+            // 
+            // tbCardNumber
+            // 
+            this.tbCardNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbCardNumber.Location = new System.Drawing.Point(601, 280);
+            this.tbCardNumber.Name = "tbCardNumber";
+            this.tbCardNumber.ReadOnly = true;
+            this.tbCardNumber.Size = new System.Drawing.Size(429, 33);
+            this.tbCardNumber.TabIndex = 6;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.radioButton1);
+            this.groupBox6.Controls.Add(this.radioButton2);
+            this.groupBox6.Controls.Add(this.radioButton3);
+            this.groupBox6.Controls.Add(this.radioButton4);
+            this.groupBox6.Location = new System.Drawing.Point(601, 25);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(261, 83);
+            this.groupBox6.TabIndex = 14;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Select department:";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(133, 54);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(117, 19);
+            this.radioButton1.TabIndex = 5;
+            this.radioButton1.Text = "Depot Employees";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(133, 21);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(117, 19);
+            this.radioButton2.TabIndex = 2;
+            this.radioButton2.Text = "Office employees";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Checked = true;
+            this.radioButton3.Location = new System.Drawing.Point(17, 21);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(99, 19);
+            this.radioButton3.TabIndex = 0;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "All employees";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(16, 54);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(111, 19);
+            this.radioButton4.TabIndex = 6;
+            this.radioButton4.Text = "Sales Employees";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
             // OfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -741,6 +910,10 @@ namespace MediaBazaar
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.WorkHours.ResumeLayout(false);
+            this.tadCard.ResumeLayout(false);
+            this.tadCard.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -807,5 +980,19 @@ namespace MediaBazaar
         private System.Windows.Forms.ListBox lbAtendance;
         private System.Windows.Forms.Label labDepartmentName;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TabPage tadCard;
+        private System.Windows.Forms.Label labCardNumber;
+        private System.Windows.Forms.TextBox tbCardNumber;
+        private System.Windows.Forms.Label labEmployeeName;
+        private System.Windows.Forms.TextBox tbEmployeeName;
+        private System.Windows.Forms.Label labEmployeeID;
+        private System.Windows.Forms.TextBox tbEmployeeID;
+        private System.Windows.Forms.Button btnConnectCard;
+        private System.Windows.Forms.ListBox lbEmployee;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }

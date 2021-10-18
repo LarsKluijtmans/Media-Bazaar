@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
+using Sydesoft.NfcDevice;
 
 namespace MediaBazaar
 {
@@ -9,28 +10,58 @@ namespace MediaBazaar
     {
         int ID;
         Store store;
+        private static MyACR122U acr122u = new MyACR122U();
         public OfficeManager(int UserID, Store s)
         {
             InitializeComponent();
             ID = UserID;
             store = s;
+
+            acr122u.Init(false, 50, 4, 4, 200);  // NTAG213
+            acr122u.CardInserted += Acr122u_CardInserted;
+            acr122u.CardRemoved += Acr122u_CardRemoved;
+
             cbHeadDepartments.Text = "Sales";
             cbHeadDepartments.Items.Add("Sales");
             cbHeadDepartments.Items.Add("Depot");
             cbHeadDepartments.Items.Add("Office");
             cbHeadDepartments.Items.Add("Other");
+
             timer1.Interval = 1000;
             timer1.Start();
+            ViewCompany();
         }
 
+        //Read Card
+
+        private void Acr122u_CardInserted(PCSC.ICardReader reader)
+        {
+            acr122u.ReadId = BitConverter.ToString(acr122u.GetUID(reader)).Replace("-", "");
+        }
+
+        private static void Acr122u_CardRemoved()
+        { }
+
+        internal class MyACR122U : ACR122U
+        {
+            private string readId;
+            public string ReadId
+            {
+                get { return readId; }
+                set { readId = value; }
+            }
+            public MyACR122U()
+            { }
+        }
+        
         //Timer
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             ViewAllEmployees();
             ViewAllDepartments();
-            ViewCompany();
             GetAtendeance();
+            tbCardNumber.Text = acr122u.ReadId.ToString();
         }
 
         //Atendance
@@ -79,6 +110,7 @@ namespace MediaBazaar
         public void ViewAllEmployees()
         {
             lbxEmployees.Items.Clear();
+            lbEmployee.Items.Clear();
 
             MySqlConnection conn = Utils.GetConnection();
 
@@ -131,6 +163,33 @@ namespace MediaBazaar
                             if (c.JobTitle == "SALES REPRESENTATIVE" || c.JobTitle == "SALES MANAGER")
                             {
                                 lbxEmployees.Items.Add(employee);
+
+                            }
+                        }
+
+                        if (rbnAllEmployees.Checked)
+                        {
+                            lbEmployee.Items.Add(employee);
+                        }
+                        else if (rbnDepotEmployees.Checked)
+                        {
+                            if (c.JobTitle == "DEPOT EMPLOYEE" || c.JobTitle == "DEPOT MANAGER")
+                            {
+                                lbEmployee.Items.Add(employee);
+                            }
+                        }
+                        else if (rbnOfficeEmployees.Checked)
+                        {
+                            if (c.JobTitle == "OFFICE MANAGER")
+                            {
+                                lbEmployee.Items.Add(employee);
+                            }
+                        }
+                        else if (rbnSalesEmployees.Checked)
+                        {
+                            if (c.JobTitle == "SALES REPRESENTATIVE" || c.JobTitle == "SALES MANAGER")
+                            {
+                                lbEmployee.Items.Add(employee);
 
                             }
                         }
@@ -423,9 +482,28 @@ namespace MediaBazaar
             store.companyManagment.EditCompany(Name, Adress, PhoneNumber, Email, BTW, KVK, ID);
         }
 
-        private void Comapny_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
+        //Connect card to employee
+
+        private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Person tempPerson = getperson();
+
+            tbEmployeeID.Text = tempPerson.EmployeeID.ToString();
+            tbEmployeeName.Text = tempPerson.FirstName + " " + tempPerson.LastName;
+        }
+
+        public Person getperson()
+        {
+            Object personObj = lbEmployee.SelectedItem;
+            if (!(personObj is Person))
+            {
+                MessageBox.Show("Error");
+            }
+
+            Person tempPerson = (Person)personObj;
+
+            return tempPerson;
         }
 
         // employee
