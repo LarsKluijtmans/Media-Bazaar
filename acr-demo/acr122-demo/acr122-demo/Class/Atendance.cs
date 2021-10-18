@@ -47,11 +47,11 @@ namespace acr122_demo
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                MessageBox.Show("Make sure to Use the provided vpn");
             }
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Make sure to Use the provided vpn");
             }
             finally
             {

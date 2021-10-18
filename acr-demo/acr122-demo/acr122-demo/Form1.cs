@@ -1,7 +1,8 @@
-﻿using Sydesoft.NfcDevice;
+﻿using acr122_demo.Class;
+using MySql.Data.MySqlClient;
+using Sydesoft.NfcDevice;
 using System;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace acr122_demo
 {
@@ -19,16 +20,33 @@ namespace acr122_demo
         public Form1()
         {
             InitializeComponent();
-            acr122u.Init(false, 50, 4, 4, 200);  // NTAG213
-            acr122u.CardInserted += Acr122u_CardInserted;
-            acr122u.CardRemoved += Acr122u_CardRemoved;
+            try
+            {
+                acr122u.Init(false, 50, 4, 4, 200);  // NTAG213
+                acr122u.CardInserted += Acr122u_CardInserted;
+                acr122u.CardRemoved += Acr122u_CardRemoved;
+                timer1.Start();
+                timer1.Interval = 1000;
+            }
+            catch 
+            {
+                MessageBox.Show("Make sure to connect the card reader");
+            }
             at = new Atendance();
-            GetAtendanceIn();
-            ViewAllEmployees();
+            try
+            {
+                GetAtendanceIn();
+                ViewAllEmployees();
+            }
+            catch 
+            {
+                Close();
+            }
         }
 
+        // Atendace
         public void GetAtendanceIn()
-        { 
+        {
             lbCheck.Items.Clear();
             at.getAllAtendanceOnCheckIn();
             foreach (Ckecks k in at.check)
@@ -36,6 +54,8 @@ namespace acr122_demo
                 lbCheck.Items.Add(k);
             }
         }
+
+        // CardReader
 
         private void Acr122u_CardInserted(PCSC.ICardReader reader)
         {
@@ -45,59 +65,46 @@ namespace acr122_demo
         private static void Acr122u_CardRemoved()
         { }
 
+        // Timer
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            ViewAllEmployees();
-  
-            if ((acr122u.ReadId != null && last != acr122u.ReadId) || (acr122u.ReadId != null && date.AddSeconds(5) < DateTime.Now))
+            if (acr122u.ReadId != null && at.GetEmployeeID(acr122u.ReadId.ToString()) != 0)
             {
-                ViewAllEmployees();
-                if (at.GetEmployeeID(acr122u.ReadId.ToString()) == 0)
+                if ((acr122u.ReadId != null && last != acr122u.ReadId) || (acr122u.ReadId != null && date.AddSeconds(5) < DateTime.Now))
                 {
-                    last = acr122u.ReadId;
-                    date = DateTime.Now;
-                    acr122u.ReadId = null;
-                    return;
+                    ViewAllEmployees();
+                    if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == false)
+                    {
+                        at.AddCheckIn(at.GetEmployeeID(acr122u.ReadId.ToString()));
+
+                        last = acr122u.ReadId;
+                        date = DateTime.Now;
+                        acr122u.ReadId = null;
+
+                        GetAtendanceIn();
+
+                        return;
+                    }
+                    else if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == true)
+                    {
+                        at.EditCheckOutTime(at.GetEmployeeID(acr122u.ReadId.ToString()));
+
+                        last = acr122u.ReadId;
+                        date = DateTime.Now;
+                        acr122u.ReadId = null;
+
+                        GetAtendanceIn();
+
+                        return;
+                    }
                 }
-                else if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == false)
-                {
-                    at.AddCheckIn(at.GetEmployeeID(acr122u.ReadId.ToString()));
-
-                    last = acr122u.ReadId;
-                    date = DateTime.Now;
-                    acr122u.ReadId = null;
-
-                    Login login = new Login();
-                    login.Show();
-
-                    GetAtendanceIn();
-
-                    return;
-                }
-
-
-                else if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == true)
-                {
-                    at.EditCheckOutTime(at.GetEmployeeID(acr122u.ReadId.ToString()));
-
-                    last = acr122u.ReadId;
-                    date = DateTime.Now;
-                    acr122u.ReadId = null;
-
-                    Logout logout = new Logout();
-                    logout.Show();
-
-                    GetAtendanceIn();
-
-                    return;
-                }
-                
             }
-            //else if (acr122u.ReadId != null)
-            //{
-            //    tbCardNumber.Text = acr122u.ReadId.ToString();
-            //}
-            acr122u.ReadId = null;
+             else if (acr122u.ReadId != null)
+            {
+                tbCardNumber.Text = acr122u.ReadId.ToString();
+                acr122u.ReadId = null;
+            }
         }
 
         // Conect card and employee
@@ -179,12 +186,17 @@ namespace acr122_demo
                 conn.Close();
             }
         }
+
         private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Person tempPerson = getperson();
+            try
+            {
+                Person tempPerson = getperson();
 
-            tbEmployeeID.Text = tempPerson.EmployeeID.ToString();
-            tbEmployeeName.Text = tempPerson.LastName + " " + tempPerson.FirstName;
+                tbEmployeeID.Text = tempPerson.EmployeeID.ToString();
+                tbEmployeeName.Text = tempPerson.LastName + " " + tempPerson.FirstName;
+            }
+            catch { }
         }
 
         public Person getperson()
@@ -201,6 +213,7 @@ namespace acr122_demo
         }
 
         //Contract
+
         public Contract GetContract(string employeeID)
         {
             MySqlConnection conn = Connection.GetConnection();
@@ -242,6 +255,30 @@ namespace acr122_demo
             }
 
             return null;
+        }
+
+        private void btnConnectCardAndEmployee_Click(object sender, EventArgs e)
+        {
+            string ID = tbEmployeeID.Text;
+            if (string.IsNullOrEmpty(ID))
+            {
+                MessageBox.Show(" 'Select a employee' field is required.");
+                return;
+            }
+
+            string Head = tbCardNumber.Text;
+            if (string.IsNullOrEmpty(Head))
+            {
+                MessageBox.Show("Put a card that is not already in use against the card reader.");
+                return;
+            }
+
+            Employee emp = new Employee();
+            emp.changeID(tbEmployeeID.Text.ToString(), tbCardNumber.Text.ToString());
+
+            tbEmployeeID.Text = "";
+            tbEmployeeName.Text = "";
+            tbCardNumber.Text = "";
         }
     }
 

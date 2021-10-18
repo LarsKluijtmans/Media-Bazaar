@@ -187,6 +187,7 @@ namespace acr122_demo {
             this.btnConnectCardAndEmployee.TabIndex = 9;
             this.btnConnectCardAndEmployee.Text = "Connect card to employee";
             this.btnConnectCardAndEmployee.UseVisualStyleBackColor = true;
+            this.btnConnectCardAndEmployee.Click += new System.EventHandler(this.btnConnectCardAndEmployee_Click);
             // 
             // gbEmployee
             // 
