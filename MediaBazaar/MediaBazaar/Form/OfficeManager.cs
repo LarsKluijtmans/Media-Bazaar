@@ -45,10 +45,10 @@ namespace MediaBazaar
         public void GetAtendeance()
         {
             store.checkinManagment.getAllAtendance();
-            lbAtendance.Items.Clear();
+            lbAttendance.Items.Clear();
             foreach (Checkin c in store.checkinManagment.check)
             {
-                lbAtendance.Items.Add(c);
+                lbAttendance.Items.Add(c);
             }
         }
 
