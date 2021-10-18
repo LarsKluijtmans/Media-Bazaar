@@ -1,6 +1,6 @@
-﻿using MediaBazaar.Class;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
 
 namespace MediaBazaar

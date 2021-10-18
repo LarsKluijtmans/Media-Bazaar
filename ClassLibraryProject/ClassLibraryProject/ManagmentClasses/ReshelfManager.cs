@@ -50,7 +50,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     reShelves.Add(reshelf);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             {}
             catch (Exception)
             {}
@@ -74,7 +74,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 ViewAllReshelfRequests();
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }
@@ -118,7 +118,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 }
             }
 
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }
@@ -142,9 +142,9 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Open();
                 int numCreatedRows = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
-            catch (Exception ex)
+            catch (Exception )
             { }
             finally
             {

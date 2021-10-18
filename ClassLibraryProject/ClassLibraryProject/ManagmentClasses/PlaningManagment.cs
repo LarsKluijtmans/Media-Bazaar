@@ -63,7 +63,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     planings.Add(planing);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }
@@ -98,7 +98,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     employees.Add(employee);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             {}
             catch (Exception)
             {}
@@ -141,7 +141,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     planings.Add(planing);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             {}
             catch (Exception)
             { }
@@ -176,7 +176,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     employees.Add(employee);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             {}
             catch (Exception)
             {}
@@ -217,7 +217,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     planings.Add(planing);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             {}
             catch (Exception)
             {}
@@ -252,7 +252,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     employees.Add(employee);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             {}
             catch (Exception)
             {}
@@ -276,7 +276,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }

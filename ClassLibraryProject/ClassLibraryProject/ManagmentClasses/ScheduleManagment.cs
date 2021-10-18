@@ -31,7 +31,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 return table;
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }
@@ -61,7 +61,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 return table;
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException)
             { }
             catch (Exception)
             { }
@@ -90,7 +90,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 int numAffectedRows = cmd.ExecuteNonQuery();
 
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }

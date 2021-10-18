@@ -43,7 +43,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     check.Add(a);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException)
             { }
             catch (Exception)
             { }
@@ -78,7 +78,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     check.Add(a);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }
@@ -108,7 +108,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     return Convert.ToInt32(reader[0]);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }
@@ -138,7 +138,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     return true;
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }
@@ -165,7 +165,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Open();
                 int n = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }
@@ -190,7 +190,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Open();
                 int n = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }
