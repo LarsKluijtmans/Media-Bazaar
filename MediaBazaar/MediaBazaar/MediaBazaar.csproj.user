@@ -13,19 +13,19 @@
     <Compile Update="Form\OfficeManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\OhterForms\FormEditEmployeeData.cs">
+    <Compile Update="Form\OtherForms\FormEditEmployeeData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\OhterForms\FormLogin.cs">
+    <Compile Update="Form\OtherForms\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\OhterForms\FormNewEmployee.cs">
+    <Compile Update="Form\OtherForms\FormNewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\OhterForms\FormRemoveEmployee.cs">
+    <Compile Update="Form\OtherForms\FormRemoveEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\OhterForms\FormViewEmployee.cs">
+    <Compile Update="Form\OtherForms\FormViewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\ProductManager.cs">

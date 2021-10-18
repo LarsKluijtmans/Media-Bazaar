@@ -1,7 +1,9 @@
-﻿using MediaBazaar.Class;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
+using ClassLibraryProject;
+using ClassLibraryProject.Class;
+using ClassLibraryProject.ManagmentClasses;
 
 namespace MediaBazaar
 {
@@ -219,7 +221,7 @@ namespace MediaBazaar
 
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
-            Person employee = GetTempEmployee();
+          Person employee = GetTempEmployee();
             Contract contract = GetContract(employee.EmployeeID.ToString());
             FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(employee, contract);
             formRemoveEmployee.Show();

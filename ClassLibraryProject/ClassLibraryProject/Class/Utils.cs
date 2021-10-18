@@ -1,7 +1,7 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
 
-namespace MediaBazaar.Class
+namespace ClassLibraryProject.Class
 {
     public class Utils
     {

@@ -1,7 +1,8 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClassLibraryProject.Class;
+using MySql.Data.MySqlClient;
 using System;
 
-namespace MediaBazaar.Class.ManagmentClasses
+namespace ClassLibraryProject.ManagmentClasses
 {
     public class LoginManagment
     {

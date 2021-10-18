@@ -1,12 +1,11 @@
-﻿using MediaBazaar.Class;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MediaBazaar
+namespace ClassLibraryProject.ManagmentClasses
 {
-    class ContractManagement
+    public  class ContractManagement
     {
         // fields
 

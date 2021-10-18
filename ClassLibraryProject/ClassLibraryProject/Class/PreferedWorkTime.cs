@@ -1,6 +1,6 @@
-﻿namespace MediaBazaar.Class
+﻿namespace ClassLibraryProject.Class
 {
-    class PreferedWorkTime
+    public class PreferedWorkTime
     {
         //fields
         private int preferedID;

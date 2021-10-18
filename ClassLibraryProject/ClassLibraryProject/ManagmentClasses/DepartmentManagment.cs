@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using MySql.Data;
+using ClassLibraryProject.Class;
 
-namespace MediaBazaar.Class.ManagmentClasses
+namespace ClassLibraryProject.ManagmentClasses
 {
     public class DepartmentManagment
     {
@@ -61,13 +62,9 @@ namespace MediaBazaar.Class.ManagmentClasses
 
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            {  }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();
@@ -92,13 +89,9 @@ namespace MediaBazaar.Class.ManagmentClasses
 
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            {  }
             finally
             {
                 conn.Close();

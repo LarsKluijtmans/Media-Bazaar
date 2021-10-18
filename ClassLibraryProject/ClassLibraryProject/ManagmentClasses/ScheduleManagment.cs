@@ -1,9 +1,10 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClassLibraryProject.Class;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace MediaBazaar.Class
+namespace ClassLibraryProject.ManagmentClasses
 {
     public class ScheduleManagment
     {
