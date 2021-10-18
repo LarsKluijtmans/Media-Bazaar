@@ -83,24 +83,24 @@ namespace MediaBazaar
             this.WorkHours = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.lbAtendance = new System.Windows.Forms.ListBox();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.btnCheck = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tadCard = new System.Windows.Forms.TabPage();
-            this.lbEmployee = new System.Windows.Forms.ListBox();
-            this.btnConnectCard = new System.Windows.Forms.Button();
-            this.tbEmployeeID = new System.Windows.Forms.TextBox();
-            this.labEmployeeID = new System.Windows.Forms.Label();
-            this.labEmployeeName = new System.Windows.Forms.Label();
-            this.tbEmployeeName = new System.Windows.Forms.TextBox();
-            this.labCardNumber = new System.Windows.Forms.Label();
-            this.tbCardNumber = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.labCardNumber = new System.Windows.Forms.Label();
+            this.tbCardNumber = new System.Windows.Forms.TextBox();
+            this.labEmployeeName = new System.Windows.Forms.Label();
+            this.tbEmployeeName = new System.Windows.Forms.TextBox();
+            this.labEmployeeID = new System.Windows.Forms.Label();
+            this.tbEmployeeID = new System.Windows.Forms.TextBox();
+            this.btnConnectCard = new System.Windows.Forms.Button();
+            this.lbEmployee = new System.Windows.Forms.ListBox();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.btnCheck = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -135,11 +135,11 @@ namespace MediaBazaar
             // 
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 39);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1123, 483);
+            this.tabPage2.Size = new System.Drawing.Size(1123, 498);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Employee overview";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -376,10 +376,10 @@ namespace MediaBazaar
             // 
             this.tabPage1.Controls.Add(this.btnEditCompany);
             this.tabPage1.Controls.Add(this.gbCompanyInfo);
-            this.tabPage1.Location = new System.Drawing.Point(4, 39);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(1123, 483);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1123, 498);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Company";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -549,10 +549,10 @@ namespace MediaBazaar
             // 
             this.tabPage3.Controls.Add(this.dgvDepartments);
             this.tabPage3.Controls.Add(this.groupBox2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 39);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage3.Size = new System.Drawing.Size(1123, 483);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1123, 498);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Departments";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -667,10 +667,10 @@ namespace MediaBazaar
             // 
             this.WorkHours.Controls.Add(this.button1);
             this.WorkHours.Controls.Add(this.lbAtendance);
-            this.WorkHours.Location = new System.Drawing.Point(4, 39);
+            this.WorkHours.Location = new System.Drawing.Point(4, 24);
             this.WorkHours.Name = "WorkHours";
-            this.WorkHours.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.WorkHours.Size = new System.Drawing.Size(1123, 483);
+            this.WorkHours.Padding = new System.Windows.Forms.Padding(3);
+            this.WorkHours.Size = new System.Drawing.Size(1123, 498);
             this.WorkHours.TabIndex = 4;
             this.WorkHours.Text = "WorkHours";
             this.WorkHours.UseVisualStyleBackColor = true;
@@ -694,40 +694,6 @@ namespace MediaBazaar
             this.lbAtendance.Size = new System.Drawing.Size(436, 439);
             this.lbAtendance.TabIndex = 0;
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Location = new System.Drawing.Point(912, 6);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(82, 28);
-            this.btnLogout.TabIndex = 1;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // btnCheck
-            // 
-            this.btnCheck.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCheck.Location = new System.Drawing.Point(1059, 6);
-            this.btnCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(79, 28);
-            this.btnCheck.TabIndex = 21;
-            this.btnCheck.Text = "Check In";
-            this.btnCheck.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(222, 237);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(326, 33);
-            this.textBox3.TabIndex = 6;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
-            // 
             // tadCard
             // 
             this.tadCard.Controls.Add(this.groupBox6);
@@ -741,88 +707,11 @@ namespace MediaBazaar
             this.tadCard.Controls.Add(this.lbEmployee);
             this.tadCard.Location = new System.Drawing.Point(4, 24);
             this.tadCard.Name = "tadCard";
-            this.tadCard.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tadCard.Padding = new System.Windows.Forms.Padding(3);
             this.tadCard.Size = new System.Drawing.Size(1123, 498);
             this.tadCard.TabIndex = 5;
             this.tadCard.Text = "Card";
             this.tadCard.UseVisualStyleBackColor = true;
-            // 
-            // lbEmployee
-            // 
-            this.lbEmployee.FormattingEnabled = true;
-            this.lbEmployee.ItemHeight = 15;
-            this.lbEmployee.Location = new System.Drawing.Point(26, 25);
-            this.lbEmployee.Name = "lbEmployee";
-            this.lbEmployee.Size = new System.Drawing.Size(475, 439);
-            this.lbEmployee.TabIndex = 0;
-            this.lbEmployee.SelectedIndexChanged += new System.EventHandler(this.lbEmployee_SelectedIndexChanged);
-            // 
-            // btnConnectCard
-            // 
-            this.btnConnectCard.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConnectCard.Location = new System.Drawing.Point(601, 356);
-            this.btnConnectCard.Name = "btnConnectCard";
-            this.btnConnectCard.Size = new System.Drawing.Size(413, 108);
-            this.btnConnectCard.TabIndex = 1;
-            this.btnConnectCard.Text = "Connect Card To Employee";
-            this.btnConnectCard.UseVisualStyleBackColor = true;
-            // 
-            // tbEmployeeID
-            // 
-            this.tbEmployeeID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbEmployeeID.Location = new System.Drawing.Point(601, 152);
-            this.tbEmployeeID.Name = "tbEmployeeID";
-            this.tbEmployeeID.ReadOnly = true;
-            this.tbEmployeeID.Size = new System.Drawing.Size(429, 33);
-            this.tbEmployeeID.TabIndex = 2;
-            // 
-            // labEmployeeID
-            // 
-            this.labEmployeeID.AutoSize = true;
-            this.labEmployeeID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labEmployeeID.Location = new System.Drawing.Point(601, 124);
-            this.labEmployeeID.Name = "labEmployeeID";
-            this.labEmployeeID.Size = new System.Drawing.Size(121, 25);
-            this.labEmployeeID.TabIndex = 3;
-            this.labEmployeeID.Text = "Employee ID:";
-            // 
-            // labEmployeeName
-            // 
-            this.labEmployeeName.AutoSize = true;
-            this.labEmployeeName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labEmployeeName.Location = new System.Drawing.Point(601, 188);
-            this.labEmployeeName.Name = "labEmployeeName";
-            this.labEmployeeName.Size = new System.Drawing.Size(153, 25);
-            this.labEmployeeName.TabIndex = 5;
-            this.labEmployeeName.Text = "Employee Name:";
-            // 
-            // tbEmployeeName
-            // 
-            this.tbEmployeeName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbEmployeeName.Location = new System.Drawing.Point(601, 216);
-            this.tbEmployeeName.Name = "tbEmployeeName";
-            this.tbEmployeeName.ReadOnly = true;
-            this.tbEmployeeName.Size = new System.Drawing.Size(429, 33);
-            this.tbEmployeeName.TabIndex = 4;
-            // 
-            // labCardNumber
-            // 
-            this.labCardNumber.AutoSize = true;
-            this.labCardNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labCardNumber.Location = new System.Drawing.Point(601, 252);
-            this.labCardNumber.Name = "labCardNumber";
-            this.labCardNumber.Size = new System.Drawing.Size(130, 25);
-            this.labCardNumber.TabIndex = 7;
-            this.labCardNumber.Text = "Card Number:";
-            // 
-            // tbCardNumber
-            // 
-            this.tbCardNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbCardNumber.Location = new System.Drawing.Point(601, 280);
-            this.tbCardNumber.Name = "tbCardNumber";
-            this.tbCardNumber.ReadOnly = true;
-            this.tbCardNumber.Size = new System.Drawing.Size(429, 33);
-            this.tbCardNumber.TabIndex = 6;
             // 
             // groupBox6
             // 
@@ -880,6 +769,117 @@ namespace MediaBazaar
             this.radioButton4.TabIndex = 6;
             this.radioButton4.Text = "Sales Employees";
             this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // labCardNumber
+            // 
+            this.labCardNumber.AutoSize = true;
+            this.labCardNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labCardNumber.Location = new System.Drawing.Point(601, 252);
+            this.labCardNumber.Name = "labCardNumber";
+            this.labCardNumber.Size = new System.Drawing.Size(130, 25);
+            this.labCardNumber.TabIndex = 7;
+            this.labCardNumber.Text = "Card Number:";
+            // 
+            // tbCardNumber
+            // 
+            this.tbCardNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbCardNumber.Location = new System.Drawing.Point(601, 280);
+            this.tbCardNumber.Name = "tbCardNumber";
+            this.tbCardNumber.ReadOnly = true;
+            this.tbCardNumber.Size = new System.Drawing.Size(429, 33);
+            this.tbCardNumber.TabIndex = 6;
+            // 
+            // labEmployeeName
+            // 
+            this.labEmployeeName.AutoSize = true;
+            this.labEmployeeName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labEmployeeName.Location = new System.Drawing.Point(601, 188);
+            this.labEmployeeName.Name = "labEmployeeName";
+            this.labEmployeeName.Size = new System.Drawing.Size(153, 25);
+            this.labEmployeeName.TabIndex = 5;
+            this.labEmployeeName.Text = "Employee Name:";
+            // 
+            // tbEmployeeName
+            // 
+            this.tbEmployeeName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbEmployeeName.Location = new System.Drawing.Point(601, 216);
+            this.tbEmployeeName.Name = "tbEmployeeName";
+            this.tbEmployeeName.ReadOnly = true;
+            this.tbEmployeeName.Size = new System.Drawing.Size(429, 33);
+            this.tbEmployeeName.TabIndex = 4;
+            // 
+            // labEmployeeID
+            // 
+            this.labEmployeeID.AutoSize = true;
+            this.labEmployeeID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labEmployeeID.Location = new System.Drawing.Point(601, 124);
+            this.labEmployeeID.Name = "labEmployeeID";
+            this.labEmployeeID.Size = new System.Drawing.Size(121, 25);
+            this.labEmployeeID.TabIndex = 3;
+            this.labEmployeeID.Text = "Employee ID:";
+            // 
+            // tbEmployeeID
+            // 
+            this.tbEmployeeID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbEmployeeID.Location = new System.Drawing.Point(601, 152);
+            this.tbEmployeeID.Name = "tbEmployeeID";
+            this.tbEmployeeID.ReadOnly = true;
+            this.tbEmployeeID.Size = new System.Drawing.Size(429, 33);
+            this.tbEmployeeID.TabIndex = 2;
+            // 
+            // btnConnectCard
+            // 
+            this.btnConnectCard.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConnectCard.Location = new System.Drawing.Point(601, 356);
+            this.btnConnectCard.Name = "btnConnectCard";
+            this.btnConnectCard.Size = new System.Drawing.Size(413, 108);
+            this.btnConnectCard.TabIndex = 1;
+            this.btnConnectCard.Text = "Connect Card To Employee";
+            this.btnConnectCard.UseVisualStyleBackColor = true;
+            // 
+            // lbEmployee
+            // 
+            this.lbEmployee.FormattingEnabled = true;
+            this.lbEmployee.ItemHeight = 15;
+            this.lbEmployee.Location = new System.Drawing.Point(26, 25);
+            this.lbEmployee.Name = "lbEmployee";
+            this.lbEmployee.Size = new System.Drawing.Size(475, 439);
+            this.lbEmployee.TabIndex = 0;
+            this.lbEmployee.SelectedIndexChanged += new System.EventHandler(this.lbEmployee_SelectedIndexChanged);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(912, 6);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(82, 28);
+            this.btnLogout.TabIndex = 1;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCheck.Location = new System.Drawing.Point(1059, 6);
+            this.btnCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(79, 28);
+            this.btnCheck.TabIndex = 21;
+            this.btnCheck.Text = "Check In";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Location = new System.Drawing.Point(222, 237);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(326, 33);
+            this.textBox3.TabIndex = 6;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // OfficeManager
             // 

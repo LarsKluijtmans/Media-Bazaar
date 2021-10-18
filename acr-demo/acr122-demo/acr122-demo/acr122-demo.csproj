@@ -95,9 +95,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Atendance.cs" />
-    <Compile Include="Ckecks.cs" />
-    <Compile Include="Connection.cs" />
+    <Compile Include="Class\Atendance.cs" />
+    <Compile Include="Class\Ckecks.cs" />
+    <Compile Include="Class\Connection.cs" />
+    <Compile Include="Class\Contract.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +117,9 @@
     <Compile Include="Logout.Designer.cs">
       <DependentUpon>Logout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class\Manager.cs" />
+    <Compile Include="Class\ManagerDepot.cs" />
+    <Compile Include="Class\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

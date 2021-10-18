@@ -1,6 +1,7 @@
 ﻿using Sydesoft.NfcDevice;
 using System;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace acr122_demo
 {
@@ -10,6 +11,11 @@ namespace acr122_demo
         DateTime date;
         private static MyACR122U acr122u = new MyACR122U();
         Atendance at;
+
+        public static string GET_ALL_EMPLOYEES = "SELECT * FROM Employee ORDER BY EmployeeID;";
+
+        public static string CONTRACT_BY_EMPLOYEEID = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID;";
+
         public Form1()
         {
             InitializeComponent();
@@ -18,15 +24,16 @@ namespace acr122_demo
             acr122u.CardRemoved += Acr122u_CardRemoved;
             at = new Atendance();
             GetAtendanceIn();
+            ViewAllEmployees();
         }
 
         public void GetAtendanceIn()
         { 
-            listBox1.Items.Clear();
+            lbCheck.Items.Clear();
             at.getAllAtendanceOnCheckIn();
             foreach (Ckecks k in at.check)
             {
-                listBox1.Items.Add(k);
+                lbCheck.Items.Add(k);
             }
         }
 
@@ -40,10 +47,11 @@ namespace acr122_demo
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            ViewAllEmployees();
+  
             if ((acr122u.ReadId != null && last != acr122u.ReadId) || (acr122u.ReadId != null && date.AddSeconds(5) < DateTime.Now))
             {
-
+                ViewAllEmployees();
                 if (at.GetEmployeeID(acr122u.ReadId.ToString()) == 0)
                 {
                     last = acr122u.ReadId;
@@ -85,7 +93,155 @@ namespace acr122_demo
                 }
                 
             }
+            //else if (acr122u.ReadId != null)
+            //{
+            //    tbCardNumber.Text = acr122u.ReadId.ToString();
+            //}
             acr122u.ReadId = null;
+        }
+
+        // Conect card and employee
+
+        public void ViewAllEmployees()
+        {
+            lbEmployee.Items.Clear();
+
+            MySqlConnection conn = Connection.GetConnection();
+
+            string sql = GET_ALL_EMPLOYEES;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Person employee;
+
+                while (reader.Read())
+                {
+                    if (reader.GetInt32("Active") == 1)
+                    {
+                        int employeeID = reader.GetInt32("EmployeeID");
+                        string firstName = reader.GetString("FirstName");
+                        string lastName = reader.GetString("LastName");
+                        string username = reader.GetString("UserName");
+                        string password = reader.GetString("Password");
+                        int bsn = reader.GetInt32("BSN");
+                        string city = reader.GetString("Address");
+                        string email = reader.GetString("Email");
+                        int phoneNumber = reader.GetInt32("PhoneNumber");
+                        string dateOfBirth = reader.GetString("DateOfBirth");
+
+                        Contract c = GetContract(employeeID.ToString());
+                        employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+
+                        if (rbnAllEmployees.Checked)
+                        {
+                            lbEmployee.Items.Add(employee);
+                        }
+                        else if (rbnAllEmployees.Checked)
+                        {
+                            if (c.JobTitle == "DEPOT EMPLOYEE" || c.JobTitle == "DEPOT MANAGER")
+                            {
+                                lbEmployee.Items.Add(employee);
+                            }
+                        }
+                        else if (rbnOfficeEmployees.Checked)
+                        {
+                            if (c.JobTitle == "OFFICE MANAGER")
+                            {
+                                lbEmployee.Items.Add(employee);
+                            }
+                        }
+                        else if (rbnSalesEmployees.Checked)
+                        {
+                            if (c.JobTitle == "SALES REPRESENTATIVE" || c.JobTitle == "SALES MANAGER")
+                            {
+                                lbEmployee.Items.Add(employee);
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Person tempPerson = getperson();
+
+            tbEmployeeID.Text = tempPerson.EmployeeID.ToString();
+            tbEmployeeName.Text = tempPerson.FirstName + " " + tempPerson.LastName;
+        }
+
+        public Person getperson()
+        {
+            Object personObj = lbEmployee.SelectedItem;
+            if (!(personObj is Person))
+            {
+                MessageBox.Show("Error");
+            }
+
+            Person tempPerson = (Person)personObj;
+
+            return tempPerson;
+        }
+
+        //Contract
+        public Contract GetContract(string employeeID)
+        {
+            MySqlConnection conn = Connection.GetConnection();
+            string sql = CONTRACT_BY_EMPLOYEEID;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Contract c;
+
+                while (reader.Read())
+                {
+                    string jobTitle = reader.GetString("JobTitle");
+                    int workHours = reader.GetInt32("WorkHoursPerWeek");
+                    int salary = reader.GetInt32("SalaryPerHour");
+                    string startDate = reader.GetString("StartDate");
+
+                    c = new Contract(Convert.ToInt32(employeeID), jobTitle, workHours, salary, startDate);
+
+                    return c;
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return null;
         }
     }
 
