@@ -1,5 +1,6 @@
-﻿using MediaBazaar.Class.ManagmentClasses;
-namespace MediaBazaar.Class
+﻿using ClassLibraryProject.ManagmentClasses;
+
+namespace ClassLibraryProject.Class
 {
     public class Store
     {
@@ -12,6 +13,8 @@ namespace MediaBazaar.Class
         public DepartmentManagment departmentManagment;
         public CompanyManagment companyManagment;
         public CheckinManagment checkinManagment;
+        public EmployeeManagement employeeManagement;
+
         //public EmployeeManagment employeeManagment;
         //public ContractManagment contractManagment;
 
@@ -26,6 +29,7 @@ namespace MediaBazaar.Class
             departmentManagment = new DepartmentManagment();
             companyManagment = new CompanyManagment();
             checkinManagment = new CheckinManagment();
+            employeeManagement = new EmployeeManagement();
             //employeeManagment = new employeeManagment();
             //contractManagment = new contractManagment();
         }

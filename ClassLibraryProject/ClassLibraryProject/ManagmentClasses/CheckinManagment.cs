@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
 
-namespace MediaBazaar.Class.ManagmentClasses
+namespace ClassLibraryProject.ManagmentClasses
 {
    public class CheckinManagment
     {

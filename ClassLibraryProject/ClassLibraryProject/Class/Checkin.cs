@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MediaBazaar.Class
+namespace ClassLibraryProject.Class
 {
     public class Checkin
     {

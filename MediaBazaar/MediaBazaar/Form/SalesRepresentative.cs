@@ -5,8 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using MediaBazaar.Class;
 using MySql.Data.MySqlClient;
+using ClassLibraryProject.Class;
+using ClassLibraryProject;
 
 namespace MediaBazaar
 {

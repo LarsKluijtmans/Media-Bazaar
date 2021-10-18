@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MediaBazaar
-    {
+namespace ClassLibraryProject.Class
+{
     public class Employee
     {
         // fields
-        private static int nextEmployeeID = 1;
         private int employeeID;
         private string lastName;
         private string firstName;
@@ -38,9 +37,6 @@ namespace MediaBazaar
         // constructor
         public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
          {
-            this.EmployeeID = nextEmployeeID;
-            nextEmployeeID++;
-
             this.LastName = firstname;
             this.FirstName = lastname;
             this.PhoneNumber = phonenumber;

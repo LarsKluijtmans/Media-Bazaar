@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace MediaBazaar
+namespace ClassLibraryProject.Class
 {
 	public abstract class Person
     {

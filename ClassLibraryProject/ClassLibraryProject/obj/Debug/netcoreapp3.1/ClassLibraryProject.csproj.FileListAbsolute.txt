@@ -2,3 +2,8 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryP
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfoInputs.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfo.cs
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.CoreCompileInputs.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.deps.json
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.pdb
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.pdb

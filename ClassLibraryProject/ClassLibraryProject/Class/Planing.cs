@@ -1,4 +1,4 @@
-﻿namespace MediaBazaar.Class
+﻿namespace ClassLibraryProject.Class
 {
     public class Planing
     {

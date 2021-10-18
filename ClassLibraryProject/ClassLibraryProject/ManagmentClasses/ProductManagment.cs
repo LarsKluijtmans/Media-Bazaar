@@ -1,8 +1,9 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClassLibraryProject.Class;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 
-namespace MediaBazaar.Class
+namespace ClassLibraryProject.ManagmentClasses
 {
     public class ProductManagment
     {

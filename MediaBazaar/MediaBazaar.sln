@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaBazaar", "MediaBazaar\MediaBazaar.csproj", "{94B4B723-0F00-4A28-8AA5-D1F3DA3D309F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaBazaar", "MediaBazaar\MediaBazaar.csproj", "{94B4B723-0F00-4A28-8AA5-D1F3DA3D309F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibraryProject", "..\ClassLibraryProject\ClassLibraryProject\ClassLibraryProject.csproj", "{FAD20667-2E6E-4EF9-9B0C-9D24BFF959EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{94B4B723-0F00-4A28-8AA5-D1F3DA3D309F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94B4B723-0F00-4A28-8AA5-D1F3DA3D309F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94B4B723-0F00-4A28-8AA5-D1F3DA3D309F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD20667-2E6E-4EF9-9B0C-9D24BFF959EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD20667-2E6E-4EF9-9B0C-9D24BFF959EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD20667-2E6E-4EF9-9B0C-9D24BFF959EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD20667-2E6E-4EF9-9B0C-9D24BFF959EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

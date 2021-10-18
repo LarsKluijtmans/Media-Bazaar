@@ -1,5 +1,6 @@
-﻿using MediaBazaar.Class;
-using MySql.Data.MySqlClient;
+﻿using ClassLibraryProject;
+using ClassLibraryProject.Class;
+using ClassLibraryProject.ManagmentClasses;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
