@@ -44,13 +44,12 @@
 
 
         //constructor
-        public PreferedWorkTime(int PreferedID, string Time, string Day, int EmployeeId, bool Prefered)
+        public PreferedWorkTime(int employeeId, string time, string day)
         {
-            preferedID = PreferedID;
-            time = Time;
-            day = Day;
-            employeeID = EmployeeId;
-            prefered = Prefered;
+            this.EmployeeID = employeeId;
+            this.Time = time;
+            this.Day = day;
+            this.Prefered = true;
         }
 
 
