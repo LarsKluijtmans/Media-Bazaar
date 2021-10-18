@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace MediaBazaar.Class.ManagmentClasses
@@ -39,13 +38,9 @@ namespace MediaBazaar.Class.ManagmentClasses
                 }
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();

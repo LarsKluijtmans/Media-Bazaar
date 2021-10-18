@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace MediaBazaar.Class
 {
@@ -64,13 +63,9 @@ namespace MediaBazaar.Class
                 }
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();
@@ -103,13 +98,9 @@ namespace MediaBazaar.Class
                 }
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            {}
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            {}
             finally
             {
                 conn.Close();
@@ -150,13 +141,9 @@ namespace MediaBazaar.Class
                 }
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            {}
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();
@@ -189,13 +176,9 @@ namespace MediaBazaar.Class
                 }
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            {}
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            {}
             finally
             {
                 conn.Close();
@@ -234,13 +217,9 @@ namespace MediaBazaar.Class
                 }
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            {}
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            {}
             finally
             {
                 conn.Close();
@@ -273,13 +252,9 @@ namespace MediaBazaar.Class
                 }
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            {}
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            {}
             finally
             {
                 conn.Close();
@@ -301,13 +276,9 @@ namespace MediaBazaar.Class
                 int numAffectedRows = cmd.ExecuteNonQuery();
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();

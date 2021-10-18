@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ClassLibraryProject\ClassLibraryProject\ClassLibraryProject.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Form\CEO.cs">
       <SubType>Form</SubType>
     </Compile>

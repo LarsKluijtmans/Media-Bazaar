@@ -1,0 +1,4 @@
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csprojAssemblyReference.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfoInputs.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfo.cs
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.CoreCompileInputs.cache

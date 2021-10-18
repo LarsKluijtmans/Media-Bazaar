@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace MediaBazaar.Class
 {
@@ -51,13 +50,9 @@ namespace MediaBazaar.Class
                 }
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            {}
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            {}
             finally
             {
                 conn.Close();
@@ -79,13 +74,9 @@ namespace MediaBazaar.Class
                 ViewAllReshelfRequests();
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();
@@ -102,7 +93,6 @@ namespace MediaBazaar.Class
                 Depot -= Convert.ToInt32(amount);
                 if (Depot < 0)
                 {
-                    MessageBox.Show("The Dpot does not have that many of this type of product");
                     return;
                 }
                 else
@@ -112,7 +102,6 @@ namespace MediaBazaar.Class
                     Store += Convert.ToInt32(amount);
                     if (Store < 0)
                     {
-                        MessageBox.Show("NOOOOOO what have you done!!!!!!!!!!!");
                         return;
                     }
                     else
@@ -129,13 +118,9 @@ namespace MediaBazaar.Class
             }
 
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();
@@ -155,16 +140,11 @@ namespace MediaBazaar.Class
 
                 conn.Open();
                 int numCreatedRows = cmd.ExecuteNonQuery();
-                MessageBox.Show("Request was succesfull");
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            { }
             catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong" + ex);
-            }
+            { }
             finally
             {
 

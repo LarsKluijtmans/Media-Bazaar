@@ -1,6 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Windows.Forms;
 
 namespace MediaBazaar.Class.ManagmentClasses
 {
@@ -37,13 +36,9 @@ namespace MediaBazaar.Class.ManagmentClasses
                 return "Wrong info!";
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();

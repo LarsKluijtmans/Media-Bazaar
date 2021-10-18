@@ -1,23 +1,23 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Data;
+using MySql.Data;
 
-namespace MediaBazaar.Class
+namespace MediaBazaar.Class.ManagmentClasses
 {
-    public class ScheduleManagment
+    public class DepartmentManagment
     {
 
-        public static string GET_SCHEDULE_SALES = "SELECT  day, morning, afternoon, evening from SCHEDULE where Department = 'sales';";
-        public static string GET_SCHEDULE_DEPOT = "SELECT   day, morning, afternoon, evening from SCHEDULE where Department = 'depot';";
-        public static string UPDATE_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day;";
+        public static string GET_DEPARTMENTS = "SELECT `DepartmentID` , `HeadDepatment`,`DepartmentName` FROM `departments`;";
+        public static string ADD_DEPARTMENT = "INSERT INTO departments ( DepartmentName, CompanyID, HeadDepatment) VALUES (@DepartmentName, @CompanyID, @HeadDepatment);";
+        public static string EDIT_DEPARTMENT = "UPDATE departments SET DepartmentName = @DepartmentName, HeadDepatment = @HeadDepatment WHERE DepartmentID = @DepartmentID;";
 
-        public DataTable ViewSalesSchedule()
+        public DataTable ViewAllDepartments()
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = GET_SCHEDULE_SALES;
+            string sql = GET_DEPARTMENTS;
 
             try
             {
@@ -32,13 +32,9 @@ namespace MediaBazaar.Class
                 return table;
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();
@@ -47,23 +43,22 @@ namespace MediaBazaar.Class
             return a;
         }
 
-        public DataTable ViewDepotSchedule()
+        public void AddDepartment(string Name, string Head, string CompanyID)
         {
             MySqlConnection conn = Utils.GetConnection();
-
-            string sql = GET_SCHEDULE_DEPOT;
-
+            string sql = ADD_DEPARTMENT;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@DepartmentName", Name);
+                cmd.Parameters.AddWithValue("@HeadDepatment", Head);
+                cmd.Parameters.AddWithValue("@CompanyID", CompanyID);
+
+
                 conn.Open();
 
-                MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
+                int numCreatedRows = cmd.ExecuteNonQuery();
 
-                DataTable table = new DataTable();
-                reader.Fill(table);
-
-                return table;
             }
             catch (MySqlException msqEx)
             {
@@ -77,25 +72,23 @@ namespace MediaBazaar.Class
             {
                 conn.Close();
             }
-            DataTable a = new DataTable();
-            return a;
         }
 
-      
-        public void Editschedule(string Day, string Morning, string Afternoon, string Evening)
+        public void EditDepartment(string Name, string Head, string DepartmetnID)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = UPDATE_SCHEDULE;
+            string sql = EDIT_DEPARTMENT;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Day", Day);
-                cmd.Parameters.AddWithValue("@morning", Morning);
-                cmd.Parameters.AddWithValue("@afternoon", Afternoon);
-                cmd.Parameters.AddWithValue("@evening", Evening);
+                cmd.Parameters.AddWithValue("@DepartmentName", Name);
+                cmd.Parameters.AddWithValue("@HeadDepatment", Head);
+                cmd.Parameters.AddWithValue("@DepartmentID", DepartmetnID);
+
+
                 conn.Open();
 
-                int numAffectedRows = cmd.ExecuteNonQuery();
+                int numCreatedRows = cmd.ExecuteNonQuery();
 
             }
             catch (MySqlException msqEx)

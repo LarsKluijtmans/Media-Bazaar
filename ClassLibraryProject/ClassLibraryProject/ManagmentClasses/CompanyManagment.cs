@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 namespace MediaBazaar.Class.ManagmentClasses
 {
    public class CompanyManagment
@@ -36,13 +35,9 @@ namespace MediaBazaar.Class.ManagmentClasses
                 }
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            {}
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            {}
             finally
             {
                 conn.Close();
@@ -71,13 +66,9 @@ namespace MediaBazaar.Class.ManagmentClasses
                 MySqlDataReader reader = cmd.ExecuteReader();
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            {}
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            {}
             finally
             {
                 conn.Close();

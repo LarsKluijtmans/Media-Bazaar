@@ -184,7 +184,7 @@ namespace acr122_demo
             Person tempPerson = getperson();
 
             tbEmployeeID.Text = tempPerson.EmployeeID.ToString();
-            tbEmployeeName.Text = tempPerson.FirstName + " " + tempPerson.LastName;
+            tbEmployeeName.Text = tempPerson.LastName + " " + tempPerson.FirstName;
         }
 
         public Person getperson()

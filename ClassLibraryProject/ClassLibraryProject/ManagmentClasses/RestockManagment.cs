@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace MediaBazaar.Class
 {
@@ -51,13 +50,9 @@ namespace MediaBazaar.Class
                 }
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();
@@ -77,13 +72,9 @@ namespace MediaBazaar.Class
                 int numAffectedRows = cmd.ExecuteNonQuery();
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            {}
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();
@@ -100,7 +91,6 @@ namespace MediaBazaar.Class
                 Depot += Convert.ToInt32(amount);
                 if (Depot < 0)
                 {
-                    MessageBox.Show("nooooo don't do that you fool");
                     return;
                 }
                 else
@@ -115,13 +105,9 @@ namespace MediaBazaar.Class
 
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            {}
             finally
             {
                 conn.Close();
@@ -141,16 +127,12 @@ namespace MediaBazaar.Class
 
                 conn.Open();
                 int numCreatedRows = cmd.ExecuteNonQuery();
-                MessageBox.Show("Request was succesfull");
+               
             }
             catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
 
