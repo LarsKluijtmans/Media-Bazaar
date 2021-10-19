@@ -112,17 +112,6 @@
           "lib/netstandard2.1/Zstandard.Net.dll": {}
         }
       },
-      "NFC-ACR122U/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/PCSC.dll": {},
-          "lib/Sydesoft.NfcDevice.ACR122U.dll": {}
-        },
-        "runtime": {
-          "lib/PCSC.dll": {},
-          "lib/Sydesoft.NfcDevice.ACR122U.dll": {}
-        }
-      },
       "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
@@ -480,19 +469,6 @@
         "lib/netstandard2.1/Zstandard.Net.dll",
         "mysql.data.8.0.26.nupkg.sha512",
         "mysql.data.nuspec"
-      ]
-    },
-    "NFC-ACR122U/1.0.0": {
-      "sha512": "ExfCv15ocDUR2u5SA4FH/4dC8Gp/0TzNKWx0/A/HfKDveLuK7pPRDis7vz1A6MkM9AR+p/+x6lKIqjiBKcw9Pg==",
-      "type": "package",
-      "path": "nfc-acr122u/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/PCSC.dll",
-        "lib/Sydesoft.NfcDevice.ACR122U.dll",
-        "nfc-acr122u.1.0.0.nupkg.sha512",
-        "nfc-acr122u.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -878,33 +854,29 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ClassLibraryProject >= 1.0.0",
-      "MySql.Data >= 8.0.26",
-      "NFC-ACR122U >= 1.0.0"
+      "MySql.Data >= 8.0.26"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\esthe\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\lars\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\git\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+      "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
       "projectName": "MediaBazaar",
-      "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\git\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
-      "packagesPath": "C:\\Users\\esthe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\git\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\obj\\",
+      "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+      "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\esthe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -917,8 +889,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\esthe\\OneDrive\\Bureaublad\\git\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
-              "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\git\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+            "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+              "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
             }
           }
         }
@@ -936,10 +908,6 @@
           "MySql.Data": {
             "target": "Package",
             "version": "[8.0.26, )"
-          },
-          "NFC-ACR122U": {
-            "target": "Package",
-            "version": "[1.0.0, )"
           }
         },
         "imports": [
@@ -960,20 +928,8 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'NFC-ACR122U 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "NFC-ACR122U",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }

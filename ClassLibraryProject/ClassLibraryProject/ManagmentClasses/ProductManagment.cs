@@ -51,7 +51,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     products.Add(product);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             {}
             catch (Exception)
             {}
@@ -79,7 +79,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 int numCreatedRows = cmd.ExecuteNonQuery();
                 long id = cmd.LastInsertedId;
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }
@@ -106,7 +106,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             {}
@@ -130,7 +130,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 ViewAllProducts();
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }

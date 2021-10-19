@@ -36,7 +36,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 }
                 return "Wrong info!";
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }

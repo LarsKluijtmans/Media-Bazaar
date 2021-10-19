@@ -50,7 +50,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     restocks.Add(restock);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }
@@ -72,7 +72,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             {}
             catch (Exception)
             { }
@@ -105,7 +105,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 }
 
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             {}
@@ -130,7 +130,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 int numCreatedRows = cmd.ExecuteNonQuery();
                
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }

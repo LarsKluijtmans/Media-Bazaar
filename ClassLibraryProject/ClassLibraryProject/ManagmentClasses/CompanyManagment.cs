@@ -35,7 +35,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     company = Company;
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             {}
             catch (Exception)
             {}
@@ -66,7 +66,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 MySqlDataReader reader = cmd.ExecuteReader();
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException )
             {}
             catch (Exception)
             {}

@@ -1,62 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using ClassLibraryProject.Class;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace ClassLibraryProject.ManagmentClasses
+namespace acr122_demo
 {
-   public class CheckinManagment
+    class Atendance
     {
-        public List<Checkin> check;
-
+        public List<Ckecks> check;
         public static string GET_EMPLOYEEID_WITH_CARD_CODE = "SELECT `EmployeeID` FROM `employee` WHERE `CardNumber`= @CardNumber;";
         public static string IS_CHECKED_IN = "SELECT employeeID FROM `atendance` WHERE EmployeeID = @EmployeeID AND CheckDate = @CheckDate AND `CheckOutTime` IS NULL;";
         public static string CREATE_CHECKIN = "INSERT INTO ATENDANCE(EmployeeID, CheckInTime, CheckOutTime, CheckDate) VALUES(@EmployeeID, @CheckInTime, @CheckOutTime, @CheckDate)";
         public static string UPDATE_CHECKOUT = "UPDATE ATENDANCE SET CheckOutTime = @CheckOutTime WHERE CheckDate = @CheckDate AND EmployeeID = @EmployeeID AND `CheckOutTime` IS NULL ;";
-        public static string GET_ALL_ATENDANCE_CHECKIN = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `atendance` WHERE CheckDate = @CheckDate ORDER BY CheckOutTime DESC;";
-        public static string GET_ALL_ATENDANCE = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `atendance`;";
+    public static string GET_ALL_ATENDANCE_CHECKIN = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `atendance` WHERE CheckDate = @CheckDate ORDER BY CheckOutTime DESC;";
 
-        public CheckinManagment()
+        public Atendance()
         {
-            check = new List<Checkin>();
+            check = new List<Ckecks>();
         }
 
-        public void getAllAtendance()
-        {
-            check.Clear();
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = GET_ALL_ATENDANCE;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Checkin a;
-
-                while (reader.Read())
-                {
-                    a = new Checkin(Convert.ToInt32(reader[0]),reader[1].ToString(), reader[2].ToString(), Convert.ToDateTime(reader[3]));
-                    check.Add(a);
-                }
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
         public void getAllAtendanceOnCheckIn()
         {
             check.Clear();
             var date = DateTime.Now;
-            MySqlConnection conn = Utils.GetConnection();
+            MySqlConnection conn = Connection.GetConnection();
 
             string sql = GET_ALL_ATENDANCE_CHECKIN;
 
@@ -70,18 +37,22 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                Checkin a;
+                Ckecks a;
 
                 while (reader.Read())
                 {
-                    a = new Checkin(Convert.ToInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), Convert.ToDateTime(reader[3]));
+                    a = new Ckecks(Convert.ToInt32( reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString());
                     check.Add(a);
                 }
             }
-            catch (MySqlException )
-            { }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show("Make sure to Use the provided vpn");
+            }
             catch (Exception)
-            { }
+            {
+                MessageBox.Show("Make sure to Use the provided vpn");
+            }
             finally
             {
                 conn.Close();
@@ -90,7 +61,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
         public int GetEmployeeID(string CardNumber)
         {
-            MySqlConnection conn = Utils.GetConnection();
+            MySqlConnection conn = Connection.GetConnection();
 
             string sql = GET_EMPLOYEEID_WITH_CARD_CODE;
 
@@ -108,10 +79,14 @@ namespace ClassLibraryProject.ManagmentClasses
                     return Convert.ToInt32(reader[0]);
                 }
             }
-            catch (MySqlException )
-            { }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
             catch (Exception)
-            { }
+            {
+                MessageBox.Show("Something went wrong");
+            }
             finally
             {
                 conn.Close();
@@ -122,7 +97,7 @@ namespace ClassLibraryProject.ManagmentClasses
         public bool IsAlreadyCheckedIn(int EmployeeID)
         {
             var date = DateTime.Now;
-            MySqlConnection conn = Utils.GetConnection();
+            MySqlConnection conn = Connection.GetConnection();
             string sql = IS_CHECKED_IN;
             try
             {
@@ -138,10 +113,14 @@ namespace ClassLibraryProject.ManagmentClasses
                     return true;
                 }
             }
-            catch (MySqlException )
-            { }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
             catch (Exception)
-            { }
+            {
+                MessageBox.Show("Something went wrong");
+            }
             finally
             {
                 conn.Close();
@@ -152,7 +131,7 @@ namespace ClassLibraryProject.ManagmentClasses
         public void AddCheckIn(int EmployeeID)
         {
             var date = DateTime.Now;
-            MySqlConnection conn = Utils.GetConnection();
+            MySqlConnection conn = Connection.GetConnection();
             string sql = CREATE_CHECKIN;
             try
             {
@@ -165,10 +144,14 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Open();
                 int n = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException )
-            { }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
             catch (Exception)
-            { }
+            {
+                MessageBox.Show("Something went wrong");
+            }
             finally
             {
                 conn.Close();
@@ -178,7 +161,7 @@ namespace ClassLibraryProject.ManagmentClasses
         public void EditCheckOutTime(int EmployeeID)
         {
             var date = DateTime.Now;
-            MySqlConnection conn = Utils.GetConnection();
+            MySqlConnection conn = Connection.GetConnection();
             string sql = UPDATE_CHECKOUT;
             try
             {
@@ -190,10 +173,14 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Open();
                 int n = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException )
-            { }
+            catch (MySqlException msqEx)
+            {
+                MessageBox.Show(msqEx.Message);
+            }
             catch (Exception)
-            { }
+            {
+                MessageBox.Show("Something went wrong");
+            }
             finally
             {
                 conn.Close();
