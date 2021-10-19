@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace acr122_demo
+namespace ClassLibraryProject.Class
 {
     public class ManagerDepot : Manager
     {
@@ -12,5 +10,6 @@ namespace acr122_demo
         {
 
         }
+
     }
 }

@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using MediaBazaar.Class;
-using MySql.Data.MySqlClient;
-using ClassLibraryProject;
-using ClassLibraryProject;
+﻿using System.Windows.Forms;
+using ClassLibraryProject.Class;
 
 namespace MediaBazaar
 {
