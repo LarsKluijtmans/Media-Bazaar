@@ -1,41 +1,57 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace acr122_demo.Class
+namespace ClassLibraryProject.Class
 {
     public class Employee
     {
-        private static string CHANGE_CARD_INFO = "UPDATE Employee SET CardNumber = @CardNumber WHERE EmployeeID = @EmployeeID;";
+        // fields
+        private int employeeID;
+        private string lastName;
+        private string firstName;
+        private int phoneNumber;
+        private string email;
+        private string city;
+        private string dateOfBirth;
+        private int bsn;
+        private string username;
+        private string password;
 
-        public void changeID(string employeeID, string CardNumber)
+        private Contract contract; /* every employee has 1 contract*/
+
+
+        // properties
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        
+        public int PhoneNumber { get; set; }
+        public string City { get; set; }
+        public string DateOfBirth { get; set; }
+        public int BSN { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public int EmployeeID { get; private set; }
+        public Contract Contract { get; set; }
+        // constructor
+        public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
+         {
+            this.LastName = firstname;
+            this.FirstName = lastname;
+            this.PhoneNumber = phonenumber;
+            this.Email = email;
+            this.City = city;
+            this.DateOfBirth = dateofbirth;
+            this.BSN = bsn;
+            this.Username = username;
+            this.Password = password;
+              
+         }
+        // methodes
+        public override string ToString()
         {
-            MySqlConnection conn = Connection.GetConnection();
-            string sql = CHANGE_CARD_INFO;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                cmd.Parameters.AddWithValue("@CardNumber", CardNumber);
-
-                conn.Open();
-                int numAffectedRows = cmd.ExecuteNonQuery();
-
-
-                MessageBox.Show(" Done");
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
+            return $"ID: {EmployeeID} - Name: {FirstName} {LastName} - Email: {Email}";
         }
     }
-}
+    }

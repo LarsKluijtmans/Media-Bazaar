@@ -115,10 +115,6 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.26, )"
-            },
-            "NFC-ACR122U": {
-              "target": "Package",
-              "version": "[1.0.0, )"
             }
           },
           "imports": [
