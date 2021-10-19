@@ -495,10 +495,11 @@ namespace MediaBazaar
                             Contract c = GetContract(employeeID.ToString());
                             employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
 
-                            if(employee.FirstName.StartsWith(nameSearched) || employee.FirstName.StartsWith(nameSearched.ToUpper()))
+                            if (employee.FirstName.StartsWith(nameSearched) || employee.FirstName.StartsWith(nameSearched.ToUpper()))
                             {
                                 lbxEmployees.Items.Add(employee);
-                            } else if (employee.LastName.StartsWith(nameSearched) || employee.LastName.StartsWith(nameSearched.ToUpper()))
+                            }
+                            else if (employee.LastName.StartsWith(nameSearched) || employee.LastName.StartsWith(nameSearched.ToUpper()))
                             {
                                 lbxEmployees.Items.Add(employee);
                             }
