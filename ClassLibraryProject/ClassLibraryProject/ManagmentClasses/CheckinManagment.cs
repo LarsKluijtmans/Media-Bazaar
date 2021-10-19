@@ -11,7 +11,7 @@ namespace ClassLibraryProject.ManagmentClasses
         public List<TimeWorked> times;
         public List<TimeWorked> timePerEmployee;
 
-        public static string GET_TIME_WORKED = "SELECT `EmployeeID`, TIMEDIFF(`CheckOutTime`,`CheckInTime`) FROM `attendance`;";
+        public static string GET_TIME_WORKED = "SELECT employee.`EmployeeID`,`FirstName`,`LastName`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))), `JobTitle`,`WorkHoursPerWeek`,`SalaryPerHour` FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID group by contract.EmployeeID;";
         public static string UNIQUE_ATENDANCE = "SELECT `EmployeeID` FROM `attendance`GROUP BY EmployeeID;";
         public static string GET_EMPLOYEEID_WITH_CARD_CODE = "SELECT `EmployeeID` FROM `employee` WHERE `CardNumber`= @CardNumber;";
         public static string IS_CHECKED_IN = "SELECT employeeID FROM `atendance` WHERE EmployeeID = @EmployeeID AND CheckDate = @CheckDate AND `CheckOutTime` IS NULL;";
@@ -77,7 +77,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 while (reader.Read())
                 {
-                    a = new TimeWorked(Convert.ToInt32(reader[0]), reader[1].ToString());
+                    a = new TimeWorked(Convert.ToInt32(reader[0]), reader[3].ToString(), reader[1].ToString() + reader[2].ToString(), reader[4].ToString(), reader[5].ToString(), reader[6].ToString());
                     times.Add(a);
                 }
             }
@@ -109,7 +109,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 while (reader.Read())
                 {
-                    a = new TimeWorked(Convert.ToInt32(reader[0]), "");
+                    a = new TimeWorked(Convert.ToInt32(reader[0]), "","","", "", "");
                     timePerEmployee.Add(a);
                 }
             }
@@ -146,7 +146,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 while (reader.Read())
                 {
-                    a = new Checkin(Convert.ToInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), Convert.ToString(reader[3]));
+                    a = new Checkin(Convert.ToInt32(reader[0]), Convert.ToDateTime( reader[1]), Convert.ToDateTime( reader[2]), Convert.ToString(reader[3]));
                     check.Add(a);
                 }
             }
