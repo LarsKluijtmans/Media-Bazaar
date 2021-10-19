@@ -40,13 +40,14 @@ namespace MediaBazaar
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.btnCreateEmployee = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbxSearchEmployee = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rbnDepotEmployees = new System.Windows.Forms.RadioButton();
             this.rbnOfficeEmployees = new System.Windows.Forms.RadioButton();
             this.rbnAllEmployees = new System.Windows.Forms.RadioButton();
             this.rbnSalesEmployees = new System.Windows.Forms.RadioButton();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbxSearchEmployee = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lbxEmployees = new System.Windows.Forms.ListBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -95,14 +96,13 @@ namespace MediaBazaar
             this.btnConnectCard = new System.Windows.Forms.Button();
             this.lbEmployee = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnCheck = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbCompanyInfo.SuspendLayout();
@@ -112,7 +112,6 @@ namespace MediaBazaar
             this.WorkHours.SuspendLayout();
             this.tadCard.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // Comapny
@@ -225,6 +224,35 @@ namespace MediaBazaar
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Employees";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.tbxSearchEmployee);
+            this.groupBox5.Location = new System.Drawing.Point(350, 43);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(202, 111);
+            this.groupBox5.TabIndex = 14;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Search:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 32);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(187, 20);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Search employee by name:";
+            // 
+            // tbxSearchEmployee
+            // 
+            this.tbxSearchEmployee.Location = new System.Drawing.Point(6, 74);
+            this.tbxSearchEmployee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxSearchEmployee.Name = "tbxSearchEmployee";
+            this.tbxSearchEmployee.Size = new System.Drawing.Size(187, 27);
+            this.tbxSearchEmployee.TabIndex = 11;
+            this.tbxSearchEmployee.TextChanged += new System.EventHandler(this.tbxSearchEmployee_TextChanged);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.rbnDepotEmployees);
@@ -287,24 +315,6 @@ namespace MediaBazaar
             this.rbnSalesEmployees.Text = "Sales Employees";
             this.rbnSalesEmployees.UseVisualStyleBackColor = true;
             this.rbnSalesEmployees.CheckedChanged += new System.EventHandler(this.rbnSalesEmployees_CheckedChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 32);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(187, 20);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Search employee by name:";
-            // 
-            // tbxSearchEmployee
-            // 
-            this.tbxSearchEmployee.Location = new System.Drawing.Point(6, 74);
-            this.tbxSearchEmployee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxSearchEmployee.Name = "tbxSearchEmployee";
-            this.tbxSearchEmployee.Size = new System.Drawing.Size(187, 27);
-            this.tbxSearchEmployee.TabIndex = 11;
-            this.tbxSearchEmployee.TextChanged += new System.EventHandler(this.tbxSearchEmployee_TextChanged);
             // 
             // label9
             // 
@@ -841,16 +851,6 @@ namespace MediaBazaar
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnCheck
-            // 
-            this.btnCheck.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCheck.Location = new System.Drawing.Point(1210, 8);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(90, 37);
-            this.btnCheck.TabIndex = 21;
-            this.btnCheck.Text = "Check In";
-            this.btnCheck.UseVisualStyleBackColor = true;
-            // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -863,23 +863,11 @@ namespace MediaBazaar
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Controls.Add(this.tbxSearchEmployee);
-            this.groupBox5.Location = new System.Drawing.Point(350, 43);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(202, 111);
-            this.groupBox5.TabIndex = 14;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Search:";
-            // 
             // OfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1319, 732);
-            this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.Comapny);
             this.Name = "OfficeManager";
@@ -890,6 +878,8 @@ namespace MediaBazaar
             this.groupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
@@ -904,8 +894,6 @@ namespace MediaBazaar
             this.tadCard.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -927,7 +915,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Windows.Forms.Button btnCreateEmployee;
-        private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.RadioButton rbnSalesEmployees;
         private System.Windows.Forms.RadioButton rbnDepotEmployees;
         private System.Windows.Forms.TabPage tabPage1;

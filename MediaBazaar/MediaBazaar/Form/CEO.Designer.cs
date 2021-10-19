@@ -29,6 +29,14 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
+            this.SuspendLayout();
+            // 
+            // CEO
+            // 
+            this.ClientSize = new System.Drawing.Size(629, 449);
+            this.Name = "CEO";
+            this.ResumeLayout(false);
+
         }
         #endregion
     }
