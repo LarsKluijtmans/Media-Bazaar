@@ -1,29 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
+using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
 
-namespace acr122_demo
+namespace ClassLibraryProject.ManagmentClasses
 {
-    class Atendance
+   public class CheckinManagment
     {
-        public List<Ckecks> check;
-        public static string GET_EMPLOYEEID_WITH_CARD_CODE = "SELECT `EmployeeID` FROM `employee` WHERE `CardNumber`= @CardNumber;";
-        public static string IS_CHECKED_IN = "SELECT employeeID FROM `attendance` WHERE EmployeeID = @EmployeeID AND CheckDate = @CheckDate AND `CheckOutTime` IS NULL;";
-        public static string CREATE_CHECKIN = "INSERT INTO ATtENDANCE(EmployeeID, CheckInTime, CheckOutTime, CheckDate) VALUES(@EmployeeID, @CheckInTime, @CheckOutTime, @CheckDate)";
-        public static string UPDATE_CHECKOUT = "UPDATE ATtENDANCE SET CheckOutTime = @CheckOutTime WHERE CheckDate = @CheckDate AND EmployeeID = @EmployeeID AND `CheckOutTime` IS NULL ;";
-    public static string GET_ALL_ATENDANCE_CHECKIN = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `attendance` WHERE CheckDate = @CheckDate ORDER BY CheckOutTime DESC;";
+        public List<Checkin> check;
 
-        public Atendance()
+        public static string GET_EMPLOYEEID_WITH_CARD_CODE = "SELECT `EmployeeID` FROM `employee` WHERE `CardNumber`= @CardNumber;";
+        public static string IS_CHECKED_IN = "SELECT employeeID FROM `atendance` WHERE EmployeeID = @EmployeeID AND CheckDate = @CheckDate AND `CheckOutTime` IS NULL;";
+        public static string CREATE_CHECKIN = "INSERT INTO ATENDANCE(EmployeeID, CheckInTime, CheckOutTime, CheckDate) VALUES(@EmployeeID, @CheckInTime, @CheckOutTime, @CheckDate)";
+        public static string UPDATE_CHECKOUT = "UPDATE ATENDANCE SET CheckOutTime = @CheckOutTime WHERE CheckDate = @CheckDate AND EmployeeID = @EmployeeID AND `CheckOutTime` IS NULL ;";
+        public static string GET_ALL_ATENDANCE_CHECKIN = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `atendance` WHERE CheckDate = @CheckDate ORDER BY CheckOutTime DESC;";
+        public static string GET_ALL_ATENDANCE = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `atendance`;";
+
+        public CheckinManagment()
         {
-            check = new List<Ckecks>();
+            check = new List<Checkin>();
         }
 
+        public void getAllAtendance()
+        {
+            check.Clear();
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = GET_ALL_ATENDANCE;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Checkin a;
+
+                while (reader.Read())
+                {
+                    a = new Checkin(Convert.ToInt32(reader[0]),reader[1].ToString(), reader[2].ToString(), Convert.ToDateTime(reader[3]));
+                    check.Add(a);
+                }
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public void getAllAtendanceOnCheckIn()
         {
             check.Clear();
             var date = DateTime.Now;
-            MySqlConnection conn = Connection.GetConnection();
+            MySqlConnection conn = Utils.GetConnection();
 
             string sql = GET_ALL_ATENDANCE_CHECKIN;
 
@@ -37,22 +70,18 @@ namespace acr122_demo
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                Ckecks a;
+                Checkin a;
 
                 while (reader.Read())
                 {
-                    a = new Ckecks(Convert.ToInt32( reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString());
+                    a = new Checkin(Convert.ToInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), Convert.ToDateTime(reader[3]));
                     check.Add(a);
                 }
             }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show("Make sure to Use the provided vpn");
-            }
+            catch (MySqlException )
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Make sure to Use the provided vpn");
-            }
+            { }
             finally
             {
                 conn.Close();
@@ -61,7 +90,7 @@ namespace acr122_demo
 
         public int GetEmployeeID(string CardNumber)
         {
-            MySqlConnection conn = Connection.GetConnection();
+            MySqlConnection conn = Utils.GetConnection();
 
             string sql = GET_EMPLOYEEID_WITH_CARD_CODE;
 
@@ -79,14 +108,10 @@ namespace acr122_demo
                     return Convert.ToInt32(reader[0]);
                 }
             }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            catch (MySqlException )
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();
@@ -97,7 +122,7 @@ namespace acr122_demo
         public bool IsAlreadyCheckedIn(int EmployeeID)
         {
             var date = DateTime.Now;
-            MySqlConnection conn = Connection.GetConnection();
+            MySqlConnection conn = Utils.GetConnection();
             string sql = IS_CHECKED_IN;
             try
             {
@@ -113,14 +138,10 @@ namespace acr122_demo
                     return true;
                 }
             }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            catch (MySqlException )
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();
@@ -131,7 +152,7 @@ namespace acr122_demo
         public void AddCheckIn(int EmployeeID)
         {
             var date = DateTime.Now;
-            MySqlConnection conn = Connection.GetConnection();
+            MySqlConnection conn = Utils.GetConnection();
             string sql = CREATE_CHECKIN;
             try
             {
@@ -144,14 +165,10 @@ namespace acr122_demo
                 conn.Open();
                 int n = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            catch (MySqlException )
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();
@@ -161,7 +178,7 @@ namespace acr122_demo
         public void EditCheckOutTime(int EmployeeID)
         {
             var date = DateTime.Now;
-            MySqlConnection conn = Connection.GetConnection();
+            MySqlConnection conn = Utils.GetConnection();
             string sql = UPDATE_CHECKOUT;
             try
             {
@@ -173,14 +190,10 @@ namespace acr122_demo
                 conn.Open();
                 int n = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
+            catch (MySqlException )
+            { }
             catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            { }
             finally
             {
                 conn.Close();
