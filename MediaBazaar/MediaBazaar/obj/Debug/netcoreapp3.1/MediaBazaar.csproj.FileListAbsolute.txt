@@ -215,5 +215,44 @@ E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.ProductManager.resources
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.SalesManager.resources
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.SalesRepresentative.resources
-C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\PCSC.dll
-C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Sydesoft.NfcDevice.ACR122U.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\ClassLibraryProject.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\ClassLibraryProject.pdb
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.exe
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.deps.json
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.runtimeconfig.json
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.runtimeconfig.dev.json
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.dll
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.pdb
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.dll
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MySql.Data.dll
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Zstandard.Net.dll
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\ClassLibraryProject.dll
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\ClassLibraryProject.pdb
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.AssemblyReference.cache
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.Admin.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.CEO.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.DepotEmployee.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.DepotManager.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.OfficeManager.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormEditEmployeeData.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormLogin.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormNewEmployee.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormRemoveEmployee.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormViewEmployee.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.ProductManager.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.SalesManager.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.SalesRepresentative.resources
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.GenerateResource.cache
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfoInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfo.cs
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CoreCompileInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CopyComplete
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.dll
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.pdb
+C:\Users\esthe\OneDrive\Bureaublad\git\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.genruntimeconfig.cache

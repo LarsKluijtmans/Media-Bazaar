@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace acr122_demo
+
+namespace ClassLibraryProject.Class
 {
-    public class Person
+	public abstract class Person
     {
 		private int employeeID;
 		private string firstName;
@@ -59,9 +58,12 @@ namespace acr122_demo
 			return $"ID: {EmployeeID} - {FirstName} {LastName}";
 		}
 		public void SelectWorkTime(string preferedWorkTime, string leastPreferedWorkTime)
-		{
+        {
 			this.preferedWorkTime = preferedWorkTime;
 			this.leastPreferedWorkTime = leastPreferedWorkTime;
-		}
+        }
 	}
 }
+ 
+
+	

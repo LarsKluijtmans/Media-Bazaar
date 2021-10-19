@@ -1,10 +1,10 @@
-﻿using MediaBazaar.Class;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using ClassLibraryProject;
+using ClassLibraryProject.Class;
 
 namespace MediaBazaar
 {
