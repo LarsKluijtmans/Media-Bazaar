@@ -24,7 +24,7 @@ namespace MediaBazaar
             cbHeadDepartments.Items.Add("Office");
             cbHeadDepartments.Items.Add("Other");
 
-            timer1.Interval = 1000;
+            timer1.Interval = 200;
             timer1.Start();
             ViewCompany();
         }
