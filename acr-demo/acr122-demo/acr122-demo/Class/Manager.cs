@@ -1,8 +1,8 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace acr122_demo
+namespace ClassLibraryProject.Class
 {
     public abstract class Manager : Person
     {
