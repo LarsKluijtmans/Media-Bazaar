@@ -7,21 +7,21 @@ namespace ClassLibraryProject.Class
     public class Checkin
     {
         private int employeeID;
-        private string checkIn;
-        private string checkOut;
-        private DateTime date;
+        private DateTime checkIn;
+        private DateTime checkOut;
+        private string date;
 
         public int EmployeeID
         { get { return employeeID; } }
 
-        public string CheckIn
+        public DateTime CheckIn
         { get { return checkIn; } }
-        public string CheckOut
+        public DateTime CheckOut
         { get { return checkOut; } }
-        public DateTime Date
+        public string Date
         { get { return date; } }
 
-        public Checkin(int EmployeeID, string CheckIn, string CheckOut, DateTime Date)
+        public Checkin(int EmployeeID, DateTime CheckIn, DateTime CheckOut, string Date)
         {
             employeeID = EmployeeID;
             checkIn = CheckIn;
@@ -31,7 +31,7 @@ namespace ClassLibraryProject.Class
 
         public override string ToString()
         {
-            return $"EmployeeID: {EmployeeID} Checkin: {CheckIn}  Checkout: {CheckOut} Day: {date.Day}/{date.Month}/{date.Year}";
+            return $"EmployeeID: {EmployeeID} Checkin: {CheckIn}  Checkout: {CheckOut} Day: {Date}";
         }
     }
 }

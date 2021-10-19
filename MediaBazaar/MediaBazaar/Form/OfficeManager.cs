@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using ClassLibraryProject;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
+using System.Collections.Generic;
 
 namespace MediaBazaar
 {
@@ -15,6 +16,7 @@ namespace MediaBazaar
         public OfficeManager(int UserID, Store s)
         {
             InitializeComponent();
+
             ID = UserID;
             store = s;
 
@@ -26,8 +28,11 @@ namespace MediaBazaar
 
             timer1.Interval = 200;
             timer1.Start();
+
             ViewCompany();
             ViewAllEmployees();
+
+            GetAtendeance();
         }
 
 
@@ -39,17 +44,34 @@ namespace MediaBazaar
             //ViewAllEmployees();
             ViewAllDepartments();
             GetAtendeance();
+            GetAtendeance();
         }
 
         //Atendance
 
         public void GetAtendeance()
         {
-            store.checkinManagment.getAllAtendance();
+            store.checkinManagment.getAllAtendanceTime();
+            store.checkinManagment.UniqueID();
             lbAttendance.Items.Clear();
-            foreach (Checkin c in store.checkinManagment.check)
+
+            foreach (TimeWorked c in store.checkinManagment.times)
             {
-                lbAttendance.Items.Add(c);
+                foreach (TimeWorked t in store.checkinManagment.timePerEmployee)
+                {
+                    if (t.EmployeeID == c.EmployeeID)
+                    {
+                        DateTime frist = DateTime.Parse(c.TimeWork);
+                        DateTime Second = DateTime.Parse(t.TimeWork);
+
+                        
+                    }
+                }
+            }
+
+            foreach (TimeWorked t in store.checkinManagment.timePerEmployee)
+            {
+                lbAttendance.Items.Add(t);
             }
         }
 
@@ -522,6 +544,11 @@ namespace MediaBazaar
             {
                 ViewAllEmployees();
             }
+        }
+
+        private void btnMakeExcelSheet_Click(object sender, EventArgs e)
+        {
+
         }
 
         // employee

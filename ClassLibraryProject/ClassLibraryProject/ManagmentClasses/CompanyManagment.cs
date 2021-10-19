@@ -8,10 +8,16 @@ namespace ClassLibraryProject.ManagmentClasses
     {
         public Company company;
 
-        public static string GET_COMPANY = " SELECT Employee.EmployeeID, CompanyName, company.Address, company.Email, KVK, btw, company.PhoneNumber, company.ComapnyID FROM `EMPLOYEE` INNER JOIN contract ON employee.EmployeeID = contract.EmployeeID INNER JOIN  jobs ON jobs.JobTitle = contract.JobTitle INNER JOIN departments ON departments.DepartmentID = jobs.DepartmentID INNER JOIN company ON company.ComapnyID = departments.CompanyID HAVING employee.EmployeeID = @EmployeeID;";
-        public static string Edit_COMPANY = "UPDATE company SET CompanyName = @CompanyName, Address = @Address, Email = @Email, KVK = @KVK, btw = @btw , PhoneNumber = @PhoneNumber WHERE ComapnyID = @ComapnyID;";
-       
+        public static string GET_COMPANY = " SELECT Employee.EmployeeID, CompanyName, company.Address, company.Email, KVK, btw, company.PhoneNumber, company.CompanyID FROM `EMPLOYEE` INNER JOIN contract ON employee.EmployeeID = contract.EmployeeID INNER JOIN  jobs ON jobs.JobTitle = contract.JobTitle INNER JOIN departments ON departments.DepartmentID = jobs.DepartmentID INNER JOIN company ON company.CompanyID = departments.CompanyID HAVING employee.EmployeeID = @EmployeeID;";
+        public static string Edit_COMPANY = "UPDATE company SET CompanyName = @CompanyName, Address = @Address, Email = @Email, KVK = @KVK, btw = @btw , PhoneNumber = @PhoneNumber WHERE CompanyID = @CompanyID;";
+
+
+        public CompanyManagment()
+        {
+        }
         
+
+
         public void GetCompany(int UserID)
         {
             MySqlConnection conn = Utils.GetConnection();
@@ -60,7 +66,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@KVK", KVK);
                 cmd.Parameters.AddWithValue("@btw", BTW);
                 cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
-                cmd.Parameters.AddWithValue("@ComapnyID", ID);
+                cmd.Parameters.AddWithValue("@CompanyID", ID);
 
                 conn.Open();
 
