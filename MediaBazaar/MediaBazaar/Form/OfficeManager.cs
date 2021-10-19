@@ -27,6 +27,7 @@ namespace MediaBazaar
             timer1.Interval = 200;
             timer1.Start();
             ViewCompany();
+            ViewAllEmployees();
         }
 
 
@@ -35,7 +36,7 @@ namespace MediaBazaar
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            ViewAllEmployees();
+            //ViewAllEmployees();
             ViewAllDepartments();
             GetAtendeance();
         }
@@ -497,6 +498,9 @@ namespace MediaBazaar
                             if(employee.FirstName.StartsWith(nameSearched) || employee.FirstName.StartsWith(nameSearched.ToUpper()))
                             {
                                 lbxEmployees.Items.Add(employee);
+                            } else if (employee.LastName.StartsWith(nameSearched) || employee.LastName.StartsWith(nameSearched.ToUpper()))
+                            {
+                                lbxEmployees.Items.Add(employee);
                             }
                         }
                     }
@@ -515,7 +519,7 @@ namespace MediaBazaar
                 }
             } else if (tbxSearchEmployee.Text == "")
             {
-                //ViewAllEmployees();
+                ViewAllEmployees();
             }
         }
 
