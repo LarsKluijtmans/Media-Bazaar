@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ClassLibraryProject.ManagmentClasses;
 
 namespace acr122_demo
 {
@@ -48,9 +49,6 @@ namespace acr122_demo
                     date = DateTime.Now;
                     acr122u.ReadId = null;
 
-                    Login login = new Login();
-                    login.Show();
-
                     return;
                 }
                 else if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == true)
@@ -60,9 +58,6 @@ namespace acr122_demo
                     last = acr122u.ReadId;
                     date = DateTime.Now;
                     acr122u.ReadId = null;
-
-                    Logout logout = new Logout();
-                    logout.Show();
 
                     return;
                 }  
