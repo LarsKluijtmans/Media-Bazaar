@@ -223,7 +223,7 @@ namespace acr122_demo {
             this.Controls.Add(this.lbCheck);
             this.Controls.Add(this.gbEmployee);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Card reading";
             this.gbSearchEmployee.ResumeLayout(false);
             this.gbSearchEmployee.PerformLayout();
             this.gbEmployee.ResumeLayout(false);

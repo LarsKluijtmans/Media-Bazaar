@@ -1,20 +1,20 @@
-﻿using MediaBazaar.Class;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
 using ClassLibraryProject;
+using ClassLibraryProject.Class;
 
 namespace MediaBazaar
 {
     public partial class DepotEmployee : Form
     {
-        int ID;
+        int id;
         Store store;
 
         public DepotEmployee(int UserID, Store s)
         {
             InitializeComponent();
-            ID = UserID;
+            id = UserID;
             store = s;
 
             cbProductType.Items.Add("KITCHEN_HOME");
@@ -365,7 +365,7 @@ namespace MediaBazaar
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@ID", ID.ToString());
+                    cmd.Parameters.AddWithValue("@ID", id.ToString());
                     cmd.Parameters.AddWithValue("@CheckOutTime", date.ToString("HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@CheckDate", date.ToString("yyyy-MM-dd"));
 
@@ -406,7 +406,7 @@ namespace MediaBazaar
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@ID", ID.ToString());
+                    cmd.Parameters.AddWithValue("@ID", id.ToString());
                     cmd.Parameters.AddWithValue("@CheckInTime", date.ToString("HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@CheckOutTime", null);
                     cmd.Parameters.AddWithValue("@CheckDate", date.ToString("yyyy-MM-dd"));
@@ -437,7 +437,7 @@ namespace MediaBazaar
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@ID", ID.ToString());
+                    cmd.Parameters.AddWithValue("@ID", id.ToString());
                     cmd.Parameters.AddWithValue("@CheckOutTime", date.ToString("HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@CheckDate", date.ToString("yyyy-MM-dd"));
 
@@ -463,238 +463,30 @@ namespace MediaBazaar
         // availability
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string preferedWorkTime = PreferedWorkTime();
-            string leastPreferedWorkTime = LeastPreferedWorkTime();
-
-           // employee.SelectWorkTime(preferedWorkTime, leastPreferedWorkTime);
+            SelectPreferedWorkTime();
         }
-
-        public string PreferedWorkTime()
+        public PreferedWorkTime SelectPreferedWorkTime()
         {
-            string preferedWorkTime;
+            string day = cbxPreferedDay.SelectedItem.ToString();
+            string time;
 
-            if (cbxPreferedDay.SelectedItem.ToString() == "Monday")
+            if (rbnMorningPrefered.Checked)
             {
-                if (rbnMorningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Monday - morning";
-                }
-                else if (rbnAfternoonPrefered.Checked)
-                {
-                    return preferedWorkTime = "Monday - afternoon";
-                }
-                else if (rbnEveningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Monday - afternoon";
-                }
-            }
-            else if (cbxPreferedDay.SelectedItem.ToString() == "Tuesday")
+                time = "Morning";
+            } else if (rbnAfternoonPrefered.Checked)
             {
-                if (rbnMorningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Tuesday - morning";
-                }
-                else if (rbnAfternoonPrefered.Checked)
-                {
-                    return preferedWorkTime = "Tuesday - afternoon";
-                }
-                else if (rbnEveningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Tuesday - afternoon";
-                }
-            }
-            else if (cbxPreferedDay.SelectedItem.ToString() == "Wednesday")
+                time = "Afternoon";
+            } else if (rbnEveningPrefered.Checked)
             {
-                if (rbnMorningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Wednesday - morning";
-                }
-                else if (rbnAfternoonPrefered.Checked)
-                {
-                    return preferedWorkTime = "Wednesday - afternoon";
-                }
-                else if (rbnEveningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Wednesday - afternoon";
-                }
-            }
-            else if (cbxPreferedDay.SelectedItem.ToString() == "Thurday")
+                time = "Evening";
+            } else
             {
-                if (rbnMorningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Thurday - morning";
-                }
-                else if (rbnAfternoonPrefered.Checked)
-                {
-                    return preferedWorkTime = "Thursday - afternoon";
-                }
-                else if (rbnEveningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Thursday - afternoon";
-                }
+                time = "";
             }
-            else if (cbxPreferedDay.SelectedItem.ToString() == "Friday")
-            {
-                if (rbnMorningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Friday - morning";
-                }
-                else if (rbnAfternoonPrefered.Checked)
-                {
-                    return preferedWorkTime = "Friday - afternoon";
-                }
-                else if (rbnEveningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Friday - afternoon";
-                }
-            }
-            else if (cbxPreferedDay.SelectedItem.ToString() == "Saturday")
-            {
-                if (rbnMorningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Saturday - morning";
-                }
-                else if (rbnAfternoonPrefered.Checked)
-                {
-                    return preferedWorkTime = "Saturday - afternoon";
-                }
-                else if (rbnEveningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Saturday - afternoon";
-                }
-            }
-            else if (cbxPreferedDay.SelectedItem.ToString() == "Sunday")
-            {
-                if (rbnMorningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Sunday - morning";
-                }
-                else if (rbnAfternoonPrefered.Checked)
-                {
-                    return preferedWorkTime = "Sunday - afternoon";
-                }
-                else if (rbnEveningPrefered.Checked)
-                {
-                    return preferedWorkTime = "Sunday - afternoon";
-                }
-            }
-            return null;
-        }
-        public string LeastPreferedWorkTime()
-        {
-            string leastPreferedWorkTime;
 
-            if (cbxLeastPreferedDay.SelectedItem.ToString() == "Monday")
-            {
-                if (rbnMorningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Monday - morning";
-                }
-                else if (rbnAfternoonLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Monday - afternoon";
-                }
-                else if (rbnEveningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Monday - afternoon";
-                }
-            }
-            else if (cbxLeastPreferedDay.SelectedItem.ToString() == "Tuesday")
-            {
-                if (rbnMorningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Tuesday - morning";
-                }
-                else if (rbnAfternoonLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Tuesday - afternoon";
-                }
-                else if (rbnEveningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Tuesday - afternoon";
-                }
-            }
-            else if (cbxLeastPreferedDay.SelectedItem.ToString() == "Wednesday")
-            {
-                if (rbnMorningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Wednesday - morning";
-                }
-                else if (rbnAfternoonLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Wednesday - afternoon";
-                }
-                else if (rbnEveningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Wednesday - afternoon";
-                }
-            }
-            else if (cbxLeastPreferedDay.SelectedItem.ToString() == "Thurday")
-            {
-                if (rbnMorningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Thurday - morning";
-                }
-                else if (rbnAfternoonLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Thursday - afternoon";
-                }
-                else if (rbnEveningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Thursday - afternoon";
-                }
-            }
-            else if (cbxLeastPreferedDay.SelectedItem.ToString() == "Friday")
-            {
-                if (rbnMorningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Friday - morning";
-                }
-                else if (rbnAfternoonLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Friday - afternoon";
-                }
-                else if (rbnEveningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Friday - afternoon";
-                }
-            }
-            else if (cbxLeastPreferedDay.SelectedItem.ToString() == "Saturday")
-            {
-                if (rbnMorningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Saturday - morning";
-                }
-                else if (rbnAfternoonLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Saturday - afternoon";
-                }
-                else if (rbnEveningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Saturday - afternoon";
-                }
-            }
-            else if (cbxLeastPreferedDay.SelectedItem.ToString() == "Sunday")
-            {
-                if (rbnMorningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Sunday - morning";
-                }
-                else if (rbnAfternoonLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Sunday - afternoon";
-                }
-                else if (rbnEveningLeastPrefered.Checked)
-                {
-                    return leastPreferedWorkTime = "Sunday - afternoon";
-                }
-            }
-            return null;
-        }
+            PreferedWorkTime pwt = new PreferedWorkTime(id, time, day);
 
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
+            return pwt;
         }
     }
 }

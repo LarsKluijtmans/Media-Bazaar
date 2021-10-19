@@ -10,6 +10,18 @@
     <Compile Update="Form\DepotManager.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Form\ExtensionForms\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\ExtensionForms\FormNewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\ExtensionForms\FormRemoveEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\ExtensionForms\FormViewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form\OfficeManager.cs">
       <SubType>Form</SubType>
     </Compile>

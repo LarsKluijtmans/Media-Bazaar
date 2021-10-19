@@ -112,17 +112,6 @@
           "lib/netstandard2.1/Zstandard.Net.dll": {}
         }
       },
-      "NFC-ACR122U/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/PCSC.dll": {},
-          "lib/Sydesoft.NfcDevice.ACR122U.dll": {}
-        },
-        "runtime": {
-          "lib/PCSC.dll": {},
-          "lib/Sydesoft.NfcDevice.ACR122U.dll": {}
-        }
-      },
       "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
@@ -480,19 +469,6 @@
         "lib/netstandard2.1/Zstandard.Net.dll",
         "mysql.data.8.0.26.nupkg.sha512",
         "mysql.data.nuspec"
-      ]
-    },
-    "NFC-ACR122U/1.0.0": {
-      "sha512": "ExfCv15ocDUR2u5SA4FH/4dC8Gp/0TzNKWx0/A/HfKDveLuK7pPRDis7vz1A6MkM9AR+p/+x6lKIqjiBKcw9Pg==",
-      "type": "package",
-      "path": "nfc-acr122u/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/PCSC.dll",
-        "lib/Sydesoft.NfcDevice.ACR122U.dll",
-        "nfc-acr122u.1.0.0.nupkg.sha512",
-        "nfc-acr122u.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -878,8 +854,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ClassLibraryProject >= 1.0.0",
-      "MySql.Data >= 8.0.26",
-      "NFC-ACR122U >= 1.0.0"
+      "MySql.Data >= 8.0.26"
     ]
   },
   "packageFolders": {
@@ -933,10 +908,6 @@
           "MySql.Data": {
             "target": "Package",
             "version": "[8.0.26, )"
-          },
-          "NFC-ACR122U": {
-            "target": "Package",
-            "version": "[1.0.0, )"
           }
         },
         "imports": [
@@ -960,17 +931,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'NFC-ACR122U 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "NFC-ACR122U",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }
