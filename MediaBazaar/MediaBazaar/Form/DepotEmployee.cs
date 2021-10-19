@@ -357,37 +357,9 @@ namespace MediaBazaar
         // other
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if (btnCheck.Text == "Check Out")
-            {
-                var date = DateTime.Now;
-                MySqlConnection conn = Utils.GetConnection();
-                string sql = Utils.CREATE_CHECKOUT;
-                try
-                {
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@ID", id.ToString());
-                    cmd.Parameters.AddWithValue("@CheckOutTime", date.ToString("HH:mm:ss"));
-                    cmd.Parameters.AddWithValue("@CheckDate", date.ToString("yyyy-MM-dd"));
-
-                    conn.Open();
-                    int n = cmd.ExecuteNonQuery();
-                }
-                catch (MySqlException msqEx)
-                {
-                    MessageBox.Show(msqEx.Message);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Something went wrong");
-                }
-                finally
-                {
-                    conn.Close();
-                    btnCheck.Text = "Check In";
-                    MessageBox.Show("Check out successful");
-                }
-            }
-            Close();
+            this.Close();
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
         }
 
         private void btnProfile_Click(object sender, EventArgs e)

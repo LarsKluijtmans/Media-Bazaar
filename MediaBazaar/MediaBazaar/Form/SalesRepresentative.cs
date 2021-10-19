@@ -27,6 +27,8 @@ namespace MediaBazaar
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Close();
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
         }
 
         private void btnProfile_Click(object sender, EventArgs e)

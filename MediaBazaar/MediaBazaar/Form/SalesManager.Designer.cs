@@ -81,7 +81,6 @@ namespace MediaBazaar
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnCheck = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.sdfds.SuspendLayout();
@@ -97,11 +96,10 @@ namespace MediaBazaar
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tpSchedule);
             this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Location = new System.Drawing.Point(11, 28);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControl1.Location = new System.Drawing.Point(13, 37);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1121, 536);
+            this.tabControl1.Size = new System.Drawing.Size(1281, 715);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage4
@@ -109,11 +107,10 @@ namespace MediaBazaar
             this.tabPage4.Controls.Add(this.label3);
             this.tabPage4.Controls.Add(this.lstProduct);
             this.tabPage4.Controls.Add(this.sdfds);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Size = new System.Drawing.Size(1113, 508);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Size = new System.Drawing.Size(1273, 682);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Products ";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -122,9 +119,9 @@ namespace MediaBazaar
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(25, 17);
+            this.label3.Location = new System.Drawing.Point(29, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 21);
+            this.label3.Size = new System.Drawing.Size(119, 28);
             this.label3.TabIndex = 16;
             this.label3.Text = "Product List:";
             // 
@@ -132,10 +129,11 @@ namespace MediaBazaar
             // 
             this.lstProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstProduct.FormattingEnabled = true;
-            this.lstProduct.ItemHeight = 17;
-            this.lstProduct.Location = new System.Drawing.Point(22, 39);
+            this.lstProduct.ItemHeight = 21;
+            this.lstProduct.Location = new System.Drawing.Point(25, 52);
+            this.lstProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lstProduct.Name = "lstProduct";
-            this.lstProduct.Size = new System.Drawing.Size(700, 429);
+            this.lstProduct.Size = new System.Drawing.Size(799, 571);
             this.lstProduct.TabIndex = 15;
             this.lstProduct.SelectedIndexChanged += new System.EventHandler(this.lstProduct_SelectedIndexChanged);
             // 
@@ -158,11 +156,9 @@ namespace MediaBazaar
             this.sdfds.Controls.Add(this.lblId);
             this.sdfds.Controls.Add(this.tbID);
             this.sdfds.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.sdfds.Location = new System.Drawing.Point(748, 39);
-            this.sdfds.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sdfds.Location = new System.Drawing.Point(855, 52);
             this.sdfds.Name = "sdfds";
-            this.sdfds.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.sdfds.Size = new System.Drawing.Size(326, 429);
+            this.sdfds.Size = new System.Drawing.Size(373, 572);
             this.sdfds.TabIndex = 3;
             this.sdfds.TabStop = false;
             this.sdfds.Text = "Replenishment";
@@ -170,10 +166,9 @@ namespace MediaBazaar
             // btnViewPorducts
             // 
             this.btnViewPorducts.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnViewPorducts.Location = new System.Drawing.Point(33, 384);
-            this.btnViewPorducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnViewPorducts.Location = new System.Drawing.Point(38, 512);
             this.btnViewPorducts.Name = "btnViewPorducts";
-            this.btnViewPorducts.Size = new System.Drawing.Size(265, 31);
+            this.btnViewPorducts.Size = new System.Drawing.Size(303, 41);
             this.btnViewPorducts.TabIndex = 5;
             this.btnViewPorducts.Text = "View all products";
             this.btnViewPorducts.UseVisualStyleBackColor = true;
@@ -182,29 +177,28 @@ namespace MediaBazaar
             // tbAmount
             // 
             this.tbAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbAmount.Location = new System.Drawing.Point(148, 292);
+            this.tbAmount.Location = new System.Drawing.Point(169, 389);
             this.tbAmount.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tbAmount.Name = "tbAmount";
-            this.tbAmount.Size = new System.Drawing.Size(162, 26);
+            this.tbAmount.Size = new System.Drawing.Size(185, 30);
             this.tbAmount.TabIndex = 58;
             // 
             // Amount
             // 
             this.Amount.AutoSize = true;
             this.Amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Amount.Location = new System.Drawing.Point(54, 291);
+            this.Amount.Location = new System.Drawing.Point(62, 388);
             this.Amount.Name = "Amount";
-            this.Amount.Size = new System.Drawing.Size(73, 20);
+            this.Amount.Size = new System.Drawing.Size(91, 25);
             this.Amount.TabIndex = 57;
             this.Amount.Text = "Amount: ";
             // 
             // btnRequestReplenishment
             // 
             this.btnRequestReplenishment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRequestReplenishment.Location = new System.Drawing.Point(33, 335);
-            this.btnRequestReplenishment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRequestReplenishment.Location = new System.Drawing.Point(38, 447);
             this.btnRequestReplenishment.Name = "btnRequestReplenishment";
-            this.btnRequestReplenishment.Size = new System.Drawing.Size(265, 34);
+            this.btnRequestReplenishment.Size = new System.Drawing.Size(303, 45);
             this.btnRequestReplenishment.TabIndex = 2;
             this.btnRequestReplenishment.Text = "Request reshelf";
             this.btnRequestReplenishment.UseVisualStyleBackColor = true;
@@ -214,31 +208,31 @@ namespace MediaBazaar
             // 
             this.lbProductType.Enabled = false;
             this.lbProductType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbProductType.Location = new System.Drawing.Point(148, 165);
+            this.lbProductType.Location = new System.Drawing.Point(169, 220);
             this.lbProductType.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.lbProductType.Name = "lbProductType";
             this.lbProductType.ReadOnly = true;
-            this.lbProductType.Size = new System.Drawing.Size(162, 29);
+            this.lbProductType.Size = new System.Drawing.Size(185, 34);
             this.lbProductType.TabIndex = 56;
             // 
             // tbName
             // 
             this.tbName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbName.Location = new System.Drawing.Point(149, 78);
+            this.tbName.Location = new System.Drawing.Point(170, 104);
             this.tbName.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tbName.Name = "tbName";
             this.tbName.ReadOnly = true;
-            this.tbName.Size = new System.Drawing.Size(162, 29);
+            this.tbName.Size = new System.Drawing.Size(185, 34);
             this.tbName.TabIndex = 45;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(33, 167);
+            this.label4.Location = new System.Drawing.Point(38, 223);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 21);
+            this.label4.Size = new System.Drawing.Size(129, 28);
             this.label4.TabIndex = 55;
             this.label4.Text = "Product type:";
             // 
@@ -246,10 +240,10 @@ namespace MediaBazaar
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(79, 80);
+            this.lblName.Location = new System.Drawing.Point(90, 107);
             this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(55, 21);
+            this.lblName.Size = new System.Drawing.Size(68, 28);
             this.lblName.TabIndex = 46;
             this.lblName.Text = "Name:";
             // 
@@ -257,41 +251,41 @@ namespace MediaBazaar
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(16, 252);
+            this.label6.Location = new System.Drawing.Point(18, 336);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 21);
+            this.label6.Size = new System.Drawing.Size(166, 28);
             this.label6.TabIndex = 54;
             this.label6.Text = "Amount in depot:";
             // 
             // tbBarcode
             // 
             this.tbBarcode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBarcode.Location = new System.Drawing.Point(148, 120);
+            this.tbBarcode.Location = new System.Drawing.Point(169, 160);
             this.tbBarcode.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tbBarcode.Name = "tbBarcode";
             this.tbBarcode.ReadOnly = true;
-            this.tbBarcode.Size = new System.Drawing.Size(162, 29);
+            this.tbBarcode.Size = new System.Drawing.Size(185, 34);
             this.tbBarcode.TabIndex = 47;
             // 
             // tbAmountInDepot
             // 
             this.tbAmountInDepot.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbAmountInDepot.Location = new System.Drawing.Point(149, 247);
+            this.tbAmountInDepot.Location = new System.Drawing.Point(170, 329);
             this.tbAmountInDepot.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tbAmountInDepot.Name = "tbAmountInDepot";
             this.tbAmountInDepot.ReadOnly = true;
-            this.tbAmountInDepot.Size = new System.Drawing.Size(162, 29);
+            this.tbAmountInDepot.Size = new System.Drawing.Size(185, 34);
             this.tbAmountInDepot.TabIndex = 53;
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEmail.Location = new System.Drawing.Point(65, 122);
+            this.lblEmail.Location = new System.Drawing.Point(74, 163);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(69, 21);
+            this.lblEmail.Size = new System.Drawing.Size(87, 28);
             this.lblEmail.TabIndex = 48;
             this.lblEmail.Text = "Barcode:";
             // 
@@ -299,31 +293,31 @@ namespace MediaBazaar
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(21, 208);
+            this.label5.Location = new System.Drawing.Point(24, 277);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 21);
+            this.label5.Size = new System.Drawing.Size(157, 28);
             this.label5.TabIndex = 52;
             this.label5.Text = "Amount in store:";
             // 
             // tbmountInStore
             // 
             this.tbmountInStore.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbmountInStore.Location = new System.Drawing.Point(148, 209);
+            this.tbmountInStore.Location = new System.Drawing.Point(169, 279);
             this.tbmountInStore.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tbmountInStore.Name = "tbmountInStore";
             this.tbmountInStore.ReadOnly = true;
-            this.tbmountInStore.Size = new System.Drawing.Size(162, 29);
+            this.tbmountInStore.Size = new System.Drawing.Size(185, 34);
             this.tbmountInStore.TabIndex = 51;
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblId.Location = new System.Drawing.Point(105, 35);
+            this.lblId.Location = new System.Drawing.Point(120, 47);
             this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(28, 21);
+            this.lblId.Size = new System.Drawing.Size(35, 28);
             this.lblId.TabIndex = 50;
             this.lblId.Text = "ID:";
             // 
@@ -331,22 +325,21 @@ namespace MediaBazaar
             // 
             this.tbID.Enabled = false;
             this.tbID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbID.Location = new System.Drawing.Point(148, 33);
+            this.tbID.Location = new System.Drawing.Point(169, 44);
             this.tbID.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(162, 29);
+            this.tbID.Size = new System.Drawing.Size(185, 34);
             this.tbID.TabIndex = 49;
             // 
             // tpSchedule
             // 
             this.tpSchedule.Controls.Add(this.dgvSchedule);
             this.tpSchedule.Controls.Add(this.groupBox2);
-            this.tpSchedule.Location = new System.Drawing.Point(4, 24);
-            this.tpSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpSchedule.Location = new System.Drawing.Point(4, 29);
             this.tpSchedule.Name = "tpSchedule";
-            this.tpSchedule.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpSchedule.Size = new System.Drawing.Size(1113, 508);
+            this.tpSchedule.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpSchedule.Size = new System.Drawing.Size(1273, 682);
             this.tpSchedule.TabIndex = 4;
             this.tpSchedule.Text = "Schedule";
             this.tpSchedule.UseVisualStyleBackColor = true;
@@ -354,10 +347,12 @@ namespace MediaBazaar
             // dgvSchedule
             // 
             this.dgvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSchedule.Location = new System.Drawing.Point(29, 46);
+            this.dgvSchedule.Location = new System.Drawing.Point(33, 61);
+            this.dgvSchedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvSchedule.Name = "dgvSchedule";
+            this.dgvSchedule.RowHeadersWidth = 51;
             this.dgvSchedule.RowTemplate.Height = 25;
-            this.dgvSchedule.Size = new System.Drawing.Size(694, 430);
+            this.dgvSchedule.Size = new System.Drawing.Size(793, 573);
             this.dgvSchedule.TabIndex = 5;
             // 
             // groupBox2
@@ -372,9 +367,11 @@ namespace MediaBazaar
             this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(744, 70);
+            this.groupBox2.Location = new System.Drawing.Point(850, 93);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(338, 366);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Size = new System.Drawing.Size(386, 488);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Manage Schedule";
@@ -382,42 +379,47 @@ namespace MediaBazaar
             // lbScheduleEvening
             // 
             this.lbScheduleEvening.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleEvening.Location = new System.Drawing.Point(140, 179);
+            this.lbScheduleEvening.Location = new System.Drawing.Point(160, 239);
+            this.lbScheduleEvening.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbScheduleEvening.Name = "lbScheduleEvening";
-            this.lbScheduleEvening.Size = new System.Drawing.Size(164, 29);
+            this.lbScheduleEvening.Size = new System.Drawing.Size(187, 34);
             this.lbScheduleEvening.TabIndex = 20;
             // 
             // lbScheduleAfternoon
             // 
             this.lbScheduleAfternoon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleAfternoon.Location = new System.Drawing.Point(140, 141);
+            this.lbScheduleAfternoon.Location = new System.Drawing.Point(160, 188);
+            this.lbScheduleAfternoon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbScheduleAfternoon.Name = "lbScheduleAfternoon";
-            this.lbScheduleAfternoon.Size = new System.Drawing.Size(164, 29);
+            this.lbScheduleAfternoon.Size = new System.Drawing.Size(187, 34);
             this.lbScheduleAfternoon.TabIndex = 19;
             // 
             // lbScheduleMorning
             // 
             this.lbScheduleMorning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleMorning.Location = new System.Drawing.Point(140, 102);
+            this.lbScheduleMorning.Location = new System.Drawing.Point(160, 136);
+            this.lbScheduleMorning.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbScheduleMorning.Name = "lbScheduleMorning";
-            this.lbScheduleMorning.Size = new System.Drawing.Size(164, 29);
+            this.lbScheduleMorning.Size = new System.Drawing.Size(187, 34);
             this.lbScheduleMorning.TabIndex = 18;
             // 
             // lbScheduleDay
             // 
             this.lbScheduleDay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleDay.Location = new System.Drawing.Point(140, 63);
+            this.lbScheduleDay.Location = new System.Drawing.Point(160, 84);
+            this.lbScheduleDay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbScheduleDay.Name = "lbScheduleDay";
             this.lbScheduleDay.ReadOnly = true;
-            this.lbScheduleDay.Size = new System.Drawing.Size(164, 29);
+            this.lbScheduleDay.Size = new System.Drawing.Size(187, 34);
             this.lbScheduleDay.TabIndex = 17;
             // 
             // btnEditschedule
             // 
             this.btnEditschedule.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditschedule.Location = new System.Drawing.Point(79, 311);
+            this.btnEditschedule.Location = new System.Drawing.Point(90, 415);
+            this.btnEditschedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEditschedule.Name = "btnEditschedule";
-            this.btnEditschedule.Size = new System.Drawing.Size(215, 34);
+            this.btnEditschedule.Size = new System.Drawing.Size(246, 45);
             this.btnEditschedule.TabIndex = 14;
             this.btnEditschedule.Text = "Edit schedule";
             this.btnEditschedule.UseVisualStyleBackColor = true;
@@ -426,9 +428,10 @@ namespace MediaBazaar
             // btViewSchedule
             // 
             this.btViewSchedule.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btViewSchedule.Location = new System.Drawing.Point(79, 257);
+            this.btViewSchedule.Location = new System.Drawing.Point(90, 343);
+            this.btViewSchedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btViewSchedule.Name = "btViewSchedule";
-            this.btViewSchedule.Size = new System.Drawing.Size(215, 34);
+            this.btViewSchedule.Size = new System.Drawing.Size(246, 45);
             this.btViewSchedule.TabIndex = 13;
             this.btViewSchedule.Text = "View schedule";
             this.btViewSchedule.UseVisualStyleBackColor = true;
@@ -438,9 +441,9 @@ namespace MediaBazaar
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label24.Location = new System.Drawing.Point(66, 182);
+            this.label24.Location = new System.Drawing.Point(75, 243);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(68, 21);
+            this.label24.Size = new System.Drawing.Size(85, 28);
             this.label24.TabIndex = 12;
             this.label24.Text = "Evening:";
             // 
@@ -448,9 +451,9 @@ namespace MediaBazaar
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label23.Location = new System.Drawing.Point(51, 144);
+            this.label23.Location = new System.Drawing.Point(58, 192);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(83, 21);
+            this.label23.Size = new System.Drawing.Size(105, 28);
             this.label23.TabIndex = 11;
             this.label23.Text = "Afternoon:";
             // 
@@ -458,9 +461,9 @@ namespace MediaBazaar
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label22.Location = new System.Drawing.Point(64, 105);
+            this.label22.Location = new System.Drawing.Point(73, 140);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(70, 21);
+            this.label22.Size = new System.Drawing.Size(89, 28);
             this.label22.TabIndex = 10;
             this.label22.Text = "Monday:";
             // 
@@ -468,9 +471,9 @@ namespace MediaBazaar
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(94, 66);
+            this.label1.Location = new System.Drawing.Point(107, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 21);
+            this.label1.Size = new System.Drawing.Size(50, 28);
             this.label1.TabIndex = 9;
             this.label1.Text = "Day:";
             // 
@@ -480,10 +483,11 @@ namespace MediaBazaar
             this.tabPage7.Controls.Add(this.label31);
             this.tabPage7.Controls.Add(this.lbPlaning);
             this.tabPage7.Controls.Add(this.groupBox3);
-            this.tabPage7.Location = new System.Drawing.Point(4, 24);
+            this.tabPage7.Location = new System.Drawing.Point(4, 29);
+            this.tabPage7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1113, 508);
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage7.Size = new System.Drawing.Size(1273, 682);
             this.tabPage7.TabIndex = 11;
             this.tabPage7.Text = "Planing";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -492,10 +496,11 @@ namespace MediaBazaar
             // 
             this.lbEmployee.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbEmployee.FormattingEnabled = true;
-            this.lbEmployee.ItemHeight = 15;
-            this.lbEmployee.Location = new System.Drawing.Point(373, 60);
+            this.lbEmployee.ItemHeight = 20;
+            this.lbEmployee.Location = new System.Drawing.Point(426, 80);
+            this.lbEmployee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbEmployee.Name = "lbEmployee";
-            this.lbEmployee.Size = new System.Drawing.Size(347, 424);
+            this.lbEmployee.Size = new System.Drawing.Size(396, 564);
             this.lbEmployee.TabIndex = 62;
             this.lbEmployee.SelectedIndexChanged += new System.EventHandler(this.lbEmployee_SelectedIndexChanged);
             // 
@@ -503,9 +508,9 @@ namespace MediaBazaar
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label31.Location = new System.Drawing.Point(31, 25);
+            this.label31.Location = new System.Drawing.Point(35, 33);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(89, 21);
+            this.label31.Size = new System.Drawing.Size(111, 28);
             this.label31.TabIndex = 61;
             this.label31.Text = "Planing list:";
             // 
@@ -513,10 +518,11 @@ namespace MediaBazaar
             // 
             this.lbPlaning.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbPlaning.FormattingEnabled = true;
-            this.lbPlaning.ItemHeight = 15;
-            this.lbPlaning.Location = new System.Drawing.Point(25, 60);
+            this.lbPlaning.ItemHeight = 20;
+            this.lbPlaning.Location = new System.Drawing.Point(29, 80);
+            this.lbPlaning.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbPlaning.Name = "lbPlaning";
-            this.lbPlaning.Size = new System.Drawing.Size(342, 424);
+            this.lbPlaning.Size = new System.Drawing.Size(390, 564);
             this.lbPlaning.TabIndex = 60;
             this.lbPlaning.SelectedIndexChanged += new System.EventHandler(this.lbPlaning_SelectedIndexChanged);
             // 
@@ -534,9 +540,11 @@ namespace MediaBazaar
             this.groupBox3.Controls.Add(this.label33);
             this.groupBox3.Controls.Add(this.label38);
             this.groupBox3.Controls.Add(this.label39);
-            this.groupBox3.Location = new System.Drawing.Point(743, 46);
+            this.groupBox3.Location = new System.Drawing.Point(849, 61);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(346, 382);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Size = new System.Drawing.Size(395, 509);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
@@ -544,28 +552,30 @@ namespace MediaBazaar
             // tbWorkId
             // 
             this.tbWorkId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbWorkId.Location = new System.Drawing.Point(153, 45);
+            this.tbWorkId.Location = new System.Drawing.Point(175, 60);
+            this.tbWorkId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbWorkId.Name = "tbWorkId";
             this.tbWorkId.ReadOnly = true;
-            this.tbWorkId.Size = new System.Drawing.Size(164, 29);
+            this.tbWorkId.Size = new System.Drawing.Size(187, 34);
             this.tbWorkId.TabIndex = 25;
             // 
             // label34
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label34.Location = new System.Drawing.Point(45, 45);
+            this.label34.Location = new System.Drawing.Point(51, 60);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(67, 21);
+            this.label34.Size = new System.Drawing.Size(85, 28);
             this.label34.TabIndex = 24;
             this.label34.Text = "Work id:";
             // 
             // btnEditPlaning
             // 
             this.btnEditPlaning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditPlaning.Location = new System.Drawing.Point(69, 264);
+            this.btnEditPlaning.Location = new System.Drawing.Point(79, 352);
+            this.btnEditPlaning.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEditPlaning.Name = "btnEditPlaning";
-            this.btnEditPlaning.Size = new System.Drawing.Size(215, 34);
+            this.btnEditPlaning.Size = new System.Drawing.Size(246, 45);
             this.btnEditPlaning.TabIndex = 23;
             this.btnEditPlaning.Text = "EditPlaning";
             this.btnEditPlaning.UseVisualStyleBackColor = true;
@@ -574,45 +584,50 @@ namespace MediaBazaar
             // tbTime
             // 
             this.tbTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbTime.Location = new System.Drawing.Point(153, 196);
+            this.tbTime.Location = new System.Drawing.Point(175, 261);
+            this.tbTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbTime.Name = "tbTime";
             this.tbTime.ReadOnly = true;
-            this.tbTime.Size = new System.Drawing.Size(164, 29);
+            this.tbTime.Size = new System.Drawing.Size(187, 34);
             this.tbTime.TabIndex = 18;
             // 
             // tbDay
             // 
             this.tbDay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbDay.Location = new System.Drawing.Point(153, 157);
+            this.tbDay.Location = new System.Drawing.Point(175, 209);
+            this.tbDay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDay.Name = "tbDay";
             this.tbDay.ReadOnly = true;
-            this.tbDay.Size = new System.Drawing.Size(164, 29);
+            this.tbDay.Size = new System.Drawing.Size(187, 34);
             this.tbDay.TabIndex = 17;
             // 
             // tbDep
             // 
             this.tbDep.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbDep.Location = new System.Drawing.Point(153, 119);
+            this.tbDep.Location = new System.Drawing.Point(175, 159);
+            this.tbDep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDep.Name = "tbDep";
             this.tbDep.ReadOnly = true;
-            this.tbDep.Size = new System.Drawing.Size(164, 29);
+            this.tbDep.Size = new System.Drawing.Size(187, 34);
             this.tbDep.TabIndex = 16;
             // 
             // tbNewEmployeeId
             // 
             this.tbNewEmployeeId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbNewEmployeeId.Location = new System.Drawing.Point(153, 80);
+            this.tbNewEmployeeId.Location = new System.Drawing.Point(175, 107);
+            this.tbNewEmployeeId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbNewEmployeeId.Name = "tbNewEmployeeId";
             this.tbNewEmployeeId.ReadOnly = true;
-            this.tbNewEmployeeId.Size = new System.Drawing.Size(164, 29);
+            this.tbNewEmployeeId.Size = new System.Drawing.Size(187, 34);
             this.tbNewEmployeeId.TabIndex = 15;
             // 
             // btnViewSalesPlan
             // 
             this.btnViewSalesPlan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnViewSalesPlan.Location = new System.Drawing.Point(69, 317);
+            this.btnViewSalesPlan.Location = new System.Drawing.Point(79, 423);
+            this.btnViewSalesPlan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnViewSalesPlan.Name = "btnViewSalesPlan";
-            this.btnViewSalesPlan.Size = new System.Drawing.Size(215, 34);
+            this.btnViewSalesPlan.Size = new System.Drawing.Size(246, 45);
             this.btnViewSalesPlan.TabIndex = 13;
             this.btnViewSalesPlan.Text = "View sales planing";
             this.btnViewSalesPlan.UseVisualStyleBackColor = true;
@@ -622,9 +637,9 @@ namespace MediaBazaar
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label32.Location = new System.Drawing.Point(93, 199);
+            this.label32.Location = new System.Drawing.Point(106, 265);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(45, 21);
+            this.label32.Size = new System.Drawing.Size(56, 28);
             this.label32.TabIndex = 10;
             this.label32.Text = "Shift:";
             // 
@@ -632,9 +647,9 @@ namespace MediaBazaar
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label33.Location = new System.Drawing.Point(98, 157);
+            this.label33.Location = new System.Drawing.Point(112, 209);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(40, 21);
+            this.label33.Size = new System.Drawing.Size(50, 28);
             this.label33.TabIndex = 9;
             this.label33.Text = "Day:";
             // 
@@ -642,9 +657,9 @@ namespace MediaBazaar
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label38.Location = new System.Drawing.Point(42, 119);
+            this.label38.Location = new System.Drawing.Point(48, 159);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(96, 21);
+            this.label38.Size = new System.Drawing.Size(121, 28);
             this.label38.TabIndex = 8;
             this.label38.Text = "Department:";
             // 
@@ -652,43 +667,29 @@ namespace MediaBazaar
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label39.Location = new System.Drawing.Point(45, 80);
+            this.label39.Location = new System.Drawing.Point(51, 107);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(98, 21);
+            this.label39.Size = new System.Drawing.Size(124, 28);
             this.label39.TabIndex = 7;
             this.label39.Text = "Employee id:";
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(737, 2);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogout.Location = new System.Drawing.Point(842, 3);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(82, 22);
+            this.btnLogout.Size = new System.Drawing.Size(94, 29);
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnCheck
-            // 
-            this.btnCheck.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCheck.Location = new System.Drawing.Point(912, 2);
-            this.btnCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(79, 28);
-            this.btnCheck.TabIndex = 22;
-            this.btnCheck.Text = "Check In";
-            this.btnCheck.UseVisualStyleBackColor = true;
-            // 
             // SalesManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1139, 587);
-            this.Controls.Add(this.btnCheck);
+            this.ClientSize = new System.Drawing.Size(1302, 783);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SalesManager";
             this.Text = "FormSalesManager";
             this.tabControl1.ResumeLayout(false);
@@ -761,7 +762,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.DataGridView dgvSchedule;
     }
 }
