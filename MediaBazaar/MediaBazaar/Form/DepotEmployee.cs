@@ -1,6 +1,7 @@
 ﻿using ClassLibraryProject;
 using ClassLibraryProject.Class;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace MediaBazaar
@@ -27,6 +28,12 @@ namespace MediaBazaar
 
             ViewPorducts();
             ViewReplenishment();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            FormLogin login = new FormLogin();
+            login.Show();
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -107,6 +114,11 @@ namespace MediaBazaar
             tbProductName.Text = product.Name;
             tbProductType.Text = product.Barcode;
             tbAmountInDepot.Text = product.ProductType;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using ClassLibraryProject;
 using ClassLibraryProject.Class;
+using System.ComponentModel;
 
 namespace MediaBazaar
 {
@@ -19,9 +20,15 @@ namespace MediaBazaar
             store = s;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
-            
+            FormLogin login = new FormLogin();
+            login.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

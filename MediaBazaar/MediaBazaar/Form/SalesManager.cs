@@ -2,6 +2,7 @@
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -21,6 +22,18 @@ namespace MediaBazaar
             ViewAllSchedule();
             ViewSalesPlan();
         }
+
+        //Logout
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            FormLogin login = new FormLogin();
+            login.Show();
+        }
+
         //Products
 
         public void ViewAllProducts()
@@ -244,14 +257,6 @@ namespace MediaBazaar
         private void btnViewSalesPlan_Click(object sender, EventArgs e)
         {
             ViewSalesPlan();
-        }
-
-        // other
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            Close();
-            FormLogin formLogin = new FormLogin();
-            formLogin.Show();
         }
     }
 }

@@ -22,13 +22,17 @@ namespace MediaBazaar
             store = s;
             ViewAllProducts();
         }
-       
+
+        //Logout
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            FormLogin login = new FormLogin();
+            login.Show();
+        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Close();
-            FormLogin formLogin = new FormLogin();
-            formLogin.Show();
         }
 
         private void btnProfile_Click(object sender, EventArgs e)

@@ -7,7 +7,7 @@ namespace ClassLibraryProject.ManagmentClasses
     public class LoginManagment
     {
         public static string LOGIN_BY_EMPLOYEEID = " SELECT employee.userName, password, contract.JobTitle FROM employee INNER JOIN contract ON contract.employeeID = employee.Employeeid where employee.UserName = @UserName order by startdate;";
-        public static string GET_EMPLOYEEID = " SELECT employeeID, password, userName FROM employee where employee.UserName = @UserName";
+        public static string GET_EMPLOYEEID = " SELECT employeeID, password, userName FROM employee where UserName = @UserName";
 
 
         public string checkLogin(string UserName, string Password)
@@ -61,7 +61,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 while (reader.Read())
                 {
-                    if (reader[2].ToString() == (UserName).ToString() && reader[1].ToString() == Password)
+                    if (reader[2].ToString() == UserName.ToString() && reader[1].ToString() == Password.ToString())
                     {
                         return Convert.ToInt32( reader[0]);
                     }

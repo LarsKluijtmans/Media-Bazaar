@@ -2,6 +2,7 @@
 using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 using System;
+using System.ComponentModel;
 using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -35,6 +36,17 @@ namespace MediaBazaar
             GetAtendeance();
         }
 
+        //Login
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            FormLogin login = new FormLogin();
+            login.Show();
+        }
 
 
         //Timer
@@ -334,15 +346,6 @@ namespace MediaBazaar
         private void rbnDepotEmployees_CheckedChanged(object sender, EventArgs e)
         {
             ViewAllEmployees();
-        }
-
-        //Login
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            FormLogin formLogin = new FormLogin();
-            formLogin.Show();
-            Close();
         }
 
         //Departments

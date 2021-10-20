@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using ClassLibraryProject;
 using ClassLibraryProject.Class;
+using System.ComponentModel;
 
 namespace MediaBazaar
 {
@@ -34,6 +35,20 @@ namespace MediaBazaar
             ViewAllRestockRequests();
             ViewAllSchedule();
         }
+
+        //Logout
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            FormLogin login = new FormLogin();
+            login.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+
 
         // products
 
@@ -438,14 +453,6 @@ namespace MediaBazaar
         }
 
         //Other
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            Close();
-            FormLogin formLogin = new FormLogin();
-            formLogin.Show();
-        }
-
 
         private void dd(object sender, EventArgs e)
         {
