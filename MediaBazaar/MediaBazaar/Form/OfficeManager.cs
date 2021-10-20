@@ -514,13 +514,12 @@ namespace MediaBazaar
         {
             Person tempPerson = getperson();
 
-            tbEmployeeID.Text = tempPerson.EmployeeID.ToString();
-            tbEmployeeName.Text = tempPerson.FirstName + " " + tempPerson.LastName;
+            tbxEmployeeID.Text = tempPerson.EmployeeID.ToString();
         }
 
         public Person getperson()
         {
-            Object personObj = lbEmployee.SelectedItem;
+            Object personObj = lbxEmployees.SelectedItem;
             if (!(personObj is Person))
             {
                 MessageBox.Show("Error");
