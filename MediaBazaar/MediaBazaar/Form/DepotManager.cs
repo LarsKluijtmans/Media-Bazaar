@@ -39,8 +39,6 @@ namespace MediaBazaar
 
         public void ViewAllProducts()
         {
-            store.productManagment.ViewAllProducts();
-
             lbProducts.Items.Clear();
 
             foreach (Product product in store.productManagment.products)
@@ -291,8 +289,6 @@ namespace MediaBazaar
 
         public void DeleteReshelfRequest()
         {
-            store.reshelfManagment.ViewAllReshelfRequests();
-
             lbReshelfRequest.Items.Clear();
 
             string ReShelfID = tbRequestID.Text;
@@ -315,8 +311,6 @@ namespace MediaBazaar
 
         public void ViewAllReshelfRequests()
         {
-            store.reshelfManagment.ViewAllReshelfRequests();
-
             lbReshelfRequest.Items.Clear();
 
             foreach (ReShelf reShelf in store.reshelfManagment.reShelves)

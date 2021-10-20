@@ -106,8 +106,6 @@ namespace MediaBazaar
 
         public void ViewAllProducts()
         {
-            store.productManagment.ViewAllProducts();
-
             lstProduct.Items.Clear();
             lstOverviewProduct.Items.Clear();
 

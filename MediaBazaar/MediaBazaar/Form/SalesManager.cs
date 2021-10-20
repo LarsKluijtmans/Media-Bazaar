@@ -25,8 +25,6 @@ namespace MediaBazaar
 
         public void ViewAllProducts()
         {
-            store.productManagment.ViewAllProducts();
-
             lstProduct.Items.Clear();
 
             foreach (Product product in store.productManagment.products)

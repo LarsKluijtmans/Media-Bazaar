@@ -1,8 +1,7 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClassLibraryProject;
+using ClassLibraryProject.Class;
 using System;
 using System.Windows.Forms;
-using ClassLibraryProject;
-using ClassLibraryProject.Class;
 
 namespace MediaBazaar
 {
@@ -18,13 +17,25 @@ namespace MediaBazaar
             store = s;
 
             timer1.Start();
-            timer1.Interval = 100;
+            timer2.Start();
 
             lbProducts.HorizontalScrollbar = true;
             lbProducts.ScrollAlwaysVisible = true;
 
             lbReplenishment.HorizontalScrollbar = true;
             lbReplenishment.ScrollAlwaysVisible = true;
+
+            ViewPorducts();
+            ViewReplenishment();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if ( ActiveControl == tbSearchReplenishment || ActiveControl == tbProductSearch )
+            {
+                timer1.Start();
+            }
+            else { timer1.Stop(); }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -35,7 +46,7 @@ namespace MediaBazaar
 
         public void ViewPorducts()
         {
-            store.productManagment.ViewAllProducts();
+            store.productManagment.ViewAllProducts( tbProductSearch.Text);
 
             lbProducts.Items.Clear();
 
@@ -47,7 +58,7 @@ namespace MediaBazaar
 
         public void ViewReplenishment()
         {
-            store.reshelfManagment.ViewAllReshelfRequests();
+            store.reshelfManagment.ViewAllReshelfRequests( tbSearchReplenishment.Text);
 
             lbReplenishment.Items.Clear();
 
@@ -55,6 +66,47 @@ namespace MediaBazaar
             {
                 lbReplenishment.Items.Add(p);
             }
+        }
+
+        private void lbReplenishment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbReplenishment.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            Object ReshelfObject = lbReplenishment.SelectedItem;
+            if (!(ReshelfObject is ReShelf))
+            {
+                return;
+            }
+
+            ReShelf reShelf = (ReShelf)ReshelfObject;
+            tbReplenishmentID.Text = reShelf.ShelfReplenishmentID.ToString();
+            tbReplenishmentProductID.Text = reShelf.ProductID.ToString();
+            tbReplenishmentProsuctName.Text = reShelf.Name;
+            tbReplenishmentAmountInDepot.Text = reShelf.AmountInDepot.ToString();
+            tbReplenishmentAmount.Text = reShelf.Amount.ToString();
+        }
+
+        private void lbProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbProducts.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            Object ProductObject = lbProducts.SelectedItem;
+            if (!(ProductObject is Product))
+            {
+                return;
+            }
+
+            Product product = (Product)ProductObject;
+            tbProductID.Text = product.ProductID.ToString();
+            tbProductName.Text = product.Name;
+            tbProductType.Text = product.Barcode;
+            tbAmountInDepot.Text = product.ProductType;
         }
     }
 }

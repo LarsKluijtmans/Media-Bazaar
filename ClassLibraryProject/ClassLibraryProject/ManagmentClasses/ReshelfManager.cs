@@ -8,7 +8,7 @@ namespace ClassLibraryProject.ManagmentClasses
     public class ReshelfManagment
     {
         public static string CREATE_SHELFREPLENICHMENT = "INSERT INTO shelfreplenishment ( ProductID, Amount) VALUES ( @ProductID, @Amount);";
-        public static string GET_ALL_SHELFREPLENICHMENT = "SELECT ShelfReplenishmentID,shelfreplenishment.ProductID, Amount, Name, product.Barcode, Type, price, AmountInDepot FROM shelfreplenishment  INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID ORDER BY ShelfReplenishmentID;";
+        public static string GET_ALL_SHELFREPLENICHMENT = "SELECT ShelfReplenishmentID,shelfreplenishment.ProductID, Amount, Name, product.Barcode, Type, price, AmountInDepot FROM shelfreplenishment  INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID  WHERE Name LIKE '@Value%' ORDER BY ShelfReplenishmentID;";
         public static string UPDATE_SHELFREPLENICHMENT = "UPDATE PRODUCT SET AmountInStore = @AmountInStore, AmountInDepot = @AmountInDepot WHERE ProductID = @ProductID;";
         public static string DELETE_SHELFREPLENICHMENT_BY_ID = "DELETE FROM shelfreplenishment WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
 
@@ -19,7 +19,7 @@ namespace ClassLibraryProject.ManagmentClasses
             reShelves = new List<ReShelf>();
         }
 
-        public void ViewAllReshelfRequests()
+        public void ViewAllReshelfRequests(string Value)
         {
             reShelves.Clear();
 
@@ -30,6 +30,8 @@ namespace ClassLibraryProject.ManagmentClasses
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Value", Value);
+
                 conn.Open();
 
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -71,8 +73,6 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
-
-                ViewAllReshelfRequests();
             }
             catch (MySqlException )
             { }
