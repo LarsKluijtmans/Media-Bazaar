@@ -18,5 +18,10 @@ namespace MediaBazaar
             ID = userID;
             store = s;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

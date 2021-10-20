@@ -53,7 +53,7 @@ namespace MediaBazaar
             tbName.Text = product.Name;
             tbBarcode.Text = product.Barcode;
             lbProductType.Text = product.ProductType;
-            tbmountInStore.Text = product.AmountInStore.ToString();
+            tbmountInStore.Text = product.Price.ToString();
             tbAmountInDepot.Text = product.AmountInDepot.ToString();
         }
 

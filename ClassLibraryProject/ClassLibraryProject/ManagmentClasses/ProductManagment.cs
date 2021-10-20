@@ -9,7 +9,7 @@ namespace ClassLibraryProject.ManagmentClasses
     {
 
         public static string CREATE_PRODUCT = "INSERT INTO Product ( Name, Barcode, Type, AmountInStore, AmountInDepot) VALUES (@Name, @Barcode, @Type, @AmountInStore, @AmountInDepot);";
-        public static string GET_ALL_PRODUCT = "SELECT ProductID, Name, Barcode, Type, AmountInStore, AmountInDepot FROM Product ORDER BY ProductID;";
+        public static string GET_ALL_PRODUCT = "SELECT ProductID, Name, Barcode, Type, price, AmountInDepot FROM Product ORDER BY ProductID;";
         public static string UPDATE_PRODUCT = "UPDATE PRODUCT SET Name = @Name, Barcode = @Barcode, Type = @Type, AmountInStore = @AmountInStore, AmountInDepot = @AmountInDepot WHERE ProductID = @ProductID;";
         public static string DELETE_PRODUCT_BY_ID = "DELETE FROM PRODUCT WHERE ProductID = @ProductID;";
 
@@ -43,7 +43,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     string barcode = reader.GetString("Barcode");
                     string name = reader.GetString("Name");
                     string productType = reader.GetString("Type");
-                    int amountInStore = reader.GetInt32("AmountInStore");
+                    int amountInStore = reader.GetInt32("Price");
                     int amountInDepot = reader.GetInt32("AmountInDepot");
 
                     product = new Product(ProductID, name, productType, barcode, amountInDepot, amountInStore);

@@ -72,7 +72,7 @@ namespace MediaBazaar
             tbName.Text = product.Name;
             tbBarcode.Text = product.Barcode;
             cbProductType.Text = product.ProductType;
-            tbmountInStore.Text = product.AmountInStore.ToString();
+            tbmountInStore.Text = product.Price.ToString();
             tbAmountInDepot.Text = product.AmountInDepot.ToString();
         }
 
@@ -343,7 +343,7 @@ namespace MediaBazaar
             tbRID.Text = Shelf.ProductID.ToString();
             tbRequestID.Text = Shelf.ShelfReplenishmentID.ToString();
             tbRName.Text = Shelf.Name;
-            tbRamountInStore.Text = Shelf.AmountInStore.ToString();
+            tbRamountInStore.Text = Shelf.Price.ToString();
             tbRAmountInDepot.Text = Shelf.AmountInDepot.ToString();
             tbReshelfReqAmount.Text = Shelf.Amount.ToString();
         }

@@ -7,7 +7,7 @@ namespace ClassLibraryProject.Class
         private int productID;
         private int amount;
         private string name;
-        private int amountInStore;
+        private int price;
         private int amountInDepot;
 
 
@@ -32,21 +32,21 @@ namespace ClassLibraryProject.Class
             set { name = value; }
         }
 
-        public int AmountInStore
+        public int Price
         {
-            get { return amountInStore; }
-            set { amountInStore = value; }
+            get { return price; }
+            set { price = value; }
         }
         public int AmountInDepot
         {
             get { return amountInDepot; }
             set { amountInDepot = value; }
         }
-        public ReShelf(int ShelfReplenishmentID, int ProductID, int Amount, string name, int AmountInDepot, int AmountInStore)
+        public ReShelf(int ShelfReplenishmentID, int ProductID, int Amount, string name, int AmountInDepot, int Price)
         {
             Name = name;
             amountInDepot = AmountInDepot;
-            amountInStore = AmountInStore;
+            price = Price;
             shelfReplenishmentID = ShelfReplenishmentID;
             productID = ProductID;
             amount = Amount;
@@ -55,7 +55,7 @@ namespace ClassLibraryProject.Class
 
         public override string ToString()
         {
-            return "ReshelfID: " + ShelfReplenishmentID + "   ProductID:" + ProductID + "   Amount :" + Amount + "   Name: " + Name + "   Amount in depot: " + amountInDepot + "   Amoutn in store: " + AmountInStore;
+            return "ReshelfID: " + ShelfReplenishmentID + "   ProductID:" + ProductID + "   Amount :" + Amount + "   Name: " + Name + "   Amount in depot: " + amountInDepot;
         }
     }
 }
