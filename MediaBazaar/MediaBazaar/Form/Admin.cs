@@ -1,11 +1,9 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using ClassLibraryProject;
-using ClassLibraryProject.Class;
-using System.ComponentModel;
+﻿using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
+using MySql.Data.MySqlClient;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace MediaBazaar
 {
@@ -134,7 +132,7 @@ namespace MediaBazaar
         public int AmountOfEmployees()
         {
             MySqlConnection conn = Utils.GetConnection();
-           
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT COUNT(EMPLOYEEid) FROM employee;", conn);
@@ -163,6 +161,29 @@ namespace MediaBazaar
                 conn.Close();
             }
             return 0;
+        }
+
+        private void button1_Click(object sender, EventArgs e)//make backup
+        {
+            string constring = "Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=Nijlpaard;SslMode =none;";
+
+            string file = @"D:\database\" + DateTime.Now.ToString("dd-MM-yyyy");
+
+            using (MySqlConnection conn = new MySqlConnection(constring))
+            {
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    using (MySqlBackup mb = new MySqlBackup(cmd))
+                    {
+                        cmd.Connection = conn;
+                        conn.Open();
+                        mb.ExportToFile(file);
+                        conn.Close();
+                    }
+                }
+            }
+
+            MessageBox.Show("sucsess");
         }
     }
 }

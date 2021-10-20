@@ -31,6 +31,7 @@ namespace MediaBazaar
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabEmployee = new System.Windows.Forms.TabPage();
+            this.gbMakeEmployee = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbxJobTitle = new System.Windows.Forms.TextBox();
             this.btnAddContract = new System.Windows.Forms.Button();
@@ -71,13 +72,12 @@ namespace MediaBazaar
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.gbMakeEmployee = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabEmployee.SuspendLayout();
+            this.gbMakeEmployee.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.gbMakeEmployee.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -102,6 +102,17 @@ namespace MediaBazaar
             this.tabEmployee.TabIndex = 1;
             this.tabEmployee.Text = "Employees";
             this.tabEmployee.UseVisualStyleBackColor = true;
+            // 
+            // gbMakeEmployee
+            // 
+            this.gbMakeEmployee.Controls.Add(this.groupBox2);
+            this.gbMakeEmployee.Controls.Add(this.groupBox1);
+            this.gbMakeEmployee.Controls.Add(this.label1);
+            this.gbMakeEmployee.Location = new System.Drawing.Point(7, 8);
+            this.gbMakeEmployee.Name = "gbMakeEmployee";
+            this.gbMakeEmployee.Size = new System.Drawing.Size(1100, 489);
+            this.gbMakeEmployee.TabIndex = 84;
+            this.gbMakeEmployee.TabStop = false;
             // 
             // groupBox2
             // 
@@ -462,6 +473,7 @@ namespace MediaBazaar
             this.button1.TabIndex = 0;
             this.button1.Text = "Make backup";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Edit
             // 
@@ -504,17 +516,6 @@ namespace MediaBazaar
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // gbMakeEmployee
-            // 
-            this.gbMakeEmployee.Controls.Add(this.groupBox2);
-            this.gbMakeEmployee.Controls.Add(this.groupBox1);
-            this.gbMakeEmployee.Controls.Add(this.label1);
-            this.gbMakeEmployee.Location = new System.Drawing.Point(7, 8);
-            this.gbMakeEmployee.Name = "gbMakeEmployee";
-            this.gbMakeEmployee.Size = new System.Drawing.Size(1100, 489);
-            this.gbMakeEmployee.TabIndex = 84;
-            this.gbMakeEmployee.TabStop = false;
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -526,14 +527,14 @@ namespace MediaBazaar
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.tabEmployee.ResumeLayout(false);
+            this.gbMakeEmployee.ResumeLayout(false);
+            this.gbMakeEmployee.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.gbMakeEmployee.ResumeLayout(false);
-            this.gbMakeEmployee.PerformLayout();
             this.ResumeLayout(false);
 
         }

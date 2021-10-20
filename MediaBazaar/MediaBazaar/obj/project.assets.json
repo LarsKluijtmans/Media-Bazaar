@@ -11,6 +11,17 @@
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
         }
       },
+      "dotConnect.Express.for.MySQL/8.19.1985": {
+        "type": "package",
+        "compile": {
+          "lib/Devart.Data.MySql.dll": {},
+          "lib/Devart.Data.dll": {}
+        },
+        "runtime": {
+          "lib/Devart.Data.MySql.dll": {},
+          "lib/Devart.Data.dll": {}
+        }
+      },
       "Google.Protobuf/3.14.0": {
         "type": "package",
         "dependencies": {
@@ -24,10 +35,10 @@
           "lib/netstandard2.0/Google.Protobuf.dll": {}
         }
       },
-      "K4os.Compression.LZ4/1.1.11": {
+      "K4os.Compression.LZ4/1.2.6": {
         "type": "package",
         "dependencies": {
-          "System.Memory": "4.5.3"
+          "System.Memory": "4.5.4"
         },
         "compile": {
           "lib/netstandard2.0/K4os.Compression.LZ4.dll": {}
@@ -36,17 +47,17 @@
           "lib/netstandard2.0/K4os.Compression.LZ4.dll": {}
         }
       },
-      "K4os.Compression.LZ4.Streams/1.1.11": {
+      "K4os.Compression.LZ4.Streams/1.2.6": {
         "type": "package",
         "dependencies": {
-          "K4os.Compression.LZ4": "1.1.11",
+          "K4os.Compression.LZ4": "1.2.6",
           "K4os.Hash.xxHash": "1.0.6"
         },
         "compile": {
-          "lib/netstandard2.0/K4os.Compression.LZ4.Streams.dll": {}
+          "lib/netstandard2.1/K4os.Compression.LZ4.Streams.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/K4os.Compression.LZ4.Streams.dll": {}
+          "lib/netstandard2.1/K4os.Compression.LZ4.Streams.dll": {}
         }
       },
       "K4os.Hash.xxHash/1.0.6": {
@@ -88,28 +99,74 @@
           }
         }
       },
-      "MySql.Data/8.0.26": {
+      "MySql.Data/8.0.27": {
         "type": "package",
         "dependencies": {
           "BouncyCastle.NetCore": "1.8.5",
           "Google.Protobuf": "3.14.0",
-          "K4os.Compression.LZ4": "1.1.11",
-          "K4os.Compression.LZ4.Streams": "1.1.11",
-          "K4os.Hash.xxHash": "1.0.6",
+          "K4os.Compression.LZ4.Streams": "1.2.6",
           "System.Buffers": "4.5.1",
           "System.Configuration.ConfigurationManager": "4.4.1",
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0",
           "System.Security.Permissions": "4.7.0",
           "System.Text.Encoding.CodePages": "4.4.0"
         },
         "compile": {
           "lib/netstandard2.1/MySql.Data.dll": {},
           "lib/netstandard2.1/Ubiety.Dns.Core.dll": {},
-          "lib/netstandard2.1/Zstandard.Net.dll": {}
+          "lib/netstandard2.1/ZstdNet.dll": {}
         },
         "runtime": {
           "lib/netstandard2.1/MySql.Data.dll": {},
           "lib/netstandard2.1/Ubiety.Dns.Core.dll": {},
-          "lib/netstandard2.1/Zstandard.Net.dll": {}
+          "lib/netstandard2.1/ZstdNet.dll": {}
+        }
+      },
+      "MySqlBackup.NET/2.3.6.1": {
+        "type": "package",
+        "dependencies": {
+          "MySql.Data": "8.0.27"
+        },
+        "compile": {
+          "lib/netstandard2.1/MySqlBackup.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MySqlBackup.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/netstandard2.1/logo.ico": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
+      "MySqlBackup.Net.DevartExpress/2.3.6": {
+        "type": "package",
+        "dependencies": {
+          "dotConnect.Express.for.MySQL": "8.19.1985"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/MySqlBackupNet.DevartExpress.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/MySqlBackupNet.DevartExpress.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/netcoreapp3.0/logo.ico": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
+      "MySqlConnector/1.3.14": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/MySqlConnector.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/MySqlConnector.dll": {}
         }
       },
       "System.Buffers/4.5.1": {
@@ -156,7 +213,7 @@
           }
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.1/_._": {}
@@ -165,10 +222,10 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
@@ -317,6 +374,22 @@
         "lib/xamarinios/BouncyCastle.Crypto.xml"
       ]
     },
+    "dotConnect.Express.for.MySQL/8.19.1985": {
+      "sha512": "aWpPU1S6e7+zHplkTheaOSI+GeMWM3fkKE1Hd/Ga2Kr02KsO3tkgXOOM4O6JG6eOGhUajcGJEHHhumMZuE/RZA==",
+      "type": "package",
+      "path": "dotconnect.express.for.mysql/8.19.1985",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/app.config.transform",
+        "content/web.config.transform",
+        "dotconnect.express.for.mysql.8.19.1985.nupkg.sha512",
+        "dotconnect.express.for.mysql.nuspec",
+        "lib/Devart.Data.MySql.dll",
+        "lib/Devart.Data.dll",
+        "mysql.png"
+      ]
+    },
     "Google.Protobuf/3.14.0": {
       "sha512": "9AkodyGNmLI+wJJPbwpWLmh4BMHoXDQ9+8qvDPhQQi/BNsleqKMBn3OlyLwC6CALwan2kc5+Cenb8fJSITX3nQ==",
       "type": "package",
@@ -337,14 +410,14 @@
         "lib/netstandard2.0/Google.Protobuf.xml"
       ]
     },
-    "K4os.Compression.LZ4/1.1.11": {
-      "sha512": "RNvJw0UGkedPhCqVBNIogtfQebY+bQt0PN7xDbVe5LWLra0ZEqPfjPSl7iStj3rgDnkqkkTTpm+vCX3hU1qKmA==",
+    "K4os.Compression.LZ4/1.2.6": {
+      "sha512": "4EN8EE6bZG2U8dFfeqn+Om3UNajK3cPYHvyQROCFm4jNFVLuRB7Nl5bDkjBSAjfctS6konm+ay3u5RafBzltDA==",
       "type": "package",
-      "path": "k4os.compression.lz4/1.1.11",
+      "path": "k4os.compression.lz4/1.2.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "k4os.compression.lz4.1.1.11.nupkg.sha512",
+        "k4os.compression.lz4.1.2.6.nupkg.sha512",
         "k4os.compression.lz4.nuspec",
         "lib/net45/K4os.Compression.LZ4.dll",
         "lib/net45/K4os.Compression.LZ4.xml",
@@ -356,14 +429,14 @@
         "lib/netstandard2.0/K4os.Compression.LZ4.xml"
       ]
     },
-    "K4os.Compression.LZ4.Streams/1.1.11": {
-      "sha512": "x+BidXriYsNP4HNTHKx+5cVQguHHwbfs6nM79fDHOCOrcNwnaBms4dwzAV/ZALmKsNKcHmY74PeUZiCC4qLKwQ==",
+    "K4os.Compression.LZ4.Streams/1.2.6": {
+      "sha512": "5KMcNFRHeRrnJ9c8k5fZcfAJJEY0FndMiDiHIYa35Mx5KCMkeSNo/PEXu7YmtCoVczJagx+Vt7J/F+//S1PcJQ==",
       "type": "package",
-      "path": "k4os.compression.lz4.streams/1.1.11",
+      "path": "k4os.compression.lz4.streams/1.2.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "k4os.compression.lz4.streams.1.1.11.nupkg.sha512",
+        "k4os.compression.lz4.streams.1.2.6.nupkg.sha512",
         "k4os.compression.lz4.streams.nuspec",
         "lib/net45/K4os.Compression.LZ4.Streams.dll",
         "lib/net45/K4os.Compression.LZ4.Streams.xml",
@@ -372,7 +445,9 @@
         "lib/netstandard1.6/K4os.Compression.LZ4.Streams.dll",
         "lib/netstandard1.6/K4os.Compression.LZ4.Streams.xml",
         "lib/netstandard2.0/K4os.Compression.LZ4.Streams.dll",
-        "lib/netstandard2.0/K4os.Compression.LZ4.Streams.xml"
+        "lib/netstandard2.0/K4os.Compression.LZ4.Streams.xml",
+        "lib/netstandard2.1/K4os.Compression.LZ4.Streams.dll",
+        "lib/netstandard2.1/K4os.Compression.LZ4.Streams.xml"
       ]
     },
     "K4os.Hash.xxHash/1.0.6": {
@@ -440,35 +515,122 @@
         "version.txt"
       ]
     },
-    "MySql.Data/8.0.26": {
-      "sha512": "iOxE24dI01JZlZ1EObkz9WwYMzX+0RnBf5a11OkPDCOGv2Yo0tTWmwAJfVXkuuSD47XngOir7l7+xZZ56lZyAA==",
+    "MySql.Data/8.0.27": {
+      "sha512": "Ef+sH12/nGAiF9yLZFkuXh7vtVvEPiLKyZNJiDk+VBULzLcXj0lmfU7qcmWNCSVX5n6zu5jMV+JaNf1C+a+T8g==",
       "type": "package",
-      "path": "mysql.data/8.0.26",
+      "path": "mysql.data/8.0.27",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net452/MySql.Data.dll",
         "lib/net452/MySql.Data.xml",
         "lib/net452/Ubiety.Dns.Core.dll",
-        "lib/net452/Zstandard.Net.dll",
+        "lib/net452/ZstdNet.dll",
         "lib/net48/MySql.Data.dll",
         "lib/net48/MySql.Data.xml",
         "lib/net48/Ubiety.Dns.Core.dll",
-        "lib/net48/Zstandard.Net.dll",
+        "lib/net48/ZstdNet.dll",
         "lib/net5.0/MySql.Data.dll",
         "lib/net5.0/MySql.Data.xml",
         "lib/net5.0/Ubiety.Dns.Core.dll",
-        "lib/net5.0/Zstandard.Net.dll",
+        "lib/net5.0/ZstdNet.dll",
         "lib/netstandard2.0/MySql.Data.dll",
         "lib/netstandard2.0/MySql.Data.xml",
         "lib/netstandard2.0/Ubiety.Dns.Core.dll",
-        "lib/netstandard2.0/Zstandard.Net.dll",
+        "lib/netstandard2.0/ZstdNet.dll",
         "lib/netstandard2.1/MySql.Data.dll",
         "lib/netstandard2.1/MySql.Data.xml",
         "lib/netstandard2.1/Ubiety.Dns.Core.dll",
-        "lib/netstandard2.1/Zstandard.Net.dll",
-        "mysql.data.8.0.26.nupkg.sha512",
+        "lib/netstandard2.1/ZstdNet.dll",
+        "mysql.data.8.0.27.nupkg.sha512",
         "mysql.data.nuspec"
+      ]
+    },
+    "MySqlBackup.NET/2.3.6.1": {
+      "sha512": "udnH5IHghC1hQU3Sid0DySyl1CzgMnP2ZIkHOzXwUKEeo1gV4x5AeK+UtydvqYjSvck88ENvE53/BxCB0mV7fg==",
+      "type": "package",
+      "path": "mysqlbackup.net/2.3.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "content/logo.ico",
+        "contentFiles/any/net452/logo.ico",
+        "contentFiles/any/net48/logo.ico",
+        "contentFiles/any/net5.0/logo.ico",
+        "contentFiles/any/netstandard2.0/logo.ico",
+        "contentFiles/any/netstandard2.1/logo.ico",
+        "lib/net452/MySqlBackup.dll",
+        "lib/net48/MySqlBackup.dll",
+        "lib/net5.0/MySqlBackup.dll",
+        "lib/netstandard2.0/MySqlBackup.dll",
+        "lib/netstandard2.1/MySqlBackup.dll",
+        "logo128.png",
+        "mysqlbackup.net.2.3.6.1.nupkg.sha512",
+        "mysqlbackup.net.nuspec"
+      ]
+    },
+    "MySqlBackup.Net.DevartExpress/2.3.6": {
+      "sha512": "UMmuzi64MplDilQJadzlow0Yos+6AH+ONawoF9DYzAZd49f9wloa29A/oi8qxP9ruwciP/S0B7YPYmHLp8ncTw==",
+      "type": "package",
+      "path": "mysqlbackup.net.devartexpress/2.3.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "content/logo.ico",
+        "contentFiles/any/net452/logo.ico",
+        "contentFiles/any/net461/logo.ico",
+        "contentFiles/any/net472/logo.ico",
+        "contentFiles/any/net48/logo.ico",
+        "contentFiles/any/net5.0/logo.ico",
+        "contentFiles/any/netcoreapp2.0/logo.ico",
+        "contentFiles/any/netcoreapp2.1/logo.ico",
+        "contentFiles/any/netcoreapp2.2/logo.ico",
+        "contentFiles/any/netcoreapp3.0/logo.ico",
+        "lib/net452/MySqlBackupNet.DevartExpress.dll",
+        "lib/net461/MySqlBackupNet.DevartExpress.dll",
+        "lib/net472/MySqlBackupNet.DevartExpress.dll",
+        "lib/net48/MySqlBackupNet.DevartExpress.dll",
+        "lib/net5.0/MySqlBackupNet.DevartExpress.dll",
+        "lib/netcoreapp2.0/MySqlBackupNet.DevartExpress.dll",
+        "lib/netcoreapp2.1/MySqlBackupNet.DevartExpress.dll",
+        "lib/netcoreapp2.2/MySqlBackupNet.DevartExpress.dll",
+        "lib/netcoreapp3.0/MySqlBackupNet.DevartExpress.dll",
+        "logo128.png",
+        "mysqlbackup.net.devartexpress.2.3.6.nupkg.sha512",
+        "mysqlbackup.net.devartexpress.nuspec"
+      ]
+    },
+    "MySqlConnector/1.3.14": {
+      "sha512": "JW7YYHtjW5dKk3SQGkgKzvj7+n+RLZXYCZ+s2izjFD1ehmr5JlGZFZG98DCI4T9wB154qKja5GA9IQMfX+GH+Q==",
+      "type": "package",
+      "path": "mysqlconnector/1.3.14",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net45/MySqlConnector.dll",
+        "lib/net45/MySqlConnector.xml",
+        "lib/net461/MySqlConnector.dll",
+        "lib/net461/MySqlConnector.xml",
+        "lib/net471/MySqlConnector.dll",
+        "lib/net471/MySqlConnector.xml",
+        "lib/net5.0/MySqlConnector.dll",
+        "lib/net5.0/MySqlConnector.xml",
+        "lib/netcoreapp2.1/MySqlConnector.dll",
+        "lib/netcoreapp2.1/MySqlConnector.xml",
+        "lib/netcoreapp3.1/MySqlConnector.dll",
+        "lib/netcoreapp3.1/MySqlConnector.xml",
+        "lib/netstandard1.3/MySqlConnector.dll",
+        "lib/netstandard1.3/MySqlConnector.xml",
+        "lib/netstandard2.0/MySqlConnector.dll",
+        "lib/netstandard2.0/MySqlConnector.xml",
+        "lib/netstandard2.1/MySqlConnector.dll",
+        "lib/netstandard2.1/MySqlConnector.xml",
+        "logo.png",
+        "mysqlconnector.1.3.14.nupkg.sha512",
+        "mysqlconnector.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -562,47 +724,56 @@
         "version.txt"
       ]
     },
-    "System.Memory/4.5.3": {
-      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+    "System.Memory/4.5.4": {
+      "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
       "type": "package",
-      "path": "system.memory/4.5.3",
+      "path": "system.memory/4.5.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
         "lib/netcoreapp2.1/_._",
         "lib/netstandard1.1/System.Memory.dll",
         "lib/netstandard1.1/System.Memory.xml",
         "lib/netstandard2.0/System.Memory.dll",
         "lib/netstandard2.0/System.Memory.xml",
         "ref/netcoreapp2.1/_._",
-        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.4.5.4.nupkg.sha512",
         "system.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
-      "sha512": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+    "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+      "sha512": "ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "path": "system.runtime.compilerservices.unsafe/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net45/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net45/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/net461/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+        "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -854,7 +1025,11 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ClassLibraryProject >= 1.0.0",
-      "MySql.Data >= 8.0.26"
+      "MySql.Data >= 8.0.27",
+      "MySqlBackup.NET >= 2.3.6.1",
+      "MySqlBackup.Net.DevartExpress >= 2.3.6",
+      "MySqlConnector >= 1.3.14",
+      "dotConnect.Express.for.MySQL >= 8.19.1985"
     ]
   },
   "packageFolders": {
@@ -907,7 +1082,23 @@
         "dependencies": {
           "MySql.Data": {
             "target": "Package",
-            "version": "[8.0.26, )"
+            "version": "[8.0.27, )"
+          },
+          "MySqlBackup.NET": {
+            "target": "Package",
+            "version": "[2.3.6.1, )"
+          },
+          "MySqlBackup.Net.DevartExpress": {
+            "target": "Package",
+            "version": "[2.3.6, )"
+          },
+          "MySqlConnector": {
+            "target": "Package",
+            "version": "[1.3.14, )"
+          },
+          "dotConnect.Express.for.MySQL": {
+            "target": "Package",
+            "version": "[8.19.1985, )"
           }
         },
         "imports": [
@@ -931,5 +1122,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'dotConnect.Express.for.MySQL 8.19.1985' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "dotConnect.Express.for.MySQL",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }
