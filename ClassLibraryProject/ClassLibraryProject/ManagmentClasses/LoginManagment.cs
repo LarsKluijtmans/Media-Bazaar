@@ -6,9 +6,11 @@ namespace ClassLibraryProject.ManagmentClasses
 {
     public class LoginManagment
     {
-        public static string LOGIN_BY_EMPLOYEEID = " SELECT employee.employeeID, password, contract.JobTitle FROM employee INNER JOIN contract ON contract.employeeID = employee.Employeeid where employee.employeeid = @employeeid order by startdate;";
+        public static string LOGIN_BY_EMPLOYEEID = " SELECT employee.userName, password, contract.JobTitle FROM employee INNER JOIN contract ON contract.employeeID = employee.Employeeid where employee.UserName = @UserName order by startdate;";
+        public static string GET_EMPLOYEEID = " SELECT employeeID, password, userName FROM employee where employee.UserName = @UserName";
 
-        public string checkLogin(string ID, string Password)
+
+        public string checkLogin(string UserName, string Password)
         {
 
             MySqlConnection conn = Utils.GetConnection();
@@ -17,7 +19,7 @@ namespace ClassLibraryProject.ManagmentClasses
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("@employeeid", ID);
+                cmd.Parameters.AddWithValue("@UserName", UserName);
 
                 conn.Open();
 
@@ -25,13 +27,9 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 while (reader.Read())
                 {
-                    if (Convert.ToInt32(reader[0]) == Convert.ToInt32(ID) && reader[1].ToString() == Password)
+                    if (reader[0].ToString() == (UserName).ToString() && reader[1].ToString() == Password)
                     {
                         return reader[2].ToString();
-                    }
-                    else
-                    {
-                        return "Wrong info!";
                     }
                 }
                 return "Wrong info!";
@@ -45,6 +43,40 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
             return "";
+        }
+
+        public int GetID(string UserName, string Password)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = GET_EMPLOYEEID;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@UserName", UserName);
+
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (reader[2].ToString() == (UserName).ToString() && reader[1].ToString() == Password)
+                    {
+                        return Convert.ToInt32( reader[0]);
+                    }
+                }
+                return 0;
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+            return 0;
         }
     }
 }

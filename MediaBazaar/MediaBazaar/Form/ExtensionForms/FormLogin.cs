@@ -15,10 +15,10 @@ namespace MediaBazaar
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string ID = tbxUsername.Text;
-            if (string.IsNullOrEmpty(ID))
+            string UserName = tbxUsername.Text;
+            if (string.IsNullOrEmpty(UserName))
             {
-                MessageBox.Show("'id' field is required.");
+                MessageBox.Show("'UserName' field is required.");
                 return;
             }
 
@@ -29,7 +29,10 @@ namespace MediaBazaar
                 return;
             }
 
-            switch (store.loginManagment.checkLogin(ID, Password))
+            int ID = store.loginManagment.GetID(UserName, Password);
+
+
+            switch (store.loginManagment.checkLogin(UserName, Password))
             {
                 case "CEO": CEO ceo = new CEO(Convert.ToInt32(ID), store); Hide(); ceo.Show(); break;
                 case "ADMIN": Admin admin = new Admin(Convert.ToInt32(ID), store); Hide(); admin.Show(); break;
