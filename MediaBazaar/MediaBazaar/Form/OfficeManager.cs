@@ -27,13 +27,13 @@ namespace MediaBazaar
             cbHeadDepartments.Items.Add("Office");
             cbHeadDepartments.Items.Add("Other");
 
-            timer1.Interval = 200;
             timer1.Start();
+            timer2.Start();
 
             ViewCompany();
             ViewAllEmployees();
-
             GetAtendeance();
+            ViewAllDepartments();
         }
 
         //Login
@@ -51,10 +51,23 @@ namespace MediaBazaar
 
         //Timer
 
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (ActiveControl == tbxSearchEmployee)
+            {
+                timer1.Start();
+            }
+            else
+            {
+                timer1.Stop();
+            }
+        }
+
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            //ViewAllEmployees();
+            ViewAllEmployees();
             ViewAllDepartments();
+            GetAtendeance();
         }
 
         //Atendance
@@ -591,8 +604,5 @@ namespace MediaBazaar
         {
 
         }
-        // employee
-
-
     }
 }
