@@ -32,11 +32,11 @@ namespace MediaBazaar
             this.components = new System.ComponentModel.Container();
             this.Comapny = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnRemoveEmployee = new System.Windows.Forms.Button();
             this.btnReadEmployee = new System.Windows.Forms.Button();
             this.btnCreateEmployee = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbxSearchEmployee = new System.Windows.Forms.TextBox();
@@ -76,22 +76,22 @@ namespace MediaBazaar
             this.label4 = new System.Windows.Forms.Label();
             this.cbHeadDepartments = new System.Windows.Forms.ComboBox();
             this.WorkHours = new System.Windows.Forms.TabPage();
+            this.dgvAtendance = new System.Windows.Forms.DataGridView();
+            this.btnMonthIncrease = new System.Windows.Forms.Button();
+            this.btnIncreaseYear = new System.Windows.Forms.Button();
+            this.btnMonthDecrease = new System.Windows.Forms.Button();
+            this.btnDecreaseYear = new System.Windows.Forms.Button();
+            this.labMonth = new System.Windows.Forms.Label();
+            this.labYear = new System.Windows.Forms.Label();
             this.btnMakeExcelSheet = new System.Windows.Forms.Button();
-            this.lbAttendance = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.labYear = new System.Windows.Forms.Label();
-            this.labMonth = new System.Windows.Forms.Label();
-            this.btnDecreaseYear = new System.Windows.Forms.Button();
-            this.btnMonthDecrease = new System.Windows.Forms.Button();
-            this.btnIncreaseYear = new System.Windows.Forms.Button();
-            this.btnMonthIncrease = new System.Windows.Forms.Button();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -100,6 +100,7 @@ namespace MediaBazaar
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.WorkHours.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAtendance)).BeginInit();
             this.SuspendLayout();
             // 
             // Comapny
@@ -126,6 +127,22 @@ namespace MediaBazaar
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Employee overview";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.groupBox4);
+            this.groupBox1.Controls.Add(this.groupBox5);
+            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.lbxEmployees);
+            this.groupBox1.Location = new System.Drawing.Point(5, 3);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1112, 491);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "View Employees";
             // 
             // groupBox4
             // 
@@ -173,22 +190,6 @@ namespace MediaBazaar
             this.btnCreateEmployee.Text = "Add New Employee";
             this.btnCreateEmployee.UseVisualStyleBackColor = true;
             this.btnCreateEmployee.Click += new System.EventHandler(this.btnCreateEmployee_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.groupBox4);
-            this.groupBox1.Controls.Add(this.groupBox5);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.lbxEmployees);
-            this.groupBox1.Location = new System.Drawing.Point(5, 3);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1112, 491);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "View Employees";
             // 
             // groupBox5
             // 
@@ -595,6 +596,7 @@ namespace MediaBazaar
             // 
             // WorkHours
             // 
+            this.WorkHours.Controls.Add(this.dgvAtendance);
             this.WorkHours.Controls.Add(this.btnMonthIncrease);
             this.WorkHours.Controls.Add(this.btnIncreaseYear);
             this.WorkHours.Controls.Add(this.btnMonthDecrease);
@@ -602,7 +604,6 @@ namespace MediaBazaar
             this.WorkHours.Controls.Add(this.labMonth);
             this.WorkHours.Controls.Add(this.labYear);
             this.WorkHours.Controls.Add(this.btnMakeExcelSheet);
-            this.WorkHours.Controls.Add(this.lbAttendance);
             this.WorkHours.Location = new System.Drawing.Point(4, 24);
             this.WorkHours.Name = "WorkHours";
             this.WorkHours.Padding = new System.Windows.Forms.Padding(3);
@@ -611,25 +612,93 @@ namespace MediaBazaar
             this.WorkHours.Text = "WorkHours";
             this.WorkHours.UseVisualStyleBackColor = true;
             // 
+            // dgvAtendance
+            // 
+            this.dgvAtendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAtendance.Location = new System.Drawing.Point(10, 13);
+            this.dgvAtendance.Name = "dgvAtendance";
+            this.dgvAtendance.RowTemplate.Height = 25;
+            this.dgvAtendance.Size = new System.Drawing.Size(693, 464);
+            this.dgvAtendance.TabIndex = 8;
+            // 
+            // btnMonthIncrease
+            // 
+            this.btnMonthIncrease.BackColor = System.Drawing.Color.White;
+            this.btnMonthIncrease.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMonthIncrease.Location = new System.Drawing.Point(1029, 63);
+            this.btnMonthIncrease.Name = "btnMonthIncrease";
+            this.btnMonthIncrease.Size = new System.Drawing.Size(40, 42);
+            this.btnMonthIncrease.TabIndex = 7;
+            this.btnMonthIncrease.Text = ">";
+            this.btnMonthIncrease.UseVisualStyleBackColor = false;
+            this.btnMonthIncrease.Click += new System.EventHandler(this.btnMonthIncrease_Click);
+            // 
+            // btnIncreaseYear
+            // 
+            this.btnIncreaseYear.BackColor = System.Drawing.Color.White;
+            this.btnIncreaseYear.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnIncreaseYear.Location = new System.Drawing.Point(863, 63);
+            this.btnIncreaseYear.Name = "btnIncreaseYear";
+            this.btnIncreaseYear.Size = new System.Drawing.Size(40, 42);
+            this.btnIncreaseYear.TabIndex = 6;
+            this.btnIncreaseYear.Text = ">";
+            this.btnIncreaseYear.UseVisualStyleBackColor = false;
+            this.btnIncreaseYear.Click += new System.EventHandler(this.btnIncreaseYear_Click);
+            // 
+            // btnMonthDecrease
+            // 
+            this.btnMonthDecrease.BackColor = System.Drawing.Color.White;
+            this.btnMonthDecrease.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMonthDecrease.Location = new System.Drawing.Point(948, 63);
+            this.btnMonthDecrease.Name = "btnMonthDecrease";
+            this.btnMonthDecrease.Size = new System.Drawing.Size(40, 42);
+            this.btnMonthDecrease.TabIndex = 5;
+            this.btnMonthDecrease.Text = "<";
+            this.btnMonthDecrease.UseVisualStyleBackColor = false;
+            this.btnMonthDecrease.Click += new System.EventHandler(this.btnMonthDecrease_Click);
+            // 
+            // btnDecreaseYear
+            // 
+            this.btnDecreaseYear.BackColor = System.Drawing.Color.White;
+            this.btnDecreaseYear.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDecreaseYear.Location = new System.Drawing.Point(759, 63);
+            this.btnDecreaseYear.Name = "btnDecreaseYear";
+            this.btnDecreaseYear.Size = new System.Drawing.Size(40, 42);
+            this.btnDecreaseYear.TabIndex = 4;
+            this.btnDecreaseYear.Text = "<";
+            this.btnDecreaseYear.UseVisualStyleBackColor = false;
+            this.btnDecreaseYear.Click += new System.EventHandler(this.btnDecreaseYear_Click);
+            // 
+            // labMonth
+            // 
+            this.labMonth.AutoSize = true;
+            this.labMonth.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labMonth.Location = new System.Drawing.Point(994, 70);
+            this.labMonth.Name = "labMonth";
+            this.labMonth.Size = new System.Drawing.Size(75, 30);
+            this.labMonth.TabIndex = 3;
+            this.labMonth.Text = "Month";
+            // 
+            // labYear
+            // 
+            this.labYear.AutoSize = true;
+            this.labYear.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labYear.Location = new System.Drawing.Point(805, 70);
+            this.labYear.Name = "labYear";
+            this.labYear.Size = new System.Drawing.Size(52, 30);
+            this.labYear.TabIndex = 2;
+            this.labYear.Text = "Year";
+            // 
             // btnMakeExcelSheet
             // 
             this.btnMakeExcelSheet.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMakeExcelSheet.Location = new System.Drawing.Point(542, 322);
+            this.btnMakeExcelSheet.Location = new System.Drawing.Point(736, 261);
             this.btnMakeExcelSheet.Name = "btnMakeExcelSheet";
-            this.btnMakeExcelSheet.Size = new System.Drawing.Size(407, 110);
+            this.btnMakeExcelSheet.Size = new System.Drawing.Size(358, 110);
             this.btnMakeExcelSheet.TabIndex = 1;
             this.btnMakeExcelSheet.Text = "Make Excel sheet";
             this.btnMakeExcelSheet.UseVisualStyleBackColor = true;
             this.btnMakeExcelSheet.Click += new System.EventHandler(this.btnMakeExcelSheet_Click_1);
-            // 
-            // lbAttendance
-            // 
-            this.lbAttendance.FormattingEnabled = true;
-            this.lbAttendance.ItemHeight = 15;
-            this.lbAttendance.Location = new System.Drawing.Point(22, 20);
-            this.lbAttendance.Name = "lbAttendance";
-            this.lbAttendance.Size = new System.Drawing.Size(436, 439);
-            this.lbAttendance.TabIndex = 0;
             // 
             // btnLogout
             // 
@@ -658,74 +727,6 @@ namespace MediaBazaar
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // labYear
-            // 
-            this.labYear.AutoSize = true;
-            this.labYear.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labYear.Location = new System.Drawing.Point(593, 39);
-            this.labYear.Name = "labYear";
-            this.labYear.Size = new System.Drawing.Size(52, 30);
-            this.labYear.TabIndex = 2;
-            this.labYear.Text = "Year";
-            // 
-            // labMonth
-            // 
-            this.labMonth.AutoSize = true;
-            this.labMonth.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labMonth.Location = new System.Drawing.Point(855, 39);
-            this.labMonth.Name = "labMonth";
-            this.labMonth.Size = new System.Drawing.Size(75, 30);
-            this.labMonth.TabIndex = 3;
-            this.labMonth.Text = "Month";
-            // 
-            // btnDecreaseYear
-            // 
-            this.btnDecreaseYear.BackColor = System.Drawing.Color.White;
-            this.btnDecreaseYear.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDecreaseYear.Location = new System.Drawing.Point(547, 32);
-            this.btnDecreaseYear.Name = "btnDecreaseYear";
-            this.btnDecreaseYear.Size = new System.Drawing.Size(40, 42);
-            this.btnDecreaseYear.TabIndex = 4;
-            this.btnDecreaseYear.Text = "<";
-            this.btnDecreaseYear.UseVisualStyleBackColor = false;
-            this.btnDecreaseYear.Click += new System.EventHandler(this.btnDecreaseYear_Click);
-            // 
-            // btnMonthDecrease
-            // 
-            this.btnMonthDecrease.BackColor = System.Drawing.Color.White;
-            this.btnMonthDecrease.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMonthDecrease.Location = new System.Drawing.Point(809, 32);
-            this.btnMonthDecrease.Name = "btnMonthDecrease";
-            this.btnMonthDecrease.Size = new System.Drawing.Size(40, 42);
-            this.btnMonthDecrease.TabIndex = 5;
-            this.btnMonthDecrease.Text = "<";
-            this.btnMonthDecrease.UseVisualStyleBackColor = false;
-            this.btnMonthDecrease.Click += new System.EventHandler(this.btnMonthDecrease_Click);
-            // 
-            // btnIncreaseYear
-            // 
-            this.btnIncreaseYear.BackColor = System.Drawing.Color.White;
-            this.btnIncreaseYear.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnIncreaseYear.Location = new System.Drawing.Point(651, 32);
-            this.btnIncreaseYear.Name = "btnIncreaseYear";
-            this.btnIncreaseYear.Size = new System.Drawing.Size(40, 42);
-            this.btnIncreaseYear.TabIndex = 6;
-            this.btnIncreaseYear.Text = ">";
-            this.btnIncreaseYear.UseVisualStyleBackColor = false;
-            this.btnIncreaseYear.Click += new System.EventHandler(this.btnIncreaseYear_Click);
-            // 
-            // btnMonthIncrease
-            // 
-            this.btnMonthIncrease.BackColor = System.Drawing.Color.White;
-            this.btnMonthIncrease.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMonthIncrease.Location = new System.Drawing.Point(936, 32);
-            this.btnMonthIncrease.Name = "btnMonthIncrease";
-            this.btnMonthIncrease.Size = new System.Drawing.Size(40, 42);
-            this.btnMonthIncrease.TabIndex = 7;
-            this.btnMonthIncrease.Text = ">";
-            this.btnMonthIncrease.UseVisualStyleBackColor = false;
-            this.btnMonthIncrease.Click += new System.EventHandler(this.btnMonthIncrease_Click);
-            // 
             // OfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -738,9 +739,9 @@ namespace MediaBazaar
             this.Text = "FormOfficeManager";
             this.Comapny.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -754,6 +755,7 @@ namespace MediaBazaar
             this.groupBox2.PerformLayout();
             this.WorkHours.ResumeLayout(false);
             this.WorkHours.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAtendance)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -810,7 +812,6 @@ namespace MediaBazaar
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TabPage WorkHours;
         private System.Windows.Forms.Button btnMakeExcelSheet;
-        private System.Windows.Forms.ListBox lbAttendance;
         private System.Windows.Forms.Label labDepartmentName;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -823,5 +824,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnMonthDecrease;
         private System.Windows.Forms.Button e;
         private System.Windows.Forms.Button btnMonthIncrease;
+        private System.Windows.Forms.DataGridView dgvAtendance;
     }
 }

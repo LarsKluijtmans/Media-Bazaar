@@ -11,7 +11,7 @@ namespace ClassLibraryProject.ManagmentClasses
         public List<TimeWorked> times;
         public List<TimeWorked> timePerEmployee;
  
-        public static string GET_TIME_WORKED = "SELECT employee.`EmployeeID`,`FirstName`,`LastName`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))), `JobTitle`,`WorkHoursPerWeek`,`SalaryPerHour` FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkDate LIKE '%@YEAR-@MONTH%' group by contract.EmployeeID;";
+        public static string GET_TIME_WORKED = "SELECT employee.`EmployeeID`,`FirstName`,`LastName`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))), `JobTitle`,`WorkHoursPerWeek`,`SalaryPerHour`, checkdate FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '%YEAR-MONTH%' group by contract.EmployeeID;";
         public static string UNIQUE_ATENDANCE = "SELECT `EmployeeID` FROM `attendance`GROUP BY EmployeeID;";
         public static string GET_EMPLOYEEID_WITH_CARD_CODE = "SELECT `EmployeeID` FROM `employee` WHERE `CardNumber`= @CardNumber;";
         public static string IS_CHECKED_IN = "SELECT employeeID FROM `atendance` WHERE EmployeeID = @EmployeeID AND CheckDate = @CheckDate AND `CheckOutTime` IS NULL;";
@@ -59,7 +59,7 @@ namespace ClassLibraryProject.ManagmentClasses
             }
         }
 
-        public void getAllAtendanceTime(string year, string month)
+        public void getAllAtendanceTime(int year, int month)
         {
             times.Clear();
             MySqlConnection conn = Utils.GetConnection();
@@ -69,10 +69,11 @@ namespace ClassLibraryProject.ManagmentClasses
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+
                 conn.Open();
 
-                cmd.Parameters.AddWithValue("@YEAR", year);
-                cmd.Parameters.AddWithValue("@MONTH", month);
+                cmd.Parameters.AddWithValue("YEAR",year);
+                cmd.Parameters.AddWithValue("MONTH",month);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 

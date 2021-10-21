@@ -57,9 +57,10 @@ namespace MediaBazaar
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            if (ActiveControl == tbxSearchEmployee)
+            if (ActiveControl == tbxSearchEmployee || ActiveControl == btnIncreaseYear || ActiveControl == btnMonthIncrease || ActiveControl == btnDecreaseYear || ActiveControl == btnMonthDecrease)
             {
                 timer1.Start();
+                ActiveControl = dgvAtendance;
             }
             else
             {
@@ -176,19 +177,14 @@ namespace MediaBazaar
 
         public void GetAtendeance()
         {
-            string year, month;
+            int year, month;
 
-            year = labYear.Text;
-            month = labMonth.Text;
+            year = Convert.ToInt32( labYear.Text);
+            month = Convert.ToInt32(labMonth.Text);
 
 
             store.checkinManagment.getAllAtendanceTime(year, month);
-            lbAttendance.Items.Clear();
-
-            foreach (TimeWorked c in store.checkinManagment.times)
-            {
-                    lbAttendance.Items.Add(c);
-            }
+            dgvAtendance.DataSource = store.checkinManagment.times;
         }
 
         // employees
