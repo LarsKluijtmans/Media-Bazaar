@@ -10,7 +10,7 @@ namespace ClassLibraryProject.ManagmentClasses
         public List<Checkin> check;
         public List<TimeWorked> times;
         public List<TimeWorked> timePerEmployee;
-
+ 
         public static string GET_TIME_WORKED = "SELECT employee.`EmployeeID`,`FirstName`,`LastName`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))), `JobTitle`,`WorkHoursPerWeek`,`SalaryPerHour` FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID group by contract.EmployeeID;";
         public static string UNIQUE_ATENDANCE = "SELECT `EmployeeID` FROM `attendance`GROUP BY EmployeeID;";
         public static string GET_EMPLOYEEID_WITH_CARD_CODE = "SELECT `EmployeeID` FROM `employee` WHERE `CardNumber`= @CardNumber;";
@@ -122,7 +122,6 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
-
 
         public void getAllAtendanceOnCheckIn()
         {
