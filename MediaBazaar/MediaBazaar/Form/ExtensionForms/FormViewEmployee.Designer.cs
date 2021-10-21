@@ -369,7 +369,7 @@ namespace MediaBazaar
             this.btnEditData.Name = "btnEditData";
             this.btnEditData.Size = new System.Drawing.Size(75, 23);
             this.btnEditData.TabIndex = 21;
-            this.btnEditData.Text = "Edit Data";
+            this.btnEditData.Text = "Save";
             this.btnEditData.UseVisualStyleBackColor = true;
             this.btnEditData.Click += new System.EventHandler(this.btnEditData_Click);
             // 
