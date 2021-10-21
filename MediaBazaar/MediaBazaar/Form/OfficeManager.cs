@@ -65,7 +65,7 @@ namespace MediaBazaar
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            ViewAllEmployees();
+            //ViewAllEmployees();
             ViewAllDepartments();
             GetAtendeance();
         }

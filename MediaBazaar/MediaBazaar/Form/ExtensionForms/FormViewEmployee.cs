@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
@@ -10,11 +11,13 @@ namespace MediaBazaar
     {
         Person p;
         Contract c;
+        int saveCount;
         public FormViewEmployee(Person p, Contract c)
         {
             InitializeComponent();
             this.p = p;
             this.c = c;
+            saveCount = 0;
 
             try
             {
@@ -77,6 +80,18 @@ namespace MediaBazaar
             finally
             {
                 conn.Close();
+            }
+
+            saveCount++;
+
+            this.Close();
+        }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (saveCount == 1)
+            {
+                MessageBox.Show("Make sure to save the data");
+                saveCount = 0;
             }
         }
     }
