@@ -31,8 +31,15 @@ namespace MediaBazaar
         {
             string employeeID = employee.EmployeeID.ToString();
             string reasonForTermination = tbxReasonTermination.Text;
+            if (string.IsNullOrEmpty(reasonForTermination))
+            {
+                MessageBox.Show("Please enter a reason for termination");
+            }
             string contractEndDate = tbxEndDate.Text;
-
+            if (string.IsNullOrEmpty(contractEndDate))
+            {
+                MessageBox.Show("Please enter a contract end date");
+            }
 
             MySqlConnection conn = Utils.GetConnection();
             string sql = ContractManagement.END_CONTRACT;
