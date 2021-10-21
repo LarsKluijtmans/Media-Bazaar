@@ -3,6 +3,9 @@ using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 using System;
 using System.ComponentModel;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 using System.Windows.Forms;
 
 namespace MediaBazaar
@@ -21,6 +24,14 @@ namespace MediaBazaar
             if (AmountOfEmployees() >= 2)
             {
                 gbMakeEmployee.Visible = false;
+                btnBackup.Visible = true;
+                labBackup.Visible = true;
+            }
+            else 
+            {
+                gbMakeEmployee.Visible = true;
+                btnBackup.Visible = false;
+                labBackup.Visible = false;
             }
 
         }
@@ -87,7 +98,7 @@ namespace MediaBazaar
             tbxUsername.Text = username;
             tbxPassword.Text = password;
             tbxEmail.Text = email;
-        }
+         }
 
         private void btnAddContract_Click(object sender, EventArgs e)
         {
@@ -163,11 +174,13 @@ namespace MediaBazaar
             return 0;
         }
 
-        private void button1_Click(object sender, EventArgs e)//make backup
+        private void btnBackup_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("This might take a minute");
+
             string constring = "Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=Nijlpaard;SslMode =none;";
 
-            string file = @"D:\database\" + DateTime.Now.ToString("dd-MM-yyyy");
+            string file = @"D:\CompanyDatabase\" + DateTime.Now.ToString("dd-MM-yyyy");
 
             using (MySqlConnection conn = new MySqlConnection(constring))
             {
@@ -183,7 +196,39 @@ namespace MediaBazaar
                 }
             }
 
-            MessageBox.Show("sucsess");
+            MessageBox.Show(@"Backup sucsesfull, please go to the D:\CompanyDatabase for the backup.");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("lars.kluijtmans@gmail.com", "Nijlpaard"),
+                EnableSsl = true,
+            };
+
+            StringBuilder message = new StringBuilder();
+
+            message.AppendLine(" Here is your acount information.");
+            message.AppendLine("Here is your acount information.");
+            message.AppendLine(" You can use these in the diferent mediabazaar apps and websites.");
+            message.AppendLine("  Username: lkluijtmans");
+            message.AppendLine("  password: 1 ");
+            message.AppendLine(" Contact us with this email adress if you run in to any problems: nazibul.kabir.srv @gmail.com");
+
+
+
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress("lars.kluijtmans@gmail.com"),
+                Subject = "Mediabazaar acount information",
+                Body = message.ToString(),
+                IsBodyHtml = true,
+            };
+            mailMessage.To.Add("lars.kluijtmans@gmail.com");
+
+            smtpClient.Send(mailMessage);
         }
     }
 }

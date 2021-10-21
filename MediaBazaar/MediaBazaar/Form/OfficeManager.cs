@@ -115,7 +115,7 @@ namespace MediaBazaar
                 oSheet.Cells[i, 5] = c.SalaryPerHour.ToString();
                 oSheet.Cells[i, 6] = c.JobTitle.ToString(); ;
 
-                //AutoFit columns A:D.
+                //AutoFit columns A:F.
                 oRng = oSheet.get_Range("A" + i, "F" + i);
                 oRng.EntireColumn.AutoFit();
 
