@@ -21,14 +21,50 @@ namespace MediaBazaar
         public void CreateEmployee()
         {
             string firstName = tbxFirstName.Text;
+            if (string.IsNullOrEmpty(firstName))
+            {
+                MessageBox.Show("Please enter a first name");
+            }
+            if (char.IsLower(firstName[0]))
+            {
+                char.ToUpper(firstName[0]);
+            }
             string lastName = tbxLastName.Text;
-            string username = $"{lastName.ToLower()}";
-            string password = $"{lastName.ToLower()}";
+            if (string.IsNullOrEmpty(lastName))
+            {
+                MessageBox.Show("Please enter a last name");
+            }
+            if (char.IsLower(lastName[0]))
+            {
+                char.ToUpper(lastName[0]);
+            }
+            string username = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
+            string password = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
             int bsn = Convert.ToInt32(tbxBSN.Text);
+            if (bsn == 0)
+            {
+                MessageBox.Show("Please enter a bsn");
+            }
             string city = tbxCity.Text;
-            string email = $"{lastName.ToLower()}@mb.com";
+            if (string.IsNullOrEmpty(city))
+            {
+                MessageBox.Show("Please enter a city");
+            }
+            if (char.IsLower(city[0]))
+            {
+                char.ToUpper(city[0]);
+            }
+            string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
             int phoneNumber = Convert.ToInt32(tbxPhoneNumber.Text);
+            if (phoneNumber == 0)
+            {
+                MessageBox.Show("Please enter a phone number");
+            }
             string dateOfBirth = tbxDateOfBirth.Text;
+            if (string.IsNullOrEmpty(dateOfBirth))
+            {
+                MessageBox.Show("Please enter a date of birth");
+            }
 
             MySqlConnection conn = Utils.GetConnection();
             string sql = EmployeeManagement.CREATE_EMPLOYEE;
@@ -74,9 +110,25 @@ namespace MediaBazaar
         {
             int employeeID = Convert.ToInt32(tbxEmployeeID.Text);
             string jobTitle = cbxJobTitle.SelectedItem.ToString();
+            if (string.IsNullOrEmpty(jobTitle))
+            {
+                MessageBox.Show("Please select a job title");
+            }
             int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+            if (workHoursPerWeek == 0)
+            {
+                MessageBox.Show("Please enter work hours per week");
+            }
             int salary = Convert.ToInt32(tbxSalary.Text);
+            if (salary == 0)
+            {
+                MessageBox.Show("Please enter salary per hour");
+            }
             string startDate = tbxStartDate.Text;
+            if (string.IsNullOrEmpty(startDate))
+            {
+                MessageBox.Show("Please enter a start date");
+            }
 
             MySqlConnection conn = Utils.GetConnection();
             string sql = ContractManagement.CREATE_CONTRACT;

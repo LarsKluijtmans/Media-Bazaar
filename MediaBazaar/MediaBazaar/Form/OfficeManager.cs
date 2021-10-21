@@ -65,7 +65,7 @@ namespace MediaBazaar
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            //ViewAllEmployees();
+            ViewAllEmployees();
             ViewAllDepartments();
             GetAtendeance();
         }
@@ -139,8 +139,6 @@ namespace MediaBazaar
         private void lbxEmployees_SelectedIndexChanged(object sender, EventArgs e)
         {
             Person tempPerson = GetTempEmployee();
-
-            tbxEmployeeID.Text = tempPerson.EmployeeID.ToString();
         }
 
         private void btnCreateEmployee_Click(object sender, EventArgs e)
@@ -306,38 +304,50 @@ namespace MediaBazaar
 
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
-            Person employee = GetTempEmployee();
-            Contract contract = GetContract(employee.EmployeeID.ToString());
-            FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(employee, contract);
-            formRemoveEmployee.Show();
-
-            string employeeID = tbxEmployeeID.Text;
-            string active = "0";
-
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = EmployeeManagement.REMOVE_EMPLOYEE_BY_ID;
-
             try
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                cmd.Parameters.AddWithValue("@Active", active);
-                conn.Open();
+                Person employee = GetTempEmployee();
+                Contract contract = GetContract(employee.EmployeeID.ToString());
+                FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(employee, contract);
+                formRemoveEmployee.Show();
 
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException msqEx)
+                string employeeID = employee.EmployeeID.ToString();
+                string active = "0";
+
+                MySqlConnection conn = Utils.GetConnection();
+                string sql = EmployeeManagement.REMOVE_EMPLOYEE_BY_ID;
+
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    cmd.Parameters.AddWithValue("@Active", active);
+                    conn.Open();
+
+                    int numAffectedRows = cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException msqEx)
+                {
+                    MessageBox.Show(msqEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something went wrong" + ex);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            } 
+            catch (NullReferenceException nullRef)
             {
-                MessageBox.Show(msqEx.Message);
+                MessageBox.Show(nullRef + ". Please select an employee");
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show("Something went wrong" + ex);
             }
-            finally
-            {
-                conn.Close();
-            }
+
             ViewAllEmployees();
         }
         // view employees
@@ -513,8 +523,6 @@ namespace MediaBazaar
         private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
             Person tempPerson = getperson();
-
-            tbxEmployeeID.Text = tempPerson.EmployeeID.ToString();
         }
 
         public Person getperson()
