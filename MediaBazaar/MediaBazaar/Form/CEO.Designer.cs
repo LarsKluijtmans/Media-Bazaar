@@ -29,15 +29,30 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogout.Location = new System.Drawing.Point(493, 21);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(124, 50);
+            this.btnLogout.TabIndex = 0;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // CEO
             // 
             this.ClientSize = new System.Drawing.Size(629, 449);
+            this.Controls.Add(this.btnLogout);
             this.Name = "CEO";
             this.ResumeLayout(false);
 
         }
         #endregion
+
+        private System.Windows.Forms.Button btnLogout;
     }
 }

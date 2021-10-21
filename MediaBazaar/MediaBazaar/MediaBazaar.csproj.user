@@ -31,8 +31,5 @@
     <Compile Update="Form\SalesManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\SalesRepresentative.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

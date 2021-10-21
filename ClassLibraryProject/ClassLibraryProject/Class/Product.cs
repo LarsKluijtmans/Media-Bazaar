@@ -11,7 +11,7 @@ namespace ClassLibraryProject
         private string barcode;
         private string name;
         private string productType;
-        private int amountInStore;
+        private int price;
         private int amountInDepot;
 
 
@@ -37,10 +37,10 @@ namespace ClassLibraryProject
             set { name = value; }
         }
 
-        public int AmountInStore
+        public int Price
         {
-            get { return amountInStore; }
-            set { amountInStore = value; }
+            get { return price; }
+            set { price = value; }
         }
         public int AmountInDepot
         {
@@ -49,25 +49,25 @@ namespace ClassLibraryProject
         }
 
         //constructor
-        public Product(int id, string name, string type, string barcode, int amountInDepot, int amountInStore)
+        public Product(int id, string name, string type, string barcode, int amountInDepot, int Price)
         {
             ProductID = id;
             Barcode = barcode;
             Name = name;
             ProductType = type;
             AmountInDepot = amountInDepot;
-            AmountInStore = amountInStore;
+            price = Price;
         }
 
 
         //methods
         public override string ToString()
         {
-            return "  ID: " + ProductID + "   Barcode: " + Barcode + "   Name: " + Name + "   Type: " + ProductType + "   Amount in depot: " + AmountInDepot + "   Amoutn in store: " + AmountInStore;
+            return "  ID: " + ProductID + "   Name: " + Name + "   Type: " + ProductType + "   Amount in depot: " + AmountInDepot;
         }
         public string GetInfoForSale()
         {
-            return "  ID: " + ProductID + "   Barcode: " + Barcode + "   Name: " + Name + "   Type: " + ProductType + "   Amoutn in store: " + AmountInStore;
+            return "  ID: " + ProductID + "   Barcode: " + Barcode + "   Name: " + Name + "   Type: " + ProductType + "   Amoutn in store: " + Price;
         }
         public string GetInfoForDepot()
         {

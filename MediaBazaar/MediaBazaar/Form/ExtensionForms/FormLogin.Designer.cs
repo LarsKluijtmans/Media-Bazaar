@@ -43,9 +43,9 @@ namespace MediaBazaar
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(58, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 17);
+            this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ID:";
+            this.label1.Text = "UserName:";
             // 
             // label2
             // 
@@ -72,6 +72,7 @@ namespace MediaBazaar
             this.tbxPassword.Location = new System.Drawing.Point(142, 112);
             this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.PasswordChar = '*';
             this.tbxPassword.Size = new System.Drawing.Size(110, 25);
             this.tbxPassword.TabIndex = 3;
             // 

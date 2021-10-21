@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using ClassLibraryProject;
 using ClassLibraryProject.Class;
+using System.ComponentModel;
 
 namespace MediaBazaar
 {
@@ -35,12 +36,24 @@ namespace MediaBazaar
             ViewAllSchedule();
         }
 
+        //Logout
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            FormLogin login = new FormLogin();
+            login.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+
+
         // products
 
         public void ViewAllProducts()
         {
-            store.productManagment.ViewAllProducts();
-
             lbProducts.Items.Clear();
 
             foreach (Product product in store.productManagment.products)
@@ -72,7 +85,7 @@ namespace MediaBazaar
             tbName.Text = product.Name;
             tbBarcode.Text = product.Barcode;
             cbProductType.Text = product.ProductType;
-            tbmountInStore.Text = product.AmountInStore.ToString();
+            tbmountInStore.Text = product.Price.ToString();
             tbAmountInDepot.Text = product.AmountInDepot.ToString();
         }
 
@@ -291,8 +304,6 @@ namespace MediaBazaar
 
         public void DeleteReshelfRequest()
         {
-            store.reshelfManagment.ViewAllReshelfRequests();
-
             lbReshelfRequest.Items.Clear();
 
             string ReShelfID = tbRequestID.Text;
@@ -315,8 +326,6 @@ namespace MediaBazaar
 
         public void ViewAllReshelfRequests()
         {
-            store.reshelfManagment.ViewAllReshelfRequests();
-
             lbReshelfRequest.Items.Clear();
 
             foreach (ReShelf reShelf in store.reshelfManagment.reShelves)
@@ -343,7 +352,7 @@ namespace MediaBazaar
             tbRID.Text = Shelf.ProductID.ToString();
             tbRequestID.Text = Shelf.ShelfReplenishmentID.ToString();
             tbRName.Text = Shelf.Name;
-            tbRamountInStore.Text = Shelf.AmountInStore.ToString();
+            tbRamountInStore.Text = Shelf.Price.ToString();
             tbRAmountInDepot.Text = Shelf.AmountInDepot.ToString();
             tbReshelfReqAmount.Text = Shelf.Amount.ToString();
         }
@@ -444,14 +453,6 @@ namespace MediaBazaar
         }
 
         //Other
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            Close();
-            FormLogin formLogin = new FormLogin();
-            formLogin.Show();
-        }
-
 
         private void dd(object sender, EventArgs e)
         {

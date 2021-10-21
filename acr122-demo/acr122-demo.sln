@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acr122-demo", "acr122-demo\acr122-demo.csproj", "{539CCA11-1F44-4612-A7F3-06700DBF69CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardReaderTest", "CardReaderTest\CardReaderTest.csproj", "{8A5EDC4C-5646-48EC-9799-7C3E1CEB8929}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{539CCA11-1F44-4612-A7F3-06700DBF69CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{539CCA11-1F44-4612-A7F3-06700DBF69CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{539CCA11-1F44-4612-A7F3-06700DBF69CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A5EDC4C-5646-48EC-9799-7C3E1CEB8929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A5EDC4C-5646-48EC-9799-7C3E1CEB8929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A5EDC4C-5646-48EC-9799-7C3E1CEB8929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A5EDC4C-5646-48EC-9799-7C3E1CEB8929}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

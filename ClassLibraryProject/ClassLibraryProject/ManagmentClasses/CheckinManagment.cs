@@ -8,17 +8,23 @@ namespace ClassLibraryProject.ManagmentClasses
    public class CheckinManagment
     {
         public List<Checkin> check;
-
+        public List<TimeWorked> times;
+        public List<TimeWorked> timePerEmployee;
+ 
+        public static string GET_TIME_WORKED = "SELECT employee.`EmployeeID`,`FirstName`,`LastName`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))), `JobTitle`,`WorkHoursPerWeek`,`SalaryPerHour` FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID group by contract.EmployeeID;";
+        public static string UNIQUE_ATENDANCE = "SELECT `EmployeeID` FROM `attendance`GROUP BY EmployeeID;";
         public static string GET_EMPLOYEEID_WITH_CARD_CODE = "SELECT `EmployeeID` FROM `employee` WHERE `CardNumber`= @CardNumber;";
         public static string IS_CHECKED_IN = "SELECT employeeID FROM `atendance` WHERE EmployeeID = @EmployeeID AND CheckDate = @CheckDate AND `CheckOutTime` IS NULL;";
         public static string CREATE_CHECKIN = "INSERT INTO ATENDANCE(EmployeeID, CheckInTime, CheckOutTime, CheckDate) VALUES(@EmployeeID, @CheckInTime, @CheckOutTime, @CheckDate)";
         public static string UPDATE_CHECKOUT = "UPDATE ATENDANCE SET CheckOutTime = @CheckOutTime WHERE CheckDate = @CheckDate AND EmployeeID = @EmployeeID AND `CheckOutTime` IS NULL ;";
         public static string GET_ALL_ATENDANCE_CHECKIN = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `atendance` WHERE CheckDate = @CheckDate ORDER BY CheckOutTime DESC;";
-        public static string GET_ALL_ATENDANCE = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `atendance`;";
+        public static string GET_ALL_ATENDANCE = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `attendance`;";
 
         public CheckinManagment()
         {
             check = new List<Checkin>();
+            times = new List<TimeWorked>();
+            timePerEmployee = new List<TimeWorked>();
         }
 
         public void getAllAtendance()
@@ -39,7 +45,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 while (reader.Read())
                 {
-                    a = new Checkin(Convert.ToInt32(reader[0]),reader[1].ToString(), reader[2].ToString(), Convert.ToDateTime(reader[3]));
+                    a = new Checkin(Convert.ToInt32(reader[0]),Convert.ToDateTime(reader[1]), Convert.ToDateTime(reader[2]), reader[3].ToString());
                     check.Add(a);
                 }
             }
@@ -52,6 +58,71 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
+
+        public void getAllAtendanceTime()
+        {
+            times.Clear();
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = GET_TIME_WORKED;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                TimeWorked a;
+
+                while (reader.Read())
+                {
+                    a = new TimeWorked(Convert.ToInt32(reader[0]), reader[3].ToString(), reader[1].ToString() + reader[2].ToString(), reader[4].ToString(), reader[5].ToString(), reader[6].ToString());
+                    times.Add(a);
+                }
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void UniqueID()
+        {
+            timePerEmployee.Clear();
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = UNIQUE_ATENDANCE;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                TimeWorked a;
+
+                while (reader.Read())
+                {
+                    a = new TimeWorked(Convert.ToInt32(reader[0]), "","","", "", "");
+                    timePerEmployee.Add(a);
+                }
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public void getAllAtendanceOnCheckIn()
         {
             check.Clear();
@@ -74,7 +145,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 while (reader.Read())
                 {
-                    a = new Checkin(Convert.ToInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), Convert.ToDateTime(reader[3]));
+                    a = new Checkin(Convert.ToInt32(reader[0]), Convert.ToDateTime( reader[1]), Convert.ToDateTime( reader[2]), Convert.ToString(reader[3]));
                     check.Add(a);
                 }
             }

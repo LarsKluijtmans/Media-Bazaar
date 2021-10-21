@@ -1,9 +1,11 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Windows.Forms;
-using ClassLibraryProject;
-using ClassLibraryProject.Class;
+﻿using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
+using MySql.Data.MySqlClient;
+using System;
+using System.ComponentModel;
+using System.Reflection;
+using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace MediaBazaar
 {
@@ -15,6 +17,7 @@ namespace MediaBazaar
         public OfficeManager(int UserID, Store s)
         {
             InitializeComponent();
+
             ID = UserID;
             store = s;
 
@@ -24,32 +27,110 @@ namespace MediaBazaar
             cbHeadDepartments.Items.Add("Office");
             cbHeadDepartments.Items.Add("Other");
 
-            timer1.Interval = 200;
             timer1.Start();
+            timer2.Start();
+
             ViewCompany();
             ViewAllEmployees();
+            GetAtendeance();
+            ViewAllDepartments();
+        }
+
+        //Login
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            FormLogin login = new FormLogin();
+            login.Show();
         }
 
 
-        
         //Timer
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (ActiveControl == tbxSearchEmployee)
+            {
+                timer1.Start();
+            }
+            else
+            {
+                timer1.Stop();
+            }
+        }
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            //ViewAllEmployees();
+            ViewAllEmployees();
             ViewAllDepartments();
             GetAtendeance();
         }
 
         //Atendance
 
+        private void btnMakeExcelSheet_Click_1(object sender, EventArgs e)
+        {
+            Excel.Application oXL;
+            Excel._Workbook oWB;
+            Excel._Worksheet oSheet;
+            Excel.Range oRng;
+
+
+            //Start Excel and get Application object.
+            oXL = new Excel.Application();
+            oXL.Visible = true;
+
+            //Get a new workbook.
+            oWB = (Excel._Workbook)(oXL.Workbooks.Add(Missing.Value));
+            oSheet = (Excel._Worksheet)oWB.ActiveSheet;
+
+            //Add table headers going cell by cell.
+            oSheet.Cells[1, 1] = " EmployeeID ";
+            oSheet.Cells[1, 2] = " Name ";
+            oSheet.Cells[1, 3] = " Hours worked ";
+            oSheet.Cells[1, 4] = " Work hours per week ";
+            oSheet.Cells[1, 5] = " Salary per hour ";
+            oSheet.Cells[1, 6] = " Job ";
+
+            //Format A1:D1 as bold, vertical alignment = center.
+
+            oSheet.get_Range("A1", "F1").Font.Bold = true;
+            oSheet.get_Range("A1", "F1").VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+
+            //AutoFit columns A:D.
+            oRng = oSheet.get_Range("A1", "F1");
+            oRng.EntireColumn.AutoFit();
+
+            int i = 2;
+            foreach (TimeWorked c in store.checkinManagment.times)
+            {
+                oSheet.Cells[i, 1] = c.EmployeeID.ToString();
+                oSheet.Cells[i, 2] = c.Name.ToString(); ;
+                oSheet.Cells[i, 3] = c.TimeWork.ToString();
+                oSheet.Cells[i, 4] = c.WorkHoursPerWeek.ToString(); ;
+                oSheet.Cells[i, 5] = c.SalaryPerHour.ToString();
+                oSheet.Cells[i, 6] = c.JobTitle.ToString(); ;
+
+                //AutoFit columns A:F.
+                oRng = oSheet.get_Range("A" + i, "F" + i);
+                oRng.EntireColumn.AutoFit();
+
+                i++;
+            }
+        }
+
         public void GetAtendeance()
         {
-            store.checkinManagment.getAllAtendance();
+            store.checkinManagment.getAllAtendanceTime();
             lbAttendance.Items.Clear();
-            foreach (Checkin c in store.checkinManagment.check)
+
+            foreach (TimeWorked c in store.checkinManagment.times)
             {
-                lbAttendance.Items.Add(c);
+                    lbAttendance.Items.Add(c);
             }
         }
 
@@ -123,19 +204,22 @@ namespace MediaBazaar
                         if (rbnAllEmployees.Checked)
                         {
                             lbxEmployees.Items.Add(employee);
-                        } else if (rbnDepotEmployees.Checked)
+                        }
+                        else if (rbnDepotEmployees.Checked)
                         {
                             if (c.JobTitle == "DEPOT EMPLOYEE" || c.JobTitle == "DEPOT MANAGER")
                             {
                                 lbxEmployees.Items.Add(employee);
                             }
-                        } else if (rbnOfficeEmployees.Checked)
+                        }
+                        else if (rbnOfficeEmployees.Checked)
                         {
                             if (c.JobTitle == "OFFICE MANAGER")
                             {
                                 lbxEmployees.Items.Add(employee);
                             }
-                        } else if (rbnSalesEmployees.Checked)
+                        }
+                        else if (rbnSalesEmployees.Checked)
                         {
                             if (c.JobTitle == "SALES REPRESENTATIVE" || c.JobTitle == "SALES MANAGER")
                             {
@@ -277,15 +361,6 @@ namespace MediaBazaar
             ViewAllEmployees();
         }
 
-        //Login
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            FormLogin formLogin = new FormLogin();
-            formLogin.Show();
-            Close();
-        }
-
         //Departments
         public void ViewAllDepartments()
         {
@@ -343,7 +418,7 @@ namespace MediaBazaar
                 return;
             }
 
-            if (Convert.ToInt32(DepartmentID) == 1 || Convert.ToInt32(DepartmentID) == 2 || Convert.ToInt32(DepartmentID) == 3 || Convert.ToInt32(DepartmentID) == 4) 
+            if (Convert.ToInt32(DepartmentID) == 1 || Convert.ToInt32(DepartmentID) == 2 || Convert.ToInt32(DepartmentID) == 3 || Convert.ToInt32(DepartmentID) == 4)
             {
                 MessageBox.Show("You can't edit the head Departments");
                 return;
@@ -439,13 +514,12 @@ namespace MediaBazaar
         {
             Person tempPerson = getperson();
 
-            tbEmployeeID.Text = tempPerson.EmployeeID.ToString();
-            tbEmployeeName.Text = tempPerson.FirstName + " " + tempPerson.LastName;
+            tbxEmployeeID.Text = tempPerson.EmployeeID.ToString();
         }
 
         public Person getperson()
         {
-            Object personObj = lbEmployee.SelectedItem;
+            Object personObj = lbxEmployees.SelectedItem;
             if (!(personObj is Person))
             {
                 MessageBox.Show("Error");
@@ -518,14 +592,16 @@ namespace MediaBazaar
                 {
                     conn.Close();
                 }
-            } else if (tbxSearchEmployee.Text == "")
+            }
+            else if (tbxSearchEmployee.Text == "")
             {
                 ViewAllEmployees();
             }
         }
 
-        // employee
+        private void btnMakeExcelSheet_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

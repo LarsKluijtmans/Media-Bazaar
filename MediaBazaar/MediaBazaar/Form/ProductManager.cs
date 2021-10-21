@@ -1,6 +1,7 @@
 ﻿using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace MediaBazaar
@@ -17,10 +18,17 @@ namespace MediaBazaar
             store = s;
 
         }
-        private void btnLogout_Click(object sender, EventArgs e)
+
+        //Logout 
+
+        protected override void OnClosing(CancelEventArgs e)
         {
             FormLogin login = new FormLogin();
             login.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
             Close();
         }
 
