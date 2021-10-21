@@ -26,7 +26,7 @@ namespace acr122_demo
                 acr122u.CardInserted += Acr122u_CardInserted;
                 acr122u.CardRemoved += Acr122u_CardRemoved;
                 timer1.Start();
-                timer1.Interval = 1000;
+                timer1.Interval = 100;
             }
             catch 
             {

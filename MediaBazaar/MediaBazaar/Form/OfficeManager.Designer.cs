@@ -85,6 +85,12 @@ namespace MediaBazaar
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.labYear = new System.Windows.Forms.Label();
+            this.labMonth = new System.Windows.Forms.Label();
+            this.btnDecreaseYear = new System.Windows.Forms.Button();
+            this.btnMonthDecrease = new System.Windows.Forms.Button();
+            this.btnIncreaseYear = new System.Windows.Forms.Button();
+            this.btnMonthIncrease = new System.Windows.Forms.Button();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -624,6 +630,12 @@ namespace MediaBazaar
             // 
             // WorkHours
             // 
+            this.WorkHours.Controls.Add(this.btnMonthIncrease);
+            this.WorkHours.Controls.Add(this.btnIncreaseYear);
+            this.WorkHours.Controls.Add(this.btnMonthDecrease);
+            this.WorkHours.Controls.Add(this.btnDecreaseYear);
+            this.WorkHours.Controls.Add(this.labMonth);
+            this.WorkHours.Controls.Add(this.labYear);
             this.WorkHours.Controls.Add(this.btnMakeExcelSheet);
             this.WorkHours.Controls.Add(this.lbAttendance);
             this.WorkHours.Location = new System.Drawing.Point(4, 24);
@@ -681,6 +693,74 @@ namespace MediaBazaar
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // labYear
+            // 
+            this.labYear.AutoSize = true;
+            this.labYear.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labYear.Location = new System.Drawing.Point(593, 39);
+            this.labYear.Name = "labYear";
+            this.labYear.Size = new System.Drawing.Size(52, 30);
+            this.labYear.TabIndex = 2;
+            this.labYear.Text = "Year";
+            // 
+            // labMonth
+            // 
+            this.labMonth.AutoSize = true;
+            this.labMonth.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labMonth.Location = new System.Drawing.Point(855, 39);
+            this.labMonth.Name = "labMonth";
+            this.labMonth.Size = new System.Drawing.Size(75, 30);
+            this.labMonth.TabIndex = 3;
+            this.labMonth.Text = "Month";
+            // 
+            // btnDecreaseYear
+            // 
+            this.btnDecreaseYear.BackColor = System.Drawing.Color.White;
+            this.btnDecreaseYear.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDecreaseYear.Location = new System.Drawing.Point(547, 32);
+            this.btnDecreaseYear.Name = "btnDecreaseYear";
+            this.btnDecreaseYear.Size = new System.Drawing.Size(40, 42);
+            this.btnDecreaseYear.TabIndex = 4;
+            this.btnDecreaseYear.Text = "<";
+            this.btnDecreaseYear.UseVisualStyleBackColor = false;
+            this.btnDecreaseYear.Click += new System.EventHandler(this.btnDecreaseYear_Click);
+            // 
+            // btnMonthDecrease
+            // 
+            this.btnMonthDecrease.BackColor = System.Drawing.Color.White;
+            this.btnMonthDecrease.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMonthDecrease.Location = new System.Drawing.Point(809, 32);
+            this.btnMonthDecrease.Name = "btnMonthDecrease";
+            this.btnMonthDecrease.Size = new System.Drawing.Size(40, 42);
+            this.btnMonthDecrease.TabIndex = 5;
+            this.btnMonthDecrease.Text = "<";
+            this.btnMonthDecrease.UseVisualStyleBackColor = false;
+            this.btnMonthDecrease.Click += new System.EventHandler(this.btnMonthDecrease_Click);
+            // 
+            // btnIncreaseYear
+            // 
+            this.btnIncreaseYear.BackColor = System.Drawing.Color.White;
+            this.btnIncreaseYear.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnIncreaseYear.Location = new System.Drawing.Point(651, 32);
+            this.btnIncreaseYear.Name = "btnIncreaseYear";
+            this.btnIncreaseYear.Size = new System.Drawing.Size(40, 42);
+            this.btnIncreaseYear.TabIndex = 6;
+            this.btnIncreaseYear.Text = ">";
+            this.btnIncreaseYear.UseVisualStyleBackColor = false;
+            this.btnIncreaseYear.Click += new System.EventHandler(this.btnIncreaseYear_Click);
+            // 
+            // btnMonthIncrease
+            // 
+            this.btnMonthIncrease.BackColor = System.Drawing.Color.White;
+            this.btnMonthIncrease.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMonthIncrease.Location = new System.Drawing.Point(936, 32);
+            this.btnMonthIncrease.Name = "btnMonthIncrease";
+            this.btnMonthIncrease.Size = new System.Drawing.Size(40, 42);
+            this.btnMonthIncrease.TabIndex = 7;
+            this.btnMonthIncrease.Text = ">";
+            this.btnMonthIncrease.UseVisualStyleBackColor = false;
+            this.btnMonthIncrease.Click += new System.EventHandler(this.btnMonthIncrease_Click);
+            // 
             // OfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -709,6 +789,7 @@ namespace MediaBazaar
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.WorkHours.ResumeLayout(false);
+            this.WorkHours.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -773,5 +854,13 @@ namespace MediaBazaar
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label labYear;
+        private System.Windows.Forms.Button btnDecreaseYear;
+        private System.Windows.Forms.Label labMonth;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnIncreaseYear;
+        private System.Windows.Forms.Button btnMonthDecrease;
+        private System.Windows.Forms.Button e;
+        private System.Windows.Forms.Button btnMonthIncrease;
     }
 }
