@@ -180,7 +180,7 @@ namespace MediaBazaar
 
             string constring = "Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=Nijlpaard;SslMode =none;";
 
-            string file = @"D:\CompanyDatabase\" + DateTime.Now.ToString("dd-MM-yyyy");
+            string file = @"D:\CompanyDatabase\" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
 
             using (MySqlConnection conn = new MySqlConnection(constring))
             {
@@ -210,14 +210,12 @@ namespace MediaBazaar
 
             StringBuilder message = new StringBuilder();
 
-            message.AppendLine(" Here is your acount information.");
-            message.AppendLine("Here is your acount information.");
-            message.AppendLine(" You can use these in the diferent mediabazaar apps and websites.");
-            message.AppendLine("  Username: lkluijtmans");
-            message.AppendLine("  password: 1 ");
-            message.AppendLine(" Contact us with this email adress if you run in to any problems: nazibul.kabir.srv @gmail.com");
-
-
+            message.Append(" <h1>Here is your acount information.</h1>");
+            message.AppendLine("<p>Here is your acount information.</p>");
+            message.AppendLine("<p>You can use these in the diferent mediabazaar apps and websites.</p>");
+            message.AppendLine("<p>  Username: lkluijtmans</p>");
+            message.AppendLine("<p>  password: 1 </p>");
+            message.AppendLine("<p> Contact us with this email adress if you run in to any problems: nazibul.kabir.srv@gmail.com</p>");
 
             var mailMessage = new MailMessage
             {
@@ -226,9 +224,12 @@ namespace MediaBazaar
                 Body = message.ToString(),
                 IsBodyHtml = true,
             };
-            mailMessage.To.Add("lars.kluijtmans@gmail.com");
+            mailMessage.To.Add("");
+            //lars.kluijtmans @gmail.com
 
             smtpClient.Send(mailMessage);
+
+            MessageBox.Show("Email send");
         }
     }
 }

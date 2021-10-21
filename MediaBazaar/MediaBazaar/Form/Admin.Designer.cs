@@ -109,7 +109,7 @@ namespace MediaBazaar
             // 
             // cbxJobTitle
             // 
-            this.cbxJobTitle.Location = new System.Drawing.Point(140, 59);
+            this.cbxJobTitle.Location = new System.Drawing.Point(140, 62);
             this.cbxJobTitle.Name = "cbxJobTitle";
             this.cbxJobTitle.ReadOnly = true;
             this.cbxJobTitle.Size = new System.Drawing.Size(191, 35);
@@ -468,7 +468,7 @@ namespace MediaBazaar
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogout.Location = new System.Drawing.Point(1004, 10);
+            this.btnLogout.Location = new System.Drawing.Point(995, 30);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(134, 40);
             this.btnLogout.TabIndex = 1;
