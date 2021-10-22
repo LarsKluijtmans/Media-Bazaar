@@ -30,6 +30,7 @@ namespace MediaBazaar
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepotEmployee));
             this.btnLogout = new System.Windows.Forms.Button();
             this.lstAnnouncement = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -468,6 +469,7 @@ namespace MediaBazaar
             this.ClientSize = new System.Drawing.Size(1205, 571);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnLogout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DepotEmployee";
             this.Text = "FormDepotEmployee";

@@ -29,6 +29,7 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CEO));
             this.btnLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@ namespace MediaBazaar
             // 
             this.ClientSize = new System.Drawing.Size(629, 449);
             this.Controls.Add(this.btnLogout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CEO";
             this.ResumeLayout(false);
 

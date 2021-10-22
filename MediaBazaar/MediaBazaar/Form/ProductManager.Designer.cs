@@ -29,6 +29,7 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductManager));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnProfile = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@ namespace MediaBazaar
             this.rbnMorningPrefered = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.cbxPreferedDay = new System.Windows.Forms.ComboBox();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lbProducts = new System.Windows.Forms.ListBox();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -70,6 +70,7 @@ namespace MediaBazaar
             this.lblId = new System.Windows.Forms.Label();
             this.tbID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -337,18 +338,6 @@ namespace MediaBazaar
             this.cbxPreferedDay.Size = new System.Drawing.Size(121, 25);
             this.cbxPreferedDay.TabIndex = 2;
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogout.Location = new System.Drawing.Point(920, 11);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(82, 33);
-            this.btnLogout.TabIndex = 22;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.lbProducts);
@@ -540,6 +529,18 @@ namespace MediaBazaar
             this.label2.TabIndex = 12;
             this.label2.Text = "Product List:";
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogout.Location = new System.Drawing.Point(920, 11);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(82, 33);
+            this.btnLogout.TabIndex = 22;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // ProductManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -547,6 +548,7 @@ namespace MediaBazaar
             this.ClientSize = new System.Drawing.Size(1162, 583);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ProductManager";
             this.Text = "FormOfficeEmployee";

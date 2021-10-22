@@ -29,6 +29,7 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRemoveEmployee));
             this.label1 = new System.Windows.Forms.Label();
             this.tbxReasonTermination = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -101,7 +102,9 @@ namespace MediaBazaar
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxReasonTermination);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRemoveEmployee";
+            this.ShowInTaskbar = false;
             this.Text = "FormRemoveEmployee";
             this.ResumeLayout(false);
             this.PerformLayout();

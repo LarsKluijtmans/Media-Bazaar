@@ -29,6 +29,7 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.gbMakeEmployee = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbxJobTitle = new System.Windows.Forms.TextBox();
@@ -496,6 +497,7 @@ namespace MediaBazaar
             this.Controls.Add(this.labBackup);
             this.Controls.Add(this.gbMakeEmployee);
             this.Controls.Add(this.btnLogout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin";
             this.Text = "Form1";
             this.gbMakeEmployee.ResumeLayout(false);
