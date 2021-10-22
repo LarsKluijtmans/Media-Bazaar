@@ -103,6 +103,13 @@
     <Compile Include="Class\Connection.cs" />
     <Compile Include="Class\Contract.cs" />
     <Compile Include="Class\Employee.cs" />
+    <Compile Include="Class\LoginManagement.cs" />
+    <Compile Include="EmployeeCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeCard.Designer.cs">
+      <DependentUpon>EmployeeCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +121,9 @@
     <Compile Include="Class\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EmployeeCard.resx">
+      <DependentUpon>EmployeeCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

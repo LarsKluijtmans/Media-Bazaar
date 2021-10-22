@@ -55,5 +55,30 @@ namespace MediaBazaar
                 MessageBox.Show("Wrong login information! Please try again.");
             }
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbxPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbxUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

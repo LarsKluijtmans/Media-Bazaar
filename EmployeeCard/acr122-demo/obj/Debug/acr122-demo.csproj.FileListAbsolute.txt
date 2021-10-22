@@ -128,3 +128,4 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\EmployeeCard\acr122-demo\obj\Debu
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\EmployeeCard\acr122-demo\obj\Debug\acr122-demo.csproj.CoreCompileInputs.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\EmployeeCard\acr122-demo\obj\Debug\CardReader.exe
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\EmployeeCard\acr122-demo\obj\Debug\CardReader.pdb
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\EmployeeCard\acr122-demo\obj\Debug\CardReader.EmployeeCard.resources
