@@ -60,7 +60,7 @@ namespace acr122_demo
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if ((acr122u.ReadId != null && last != acr122u.ReadId) || (acr122u.ReadId != null && date.AddSeconds(5) < DateTime.Now))
+            if ((acr122u.ReadId != null && last != acr122u.ReadId && at.GetEmployeeID(acr122u.ReadId.ToString()) != 0) || (acr122u.ReadId != null && date.AddSeconds(5) < DateTime.Now && at.GetEmployeeID(acr122u.ReadId.ToString()) != 0))
             {
                 if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == false)
                 {
