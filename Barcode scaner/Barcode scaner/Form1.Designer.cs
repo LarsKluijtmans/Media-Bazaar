@@ -30,6 +30,7 @@ namespace Barcode_scaner
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tbBarcode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -129,6 +130,7 @@ namespace Barcode_scaner
             this.Controls.Add(this.tbAmount);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbBarcode);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
