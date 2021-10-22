@@ -4,7 +4,13 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>MediaBazaar LOGO.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\lars\.nuget\packages\mysqlbackup.net.devartexpress\2.3.6\contentFiles\any\netcoreapp3.0\logo.ico" />
+    <Content Remove="C:\Users\lars\.nuget\packages\mysqlbackup.net\2.3.6.1\contentFiles\any\netstandard2.1\logo.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Interop.Excel">
