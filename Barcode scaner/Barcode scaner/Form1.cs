@@ -68,5 +68,10 @@ namespace Barcode_scaner
             amount -= RM.DecreaseAmount(tbBarcode.Text, Convert.ToInt32(tbAmount.Text));
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
