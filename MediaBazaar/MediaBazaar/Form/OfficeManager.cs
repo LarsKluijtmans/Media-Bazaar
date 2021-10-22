@@ -37,12 +37,17 @@ namespace MediaBazaar
             ViewAllEmployees();
             GetAtendeance();
             ViewAllDepartments();
+
+            int year, month;
+
+            year = Convert.ToInt32(labYear.Text);
+            month = Convert.ToInt32(labMonth.Text);
+            dgvAtendance.DataSource = store.checkinManagment.getAtendanceData(year, month);
         }
 
         private void btnSeatchDepartment_Click(object sender, EventArgs e)
         {
-            dgvAtendance.DataSource = store.checkinManagment.times;
-            ViewAllDepartments();
+            GetAtendeance();
         }
 
         //Login
@@ -56,7 +61,6 @@ namespace MediaBazaar
             FormLogin login = new FormLogin();
             login.Show();
         }
-
 
         //Timer
 
@@ -182,13 +186,11 @@ namespace MediaBazaar
         {
             int year, month;
 
-            year = Convert.ToInt32( labYear.Text);
+            year = Convert.ToInt32(labYear.Text);
             month = Convert.ToInt32(labMonth.Text);
-
+            dgvAtendance.DataSource = store.checkinManagment.getAtendanceData(year, month);
 
             store.checkinManagment.getAllAtendanceTime(year, month);
-
-            dgvAtendance.DataSource = store.checkinManagment.times;
         }
 
         // employees
