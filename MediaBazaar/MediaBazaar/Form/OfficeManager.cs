@@ -27,6 +27,10 @@ namespace MediaBazaar
             cbHeadDepartments.Items.Add("Office");
             cbHeadDepartments.Items.Add("Other");
 
+            labYear.Text = DateTime.Now.Year.ToString();
+
+            labMonth.Text = DateTime.Now.Month.ToString();
+
             timer1.Start();
             timer2.Start();
 
@@ -53,9 +57,10 @@ namespace MediaBazaar
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            if (ActiveControl == tbxSearchEmployee)
+            if (ActiveControl == tbxSearchEmployee || ActiveControl == btnIncreaseYear || ActiveControl == btnMonthIncrease || ActiveControl == btnDecreaseYear || ActiveControl == btnMonthDecrease)
             {
                 timer1.Start();
+                ActiveControl = dgvAtendance;
             }
             else
             {
@@ -71,6 +76,53 @@ namespace MediaBazaar
         }
 
         //Atendance
+        private void btnDecreaseYear_Click(object sender, EventArgs e)
+        {
+          int year = Convert.ToInt16(labYear.Text);
+
+            year--;
+            labYear.Text = year.ToString();
+        }
+
+        private void btnIncreaseYear_Click(object sender, EventArgs e)
+        {
+            int year = Convert.ToInt16(labYear.Text);
+
+            year++;
+            labYear.Text = year.ToString();
+        }
+
+        private void btnMonthDecrease_Click(object sender, EventArgs e)
+        {
+            int month = Convert.ToInt16(labMonth.Text);
+
+            if (month == 1)
+            {
+                month = 12;
+                labMonth.Text = month.ToString();
+            }
+            else
+            {
+                month--;
+                labMonth.Text = month.ToString();
+            }
+        }
+
+        private void btnMonthIncrease_Click(object sender, EventArgs e)
+        {
+            int month = Convert.ToInt16(labMonth.Text);
+
+            if (month == 12)
+            {
+                month = 1;
+                labMonth.Text = month.ToString();
+            }
+            else
+            {
+                month++;
+                labMonth.Text = month.ToString();
+            }
+        }
 
         private void btnMakeExcelSheet_Click_1(object sender, EventArgs e)
         {
@@ -125,13 +177,14 @@ namespace MediaBazaar
 
         public void GetAtendeance()
         {
-            store.checkinManagment.getAllAtendanceTime();
-            lbAttendance.Items.Clear();
+            int year, month;
 
-            foreach (TimeWorked c in store.checkinManagment.times)
-            {
-                    lbAttendance.Items.Add(c);
-            }
+            year = Convert.ToInt32( labYear.Text);
+            month = Convert.ToInt32(labMonth.Text);
+
+
+            store.checkinManagment.getAllAtendanceTime(year, month);
+            dgvAtendance.DataSource = store.checkinManagment.times;
         }
 
         // employees
@@ -403,7 +456,7 @@ namespace MediaBazaar
             }
 
             store.departmentManagment.AddDepartment(Name, Head, CompanyID);
-        } //Refresh datagridView
+        } 
 
         private void btnEditDepartment_Click(object sender, EventArgs e)
         {
@@ -608,8 +661,6 @@ namespace MediaBazaar
         }
 
         private void btnMakeExcelSheet_Click(object sender, EventArgs e)
-        {
-
-        }
+        {}
     }
 }

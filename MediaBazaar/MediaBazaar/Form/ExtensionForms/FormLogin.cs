@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
@@ -11,6 +12,11 @@ namespace MediaBazaar
         public FormLogin()
         {
             InitializeComponent();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
