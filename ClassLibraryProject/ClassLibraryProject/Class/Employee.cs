@@ -37,8 +37,8 @@ namespace ClassLibraryProject.Class
         // constructor
         public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
          {
-            this.LastName = firstname;
-            this.FirstName = lastname;
+            this.LastName = LastName;
+            this.FirstName = firstname;
             this.PhoneNumber = phonenumber;
             this.Email = email;
             this.City = city;

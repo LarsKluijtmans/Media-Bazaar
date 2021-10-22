@@ -60,7 +60,6 @@ namespace MediaBazaar
             if (ActiveControl == tbxSearchEmployee || ActiveControl == btnIncreaseYear || ActiveControl == btnMonthIncrease || ActiveControl == btnDecreaseYear || ActiveControl == btnMonthDecrease)
             {
                 timer1.Start();
-                ActiveControl = dgvAtendance;
             }
             else
             {
@@ -70,7 +69,7 @@ namespace MediaBazaar
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            ViewAllEmployees();
+           
             ViewAllDepartments();
             GetAtendeance();
         }

@@ -481,9 +481,9 @@ namespace MediaBazaar
             // 
             this.button1.Location = new System.Drawing.Point(25, 26);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 179);
+            this.button1.Size = new System.Drawing.Size(147, 44);
             this.button1.TabIndex = 85;
-            this.button1.Text = "button1";
+            this.button1.Text = "btnSendEmail";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -499,7 +499,7 @@ namespace MediaBazaar
             this.Controls.Add(this.btnLogout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin";
-            this.Text = "Form1";
+            this.Text = "Admin";
             this.gbMakeEmployee.ResumeLayout(false);
             this.gbMakeEmployee.PerformLayout();
             this.groupBox2.ResumeLayout(false);

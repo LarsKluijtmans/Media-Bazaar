@@ -188,7 +188,6 @@ E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.pdb
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.genruntimeconfig.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.Admin.resources
-C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.CEO.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.DepotEmployee.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.DepotManager.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.OfficeManager.resources
