@@ -64,16 +64,13 @@ namespace ClassLibraryProject.ManagmentClasses
             times.Clear();
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = GET_TIME_WORKED;
+            string sql = $"SELECT employee.`EmployeeID`,`FirstName`,`LastName`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))), `JobTitle`,`WorkHoursPerWeek`,`SalaryPerHour`, checkdate FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '%{year}-{month}%' group by contract.EmployeeID;";
 
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                 conn.Open();
-
-                cmd.Parameters.AddWithValue("YEAR",year);
-                cmd.Parameters.AddWithValue("MONTH",month);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 

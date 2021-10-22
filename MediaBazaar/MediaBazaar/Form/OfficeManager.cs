@@ -28,7 +28,6 @@ namespace MediaBazaar
             cbHeadDepartments.Items.Add("Other");
 
             labYear.Text = DateTime.Now.Year.ToString();
-
             labMonth.Text = DateTime.Now.Month.ToString();
 
             timer1.Start();
@@ -37,6 +36,12 @@ namespace MediaBazaar
             ViewCompany();
             ViewAllEmployees();
             GetAtendeance();
+            ViewAllDepartments();
+        }
+
+        private void btnSeatchDepartment_Click(object sender, EventArgs e)
+        {
+            dgvAtendance.DataSource = store.checkinManagment.times;
             ViewAllDepartments();
         }
 
@@ -57,7 +62,7 @@ namespace MediaBazaar
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            if (ActiveControl == tbxSearchEmployee || ActiveControl == btnIncreaseYear || ActiveControl == btnMonthIncrease || ActiveControl == btnDecreaseYear || ActiveControl == btnMonthDecrease)
+            if (ActiveControl == tbxSearchEmployee)
             {
                 timer1.Start();
             }
@@ -69,7 +74,6 @@ namespace MediaBazaar
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-           
             ViewAllDepartments();
             GetAtendeance();
         }
@@ -183,6 +187,7 @@ namespace MediaBazaar
 
 
             store.checkinManagment.getAllAtendanceTime(year, month);
+
             dgvAtendance.DataSource = store.checkinManagment.times;
         }
 

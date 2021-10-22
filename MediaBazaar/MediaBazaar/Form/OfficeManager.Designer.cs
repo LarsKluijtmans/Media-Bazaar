@@ -88,6 +88,7 @@ namespace MediaBazaar
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.btnSeatchDepartment = new System.Windows.Forms.Button();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -596,6 +597,7 @@ namespace MediaBazaar
             // 
             // WorkHours
             // 
+            this.WorkHours.Controls.Add(this.btnSeatchDepartment);
             this.WorkHours.Controls.Add(this.dgvAtendance);
             this.WorkHours.Controls.Add(this.btnMonthIncrease);
             this.WorkHours.Controls.Add(this.btnIncreaseYear);
@@ -727,6 +729,17 @@ namespace MediaBazaar
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // btnSeatchDepartment
+            // 
+            this.btnSeatchDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSeatchDepartment.Location = new System.Drawing.Point(789, 135);
+            this.btnSeatchDepartment.Name = "btnSeatchDepartment";
+            this.btnSeatchDepartment.Size = new System.Drawing.Size(244, 41);
+            this.btnSeatchDepartment.TabIndex = 9;
+            this.btnSeatchDepartment.Text = "Search";
+            this.btnSeatchDepartment.UseVisualStyleBackColor = true;
+            this.btnSeatchDepartment.Click += new System.EventHandler(this.btnSeatchDepartment_Click);
+            // 
             // OfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -825,5 +838,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Button e;
         private System.Windows.Forms.Button btnMonthIncrease;
         private System.Windows.Forms.DataGridView dgvAtendance;
+        private System.Windows.Forms.Button btnSeatchDepartment;
     }
 }
