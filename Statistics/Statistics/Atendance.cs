@@ -10,8 +10,16 @@ namespace Statistics
 {
     class Atendance
     {
-        public DataTable getAtendanceData(int year, int month)
+       public List<EmployeeWorkTime> emp;
+
+        public Atendance()
         {
+            emp = new List<EmployeeWorkTime>();
+        }
+          
+        public void GetAtendanceData(int year, int month)
+        {
+            emp.Clear();
             MySqlConnection conn = Utils.GetConnection();
 
             string sql = "SELECT employee.`EmployeeID`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))), `WorkHoursPerWeek`FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '%" + year + "-" + month + "%' group by contract.EmployeeID;";
@@ -19,15 +27,18 @@ namespace Statistics
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-
                 conn.Open();
 
-                MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                DataTable table = new DataTable();
-                reader.Fill(table);
+                EmployeeWorkTime a;
 
-                return table;
+                while (reader.Read())
+                {
+                    TimeSpan t = (TimeSpan)reader[1];
+                    a = new EmployeeWorkTime(Convert.ToInt32(reader[0]),t, Convert.ToInt32(reader[2]));
+                          emp.Add(a);
+                }
             }
             catch (MySqlException)
             { }
@@ -37,8 +48,6 @@ namespace Statistics
             {
                 conn.Close();
             }
-            DataTable a = new DataTable();
-            return a;
         }
     }
 }
