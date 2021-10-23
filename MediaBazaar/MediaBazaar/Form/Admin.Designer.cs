@@ -81,7 +81,7 @@ namespace MediaBazaar
             this.gbMakeEmployee.Controls.Add(this.groupBox2);
             this.gbMakeEmployee.Controls.Add(this.groupBox1);
             this.gbMakeEmployee.Controls.Add(this.label1);
-            this.gbMakeEmployee.Location = new System.Drawing.Point(38, 246);
+            this.gbMakeEmployee.Location = new System.Drawing.Point(12, 54);
             this.gbMakeEmployee.Name = "gbMakeEmployee";
             this.gbMakeEmployee.Size = new System.Drawing.Size(1100, 489);
             this.gbMakeEmployee.TabIndex = 84;
@@ -418,7 +418,7 @@ namespace MediaBazaar
             // btnBackup
             // 
             this.btnBackup.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnBackup.Location = new System.Drawing.Point(198, 93);
+            this.btnBackup.Location = new System.Drawing.Point(179, 272);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(754, 123);
             this.btnBackup.TabIndex = 0;
@@ -430,7 +430,7 @@ namespace MediaBazaar
             // 
             this.labBackup.AutoSize = true;
             this.labBackup.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labBackup.Location = new System.Drawing.Point(303, 29);
+            this.labBackup.Location = new System.Drawing.Point(287, 141);
             this.labBackup.Name = "labBackup";
             this.labBackup.Size = new System.Drawing.Size(527, 37);
             this.labBackup.TabIndex = 1;
@@ -469,7 +469,7 @@ namespace MediaBazaar
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogout.Location = new System.Drawing.Point(995, 30);
+            this.btnLogout.Location = new System.Drawing.Point(991, 12);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(134, 40);
             this.btnLogout.TabIndex = 1;
@@ -479,7 +479,7 @@ namespace MediaBazaar
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(25, 26);
+            this.button1.Location = new System.Drawing.Point(12, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 44);
             this.button1.TabIndex = 85;
@@ -491,12 +491,12 @@ namespace MediaBazaar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 744);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnBackup);
-            this.Controls.Add(this.labBackup);
+            this.ClientSize = new System.Drawing.Size(1153, 555);
             this.Controls.Add(this.gbMakeEmployee);
             this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.btnBackup);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.labBackup);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin";
             this.Text = "Admin";

@@ -91,7 +91,6 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\bin\Debug
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MySql.Data.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
-C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CopyComplete
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormViewEmployee.resources
 C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.exe
 C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.deps.json
