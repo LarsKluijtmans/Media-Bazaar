@@ -50,6 +50,10 @@ namespace CardReader
                 Close();
             }
         }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            Application.Exit();
+        }
 
         // CardReader
 

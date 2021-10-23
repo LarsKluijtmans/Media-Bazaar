@@ -1,6 +1,7 @@
 ﻿using CardReader;
 using Sydesoft.NfcDevice;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace acr122_demo
@@ -39,6 +40,12 @@ namespace acr122_demo
                 Close();
             }
         }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            Application.Exit();
+        }
+    
 
         public void GetAtendanceIn()
         {
