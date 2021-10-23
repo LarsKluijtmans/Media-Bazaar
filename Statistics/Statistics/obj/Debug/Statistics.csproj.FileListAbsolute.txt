@@ -1,0 +1,10 @@
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\bin\Debug\Statistics.exe.config
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\bin\Debug\Statistics.exe
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\bin\Debug\Statistics.pdb
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\obj\Debug\Statistics.csproj.AssemblyReference.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\obj\Debug\Statistics.Form1.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\obj\Debug\Statistics.Properties.Resources.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\obj\Debug\Statistics.csproj.GenerateResource.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\obj\Debug\Statistics.csproj.CoreCompileInputs.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\obj\Debug\Statistics.exe
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\obj\Debug\Statistics.pdb

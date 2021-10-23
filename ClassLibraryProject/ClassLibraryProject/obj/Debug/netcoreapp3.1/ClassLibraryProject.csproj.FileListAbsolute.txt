@@ -1,4 +1,3 @@
-C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csprojAssemblyReference.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfoInputs.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfo.cs
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.CoreCompileInputs.cache
@@ -27,3 +26,5 @@ C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\ClassLibra
 C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.CoreCompileInputs.cache
 C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.dll
 C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.pdb
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.AssemblyReference.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.GeneratedMSBuildEditorConfig.editorconfig

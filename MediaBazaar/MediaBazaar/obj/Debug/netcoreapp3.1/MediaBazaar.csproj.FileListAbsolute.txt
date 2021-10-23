@@ -1,4 +1,3 @@
-C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csprojAssemblyReference.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormLogin.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.GenerateResource.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfoInputs.cache
@@ -272,3 +271,5 @@ C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\MediaBazaa
 C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Excel.dll
 C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.ResolveComReference.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.Properties.Resources.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.AssemblyReference.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.GeneratedMSBuildEditorConfig.editorconfig
