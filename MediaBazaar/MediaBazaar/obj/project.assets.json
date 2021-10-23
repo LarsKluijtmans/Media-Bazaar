@@ -1028,8 +1028,7 @@
       "MySql.Data >= 8.0.27",
       "MySqlBackup.NET >= 2.3.6.1",
       "MySqlBackup.Net.DevartExpress >= 2.3.6",
-      "MySqlConnector >= 1.3.14",
-      "dotConnect.Express.for.MySQL >= 8.19.1985"
+      "MySqlConnector >= 1.3.14"
     ]
   },
   "packageFolders": {
@@ -1090,10 +1089,6 @@
           "MySqlConnector": {
             "target": "Package",
             "version": "[1.3.14, )"
-          },
-          "dotConnect.Express.for.MySQL": {
-            "target": "Package",
-            "version": "[8.19.1985, )"
           }
         },
         "imports": [
