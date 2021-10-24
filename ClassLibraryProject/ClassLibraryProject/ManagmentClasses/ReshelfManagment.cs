@@ -8,7 +8,7 @@ namespace ClassLibraryProject.ManagmentClasses
 {
     public class ReshelfManagment
     {
-        private static string REQUEST_SHELFREPLENISHMENT = "INSERT INTO shelfreplenishment (Barcode ,ProductID, AmountRequested, Status) VALUES (@ProductID, @Barcode, @AmountRequested, @Status);";
+        private static string REQUEST_SHELFREPLENISHMENT = "INSERT INTO shelfreplenishment (Barcode ,ProductID, AmountRequested, Status) VALUES (@Barcode, @ProductID, @AmountRequested, @Status);";
         private static string GET_ALL_SHELFREPLENISHMENT_REQUESTS = "SELECT * FROM shelfreplenishment WHERE Status = @Status;";
         private static string DELETE_SHELFREPLENISHMENT_BY_ID = "DELETE FROM shelfreplenishment WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
         private static string SHELFREPLENISHMENT = "UPDATE shelfreplenishment INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID SET Status = @Status, product.AmountInDepot = @AmountDepot, product.AmountInStore = @AmountStore  WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";

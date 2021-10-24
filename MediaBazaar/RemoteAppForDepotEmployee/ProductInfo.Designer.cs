@@ -37,6 +37,7 @@ namespace RemoteAppForDepotEmployee
             this.lbName = new System.Windows.Forms.Label();
             this.lbAmount = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,11 +123,23 @@ namespace RemoteAppForDepotEmployee
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Restock Request";
             // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnClose.Location = new System.Drawing.Point(194, 302);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(122, 29);
+            this.btnClose.TabIndex = 17;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // ProductInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 322);
+            this.ClientSize = new System.Drawing.Size(347, 349);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbAmount);
             this.Controls.Add(this.lbName);
@@ -151,5 +164,6 @@ namespace RemoteAppForDepotEmployee
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbAmount;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnClose;
     }
 }

@@ -55,6 +55,7 @@ namespace RemoteAppForSalesRepresentative
             this.btnClose.TabIndex = 16;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // groupBox2
             // 
@@ -96,6 +97,7 @@ namespace RemoteAppForSalesRepresentative
             this.btnSell.TabIndex = 4;
             this.btnSell.Text = "Sell";
             this.btnSell.UseVisualStyleBackColor = true;
+            this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
             // 
             // groupBox1
             // 
@@ -137,6 +139,7 @@ namespace RemoteAppForSalesRepresentative
             this.btnRequest.TabIndex = 4;
             this.btnRequest.Text = "Request for Reshelf";
             this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
             // 
             // lbAmount
             // 
@@ -182,7 +185,7 @@ namespace RemoteAppForSalesRepresentative
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 374);
+            this.ClientSize = new System.Drawing.Size(587, 374);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
