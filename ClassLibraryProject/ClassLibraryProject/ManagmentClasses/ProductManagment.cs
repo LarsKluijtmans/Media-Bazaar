@@ -13,6 +13,49 @@ namespace ClassLibraryProject.ManagmentClasses
         public static string UPDATE_PRODUCT = "UPDATE PRODUCT SET Name = @Name, Barcode = @Barcode, Type = @Type, AmountInStore = @AmountInStore, AmountInDepot = @AmountInDepot WHERE ProductID = @ProductID;";
         public static string DELETE_PRODUCT_BY_ID = "DELETE FROM PRODUCT WHERE ProductID = @ProductID;";
 
+        //MohammadStart
+        public static string GET_PRODUCTS = "SELECT * FROM product WHERE Barcode = @Barcode";
+        public void GetProduct(string Barcode)
+        {
+            products.Clear();
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = GET_PRODUCTS;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@Barcode", Barcode);
+
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                Product product;
+                while (reader.Read())
+                {
+                    int productID = reader.GetInt32("ProductID");
+                    string barcode = reader.GetString("Barcode");
+                    string name = reader.GetString("Name");
+                    string productType = reader.GetString("Type");
+                    int amountInStore = 23;
+                    int amountInDepot = reader.GetInt32("AmountInDepot");
+
+                    product = new Product(productID, name, productType, barcode, amountInDepot, amountInStore);
+                    products.Add(product);
+                }
+
+            }
+            catch (MySqlException)
+            {
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        //MohammadEnd
         public List<Product> products;
 
         public ProductManagment()

@@ -1,0 +1,129 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\RemoteAppForDepotEmployee\\RemoteAppForDepotEmployee.csproj": {}
+  },
+  "projects": {
+    "E:\\Study\\Semester 2\\Project Main\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Study\\Semester 2\\Project Main\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "projectName": "ClassLibraryProject",
+        "projectPath": "E:\\Study\\Semester 2\\Project Main\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
+        "outputPath": "E:\\Study\\Semester 2\\Project Main\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.26, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\RemoteAppForDepotEmployee\\RemoteAppForDepotEmployee.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\RemoteAppForDepotEmployee\\RemoteAppForDepotEmployee.csproj",
+        "projectName": "RemoteAppForDepotEmployee",
+        "projectPath": "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\RemoteAppForDepotEmployee\\RemoteAppForDepotEmployee.csproj",
+        "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
+        "outputPath": "E:\\Study\\Semester 2\\Project Main\\MediaBazaar\\RemoteAppForDepotEmployee\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "E:\\Study\\Semester 2\\Project Main\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+                "projectPath": "E:\\Study\\Semester 2\\Project Main\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
