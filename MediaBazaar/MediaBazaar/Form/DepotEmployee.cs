@@ -65,14 +65,14 @@ namespace MediaBazaar
 
         public void ViewReplenishment()
         {
-            store.reshelfManagment.ViewAllReshelfRequests( tbSearchReplenishment.Text);
+            store.reshelfManagment.ViewReshelfRequests( tbSearchReplenishment.Text);
 
             lbReplenishment.Items.Clear();
 
-            foreach (ReShelf p in store.reshelfManagment.reShelves)
-            {
-                lbReplenishment.Items.Add(p);
-            }
+            //foreach (ReShelf p in store.reshelfManagment.reShelves)
+            //{
+            //    lbReplenishment.Items.Add(p);
+            //}
         }
 
         private void lbReplenishment_SelectedIndexChanged(object sender, EventArgs e)

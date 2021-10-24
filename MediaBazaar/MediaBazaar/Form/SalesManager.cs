@@ -85,7 +85,7 @@ namespace MediaBazaar
                 return;
             }
 
-            store.reshelfManagment.RequestReshelf(ID, Amount);
+            //store.reshelfManagment.RequestReshelf(ID, Amount);
             ViewAllProducts();
         }
 
@@ -145,11 +145,11 @@ namespace MediaBazaar
 
         public void ViewSalesPlan()
         {
-            store.planingManagment.ViewSalesPlaning();
+            store.planningManagment.ViewSalesPlaning();
 
             lbPlaning.Items.Clear();
 
-            foreach (Planing planing in store.planingManagment.planings)
+            foreach (Planing planing in store.planningManagment.planings)
             {
                 lbPlaning.Items.Add(planing);
             }
@@ -157,7 +157,7 @@ namespace MediaBazaar
 
             lbEmployee.Items.Clear();
 
-            foreach (BasicEmployeeInfo employee in store.planingManagment.employees)
+            foreach (BasicEmployeeInfo employee in store.planningManagment.employees)
             {
                 lbEmployee.Items.Add(employee);
             }
@@ -241,7 +241,7 @@ namespace MediaBazaar
                 MessageBox.Show("'Time' field is required.");
                 return;
             }
-            store.planingManagment.EditPlaning(WorkID, NewEmployeeId, Department, Day, Time);
+            store.planningManagment.EditPlaning(WorkID, NewEmployeeId, Department, Day, Time);
 
             ViewSalesPlan();
 

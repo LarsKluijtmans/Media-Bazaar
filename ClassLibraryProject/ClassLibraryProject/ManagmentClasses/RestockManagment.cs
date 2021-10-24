@@ -1,56 +1,41 @@
 ﻿using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 using System.Collections.Generic;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
     public class RestockManagment
     {
-        public static string CREATE_RESTOCKREPLENISHMENT = "INSERT INTO restockreplenishment ( ProductID, Amount) VALUES ( @ProductID, @Amount);";
-        public static string GET_ALL_RESTOCKREPLENISHMENT = "SELECT restockreplenishmentID, product.ProductID, Amount, Name, AmountInStore, AmountInDepot FROM restockreplenishment INNER JOIN product ON product.ProductID = restockreplenishment.ProductID ORDER BY restockreplenishmentID;";
-        public static string UPDATE_RESTOCKREPLENISHMENT = "UPDATE PRODUCT SET AmountInDepot = @AmountInDepot WHERE ProductID = @ProductID;";
-        public static string DELETE_RESTOCKREPLENISHMENT_BY_ID = "DELETE FROM restockreplenishment WHERE RestockReplenishmentID = @RestockReplenishmentID;";
+        private static string REQUEST_RESTOCKREPLENISHMENT = "INSERT INTO restockreplenishment (Barcode ,ProductID, AmountRequested, Status) VALUES (@ProductID, @Barcode, @AmountRequested, @Status);";
+        private static string GET_PENDING_RESTOCKREPLENISHMENT_REQUESTS = "SELECT * FROM restockreplenishment WHERE Status = 'Pending';";
+        private static string GET_HISTORY_RESTOCKREPLENISHMENT_REQUESTS = "SELECT * FROM restockreplenishment WHERE Status = 'Fulfilled';";
+        private static string DELETE_RESTOCKREPLENISHMENT_BY_ID = "DELETE FROM restockreplenishment WHERE RestockReplenishmentID = @RestockReplenishmentID;";
+        private static string RESTOCKREPLENISHMENT = "UPDATE restockreplenishment INNER JOIN product ON Restockreplenishment.ProductID = product.ProductID SET Status = 'Fulfilled', product.AmountInDepot = @AmountInDepot WHERE RestockReplenishmentID = @RestockReplenishmentID;";
+        private static string GET_AMOUNT_REQUESTED = "SELECT restockreplenishment.AmountRequested FROM `Restockreplenishment` INNER JOIN product ON Restockreplenishment.ProductID = product.ProductID WHERE RestockReplenishmentID = @RestockReplenishmentID;";
+        private static string GET_AMOUNT_DEPOT = "SELECT product.AmountInDepot FROM `restockreplenishment` INNER JOIN product ON Restockreplenishment.ProductID = product.ProductID WHERE RestockReplenishmentID = @RestockReplenishmentID;";
 
-        public List<Restock> restocks;
-
-        public RestockManagment()
+        public DataTable ViewPendingRestockRequests()
         {
-            restocks = new List<Restock>();
-        }
-
-        public void ViewAllRestockRequests()
-        {
-            restocks.Clear();
-
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = GET_ALL_RESTOCKREPLENISHMENT;
+            string sql = GET_PENDING_RESTOCKREPLENISHMENT_REQUESTS;
 
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+
                 conn.Open();
 
-                MySqlDataReader reader = cmd.ExecuteReader();
+                MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
 
-                Restock restock;
+                DataTable table = new DataTable();
+                reader.Fill(table);
 
-                while (reader.Read())
-                {
-                    int restockReplenishmentID = reader.GetInt32("restockreplenishmentID");
-                    int productID = reader.GetInt32("ProductID");
-                    int amount = reader.GetInt32("Amount");
-                    string name = reader.GetString("Name");
-                    int amountInStore = reader.GetInt32("AmountInStore");
-                    int amountInDepot = reader.GetInt32("AmountInDepot");
-
-                    restock = new Restock(restockReplenishmentID, productID, amount, name, amountInDepot, amountInStore);
-
-                    restocks.Add(restock);
-                }
+                return table;
             }
-            catch (MySqlException )
+            catch (MySqlException)
             { }
             catch (Exception)
             { }
@@ -58,22 +43,54 @@ namespace ClassLibraryProject.ManagmentClasses
             {
                 conn.Close();
             }
+            DataTable a = new DataTable();
+            return a;
+        }
+        public DataTable ViewHistoryRestockRequests()
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = GET_HISTORY_RESTOCKREPLENISHMENT_REQUESTS;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                conn.Open();
+
+                MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
+
+                DataTable table = new DataTable();
+                reader.Fill(table);
+
+                return table;
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+            DataTable a = new DataTable();
+            return a;
         }
 
-        public void DeleteRestockRequest(string RestokID)
+        public void DeleteRestockRequest(string reRestockID)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = DELETE_RESTOCKREPLENISHMENT_BY_ID;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestokID);
+                cmd.Parameters.AddWithValue("@RestockReplenishmentID", reRestockID);
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException )
-            {}
+            catch (MySqlException)
+            { }
             catch (Exception)
             { }
             finally
@@ -82,63 +99,113 @@ namespace ClassLibraryProject.ManagmentClasses
             }
         }
 
-        public void FufillRestockRequest( string AmountInDepot, string amount, string ID)
+        public void RequestRestock(string barcode, int id, int amountRequested)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = UPDATE_RESTOCKREPLENISHMENT;
-            try
-            {
-                int Depot = Convert.ToInt32(AmountInDepot);
-                Depot += Convert.ToInt32(amount);
-                if (Depot < 0)
-                {
-                    return;
-                }
-                else
-                {
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@ProductID", ID);
-                    cmd.Parameters.AddWithValue("@AmountInDepot", Depot.ToString());
-                    conn.Open();
-
-                    int numAffectedRows = cmd.ExecuteNonQuery();
-                }
-
-            }
-            catch (MySqlException )
-            { }
-            catch (Exception)
-            {}
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public void AddRestockRequest(string ID, string Amount)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = CREATE_RESTOCKREPLENISHMENT;
+            string sql = REQUEST_RESTOCKREPLENISHMENT;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", ID);
-                cmd.Parameters.AddWithValue("@Amount", Amount);
+                cmd.Parameters.AddWithValue("@ProductID", id);
+                cmd.Parameters.AddWithValue("@Barcode", barcode);
+                cmd.Parameters.AddWithValue("@AmountRequested", amountRequested);
+                cmd.Parameters.AddWithValue("@Status", "Pending");
 
 
                 conn.Open();
                 int numCreatedRows = cmd.ExecuteNonQuery();
-               
             }
-            catch (MySqlException )
+            catch (MySqlException)
             { }
             catch (Exception)
             { }
             finally
             {
-
                 conn.Close();
             }
+        }
+        public void RestockReplenishment(string RestockReplenishmentID)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = RESTOCKREPLENISHMENT;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestockReplenishmentID);
+
+                int newAmountDepot = GetAmountDepot(RestockReplenishmentID) + GetAmountRequested(RestockReplenishmentID);
+
+                cmd.Parameters.AddWithValue("@AmountInDepot", newAmountDepot);
+
+                conn.Open();
+                int numCreatedRows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        private int GetAmountRequested(string RestockReplenishmentID)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = GET_AMOUNT_REQUESTED;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestockReplenishmentID);
+
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int amountRequested = Convert.ToInt32(reader[0]);
+                    return amountRequested;
+                }
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+            return 0;
+        }
+        private int GetAmountDepot(string RestockReplenishmentID)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = GET_AMOUNT_DEPOT;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestockReplenishmentID);
+
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int amountInDepot = Convert.ToInt32(reader[0]);
+                    return amountInDepot;
+                }
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+            return 0;
         }
     }
 }
