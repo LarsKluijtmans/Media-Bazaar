@@ -6,26 +6,26 @@ using System.Collections.Generic;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class RestockManagment
+    public class ReshelfManagment
     {
-        private static string REQUEST_RESTOCKREPLENISHMENT = "INSERT INTO restockreplenishment (Barcode ,ProductID, AmountRequested, Status) VALUES (@ProductID, @Barcode, @AmountRequested, @Status);";
-        private static string GET_PENDING_RESTOCKREPLENISHMENT_REQUESTS = "SELECT * FROM restockreplenishment WHERE Status = 'Pending';";
-        private static string GET_HISTORY_RESTOCKREPLENISHMENT_REQUESTS = "SELECT * FROM restockreplenishment WHERE Status = 'Fulfilled';";
-        private static string DELETE_RESTOCKREPLENISHMENT_BY_ID = "DELETE FROM restockreplenishment WHERE RestockReplenishmentID = @RestockReplenishmentID;";
-        private static string RESTOCKREPLENISHMENT = "UPDATE restockreplenishment INNER JOIN product ON Restockreplenishment.ProductID = product.ProductID SET Status = @Status, product.AmountInDepot = @AmountDepot, product.AmountInStore = @AmountStore  WHERE RestockReplenishmentID = @RestockReplenishment;";
-        private static string GET_AMOUNT_REQUESTED = "SELECT restockreplenishment.AmountRequested FROM `Restockreplenishment` INNER JOIN product ON Restockreplenishment.ProductID = product.ProductID WHERE RestockReplenishmentID = @RestockReplenishmentID;";
-        private static string GET_AMOUNT_STORE = "SELECT product.AmountInStore FROM `restockreplenishment` INNER JOIN product ON Restockreplenishment.ProductID = product.ProductID WHERE RestockReplenishmentID = @RestockReplenishmentID;";
-        private static string GET_AMOUNT_DEPOT = "SELECT product.AmountInDepot FROM `restockreplenishment` INNER JOIN product ON Restockreplenishment.ProductID = product.ProductID WHERE RestockReplenishmentID = @RestockReplenishmentID;";
+        private static string REQUEST_SHELFREPLENISHMENT = "INSERT INTO shelfreplenishment (Barcode ,ProductID, AmountRequested, Status) VALUES (@ProductID, @Barcode, @AmountRequested, @Status);";
+        private static string GET_ALL_SHELFREPLENISHMENT_REQUESTS = "SELECT * FROM shelfreplenishment WHERE Status = @Status;";
+        private static string DELETE_SHELFREPLENISHMENT_BY_ID = "DELETE FROM shelfreplenishment WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
+        private static string SHELFREPLENISHMENT = "UPDATE shelfreplenishment INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID SET Status = @Status, product.AmountInDepot = @AmountDepot, product.AmountInStore = @AmountStore  WHERE ShelfReplenishmentID = @ShelfReplenishment;";
+        private static string GET_AMOUNT_REQUESTED = "SELECT shelfreplenishment.AmountRequested FROM `shelfreplenishment` INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
+        private static string GET_AMOUNT_STORE = "SELECT product.AmountInStore FROM `shelfreplenishment` INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
+        private static string GET_AMOUNT_DEPOT = "SELECT product.AmountInDepot FROM `shelfreplenishment` INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
 
-        public DataTable ViewPendingRestockRequests()
+        public DataTable ViewReshelfRequests(string status)
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = GET_PENDING_RESTOCKREPLENISHMENT_REQUESTS;
+            string sql = GET_ALL_SHELFREPLENISHMENT_REQUESTS;
 
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Status", status);
 
                 conn.Open();
 
@@ -36,40 +36,10 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 return table;
             }
-            catch (MySqlException)
-            { }
+            catch (MySqlException )
+            {}
             catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-            DataTable a = new DataTable();
-            return a;
-        }
-        public DataTable ViewHistoryRestockRequests()
-        {
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = GET_HISTORY_RESTOCKREPLENISHMENT_REQUESTS;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                conn.Open();
-
-                MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
-
-                DataTable table = new DataTable();
-                reader.Fill(table);
-
-                return table;
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            {}
             finally
             {
                 conn.Close();
@@ -78,19 +48,19 @@ namespace ClassLibraryProject.ManagmentClasses
             return a;
         }
 
-        public void DeleteRestockRequest(string reRestockID)
+        public void DeleteReshelfRequest(string reshelfID)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = DELETE_RESTOCKREPLENISHMENT_BY_ID;
+            string sql = DELETE_SHELFREPLENISHMENT_BY_ID;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", reRestockID);
+                cmd.Parameters.AddWithValue("@ShelfReplenishmentID", reshelfID);
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException)
+            catch (MySqlException )
             { }
             catch (Exception)
             { }
@@ -100,43 +70,43 @@ namespace ClassLibraryProject.ManagmentClasses
             }
         }
 
-        public void RequestRestock(string barcode, string id, string amountRequested)
+        public void RequestReshelf(string barcode, string id, string amountRequested) 
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = REQUEST_RESTOCKREPLENISHMENT;
+            string sql = REQUEST_SHELFREPLENISHMENT;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@ProductID", id);
                 cmd.Parameters.AddWithValue("@Barcode", barcode);
                 cmd.Parameters.AddWithValue("@AmountRequested", amountRequested);
-                cmd.Parameters.AddWithValue("@Status", "Pending");
+                cmd.Parameters.AddWithValue("@Status","Pending");
 
 
                 conn.Open();
                 int numCreatedRows = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException)
+            catch (MySqlException )
             { }
-            catch (Exception)
+            catch (Exception )
             { }
             finally
             {
                 conn.Close();
             }
         }
-        public void RestockReplenishment(string RestockReplenishmentID)
+        public void ShelfReplenishment(string shelfReplenishmentID)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = RESTOCKREPLENISHMENT;
+            string sql = SHELFREPLENISHMENT;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestockReplenishmentID);
+                cmd.Parameters.AddWithValue("@ShelfReplenishmentID", shelfReplenishmentID);
                 cmd.Parameters.AddWithValue("@Status", "Completed");
 
-                int newAmountStore = GetAmountStore(RestockReplenishmentID) + GetAmountRequested(RestockReplenishmentID);
-                int newAmountDepot = GetAmountDepot(RestockReplenishmentID) - GetAmountRequested(RestockReplenishmentID);
+                int newAmountStore = GetAmountStore(shelfReplenishmentID) + GetAmountRequested(shelfReplenishmentID);
+                int newAmountDepot = GetAmountDepot(shelfReplenishmentID) - GetAmountRequested(shelfReplenishmentID);
 
                 cmd.Parameters.AddWithValue("@AmountDepot", newAmountDepot);
                 cmd.Parameters.AddWithValue("@Status", newAmountStore);
@@ -154,14 +124,14 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
-        private int GetAmountRequested(string RestockReplenishmentID)
+        private int GetAmountRequested(string shelfReplenishmentID)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = GET_AMOUNT_REQUESTED;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestockReplenishmentID);
+                cmd.Parameters.AddWithValue("@ShelfReplenishmentID", shelfReplenishmentID);
 
                 conn.Open();
 
@@ -183,14 +153,14 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return 0;
         }
-        private int GetAmountDepot(string RestockReplenishmentID)
+        private int GetAmountDepot(string shelfReplenishmentID)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = GET_AMOUNT_DEPOT;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestockReplenishmentID);
+                cmd.Parameters.AddWithValue("@ShelfReplenishmentID", shelfReplenishmentID);
 
                 conn.Open();
 
@@ -212,14 +182,14 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return 0;
         }
-        private int GetAmountStore(string RestockReplenishmentID)
+        private int GetAmountStore(string shelfReplenishmentID)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = GET_AMOUNT_STORE;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestockReplenishmentID);
+                cmd.Parameters.AddWithValue("@ShelfReplenishmentID", shelfReplenishmentID);
 
                 conn.Open();
 
@@ -241,5 +211,5 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return 0;
         }
-    }
+    }   
 }

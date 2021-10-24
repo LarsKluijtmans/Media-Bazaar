@@ -22,6 +22,7 @@ namespace ClassLibraryProject.ManagmentClasses
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+
                 conn.Open();
 
                 MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
