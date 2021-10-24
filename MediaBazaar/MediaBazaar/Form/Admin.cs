@@ -8,6 +8,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace MediaBazaar
 {
     public partial class Admin : Form
@@ -204,7 +205,7 @@ namespace MediaBazaar
             var smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("lars.kluijtmans@gmail.com", "Nijlpaard"),
+                Credentials = new NetworkCredential("MediaBazaar.HQ@gmail.com", "MediaBazaar21"),
                 EnableSsl = true,
             };
 
@@ -219,12 +220,12 @@ namespace MediaBazaar
 
             var mailMessage = new MailMessage
             {
-                From = new MailAddress("lars.kluijtmans@gmail.com"),
+                From = new MailAddress("MediaBazaar.HQ@gmail.com"),
                 Subject = "Mediabazaar acount information",
                 Body = message.ToString(),
                 IsBodyHtml = true,
             };
-            mailMessage.To.Add("lars.kluijtmans@gmail.com");
+            mailMessage.To.Add("MediaBazaar.HQ@gmail.com");
 
             smtpClient.Send(mailMessage);
 
