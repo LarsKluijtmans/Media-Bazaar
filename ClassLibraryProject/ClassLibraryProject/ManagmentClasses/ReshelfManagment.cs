@@ -11,7 +11,7 @@ namespace ClassLibraryProject.ManagmentClasses
         private static string REQUEST_SHELFREPLENISHMENT = "INSERT INTO shelfreplenishment (Barcode ,ProductID, AmountRequested, Status) VALUES (@ProductID, @Barcode, @AmountRequested, @Status);";
         private static string GET_ALL_SHELFREPLENISHMENT_REQUESTS = "SELECT * FROM shelfreplenishment WHERE Status = @Status;";
         private static string DELETE_SHELFREPLENISHMENT_BY_ID = "DELETE FROM shelfreplenishment WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
-        private static string SHELFREPLENISHMENT = "UPDATE shelfreplenishment INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID SET Status = @Status, product.AmountInDepot = @AmountDepot, product.AmountInStore = @AmountStore  WHERE ShelfReplenishmentID = @ShelfReplenishment;";
+        private static string SHELFREPLENISHMENT = "UPDATE shelfreplenishment INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID SET Status = @Status, product.AmountInDepot = @AmountDepot, product.AmountInStore = @AmountStore  WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
         private static string GET_AMOUNT_REQUESTED = "SELECT shelfreplenishment.AmountRequested FROM `shelfreplenishment` INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
         private static string GET_AMOUNT_STORE = "SELECT product.AmountInStore FROM `shelfreplenishment` INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
         private static string GET_AMOUNT_DEPOT = "SELECT product.AmountInDepot FROM `shelfreplenishment` INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
@@ -70,7 +70,7 @@ namespace ClassLibraryProject.ManagmentClasses
             }
         }
 
-        public void RequestReshelf(string barcode, string id, string amountRequested) 
+        public void RequestReshelf(string barcode, int id, int amountRequested) 
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = REQUEST_SHELFREPLENISHMENT;
@@ -109,7 +109,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 int newAmountDepot = GetAmountDepot(shelfReplenishmentID) - GetAmountRequested(shelfReplenishmentID);
 
                 cmd.Parameters.AddWithValue("@AmountDepot", newAmountDepot);
-                cmd.Parameters.AddWithValue("@Status", newAmountStore);
+                cmd.Parameters.AddWithValue("@AmountStore", newAmountStore);
 
 
                 conn.Open();

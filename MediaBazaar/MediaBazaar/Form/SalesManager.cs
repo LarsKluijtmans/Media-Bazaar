@@ -145,22 +145,22 @@ namespace MediaBazaar
 
         public void ViewSalesPlan()
         {
-            store.planningManagment.ViewSalesPlaning();
+            //store.planningManagment.ViewSalesPlaning();
 
-            lbPlaning.Items.Clear();
+            //lbPlaning.Items.Clear();
 
-            foreach (Planing planing in store.planningManagment.planings)
-            {
-                lbPlaning.Items.Add(planing);
-            }
+            //foreach (Planing planing in store.planningManagment.planings)
+            //{
+            //    lbPlaning.Items.Add(planing);
+            //}
 
 
-            lbEmployee.Items.Clear();
+            //lbEmployee.Items.Clear();
 
-            foreach (BasicEmployeeInfo employee in store.planningManagment.employees)
-            {
-                lbEmployee.Items.Add(employee);
-            }
+            //foreach (BasicEmployeeInfo employee in store.planningManagment.employees)
+            //{
+            //    lbEmployee.Items.Add(employee);
+            //}
         }
 
         private void lbPlaning_SelectedIndexChanged(object sender, EventArgs e)
@@ -171,18 +171,18 @@ namespace MediaBazaar
             }
 
             Object planObject = lbPlaning.SelectedItem;
-            if (!(planObject is Planing))
-            {
-                return;
-            }
+            //if (!(planObject is Planing))
+            //{
+            //    return;
+            //}
 
-            Planing planing = (Planing)planObject;
+            //Planing planing = (Planing)planObject;
 
-            tbWorkId.Text = planing.WorkID.ToString();
-            tbNewEmployeeId.Text = planing.EmployeeID.ToString();
-            tbDep.Text = planing.Department;
-            tbDay.Text = planing.Day.ToString();
-            tbTime.Text = planing.Time.ToString();
+            //tbWorkId.Text = planing.WorkID.ToString();
+            //tbNewEmployeeId.Text = planing.EmployeeID.ToString();
+            //tbDep.Text = planing.Department;
+            //tbDay.Text = planing.Day.ToString();
+            //tbTime.Text = planing.Time.ToString();
         }
 
         private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)
@@ -241,7 +241,7 @@ namespace MediaBazaar
                 MessageBox.Show("'Time' field is required.");
                 return;
             }
-            store.planningManagment.EditPlaning(WorkID, NewEmployeeId, Department, Day, Time);
+            //store.planningManagment.EditPlaning(WorkID, NewEmployeeId, Department, Day, Time);
 
             ViewSalesPlan();
 

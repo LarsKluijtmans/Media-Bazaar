@@ -8,7 +8,7 @@ namespace ClassLibraryProject.Class
         public RestockManagment restockManagment;
         public ReshelfManagment reshelfManagment;
         public ScheduleManagment scheduleManagment;
-        public PlaningManagment planningManagment;
+        public PlanningManagment planningManagment;
         public LoginManagment loginManagment;
         public DepartmentManagment departmentManagment;
         public CompanyManagment companyManagment;
@@ -24,7 +24,7 @@ namespace ClassLibraryProject.Class
             restockManagment = new RestockManagment();
             reshelfManagment = new ReshelfManagment();
             scheduleManagment = new ScheduleManagment();
-            planningManagment = new PlaningManagment();
+            planningManagment = new PlanningManagment();
             loginManagment = new LoginManagment();
             departmentManagment = new DepartmentManagment();
             companyManagment = new CompanyManagment();

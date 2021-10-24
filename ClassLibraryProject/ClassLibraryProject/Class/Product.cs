@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClassLibraryProject
+namespace ClassLibraryProject.Class
 {
     public class Product
     {
@@ -11,7 +11,7 @@ namespace ClassLibraryProject
         private string barcode;
         private string name;
         private string productType;
-        private int price;
+        private int amountInStore;
         private int amountInDepot;
 
 
@@ -37,10 +37,10 @@ namespace ClassLibraryProject
             set { name = value; }
         }
 
-        public int Price
+        public int AmountInStore
         {
-            get { return price; }
-            set { price = value; }
+            get { return amountInStore; }
+            set { amountInStore = value; }
         }
         public int AmountInDepot
         {
@@ -49,29 +49,14 @@ namespace ClassLibraryProject
         }
 
         //constructor
-        public Product(int id, string name, string type, string barcode, int amountInDepot, int Price)
+        public Product(int id, string name, string type, string barcode, int amountInDepot, int amountInStore)
         {
             ProductID = id;
             Barcode = barcode;
             Name = name;
             ProductType = type;
             AmountInDepot = amountInDepot;
-            price = Price;
-        }
-
-
-        //methods
-        public override string ToString()
-        {
-            return "  ID: " + ProductID + "   Name: " + Name + "   Type: " + ProductType + "   Amount in depot: " + AmountInDepot;
-        }
-        public string GetInfoForSale()
-        {
-            return "  ID: " + ProductID + "   Barcode: " + Barcode + "   Name: " + Name + "   Type: " + ProductType + "   Amoutn in store: " + Price;
-        }
-        public string GetInfoForDepot()
-        {
-            return "  ID: " + ProductID + "   Barcode: " + Barcode + "   Name: " + Name + "   Type: " + ProductType + "   Amount in depot: " + AmountInDepot;
+            AmountInStore = amountInStore;
         }
     }
 }
