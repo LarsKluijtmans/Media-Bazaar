@@ -389,6 +389,7 @@ namespace MediaBazaar
             this.rbHistory.TabIndex = 90;
             this.rbHistory.Text = "Previous History";
             this.rbHistory.UseVisualStyleBackColor = true;
+            this.rbHistory.CheckedChanged += new System.EventHandler(this.rbHistory_CheckedChanged);
             // 
             // rbPending
             // 
@@ -402,6 +403,7 @@ namespace MediaBazaar
             this.rbPending.TabStop = true;
             this.rbPending.Text = "Pending";
             this.rbPending.UseVisualStyleBackColor = true;
+            this.rbPending.Click += new System.EventHandler(this.rbPending_Click);
             // 
             // groupBox1
             // 
@@ -581,6 +583,7 @@ namespace MediaBazaar
             this.dgOverviewRestock.RowTemplate.Height = 25;
             this.dgOverviewRestock.Size = new System.Drawing.Size(592, 190);
             this.dgOverviewRestock.TabIndex = 90;
+            this.dgOverviewRestock.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewRestock_CellDoubleClick);
             // 
             // lstEmployeesWorkingToday
             // 
@@ -591,6 +594,7 @@ namespace MediaBazaar
             this.lstEmployeesWorkingToday.Name = "lstEmployeesWorkingToday";
             this.lstEmployeesWorkingToday.Size = new System.Drawing.Size(302, 463);
             this.lstEmployeesWorkingToday.TabIndex = 89;
+            this.lstEmployeesWorkingToday.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstEmployeesWorkingToday_MouseDoubleClick);
             // 
             // label12
             // 
@@ -629,6 +633,7 @@ namespace MediaBazaar
             this.dgOverviewSchedule.RowTemplate.Height = 25;
             this.dgOverviewSchedule.Size = new System.Drawing.Size(487, 251);
             this.dgOverviewSchedule.TabIndex = 13;
+            this.dgOverviewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewSchedule_CellDoubleClick);
             // 
             // DepotManager
             // 

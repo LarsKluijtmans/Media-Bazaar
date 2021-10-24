@@ -25,20 +25,35 @@ namespace MediaBazaar
         {
             Close();
         }
+        private void dgOverviewSchedule_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tabControl1.SelectTab(2);
+        }
+
+        private void dgOverviewRestock_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tabControl1.SelectTab(1);
+        }
+
+        private void lstEmployeesWorkingToday_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            tabControl1.SelectTab(3);
+        }
 
         //Restock
         public void UpdateRestockRequests()
         {
             dgOverviewRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
+            dgRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
+        }
+        private void rbPending_Click(object sender, EventArgs e)
+        {
+            dgRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
+        }
 
-            if (rbPending.Checked)
-            {
-                dgRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
-            } 
-            if (rbHistory.Checked)
-            {
-                dgRestock.DataSource = store.restockManagment.ViewHistoryRestockRequests();
-            }
+        private void rbHistory_CheckedChanged(object sender, EventArgs e)
+        {
+            dgRestock.DataSource = store.restockManagment.ViewHistoryRestockRequests();
         }
         public void DeleteRestockRequest()
         {
@@ -55,7 +70,7 @@ namespace MediaBazaar
         }
         private void btnFufillRestockRequest_Click(object sender, EventArgs e)
         {
-            string id = txtProductID.Text;
+            string id = txtRestockID.Text;
             if (string.IsNullOrEmpty(id))
             {
                 MessageBox.Show("Please select a product");

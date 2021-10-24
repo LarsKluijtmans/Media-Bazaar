@@ -12,9 +12,8 @@ namespace ClassLibraryProject.ManagmentClasses
         private static string GET_PENDING_RESTOCKREPLENISHMENT_REQUESTS = "SELECT * FROM restockreplenishment WHERE Status = 'Pending';";
         private static string GET_HISTORY_RESTOCKREPLENISHMENT_REQUESTS = "SELECT * FROM restockreplenishment WHERE Status = 'Fulfilled';";
         private static string DELETE_RESTOCKREPLENISHMENT_BY_ID = "DELETE FROM restockreplenishment WHERE RestockReplenishmentID = @RestockReplenishmentID;";
-        private static string RESTOCKREPLENISHMENT = "UPDATE restockreplenishment INNER JOIN product ON Restockreplenishment.ProductID = product.ProductID SET Status = @Status, product.AmountInDepot = @AmountDepot, product.AmountInStore = @AmountStore  WHERE RestockReplenishmentID = @RestockReplenishment;";
+        private static string RESTOCKREPLENISHMENT = "UPDATE restockreplenishment INNER JOIN product ON Restockreplenishment.ProductID = product.ProductID SET Status = 'Fulfilled', product.AmountInDepot = @AmountInDepot WHERE RestockReplenishmentID = @RestockReplenishmentID;";
         private static string GET_AMOUNT_REQUESTED = "SELECT restockreplenishment.AmountRequested FROM `Restockreplenishment` INNER JOIN product ON Restockreplenishment.ProductID = product.ProductID WHERE RestockReplenishmentID = @RestockReplenishmentID;";
-        private static string GET_AMOUNT_STORE = "SELECT product.AmountInStore FROM `restockreplenishment` INNER JOIN product ON Restockreplenishment.ProductID = product.ProductID WHERE RestockReplenishmentID = @RestockReplenishmentID;";
         private static string GET_AMOUNT_DEPOT = "SELECT product.AmountInDepot FROM `restockreplenishment` INNER JOIN product ON Restockreplenishment.ProductID = product.ProductID WHERE RestockReplenishmentID = @RestockReplenishmentID;";
 
         public DataTable ViewPendingRestockRequests()
@@ -100,7 +99,7 @@ namespace ClassLibraryProject.ManagmentClasses
             }
         }
 
-        public void RequestRestock(string barcode, string id, string amountRequested)
+        public void RequestRestock(string barcode, int id, int amountRequested)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = REQUEST_RESTOCKREPLENISHMENT;
@@ -133,14 +132,10 @@ namespace ClassLibraryProject.ManagmentClasses
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestockReplenishmentID);
-                cmd.Parameters.AddWithValue("@Status", "Completed");
 
-                int newAmountStore = GetAmountStore(RestockReplenishmentID) + GetAmountRequested(RestockReplenishmentID);
-                int newAmountDepot = GetAmountDepot(RestockReplenishmentID) - GetAmountRequested(RestockReplenishmentID);
+                int newAmountDepot = GetAmountDepot(RestockReplenishmentID) + GetAmountRequested(RestockReplenishmentID);
 
-                cmd.Parameters.AddWithValue("@AmountDepot", newAmountDepot);
-                cmd.Parameters.AddWithValue("@Status", newAmountStore);
-
+                cmd.Parameters.AddWithValue("@AmountInDepot", newAmountDepot);
 
                 conn.Open();
                 int numCreatedRows = cmd.ExecuteNonQuery();
@@ -169,7 +164,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 while (reader.Read())
                 {
-                    int amountRequested = reader.GetInt32("AmountRequested");
+                    int amountRequested = Convert.ToInt32(reader[0]);
                     return amountRequested;
                 }
             }
@@ -198,37 +193,8 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 while (reader.Read())
                 {
-                    int amountInDepot = reader.GetInt32("AmountInDepot");
+                    int amountInDepot = Convert.ToInt32(reader[0]);
                     return amountInDepot;
-                }
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-            return 0;
-        }
-        private int GetAmountStore(string RestockReplenishmentID)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = GET_AMOUNT_STORE;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestockReplenishmentID);
-
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    int amountInStore = reader.GetInt32("AmountInStore");
-                    return amountInStore;
                 }
             }
             catch (MySqlException)
