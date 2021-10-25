@@ -18,97 +18,68 @@ namespace MediaBazaar
             ID = UserID;
             store = s;
 
-            ViewAllProducts();
-            ViewAllSchedule();
-            ViewSalesPlan();
+            UpdateSchedule();
         }
 
-        //Logout
+        //Overview
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Close();
         }
-        protected override void OnClosing(CancelEventArgs e)
+        private void dgOverviewSchedule_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            FormLogin login = new FormLogin();
-            login.Show();
+            tabControl1.SelectTab(2);
+        }
+        private void dgProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tabControl1.SelectTab(1);
         }
 
+        private void lstEmployeesWorkingToday_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            tabControl1.SelectTab(3);
+        }
         //Products
-
-        public void ViewAllProducts()
+        //Esther//Esther
+        private void btnEditProduct_Click(object sender, EventArgs e)
         {
-            lstProduct.Items.Clear();
 
-            foreach (Product product in store.productManagment.products)
+        }
+        private void btnDiscontinue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        //Schedule
+        public void UpdateSchedule()
+        {
+            dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
+            dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
+            dgPlanningSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
+        }
+        private void dgSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
             {
-                lstProduct.Items.Add(product);
+                DataGridViewRow row = dgSchedule.Rows[e.RowIndex];
+                lbScheduleDay.Text = row.Cells["Day"].Value.ToString();
+                lbScheduleEvening.Text = row.Cells["Evening"].Value.ToString();
+                lbScheduleMorning.Text = row.Cells["Morning"].Value.ToString();
+                lbScheduleAfternoon.Text = row.Cells["Afternoon"].Value.ToString();
             }
         }
-
-        private void lstProduct_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lstProduct.SelectedIndex < 0)
-            {
-                return;
-            }
-
-            Object ProductObject = lstProduct.SelectedItem;
-            if (!(ProductObject is Product))
-            {
-                return;
-            }
-
-            Product product = (Product)ProductObject;
-            tbID.Text = product.ProductID.ToString();
-            tbName.Text = product.Name;
-            tbBarcode.Text = product.Barcode;
-            lbProductType.Text = product.ProductType;
-            tbmountInStore.Text = product.Price.ToString();
-            tbAmountInDepot.Text = product.AmountInDepot.ToString();
-        }
-
-        private void btnRequestReplenishment_Click(object sender, EventArgs e)
-        {
-
-            string ID = tbID.Text;
-            if (string.IsNullOrEmpty(ID))
-            {
-                MessageBox.Show("'ID' field is required.");
-                return;
-            }
-
-            string Amount = tbAmount.Text;
-            if (string.IsNullOrEmpty(Amount))
-            {
-                MessageBox.Show("'Amount' field is required.");
-                return;
-            }
-
-            //store.reshelfManagment.RequestReshelf(ID, Amount);
-            ViewAllProducts();
-        }
-
-        private void btnViewPorducts_Click(object sender, EventArgs e)
-        {
-            ViewAllProducts();
-        }
-
-        // schedule
-
-        public void ViewAllSchedule()
-        {
-            dgvSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule();
-        }
-
-        private void btViewSchedule_Click(object sender, EventArgs e)
-        {
-            ViewAllSchedule();
-        }
-
         private void btnEditschedule_Click(object sender, EventArgs e)
         {
-
             string Morning = lbScheduleMorning.Text;
             if (string.IsNullOrEmpty(Morning))
             {
@@ -129,134 +100,21 @@ namespace MediaBazaar
                 MessageBox.Show("'Evening' field is required.");
                 return;
             }
-            if (string.IsNullOrEmpty(ID.ToString()))
-            {
-                MessageBox.Show("Please select a time");
-                return;
-            }
 
-            store.scheduleManagment.Editschedule(ID.ToString(), Morning, Afternoon, Evening);
-
-            ViewAllSchedule();
-        }
-
-
-        //Planing
-
-        public void ViewSalesPlan()
-        {
-            //store.planningManagment.ViewSalesPlaning();
-
-            //lbPlaning.Items.Clear();
-
-            //foreach (Planing planing in store.planningManagment.planings)
-            //{
-            //    lbPlaning.Items.Add(planing);
-            //}
-
-
-            //lbEmployee.Items.Clear();
-
-            //foreach (BasicEmployeeInfo employee in store.planningManagment.employees)
-            //{
-            //    lbEmployee.Items.Add(employee);
-            //}
-        }
-
-        private void lbPlaning_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lbPlaning.SelectedIndex < 0)
-            {
-                return;
-            }
-
-            Object planObject = lbPlaning.SelectedItem;
-            //if (!(planObject is Planing))
-            //{
-            //    return;
-            //}
-
-            //Planing planing = (Planing)planObject;
-
-            //tbWorkId.Text = planing.WorkID.ToString();
-            //tbNewEmployeeId.Text = planing.EmployeeID.ToString();
-            //tbDep.Text = planing.Department;
-            //tbDay.Text = planing.Day.ToString();
-            //tbTime.Text = planing.Time.ToString();
-        }
-
-        private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lbEmployee.SelectedIndex < 0)
-            {
-                return;
-            }
-
-            Object employeeObject = lbEmployee.SelectedItem;
-            if (!(employeeObject is BasicEmployeeInfo))
-            {
-                return;
-            }
-
-            BasicEmployeeInfo EmployeeInfo = (BasicEmployeeInfo)employeeObject;
-
-            tbNewEmployeeId.Text = EmployeeInfo.EmployeeID.ToString();
-            tbNewEmployeeId.BackColor = Color.LightBlue;
-        }
-
-        private void btnEditPlaning_Click(object sender, EventArgs e)
-        {
-
-            string WorkID = tbWorkId.Text;
-            if (string.IsNullOrEmpty(WorkID))
-            {
-                MessageBox.Show("'WorkID' field is required.");
-                return;
-            }
-
-            string NewEmployeeId = tbNewEmployeeId.Text;
-            if (string.IsNullOrEmpty(NewEmployeeId))
-            {
-                MessageBox.Show("'NewEmployeeId' field is required.");
-                return;
-            }
-
-            string Department = tbDep.Text;
-            if (string.IsNullOrEmpty(Department))
-            {
-                MessageBox.Show("'Department' field is required.");
-                return;
-            }
-
-            string Day = tbDay.Text;
-            if (string.IsNullOrEmpty(Day))
+            string Day = lbScheduleDay.Text;
+            if (string.IsNullOrEmpty(Evening))
             {
                 MessageBox.Show("'Day' field is required.");
                 return;
             }
 
-            string Time = tbTime.Text;
-            if (string.IsNullOrEmpty(Time))
-            {
-                MessageBox.Show("'Time' field is required.");
-                return;
-            }
-            //store.planningManagment.EditPlaning(WorkID, NewEmployeeId, Department, Day, Time);
+            store.scheduleManagment.Editschedule(Day, Morning, Afternoon, Evening);
 
-            ViewSalesPlan();
-
-            tbNewEmployeeId.Text = "";
-            tbWorkId.Text = "";
-            tbNewEmployeeId.Text = "";
-            tbDep.Text = "";
-            tbDay.Text = "";
-            tbTime.Text = "";
-            tbNewEmployeeId.BackColor = Color.LightGray;
+            UpdateSchedule();
         }
 
-        private void btnViewSalesPlan_Click(object sender, EventArgs e)
-        {
-            ViewSalesPlan();
-        }
+        //Planning   
+
+
     }
 }

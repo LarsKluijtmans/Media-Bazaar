@@ -9,23 +9,23 @@ namespace ClassLibraryProject.ManagmentClasses
     public class ReshelfManagment
     {
         private static string REQUEST_SHELFREPLENISHMENT = "INSERT INTO shelfreplenishment (Barcode ,ProductID, AmountRequested, Status) VALUES (@Barcode, @ProductID, @AmountRequested, @Status);";
-        private static string GET_ALL_SHELFREPLENISHMENT_REQUESTS = "SELECT * FROM shelfreplenishment WHERE Status = @Status;";
+        private static string GET_PENDING_SHELFREPLENISHMENT_REQUESTS = "SELECT * FROM shelfreplenishment WHERE Status = 'Pending';";
+        private static string GET_FULFILLED_SHELFREPLENISHMENT_REQUESTS = "SELECT * FROM shelfreplenishment WHERE Status = 'Fulfilled';";
         private static string DELETE_SHELFREPLENISHMENT_BY_ID = "DELETE FROM shelfreplenishment WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
         private static string SHELFREPLENISHMENT = "UPDATE shelfreplenishment INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID SET Status = @Status, product.AmountInDepot = @AmountDepot, product.AmountInStore = @AmountStore  WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
         private static string GET_AMOUNT_REQUESTED = "SELECT shelfreplenishment.AmountRequested FROM `shelfreplenishment` INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
         private static string GET_AMOUNT_STORE = "SELECT product.AmountInStore FROM `shelfreplenishment` INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
         private static string GET_AMOUNT_DEPOT = "SELECT product.AmountInDepot FROM `shelfreplenishment` INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
 
-        public DataTable ViewReshelfRequests(string status)
+        public DataTable ViewPendingReshelfRequests()
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = GET_ALL_SHELFREPLENISHMENT_REQUESTS;
+            string sql = GET_PENDING_SHELFREPLENISHMENT_REQUESTS;
 
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Status", status);
 
                 conn.Open();
 
@@ -40,6 +40,36 @@ namespace ClassLibraryProject.ManagmentClasses
             {}
             catch (Exception)
             {}
+            finally
+            {
+                conn.Close();
+            }
+            DataTable a = new DataTable();
+            return a;
+        }
+        public DataTable ViewHistoryReshelfRequests()
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = GET_PENDING_SHELFREPLENISHMENT_REQUESTS;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                conn.Open();
+
+                MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
+
+                DataTable table = new DataTable();
+                reader.Fill(table);
+
+                return table;
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
             finally
             {
                 conn.Close();
