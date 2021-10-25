@@ -18,6 +18,7 @@ namespace MediaBazaar
 
             UpdateRestockRequests();
             UpdateSchedule();
+            UpdateSupplier();
         }
 
         //Overview
@@ -156,7 +157,65 @@ namespace MediaBazaar
         //Planning
 
 
+        //Supplier
+        private void UpdateSupplier()
+        {
+            dgOverviewSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
+            dgSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
+        }
+        private void btnEditSupplier_Click(object sender, EventArgs e)
+        {
+            string id = txtSupplierID.Text;
+            string name = lbScheduleMorning.Text;
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("'Morning' field is required.");
+                return;
+            }
+            string country = lbScheduleAfternoon.Text;
+            if (string.IsNullOrEmpty(country))
+            {
+                MessageBox.Show("'Afternoon' field is required.");
+                return;
+            }
+            string buildingNumber = lbScheduleEvening.Text;
+            if (string.IsNullOrEmpty(buildingNumber))
+            {
+                MessageBox.Show("'Evening' field is required.");
+                return;
+            }
+            string postalCode = lbScheduleDay.Text;
+            if (string.IsNullOrEmpty(postalCode))
+            {
+                MessageBox.Show("'Day' field is required.");
+                return;
+            }
+            string email = lbScheduleDay.Text;
+            if (string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("'Day' field is required.");
+                return;
+            }
+            string phoneNumber = lbScheduleDay.Text;
+            if (string.IsNullOrEmpty(phoneNumber))
+            {
+                MessageBox.Show("'Day' field is required.");
+                return;
+            }
+            string bankNumber = lbScheduleDay.Text;
+            if (string.IsNullOrEmpty(bankNumber))
+            {
+                MessageBox.Show("'Day' field is required.");
+                return;
+            }
 
+            store.supplierManagment.EditSupplier(Convert.ToInt32(id), name, country, Convert.ToInt32(buildingNumber), Convert.ToInt32(postalCode), email, Convert.ToInt32(phoneNumber), bankNumber);
 
+            UpdateSupplier();
+        }
+        private void btnRemoveSupplier_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

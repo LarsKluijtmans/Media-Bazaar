@@ -14,6 +14,7 @@ namespace ClassLibraryProject.Class
         public CompanyManagment companyManagment;
         public CheckinManagment checkinManagment;
         public EmployeeManagement employeeManagement;
+        public SupplierManagment supplierManagment;
 
         //public EmployeeManagment employeeManagment;
         //public ContractManagment contractManagment;
@@ -30,6 +31,7 @@ namespace ClassLibraryProject.Class
             companyManagment = new CompanyManagment();
             checkinManagment = new CheckinManagment();
             employeeManagement = new EmployeeManagement();
+            supplierManagment = new SupplierManagment();
             //employeeManagment = new employeeManagment();
             //contractManagment = new contractManagment();
         }
