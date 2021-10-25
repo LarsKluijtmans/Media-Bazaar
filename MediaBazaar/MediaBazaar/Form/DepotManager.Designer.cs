@@ -72,12 +72,15 @@ namespace MediaBazaar
             this.label15 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabOverview = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dgSupplier = new System.Windows.Forms.DataGridView();
             this.dgOverviewRestock = new System.Windows.Forms.DataGridView();
             this.lstEmployeesWorkingToday = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
+            this.tabSupplier = new System.Windows.Forms.TabPage();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
             this.tabSchedule.SuspendLayout();
@@ -88,6 +91,7 @@ namespace MediaBazaar
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewRestock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).BeginInit();
             this.SuspendLayout();
@@ -243,7 +247,7 @@ namespace MediaBazaar
             this.groupBox2.Controls.Add(this.lbScheduleEvening);
             this.groupBox2.Controls.Add(this.lbScheduleAfternoon);
             this.groupBox2.Controls.Add(this.lbScheduleMorning);
-            this.groupBox2.Location = new System.Drawing.Point(623, 31);
+            this.groupBox2.Location = new System.Drawing.Point(622, 31);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(224, 297);
             this.groupBox2.TabIndex = 4;
@@ -367,7 +371,7 @@ namespace MediaBazaar
             this.tabRestock.Padding = new System.Windows.Forms.Padding(3);
             this.tabRestock.Size = new System.Drawing.Size(954, 510);
             this.tabRestock.TabIndex = 5;
-            this.tabRestock.Text = "DepotManager";
+            this.tabRestock.Text = "Restock";
             this.tabRestock.UseVisualStyleBackColor = true;
             // 
             // dgRestock
@@ -556,6 +560,7 @@ namespace MediaBazaar
             this.tabControl1.Controls.Add(this.tabRestock);
             this.tabControl1.Controls.Add(this.tabSchedule);
             this.tabControl1.Controls.Add(this.tabPlanning);
+            this.tabControl1.Controls.Add(this.tabSupplier);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.Location = new System.Drawing.Point(33, 49);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -566,6 +571,8 @@ namespace MediaBazaar
             // 
             // tabOverview
             // 
+            this.tabOverview.Controls.Add(this.label13);
+            this.tabOverview.Controls.Add(this.dgSupplier);
             this.tabOverview.Controls.Add(this.dgOverviewRestock);
             this.tabOverview.Controls.Add(this.lstEmployeesWorkingToday);
             this.tabOverview.Controls.Add(this.label12);
@@ -580,6 +587,27 @@ namespace MediaBazaar
             this.tabOverview.Text = "Overview";
             this.tabOverview.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label13.Location = new System.Drawing.Point(520, 290);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(71, 21);
+            this.label13.TabIndex = 92;
+            this.label13.Text = "Supplier:";
+            // 
+            // dgSupplier
+            // 
+            this.dgSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSupplier.Location = new System.Drawing.Point(520, 314);
+            this.dgSupplier.Name = "dgSupplier";
+            this.dgSupplier.RowHeadersWidth = 51;
+            this.dgSupplier.RowTemplate.Height = 25;
+            this.dgSupplier.Size = new System.Drawing.Size(410, 190);
+            this.dgSupplier.TabIndex = 91;
+            this.dgSupplier.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
             // dgOverviewRestock
             // 
             this.dgOverviewRestock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -587,7 +615,7 @@ namespace MediaBazaar
             this.dgOverviewRestock.Name = "dgOverviewRestock";
             this.dgOverviewRestock.RowHeadersWidth = 51;
             this.dgOverviewRestock.RowTemplate.Height = 25;
-            this.dgOverviewRestock.Size = new System.Drawing.Size(592, 190);
+            this.dgOverviewRestock.Size = new System.Drawing.Size(487, 190);
             this.dgOverviewRestock.TabIndex = 90;
             this.dgOverviewRestock.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewRestock_CellDoubleClick);
             // 
@@ -596,16 +624,16 @@ namespace MediaBazaar
             this.lstEmployeesWorkingToday.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmployeesWorkingToday.FormattingEnabled = true;
             this.lstEmployeesWorkingToday.ItemHeight = 17;
-            this.lstEmployeesWorkingToday.Location = new System.Drawing.Point(632, 40);
+            this.lstEmployeesWorkingToday.Location = new System.Drawing.Point(528, 27);
             this.lstEmployeesWorkingToday.Name = "lstEmployeesWorkingToday";
-            this.lstEmployeesWorkingToday.Size = new System.Drawing.Size(302, 463);
+            this.lstEmployeesWorkingToday.Size = new System.Drawing.Size(402, 242);
             this.lstEmployeesWorkingToday.TabIndex = 89;
             this.lstEmployeesWorkingToday.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstEmployeesWorkingToday_MouseDoubleClick);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(632, 13);
+            this.label12.Location = new System.Drawing.Point(528, 3);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(195, 21);
             this.label12.TabIndex = 88;
@@ -615,11 +643,11 @@ namespace MediaBazaar
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(21, 281);
+            this.label11.Location = new System.Drawing.Point(21, 290);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(134, 21);
+            this.label11.Size = new System.Drawing.Size(194, 21);
             this.label11.TabIndex = 86;
-            this.label11.Text = "Restock Requests:";
+            this.label11.Text = "Pending Restock Requests:";
             // 
             // label10
             // 
@@ -640,6 +668,16 @@ namespace MediaBazaar
             this.dgOverviewSchedule.Size = new System.Drawing.Size(487, 251);
             this.dgOverviewSchedule.TabIndex = 13;
             this.dgOverviewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewSchedule_CellDoubleClick);
+            // 
+            // tabSupplier
+            // 
+            this.tabSupplier.Location = new System.Drawing.Point(4, 30);
+            this.tabSupplier.Name = "tabSupplier";
+            this.tabSupplier.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSupplier.Size = new System.Drawing.Size(954, 510);
+            this.tabSupplier.TabIndex = 13;
+            this.tabSupplier.Text = "Supplier";
+            this.tabSupplier.UseVisualStyleBackColor = true;
             // 
             // DepotManager
             // 
@@ -667,6 +705,7 @@ namespace MediaBazaar
             this.tabControl1.ResumeLayout(false);
             this.tabOverview.ResumeLayout(false);
             this.tabOverview.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewRestock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).EndInit();
             this.ResumeLayout(false);
@@ -723,5 +762,8 @@ namespace MediaBazaar
         private System.Windows.Forms.Label txtRestockID;
         private System.Windows.Forms.Label txtMonth;
         private System.Windows.Forms.Label lbScheduleDay;
+        private System.Windows.Forms.TabPage tabSupplier;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridView dgSupplier;
     }
 }

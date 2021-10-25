@@ -39,7 +39,10 @@ namespace MediaBazaar
         {
             tabControl1.SelectTab(3);
         }
-
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tabControl1.SelectTab(4);
+        }
         //Restock
         public void UpdateRestockRequests()
         {
