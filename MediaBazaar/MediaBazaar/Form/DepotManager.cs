@@ -57,7 +57,7 @@ namespace MediaBazaar
         }
         public void DeleteRestockRequest()
         {
-            string restockID = txtRestockID.Text;
+            string restockID = txtProductID.Text;
             if (string.IsNullOrEmpty(restockID))
             {
                 MessageBox.Show("'RestokID' field is required.");
@@ -70,7 +70,7 @@ namespace MediaBazaar
         }
         private void btnFufillRestockRequest_Click(object sender, EventArgs e)
         {
-            string id = txtRestockID.Text;
+            string id = txtProductID.Text;
             if (string.IsNullOrEmpty(id))
             {
                 MessageBox.Show("Please select a product");
@@ -90,10 +90,10 @@ namespace MediaBazaar
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgRestock.Rows[e.RowIndex];
-                txtRestockID.Text = row.Cells["RestockReplenishmentID"].Value.ToString();
+                txtProductID.Text = row.Cells["RestockReplenishmentID"].Value.ToString();
                 txtProductID.Text = row.Cells["ProductID"].Value.ToString();
                 txtBarcode.Text = row.Cells["Barcode"].Value.ToString();
-                txtRestockAmount.Text = row.Cells["AmountRequested"].Value.ToString();
+                txtAmountRequested.Text = row.Cells["AmountRequested"].Value.ToString();
             }
         }
 
