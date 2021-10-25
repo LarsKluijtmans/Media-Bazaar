@@ -17,6 +17,8 @@ namespace MediaBazaar
             InitializeComponent();
             ID = UserID;
             store = s;
+
+            UpdateSchedule();
         }
 
         //Overview
@@ -62,7 +64,7 @@ namespace MediaBazaar
         public void UpdateSchedule()
         {
             dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
-            //dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
+            dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
             dgPlanningSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
         }
         private void dgSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
