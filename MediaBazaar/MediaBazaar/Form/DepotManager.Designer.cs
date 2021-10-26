@@ -83,6 +83,7 @@ namespace MediaBazaar
             this.tabSupplier = new System.Windows.Forms.TabPage();
             this.dgSupplier = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAddSupplier = new System.Windows.Forms.Button();
             this.txtPostalCode = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtCountry = new System.Windows.Forms.TextBox();
@@ -102,7 +103,6 @@ namespace MediaBazaar
             this.label26 = new System.Windows.Forms.Label();
             this.btnRemoveSupplier = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
-            this.btnAddSupplier = new System.Windows.Forms.Button();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
             this.tabSchedule.SuspendLayout();
@@ -746,6 +746,18 @@ namespace MediaBazaar
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Supplier Management";
             // 
+            // btnAddSupplier
+            // 
+            this.btnAddSupplier.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddSupplier.Location = new System.Drawing.Point(208, 261);
+            this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnAddSupplier.Name = "btnAddSupplier";
+            this.btnAddSupplier.Size = new System.Drawing.Size(127, 30);
+            this.btnAddSupplier.TabIndex = 108;
+            this.btnAddSupplier.Text = "Add Supplier";
+            this.btnAddSupplier.UseVisualStyleBackColor = true;
+            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
+            // 
             // txtPostalCode
             // 
             this.txtPostalCode.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -935,17 +947,6 @@ namespace MediaBazaar
             this.label27.Size = new System.Drawing.Size(71, 21);
             this.label27.TabIndex = 92;
             this.label27.Text = "Supplier:";
-            // 
-            // btnAddSupplier
-            // 
-            this.btnAddSupplier.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddSupplier.Location = new System.Drawing.Point(208, 261);
-            this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(127, 30);
-            this.btnAddSupplier.TabIndex = 108;
-            this.btnAddSupplier.Text = "Add Supplier";
-            this.btnAddSupplier.UseVisualStyleBackColor = true;
             // 
             // DepotManager
             // 

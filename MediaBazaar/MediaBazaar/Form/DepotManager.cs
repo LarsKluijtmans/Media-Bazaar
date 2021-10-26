@@ -166,6 +166,51 @@ namespace MediaBazaar
             dgOverviewSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
             dgSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
         }
+
+        private void btnAddSupplier_Click(object sender, EventArgs e)
+        {
+            string name = txtSupplierName.Text;
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("'Name' is required.");
+                return;
+            }
+            string country = txtCountry.Text;
+            if (string.IsNullOrEmpty(country))
+            {
+                MessageBox.Show("'Country' is required.");
+                return;
+            }
+            string buildingNumber = txtBuildingNumber.Text;
+            string postalCode = txtPostalCode.Text;
+            if (string.IsNullOrEmpty(postalCode))
+            {
+                MessageBox.Show("'Postal Code' is required.");
+                return;
+            }
+            string email = txtEmail.Text;
+            if (string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("'Email' is required.");
+                return;
+            }
+            string phoneNumber = txtPhoneNumber.Text;
+            string bankNumber = txtBankNumber.Text;
+            if (string.IsNullOrEmpty(bankNumber))
+            {
+                MessageBox.Show("'Bank Number' is required.");
+                return;
+            }
+            try
+            {
+                store.supplierManagment.AddSupplier(name, country, Convert.ToInt32(buildingNumber), postalCode, email, Convert.ToInt32(phoneNumber), bankNumber);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select a supplier you want to edit");
+            }
+            UpdateSupplier();
+        }
         private void btnEditSupplier_Click(object sender, EventArgs e)
         {
             string id = txtSupplierID.Text;
