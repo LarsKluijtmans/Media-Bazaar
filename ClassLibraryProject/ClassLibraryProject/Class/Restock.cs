@@ -9,7 +9,6 @@ namespace ClassLibraryProject.Class
         private int restockReplenishmentID;
         private int productID;
         private string barcode;
-        private int amountInDepot;
         private int amountReceived;
 
         public int RestockReplenishmentID
@@ -27,11 +26,6 @@ namespace ClassLibraryProject.Class
             get { return barcode; }
             set { barcode = value; }
         }
-        public int AmountInDepot
-        {
-            get { return amountInDepot; }
-            set { amountInDepot = value; }
-        }
         public int AmountReceived
         {
             get { return amountReceived; }
@@ -43,7 +37,6 @@ namespace ClassLibraryProject.Class
             RestockReplenishmentID = restockReplenishmentID;
             ProductID = productID;
             Barcode = barcode;
-            AmountInDepot = amountInDepot;
             AmountReceived = amountReceived;
         }
     }

@@ -62,26 +62,29 @@ namespace MediaBazaar
         public void DeleteRestockRequest()
         {
             string restockID = txtRestockID.Text;
-            if (string.IsNullOrEmpty(restockID))
+            try
             {
-                MessageBox.Show("Select any restock request you want to delete.");
-                return;
+                store.restockManagment.DeleteRestockRequest(Convert.ToInt32(restockID));
             }
-
-            store.restockManagment.DeleteRestockRequest(Convert.ToInt32(restockID));
+            catch (Exception)
+            {
+                MessageBox.Show("Select any restock request you want to reject.");
+            }
 
             UpdateRestockRequests();
         }
         private void btnOrderRestock_Click(object sender, EventArgs e)
         {
             string restockID = txtRestockID.Text;
-            if (string.IsNullOrEmpty(restockID))
+            try
             {
-                MessageBox.Show("Select any restock request you want to finalize.");
-                return;
+                store.restockManagment.OrderRestock(Convert.ToInt32(restockID));
+            }
+            catch
+            {
+                MessageBox.Show("Select any restock request you want to reject.");
             }
 
-            store.restockManagment.OrderRestock(Convert.ToInt32(restockID));
 
             UpdateRestockRequests();
         }
@@ -124,32 +127,32 @@ namespace MediaBazaar
             string Morning = lbScheduleMorning.Text;
             if (string.IsNullOrEmpty(Morning))
             {
-                MessageBox.Show("'Morning' field is required.");
+                MessageBox.Show("Amount in Morning is required.");
                 return;
             }
 
             string Afternoon = lbScheduleAfternoon.Text;
             if (string.IsNullOrEmpty(Afternoon))
             {
-                MessageBox.Show("'Afternoon' field is required.");
+                MessageBox.Show("Amount in Afternoon is required.");
                 return;
             }
 
             string Evening = lbScheduleEvening.Text;
             if (string.IsNullOrEmpty(Evening))
             {
-                MessageBox.Show("'Evening' field is required.");
+                MessageBox.Show("Amount in Evening is required.");
                 return;
             }
 
             string Day = lbScheduleDay.Text;
-            if (string.IsNullOrEmpty(Evening))
+            if (string.IsNullOrEmpty(Day))
             {
-                MessageBox.Show("'Day' field is required.");
+                MessageBox.Show("Day is required.");
                 return;
             }
 
-            store.scheduleManagment.Editschedule(Day, Morning, Afternoon, Evening);
+            store.scheduleManagment.EditDepotSchedule(Day, Morning, Afternoon, Evening);
 
             UpdateSchedule();
         }
@@ -166,11 +169,6 @@ namespace MediaBazaar
         private void btnEditSupplier_Click(object sender, EventArgs e)
         {
             string id = txtSupplierID.Text;
-            if (string.IsNullOrEmpty(id))
-            {
-                MessageBox.Show("Select supplier from the list you want to update");
-                return;
-            }
             string name = txtSupplierName.Text;
             if (string.IsNullOrEmpty(name))
             {
@@ -184,11 +182,6 @@ namespace MediaBazaar
                 return;
             }
             string buildingNumber = txtBuildingNumber.Text;
-            if (string.IsNullOrEmpty(buildingNumber))
-            {
-                MessageBox.Show("'Building Number' is required.");
-                return;
-            }
             string postalCode = txtPostalCode.Text;
             if (string.IsNullOrEmpty(postalCode))
             {
@@ -202,32 +195,33 @@ namespace MediaBazaar
                 return;
             }
             string phoneNumber = txtPhoneNumber.Text;
-            if (string.IsNullOrEmpty(phoneNumber))
-            {
-                MessageBox.Show("'Phone Number' is required.");
-                return;
-            }
             string bankNumber = txtBankNumber.Text;
             if (string.IsNullOrEmpty(bankNumber))
             {
                 MessageBox.Show("'Bank Number' is required.");
                 return;
             }
-
-            store.supplierManagment.EditSupplier(Convert.ToInt32(id), name, country, Convert.ToInt32(buildingNumber), Convert.ToInt32(postalCode), email, Convert.ToInt32(phoneNumber), bankNumber);
-
+            try
+            {
+                store.supplierManagment.EditSupplier(Convert.ToInt32(id), name, country, Convert.ToInt32(buildingNumber), postalCode, email, Convert.ToInt32(phoneNumber), bankNumber);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select a supplier you want to edit");
+            }
             UpdateSupplier();
         }
         private void btnRemoveSupplier_Click(object sender, EventArgs e)
         {
             string supplierID = txtSupplierID.Text;
-            if (string.IsNullOrEmpty(supplierID))
+            try
             {
-                MessageBox.Show("Select supplier from the list you want to delete");
-                return;
+                store.supplierManagment.DeleteSupplier(Convert.ToInt32(supplierID));
             }
-
-            store.supplierManagment.DeleteSupplier(supplierID);
+            catch (Exception)
+            {
+                MessageBox.Show("Select supplier you want to delete");
+            }
 
             UpdateRestockRequests();
         }

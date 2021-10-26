@@ -211,7 +211,7 @@ namespace ClassLibraryProject.ManagmentClasses
         public void AddToDepot(int restockReplenishmentID)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = RESTOCK_REPLENISHMENT;
+            string sql = ADD_TO_DEPOT;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);

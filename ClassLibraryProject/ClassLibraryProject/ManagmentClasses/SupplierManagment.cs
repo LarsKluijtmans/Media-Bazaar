@@ -44,7 +44,7 @@ namespace ClassLibraryProject.ManagmentClasses
             DataTable a = new DataTable();
             return a;
         }
-        public void AddSupplier(string name, string country, int buildingNumber, int postalCode, string email, int phoneNumber, string bankNumber)
+        public void AddSupplier(string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = ADD_SUPPLIER;
@@ -71,7 +71,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
-        public void EditSupplier(int id, string name, string country, int buildingNumber, int postalCode, string email, int phoneNumber, string bankNumber)
+        public void EditSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = UPDATE_SUPPLIER;
@@ -100,7 +100,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
-        public void DeleteSupplier(string supplierID)
+        public void DeleteSupplier(int supplierID)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = DELETE_SUPPLIER_BY_ID;

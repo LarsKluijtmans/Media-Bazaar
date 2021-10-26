@@ -39,6 +39,7 @@ namespace MediaBazaar
         {
             tabControl1.SelectTab(3);
         }
+
         //Products
         //Esther//Esther
         private void btnEditProduct_Click(object sender, EventArgs e)
@@ -63,9 +64,9 @@ namespace MediaBazaar
         //Schedule
         public void UpdateSchedule()
         {
-            dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
-            dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
-            dgPlanningSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
+            dgSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule();
+            dgOverviewSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule();
+            dgPlanningSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule();
         }
         private void dgSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -83,32 +84,31 @@ namespace MediaBazaar
             string Morning = lbScheduleMorning.Text;
             if (string.IsNullOrEmpty(Morning))
             {
-                MessageBox.Show("'Morning' field is required.");
+                MessageBox.Show("Amount in Morning is required.");
                 return;
             }
 
             string Afternoon = lbScheduleAfternoon.Text;
             if (string.IsNullOrEmpty(Afternoon))
             {
-                MessageBox.Show("'Afternoon' field is required.");
+                MessageBox.Show("Amount in Afternoon is required.");
                 return;
             }
 
             string Evening = lbScheduleEvening.Text;
             if (string.IsNullOrEmpty(Evening))
             {
-                MessageBox.Show("'Evening' field is required.");
+                MessageBox.Show("Amount in Evening is required.");
                 return;
             }
 
             string Day = lbScheduleDay.Text;
-            if (string.IsNullOrEmpty(Evening))
+            if (string.IsNullOrEmpty(Day))
             {
-                MessageBox.Show("'Day' field is required.");
+                MessageBox.Show("Day is required.");
                 return;
             }
-
-            store.scheduleManagment.Editschedule(Day, Morning, Afternoon, Evening);
+            store.scheduleManagment.EditSalesSchedule(Day, Morning, Afternoon, Evening);
 
             UpdateSchedule();
         }

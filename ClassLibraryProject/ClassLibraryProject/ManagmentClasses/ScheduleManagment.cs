@@ -11,7 +11,8 @@ namespace ClassLibraryProject.ManagmentClasses
 
         public static string GET_SCHEDULE_SALES = "SELECT  day, morning, afternoon, evening from SCHEDULE where Department = 'sales';";
         public static string GET_SCHEDULE_DEPOT = "SELECT   day, morning, afternoon, evening from SCHEDULE where Department = 'depot';";
-        public static string UPDATE_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day;";
+        public static string UPDATE_DEPOT_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day, Department = 'depot';";
+        public static string UPDATE_SALES_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day, Department = 'sales';";
 
         public DataTable ViewSalesSchedule()
         {
@@ -75,17 +76,17 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
       
-        public void Editschedule(string Day, string Morning, string Afternoon, string Evening)
+        public void EditDepotSchedule(string day, string morning, string afternoon, string evening)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = UPDATE_SCHEDULE;
+            string sql = UPDATE_DEPOT_SCHEDULE;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Day", Day);
-                cmd.Parameters.AddWithValue("@morning", Morning);
-                cmd.Parameters.AddWithValue("@afternoon", Afternoon);
-                cmd.Parameters.AddWithValue("@evening", Evening);
+                cmd.Parameters.AddWithValue("@Day", day);
+                cmd.Parameters.AddWithValue("@morning", morning);
+                cmd.Parameters.AddWithValue("@afternoon", afternoon);
+                cmd.Parameters.AddWithValue("@evening", evening);
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
@@ -100,5 +101,31 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
+        public void EditSalesSchedule(string day, string morning, string afternoon, string evening)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = UPDATE_SALES_SCHEDULE;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Day", day);
+                cmd.Parameters.AddWithValue("@morning", morning);
+                cmd.Parameters.AddWithValue("@afternoon", afternoon);
+                cmd.Parameters.AddWithValue("@evening", evening);
+                conn.Open();
+
+                int numAffectedRows = cmd.ExecuteNonQuery();
+
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
     }
 }

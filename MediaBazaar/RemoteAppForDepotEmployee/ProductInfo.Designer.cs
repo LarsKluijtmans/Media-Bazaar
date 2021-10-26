@@ -31,14 +31,10 @@ namespace RemoteAppForDepotEmployee
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtAmount = new System.Windows.Forms.TextBox();
             this.btnRequest = new System.Windows.Forms.Button();
             this.lbName = new System.Windows.Forms.Label();
             this.lbAmount = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnClose = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -61,28 +57,10 @@ namespace RemoteAppForDepotEmployee
             this.label2.TabIndex = 1;
             this.label2.Text = "Amount In Depot:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(22, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 21);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Request Amount:";
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtAmount.Location = new System.Drawing.Point(165, 33);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(69, 29);
-            this.txtAmount.TabIndex = 3;
-            // 
             // btnRequest
             // 
             this.btnRequest.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnRequest.Location = new System.Drawing.Point(48, 89);
+            this.btnRequest.Location = new System.Drawing.Point(79, 125);
             this.btnRequest.Name = "btnRequest";
             this.btnRequest.Size = new System.Drawing.Size(174, 30);
             this.btnRequest.TabIndex = 4;
@@ -110,25 +88,12 @@ namespace RemoteAppForDepotEmployee
             this.lbAmount.TabIndex = 6;
             this.lbAmount.Text = "Amount";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtAmount);
-            this.groupBox1.Controls.Add(this.btnRequest);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(47, 125);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(269, 171);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Restock Request";
-            // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnClose.Location = new System.Drawing.Point(194, 302);
+            this.btnClose.Location = new System.Drawing.Point(244, 194);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(122, 29);
+            this.btnClose.Size = new System.Drawing.Size(91, 29);
             this.btnClose.TabIndex = 17;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -138,17 +103,15 @@ namespace RemoteAppForDepotEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 349);
+            this.ClientSize = new System.Drawing.Size(347, 240);
+            this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbAmount);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ProductInfo";
             this.Text = "ProductInfo";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,12 +121,9 @@ namespace RemoteAppForDepotEmployee
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbAmount;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnClose;
     }
 }

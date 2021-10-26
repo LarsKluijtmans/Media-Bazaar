@@ -40,26 +40,28 @@ namespace MediaBazaar
         public void DeleteReshelveRequest()
         {
             string reshelveID = txtReshelfID.Text;
-            if (string.IsNullOrEmpty(reshelveID))
+            try
             {
-                MessageBox.Show("Select the reshelve request you want to reject");
-                return;
+                store.reshelfManagment.DeleteReshelfRequest(Convert.ToInt32(reshelveID));
             }
-
-            store.reshelfManagment.DeleteReshelfRequest(Convert.ToInt32(reshelveID));
-
+            catch (Exception)
+            {
+                MessageBox.Show("Please select a reshelf request you want to reject");
+            }
             UpdateReshelveRequests();
         }
         private void btnFufillReshelveRequest_Click(object sender, EventArgs e)
         {
             string id = txtReshelfID.Text;
-            if (string.IsNullOrEmpty(id))
+            try
             {
-                MessageBox.Show("Select the reshelve request you want to fulfill");
-                return;
+                store.reshelfManagment.ShelfReplenishment(Convert.ToInt32(id));
             }
-
-            store.reshelfManagment.ShelfReplenishment(Convert.ToInt32(id));
+            catch (Exception)
+            {
+                MessageBox.Show("Please select a reshelf request you want to fulfill");
+            }
+            
 
             UpdateReshelveRequests();
         }
@@ -96,22 +98,17 @@ namespace MediaBazaar
         private void btnReceiveProduct_Click(object sender, EventArgs e)
         {
             string restockID = txtRestockID.Text;
-            if (string.IsNullOrEmpty(restockID))
-            {
-                MessageBox.Show("Select any restock request that you get the product for.");
-                return;
-            }
             string amountReceived = txtAmountReceived.Text;
-            if (string.IsNullOrEmpty(amountReceived))
+            try
             {
-                MessageBox.Show("Fill up the amount of product you receive from supplier");
-                return;
+                store.restockManagment.RestockReplenishment(Convert.ToInt32(restockID), Convert.ToInt32(amountReceived));
+                store.restockManagment.AddToDepot(Convert.ToInt32(restockID));
             }
-            store.restockManagment.RestockReplenishment(Convert.ToInt32(restockID), Convert.ToInt32(amountReceived));
-            store.restockManagment.AddToDepot(Convert.ToInt32(restockID));
+            catch (Exception)
+            {
+                MessageBox.Show("Select restock request and input the amount supplied");
+            }
             UpdateOrders();
-        }
-
-       
+        }  
     }
 }
