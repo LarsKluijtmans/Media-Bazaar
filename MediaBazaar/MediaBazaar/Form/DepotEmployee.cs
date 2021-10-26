@@ -1,7 +1,5 @@
-﻿using ClassLibraryProject;
-using ClassLibraryProject.Class;
+﻿using ClassLibraryProject.Class;
 using System;
-using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace MediaBazaar
@@ -16,7 +14,8 @@ namespace MediaBazaar
             InitializeComponent();
             id = UserID;
             store = s;
-
+            UpdateReshelveRequests();
+            UpdateOrders();
         }
 
         //Overview
@@ -34,33 +33,33 @@ namespace MediaBazaar
             dgReshelve.DataSource = store.reshelfManagment.ViewPendingReshelfRequests();
         }
 
-        private void rbHistory_CheckedChanged(object sender, EventArgs e)
+        private void rbHistory_Click(object sender, EventArgs e)
         {
             dgReshelve.DataSource = store.reshelfManagment.ViewHistoryReshelfRequests();
         }
         public void DeleteReshelveRequest()
         {
-            string ReshelveID = txtProductID.Text;
-            if (string.IsNullOrEmpty(ReshelveID))
+            string reshelveID = txtReshelfID.Text;
+            if (string.IsNullOrEmpty(reshelveID))
             {
-                MessageBox.Show("'RestockID' field is required.");
+                MessageBox.Show("Select the reshelve request you want to reject");
                 return;
             }
 
-            store.reshelfManagment.DeleteReshelfRequest(ReshelveID);
+            store.reshelfManagment.DeleteReshelfRequest(Convert.ToInt32(reshelveID));
 
             UpdateReshelveRequests();
         }
         private void btnFufillReshelveRequest_Click(object sender, EventArgs e)
         {
-            string id = txtProductID.Text;
+            string id = txtReshelfID.Text;
             if (string.IsNullOrEmpty(id))
             {
-                MessageBox.Show("Please select a product");
+                MessageBox.Show("Select the reshelve request you want to fulfill");
                 return;
             }
 
-            store.reshelfManagment.ShelfReplenishment(id);
+            store.reshelfManagment.ShelfReplenishment(Convert.ToInt32(id));
 
             UpdateReshelveRequests();
         }
@@ -68,17 +67,51 @@ namespace MediaBazaar
         {
             DeleteReshelveRequest();
         }
-        private void dgReshelve_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgReshelve_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgReshelve.Rows[e.RowIndex];
-                txtProductID.Text = row.Cells["ReshelveReplenishmentID"].Value.ToString();
+                txtReshelfID.Text = row.Cells["ShelfReplenishmentID"].Value.ToString();
                 txtProductID.Text = row.Cells["ProductID"].Value.ToString();
                 txtBarcode.Text = row.Cells["Barcode"].Value.ToString();
                 txtAmountRequested.Text = row.Cells["AmountRequested"].Value.ToString();
             }
         }
-        //
+        //Receive Product
+        public void UpdateOrders()
+        {
+            dgOrder.DataSource = store.restockManagment.ViewOrderedRestockRequests();
+        }
+        private void dgOrder_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgOrder.Rows[e.RowIndex];
+                txtRestockID.Text = row.Cells["RestockReplenishmentID"].Value.ToString();
+                txtProductID.Text = row.Cells["ProductID"].Value.ToString();
+                txtBarcode.Text = row.Cells["Barcode"].Value.ToString();
+            }
+        }
+        private void btnReceiveProduct_Click(object sender, EventArgs e)
+        {
+            string restockID = txtRestockID.Text;
+            if (string.IsNullOrEmpty(restockID))
+            {
+                MessageBox.Show("Select any restock request that you get the product for.");
+                return;
+            }
+            string amountReceived = txtAmountReceived.Text;
+            if (string.IsNullOrEmpty(amountReceived))
+            {
+                MessageBox.Show("Fill up the amount of product you receive from supplier");
+                return;
+            }
+            store.restockManagment.RestockReplenishment(Convert.ToInt32(restockID), Convert.ToInt32(amountReceived));
+            store.restockManagment.AddToDepot(Convert.ToInt32(restockID));
+            UpdateOrders();
+        }
+
+       
     }
 }

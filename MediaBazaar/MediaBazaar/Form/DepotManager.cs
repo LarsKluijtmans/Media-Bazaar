@@ -61,27 +61,27 @@ namespace MediaBazaar
         }
         public void DeleteRestockRequest()
         {
-            string restockID = txtProductID.Text;
+            string restockID = txtRestockID.Text;
             if (string.IsNullOrEmpty(restockID))
             {
-                MessageBox.Show("'RestokID' field is required.");
+                MessageBox.Show("Select any restock request you want to delete.");
                 return;
             }
 
-            store.restockManagment.DeleteRestockRequest(restockID);
+            store.restockManagment.DeleteRestockRequest(Convert.ToInt32(restockID));
 
             UpdateRestockRequests();
         }
-        private void btnFufillRestockRequest_Click(object sender, EventArgs e)
+        private void btnOrderRestock_Click(object sender, EventArgs e)
         {
-            string id = txtProductID.Text;
-            if (string.IsNullOrEmpty(id))
+            string restockID = txtRestockID.Text;
+            if (string.IsNullOrEmpty(restockID))
             {
-                MessageBox.Show("Please select a product");
+                MessageBox.Show("Select any restock request you want to finalize.");
                 return;
             }
 
-            store.restockManagment.RestockReplenishment(id);
+            store.restockManagment.OrderRestock(Convert.ToInt32(restockID));
 
             UpdateRestockRequests();
         }
@@ -94,10 +94,10 @@ namespace MediaBazaar
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgRestock.Rows[e.RowIndex];
-                txtProductID.Text = row.Cells["RestockReplenishmentID"].Value.ToString();
+                txtRestockID.Text = row.Cells["RestockReplenishmentID"].Value.ToString();
                 txtProductID.Text = row.Cells["ProductID"].Value.ToString();
                 txtBarcode.Text = row.Cells["Barcode"].Value.ToString();
-                txtAmountRequested.Text = row.Cells["AmountRequested"].Value.ToString();
+                txtCurrentAmount.Text = row.Cells["ReceivedAmount"].Value.ToString();
             }
         }
 
@@ -166,46 +166,51 @@ namespace MediaBazaar
         private void btnEditSupplier_Click(object sender, EventArgs e)
         {
             string id = txtSupplierID.Text;
-            string name = lbScheduleMorning.Text;
+            if (string.IsNullOrEmpty(id))
+            {
+                MessageBox.Show("Select supplier from the list you want to update");
+                return;
+            }
+            string name = txtSupplierName.Text;
             if (string.IsNullOrEmpty(name))
             {
-                MessageBox.Show("'Morning' field is required.");
+                MessageBox.Show("'Name' is required.");
                 return;
             }
-            string country = lbScheduleAfternoon.Text;
+            string country = txtCountry.Text;
             if (string.IsNullOrEmpty(country))
             {
-                MessageBox.Show("'Afternoon' field is required.");
+                MessageBox.Show("'Country' is required.");
                 return;
             }
-            string buildingNumber = lbScheduleEvening.Text;
+            string buildingNumber = txtBuildingNumber.Text;
             if (string.IsNullOrEmpty(buildingNumber))
             {
-                MessageBox.Show("'Evening' field is required.");
+                MessageBox.Show("'Building Number' is required.");
                 return;
             }
-            string postalCode = lbScheduleDay.Text;
+            string postalCode = txtPostalCode.Text;
             if (string.IsNullOrEmpty(postalCode))
             {
-                MessageBox.Show("'Day' field is required.");
+                MessageBox.Show("'Postal Code' is required.");
                 return;
             }
-            string email = lbScheduleDay.Text;
+            string email = txtEmail.Text;
             if (string.IsNullOrEmpty(email))
             {
-                MessageBox.Show("'Day' field is required.");
+                MessageBox.Show("'Email' is required.");
                 return;
             }
-            string phoneNumber = lbScheduleDay.Text;
+            string phoneNumber = txtPhoneNumber.Text;
             if (string.IsNullOrEmpty(phoneNumber))
             {
-                MessageBox.Show("'Day' field is required.");
+                MessageBox.Show("'Phone Number' is required.");
                 return;
             }
-            string bankNumber = lbScheduleDay.Text;
+            string bankNumber = txtBankNumber.Text;
             if (string.IsNullOrEmpty(bankNumber))
             {
-                MessageBox.Show("'Day' field is required.");
+                MessageBox.Show("'Bank Number' is required.");
                 return;
             }
 
@@ -215,7 +220,16 @@ namespace MediaBazaar
         }
         private void btnRemoveSupplier_Click(object sender, EventArgs e)
         {
+            string supplierID = txtSupplierID.Text;
+            if (string.IsNullOrEmpty(supplierID))
+            {
+                MessageBox.Show("Select supplier from the list you want to delete");
+                return;
+            }
 
+            store.supplierManagment.DeleteSupplier(supplierID);
+
+            UpdateRestockRequests();
         }
     }
 }
