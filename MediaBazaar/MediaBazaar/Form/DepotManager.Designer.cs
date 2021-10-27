@@ -59,14 +59,14 @@ namespace MediaBazaar
             this.rbHistory = new System.Windows.Forms.RadioButton();
             this.rbPending = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtAmountRequested = new System.Windows.Forms.Label();
+            this.txtCurrentAmount = new System.Windows.Forms.Label();
             this.txtBarcode = new System.Windows.Forms.Label();
             this.txtProductID = new System.Windows.Forms.Label();
             this.txtRestockID = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnFufillRestockRequest = new System.Windows.Forms.Button();
+            this.btnOrderRestock = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.btnDeleteRestockRequest = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -83,6 +83,7 @@ namespace MediaBazaar
             this.tabSupplier = new System.Windows.Forms.TabPage();
             this.dgSupplier = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAddSupplier = new System.Windows.Forms.Button();
             this.txtPostalCode = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtCountry = new System.Windows.Forms.TextBox();
@@ -437,14 +438,14 @@ namespace MediaBazaar
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtAmountRequested);
+            this.groupBox1.Controls.Add(this.txtCurrentAmount);
             this.groupBox1.Controls.Add(this.txtBarcode);
             this.groupBox1.Controls.Add(this.txtProductID);
             this.groupBox1.Controls.Add(this.txtRestockID);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnFufillRestockRequest);
+            this.groupBox1.Controls.Add(this.btnOrderRestock);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.btnDeleteRestockRequest);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -455,16 +456,16 @@ namespace MediaBazaar
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Restock Management";
             // 
-            // txtAmountRequested
+            // txtCurrentAmount
             // 
-            this.txtAmountRequested.AutoSize = true;
-            this.txtAmountRequested.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAmountRequested.Location = new System.Drawing.Point(136, 135);
-            this.txtAmountRequested.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtAmountRequested.Name = "txtAmountRequested";
-            this.txtAmountRequested.Size = new System.Drawing.Size(53, 17);
-            this.txtAmountRequested.TabIndex = 93;
-            this.txtAmountRequested.Text = "Amount";
+            this.txtCurrentAmount.AutoSize = true;
+            this.txtCurrentAmount.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCurrentAmount.Location = new System.Drawing.Point(136, 135);
+            this.txtCurrentAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtCurrentAmount.Name = "txtCurrentAmount";
+            this.txtCurrentAmount.Size = new System.Drawing.Size(53, 17);
+            this.txtCurrentAmount.TabIndex = 93;
+            this.txtCurrentAmount.Text = "Amount";
             // 
             // txtBarcode
             // 
@@ -532,28 +533,28 @@ namespace MediaBazaar
             this.label1.TabIndex = 87;
             this.label1.Text = "Barcode:";
             // 
-            // btnFufillRestockRequest
+            // btnOrderRestock
             // 
-            this.btnFufillRestockRequest.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnFufillRestockRequest.Location = new System.Drawing.Point(32, 178);
-            this.btnFufillRestockRequest.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnFufillRestockRequest.Name = "btnFufillRestockRequest";
-            this.btnFufillRestockRequest.Size = new System.Drawing.Size(176, 30);
-            this.btnFufillRestockRequest.TabIndex = 70;
-            this.btnFufillRestockRequest.Text = "Fufill restock request";
-            this.btnFufillRestockRequest.UseVisualStyleBackColor = true;
-            this.btnFufillRestockRequest.Click += new System.EventHandler(this.btnFufillRestockRequest_Click);
+            this.btnOrderRestock.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnOrderRestock.Location = new System.Drawing.Point(32, 178);
+            this.btnOrderRestock.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnOrderRestock.Name = "btnOrderRestock";
+            this.btnOrderRestock.Size = new System.Drawing.Size(176, 30);
+            this.btnOrderRestock.TabIndex = 70;
+            this.btnOrderRestock.Text = "Order restock request";
+            this.btnOrderRestock.UseVisualStyleBackColor = true;
+            this.btnOrderRestock.Click += new System.EventHandler(this.btnOrderRestock_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(10, 135);
+            this.label9.Location = new System.Drawing.Point(29, 135);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 17);
+            this.label9.Size = new System.Drawing.Size(103, 17);
             this.label9.TabIndex = 79;
-            this.label9.Text = "Amount Requested:";
+            this.label9.Text = "Current Amount:";
             // 
             // btnDeleteRestockRequest
             // 
@@ -718,6 +719,7 @@ namespace MediaBazaar
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnAddSupplier);
             this.groupBox3.Controls.Add(this.txtPostalCode);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.txtCountry);
@@ -739,10 +741,22 @@ namespace MediaBazaar
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox3.Location = new System.Drawing.Point(664, 23);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(352, 361);
+            this.groupBox3.Size = new System.Drawing.Size(352, 395);
             this.groupBox3.TabIndex = 93;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Supplier Management";
+            // 
+            // btnAddSupplier
+            // 
+            this.btnAddSupplier.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddSupplier.Location = new System.Drawing.Point(208, 261);
+            this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnAddSupplier.Name = "btnAddSupplier";
+            this.btnAddSupplier.Size = new System.Drawing.Size(127, 30);
+            this.btnAddSupplier.TabIndex = 108;
+            this.btnAddSupplier.Text = "Add Supplier";
+            this.btnAddSupplier.UseVisualStyleBackColor = true;
+            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
             // 
             // txtPostalCode
             // 
@@ -891,7 +905,7 @@ namespace MediaBazaar
             // btnEditSupplier
             // 
             this.btnEditSupplier.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditSupplier.Location = new System.Drawing.Point(208, 274);
+            this.btnEditSupplier.Location = new System.Drawing.Point(208, 293);
             this.btnEditSupplier.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnEditSupplier.Name = "btnEditSupplier";
             this.btnEditSupplier.Size = new System.Drawing.Size(127, 30);
@@ -915,7 +929,7 @@ namespace MediaBazaar
             // 
             this.btnRemoveSupplier.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnRemoveSupplier.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemoveSupplier.Location = new System.Drawing.Point(208, 306);
+            this.btnRemoveSupplier.Location = new System.Drawing.Point(208, 325);
             this.btnRemoveSupplier.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnRemoveSupplier.Name = "btnRemoveSupplier";
             this.btnRemoveSupplier.Size = new System.Drawing.Size(127, 30);
@@ -992,8 +1006,7 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox lbScheduleMorning;
         private System.Windows.Forms.TabPage tabRestock;
         private System.Windows.Forms.Button btnDeleteRestockRequest;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnFufillRestockRequest;
+        private System.Windows.Forms.Button btnOrderRestock;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TabControl tabControl1;
@@ -1016,7 +1029,6 @@ namespace MediaBazaar
         private System.Windows.Forms.DataGridView dgPlanningSchedule;
         private System.Windows.Forms.DataGridView dgRestock;
         private System.Windows.Forms.DataGridView dgOverviewRestock;
-        private System.Windows.Forms.Label txtAmountRequested;
         private System.Windows.Forms.Label txtBarcode;
         private System.Windows.Forms.Label txtProductID;
         private System.Windows.Forms.Label txtRestockID;
@@ -1046,5 +1058,8 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtCountry;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label txtCurrentAmount;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnAddSupplier;
     }
 }

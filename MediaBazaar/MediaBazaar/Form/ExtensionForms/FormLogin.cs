@@ -45,8 +45,8 @@ namespace MediaBazaar
                     case "SALES MANAGER": SalesManager salesManager = new SalesManager(Convert.ToInt32(ID), store); Hide(); salesManager.Show(); break;
                     case "OFFICE MANAGER": OfficeManager officeManager = new OfficeManager(Convert.ToInt32(ID), store); Hide(); officeManager.Show(); break;
                     case "PRODUCT MANAGER": ProductManager officeEmployee = new ProductManager(Convert.ToInt32(ID), store); Hide(); officeEmployee.Show(); break;
-                    case "DEPOT MANAGER": DepotManager depotManager = new DepotManager(Convert.ToInt32(ID), store); Hide(); depotManager.Show(); break;
-                    case "DEPOT EMPLOYEE": DepotEmployee depotEmployee = new DepotEmployee(Convert.ToInt32(ID), store); Hide(); depotEmployee.Show(); break;
+                    case "DEPOT MANAGER": DepotManager depotManager = new DepotManager(Convert.ToInt32(ID), store);/* Hide();*/ depotManager.Show(); break;
+                    case "DEPOT EMPLOYEE": DepotEmployee depotEmployee = new DepotEmployee(Convert.ToInt32(ID), store);/* Hide();*/ depotEmployee.Show(); break;
                     case "Wrong info!": MessageBox.Show("Wrong info!"); break;
                 }
             }

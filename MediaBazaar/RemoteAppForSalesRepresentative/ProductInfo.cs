@@ -30,12 +30,18 @@ namespace RemoteAppForSalesRepresentative
         private void btnRequest_Click(object sender, EventArgs e)
         {
             int amount = Convert.ToInt32(txtRequest.Text);
-            foreach (Product product in s.productManagment.products)
+            try
             {
-                s.reshelfManagment.RequestReshelf(product.Barcode, product.ProductID, amount);
+                foreach (Product product in s.productManagment.products)
+                {
+                    s.reshelfManagment.RequestReshelf(product.Barcode, product.ProductID, amount);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Fill up the amount to request.");
             }
         }
-
         private void btnSell_Click(object sender, EventArgs e)
         {
 

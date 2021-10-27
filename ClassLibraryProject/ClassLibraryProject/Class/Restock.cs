@@ -8,10 +8,8 @@ namespace ClassLibraryProject.Class
     {
         private int restockReplenishmentID;
         private int productID;
-        private int amount;
-        private string name;
-        private int amountInStore;
-        private int amountInDepot;
+        private string barcode;
+        private int amountReceived;
 
         public int RestockReplenishmentID
         {
@@ -23,41 +21,23 @@ namespace ClassLibraryProject.Class
             get { return productID; }
             set { productID = value; }
         }
-        public int Amount
+        public string Barcode
         {
-            get { return amount; }
-            set { amount = value; }
+            get { return barcode; }
+            set { barcode = value; }
         }
-        public string Name
+        public int AmountReceived
         {
-            get { return name; }
-            set { name = value; }
-        }
-
-        public int AmountInStore
-        {
-            get { return amountInStore; }
-            set { amountInStore = value; }
-        }
-        public int AmountInDepot
-        {
-            get { return amountInDepot; }
-            set { amountInDepot = value; }
+            get { return amountReceived; }
+            set { amountReceived = value; }
         }
 
-        public Restock(int RestockReplenishmentID, int ProductID, int Amount, string Name, int AmountInStore, int AmountInDepot)
+        public Restock(int restockReplenishmentID, int productID, string barcode, int amountInDepot, int amountReceived)
         {
-            restockReplenishmentID = RestockReplenishmentID;
-            productID = ProductID;
-            name = Name;
-            amountInDepot = AmountInDepot;
-            amountInStore = AmountInStore;
-
-            amount = Amount;
-        }
-        public override string ToString()
-        {
-            return "RestockID: " + restockReplenishmentID + "   ProductID:" + ProductID + "   Amount :" + Amount + "   Name: " + Name + "   Amount in depot: " + amountInDepot + "   Amoutn in store: " + AmountInStore;
+            RestockReplenishmentID = restockReplenishmentID;
+            ProductID = productID;
+            Barcode = barcode;
+            AmountReceived = amountReceived;
         }
     }
 }

@@ -49,25 +49,16 @@ namespace ClassLibraryProject.Class
 			set { eveningAmount = value; }
         }
 	   
-		public Schedule(int Id, string Department, string Day, int MorningAmount, int AfternoonAmount, int EveningAmount)
+		public Schedule(int id, string department, string day, int morningAmount, int afternoonAmount, int eveningAmount)
         {
-			id = Id;
-			department = Department;
-			day = Day;
-			morningAmount = MorningAmount;
-			afternoonAmount = AfternoonAmount;
-			eveningAmount = EveningAmount;
-        }
-		
-		
-		public override string ToString()
-        {
-		
-				return $" Id: {id}   Department: {department}   Day: {day}   Morning: {MorningAmount}   Afternoon: {AfternoonAmount}  Evening: {EveningAmount} ";
-		}
-	
-		
-}
+			ID = id;
+			Department = department;
+			Day = day;
+			MorningAmount = morningAmount;
+			AfternoonAmount = afternoonAmount;
+			EveningAmount = eveningAmount;
+        }	
+	}
 }
 
 

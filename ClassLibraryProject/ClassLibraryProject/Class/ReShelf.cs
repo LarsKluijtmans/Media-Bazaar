@@ -1,61 +1,40 @@
 ﻿
 namespace ClassLibraryProject.Class
 {
-    public class ReShelf
+    public class Reshelf
     {
-        private int shelfReplenishmentID;
+        private int reshelfReplinishmentID;
         private int productID;
-        private int amount;
-        private string name;
-        private int price;
-        private int amountInDepot;
+        private string barcode;
+        private int amountRequested;
 
-
-        public int ShelfReplenishmentID
+        public int ReshelfReplenishmentID
         {
-            get { return shelfReplenishmentID; }
-            set { shelfReplenishmentID = value; }
+            get { return reshelfReplinishmentID; }
+            set { reshelfReplinishmentID = value; }
         }
         public int ProductID
         {
             get { return productID; }
             set { productID = value; }
         }
-        public int Amount
+        public string Barcode
         {
-            get { return amount; }
-            set { amount = value; }
+            get { return barcode; }
+            set { barcode = value; }
         }
-        public string Name
+        public int AmountRequested
         {
-            get { return name; }
-            set { name = value; }
-        }
-
-        public int Price
-        {
-            get { return price; }
-            set { price = value; }
-        }
-        public int AmountInDepot
-        {
-            get { return amountInDepot; }
-            set { amountInDepot = value; }
-        }
-        public ReShelf(int ShelfReplenishmentID, int ProductID, int Amount, string name, int AmountInDepot, int Price)
-        {
-            Name = name;
-            amountInDepot = AmountInDepot;
-            price = Price;
-            shelfReplenishmentID = ShelfReplenishmentID;
-            productID = ProductID;
-            amount = Amount;
+            get { return amountRequested; }
+            set { amountRequested = value; }
         }
 
-
-        public override string ToString()
+        public Reshelf(int restockReplenishmentID, int productID, string barcode, int amountInDepot, int amountRequested)
         {
-            return "ReshelfID: " + ShelfReplenishmentID + "   ProductID:" + ProductID + "   Amount :" + Amount + "   Name: " + Name + "   Amount in depot: " + amountInDepot;
+            ReshelfReplenishmentID = restockReplenishmentID;
+            ProductID = productID;
+            Barcode = barcode;
+            AmountRequested = amountRequested;
         }
     }
 }

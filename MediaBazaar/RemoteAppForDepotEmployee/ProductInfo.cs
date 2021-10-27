@@ -25,10 +25,9 @@ namespace RemoteAppForDepotEmployee
 
         private void btnRequest_Click(object sender, EventArgs e)
         {
-            int amount = Convert.ToInt32(txtAmount.Text);
             foreach (Product product in s.productManagment.products)
             {
-                s.restockManagment.RequestRestock(product.Barcode, product.ProductID, amount);
+                s.restockManagment.RequestRestock(product.Barcode, product.ProductID);
             }
         }
 
