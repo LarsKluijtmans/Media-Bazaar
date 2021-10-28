@@ -1,5 +1,6 @@
 ﻿using ClassLibraryProject.Class;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace MediaBazaar
@@ -19,6 +20,12 @@ namespace MediaBazaar
         }
 
         //Overview
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            FormLogin login = new FormLogin();
+            login.Show();
+        }
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Close();
@@ -61,7 +68,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Please select a reshelf request you want to fulfill");
             }
-            
+
 
             UpdateReshelveRequests();
         }
@@ -109,6 +116,6 @@ namespace MediaBazaar
                 MessageBox.Show("Select restock request and input the amount supplied");
             }
             UpdateOrders();
-        }  
+        }
     }
 }
