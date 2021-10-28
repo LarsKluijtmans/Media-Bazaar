@@ -11,8 +11,8 @@ namespace ClassLibraryProject.ManagmentClasses
 
         public static string GET_SCHEDULE_SALES = "SELECT  day, morning, afternoon, evening from SCHEDULE where Department = 'sales';";
         public static string GET_SCHEDULE_DEPOT = "SELECT   day, morning, afternoon, evening from SCHEDULE where Department = 'depot';";
-        public static string UPDATE_DEPOT_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day, Department = 'depot';";
-        public static string UPDATE_SALES_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day, Department = 'sales';";
+        public static string UPDATE_DEPOT_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day AND Department = 'depot';";
+        public static string UPDATE_SALES_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day AND Department = 'sales';";
 
         public DataTable ViewSalesSchedule()
         {

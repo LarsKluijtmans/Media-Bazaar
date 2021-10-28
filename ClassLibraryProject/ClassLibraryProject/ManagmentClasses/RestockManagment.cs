@@ -11,7 +11,7 @@ namespace ClassLibraryProject.ManagmentClasses
         //For Action
             //For employee
         private static string REQUEST_RESTOCKREPLENISHMENT = "INSERT INTO restockreplenishment (Barcode, ProductID, ReceivedAmount, Status) VALUES (@Barcode, @ProductID, @ReceivedAmount, 'Pending');";
-        private static string RESTOCK_REPLENISHMENT = "UPDATE restockreplenishment SET Status = 'Fulfilled', ReceivedAmount = @ReceivedAmount,  WHERE RestockReplenishmentID = @RestockReplenishmentID;";
+        private static string RESTOCK_REPLENISHMENT = "UPDATE restockreplenishment SET Status = 'Fulfilled', ReceivedAmount = @ReceivedAmount WHERE RestockReplenishmentID = @RestockReplenishmentID;";
         private static string ADD_TO_DEPOT = "UPDATE restockreplenishment INNER JOIN product ON restockreplenishment.ProductID = product.ProductID SET product.AmountInDepot = @AmountInDepot WHERE RestockReplenishmentID = @RestockReplenishmentID;";
             //For manager
         private static string ORDER_RESTOCK = "UPDATE restockreplenishment SET Status = 'Ordered' WHERE RestockReplenishmentID = @RestockReplenishmentID;";

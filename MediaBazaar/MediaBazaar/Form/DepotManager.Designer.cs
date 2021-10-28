@@ -716,6 +716,7 @@ namespace MediaBazaar
             this.dgSupplier.RowTemplate.Height = 25;
             this.dgSupplier.Size = new System.Drawing.Size(603, 386);
             this.dgSupplier.TabIndex = 96;
+            this.dgSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSupplier_CellClick);
             // 
             // groupBox3
             // 
