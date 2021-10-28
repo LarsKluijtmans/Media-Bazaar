@@ -98,8 +98,8 @@ namespace MediaBazaar
             {
                 DataGridViewRow row = dgOrder.Rows[e.RowIndex];
                 txtRestockID.Text = row.Cells["RestockReplenishmentID"].Value.ToString();
-                txtProductID.Text = row.Cells["ProductID"].Value.ToString();
-                txtBarcode.Text = row.Cells["Barcode"].Value.ToString();
+                txtProductIDRestock.Text = row.Cells["ProductID"].Value.ToString();
+                txtBarcodeRestock.Text = row.Cells["Barcode"].Value.ToString();
             }
         }
         private void btnReceiveProduct_Click(object sender, EventArgs e)

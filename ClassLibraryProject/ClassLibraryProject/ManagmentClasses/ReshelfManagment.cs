@@ -139,13 +139,14 @@ namespace ClassLibraryProject.ManagmentClasses
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@ShelfReplenishmentID", shelfReplenishmentID);
-
-                int newAmountStore = GetAmountStore(shelfReplenishmentID) + GetAmountRequested(shelfReplenishmentID);
-                int newAmountDepot = GetAmountDepot(shelfReplenishmentID) - GetAmountRequested(shelfReplenishmentID);
-
-                cmd.Parameters.AddWithValue("@AmountDepot", newAmountDepot);
-                cmd.Parameters.AddWithValue("@AmountStore", newAmountStore);
-
+                int newAmountStore, newAmountDepot;
+                if (GetAmountDepot(shelfReplenishmentID) > GetAmountRequested(shelfReplenishmentID))
+                {
+                    newAmountStore = GetAmountStore(shelfReplenishmentID) + GetAmountRequested(shelfReplenishmentID);
+                    newAmountDepot = GetAmountDepot(shelfReplenishmentID) - GetAmountRequested(shelfReplenishmentID);
+                    cmd.Parameters.AddWithValue("@AmountDepot", newAmountDepot);
+                    cmd.Parameters.AddWithValue("@AmountStore", newAmountStore);
+                }
 
                 conn.Open();
                 int numCreatedRows = cmd.ExecuteNonQuery();
