@@ -175,7 +175,21 @@ namespace MediaBazaar
             dgOverviewSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
             dgSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
         }
-
+        private void dgSupplier_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgSupplier.Rows[e.RowIndex];
+                txtSupplierID.Text = row.Cells["SupplierID"].Value.ToString();
+                txtSupplierName.Text = row.Cells["SupplierName"].Value.ToString();
+                txtCountry.Text = row.Cells["Country"].Value.ToString();
+                txtBuildingNumber.Text = row.Cells["BuildingNumber"].Value.ToString();
+                txtPostalCode.Text = row.Cells["PostalCode"].Value.ToString();
+                txtEmail.Text = row.Cells["Email"].Value.ToString();
+                txtPhoneNumber.Text = row.Cells["PhoneNumber"].Value.ToString();
+                txtBankNumber.Text = row.Cells["BankNumber"].Value.ToString();
+            }
+        }
         private void btnAddSupplier_Click(object sender, EventArgs e)
         {
             string name = txtSupplierName.Text;
@@ -277,7 +291,7 @@ namespace MediaBazaar
                 MessageBox.Show("Select supplier you want to delete");
             }
 
-            UpdateRestockRequests();
+            UpdateSupplier();
         }
     }
 }
