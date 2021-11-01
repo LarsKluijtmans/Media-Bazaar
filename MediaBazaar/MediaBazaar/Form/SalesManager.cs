@@ -60,7 +60,7 @@ namespace MediaBazaar
         }
         private void btnDiscontinue_Click(object sender, EventArgs e)
         {
-            string productID = "";
+            string productID = txtID.Text;
             store.productManagment.DiscontinueProduct(productID);
         }
 
