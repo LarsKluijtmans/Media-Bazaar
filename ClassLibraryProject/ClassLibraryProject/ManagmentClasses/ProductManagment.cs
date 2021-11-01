@@ -8,10 +8,12 @@ namespace ClassLibraryProject.ManagmentClasses
     public class ProductManagment
     {
 
-        public static string CREATE_PRODUCT = "INSERT INTO Product ( Name, Barcode, Type, AmountInStore, AmountInDepot, SellingPrice) VALUES (@Name, @Barcode, @Type, @AmountInStore, @AmountInDepot, @SellingPrice);";
+        public static string CREATE_PRODUCT = "INSERT INTO Product ( Name, Barcode, Type, AmountInStore, AmountInDepot, SellingPrice, IsDiscontinued) VALUES (@Name, @Barcode, @Type, @AmountInStore, @AmountInDepot, @SellingPrice, @IsDiscontinued);";
         public static string GET_ALL_PRODUCT = "SELECT ProductID, Name, Barcode, Type, price, AmountInDepot, SellingPrice FROM Product WHERE Name LIKE '@value%' ORDER BY ProductID;";
         public static string UPDATE_PRODUCT = "UPDATE PRODUCT SET Name = @Name, Barcode = @Barcode, Type = @Type, AmountInStore = @AmountInStore, AmountInDepot = @AmountInDepot, SellingPrice = @SellingPrice WHERE ProductID = @ProductID;";
         public static string DELETE_PRODUCT_BY_ID = "DELETE FROM PRODUCT WHERE ProductID = @ProductID;";
+
+        public static string DISCONTINUE_PRODUCT_BY_ID = "UPDATE Product SET IsDiscontinued = @IsDiscontinued  WHERE ProductID = @ProductID";
 
         //MohammadStart
         public static string GET_PRODUCTS = "SELECT * FROM product WHERE Barcode = @Barcode";
@@ -192,5 +194,30 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
+        public void DiscontinueProduct(string ID)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = DISCONTINUE_PRODUCT_BY_ID;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ProductID", ID);
+                cmd.Parameters.AddWithValue("@IsDiscontinued", "True");
+                conn.Open();
+
+                int numAffectedRows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException msqEx)
+            {
+
+            } catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
+    }
 }
