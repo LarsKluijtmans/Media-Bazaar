@@ -57,25 +57,25 @@ namespace MediaBazaar
         {
             string employeeID = tbxEmployeeID.Text;
             string firstName = tbxFirstName.Text;
-            if (string.IsNullOrEmpty(firstName))
-            {
-                MessageBox.Show("Please enter a first name");
-            }
+            //if (string.IsNullOrEmpty(firstName))
+            //{
+            //    MessageBox.Show("Please enter a first name");
+            //}
             string lastName = tbxLastName.Text;
-            if (string.IsNullOrEmpty(lastName))
-            {
-                MessageBox.Show("Please enter a last name");
-            }
+            //if (string.IsNullOrEmpty(lastName))
+            //{
+            //    MessageBox.Show("Please enter a last name");
+            //}
             string city = tbxCity.Text;
-            if (string.IsNullOrEmpty(city))
-            {
-                MessageBox.Show("Please enter a city");
-            }
+            //if (string.IsNullOrEmpty(city))
+            //{
+            //    MessageBox.Show("Please enter a city");
+            //}
             string phoneNumber = tbxPhoneNumber.Text;
-            if (string.IsNullOrEmpty(phoneNumber))
-            {
-                MessageBox.Show("Please enter a phone number");
-            }
+            //if (string.IsNullOrEmpty(phoneNumber))
+            //{
+            //    MessageBox.Show("Please enter a phone number");
+            //}
 
             MySqlConnection conn = Utils.GetConnection();
             string sql = EmployeeManagement.UPDATE_EMPLOYEE;
@@ -108,20 +108,20 @@ namespace MediaBazaar
         {
             string employeeID = tbxEmployeeID.Text;
             string jobTitle = cbxJobTitle.SelectedItem.ToString();
-            if (string.IsNullOrEmpty(jobTitle))
-            {
-                MessageBox.Show("Please select a job title");
-            }
+            //if (string.IsNullOrEmpty(jobTitle))
+            //{
+            //    MessageBox.Show("Please select a job title");
+            //}
             string workHours = tbxWorkHours.Text;
-            if (string.IsNullOrEmpty(workHours))
-            {
-                MessageBox.Show("Please enter work hours");
-            }
+            //if (string.IsNullOrEmpty(workHours))
+            //{
+            //    MessageBox.Show("Please enter work hours");
+            //}
             string salary = tbxSalary.Text;
-            if (string.IsNullOrEmpty(salary))
-            {
-                MessageBox.Show("Please enter salary");
-            }
+            //if (string.IsNullOrEmpty(salary))
+            //{
+            //    MessageBox.Show("Please enter salary");
+            //}
 
             MySqlConnection conn = Utils.GetConnection();
             string sql = ContractManagement.UPDATE_CONTRACT;
