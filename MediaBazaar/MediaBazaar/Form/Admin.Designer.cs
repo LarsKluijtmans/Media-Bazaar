@@ -81,7 +81,7 @@ namespace MediaBazaar
             this.gbMakeEmployee.Controls.Add(this.groupBox2);
             this.gbMakeEmployee.Controls.Add(this.groupBox1);
             this.gbMakeEmployee.Controls.Add(this.label1);
-            this.gbMakeEmployee.Location = new System.Drawing.Point(12, 54);
+            this.gbMakeEmployee.Location = new System.Drawing.Point(12, 58);
             this.gbMakeEmployee.Name = "gbMakeEmployee";
             this.gbMakeEmployee.Size = new System.Drawing.Size(1100, 489);
             this.gbMakeEmployee.TabIndex = 84;
@@ -408,7 +408,7 @@ namespace MediaBazaar
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(26, 13);
+            this.label1.Location = new System.Drawing.Point(26, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1034, 25);
             this.label1.TabIndex = 0;

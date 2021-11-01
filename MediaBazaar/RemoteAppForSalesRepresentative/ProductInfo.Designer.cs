@@ -29,6 +29,7 @@ namespace RemoteAppForSalesRepresentative
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductInfo));
             this.btnClose = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtSell = new System.Windows.Forms.TextBox();
@@ -193,6 +194,7 @@ namespace RemoteAppForSalesRepresentative
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductInfo";
             this.Text = "ProductInfo";
             this.groupBox2.ResumeLayout(false);

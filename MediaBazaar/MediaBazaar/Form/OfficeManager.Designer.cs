@@ -76,6 +76,7 @@ namespace MediaBazaar
             this.label4 = new System.Windows.Forms.Label();
             this.cbHeadDepartments = new System.Windows.Forms.ComboBox();
             this.WorkHours = new System.Windows.Forms.TabPage();
+            this.btnSeatchDepartment = new System.Windows.Forms.Button();
             this.dgvAtendance = new System.Windows.Forms.DataGridView();
             this.btnMonthIncrease = new System.Windows.Forms.Button();
             this.btnIncreaseYear = new System.Windows.Forms.Button();
@@ -88,7 +89,6 @@ namespace MediaBazaar
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.btnSeatchDepartment = new System.Windows.Forms.Button();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -614,6 +614,17 @@ namespace MediaBazaar
             this.WorkHours.Text = "WorkHours";
             this.WorkHours.UseVisualStyleBackColor = true;
             // 
+            // btnSeatchDepartment
+            // 
+            this.btnSeatchDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSeatchDepartment.Location = new System.Drawing.Point(789, 135);
+            this.btnSeatchDepartment.Name = "btnSeatchDepartment";
+            this.btnSeatchDepartment.Size = new System.Drawing.Size(244, 41);
+            this.btnSeatchDepartment.TabIndex = 9;
+            this.btnSeatchDepartment.Text = "Search";
+            this.btnSeatchDepartment.UseVisualStyleBackColor = true;
+            this.btnSeatchDepartment.Click += new System.EventHandler(this.btnSeatchDepartment_Click);
+            // 
             // dgvAtendance
             // 
             this.dgvAtendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -728,17 +739,6 @@ namespace MediaBazaar
             // timer2
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // btnSeatchDepartment
-            // 
-            this.btnSeatchDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSeatchDepartment.Location = new System.Drawing.Point(789, 135);
-            this.btnSeatchDepartment.Name = "btnSeatchDepartment";
-            this.btnSeatchDepartment.Size = new System.Drawing.Size(244, 41);
-            this.btnSeatchDepartment.TabIndex = 9;
-            this.btnSeatchDepartment.Text = "Search";
-            this.btnSeatchDepartment.UseVisualStyleBackColor = true;
-            this.btnSeatchDepartment.Click += new System.EventHandler(this.btnSeatchDepartment_Click);
             // 
             // OfficeManager
             // 
