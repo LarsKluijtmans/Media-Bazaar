@@ -315,6 +315,7 @@ namespace MediaBazaar
             // 
             this.cbxJobTitle.FormattingEnabled = true;
             this.cbxJobTitle.Items.AddRange(new object[] {
+            "Admin",
             "CEO",
             "Owner",
             "Depot Manager",
