@@ -30,6 +30,7 @@ namespace RemoteAppForDepotEmployee
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BarcodeScannerDepot));
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.timerUpdate = new System.Windows.Forms.Timer(this.components);
             this.timerRevival = new System.Windows.Forms.Timer(this.components);
@@ -57,6 +58,7 @@ namespace RemoteAppForDepotEmployee
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(312, 159);
             this.Controls.Add(this.txtBarcode);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BarcodeScannerDepot";
             this.Text = "Barcode Scanner Depot";
             this.ResumeLayout(false);
