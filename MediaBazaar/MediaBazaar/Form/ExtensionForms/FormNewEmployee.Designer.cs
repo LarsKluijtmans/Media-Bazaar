@@ -61,7 +61,6 @@ namespace MediaBazaar
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnAddContract = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -332,7 +331,8 @@ namespace MediaBazaar
             "SALES MANAGER",
             "DEPOT EMPLOYEE",
             "DEPOT MANAGER",
-            "OFFICE MANAGER"});
+            "OFFICE MANAGER",
+            "PRODUCT MANAGER"});
             this.cbxJobTitle.Location = new System.Drawing.Point(122, 14);
             this.cbxJobTitle.Name = "cbxJobTitle";
             this.cbxJobTitle.Size = new System.Drawing.Size(140, 23);
@@ -374,22 +374,11 @@ namespace MediaBazaar
             this.label3.TabIndex = 20;
             this.label3.Text = "Salary:";
             // 
-            // btnAddContract
-            // 
-            this.btnAddContract.Location = new System.Drawing.Point(277, 303);
-            this.btnAddContract.Name = "btnAddContract";
-            this.btnAddContract.Size = new System.Drawing.Size(113, 23);
-            this.btnAddContract.TabIndex = 80;
-            this.btnAddContract.Text = "Add Contract";
-            this.btnAddContract.UseVisualStyleBackColor = true;
-            this.btnAddContract.Click += new System.EventHandler(this.btnAddContract_Click);
-            // 
             // FormNewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 332);
-            this.Controls.Add(this.btnAddContract);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.BtnNewEmployee);
             this.Controls.Add(this.groupBox1);
@@ -437,6 +426,5 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnAddContract;
     }
 }

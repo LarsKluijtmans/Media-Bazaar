@@ -8,10 +8,12 @@ namespace ClassLibraryProject.ManagmentClasses
     public class ProductManagment
     {
 
-        public static string CREATE_PRODUCT = "INSERT INTO Product ( Name, Barcode, Type, AmountInStore, AmountInDepot) VALUES (@Name, @Barcode, @Type, @AmountInStore, @AmountInDepot);";
-        public static string GET_ALL_PRODUCT = "SELECT ProductID, Name, Barcode, Type, price, AmountInDepot FROM Product WHERE Name LIKE '@value%' ORDER BY ProductID;";
-        public static string UPDATE_PRODUCT = "UPDATE PRODUCT SET Name = @Name, Barcode = @Barcode, Type = @Type, AmountInStore = @AmountInStore, AmountInDepot = @AmountInDepot WHERE ProductID = @ProductID;";
+        public static string CREATE_PRODUCT = "INSERT INTO Product ( Name, Barcode, Type, AmountInStore, AmountInDepot, SellingPrice, IsDiscontinued) VALUES (@Name, @Barcode, @Type, @AmountInStore, @AmountInDepot, @SellingPrice, @IsDiscontinued);";
+        public static string GET_ALL_PRODUCT = "SELECT ProductID, Name, Barcode, Type, price, AmountInDepot, SellingPrice FROM Product WHERE Name LIKE '@value%' ORDER BY ProductID;";
+        public static string UPDATE_PRODUCT = "UPDATE PRODUCT SET Name = @Name, Barcode = @Barcode, Type = @Type, AmountInStore = @AmountInStore, AmountInDepot = @AmountInDepot, SellingPrice = @SellingPrice WHERE ProductID = @ProductID;";
         public static string DELETE_PRODUCT_BY_ID = "DELETE FROM PRODUCT WHERE ProductID = @ProductID;";
+
+        public static string DISCONTINUE_PRODUCT_BY_ID = "UPDATE Product SET IsDiscontinued = @IsDiscontinued  WHERE ProductID = @ProductID";
 
         //MohammadStart
         public static string GET_PRODUCTS = "SELECT * FROM product WHERE Barcode = @Barcode";
@@ -38,9 +40,13 @@ namespace ClassLibraryProject.ManagmentClasses
                     string productType = reader.GetString("Type");
                     int amountInStore = 23;
                     int amountInDepot = reader.GetInt32("AmountInDepot");
+                    int sellingPrice = reader.GetInt32("SellingPrice");
 
-                    product = new Product(productID, name, productType, barcode, amountInDepot, amountInStore);
-                    products.Add(product);
+                    product = new Product(productID, name, productType, barcode, amountInDepot, amountInStore, sellingPrice);
+                    if (!product.IsDiscontinued)
+                    {
+                        products.Add(product);
+                    }
                 }
 
             }
@@ -90,10 +96,14 @@ namespace ClassLibraryProject.ManagmentClasses
                     string productType = reader.GetString("Type");
                     int amountInStore = reader.GetInt32("Price");
                     int amountInDepot = reader.GetInt32("AmountInDepot");
+                    int sellingPrice = reader.GetInt32("SellingPrice");
 
-                    product = new Product(ProductID, name, productType, barcode, amountInDepot, amountInStore);
+                    product = new Product(ProductID, name, productType, barcode, amountInDepot, amountInStore, sellingPrice);
 
-                    products.Add(product);
+                    if (!product.IsDiscontinued)
+                    {
+                        products.Add(product);
+                    }
                 }
             }
             catch (MySqlException )
@@ -106,7 +116,7 @@ namespace ClassLibraryProject.ManagmentClasses
             }
         }
 
-        public void AddProduct(string Name, string Barcode, string ProductType, string AmountInStore, string AmountInDepot)
+        public void AddProduct(string Name, string Barcode, string ProductType, string AmountInStore, string AmountInDepot, string sellingPrice)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = CREATE_PRODUCT;
@@ -118,6 +128,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@Type", ProductType);
                 cmd.Parameters.AddWithValue("@AmountInStore", AmountInStore);
                 cmd.Parameters.AddWithValue("@AmountInDepot", AmountInDepot);
+                cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
 
                 conn.Open();
 
@@ -134,7 +145,7 @@ namespace ClassLibraryProject.ManagmentClasses
             }
         }
 
-        public void EditProduct(string ID, string Name, string Barcode, string ProductType, string AmountInStore, string AmountInDepot)
+        public void EditProduct(string ID, string Name, string Barcode, string ProductType, string AmountInStore, string AmountInDepot, string sellingPrice)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = UPDATE_PRODUCT;
@@ -147,6 +158,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@Type", ProductType);
                 cmd.Parameters.AddWithValue("@AmountInStore", AmountInStore);
                 cmd.Parameters.AddWithValue("@AmountInDepot", AmountInDepot);
+                cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
@@ -182,5 +194,30 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
+        public void DiscontinueProduct(string ID)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = DISCONTINUE_PRODUCT_BY_ID;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ProductID", ID);
+                cmd.Parameters.AddWithValue("@IsDiscontinued", "True");
+                conn.Open();
+
+                int numAffectedRows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException msqEx)
+            {
+
+            } catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
+    }
 }
