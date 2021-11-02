@@ -10,9 +10,11 @@ namespace MediaBazaar
 {
     public partial class FormNewEmployee : Form
     {
+        EmailManager em;
         public FormNewEmployee()
         {
             InitializeComponent();
+            em = new EmailManager();
         }
 
         private void BtnNewEmployee_Click(object sender, EventArgs e)
@@ -167,6 +169,9 @@ namespace MediaBazaar
 
                 int employeeID = Convert.ToInt32(id);
                 CreateContract(employeeID);
+
+                em.Email(password, username, email);
+                MessageBox.Show("Email send");
             }
             catch (MySqlException msqEx)
             {
@@ -184,7 +189,6 @@ namespace MediaBazaar
             tbxUsername.Text = username;
             tbxPassword.Text = password;
             tbxEmail.Text = email;
-
         }
         // create contract
         public void CreateContract(int id)

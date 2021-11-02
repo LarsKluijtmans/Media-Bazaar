@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
@@ -35,10 +36,20 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Please enter a reason for termination");
             }
-            string contractEndDate = tbxEndDate.Text;
-            if (string.IsNullOrEmpty(contractEndDate))
+
+            string contractEndDate;
+            if (Regex.IsMatch(tbxEndDate.Text, @"\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$"))
             {
-                MessageBox.Show("Please enter a contract end date");
+                contractEndDate = tbxEndDate.Text;
+                if (string.IsNullOrEmpty(contractEndDate))
+                {
+                    MessageBox.Show("Please enter a contract end date");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid End date");
+                return;
             }
 
             MySqlConnection conn = Utils.GetConnection();

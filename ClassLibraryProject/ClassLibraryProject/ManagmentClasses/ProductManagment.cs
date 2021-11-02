@@ -40,7 +40,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     string productType = reader.GetString("Type");
                     int amountInStore = 23;
                     int amountInDepot = reader.GetInt32("AmountInDepot");
-                    int sellingPrice = reader.GetInt32("SellingPrice");
+                    int sellingPrice = reader.GetInt32("Price");
 
                     product = new Product(productID, name, productType, barcode, amountInDepot, amountInStore, sellingPrice);
                     if (!product.IsDiscontinued)

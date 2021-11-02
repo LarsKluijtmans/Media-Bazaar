@@ -16,6 +16,7 @@ namespace ClassLibraryProject.Class
         public EmployeeManagement employeeManagement;
         public SupplierManagment supplierManagment;
         public OrderInfoManagment orderInfoManagment;
+        public EmailManager emailManager;
 
         //public EmployeeManagment employeeManagment;
         //public ContractManagment contractManagment;
@@ -34,6 +35,7 @@ namespace ClassLibraryProject.Class
             employeeManagement = new EmployeeManagement();
             supplierManagment = new SupplierManagment();
             orderInfoManagment = new OrderInfoManagment();
+            emailManager = new EmailManager();
             //employeeManagment = new employeeManagment();
             //contractManagment = new contractManagment();
         }
