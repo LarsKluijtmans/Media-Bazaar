@@ -114,6 +114,7 @@ namespace RemoteAppForDepotEmployee
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductInfo";
             this.Text = "ProductInfo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProductInfo_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

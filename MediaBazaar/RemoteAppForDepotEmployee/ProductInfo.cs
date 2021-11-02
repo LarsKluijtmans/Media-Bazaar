@@ -36,5 +36,10 @@ namespace RemoteAppForDepotEmployee
             s.productManagment.products.Clear();
             Close();
         }
+
+        private void ProductInfo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            s.productManagment.products.Clear();
+        }
     }
 }

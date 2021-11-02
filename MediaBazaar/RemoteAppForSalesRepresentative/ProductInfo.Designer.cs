@@ -197,6 +197,7 @@ namespace RemoteAppForSalesRepresentative
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductInfo";
             this.Text = "ProductInfo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProductInfo_FormClosing);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
