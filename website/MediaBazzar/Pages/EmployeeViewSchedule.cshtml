@@ -1,0 +1,32 @@
+﻿@page
+@model MediaBazzar.Pages.Shared.EmployeeViewScheduleModel
+@{
+    Layout = "Employee_Layout";
+}
+
+<form class="container" method="post">
+    <div class="action">
+
+        <label for="Day">Date: </label>
+
+        <input type="date" id="date" name="date" value="1-10-2015">
+
+        <label for="MostPreferedTime">MostPreferedTime: </label>
+
+        <input type="time" id="appt" value="12:45" />
+
+
+        <label for="LeastPreferedTime">LeastPreferedTime: </label>
+
+        <input type="time" id="appt" value="18:30" />
+
+
+
+        <input type="button" onclick="alert('Edit info!')" value="Submit">
+        <input type="button" onclick="alert('Cancel!')" value="Cancle">
+
+        @ViewData["Message"]
+
+
+    </div>
+</form>
