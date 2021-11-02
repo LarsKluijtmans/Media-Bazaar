@@ -126,7 +126,6 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@Name", Name);
                 cmd.Parameters.AddWithValue("@Barcode", Barcode);
                 cmd.Parameters.AddWithValue("@Type", ProductType);
-                cmd.Parameters.AddWithValue("@AmountInStore", AmountInStore);
                 cmd.Parameters.AddWithValue("@AmountInDepot", AmountInDepot);
                 cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
 
@@ -156,7 +155,6 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@Name", Name);
                 cmd.Parameters.AddWithValue("@Barcode", Barcode);
                 cmd.Parameters.AddWithValue("@Type", ProductType);
-                cmd.Parameters.AddWithValue("@AmountInStore", AmountInStore);
                 cmd.Parameters.AddWithValue("@AmountInDepot", AmountInDepot);
                 cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
                 conn.Open();
