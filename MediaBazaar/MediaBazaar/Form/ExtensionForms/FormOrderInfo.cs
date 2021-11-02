@@ -17,6 +17,7 @@ namespace MediaBazaar
         }
         public void UpdateOrder()
         {
+            infoManagment.GetAllOrderInfo();
             foreach(OrderInfo info in infoManagment.OrderInfos)
             {
                 if (info.SupplierID == supplierID)
