@@ -90,6 +90,7 @@ namespace MediaBazaar
             this.tbxDateOfBirth.Name = "tbxDateOfBirth";
             this.tbxDateOfBirth.Size = new System.Drawing.Size(133, 23);
             this.tbxDateOfBirth.TabIndex = 76;
+            this.tbxDateOfBirth.Text = "YYYY-MM-DD";
             // 
             // tbxEmail
             // 
@@ -306,6 +307,7 @@ namespace MediaBazaar
             this.tbxStartDate.Name = "tbxStartDate";
             this.tbxStartDate.Size = new System.Drawing.Size(140, 23);
             this.tbxStartDate.TabIndex = 25;
+            this.tbxStartDate.Text = "YYYY-MM-DD";
             // 
             // tbxSalary
             // 
