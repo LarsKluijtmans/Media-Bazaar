@@ -47,7 +47,6 @@ namespace MediaBazaar
             this.label1.Size = new System.Drawing.Size(104, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "UserName:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -58,7 +57,6 @@ namespace MediaBazaar
             this.label2.Size = new System.Drawing.Size(95, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Password:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbxUsername
             // 
@@ -68,7 +66,6 @@ namespace MediaBazaar
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(148, 33);
             this.tbxUsername.TabIndex = 2;
-            this.tbxUsername.TextChanged += new System.EventHandler(this.tbxUsername_TextChanged);
             // 
             // tbxPassword
             // 
@@ -79,7 +76,6 @@ namespace MediaBazaar
             this.tbxPassword.PasswordChar = '⬤';
             this.tbxPassword.Size = new System.Drawing.Size(148, 33);
             this.tbxPassword.TabIndex = 3;
-            this.tbxPassword.TextChanged += new System.EventHandler(this.tbxPassword_TextChanged);
             // 
             // btnLogin
             // 
@@ -92,6 +88,7 @@ namespace MediaBazaar
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Enter += new System.EventHandler(this.btnLogin_Enter);
             // 
             // label3
             // 
@@ -102,7 +99,6 @@ namespace MediaBazaar
             this.label3.Size = new System.Drawing.Size(70, 25);
             this.label3.TabIndex = 5;
             this.label3.Text = "Login";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // FormLogin
             // 
