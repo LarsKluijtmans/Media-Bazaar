@@ -1,0 +1,29 @@
+﻿@page
+@model MediaBazzar.Pages.LoginModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Login";
+}
+
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+<div class="content-container">
+<div class="login-box">
+    <form method="post">
+        <label asp-for="user.Username">Username</label>
+        <span asp-validation-for="user.Username"></span>
+        <input asp-for="user.Username" class="TextBox" />
+        <label asp-for="user.Password">Password</label>
+        <span asp-validation-for="user.Password"></span>
+
+        <input  type="password" asp-for="user.Password" class="TextBox" />
+        <input type="submit" name="" value="Login">
+    </form>
+    @ViewData["Message"]
+</div>
+</div>
+
