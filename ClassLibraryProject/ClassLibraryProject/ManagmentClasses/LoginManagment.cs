@@ -1,6 +1,8 @@
-﻿using ClassLibraryProject.Class;
+﻿using System;
+using System.ComponentModel;
+using System.Windows;
+using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
-using System;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
@@ -68,10 +70,12 @@ namespace ClassLibraryProject.ManagmentClasses
                 }
                 return 0;
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException a )
+            {
+            }
+            catch (Exception a )
+            {
+            }
             finally
             {
                 conn.Close();
