@@ -6,7 +6,7 @@
       "version": "3.1.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\lars\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\esthe\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\lars\\.nuget\\packages"
     ],
     "configProperties": {
