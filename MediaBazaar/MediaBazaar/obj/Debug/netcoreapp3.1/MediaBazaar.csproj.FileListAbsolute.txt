@@ -328,3 +328,4 @@ C:\Users\esthe\OneDrive\Bureaublad\git idk\cbo3-1-soleil-lars-esther-mohammad\Me
 C:\Users\esthe\OneDrive\Bureaublad\git idk\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.dll
 C:\Users\esthe\OneDrive\Bureaublad\git idk\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.pdb
 C:\Users\esthe\OneDrive\Bureaublad\git idk\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.genruntimeconfig.cache
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormOrderInfo.resources

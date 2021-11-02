@@ -1,6 +1,7 @@
 ﻿using ClassLibraryProject.Class;
 using System;
 using System.ComponentModel;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace MediaBazaar
@@ -16,10 +17,13 @@ namespace MediaBazaar
 
             store = s;
             ID = UserID;
-
+            DateTime date = DateTime.Now;
+            lblWeek.Text = GetIso8601WeekOfYear(date).ToString();
+            txtYear.Text = date.Year.ToString();
             UpdateRestockRequests();
             UpdateSchedule();
             UpdateSupplier();
+            store.orderInfoManagment.GetAllOrderInfo();
         }
 
         //Overview
@@ -108,6 +112,20 @@ namespace MediaBazaar
         }
 
         //Schedule
+        public static int GetIso8601WeekOfYear(DateTime time)
+        {
+            // Seriously cheat.  If its Monday, Tuesday or Wednesday, then it'll 
+            // be the same week# as whatever Thursday, Friday or Saturday are,
+            // and we always get those right
+            DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(time);
+            if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
+            {
+                time = time.AddDays(3);
+            }
+
+            // Return the week of our adjusted day
+            return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+        }
         public void UpdateSchedule()
         {
             dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));

@@ -50,18 +50,18 @@ namespace MediaBazaar
         //Esther//Esther
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
-            string productID = txtID.Text;
+            //string productID = txtID.Text;
             string productName = txtName.Text;
             string barcode = txtBarcode.Text;
             string productType = txtProductType.Text;
             string sellingPrice = txtPrice.Text;
 
-            store.productManagment.EditProduct(productID, productName, barcode, productType, "", "", sellingPrice);
+            //store.productManagment.EditProduct(productID, productName, barcode, productType, "", "", sellingPrice);
         }
         private void btnDiscontinue_Click(object sender, EventArgs e)
         {
-            string productID = txtID.Text;
-            store.productManagment.DiscontinueProduct(productID);
+            //string productID = txtID.Text;
+            //store.productManagment.DiscontinueProduct(productID);
         }
 
 
