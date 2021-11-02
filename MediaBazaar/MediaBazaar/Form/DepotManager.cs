@@ -23,12 +23,6 @@ namespace MediaBazaar
         }
 
         //Overview
-        protected override void OnClosing(CancelEventArgs e)
-        {
-
-            FormLogin login = new FormLogin();
-            login.Show();
-        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -116,9 +110,9 @@ namespace MediaBazaar
         //Schedule
         public void UpdateSchedule()
         {
-            dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
-            dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
-            dgPlanningSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule();
+            dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
+            dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
+            dgPlanningSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
         }
         private void dgSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -161,7 +155,7 @@ namespace MediaBazaar
                 return;
             }
 
-            store.scheduleManagment.EditDepotSchedule(Day, Morning, Afternoon, Evening);
+            store.scheduleManagment.EditDepotSchedule(Day, Morning, Afternoon, Evening, Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
 
             UpdateSchedule();
         }
@@ -292,6 +286,13 @@ namespace MediaBazaar
             }
 
             UpdateSupplier();
+        }
+        private void btnOrderInfo_Click(object sender, EventArgs e)
+        {
+            string supplierID = txtSupplierID.Text; 
+
+            FormOrderInfo formOrderInfo = new FormOrderInfo(Convert.ToInt32(supplierID));
+            formOrderInfo.Show();
         }
     }
 }

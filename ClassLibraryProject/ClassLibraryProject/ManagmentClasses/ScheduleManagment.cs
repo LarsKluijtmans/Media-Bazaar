@@ -8,17 +8,14 @@ namespace ClassLibraryProject.ManagmentClasses
 {
     public class ScheduleManagment
     {
+        public static string UPDATE_DEPOT_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day AND Department = 'depot' AND Week = @Week AND Year = @Year;";
+        public static string UPDATE_SALES_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day AND Department = 'sales' AND Week = @Week AND Year = @Year;";
 
-        public static string GET_SCHEDULE_SALES = "SELECT  day, morning, afternoon, evening from SCHEDULE where Department = 'sales';";
-        public static string GET_SCHEDULE_DEPOT = "SELECT   day, morning, afternoon, evening from SCHEDULE where Department = 'depot';";
-        public static string UPDATE_DEPOT_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day AND Department = 'depot';";
-        public static string UPDATE_SALES_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day AND Department = 'sales';";
-
-        public DataTable ViewSalesSchedule()
+        public DataTable ViewSalesSchedule(int week, int year)
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = GET_SCHEDULE_SALES;
+            string sql = $"SELECT  day, morning, afternoon, evening from SCHEDULE where Department = 'sales' AND Year = {year} AND Week = {week};";
 
             try
             {
@@ -45,11 +42,11 @@ namespace ClassLibraryProject.ManagmentClasses
             return a;
         }
 
-        public DataTable ViewDepotSchedule()
+        public DataTable ViewDepotSchedule(int week, int year)
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = GET_SCHEDULE_DEPOT;
+            string sql = $"SELECT   day, morning, afternoon, evening from SCHEDULE where Department = 'depot' AND Year = {year} AND Week = {week};";
 
             try
             {
@@ -76,7 +73,7 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
       
-        public void EditDepotSchedule(string day, string morning, string afternoon, string evening)
+        public void EditDepotSchedule(string day, string morning, string afternoon, string evening, int week, int year)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = UPDATE_DEPOT_SCHEDULE;
@@ -87,6 +84,8 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@morning", morning);
                 cmd.Parameters.AddWithValue("@afternoon", afternoon);
                 cmd.Parameters.AddWithValue("@evening", evening);
+                cmd.Parameters.AddWithValue("@Week", week);
+                cmd.Parameters.AddWithValue("@Year", year);
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
@@ -101,7 +100,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
-        public void EditSalesSchedule(string day, string morning, string afternoon, string evening)
+        public void EditSalesSchedule(string day, string morning, string afternoon, string evening, int week, int year)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = UPDATE_SALES_SCHEDULE;
@@ -112,6 +111,8 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@morning", morning);
                 cmd.Parameters.AddWithValue("@afternoon", afternoon);
                 cmd.Parameters.AddWithValue("@evening", evening);
+                cmd.Parameters.AddWithValue("@Week", week);
+                cmd.Parameters.AddWithValue("@Year", year);
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();

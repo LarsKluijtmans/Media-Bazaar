@@ -77,9 +77,9 @@ namespace MediaBazaar
         //Schedule
         public void UpdateSchedule()
         {
-            dgSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule();
-            dgOverviewSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule();
-            dgPlanningSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule();
+            dgSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text),Convert.ToInt32(txtYear.Text));
+            dgOverviewSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
+            dgPlanningSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
         }
         private void dgSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -121,7 +121,7 @@ namespace MediaBazaar
                 MessageBox.Show("Day is required.");
                 return;
             }
-            store.scheduleManagment.EditSalesSchedule(Day, Morning, Afternoon, Evening);
+            store.scheduleManagment.EditSalesSchedule(Day, Morning, Afternoon, Evening, Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
 
             UpdateSchedule();
         }

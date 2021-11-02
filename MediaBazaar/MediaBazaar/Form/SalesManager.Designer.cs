@@ -31,23 +31,34 @@ namespace MediaBazaar
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesManager));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabProduct = new System.Windows.Forms.TabPage();
+            this.tabOverview = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dgProduct = new System.Windows.Forms.DataGridView();
+            this.lstEmployeesWorkingToday = new System.Windows.Forms.ListBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
+            this.txtProductID = new System.Windows.Forms.TabPage();
+            this.dgReshelve = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtProductType = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.btnDiscontinue = new System.Windows.Forms.Button();
+            this.btnEditProduct = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.txtBarcode = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.tabSchedule = new System.Windows.Forms.TabPage();
-            this.tabPlanning = new System.Windows.Forms.TabPage();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.dgReshelve = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtYear = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblWeek = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgSchedule = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtMonth = new System.Windows.Forms.Label();
             this.lbScheduleDay = new System.Windows.Forms.Label();
@@ -60,8 +71,7 @@ namespace MediaBazaar
             this.lbScheduleEvening = new System.Windows.Forms.TextBox();
             this.lbScheduleAfternoon = new System.Windows.Forms.TextBox();
             this.lbScheduleMorning = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dgSchedule = new System.Windows.Forms.DataGridView();
+            this.tabPlanning = new System.Windows.Forms.TabPage();
             this.dgPlanningSchedule = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,33 +79,35 @@ namespace MediaBazaar
             this.btnRemoveFromSchedule = new System.Windows.Forms.Button();
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
-            this.tabOverview = new System.Windows.Forms.TabPage();
-            this.lstEmployeesWorkingToday = new System.Windows.Forms.ListBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
-            this.label13 = new System.Windows.Forms.Label();
-            this.dgProduct = new System.Windows.Forms.DataGridView();
-            this.btnEditProduct = new System.Windows.Forms.Button();
-            this.btnDiscontinue = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtPlanningYear = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.lblPlanningWeek = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.Label();
+            this.txtBarcode = new System.Windows.Forms.Label();
+            this.txtProductType = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
-            this.tabProduct.SuspendLayout();
+            this.tabOverview.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).BeginInit();
+            this.txtProductID.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgReshelve)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabSchedule.SuspendLayout();
-            this.tabPlanning.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgReshelve)).BeginInit();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
-            this.tabOverview.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabOverview);
-            this.tabControl1.Controls.Add(this.tabProduct);
+            this.tabControl1.Controls.Add(this.txtProductID);
             this.tabControl1.Controls.Add(this.tabSchedule);
             this.tabControl1.Controls.Add(this.tabPlanning);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -106,19 +118,106 @@ namespace MediaBazaar
             this.tabControl1.Size = new System.Drawing.Size(989, 563);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabProduct
+            // tabOverview
             // 
-            this.tabProduct.Controls.Add(this.dgReshelve);
-            this.tabProduct.Controls.Add(this.label3);
-            this.tabProduct.Controls.Add(this.groupBox1);
-            this.tabProduct.Location = new System.Drawing.Point(4, 30);
-            this.tabProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabProduct.Name = "tabProduct";
-            this.tabProduct.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabProduct.Size = new System.Drawing.Size(981, 529);
-            this.tabProduct.TabIndex = 3;
-            this.tabProduct.Text = "Products ";
-            this.tabProduct.UseVisualStyleBackColor = true;
+            this.tabOverview.Controls.Add(this.label13);
+            this.tabOverview.Controls.Add(this.dgProduct);
+            this.tabOverview.Controls.Add(this.lstEmployeesWorkingToday);
+            this.tabOverview.Controls.Add(this.label12);
+            this.tabOverview.Controls.Add(this.label14);
+            this.tabOverview.Controls.Add(this.dgOverviewSchedule);
+            this.tabOverview.Location = new System.Drawing.Point(4, 30);
+            this.tabOverview.Name = "tabOverview";
+            this.tabOverview.Padding = new System.Windows.Forms.Padding(3);
+            this.tabOverview.Size = new System.Drawing.Size(981, 529);
+            this.tabOverview.TabIndex = 12;
+            this.tabOverview.Text = "Overview";
+            this.tabOverview.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label13.Location = new System.Drawing.Point(22, 303);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(67, 21);
+            this.label13.TabIndex = 100;
+            this.label13.Text = "Product:";
+            // 
+            // dgProduct
+            // 
+            this.dgProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProduct.Location = new System.Drawing.Point(21, 326);
+            this.dgProduct.Name = "dgProduct";
+            this.dgProduct.RowHeadersWidth = 51;
+            this.dgProduct.RowTemplate.Height = 25;
+            this.dgProduct.Size = new System.Drawing.Size(488, 190);
+            this.dgProduct.TabIndex = 99;
+            this.dgProduct.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProduct_CellDoubleClick);
+            // 
+            // lstEmployeesWorkingToday
+            // 
+            this.lstEmployeesWorkingToday.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstEmployeesWorkingToday.FormattingEnabled = true;
+            this.lstEmployeesWorkingToday.ItemHeight = 17;
+            this.lstEmployeesWorkingToday.Location = new System.Drawing.Point(530, 38);
+            this.lstEmployeesWorkingToday.Name = "lstEmployeesWorkingToday";
+            this.lstEmployeesWorkingToday.Size = new System.Drawing.Size(402, 480);
+            this.lstEmployeesWorkingToday.TabIndex = 97;
+            this.lstEmployeesWorkingToday.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstEmployeesWorkingToday_MouseDoubleClick);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(529, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(195, 21);
+            this.label12.TabIndex = 96;
+            this.label12.Text = "Employees Working Today:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(22, 13);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(76, 21);
+            this.label14.TabIndex = 94;
+            this.label14.Text = "Schedule:";
+            // 
+            // dgOverviewSchedule
+            // 
+            this.dgOverviewSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgOverviewSchedule.Location = new System.Drawing.Point(22, 37);
+            this.dgOverviewSchedule.Name = "dgOverviewSchedule";
+            this.dgOverviewSchedule.RowHeadersWidth = 51;
+            this.dgOverviewSchedule.RowTemplate.Height = 25;
+            this.dgOverviewSchedule.Size = new System.Drawing.Size(487, 251);
+            this.dgOverviewSchedule.TabIndex = 93;
+            this.dgOverviewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewSchedule_CellDoubleClick);
+            // 
+            // txtProductID
+            // 
+            this.txtProductID.Controls.Add(this.dgReshelve);
+            this.txtProductID.Controls.Add(this.label3);
+            this.txtProductID.Controls.Add(this.groupBox1);
+            this.txtProductID.Location = new System.Drawing.Point(4, 30);
+            this.txtProductID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtProductID.Name = "txtProductID";
+            this.txtProductID.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtProductID.Size = new System.Drawing.Size(981, 529);
+            this.txtProductID.TabIndex = 3;
+            this.txtProductID.Text = "Products ";
+            this.txtProductID.UseVisualStyleBackColor = true;
+            // 
+            // dgReshelve
+            // 
+            this.dgReshelve.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgReshelve.Location = new System.Drawing.Point(25, 41);
+            this.dgReshelve.Name = "dgReshelve";
+            this.dgReshelve.RowHeadersWidth = 51;
+            this.dgReshelve.RowTemplate.Height = 25;
+            this.dgReshelve.Size = new System.Drawing.Size(568, 358);
+            this.dgReshelve.TabIndex = 97;
             // 
             // label3
             // 
@@ -132,48 +231,49 @@ namespace MediaBazaar
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtProductType);
+            this.groupBox1.Controls.Add(this.txtBarcode);
+            this.groupBox1.Controls.Add(this.txtName);
+            this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.btnDiscontinue);
             this.groupBox1.Controls.Add(this.btnEditProduct);
-            this.groupBox1.Controls.Add(this.txtProductType);
-            this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lblName);
-            this.groupBox1.Controls.Add(this.txtBarcode);
             this.groupBox1.Controls.Add(this.lblEmail);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.lblId);
-            this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(627, 17);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(326, 332);
+            this.groupBox1.Size = new System.Drawing.Size(258, 332);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Management";
             // 
-            // txtProductType
+            // btnDiscontinue
             // 
-            this.txtProductType.Enabled = false;
-            this.txtProductType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProductType.Location = new System.Drawing.Point(130, 165);
-            this.txtProductType.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.txtProductType.Name = "txtProductType";
-            this.txtProductType.ReadOnly = true;
-            this.txtProductType.Size = new System.Drawing.Size(162, 22);
-            this.txtProductType.TabIndex = 56;
+            this.btnDiscontinue.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDiscontinue.Location = new System.Drawing.Point(113, 279);
+            this.btnDiscontinue.Name = "btnDiscontinue";
+            this.btnDiscontinue.Size = new System.Drawing.Size(102, 26);
+            this.btnDiscontinue.TabIndex = 58;
+            this.btnDiscontinue.Text = "Discontinue";
+            this.btnDiscontinue.UseVisualStyleBackColor = true;
+            this.btnDiscontinue.Click += new System.EventHandler(this.btnDiscontinue_Click);
             // 
-            // txtName
+            // btnEditProduct
             // 
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtName.Location = new System.Drawing.Point(130, 77);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(162, 22);
-            this.txtName.TabIndex = 45;
+            this.btnEditProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEditProduct.Location = new System.Drawing.Point(90, 247);
+            this.btnEditProduct.Name = "btnEditProduct";
+            this.btnEditProduct.Size = new System.Drawing.Size(137, 26);
+            this.btnEditProduct.TabIndex = 57;
+            this.btnEditProduct.Text = "Update Product";
+            this.btnEditProduct.UseVisualStyleBackColor = true;
+            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
             // 
             // label4
             // 
@@ -196,16 +296,6 @@ namespace MediaBazaar
             this.lblName.Size = new System.Drawing.Size(47, 16);
             this.lblName.TabIndex = 46;
             this.lblName.Text = "Name:";
-            // 
-            // txtBarcode
-            // 
-            this.txtBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBarcode.Location = new System.Drawing.Point(130, 120);
-            this.txtBarcode.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.ReadOnly = true;
-            this.txtBarcode.Size = new System.Drawing.Size(162, 22);
-            this.txtBarcode.TabIndex = 47;
             // 
             // lblEmail
             // 
@@ -236,7 +326,7 @@ namespace MediaBazaar
             this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.ReadOnly = true;
-            this.txtPrice.Size = new System.Drawing.Size(162, 22);
+            this.txtPrice.Size = new System.Drawing.Size(97, 22);
             this.txtPrice.TabIndex = 51;
             // 
             // lblId
@@ -250,19 +340,14 @@ namespace MediaBazaar
             this.lblId.TabIndex = 50;
             this.lblId.Text = "ID:";
             // 
-            // txtID
-            // 
-            this.txtID.Enabled = false;
-            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtID.Location = new System.Drawing.Point(130, 36);
-            this.txtID.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.txtID.Name = "txtID";
-            this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(162, 22);
-            this.txtID.TabIndex = 49;
-            // 
             // tabSchedule
             // 
+            this.tabSchedule.Controls.Add(this.label11);
+            this.tabSchedule.Controls.Add(this.label6);
+            this.tabSchedule.Controls.Add(this.txtYear);
+            this.tabSchedule.Controls.Add(this.button2);
+            this.tabSchedule.Controls.Add(this.button1);
+            this.tabSchedule.Controls.Add(this.lblWeek);
             this.tabSchedule.Controls.Add(this.label2);
             this.tabSchedule.Controls.Add(this.dgSchedule);
             this.tabSchedule.Controls.Add(this.groupBox2);
@@ -275,44 +360,79 @@ namespace MediaBazaar
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
             // 
-            // tabPlanning
+            // label11
             // 
-            this.tabPlanning.Controls.Add(this.dgPlanningSchedule);
-            this.tabPlanning.Controls.Add(this.label8);
-            this.tabPlanning.Controls.Add(this.label9);
-            this.tabPlanning.Controls.Add(this.label10);
-            this.tabPlanning.Controls.Add(this.btnRemoveFromSchedule);
-            this.tabPlanning.Controls.Add(this.lstEmpCanWork);
-            this.tabPlanning.Controls.Add(this.lstEmpEnlisted);
-            this.tabPlanning.Location = new System.Drawing.Point(4, 30);
-            this.tabPlanning.Name = "tabPlanning";
-            this.tabPlanning.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPlanning.Size = new System.Drawing.Size(981, 529);
-            this.tabPlanning.TabIndex = 11;
-            this.tabPlanning.Text = "Planning";
-            this.tabPlanning.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(300, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(40, 21);
+            this.label11.TabIndex = 67;
+            this.label11.Text = "Year";
             // 
-            // btnLogout
+            // label6
             // 
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogout.Location = new System.Drawing.Point(919, 11);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(82, 34);
-            this.btnLogout.TabIndex = 1;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(204, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 21);
+            this.label6.TabIndex = 66;
+            this.label6.Text = "Week";
             // 
-            // dgReshelve
+            // txtYear
             // 
-            this.dgReshelve.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgReshelve.Location = new System.Drawing.Point(25, 41);
-            this.dgReshelve.Name = "dgReshelve";
-            this.dgReshelve.RowHeadersWidth = 51;
-            this.dgReshelve.RowTemplate.Height = 25;
-            this.dgReshelve.Size = new System.Drawing.Size(568, 358);
-            this.dgReshelve.TabIndex = 97;
+            this.txtYear.Location = new System.Drawing.Point(300, 46);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(97, 29);
+            this.txtYear.TabIndex = 65;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(179, 43);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(27, 35);
+            this.button2.TabIndex = 64;
+            this.button2.Text = "<";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(252, 43);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(27, 35);
+            this.button1.TabIndex = 63;
+            this.button1.Text = ">";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // lblWeek
+            // 
+            this.lblWeek.AutoSize = true;
+            this.lblWeek.Location = new System.Drawing.Point(212, 49);
+            this.lblWeek.Name = "lblWeek";
+            this.lblWeek.Size = new System.Drawing.Size(34, 21);
+            this.lblWeek.TabIndex = 62;
+            this.lblWeek.Text = "NN";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(22, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 21);
+            this.label2.TabIndex = 61;
+            this.label2.Text = "Schedule:";
+            // 
+            // dgSchedule
+            // 
+            this.dgSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSchedule.Location = new System.Drawing.Point(22, 95);
+            this.dgSchedule.Name = "dgSchedule";
+            this.dgSchedule.RowHeadersWidth = 51;
+            this.dgSchedule.RowTemplate.Height = 25;
+            this.dgSchedule.Size = new System.Drawing.Size(528, 325);
+            this.dgSchedule.TabIndex = 60;
+            this.dgSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSchedule_CellClick);
             // 
             // groupBox2
             // 
@@ -439,30 +559,33 @@ namespace MediaBazaar
             this.lbScheduleMorning.Size = new System.Drawing.Size(73, 25);
             this.lbScheduleMorning.TabIndex = 4;
             // 
-            // label2
+            // tabPlanning
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 21);
-            this.label2.TabIndex = 61;
-            this.label2.Text = "Schedule:";
-            // 
-            // dgSchedule
-            // 
-            this.dgSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSchedule.Location = new System.Drawing.Point(20, 46);
-            this.dgSchedule.Name = "dgSchedule";
-            this.dgSchedule.RowHeadersWidth = 51;
-            this.dgSchedule.RowTemplate.Height = 25;
-            this.dgSchedule.Size = new System.Drawing.Size(528, 325);
-            this.dgSchedule.TabIndex = 60;
-            this.dgSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSchedule_CellClick);
+            this.tabPlanning.Controls.Add(this.label15);
+            this.tabPlanning.Controls.Add(this.label16);
+            this.tabPlanning.Controls.Add(this.txtPlanningYear);
+            this.tabPlanning.Controls.Add(this.button3);
+            this.tabPlanning.Controls.Add(this.button4);
+            this.tabPlanning.Controls.Add(this.lblPlanningWeek);
+            this.tabPlanning.Controls.Add(this.dgPlanningSchedule);
+            this.tabPlanning.Controls.Add(this.label8);
+            this.tabPlanning.Controls.Add(this.label9);
+            this.tabPlanning.Controls.Add(this.label10);
+            this.tabPlanning.Controls.Add(this.btnRemoveFromSchedule);
+            this.tabPlanning.Controls.Add(this.lstEmpCanWork);
+            this.tabPlanning.Controls.Add(this.lstEmpEnlisted);
+            this.tabPlanning.Location = new System.Drawing.Point(4, 30);
+            this.tabPlanning.Name = "tabPlanning";
+            this.tabPlanning.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPlanning.Size = new System.Drawing.Size(981, 529);
+            this.tabPlanning.TabIndex = 11;
+            this.tabPlanning.Text = "Planning";
+            this.tabPlanning.UseVisualStyleBackColor = true;
             // 
             // dgPlanningSchedule
             // 
             this.dgPlanningSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPlanningSchedule.Location = new System.Drawing.Point(18, 39);
+            this.dgPlanningSchedule.Location = new System.Drawing.Point(18, 65);
             this.dgPlanningSchedule.Name = "dgPlanningSchedule";
             this.dgPlanningSchedule.RowHeadersWidth = 51;
             this.dgPlanningSchedule.RowTemplate.Height = 25;
@@ -472,7 +595,7 @@ namespace MediaBazaar
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 317);
+            this.label8.Location = new System.Drawing.Point(18, 344);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(151, 21);
             this.label8.TabIndex = 20;
@@ -490,7 +613,7 @@ namespace MediaBazaar
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 15);
+            this.label10.Location = new System.Drawing.Point(18, 41);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(76, 21);
             this.label10.TabIndex = 18;
@@ -499,7 +622,7 @@ namespace MediaBazaar
             // btnRemoveFromSchedule
             // 
             this.btnRemoveFromSchedule.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemoveFromSchedule.Location = new System.Drawing.Point(438, 470);
+            this.btnRemoveFromSchedule.Location = new System.Drawing.Point(438, 497);
             this.btnRemoveFromSchedule.Name = "btnRemoveFromSchedule";
             this.btnRemoveFromSchedule.Size = new System.Drawing.Size(105, 28);
             this.btnRemoveFromSchedule.TabIndex = 17;
@@ -521,109 +644,112 @@ namespace MediaBazaar
             this.lstEmpEnlisted.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmpEnlisted.FormattingEnabled = true;
             this.lstEmpEnlisted.ItemHeight = 17;
-            this.lstEmpEnlisted.Location = new System.Drawing.Point(18, 341);
+            this.lstEmpEnlisted.Location = new System.Drawing.Point(18, 368);
             this.lstEmpEnlisted.Name = "lstEmpEnlisted";
             this.lstEmpEnlisted.Size = new System.Drawing.Size(525, 123);
             this.lstEmpEnlisted.TabIndex = 15;
             // 
-            // tabOverview
+            // btnLogout
             // 
-            this.tabOverview.Controls.Add(this.label13);
-            this.tabOverview.Controls.Add(this.dgProduct);
-            this.tabOverview.Controls.Add(this.lstEmployeesWorkingToday);
-            this.tabOverview.Controls.Add(this.label12);
-            this.tabOverview.Controls.Add(this.label14);
-            this.tabOverview.Controls.Add(this.dgOverviewSchedule);
-            this.tabOverview.Location = new System.Drawing.Point(4, 30);
-            this.tabOverview.Name = "tabOverview";
-            this.tabOverview.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOverview.Size = new System.Drawing.Size(981, 529);
-            this.tabOverview.TabIndex = 12;
-            this.tabOverview.Text = "Overview";
-            this.tabOverview.UseVisualStyleBackColor = true;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogout.Location = new System.Drawing.Point(919, 11);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(82, 34);
+            this.btnLogout.TabIndex = 1;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // lstEmployeesWorkingToday
+            // label15
             // 
-            this.lstEmployeesWorkingToday.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstEmployeesWorkingToday.FormattingEnabled = true;
-            this.lstEmployeesWorkingToday.ItemHeight = 17;
-            this.lstEmployeesWorkingToday.Location = new System.Drawing.Point(530, 38);
-            this.lstEmployeesWorkingToday.Name = "lstEmployeesWorkingToday";
-            this.lstEmployeesWorkingToday.Size = new System.Drawing.Size(402, 480);
-            this.lstEmployeesWorkingToday.TabIndex = 97;
-            this.lstEmployeesWorkingToday.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstEmployeesWorkingToday_MouseDoubleClick);
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(306, 3);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(40, 21);
+            this.label15.TabIndex = 73;
+            this.label15.Text = "Year";
             // 
-            // label12
+            // label16
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(529, 13);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(195, 21);
-            this.label12.TabIndex = 96;
-            this.label12.Text = "Employees Working Today:";
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(210, 3);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(48, 21);
+            this.label16.TabIndex = 72;
+            this.label16.Text = "Week";
             // 
-            // label14
+            // txtPlanningYear
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(22, 13);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(76, 21);
-            this.label14.TabIndex = 94;
-            this.label14.Text = "Schedule:";
+            this.txtPlanningYear.Location = new System.Drawing.Point(306, 30);
+            this.txtPlanningYear.Name = "txtPlanningYear";
+            this.txtPlanningYear.Size = new System.Drawing.Size(97, 29);
+            this.txtPlanningYear.TabIndex = 71;
             // 
-            // dgOverviewSchedule
+            // button3
             // 
-            this.dgOverviewSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgOverviewSchedule.Location = new System.Drawing.Point(22, 37);
-            this.dgOverviewSchedule.Name = "dgOverviewSchedule";
-            this.dgOverviewSchedule.RowHeadersWidth = 51;
-            this.dgOverviewSchedule.RowTemplate.Height = 25;
-            this.dgOverviewSchedule.Size = new System.Drawing.Size(487, 251);
-            this.dgOverviewSchedule.TabIndex = 93;
-            this.dgOverviewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewSchedule_CellDoubleClick);
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.Location = new System.Drawing.Point(185, 27);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(27, 35);
+            this.button3.TabIndex = 70;
+            this.button3.Text = "<";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // label13
+            // button4
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(22, 303);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 21);
-            this.label13.TabIndex = 100;
-            this.label13.Text = "Product:";
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button4.Location = new System.Drawing.Point(258, 27);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(27, 35);
+            this.button4.TabIndex = 69;
+            this.button4.Text = ">";
+            this.button4.UseVisualStyleBackColor = true;
             // 
-            // dgProduct
+            // lblPlanningWeek
             // 
-            this.dgProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgProduct.Location = new System.Drawing.Point(21, 326);
-            this.dgProduct.Name = "dgProduct";
-            this.dgProduct.RowHeadersWidth = 51;
-            this.dgProduct.RowTemplate.Height = 25;
-            this.dgProduct.Size = new System.Drawing.Size(488, 190);
-            this.dgProduct.TabIndex = 99;
-            this.dgProduct.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProduct_CellDoubleClick);
+            this.lblPlanningWeek.AutoSize = true;
+            this.lblPlanningWeek.Location = new System.Drawing.Point(218, 33);
+            this.lblPlanningWeek.Name = "lblPlanningWeek";
+            this.lblPlanningWeek.Size = new System.Drawing.Size(34, 21);
+            this.lblPlanningWeek.TabIndex = 68;
+            this.lblPlanningWeek.Text = "NN";
             // 
-            // btnEditProduct
+            // label17
             // 
-            this.btnEditProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditProduct.Location = new System.Drawing.Point(155, 252);
-            this.btnEditProduct.Name = "btnEditProduct";
-            this.btnEditProduct.Size = new System.Drawing.Size(137, 26);
-            this.btnEditProduct.TabIndex = 57;
-            this.btnEditProduct.Text = "Update Product";
-            this.btnEditProduct.UseVisualStyleBackColor = true;
-            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(131, 35);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(25, 21);
+            this.label17.TabIndex = 59;
+            this.label17.Text = "ID";
             // 
-            // btnDiscontinue
+            // txtName
             // 
-            this.btnDiscontinue.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDiscontinue.Location = new System.Drawing.Point(178, 284);
-            this.btnDiscontinue.Name = "btnDiscontinue";
-            this.btnDiscontinue.Size = new System.Drawing.Size(102, 26);
-            this.btnDiscontinue.TabIndex = 58;
-            this.btnDiscontinue.Text = "Discontinue";
-            this.btnDiscontinue.UseVisualStyleBackColor = true;
-            this.btnDiscontinue.Click += new System.EventHandler(this.btnDiscontinue_Click);
+            this.txtName.AutoSize = true;
+            this.txtName.Location = new System.Drawing.Point(131, 76);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(52, 21);
+            this.txtName.TabIndex = 60;
+            this.txtName.Text = "Name";
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.AutoSize = true;
+            this.txtBarcode.Location = new System.Drawing.Point(131, 119);
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Size = new System.Drawing.Size(66, 21);
+            this.txtBarcode.TabIndex = 61;
+            this.txtBarcode.Text = "Barcode";
+            // 
+            // txtProductType
+            // 
+            this.txtProductType.AutoSize = true;
+            this.txtProductType.Location = new System.Drawing.Point(131, 164);
+            this.txtProductType.Name = "txtProductType";
+            this.txtProductType.Size = new System.Drawing.Size(96, 21);
+            this.txtProductType.TabIndex = 62;
+            this.txtProductType.Text = "ProductType";
             // 
             // SalesManager
             // 
@@ -637,23 +763,23 @@ namespace MediaBazaar
             this.Name = "SalesManager";
             this.Text = "FormSalesManager";
             this.tabControl1.ResumeLayout(false);
-            this.tabProduct.ResumeLayout(false);
-            this.tabProduct.PerformLayout();
+            this.tabOverview.ResumeLayout(false);
+            this.tabOverview.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).EndInit();
+            this.txtProductID.ResumeLayout(false);
+            this.txtProductID.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgReshelve)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabSchedule.ResumeLayout(false);
             this.tabSchedule.PerformLayout();
-            this.tabPlanning.ResumeLayout(false);
-            this.tabPlanning.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgReshelve)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).EndInit();
+            this.tabPlanning.ResumeLayout(false);
+            this.tabPlanning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).EndInit();
-            this.tabOverview.ResumeLayout(false);
-            this.tabOverview.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -662,19 +788,15 @@ namespace MediaBazaar
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.TabPage tabProduct;
+        private System.Windows.Forms.TabPage txtProductID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtProductType;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txtBarcode;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TabPage tabSchedule;
         private System.Windows.Forms.TabPage tabPlanning;
         private System.Windows.Forms.DataGridView dgReshelve;
@@ -708,5 +830,21 @@ namespace MediaBazaar
         private System.Windows.Forms.DataGridView dgProduct;
         private System.Windows.Forms.Button btnDiscontinue;
         private System.Windows.Forms.Button btnEditProduct;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtYear;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblWeek;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtPlanningYear;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label lblPlanningWeek;
+        private System.Windows.Forms.Label txtProductType;
+        private System.Windows.Forms.Label txtBarcode;
+        private System.Windows.Forms.Label txtName;
+        private System.Windows.Forms.Label label17;
     }
 }
