@@ -281,7 +281,6 @@ E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\ClassLibraryProject.dll
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\ClassLibraryProject.pdb
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Excel.dll
-C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CopyComplete
 C:\Users\esthe\OneDrive\Bureaublad\git idk\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.exe
 C:\Users\esthe\OneDrive\Bureaublad\git idk\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.deps.json
 C:\Users\esthe\OneDrive\Bureaublad\git idk\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\MediaBazaar.runtimeconfig.json
@@ -328,3 +327,4 @@ C:\Users\esthe\OneDrive\Bureaublad\git idk\cbo3-1-soleil-lars-esther-mohammad\Me
 C:\Users\esthe\OneDrive\Bureaublad\git idk\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.dll
 C:\Users\esthe\OneDrive\Bureaublad\git idk\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.pdb
 C:\Users\esthe\OneDrive\Bureaublad\git idk\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.genruntimeconfig.cache
+E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormOrderInfo.resources

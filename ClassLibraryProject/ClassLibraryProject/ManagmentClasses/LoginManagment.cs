@@ -1,12 +1,14 @@
-﻿using ClassLibraryProject.Class;
+﻿using System;
+using System.ComponentModel;
+using System.Windows;
+using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
-using System;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
     public class LoginManagment
     {
-        public static string LOGIN_BY_EMPLOYEEID = " SELECT employee.userName, password, contract.JobTitle FROM employee INNER JOIN contract ON contract.employeeID = employee.Employeeid where employee.UserName = @UserName order by startdate;";
+        public static string LOGIN_BY_EMPLOYEEID = " SELECT employee.userName, password, contract.JobTitle FROM employee INNER JOIN contract ON contract.employeeID = employee.Employeeid where employee.UserName = @UserName AND Active = 1 order by startdate;";
         public static string GET_EMPLOYEEID = " SELECT employeeID, password, userName FROM employee where UserName = @UserName";
 
 
@@ -68,10 +70,12 @@ namespace ClassLibraryProject.ManagmentClasses
                 }
                 return 0;
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException a )
+            {
+            }
+            catch (Exception a )
+            {
+            }
             finally
             {
                 conn.Close();

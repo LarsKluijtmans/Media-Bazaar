@@ -8,9 +8,9 @@ namespace ClassLibraryProject.ManagmentClasses
     public class PlanningManagment
     {
         public static string GET_PLANNING = "SELECT EmployeeID from Planning WHERE Day = @Day AND Shift = @Shift;";
-        public static string NEW_PLANNING = "INSERT INTO Planning (Day, Shift, EmployeeID) VALUES (@Day, @Shift, @EmployeeID);";
+        public static string NEW_PLANNING = "INSERT INTO Planning (Year, Week, Day, Shift, EmployeeID) VALUES (@Year, @Week, @Day, @Shift, @EmployeeID);";
 
-        public void AddPlanning(string Day, string Shift, int employeeID)
+        public void AddPlanning(int year, int week, string day, string shift, int employeeID)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql;
@@ -18,9 +18,11 @@ namespace ClassLibraryProject.ManagmentClasses
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Day", Day);
+                cmd.Parameters.AddWithValue("@Year", year);
+                cmd.Parameters.AddWithValue("@Week", week);
+                cmd.Parameters.AddWithValue("@Day", day);
                 cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                cmd.Parameters.AddWithValue("@Shift", Shift);
+                cmd.Parameters.AddWithValue("@Shift", shift);
 
                 conn.Open();
 
