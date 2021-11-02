@@ -17,7 +17,9 @@ namespace ClassLibraryProject.ManagmentClasses
         public static string VIEW_EMPLOYEE = "SELECT * FROM Employee WHERE EmployeeID = @EmployeeID;";
         public static string REMOVE_EMPLOYEE_BY_ID = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
 
-        // properties
+        // get employeeid 
+        //public static string GET_EMPLOYEEID = "SELECT EmployeeID FROM Employee WHERE "
+
 
         // constructor
         public EmployeeManagement()

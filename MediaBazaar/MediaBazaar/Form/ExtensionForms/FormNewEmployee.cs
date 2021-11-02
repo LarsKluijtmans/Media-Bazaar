@@ -18,6 +18,7 @@ namespace MediaBazaar
         {
             CreateEmployee();
         }
+        // create employee
         public void CreateEmployee()
         {
             string firstName = tbxFirstName.Text;
@@ -88,6 +89,9 @@ namespace MediaBazaar
                 long id = cmd.LastInsertedId;
 
                 tbxEmployeeID.Text = id.ToString();
+
+                int employeeID = Convert.ToInt32(id);
+                CreateContract(employeeID);
             }
             catch (MySqlException msqEx)
             {
@@ -105,10 +109,12 @@ namespace MediaBazaar
             tbxUsername.Text = username;
             tbxPassword.Text = password;
             tbxEmail.Text = email;
+
         }
-        public void CreateContract()
+        // create contract
+        public void CreateContract(int id)
         {
-            int employeeID = Convert.ToInt32(tbxEmployeeID.Text);
+            int employeeID = id;
             string jobTitle = cbxJobTitle.SelectedItem.ToString();
             if (string.IsNullOrEmpty(jobTitle))
             {
@@ -143,10 +149,8 @@ namespace MediaBazaar
 
                 conn.Open();
 
-                //int numCreatedRows = cmd.ExecuteNonQuery();
+                int numCreatedRows = cmd.ExecuteNonQuery();
                 //long id = cmd.LastInsertedId;
-
-                //tbxEmployeeID.Text = id.ToString();
             }
             catch (MySqlException msqEx)
             {
@@ -160,11 +164,6 @@ namespace MediaBazaar
             {
                 conn.Close();
             }
-        }
-
-        private void btnAddContract_Click(object sender, EventArgs e)
-        {
-            CreateContract();
         }
     }
 }

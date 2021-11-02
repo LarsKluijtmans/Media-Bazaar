@@ -14,6 +14,9 @@ namespace ClassLibraryProject.Class
         private int amountInStore;
         private int amountInDepot;
 
+        private int sellingPrice;
+        private bool isDiscontinued;
+
 
         //properties
         public int ProductID
@@ -48,8 +51,10 @@ namespace ClassLibraryProject.Class
             set { amountInDepot = value; }
         }
 
+        public int SellingPrice { get; set; }
+        public bool IsDiscontinued { get; set; }
         //constructor
-        public Product(int id, string name, string type, string barcode, int amountInDepot, int amountInStore)
+        public Product(int id, string name, string type, string barcode, int amountInDepot, int amountInStore, int sellingPrice)
         {
             ProductID = id;
             Barcode = barcode;
@@ -57,6 +62,8 @@ namespace ClassLibraryProject.Class
             ProductType = type;
             AmountInDepot = amountInDepot;
             AmountInStore = amountInStore;
+            SellingPrice = sellingPrice;
+            IsDiscontinued = false;
         }
     }
 }
