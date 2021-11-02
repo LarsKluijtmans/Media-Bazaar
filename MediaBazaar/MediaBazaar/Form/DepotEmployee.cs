@@ -30,6 +30,7 @@ namespace MediaBazaar
         {
             Close();
         }
+
         //Reshelves
         public void UpdateReshelveRequests()
         {
@@ -87,6 +88,7 @@ namespace MediaBazaar
                 txtAmountRequested.Text = row.Cells["AmountRequested"].Value.ToString();
             }
         }
+
         //Receive Product
         public void UpdateOrders()
         {

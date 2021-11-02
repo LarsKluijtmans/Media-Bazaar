@@ -49,8 +49,8 @@ namespace MediaBazaar
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtYear = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDecreaseWeek = new System.Windows.Forms.Button();
+            this.btnIncreaseWeek = new System.Windows.Forms.Button();
             this.lblWeek = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgSchedule = new System.Windows.Forms.DataGridView();
@@ -303,8 +303,8 @@ namespace MediaBazaar
             this.tabSchedule.Controls.Add(this.label18);
             this.tabSchedule.Controls.Add(this.label19);
             this.tabSchedule.Controls.Add(this.txtYear);
-            this.tabSchedule.Controls.Add(this.button2);
-            this.tabSchedule.Controls.Add(this.button1);
+            this.tabSchedule.Controls.Add(this.btnDecreaseWeek);
+            this.tabSchedule.Controls.Add(this.btnIncreaseWeek);
             this.tabSchedule.Controls.Add(this.lblWeek);
             this.tabSchedule.Controls.Add(this.label6);
             this.tabSchedule.Controls.Add(this.dgSchedule);
@@ -343,25 +343,27 @@ namespace MediaBazaar
             this.txtYear.Size = new System.Drawing.Size(97, 29);
             this.txtYear.TabIndex = 71;
             // 
-            // button2
+            // btnDecreaseWeek
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(196, 39);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(27, 35);
-            this.button2.TabIndex = 70;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDecreaseWeek.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDecreaseWeek.Location = new System.Drawing.Point(196, 39);
+            this.btnDecreaseWeek.Name = "btnDecreaseWeek";
+            this.btnDecreaseWeek.Size = new System.Drawing.Size(27, 35);
+            this.btnDecreaseWeek.TabIndex = 70;
+            this.btnDecreaseWeek.Text = "<";
+            this.btnDecreaseWeek.UseVisualStyleBackColor = true;
+            this.btnDecreaseWeek.Click += new System.EventHandler(this.btnDecreaseWeek_Click);
             // 
-            // button1
+            // btnIncreaseWeek
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(269, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(27, 35);
-            this.button1.TabIndex = 69;
-            this.button1.Text = ">";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnIncreaseWeek.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnIncreaseWeek.Location = new System.Drawing.Point(269, 39);
+            this.btnIncreaseWeek.Name = "btnIncreaseWeek";
+            this.btnIncreaseWeek.Size = new System.Drawing.Size(27, 35);
+            this.btnIncreaseWeek.TabIndex = 69;
+            this.btnIncreaseWeek.Text = ">";
+            this.btnIncreaseWeek.UseVisualStyleBackColor = true;
+            this.btnIncreaseWeek.Click += new System.EventHandler(this.btnIncreaseWeek_Click);
             // 
             // lblWeek
             // 
@@ -1211,8 +1213,8 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtYear;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDecreaseWeek;
+        private System.Windows.Forms.Button btnIncreaseWeek;
         private System.Windows.Forms.Label lblWeek;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label30;
