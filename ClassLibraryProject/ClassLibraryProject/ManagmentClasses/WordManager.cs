@@ -26,45 +26,44 @@ namespace ClassLibraryProject.ManagmentClasses
                 Microsoft.Office.Interop.Word.Document document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
 
                 //Add header into the document  
-                //foreach (Microsoft.Office.Interop.Word.Section section in document.Sections)
-                //{
-                //    //Get the header range and add the header details.  
-                //    Microsoft.Office.Interop.Word.Range headerRange = section.Headers[Microsoft.Office.Interop.Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
-                //    headerRange.Fields.Add(headerRange, Microsoft.Office.Interop.Word.WdFieldType.wdFieldPage);
-                //    headerRange.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-                //    headerRange.Font.ColorIndex = Microsoft.Office.Interop.Word.WdColorIndex.wdBlue;
-                //    headerRange.Font.Size = 10;
-                //    headerRange.Text = "Header text goes here";
-                //}
+                foreach (Microsoft.Office.Interop.Word.Section section in document.Sections)
+                {
+                    //Get the header range and add the header details.  
+                    Microsoft.Office.Interop.Word.Range headerRange = section.Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
+                    headerRange.Fields.Add(headerRange, WdFieldType.wdFieldPage);
+                    headerRange.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+                    headerRange.Font.ColorIndex = WdColorIndex.wdBlack;
+                    headerRange.Font.Size = 25;
+                    headerRange.Text = "Media bazaar contract";
+                }
 
                 ////Add the footers into the document  
-                //foreach (Microsoft.Office.Interop.Word.Section wordSection in document.Sections)
-                //{
-                //    //Get the footer range and add the footer details.  
-                //    Microsoft.Office.Interop.Word.Range footerRange = wordSection.Footers[Microsoft.Office.Interop.Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
-                //    footerRange.Font.ColorIndex = Microsoft.Office.Interop.Word.WdColorIndex.wdDarkRed;
-                //    footerRange.Font.Size = 10;
-                //    footerRange.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-                //    footerRange.Text = "Footer text goes here";
-                //}
+                foreach (Microsoft.Office.Interop.Word.Section wordSection in document.Sections)
+                {
+                    //Get the footer range and add the footer details.  
+                    Microsoft.Office.Interop.Word.Range footerRange = wordSection.Footers[Microsoft.Office.Interop.Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
+                    footerRange.Font.ColorIndex = WdColorIndex.wdDarkRed;
+                    footerRange.Font.Size = 20;
+                    footerRange.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+                    footerRange.Text = "____________________" + Environment.NewLine;
+                }
 
                 //adding text to document  
-                document.Content.SetRange(0, 0);
+                document.Content.SetRange(100,100);
+                document.Content.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
                 document.Content.Text = "This is test document " + Environment.NewLine;
 
-                ////Add paragraph with Heading 1 style  
-                //Microsoft.Office.Interop.Word.Paragraph para1 = document.Content.Paragraphs.Add(ref missing);
-                //object styleHeading1 = "Heading 1";
-                //para1.Range.set_Style(ref styleHeading1);
-                //para1.Range.Text = "Para 1 text";
-                //para1.Range.InsertParagraphAfter();
+                //Add paragraph with Heading 1 style
+                Paragraph para1 = document.Content.Paragraphs.Add(ref missing);
+                para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                para1.Range.Text = "";
+                para1.Range.InsertParagraphAfter();
 
                 ////Add paragraph with Heading 2 style  
-                //Microsoft.Office.Interop.Word.Paragraph para2 = document.Content.Paragraphs.Add(ref missing);
-                //object styleHeading2 = "Heading 2";
-                //para2.Range.set_Style(ref styleHeading2);
-                //para2.Range.Text = "Para 2 text";
-                //para2.Range.InsertParagraphAfter();
+                Paragraph para2 = document.Content.Paragraphs.Add(ref missing);
+                para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                para2.Range.Text = "Para 2 text";
+                para2.Range.InsertParagraphAfter();
 
                 ////Create a 5X5 table and insert some dummy record  
                 //Table firstTable = document.Tables.Add(para1.Range, 5, 5, ref missing, ref missing);
@@ -98,19 +97,18 @@ namespace ClassLibraryProject.ManagmentClasses
                 //}
 
                 //Save the document  
-                Object oSaveAsFileWord = @"D:\Company\Contracts\" + employeeID + "  " + DateTime.Now.ToString("yyyy-MM-dd") + ".doc";
+                Object oSaveAsFileWord = @"D:\Company\Contracts\" + employeeID + "  " + DateTime.Now.ToString("yyyy-MM-dd HH-MM") + ".doc";
 
                 document.SaveAs(
-                               ref oSaveAsFileWord, ref missing, ref missing, ref missing,
-                               ref missing, ref missing, ref missing, ref missing,
-                               ref missing, ref missing, ref missing, ref missing,
-                               ref missing, ref missing, ref missing, ref missing);
+                                 ref oSaveAsFileWord, ref missing, ref missing, ref missing,
+                                 ref missing, ref missing, ref missing, ref missing,
+                                 ref missing, ref missing, ref missing, ref missing,
+                                 ref missing, ref missing, ref missing, ref missing);
 
-                document.Close(ref missing, ref missing, ref missing);
-                document = null;
-                winword.Quit(ref missing, ref missing, ref missing);
-                winword = null;
-
+                //document.Close(ref missing, ref missing, ref missing);
+                //document = null;
+                //winword.Quit(ref missing, ref missing, ref missing);
+                //winword = null;
             }
             catch (Exception ex)
             {
