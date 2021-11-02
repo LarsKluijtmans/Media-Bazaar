@@ -184,7 +184,7 @@ namespace MediaBazaar
 
             string constring = "Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=Nijlpaard;SslMode =none;";
 
-            string file = @"D:\CompanyDatabase\" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
+            string file = @"D:\Company\CompanyDatabase\" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
 
             using (MySqlConnection conn = new MySqlConnection(constring))
             {
@@ -200,13 +200,15 @@ namespace MediaBazaar
                 }
             }
 
-            MessageBox.Show(@"Backup sucsesfull, please go to the D:\CompanyDatabase for the backup.");
+            MessageBox.Show(@"Backup succesfull, please go to the D:\Company\CompanyDatabase for the backup.");
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-         
+            WordManager w = new WordManager();
+
+            w.ContractDoc(10.ToString());
         }
     }
 }

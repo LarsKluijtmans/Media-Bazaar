@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v3.1": {
       "ClassLibraryProject/1.0.0": {
         "dependencies": {
-          "MySql.Data": "8.0.26"
+          "MySql.Data": "8.0.26",
+          "Interop.Microsoft.Office.Core": "2.8.0.0",
+          "Interop.Microsoft.Office.Interop.Word": "8.7.0.0"
         },
         "runtime": {
           "ClassLibraryProject.dll": {}
@@ -213,6 +215,22 @@
             "fileVersion": "4.700.19.56404"
           }
         }
+      },
+      "Interop.Microsoft.Office.Core/2.8.0.0": {
+        "runtime": {
+          "Interop.Microsoft.Office.Core.dll": {
+            "assemblyVersion": "2.8.0.0",
+            "fileVersion": "2.8.0.0"
+          }
+        }
+      },
+      "Interop.Microsoft.Office.Interop.Word/8.7.0.0": {
+        "runtime": {
+          "Interop.Microsoft.Office.Interop.Word.dll": {
+            "assemblyVersion": "8.7.0.0",
+            "fileVersion": "8.7.0.0"
+          }
+        }
       }
     }
   },
@@ -354,6 +372,16 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "Interop.Microsoft.Office.Core/2.8.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Interop.Microsoft.Office.Interop.Word/8.7.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
