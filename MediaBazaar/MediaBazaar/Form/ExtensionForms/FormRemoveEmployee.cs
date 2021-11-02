@@ -25,7 +25,7 @@ namespace MediaBazaar
         private void button1_Click(object sender, EventArgs e)
         {
             UpdateContract();
-            saveCount++;
+            Close();
         }
         public void UpdateContract()
         {

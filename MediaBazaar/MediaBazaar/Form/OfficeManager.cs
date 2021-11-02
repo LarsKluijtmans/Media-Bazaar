@@ -205,10 +205,6 @@ namespace MediaBazaar
             FormNewEmployee formNewEmployee = new FormNewEmployee();
             formNewEmployee.Show();
         }
-        private void btnReadEmployee_Click(object sender, EventArgs e)
-        {
-            ViewAllEmployees();
-        }
 
         private Person GetTempEmployee()
         {
@@ -264,25 +260,25 @@ namespace MediaBazaar
                         }
                         else if (rbnDepotEmployees.Checked)
                         {
-                            if (c.JobTitle == "DEPOT EMPLOYEE" || c.JobTitle == "DEPOT MANAGER")
-                            {
-                                lbxEmployees.Items.Add(employee);
-                            }
+                                if (c.JobTitle == "DEPOT EMPLOYEE" || c.JobTitle == "DEPOT MANAGER")
+                                {
+                                    lbxEmployees.Items.Add(employee);
+                                }
                         }
                         else if (rbnOfficeEmployees.Checked)
                         {
-                            if (c.JobTitle == "OFFICE MANAGER")
-                            {
-                                lbxEmployees.Items.Add(employee);
-                            }
+                                if (c.JobTitle == "OFFICE MANAGER")
+                                {
+                                    lbxEmployees.Items.Add(employee);
+                                }
                         }
                         else if (rbnSalesEmployees.Checked)
                         {
-                            if (c.JobTitle == "SALES REPRESENTATIVE" || c.JobTitle == "SALES MANAGER")
-                            {
-                                lbxEmployees.Items.Add(employee);
+                                if (c.JobTitle == "SALES REPRESENTATIVE" || c.JobTitle == "SALES MANAGER")
+                                {
+                                    lbxEmployees.Items.Add(employee);
 
-                            }
+                                }
                         }
                     }
                 }

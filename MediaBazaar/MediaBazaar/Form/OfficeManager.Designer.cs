@@ -35,7 +35,6 @@ namespace MediaBazaar
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnRemoveEmployee = new System.Windows.Forms.Button();
-            this.btnReadEmployee = new System.Windows.Forms.Button();
             this.btnCreateEmployee = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -148,13 +147,12 @@ namespace MediaBazaar
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnRemoveEmployee);
-            this.groupBox4.Controls.Add(this.btnReadEmployee);
             this.groupBox4.Controls.Add(this.btnCreateEmployee);
             this.groupBox4.Location = new System.Drawing.Point(490, 32);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(183, 134);
+            this.groupBox4.Size = new System.Drawing.Size(183, 94);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Manage Employees";
@@ -169,17 +167,6 @@ namespace MediaBazaar
             this.btnRemoveEmployee.Text = "Delete Employees";
             this.btnRemoveEmployee.UseVisualStyleBackColor = true;
             this.btnRemoveEmployee.Click += new System.EventHandler(this.btnRemoveEmployee_Click);
-            // 
-            // btnReadEmployee
-            // 
-            this.btnReadEmployee.Location = new System.Drawing.Point(6, 91);
-            this.btnReadEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReadEmployee.Name = "btnReadEmployee";
-            this.btnReadEmployee.Size = new System.Drawing.Size(168, 31);
-            this.btnReadEmployee.TabIndex = 5;
-            this.btnReadEmployee.Text = "Read Employees";
-            this.btnReadEmployee.UseVisualStyleBackColor = true;
-            this.btnReadEmployee.Click += new System.EventHandler(this.btnReadEmployee_Click);
             // 
             // btnCreateEmployee
             // 
@@ -785,7 +772,6 @@ namespace MediaBazaar
         private System.Windows.Forms.ListBox lbProduct;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnRemoveEmployee;
-        private System.Windows.Forms.Button btnReadEmployee;
         private System.Windows.Forms.Button btnCreateEmployee;
         private System.Windows.Forms.RadioButton rbnSalesEmployees;
         private System.Windows.Forms.RadioButton rbnDepotEmployees;
