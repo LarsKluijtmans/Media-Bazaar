@@ -13,7 +13,9 @@
           "MySqlBackup.NET": "2.3.6.1",
           "MySqlBackup.Net.DevartExpress": "2.3.6",
           "MySqlConnector": "1.3.14",
-          "Interop.Microsoft.Office.Interop.Excel": "1.9.0.0"
+          "Interop.Microsoft.Office.Interop.Excel": "1.9.0.0",
+          "Interop.Microsoft.Office.Core": "2.8.0.0",
+          "Interop.Microsoft.Office.Interop.Word": "8.7.0.0"
         },
         "runtime": {
           "MediaBazaar.dll": {}
@@ -207,6 +209,22 @@
             "fileVersion": "1.9.0.0"
           }
         }
+      },
+      "Interop.Microsoft.Office.Core/2.8.0.0": {
+        "runtime": {
+          "Interop.Microsoft.Office.Core.dll": {
+            "assemblyVersion": "2.8.0.0",
+            "fileVersion": "2.8.0.0"
+          }
+        }
+      },
+      "Interop.Microsoft.Office.Interop.Word/8.7.0.0": {
+        "runtime": {
+          "Interop.Microsoft.Office.Interop.Word.dll": {
+            "assemblyVersion": "8.7.0.0",
+            "fileVersion": "8.7.0.0"
+          }
+        }
       }
     }
   },
@@ -383,6 +401,16 @@
       "sha512": ""
     },
     "Interop.Microsoft.Office.Interop.Excel/1.9.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Interop.Microsoft.Office.Core/2.8.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Interop.Microsoft.Office.Interop.Word/8.7.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

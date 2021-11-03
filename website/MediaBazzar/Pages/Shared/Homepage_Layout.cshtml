@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - MediaBazzar</title>
+   @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" type="text/css" href="css/view.css">
+</head>
+<body>
+    <div  class="web-body">
+      <div class="header">
+        <nav>
+            <a class="a nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+            <a class="a nav-link text-dark" asp-area="" asp-page="/Edit">Profile</a>
+            <a class="a nav-link text-dark" asp-area="" asp-page="/Shift">Schedule</a>
+            <a class="LoginButton nav-link text-dark" asp-area="" asp-page="/Index">Logout</a>
+
+        </nav>
+      </div>
+        
+      <div>
+            @RenderBody()
+      </div>
+      
+      <div class="footer">
+          <a class="a" asp-area="" asp-page="/">Contact us</a>
+      </div>
+        @RenderSection("Scripts", required: false)
+    </div>
+</body>
+</html>

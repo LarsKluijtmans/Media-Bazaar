@@ -99,7 +99,10 @@ namespace MediaBazaar
             tbxUsername.Text = username;
             tbxPassword.Text = password;
             tbxEmail.Text = email;
-         }
+
+            store.emailManager.Email(password, username, email);
+            MessageBox.Show("Email send");
+        }
 
         private void btnAddContract_Click(object sender, EventArgs e)
         {
@@ -181,7 +184,7 @@ namespace MediaBazaar
 
             string constring = "Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=Nijlpaard;SslMode =none;";
 
-            string file = @"D:\CompanyDatabase\" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
+            string file = @"D:\Company\CompanyDatabase\" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
 
             using (MySqlConnection conn = new MySqlConnection(constring))
             {
@@ -197,71 +200,15 @@ namespace MediaBazaar
                 }
             }
 
-            MessageBox.Show(@"Backup sucsesfull, please go to the D:\CompanyDatabase for the backup.");
+            MessageBox.Show(@"Backup succesfull, please go to the D:\Company\CompanyDatabase for the backup.");
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var smtpClient = new SmtpClient("smtp.gmail.com")
-            {
-                Port = 587,
-                Credentials = new NetworkCredential("MediaBazaar.HQ@gmail.com", "MediaBazaar21"),
-                EnableSsl = true,
-            };
+            WordManager w = new WordManager();
 
-            StringBuilder message = new StringBuilder();
-
-            message.Append(" <h1>Here is your acount information.</h1>");
-            message.AppendLine("<p>Here is your acount information.</p>");
-            message.AppendLine("<p>You can use these in the diferent mediabazaar apps and websites.</p>");
-            message.AppendLine("<p>  Username: lkluijtmans</p>");
-            message.AppendLine("<p>  password: 1 </p>");
-            message.AppendLine("<p> Contact us with this email adress if you run in to any problems: nazibul.kabir.srv@gmail.com</p>");
-
-            var mailMessage = new MailMessage
-            {
-                From = new MailAddress("MediaBazaar.HQ@gmail.com"),
-                Subject = "Mediabazaar acount information",
-                Body = message.ToString(),
-                IsBodyHtml = true,
-            };
-            mailMessage.To.Add("MediaBazaar.HQ@gmail.com");
-
-            smtpClient.Send(mailMessage);
-
-            MessageBox.Show("Email send");
-        }
-
-        public void Email(string password, string username, string email)
-        {
-            var smtpClient = new SmtpClient("smtp.gmail.com")
-            {
-                Port = 587,
-                Credentials = new NetworkCredential("lars.kluijtmans@gmail.com", "Nijlpaard"),
-                EnableSsl = true,
-            };
-
-            StringBuilder message = new StringBuilder();
-
-            message.Append(" <h1>Here is your acount information.</h1>");
-            message.AppendLine("<p>Here is your acount information.</p>");
-            message.AppendLine("<p>You can use these in the diferent mediabazaar apps and websites.</p>");
-            message.AppendLine($"<p>  Username: {username}</p>");
-            message.AppendLine($"<p>  password: {password}</p>");
-            message.AppendLine("<p> Contact us with this email adress if you run in to any problems: nazibul.kabir.srv@gmail.com</p>");
-
-            var mailMessage = new MailMessage
-            {
-                From = new MailAddress("lars.kluijtmans@gmail.com"),
-                Subject = "Mediabazaar acount information",
-                Body = message.ToString(),
-                IsBodyHtml = true,
-            };
-            mailMessage.To.Add("lars.kluijtmans@gmail.com");
-
-            smtpClient.Send(mailMessage);
-
-            MessageBox.Show("Email send");
+            w.ContractDoc(10.ToString());
         }
     }
 }

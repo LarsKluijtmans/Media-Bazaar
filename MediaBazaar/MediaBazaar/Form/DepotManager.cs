@@ -1,6 +1,5 @@
 ﻿using ClassLibraryProject.Class;
 using System;
-using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -10,6 +9,7 @@ namespace MediaBazaar
     {
         int ID;
         Store store;
+        int i;
 
         public DepotManager(int UserID, Store s)
         {
@@ -17,17 +17,23 @@ namespace MediaBazaar
 
             store = s;
             ID = UserID;
-            DateTime date = DateTime.Now;
-            lblWeek.Text = GetIso8601WeekOfYear(date).ToString();
-            txtYear.Text = date.Year.ToString();
+
+            Initialize();
             UpdateRestockRequests();
             UpdateSchedule();
             UpdateSupplier();
-            store.orderInfoManagment.GetAllOrderInfo();
+        }
+
+        //Initialize
+        public void Initialize()
+        {
+            DateTime date = DateTime.Now;
+            lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
+            i = Convert.ToInt32(lblWeek.Text);
+            txtYear.Text = date.Year.ToString();
         }
 
         //Overview
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Close();
@@ -51,6 +57,7 @@ namespace MediaBazaar
         {
             tabControl1.SelectTab(4);
         }
+
         //Restock
         public void UpdateRestockRequests()
         {
@@ -112,25 +119,32 @@ namespace MediaBazaar
         }
 
         //Schedule
-        public static int GetIso8601WeekOfYear(DateTime time)
+        public static int GetCurrentWeekOfYear(DateTime time)
         {
-            // Seriously cheat.  If its Monday, Tuesday or Wednesday, then it'll 
-            // be the same week# as whatever Thursday, Friday or Saturday are,
-            // and we always get those right
             DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(time);
             if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
             {
                 time = time.AddDays(3);
             }
 
-            // Return the week of our adjusted day
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
         public void UpdateSchedule()
         {
-            dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
-            dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
-            dgPlanningSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
+            try
+            {
+                if (store.scheduleManagment.GetDepotCount(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text)) == true)
+                {
+                    store.scheduleManagment.CreateDepotWeek(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text));
+                }
+                dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
+                dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please insert year!");
+            }
+            
         }
         private void dgSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -172,9 +186,48 @@ namespace MediaBazaar
                 MessageBox.Show("Day is required.");
                 return;
             }
+            try
+            {
+                store.scheduleManagment.EditDepotSchedule(Day, Morning, Afternoon, Evening, Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please insert year!");
+            }
 
-            store.scheduleManagment.EditDepotSchedule(Day, Morning, Afternoon, Evening, Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
-
+            UpdateSchedule();
+        }
+        private void btnIncreaseWeek_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (i < ISOWeek.GetWeeksInYear(Convert.ToInt32(txtYear.Text)))
+                {
+                    i++;
+                }
+                else if (i >= ISOWeek.GetWeeksInYear(Convert.ToInt32(txtYear.Text)))
+                {
+                    i = ISOWeek.GetWeeksInYear(Convert.ToInt32(txtYear.Text));
+                }
+                lblWeek.Text = i.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please insert year!");
+            }
+            UpdateSchedule();
+        }
+        private void btnDecreaseWeek_Click(object sender, EventArgs e)
+        {
+            if (i > 1)
+            {
+                i--;
+            }
+            else if (i <= 0)
+            {
+                i = 1;
+            }
+            lblWeek.Text = i.ToString();
             UpdateSchedule();
         }
 
@@ -307,10 +360,16 @@ namespace MediaBazaar
         }
         private void btnOrderInfo_Click(object sender, EventArgs e)
         {
-            string supplierID = txtSupplierID.Text; 
-
-            FormOrderInfo formOrderInfo = new FormOrderInfo(Convert.ToInt32(supplierID));
-            formOrderInfo.Show();
+            string supplierID = txtSupplierID.Text;
+            try
+            {
+                FormOrderInfo formOrderInfo = new FormOrderInfo(Convert.ToInt32(supplierID));
+                formOrderInfo.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select supplier");
+            }
         }
     }
 }
