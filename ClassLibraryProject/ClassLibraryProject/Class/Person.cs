@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ClassLibraryProject.Class
 {
-	public abstract class Person
+	public class Person
     {
 		private int employeeID;
 		private string firstName;

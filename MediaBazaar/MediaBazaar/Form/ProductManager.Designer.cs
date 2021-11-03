@@ -37,7 +37,7 @@ namespace MediaBazaar
             this.label5 = new System.Windows.Forms.Label();
             this.lstOverviewSchedule = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.lbProducts = new System.Windows.Forms.ListBox();
+            this.dgProducts = new System.Windows.Forms.DataGridView();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -55,9 +55,11 @@ namespace MediaBazaar
             this.tbID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.lbxProducts = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -133,7 +135,8 @@ namespace MediaBazaar
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.lbProducts);
+            this.tabPage3.Controls.Add(this.lbxProducts);
+            this.tabPage3.Controls.Add(this.dgProducts);
             this.tabPage3.Controls.Add(this.tbName);
             this.tabPage3.Controls.Add(this.label4);
             this.tabPage3.Controls.Add(this.lblName);
@@ -159,15 +162,14 @@ namespace MediaBazaar
             this.tabPage3.Text = "Product";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // lbProducts
+            // dgProducts
             // 
-            this.lbProducts.FormattingEnabled = true;
-            this.lbProducts.ItemHeight = 21;
-            this.lbProducts.Location = new System.Drawing.Point(28, 44);
-            this.lbProducts.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.lbProducts.Name = "lbProducts";
-            this.lbProducts.Size = new System.Drawing.Size(736, 403);
-            this.lbProducts.TabIndex = 45;
+            this.dgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProducts.Location = new System.Drawing.Point(31, 41);
+            this.dgProducts.Name = "dgProducts";
+            this.dgProducts.RowTemplate.Height = 25;
+            this.dgProducts.Size = new System.Drawing.Size(755, 144);
+            this.dgProducts.TabIndex = 44;
             // 
             // tbName
             // 
@@ -334,6 +336,15 @@ namespace MediaBazaar
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // lbxProducts
+            // 
+            this.lbxProducts.FormattingEnabled = true;
+            this.lbxProducts.ItemHeight = 21;
+            this.lbxProducts.Location = new System.Drawing.Point(31, 191);
+            this.lbxProducts.Name = "lbxProducts";
+            this.lbxProducts.Size = new System.Drawing.Size(755, 256);
+            this.lbxProducts.TabIndex = 45;
+            // 
             // ProductManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -350,6 +361,7 @@ namespace MediaBazaar
             this.tabPage1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -367,7 +379,6 @@ namespace MediaBazaar
         private System.Windows.Forms.ListBox lbProduct;
         private System.Windows.Forms.TextBox cbProductType;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.ListBox lbProducts;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblName;
@@ -384,5 +395,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dgProducts;
+        private System.Windows.Forms.ListBox lbxProducts;
     }
 }

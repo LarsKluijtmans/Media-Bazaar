@@ -252,7 +252,7 @@ namespace MediaBazaar
                         string dateOfBirth = reader.GetString("DateOfBirth");
 
                         Contract c = GetContract(employeeID.ToString());
-                        employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                        employee = new Person(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
 
                         if (rbnAllEmployees.Checked)
                         {

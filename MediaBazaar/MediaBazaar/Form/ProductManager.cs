@@ -105,36 +105,7 @@ namespace MediaBazaar
             }
         }
         // availability
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            SelectPreferedWorkTime();
-        }
-        public PreferedWorkTime SelectPreferedWorkTime()
-        {
-            string day = cbxPreferedDay.SelectedItem.ToString();
-            string time;
-
-            if (rbnMorningPrefered.Checked)
-            {
-                time = "Morning";
-            }
-            else if (rbnAfternoonPrefered.Checked)
-            {
-                time = "Afternoon";
-            }
-            else if (rbnEveningPrefered.Checked)
-            {
-                time = "Evening";
-            }
-            else
-            {
-                time = "";
-            }
-
-            PreferedWorkTime pwt = new PreferedWorkTime(id, time, day);
-
-            return pwt;
-        }
+       
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -143,7 +114,23 @@ namespace MediaBazaar
 
         private void btnGet_Click(object sender, EventArgs e)
         {
-
+            ViewAllProducts();
         }
+
+
+        // products
+        public void ViewAllProducts()
+        {
+            //dgProducts.DataSource = store.productManagment.ViewAllProducts();
+
+            lbxProducts.Items.Clear();
+            store.productManagment.ViewProducts();
+            lbxProducts.Items.Add(store.productManagment.Products);
+        }
+        //private void UpdateSupplier()
+        //{
+        //    dgOverviewSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
+        //    dgSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
+        //}
     }
 }

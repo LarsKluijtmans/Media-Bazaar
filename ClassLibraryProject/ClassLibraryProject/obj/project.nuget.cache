@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jRMz2trA1NCaQiSYwa+TLMtqC9/ebk6tS2Vv4ww5XjioKCrbessoKupbsDHLHaOgMorgWlM3D6x1PUwnFPpumw==",
+  "dgSpecHash": "s8LpbNoL6PRW+/3zdSs9TfeRCV2x8AyUdLO9Ua/XNCBs5w1RHFy/AvhMjjohtlaCuuC7/1myFQQxJUzl4u34dQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\git idk\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+  "projectFilePath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\esthe\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\esthe\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
