@@ -123,5 +123,20 @@ namespace MediaBazaar
         {
             dgProducts.DataSource = store.productManagment.ViewAllProducts();
         }
+
+        private void dgProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgProducts.Rows[e.RowIndex];
+
+                tbID.Text = row.Cells["ProductID"].Value.ToString();
+                tbName.Text = row.Cells["Name"].Value.ToString();
+                tbBarcode.Text = row.Cells["Barcode"].Value.ToString();
+                tbmountInStore.Text = row.Cells["AmountInStore"].Value.ToString();
+                tbAmountInDepot.Text = row.Cells["AmountInDepot"].Value.ToString();
+                //cbxProductType.Text = row.Cells["ProductType"].Value.ToString();
+            }
+        }
     }
 }
