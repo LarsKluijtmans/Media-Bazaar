@@ -220,59 +220,17 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         // esther start
-        public static string VIEW_ALL_PRODUCTS = "SELECT * FROM Product ORDER BY EmployeeID;";
-        public void ViewProducts()
-        {
-            Products.Clear();
 
-            MySqlConnection conn = Utils.GetConnection();
+        // sql 
+        public static string CREATE_PRODUCTS = "INSERT INTO Product (Name, Barcode, Type, Price, AmountInDepot, AmountInStore, Discontinued) VALUES (@Name, @Barcode, @Type, @Price, @AmountInDepot, @AmountInStore, @Discontinued);";
+        public static string READ_PRODUCTS = "SELECT * FROM Product ORDER BY ProductID;";
+        public static string UPDATE_PRODUCTS = "UPDATE Product SET Name = @Name, Barcode = @Barcode, Type = @Type, Price = @Price, AmountInDepot = @AmountInDepot, AmountInStore = @AmountInStore WHERE ProductID = @ProductID;";
+        public static string DELETE_PRODUCTS = "DELETE FROM Product WHERE ProductID = @ProductID;";
 
-            string sql = VIEW_ALL_PRODUCTS;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Product product;
-
-                while (reader.Read())
-                {
-                    if (reader.GetInt32("Discontinued") == 0)
-                    {
-                        int productID = reader.GetInt32("ProductID");
-                        string name = reader.GetString("Name");
-                        string barcode = reader.GetString("Barcode");
-                        string productType = reader.GetString("Type");
-                        int price = reader.GetInt32("Price");
-                        int amountInDepot = reader.GetInt32("AmountInDepot");
-                        int amountInStore = reader.GetInt32("AmountInStore");
-
-                        product = new Product(productID, name, productType, barcode, amountInDepot, amountInStore, price);
-                        Products.Add(product);
-                    }
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                //MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("Something went wrong" + ex);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
         public DataTable ViewAllProducts()
         {
             MySqlConnection conn = Utils.GetConnection();
-
-            string sql = VIEW_ALL_PRODUCTS;
+            string sql = READ_PRODUCTS;
 
             try
             {
@@ -287,16 +245,20 @@ namespace ClassLibraryProject.ManagmentClasses
 
                 return table;
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqlEx)
+            {
+                //MessageBox.Show(msqlEx.ToString());
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.ToString());
+            }
             finally
             {
                 conn.Close();
             }
-            DataTable a = new DataTable();
-            return a;
+
+            return null;
         }
     }
 }

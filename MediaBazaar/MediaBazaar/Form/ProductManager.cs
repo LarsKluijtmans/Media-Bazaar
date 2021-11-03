@@ -114,26 +114,14 @@ namespace MediaBazaar
 
         private void btnGet_Click(object sender, EventArgs e)
         {
-            ViewAllProducts();
+            UpdateProducts();
         }
 
 
-        // products
-        public void ViewAllProducts()
+        // products (Esther)
+        public void UpdateProducts()
         {
-            //dgProducts.DataSource = store.productManagment.ViewAllProducts();
-
-            lbxProducts.Items.Clear();
-            store.productManagment.ViewProducts();
-            foreach(Product p in store.productManagment.Products)
-            {
-                lbxProducts.Items.Add(p);
-            }
+            dgProducts.DataSource = store.productManagment.ViewAllProducts();
         }
-        //private void UpdateSupplier()
-        //{
-        //    dgOverviewSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
-        //    dgSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
-        //}
     }
 }
