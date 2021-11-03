@@ -125,7 +125,10 @@ namespace MediaBazaar
 
             lbxProducts.Items.Clear();
             store.productManagment.ViewProducts();
-            lbxProducts.Items.Add(store.productManagment.Products);
+            foreach(Product p in store.productManagment.Products)
+            {
+                lbxProducts.Items.Add(p);
+            }
         }
         //private void UpdateSupplier()
         //{

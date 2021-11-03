@@ -201,7 +201,7 @@ namespace ClassLibraryProject.ManagmentClasses
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@ProductID", ID);
-                cmd.Parameters.AddWithValue("@IsDiscontinued", "True");
+                cmd.Parameters.AddWithValue("@IsDiscontinued", 1);
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();

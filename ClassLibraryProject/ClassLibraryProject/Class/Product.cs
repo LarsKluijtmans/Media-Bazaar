@@ -65,5 +65,10 @@ namespace ClassLibraryProject.Class
             SellingPrice = sellingPrice;
             IsDiscontinued = false;
         }
+        // methods
+        public override string ToString()
+        {
+            return $"ID: {ProductID} - name:{Name}";
+        }
     }
 }
