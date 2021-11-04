@@ -269,6 +269,7 @@ namespace MediaBazaar
             this.btnDelete.TabIndex = 34;
             this.btnDelete.Text = "Remove Product";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnGet
             // 

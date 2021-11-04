@@ -69,57 +69,7 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             Products = new List<Product>();
         }
-
         
-
-        public void EditProduct(string ID, string Name, string Barcode, string ProductType, string AmountInStore, string AmountInDepot, string sellingPrice)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = UPDATE_PRODUCT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", ID);
-                cmd.Parameters.AddWithValue("@Name", Name);
-                cmd.Parameters.AddWithValue("@Barcode", Barcode);
-                cmd.Parameters.AddWithValue("@Type", ProductType);
-                cmd.Parameters.AddWithValue("@AmountInDepot", AmountInDepot);
-                cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException )
-            { }
-            catch (Exception)
-            {}
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public void DeleteProduct(string ID)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = DELETE_PRODUCT_BY_ID;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", ID);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException )
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
         public void DiscontinueProduct(string ID)
         {
             MySqlConnection conn = Utils.GetConnection();
@@ -153,7 +103,6 @@ namespace ClassLibraryProject.ManagmentClasses
         public static string READ_PRODUCTS = "SELECT * FROM Product ORDER BY ProductID;";
         public static string UPDATE_PRODUCTS = "UPDATE Product SET Name = @Name, Barcode = @Barcode, Type = @Type WHERE ProductID = @ProductID;";
         public static string DELETE_PRODUCTS = "DELETE FROM Product WHERE ProductID = @ProductID;";
-        public static string CHECK_PRICE = "SELECT Price FROM Product WHERE ProductID = @ProductID;";
 
         public DataTable ViewAllProducts()
         {
@@ -220,7 +169,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
-        public void EditProduct(int id, string name, string barcode, string type)
+        public void EditProduct(int id, string name, string barcode, string type, double price)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -234,6 +183,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@Name", name);
                 cmd.Parameters.AddWithValue("@Barcode", barcode);
                 cmd.Parameters.AddWithValue("@Type", type);
+                cmd.Parameters.AddWithValue("@Price", price);
 
                 conn.Open();
                 int numAffectedRows = cmd.ExecuteNonQuery();
@@ -247,33 +197,26 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
-
-        public double GetPrice(int productID)
+        public void DeleteProduct(int productID)
         {
             MySqlConnection conn = Utils.GetConnection();
-
-            string sql = CHECK_PRICE;
+            string sql = DELETE_PRODUCTS;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ProductID", productID);
+                conn.Open();
 
-                
-
+                int numAffectedRows = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException mysqlEx)
-            {
-
-            }
-            catch (Exception ex)
-            {
-
-            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
             finally
             {
                 conn.Close();
             }
-
-            return 50;
         }
     }
 }

@@ -183,13 +183,21 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Please select a product type");
             }
+            double price = Convert.ToDouble(tbxPrice.Text);
 
-            if (Convert.ToDouble(tbxPrice.Text) != store.productManagment.GetPrice(productID))
+            store.productManagment.EditProduct(productID, name, barcode, type, price);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (tbID.Text == null)
             {
-                MessageBox.Show("You cannot change the product price");
+                MessageBox.Show("Please select a product first");
+            } else
+            {
+                int productID = Convert.ToInt32(tbID.Text);
+                store.productManagment.DeleteProduct(productID);
             }
-
-            store.productManagment.EditProduct(productID, name, barcode, type);
         }
     }
 }
