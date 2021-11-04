@@ -106,35 +106,9 @@ namespace MediaBazaar
         }
         // availability
         private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            SelectPreferedWorkTime();
+        { 
         }
-        public PreferedWorkTime SelectPreferedWorkTime()
-        {
-            string day = cbxPreferedDay.SelectedItem.ToString();
-            string time;
 
-            if (rbnMorningPrefered.Checked)
-            {
-                time = "Morning";
-            }
-            else if (rbnAfternoonPrefered.Checked)
-            {
-                time = "Afternoon";
-            }
-            else if (rbnEveningPrefered.Checked)
-            {
-                time = "Evening";
-            }
-            else
-            {
-                time = "";
-            }
-
-            PreferedWorkTime pwt = new PreferedWorkTime(id, time, day);
-
-            return pwt;
-        }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
