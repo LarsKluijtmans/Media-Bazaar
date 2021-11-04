@@ -74,19 +74,21 @@ namespace MediaBazaar
             this.tbxPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxPassword.Location = new System.Drawing.Point(241, 363);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.PasswordChar = '⬤';
             this.tbxPassword.Size = new System.Drawing.Size(169, 39);
             this.tbxPassword.TabIndex = 3;
+            this.tbxPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogin.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLogin.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogin.ForeColor = System.Drawing.Color.Black;
             this.btnLogin.Location = new System.Drawing.Point(241, 420);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(169, 40);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             this.btnLogin.Enter += new System.EventHandler(this.btnLogin_Enter);
             // 
