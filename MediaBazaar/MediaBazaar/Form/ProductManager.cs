@@ -190,14 +190,15 @@ namespace MediaBazaar
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (tbID.Text == null)
-            {
-                MessageBox.Show("Please select a product first");
-            } else
+            try
             {
                 int productID = Convert.ToInt32(tbID.Text);
                 store.productManagment.DeleteProduct(productID);
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
+            
         }
     }
 }
