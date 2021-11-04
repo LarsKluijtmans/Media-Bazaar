@@ -72,10 +72,12 @@ namespace MediaBazaar
 
 
             UpdateReshelveRequests();
+            MessageBox.Show("Selected product is reshelved!");
         }
         private void btnDeleteReshelveRequest_Click(object sender, EventArgs e)
         {
             DeleteReshelveRequest();
+            MessageBox.Show("Selected product is deleted!");
         }
         private void dgReshelve_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -118,6 +120,7 @@ namespace MediaBazaar
                 MessageBox.Show("Select restock request and input the amount supplied");
             }
             UpdateOrders();
+            MessageBox.Show("Product received!");
         }
     }
 }

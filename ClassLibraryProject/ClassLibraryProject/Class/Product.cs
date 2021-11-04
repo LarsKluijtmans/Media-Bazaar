@@ -65,6 +65,17 @@ namespace ClassLibraryProject.Class
             SellingPrice = sellingPrice;
             IsDiscontinued = false;
         }
+        public Product(int id, string name, string type, string barcode, int sellingPrice, int amountInDepot, int amountInStore)
+        {
+            ProductID = id;
+            Barcode = barcode;
+            Name = name;
+            ProductType = type;
+            AmountInDepot = amountInDepot;
+            AmountInStore = amountInStore;
+            SellingPrice = sellingPrice;
+            IsDiscontinued = false;
+        }
         // methods
         public override string ToString()
         {
