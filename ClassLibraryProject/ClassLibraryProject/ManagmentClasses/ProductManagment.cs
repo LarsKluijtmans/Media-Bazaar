@@ -103,7 +103,8 @@ namespace ClassLibraryProject.ManagmentClasses
         public static string READ_PRODUCTS = "SELECT * FROM Product ORDER BY ProductID;";
         public static string UPDATE_PRODUCTS = "UPDATE Product SET Name = @Name, Barcode = @Barcode, Type = @Type WHERE ProductID = @ProductID;";
         public static string DELETE_PRODUCTS = "DELETE FROM Product WHERE ProductID = @ProductID;";
-
+        public static string UPDATE_PRICE = "UPDATE Product SET Price = @Price WHERE ProductID = @ProductID;";
+        public static string DISCONTINUE_PRODUCT = "UPDATE Product SET Discontinued = @Discontinued WHERE ProductID = @ProductID;";
         public DataTable ViewAllProducts()
         {
             MySqlConnection conn = Utils.GetConnection();
@@ -207,6 +208,56 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@ProductID", productID);
                 conn.Open();
 
+                int numAffectedRows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void EditPrice(int id, double price)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = UPDATE_PRICE;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@ProductID", id);
+                cmd.Parameters.AddWithValue("@Price", price);
+
+                conn.Open();
+                int numAffectedRows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void DiscontinueProduct(int id)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = DISCONTINUE_PRODUCT;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@ProductID", id);
+                cmd.Parameters.AddWithValue("@Discontinued", 1);
+
+                conn.Open();
                 int numAffectedRows = cmd.ExecuteNonQuery();
             }
             catch (MySqlException)
