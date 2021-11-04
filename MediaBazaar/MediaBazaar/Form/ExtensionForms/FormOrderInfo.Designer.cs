@@ -30,8 +30,6 @@ namespace MediaBazaar
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSupplierID = new System.Windows.Forms.TextBox();
-            this.txtProductID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaxAmount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,6 +41,9 @@ namespace MediaBazaar
             this.lblOrderID = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAddNewOrder = new System.Windows.Forms.Button();
+            this.txtSupplierID = new System.Windows.Forms.Label();
+            this.txtProductID = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -54,22 +55,6 @@ namespace MediaBazaar
             this.label1.Size = new System.Drawing.Size(90, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Supplier ID:";
-            // 
-            // txtSupplierID
-            // 
-            this.txtSupplierID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSupplierID.Location = new System.Drawing.Point(127, 80);
-            this.txtSupplierID.Name = "txtSupplierID";
-            this.txtSupplierID.Size = new System.Drawing.Size(100, 29);
-            this.txtSupplierID.TabIndex = 1;
-            // 
-            // txtProductID
-            // 
-            this.txtProductID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProductID.Location = new System.Drawing.Point(339, 83);
-            this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(100, 29);
-            this.txtProductID.TabIndex = 3;
             // 
             // label2
             // 
@@ -158,7 +143,7 @@ namespace MediaBazaar
             // btnRemove
             // 
             this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemove.Location = new System.Drawing.Point(325, 208);
+            this.btnRemove.Location = new System.Drawing.Point(325, 214);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(89, 32);
             this.btnRemove.TabIndex = 12;
@@ -169,7 +154,7 @@ namespace MediaBazaar
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnUpdate.Location = new System.Drawing.Point(325, 170);
+            this.btnUpdate.Location = new System.Drawing.Point(233, 214);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(89, 32);
             this.btnUpdate.TabIndex = 13;
@@ -177,11 +162,45 @@ namespace MediaBazaar
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // btnAddNewOrder
+            // 
+            this.btnAddNewOrder.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddNewOrder.Location = new System.Drawing.Point(261, 176);
+            this.btnAddNewOrder.Name = "btnAddNewOrder";
+            this.btnAddNewOrder.Size = new System.Drawing.Size(130, 32);
+            this.btnAddNewOrder.TabIndex = 14;
+            this.btnAddNewOrder.Text = "Add New Order";
+            this.btnAddNewOrder.UseVisualStyleBackColor = true;
+            this.btnAddNewOrder.Click += new System.EventHandler(this.btnAddNewOrder_Click);
+            // 
+            // txtSupplierID
+            // 
+            this.txtSupplierID.AutoSize = true;
+            this.txtSupplierID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSupplierID.Location = new System.Drawing.Point(127, 83);
+            this.txtSupplierID.Name = "txtSupplierID";
+            this.txtSupplierID.Size = new System.Drawing.Size(25, 21);
+            this.txtSupplierID.TabIndex = 15;
+            this.txtSupplierID.Text = "ID";
+            // 
+            // txtProductID
+            // 
+            this.txtProductID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtProductID.FormattingEnabled = true;
+            this.txtProductID.Location = new System.Drawing.Point(339, 83);
+            this.txtProductID.Name = "txtProductID";
+            this.txtProductID.Size = new System.Drawing.Size(100, 29);
+            this.txtProductID.TabIndex = 16;
+            this.txtProductID.SelectedIndexChanged += new System.EventHandler(this.txtProductID_SelectedIndexChanged);
+            // 
             // FormOrderInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 258);
+            this.Controls.Add(this.txtProductID);
+            this.Controls.Add(this.txtSupplierID);
+            this.Controls.Add(this.btnAddNewOrder);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lblOrderID);
@@ -192,9 +211,7 @@ namespace MediaBazaar
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtMaxAmount);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtSupplierID);
             this.Controls.Add(this.label1);
             this.Name = "FormOrderInfo";
             this.Text = "FormOrderInfo";
@@ -206,8 +223,6 @@ namespace MediaBazaar
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSupplierID;
-        private System.Windows.Forms.TextBox txtProductID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMaxAmount;
         private System.Windows.Forms.Label label3;
@@ -219,5 +234,8 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblOrderID;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnAddNewOrder;
+        private System.Windows.Forms.Label txtSupplierID;
+        private System.Windows.Forms.ComboBox txtProductID;
     }
 }

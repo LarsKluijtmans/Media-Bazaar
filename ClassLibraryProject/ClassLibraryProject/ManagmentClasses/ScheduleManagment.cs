@@ -10,11 +10,11 @@ namespace ClassLibraryProject.ManagmentClasses
     {
         //Sales
         public static string UPDATE_SALES_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day AND Department = 'sales' AND Week = @Week AND Year = @Year;";
-        public static string GET_SALES_COUNT = "SELECT COUNT(ScheduleID) FROM Schedule WHERE Department = 'depot' AND Year = @Year AND Week = @Week;";
+        public static string GET_SALES_COUNT = "SELECT COUNT(ScheduleID) FROM Schedule WHERE Department = 'Sales' AND Year = @Year AND Week = @Week;";
         public static string CREATE_WEEK_SALES = "INSERT INTO `schedule` (`Department`, `Year`, `Week`, `Day`, `Morning`, `Afternoon`, `Evening`) VALUES ('Sales', @Year, @Week, 'Monday', '0', '0', '0'), ('Sales',  @Year, @Week, 'Tuesday', '0', '0', '0'), ('Sales',  @Year, @Week, 'Wednesday', '0', '0', '0'), ('Sales',  @Year, @Week, 'Thursday', '0', '0', '0'), ('Sales',  @Year, @Week, 'Friday', '0', '0', '0'), ('Sales',  @Year, @Week, 'Saturday', '0', '0', '0'), ('Sales',  @Year, @Week, 'Sunday', '0', '0', '0');";
         //Depot
         public static string UPDATE_DEPOT_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day AND Department = 'depot' AND Week = @Week AND Year = @Year;";
-        public static string GET_DEPOT_COUNT = "SELECT COUNT(ScheduleID) FROM Schedule WHERE Department = 'sales' AND Year = @Year AND Week = @Week;";
+        public static string GET_DEPOT_COUNT = "SELECT COUNT(ScheduleID) FROM Schedule WHERE Department = 'Depot' AND Year = @Year AND Week = @Week;";
         public static string CREATE_WEEK_DEPOT = "INSERT INTO `schedule` (`Department`, `Year`, `Week`, `Day`, `Morning`, `Afternoon`, `Evening`) VALUES ('Depot', @Year, @Week, 'Monday', '0', '0', '0'), ('Depot',  @Year, @Week, 'Tuesday', '0', '0', '0'), ('Depot',  @Year, @Week, 'Wednesday', '0', '0', '0'), ('Depot',  @Year, @Week, 'Thursday', '0', '0', '0'), ('Depot',  @Year, @Week, 'Friday', '0', '0', '0'), ('Depot',  @Year, @Week, 'Saturday', '0', '0', '0'), ('Depot',  @Year, @Week, 'Sunday', '0', '0', '0');";
         //CRUD
         public static string GET_ALL_SCHEDULES = "SELECT * FROM SCHEDULE;";
