@@ -342,3 +342,4 @@ E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Core.dll
 E:\Study\Semester 2\Project Main\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CopyComplete
