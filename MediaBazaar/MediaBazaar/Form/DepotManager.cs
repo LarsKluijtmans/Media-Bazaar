@@ -371,5 +371,16 @@ namespace MediaBazaar
                 MessageBox.Show("Select supplier");
             }
         }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSupplierID.Text = "";
+            txtSupplierName.Text = "";
+            txtCountry.Text = "";
+            txtBuildingNumber.Text = "";
+            txtPostalCode.Text = "";
+            txtEmail.Text = "";
+            txtPhoneNumber.Text = "";
+            txtBankNumber.Text = "";
+        }
     }
 }

@@ -4,6 +4,7 @@ using ClassLibraryProject.ManagmentClasses;
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace MediaBazaar
@@ -12,6 +13,7 @@ namespace MediaBazaar
     {
         int ID;
         Store store;
+        int i;
         public SalesManager(int UserID, Store s)
         {
             InitializeComponent();
@@ -19,10 +21,19 @@ namespace MediaBazaar
             store = s;
 
             UpdateSchedule();
+            Initialize();
+        }
+
+        //Initialize
+        public void Initialize()
+        {
+            DateTime date = DateTime.Now;
+            lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
+            i = Convert.ToInt32(lblWeek.Text);
+            txtYear.Text = date.Year.ToString();
         }
 
         //Overview
-
         protected override void OnClosing(CancelEventArgs e)
         {
             FormLogin login = new FormLogin();
@@ -75,6 +86,16 @@ namespace MediaBazaar
 
 
         //Schedule
+        public static int GetCurrentWeekOfYear(DateTime time)
+        {
+            DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(time);
+            if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
+            {
+                time = time.AddDays(3);
+            }
+
+            return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+        }
         public void UpdateSchedule()
         {
             dgSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text),Convert.ToInt32(txtYear.Text));
@@ -123,6 +144,39 @@ namespace MediaBazaar
             }
             store.scheduleManagment.EditSalesSchedule(Day, Morning, Afternoon, Evening, Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
 
+            UpdateSchedule();
+        }
+        private void btnIncreaseWeek_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (i < ISOWeek.GetWeeksInYear(Convert.ToInt32(txtYear.Text)))
+                {
+                    i++;
+                }
+                else if (i >= ISOWeek.GetWeeksInYear(Convert.ToInt32(txtYear.Text)))
+                {
+                    i = ISOWeek.GetWeeksInYear(Convert.ToInt32(txtYear.Text));
+                }
+                lblWeek.Text = i.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please insert year!");
+            }
+            UpdateSchedule();
+        }
+        private void btnDecreaseWeek_Click(object sender, EventArgs e)
+        {
+            if (i > 1)
+            {
+                i--;
+            }
+            else if (i <= 0)
+            {
+                i = 1;
+            }
+            lblWeek.Text = i.ToString();
             UpdateSchedule();
         }
 
