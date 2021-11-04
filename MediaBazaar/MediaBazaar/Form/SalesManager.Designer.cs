@@ -221,7 +221,7 @@ namespace MediaBazaar
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowHeadersWidth = 51;
             this.dgvProducts.RowTemplate.Height = 25;
-            this.dgvProducts.Size = new System.Drawing.Size(649, 477);
+            this.dgvProducts.Size = new System.Drawing.Size(711, 648);
             this.dgvProducts.TabIndex = 97;
             this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick_1);
             // 
@@ -250,56 +250,56 @@ namespace MediaBazaar
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lblId);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(717, 23);
+            this.groupBox1.Location = new System.Drawing.Point(746, 23);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 443);
+            this.groupBox1.Size = new System.Drawing.Size(359, 509);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Management";
             // 
             // tbxProductType
             // 
-            this.tbxProductType.Location = new System.Drawing.Point(138, 171);
+            this.tbxProductType.Location = new System.Drawing.Point(140, 167);
             this.tbxProductType.Name = "tbxProductType";
             this.tbxProductType.ReadOnly = true;
-            this.tbxProductType.Size = new System.Drawing.Size(151, 34);
+            this.tbxProductType.Size = new System.Drawing.Size(204, 34);
             this.tbxProductType.TabIndex = 63;
             // 
             // tbxPrice
             // 
-            this.tbxPrice.Location = new System.Drawing.Point(138, 211);
+            this.tbxPrice.Location = new System.Drawing.Point(140, 207);
             this.tbxPrice.Name = "tbxPrice";
-            this.tbxPrice.Size = new System.Drawing.Size(151, 34);
+            this.tbxPrice.Size = new System.Drawing.Size(204, 34);
             this.tbxPrice.TabIndex = 62;
             // 
             // tbxBarcode
             // 
-            this.tbxBarcode.Location = new System.Drawing.Point(138, 129);
+            this.tbxBarcode.Location = new System.Drawing.Point(140, 125);
             this.tbxBarcode.Name = "tbxBarcode";
             this.tbxBarcode.ReadOnly = true;
-            this.tbxBarcode.Size = new System.Drawing.Size(151, 34);
+            this.tbxBarcode.Size = new System.Drawing.Size(204, 34);
             this.tbxBarcode.TabIndex = 61;
             // 
             // tbxProductName
             // 
-            this.tbxProductName.Location = new System.Drawing.Point(138, 88);
+            this.tbxProductName.Location = new System.Drawing.Point(140, 85);
             this.tbxProductName.Name = "tbxProductName";
             this.tbxProductName.ReadOnly = true;
-            this.tbxProductName.Size = new System.Drawing.Size(151, 34);
+            this.tbxProductName.Size = new System.Drawing.Size(204, 34);
             this.tbxProductName.TabIndex = 60;
             // 
             // tbxProductID
             // 
-            this.tbxProductID.Location = new System.Drawing.Point(138, 47);
+            this.tbxProductID.Location = new System.Drawing.Point(140, 43);
             this.tbxProductID.Name = "tbxProductID";
             this.tbxProductID.ReadOnly = true;
-            this.tbxProductID.Size = new System.Drawing.Size(151, 34);
+            this.tbxProductID.Size = new System.Drawing.Size(204, 34);
             this.tbxProductID.TabIndex = 59;
             // 
             // btnDiscontinue
             // 
             this.btnDiscontinue.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDiscontinue.Location = new System.Drawing.Point(129, 295);
+            this.btnDiscontinue.Location = new System.Drawing.Point(187, 291);
             this.btnDiscontinue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDiscontinue.Name = "btnDiscontinue";
             this.btnDiscontinue.Size = new System.Drawing.Size(157, 57);
@@ -311,7 +311,7 @@ namespace MediaBazaar
             // btnEditProduct
             // 
             this.btnEditProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditProduct.Location = new System.Drawing.Point(129, 252);
+            this.btnEditProduct.Location = new System.Drawing.Point(187, 248);
             this.btnEditProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEditProduct.Name = "btnEditProduct";
             this.btnEditProduct.Size = new System.Drawing.Size(157, 35);
@@ -324,7 +324,7 @@ namespace MediaBazaar
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(5, 179);
+            this.label4.Location = new System.Drawing.Point(8, 177);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 20);
@@ -335,7 +335,7 @@ namespace MediaBazaar
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(60, 98);
+            this.lblName.Location = new System.Drawing.Point(64, 95);
             this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(58, 20);
@@ -346,7 +346,7 @@ namespace MediaBazaar
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEmail.Location = new System.Drawing.Point(41, 139);
+            this.lblEmail.Location = new System.Drawing.Point(44, 135);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(77, 20);
@@ -357,7 +357,7 @@ namespace MediaBazaar
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(65, 221);
+            this.label5.Location = new System.Drawing.Point(69, 217);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 20);
@@ -368,7 +368,7 @@ namespace MediaBazaar
             // 
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblId.Location = new System.Drawing.Point(77, 57);
+            this.lblId.Location = new System.Drawing.Point(91, 53);
             this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(31, 20);
