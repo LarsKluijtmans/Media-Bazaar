@@ -141,28 +141,39 @@ namespace MediaBazaar
 
         private void btnAddPorduct_Click(object sender, EventArgs e)
         {
-            string name = tbName.Text;
-            if (string.IsNullOrEmpty(name))
+            try
             {
-                MessageBox.Show("Please add a product name");
-            }
-            string barcode = tbBarcode.Text;
-            if (string.IsNullOrEmpty(barcode))
+                string name = tbName.Text;
+                //if (string.IsNullOrEmpty(name))
+                //{
+                //    MessageBox.Show("Please add a product name");
+                //}
+                string barcode = tbBarcode.Text;
+                //if (string.IsNullOrEmpty(barcode))
+                //{
+                //    MessageBox.Show("Please add a barcode");
+                //}
+                string type = cbxProductType.SelectedItem.ToString();
+                //if (string.IsNullOrEmpty(type))
+                //{
+                //    MessageBox.Show("Please select a product type");
+                //}
+                double price = Convert.ToDouble(tbxPrice.Text);
+                //if (price == 0)
+                //{
+                //    MessageBox.Show("Please enter a price");
+                //}
+
+                store.productManagment.AddProduct(name, barcode, type, price);
+            } catch (NullReferenceException nullRefEx)
             {
-                MessageBox.Show("Please add a barcode");
-            }
-            string type = cbxProductType.SelectedItem.ToString();
-            if (string.IsNullOrEmpty(type))
+                MessageBox.Show("Please enter all product details");
+            } catch (Exception ex)
             {
-                MessageBox.Show("Please select a product type");
-            }
-            double price = Convert.ToDouble(tbxPrice.Text);
-            if (price == 0)
-            {
-                MessageBox.Show("Please enter a price");
+                MessageBox.Show(ex.ToString());
             }
 
-            store.productManagment.AddProduct(name, barcode, type, price);
+            UpdateProducts();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -186,6 +197,8 @@ namespace MediaBazaar
             double price = Convert.ToDouble(tbxPrice.Text);
 
             store.productManagment.EditProduct(productID, name, barcode, type, price);
+
+            UpdateProducts();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -198,7 +211,8 @@ namespace MediaBazaar
             {
                 MessageBox.Show(ex.ToString());
             }
-            
+
+            UpdateProducts();
         }
     }
 }
