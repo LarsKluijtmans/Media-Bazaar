@@ -138,5 +138,17 @@ namespace MediaBazaar
                 //cbxProductType.Text = row.Cells["ProductType"].Value.ToString();
             }
         }
+
+        private void btnAddPorduct_Click(object sender, EventArgs e)
+        {
+            string name = tbName.Text;
+            string barcode = tbBarcode.Text;
+            string type = cbxProductType.SelectedItem.ToString();
+            double price = 0;
+            int amountInStore = 0;
+            int amountInDepot = 0;
+
+            store.productManagment.AddProduct(name, barcode, type, price, amountInStore, amountInDepot);
+        }
     }
 }

@@ -260,5 +260,37 @@ namespace ClassLibraryProject.ManagmentClasses
 
             return null;
         }
+        public void AddProduct(string name, string barcode, string type, double price, int amountInStore, int amountInDepot)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = CREATE_PRODUCTS;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@Barcode", barcode);
+                cmd.Parameters.AddWithValue("@Type", type);
+                cmd.Parameters.AddWithValue("@Price", price);
+                cmd.Parameters.AddWithValue("@AmountInStore", amountInStore);
+                cmd.Parameters.AddWithValue("@AmountInDepot", amountInDepot);
+                cmd.Parameters.AddWithValue("@Discontinued", 0);
+
+                conn.Open();
+                int numCreatedRows = cmd.ExecuteNonQuery();
+                long id = cmd.LastInsertedId;
+            } catch(MySqlException mysqlEx)
+            {
+
+            } catch(Exception ex)
+            {
+                
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }
