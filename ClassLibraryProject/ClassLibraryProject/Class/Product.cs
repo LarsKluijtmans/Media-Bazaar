@@ -54,14 +54,14 @@ namespace ClassLibraryProject.Class
         public int SellingPrice { get; set; }
         public bool IsDiscontinued { get; set; }
         //constructor
-        public Product(int id, string name, string type, string barcode, int amountInDepot, int amountInStore, int sellingPrice)
+        public Product(int id, string name, string type, string barcode, int sellingPrice)
         {
             ProductID = id;
             Barcode = barcode;
             Name = name;
             ProductType = type;
-            AmountInDepot = amountInDepot;
-            AmountInStore = amountInStore;
+            AmountInDepot = 0;
+            AmountInStore = 0;
             SellingPrice = sellingPrice;
             IsDiscontinued = false;
         }

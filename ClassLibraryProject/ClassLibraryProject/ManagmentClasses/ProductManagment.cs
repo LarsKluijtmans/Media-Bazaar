@@ -39,11 +39,11 @@ namespace ClassLibraryProject.ManagmentClasses
                     string barcode = reader.GetString("Barcode");
                     string name = reader.GetString("Name");
                     string productType = reader.GetString("Type");
-                    int amountInStore = 23;
+                    int amountInStore = reader.GetInt32("AmountInStore");
                     int amountInDepot = reader.GetInt32("AmountInDepot");
                     int sellingPrice = reader.GetInt32("Price");
 
-                    product = new Product(productID, name, productType, barcode, amountInDepot, amountInStore, sellingPrice);
+                    product = new Product(productID, name, productType, barcode, sellingPrice);
                     if (!product.IsDiscontinued)
                     {
                         Products.Add(product);
@@ -69,130 +69,7 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             Products = new List<Product>();
         }
-
-        public void ViewAllProducts( string Value)
-        {
-            Products.Clear();
-
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = GET_ALL_PRODUCT;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@Value", Value);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Product product;
-
-                while (reader.Read())
-                {
-                    int ProductID = reader.GetInt32("ProductID");
-                    string barcode = reader.GetString("Barcode");
-                    string name = reader.GetString("Name");
-                    string productType = reader.GetString("Type");
-                    int amountInStore = reader.GetInt32("Price");
-                    int amountInDepot = reader.GetInt32("AmountInDepot");
-                    int sellingPrice = reader.GetInt32("SellingPrice");
-
-                    product = new Product(ProductID, name, productType, barcode, amountInDepot, amountInStore, sellingPrice);
-
-                    if (!product.IsDiscontinued)
-                    {
-                        Products.Add(product);
-                    }
-                }
-            }
-            catch (MySqlException )
-            {}
-            catch (Exception)
-            {}
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public void AddProduct(string Name, string Barcode, string ProductType, string AmountInStore, string AmountInDepot, string sellingPrice)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = CREATE_PRODUCT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Name", Name);
-                cmd.Parameters.AddWithValue("@Barcode", Barcode);
-                cmd.Parameters.AddWithValue("@Type", ProductType);
-                cmd.Parameters.AddWithValue("@AmountInDepot", AmountInDepot);
-                cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-
-                conn.Open();
-
-                int numCreatedRows = cmd.ExecuteNonQuery();
-                long id = cmd.LastInsertedId;
-            }
-            catch (MySqlException )
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public void EditProduct(string ID, string Name, string Barcode, string ProductType, string AmountInStore, string AmountInDepot, string sellingPrice)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = UPDATE_PRODUCT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", ID);
-                cmd.Parameters.AddWithValue("@Name", Name);
-                cmd.Parameters.AddWithValue("@Barcode", Barcode);
-                cmd.Parameters.AddWithValue("@Type", ProductType);
-                cmd.Parameters.AddWithValue("@AmountInDepot", AmountInDepot);
-                cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException )
-            { }
-            catch (Exception)
-            {}
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public void DeleteProduct(string ID)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = DELETE_PRODUCT_BY_ID;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", ID);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException )
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
+        
         public void DiscontinueProduct(string ID)
         {
             MySqlConnection conn = Utils.GetConnection();
@@ -224,7 +101,7 @@ namespace ClassLibraryProject.ManagmentClasses
         // sql 
         public static string CREATE_PRODUCTS = "INSERT INTO Product (Name, Barcode, Type, Price, AmountInDepot, AmountInStore, Discontinued) VALUES (@Name, @Barcode, @Type, @Price, @AmountInDepot, @AmountInStore, @Discontinued);";
         public static string READ_PRODUCTS = "SELECT * FROM Product ORDER BY ProductID;";
-        public static string UPDATE_PRODUCTS = "UPDATE Product SET Name = @Name, Barcode = @Barcode, Type = @Type, Price = @Price, AmountInDepot = @AmountInDepot, AmountInStore = @AmountInStore WHERE ProductID = @ProductID;";
+        public static string UPDATE_PRODUCTS = "UPDATE Product SET Name = @Name, Barcode = @Barcode, Type = @Type WHERE ProductID = @ProductID;";
         public static string DELETE_PRODUCTS = "DELETE FROM Product WHERE ProductID = @ProductID;";
 
         public DataTable ViewAllProducts()
@@ -259,6 +136,87 @@ namespace ClassLibraryProject.ManagmentClasses
             }
 
             return null;
+        }
+        public void AddProduct(string name, string barcode, string type, double price)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = CREATE_PRODUCTS;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@Barcode", barcode);
+                cmd.Parameters.AddWithValue("@Type", type);
+                cmd.Parameters.AddWithValue("@Price", price);
+                cmd.Parameters.AddWithValue("@AmountInStore", 0);
+                cmd.Parameters.AddWithValue("@AmountInDepot", 0);
+                cmd.Parameters.AddWithValue("@Discontinued", 0);
+
+                conn.Open();
+                int numCreatedRows = cmd.ExecuteNonQuery();
+                long id = cmd.LastInsertedId;
+            } catch(MySqlException mysqlEx)
+            {
+
+            } catch(Exception ex)
+            {
+                
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void EditProduct(int id, string name, string barcode, string type, double price)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = UPDATE_PRODUCTS;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@ProductID", id);
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@Barcode", barcode);
+                cmd.Parameters.AddWithValue("@Type", type);
+                cmd.Parameters.AddWithValue("@Price", price);
+
+                conn.Open();
+                int numAffectedRows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void DeleteProduct(int productID)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = DELETE_PRODUCTS;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ProductID", productID);
+                conn.Open();
+
+                int numAffectedRows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

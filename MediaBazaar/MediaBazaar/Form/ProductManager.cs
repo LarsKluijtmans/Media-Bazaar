@@ -17,6 +17,7 @@ namespace MediaBazaar
             id = UserID;
             store = s;
 
+            UpdateProducts();
         }
 
         //Logout 
@@ -133,10 +134,71 @@ namespace MediaBazaar
                 tbID.Text = row.Cells["ProductID"].Value.ToString();
                 tbName.Text = row.Cells["Name"].Value.ToString();
                 tbBarcode.Text = row.Cells["Barcode"].Value.ToString();
-                tbmountInStore.Text = row.Cells["AmountInStore"].Value.ToString();
-                tbAmountInDepot.Text = row.Cells["AmountInDepot"].Value.ToString();
-                //cbxProductType.Text = row.Cells["ProductType"].Value.ToString();
+                tbxPrice.Text = row.Cells["Price"].Value.ToString();
+                cbxProductType.Text = row.Cells["Type"].Value.ToString();
             }
+        }
+
+        private void btnAddPorduct_Click(object sender, EventArgs e)
+        {
+            string name = tbName.Text;
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("Please add a product name");
+            }
+            string barcode = tbBarcode.Text;
+            if (string.IsNullOrEmpty(barcode))
+            {
+                MessageBox.Show("Please add a barcode");
+            }
+            string type = cbxProductType.SelectedItem.ToString();
+            if (string.IsNullOrEmpty(type))
+            {
+                MessageBox.Show("Please select a product type");
+            }
+            double price = Convert.ToDouble(tbxPrice.Text);
+            if (price == 0)
+            {
+                MessageBox.Show("Please enter a price");
+            }
+
+            store.productManagment.AddProduct(name, barcode, type, price);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            int productID = Convert.ToInt32(tbID.Text);
+            string name = tbName.Text;
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("Please add a product name");
+            }
+            string barcode = tbBarcode.Text;
+            if (string.IsNullOrEmpty(barcode))
+            {
+                MessageBox.Show("Please add a barcode");
+            }
+            string type = cbxProductType.SelectedItem.ToString();
+            if (string.IsNullOrEmpty(type))
+            {
+                MessageBox.Show("Please select a product type");
+            }
+            double price = Convert.ToDouble(tbxPrice.Text);
+
+            store.productManagment.EditProduct(productID, name, barcode, type, price);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int productID = Convert.ToInt32(tbID.Text);
+                store.productManagment.DeleteProduct(productID);
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
     }
 }
