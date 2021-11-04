@@ -159,6 +159,7 @@ namespace CardReader
             this.rbnDepotEmployees.TabStop = true;
             this.rbnDepotEmployees.Text = "Depot employees";
             this.rbnDepotEmployees.UseVisualStyleBackColor = true;
+            this.rbnDepotEmployees.CheckedChanged += new System.EventHandler(this.rbnDepotEmployees_CheckedChanged);
             // 
             // rbnSalesEmployees
             // 
@@ -171,6 +172,7 @@ namespace CardReader
             this.rbnSalesEmployees.TabStop = true;
             this.rbnSalesEmployees.Text = "Sales employees";
             this.rbnSalesEmployees.UseVisualStyleBackColor = true;
+            this.rbnSalesEmployees.CheckedChanged += new System.EventHandler(this.rbnSalesEmployees_CheckedChanged);
             // 
             // rbnOfficeEmployees
             // 
@@ -183,6 +185,7 @@ namespace CardReader
             this.rbnOfficeEmployees.TabStop = true;
             this.rbnOfficeEmployees.Text = "Office employees";
             this.rbnOfficeEmployees.UseVisualStyleBackColor = true;
+            this.rbnOfficeEmployees.CheckedChanged += new System.EventHandler(this.rbnOfficeEmployees_CheckedChanged);
             // 
             // rbnAllEmployees
             // 
@@ -196,6 +199,7 @@ namespace CardReader
             this.rbnAllEmployees.TabStop = true;
             this.rbnAllEmployees.Text = "All employees";
             this.rbnAllEmployees.UseVisualStyleBackColor = true;
+            this.rbnAllEmployees.CheckedChanged += new System.EventHandler(this.rbnAllEmployees_CheckedChanged);
             // 
             // lbEmployee
             // 
