@@ -21,6 +21,7 @@ namespace MediaBazaar
             store = s;
 
             UpdateSchedule();
+            UpdateProducts();
             Initialize();
         }
 
@@ -59,13 +60,30 @@ namespace MediaBazaar
 
         //Products
         //Esther//Esther
+        public void UpdateProducts()
+        {
+            dgvProducts.DataSource = store.productManagment.ViewAllProducts();
+        }
+        private void dgvProducts_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvProducts.Rows[e.RowIndex];
+
+                tbxProductID.Text = row.Cells["ProductID"].Value.ToString();
+                tbxProductName.Text = row.Cells["Name"].Value.ToString();
+                tbxBarcode.Text = row.Cells["Barcode"].Value.ToString();
+                tbxPrice.Text = row.Cells["Price"].Value.ToString();
+                tbxProductType.Text = row.Cells["Type"].Value.ToString();
+            }
+        }
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
             //string productID = txtID.Text;
-            string productName = txtName.Text;
-            string barcode = txtBarcode.Text;
-            string productType = txtProductType.Text;
-            string sellingPrice = txtPrice.Text;
+            //string productName = txtName.Text;
+            //string barcode = txtBarcode.Text;
+            //string productType = txtProductType.Text;
+            //string sellingPrice = txtPrice.Text;
 
             //store.productManagment.EditProduct(productID, productName, barcode, productType, "", "", sellingPrice);
         }
@@ -98,9 +116,9 @@ namespace MediaBazaar
         }
         public void UpdateSchedule()
         {
-            dgSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text),Convert.ToInt32(txtYear.Text));
-            dgOverviewSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
-            dgPlanningSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
+            //dgSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text),Convert.ToInt32(txtYear.Text));
+            //dgOverviewSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
+            //dgPlanningSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
         }
         private void dgSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -179,6 +197,8 @@ namespace MediaBazaar
             lblWeek.Text = i.ToString();
             UpdateSchedule();
         }
+
+        
 
         //Planning   
 
