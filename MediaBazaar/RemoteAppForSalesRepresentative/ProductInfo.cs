@@ -41,12 +41,10 @@ namespace RemoteAppForSalesRepresentative
             {
                 MessageBox.Show("Fill up the amount to request.");
             }
+            MessageBox.Show("Restock requested");
+            s.productManagment.Products.Clear();
+            Close();
         }
-        private void btnSell_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             s.productManagment.Products.Clear();
