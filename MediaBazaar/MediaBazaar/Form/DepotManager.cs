@@ -96,15 +96,15 @@ namespace MediaBazaar
             }
             catch
             {
-                MessageBox.Show("Select any restock request you want to reject.");
+                MessageBox.Show("Select any restock request you want to finalize.");
             }
-
-
             UpdateRestockRequests();
+            MessageBox.Show("Product ordered. Wait for shipment to arrive");
         }
         private void btnDeleteRestockRequest_Click(object sender, EventArgs e)
         {
             DeleteRestockRequest();
+            MessageBox.Show("Restock request deleted!");
         }
         private void dgRestock_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -196,6 +196,7 @@ namespace MediaBazaar
             }
 
             UpdateSchedule();
+            MessageBox.Show("Schedule updated!");
         }
         private void btnIncreaseWeek_Click(object sender, EventArgs e)
         {
@@ -298,6 +299,7 @@ namespace MediaBazaar
                 MessageBox.Show("Select a supplier you want to edit");
             }
             UpdateSupplier();
+            MessageBox.Show("Supplier added!");
         }
         private void btnEditSupplier_Click(object sender, EventArgs e)
         {
@@ -343,6 +345,7 @@ namespace MediaBazaar
                 MessageBox.Show("Select a supplier you want to edit");
             }
             UpdateSupplier();
+            MessageBox.Show("Selected supplier deleted!");
         }
         private void btnRemoveSupplier_Click(object sender, EventArgs e)
         {
@@ -357,6 +360,7 @@ namespace MediaBazaar
             }
 
             UpdateSupplier();
+            MessageBox.Show("Selected supplier deleted!");
         }
         private void btnOrderInfo_Click(object sender, EventArgs e)
         {

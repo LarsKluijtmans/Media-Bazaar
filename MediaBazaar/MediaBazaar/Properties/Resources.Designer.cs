@@ -59,5 +59,15 @@ namespace MediaBazaar.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MicrosoftTeams_image__1_ {
+            get {
+                object obj = ResourceManager.GetObject("MicrosoftTeams-image (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

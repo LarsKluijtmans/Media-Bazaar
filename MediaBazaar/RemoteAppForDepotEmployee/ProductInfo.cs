@@ -29,6 +29,8 @@ namespace RemoteAppForDepotEmployee
             {
                 s.restockManagment.RequestRestock(product.Barcode, product.ProductID);
             }
+            s.productManagment.Products.Clear();
+            Close();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
