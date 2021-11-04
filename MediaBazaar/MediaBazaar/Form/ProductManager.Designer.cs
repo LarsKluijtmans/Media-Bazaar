@@ -29,6 +29,7 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductManager));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -48,13 +49,14 @@ namespace MediaBazaar
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnAddPorduct = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnGet = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.lblId = new System.Windows.Forms.Label();
             this.tbID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -146,7 +148,6 @@ namespace MediaBazaar
             this.tabPage3.Controls.Add(this.lblEmail);
             this.tabPage3.Controls.Add(this.btnAddPorduct);
             this.tabPage3.Controls.Add(this.btnDelete);
-            this.tabPage3.Controls.Add(this.btnGet);
             this.tabPage3.Controls.Add(this.btnEdit);
             this.tabPage3.Controls.Add(this.lblId);
             this.tabPage3.Controls.Add(this.tbID);
@@ -271,17 +272,6 @@ namespace MediaBazaar
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btnGet
-            // 
-            this.btnGet.Location = new System.Drawing.Point(952, 431);
-            this.btnGet.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnGet.Name = "btnGet";
-            this.btnGet.Size = new System.Drawing.Size(270, 40);
-            this.btnGet.TabIndex = 38;
-            this.btnGet.Text = "ViewAllProducts";
-            this.btnGet.UseVisualStyleBackColor = true;
-            this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
-            // 
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(951, 516);
@@ -343,6 +333,9 @@ namespace MediaBazaar
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            // 
             // ProductManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -384,7 +377,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Button btnAddPorduct;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnGet;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox tbID;
@@ -394,5 +386,7 @@ namespace MediaBazaar
         private System.Windows.Forms.ComboBox cbxProductType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxPrice;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }
