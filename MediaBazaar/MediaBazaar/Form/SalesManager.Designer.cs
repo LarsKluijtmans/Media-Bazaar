@@ -42,6 +42,10 @@ namespace MediaBazaar
             this.dgReshelve = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtProductType = new System.Windows.Forms.Label();
+            this.txtBarcode = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.btnDiscontinue = new System.Windows.Forms.Button();
             this.btnEditProduct = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,8 +58,8 @@ namespace MediaBazaar
             this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtYear = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDecreaseWeek = new System.Windows.Forms.Button();
+            this.btnIncreaseWeek = new System.Windows.Forms.Button();
             this.lblWeek = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgSchedule = new System.Windows.Forms.DataGridView();
@@ -72,6 +76,12 @@ namespace MediaBazaar
             this.lbScheduleAfternoon = new System.Windows.Forms.TextBox();
             this.lbScheduleMorning = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtPlanningYear = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.lblPlanningWeek = new System.Windows.Forms.Label();
             this.dgPlanningSchedule = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -80,16 +90,6 @@ namespace MediaBazaar
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtPlanningYear = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.lblPlanningWeek = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.Label();
-            this.txtBarcode = new System.Windows.Forms.Label();
-            this.txtProductType = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).BeginInit();
@@ -253,6 +253,42 @@ namespace MediaBazaar
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Management";
             // 
+            // txtProductType
+            // 
+            this.txtProductType.AutoSize = true;
+            this.txtProductType.Location = new System.Drawing.Point(131, 164);
+            this.txtProductType.Name = "txtProductType";
+            this.txtProductType.Size = new System.Drawing.Size(96, 21);
+            this.txtProductType.TabIndex = 62;
+            this.txtProductType.Text = "ProductType";
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.AutoSize = true;
+            this.txtBarcode.Location = new System.Drawing.Point(131, 119);
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Size = new System.Drawing.Size(66, 21);
+            this.txtBarcode.TabIndex = 61;
+            this.txtBarcode.Text = "Barcode";
+            // 
+            // txtName
+            // 
+            this.txtName.AutoSize = true;
+            this.txtName.Location = new System.Drawing.Point(131, 76);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(52, 21);
+            this.txtName.TabIndex = 60;
+            this.txtName.Text = "Name";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(131, 35);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(25, 21);
+            this.label17.TabIndex = 59;
+            this.label17.Text = "ID";
+            // 
             // btnDiscontinue
             // 
             this.btnDiscontinue.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -345,8 +381,8 @@ namespace MediaBazaar
             this.tabSchedule.Controls.Add(this.label11);
             this.tabSchedule.Controls.Add(this.label6);
             this.tabSchedule.Controls.Add(this.txtYear);
-            this.tabSchedule.Controls.Add(this.button2);
-            this.tabSchedule.Controls.Add(this.button1);
+            this.tabSchedule.Controls.Add(this.btnDecreaseWeek);
+            this.tabSchedule.Controls.Add(this.btnIncreaseWeek);
             this.tabSchedule.Controls.Add(this.lblWeek);
             this.tabSchedule.Controls.Add(this.label2);
             this.tabSchedule.Controls.Add(this.dgSchedule);
@@ -385,25 +421,27 @@ namespace MediaBazaar
             this.txtYear.Size = new System.Drawing.Size(97, 29);
             this.txtYear.TabIndex = 65;
             // 
-            // button2
+            // btnDecreaseWeek
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(179, 43);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(27, 35);
-            this.button2.TabIndex = 64;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDecreaseWeek.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDecreaseWeek.Location = new System.Drawing.Point(179, 43);
+            this.btnDecreaseWeek.Name = "btnDecreaseWeek";
+            this.btnDecreaseWeek.Size = new System.Drawing.Size(27, 35);
+            this.btnDecreaseWeek.TabIndex = 64;
+            this.btnDecreaseWeek.Text = "<";
+            this.btnDecreaseWeek.UseVisualStyleBackColor = true;
+            this.btnDecreaseWeek.Click += new System.EventHandler(this.btnDecreaseWeek_Click);
             // 
-            // button1
+            // btnIncreaseWeek
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(252, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(27, 35);
-            this.button1.TabIndex = 63;
-            this.button1.Text = ">";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnIncreaseWeek.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnIncreaseWeek.Location = new System.Drawing.Point(252, 43);
+            this.btnIncreaseWeek.Name = "btnIncreaseWeek";
+            this.btnIncreaseWeek.Size = new System.Drawing.Size(27, 35);
+            this.btnIncreaseWeek.TabIndex = 63;
+            this.btnIncreaseWeek.Text = ">";
+            this.btnIncreaseWeek.UseVisualStyleBackColor = true;
+            this.btnIncreaseWeek.Click += new System.EventHandler(this.btnIncreaseWeek_Click);
             // 
             // lblWeek
             // 
@@ -582,6 +620,60 @@ namespace MediaBazaar
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(306, 3);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(40, 21);
+            this.label15.TabIndex = 73;
+            this.label15.Text = "Year";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(210, 3);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(48, 21);
+            this.label16.TabIndex = 72;
+            this.label16.Text = "Week";
+            // 
+            // txtPlanningYear
+            // 
+            this.txtPlanningYear.Location = new System.Drawing.Point(306, 30);
+            this.txtPlanningYear.Name = "txtPlanningYear";
+            this.txtPlanningYear.Size = new System.Drawing.Size(97, 29);
+            this.txtPlanningYear.TabIndex = 71;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.Location = new System.Drawing.Point(185, 27);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(27, 35);
+            this.button3.TabIndex = 70;
+            this.button3.Text = "<";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button4.Location = new System.Drawing.Point(258, 27);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(27, 35);
+            this.button4.TabIndex = 69;
+            this.button4.Text = ">";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // lblPlanningWeek
+            // 
+            this.lblPlanningWeek.AutoSize = true;
+            this.lblPlanningWeek.Location = new System.Drawing.Point(218, 33);
+            this.lblPlanningWeek.Name = "lblPlanningWeek";
+            this.lblPlanningWeek.Size = new System.Drawing.Size(34, 21);
+            this.lblPlanningWeek.TabIndex = 68;
+            this.lblPlanningWeek.Text = "NN";
+            // 
             // dgPlanningSchedule
             // 
             this.dgPlanningSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -660,96 +752,6 @@ namespace MediaBazaar
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(306, 3);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(40, 21);
-            this.label15.TabIndex = 73;
-            this.label15.Text = "Year";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(210, 3);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(48, 21);
-            this.label16.TabIndex = 72;
-            this.label16.Text = "Week";
-            // 
-            // txtPlanningYear
-            // 
-            this.txtPlanningYear.Location = new System.Drawing.Point(306, 30);
-            this.txtPlanningYear.Name = "txtPlanningYear";
-            this.txtPlanningYear.Size = new System.Drawing.Size(97, 29);
-            this.txtPlanningYear.TabIndex = 71;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(185, 27);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(27, 35);
-            this.button3.TabIndex = 70;
-            this.button3.Text = "<";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(258, 27);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(27, 35);
-            this.button4.TabIndex = 69;
-            this.button4.Text = ">";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // lblPlanningWeek
-            // 
-            this.lblPlanningWeek.AutoSize = true;
-            this.lblPlanningWeek.Location = new System.Drawing.Point(218, 33);
-            this.lblPlanningWeek.Name = "lblPlanningWeek";
-            this.lblPlanningWeek.Size = new System.Drawing.Size(34, 21);
-            this.lblPlanningWeek.TabIndex = 68;
-            this.lblPlanningWeek.Text = "NN";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(131, 35);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(25, 21);
-            this.label17.TabIndex = 59;
-            this.label17.Text = "ID";
-            // 
-            // txtName
-            // 
-            this.txtName.AutoSize = true;
-            this.txtName.Location = new System.Drawing.Point(131, 76);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(52, 21);
-            this.txtName.TabIndex = 60;
-            this.txtName.Text = "Name";
-            // 
-            // txtBarcode
-            // 
-            this.txtBarcode.AutoSize = true;
-            this.txtBarcode.Location = new System.Drawing.Point(131, 119);
-            this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Size = new System.Drawing.Size(66, 21);
-            this.txtBarcode.TabIndex = 61;
-            this.txtBarcode.Text = "Barcode";
-            // 
-            // txtProductType
-            // 
-            this.txtProductType.AutoSize = true;
-            this.txtProductType.Location = new System.Drawing.Point(131, 164);
-            this.txtProductType.Name = "txtProductType";
-            this.txtProductType.Size = new System.Drawing.Size(96, 21);
-            this.txtProductType.TabIndex = 62;
-            this.txtProductType.Text = "ProductType";
             // 
             // SalesManager
             // 
@@ -833,8 +835,8 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtYear;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDecreaseWeek;
+        private System.Windows.Forms.Button btnIncreaseWeek;
         private System.Windows.Forms.Label lblWeek;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
