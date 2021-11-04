@@ -33,8 +33,8 @@ namespace CardReader
                 acr122u.Init(false, 50, 4, 4, 200);  // NTAG213
                 acr122u.CardInserted += Acr122u_CardInserted;
                 acr122u.CardRemoved += Acr122u_CardRemoved;
+
                 timer1.Start();
-                timer1.Interval = 100;
             }
             catch
             {
@@ -70,6 +70,7 @@ namespace CardReader
         public void ViewAllEmployees()
         {
             lbEmployee.Items.Clear();
+            //lbEmployee.Items.Clear();
 
             MySqlConnection conn = Connection.GetConnection();
 
@@ -98,15 +99,22 @@ namespace CardReader
                         string email = reader.GetString("Email");
                         int phoneNumber = reader.GetInt32("PhoneNumber");
                         string dateOfBirth = reader.GetString("DateOfBirth");
+                        string CardNumber = "";
+                        try
+                        {
+                            CardNumber = reader.GetString("CardNumber");
+                        }
+                        catch { }
+
 
                         Contract c = GetContract(employeeID.ToString());
-                        employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                        employee = new Person(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password, CardNumber);
 
                         if (rbnAllEmployees.Checked)
                         {
                             lbEmployee.Items.Add(employee);
                         }
-                        else if (rbnAllEmployees.Checked)
+                        else if (rbnDepotEmployees.Checked)
                         {
                             if (c.JobTitle == "DEPOT EMPLOYEE" || c.JobTitle == "DEPOT MANAGER")
                             {
@@ -233,6 +241,7 @@ namespace CardReader
 
                 tbEmployeeID.Text = tempPerson.EmployeeID.ToString();
                 tbEmployeeName.Text = tempPerson.LastName + " " + tempPerson.FirstName;
+                tbCardNumber.Text = tempPerson.CardNumber.ToString();
             }
             catch { }
         }
@@ -251,6 +260,26 @@ namespace CardReader
                 tbCardNumber.Text = acr122u.ReadId.ToString();
                 acr122u.ReadId = null;
             }
+        }
+
+        private void rbnOfficeEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewAllEmployees();
+        }
+
+        private void rbnDepotEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewAllEmployees();
+        }
+
+        private void rbnSalesEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewAllEmployees();
+        }
+
+        private void rbnAllEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewAllEmployees();
         }
     }
 

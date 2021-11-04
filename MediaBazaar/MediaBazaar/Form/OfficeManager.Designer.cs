@@ -65,7 +65,7 @@ namespace MediaBazaar
             this.tbCompanyName = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvDepartments = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbDepartment = new System.Windows.Forms.GroupBox();
             this.labDepartmentName = new System.Windows.Forms.Label();
             this.labDepartmentID = new System.Windows.Forms.Label();
             this.btnEditDepartment = new System.Windows.Forms.Button();
@@ -75,7 +75,6 @@ namespace MediaBazaar
             this.label4 = new System.Windows.Forms.Label();
             this.cbHeadDepartments = new System.Windows.Forms.ComboBox();
             this.WorkHours = new System.Windows.Forms.TabPage();
-            this.btnSeatchDepartment = new System.Windows.Forms.Button();
             this.dgvAtendance = new System.Windows.Forms.DataGridView();
             this.btnMonthIncrease = new System.Windows.Forms.Button();
             this.btnIncreaseYear = new System.Windows.Forms.Button();
@@ -98,7 +97,7 @@ namespace MediaBazaar
             this.gbCompanyInfo.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.gbDepartment.SuspendLayout();
             this.WorkHours.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtendance)).BeginInit();
             this.SuspendLayout();
@@ -467,7 +466,7 @@ namespace MediaBazaar
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dgvDepartments);
-            this.tabPage3.Controls.Add(this.groupBox2);
+            this.tabPage3.Controls.Add(this.gbDepartment);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -487,22 +486,21 @@ namespace MediaBazaar
             this.dgvDepartments.TabIndex = 2;
             this.dgvDepartments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartments_CellClick);
             // 
-            // groupBox2
+            // gbDepartment
             // 
-            this.groupBox2.Controls.Add(this.labDepartmentName);
-            this.groupBox2.Controls.Add(this.labDepartmentID);
-            this.groupBox2.Controls.Add(this.btnEditDepartment);
-            this.groupBox2.Controls.Add(this.btnAddDepartment);
-            this.groupBox2.Controls.Add(this.tbDepartmentName);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.cbHeadDepartments);
-            this.groupBox2.Location = new System.Drawing.Point(483, 27);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(618, 444);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.gbDepartment.Controls.Add(this.labDepartmentName);
+            this.gbDepartment.Controls.Add(this.labDepartmentID);
+            this.gbDepartment.Controls.Add(this.btnEditDepartment);
+            this.gbDepartment.Controls.Add(this.btnAddDepartment);
+            this.gbDepartment.Controls.Add(this.tbDepartmentName);
+            this.gbDepartment.Controls.Add(this.label5);
+            this.gbDepartment.Controls.Add(this.label4);
+            this.gbDepartment.Controls.Add(this.cbHeadDepartments);
+            this.gbDepartment.Location = new System.Drawing.Point(483, 27);
+            this.gbDepartment.Name = "gbDepartment";
+            this.gbDepartment.Size = new System.Drawing.Size(618, 444);
+            this.gbDepartment.TabIndex = 1;
+            this.gbDepartment.TabStop = false;
             // 
             // labDepartmentName
             // 
@@ -584,7 +582,6 @@ namespace MediaBazaar
             // 
             // WorkHours
             // 
-            this.WorkHours.Controls.Add(this.btnSeatchDepartment);
             this.WorkHours.Controls.Add(this.dgvAtendance);
             this.WorkHours.Controls.Add(this.btnMonthIncrease);
             this.WorkHours.Controls.Add(this.btnIncreaseYear);
@@ -600,17 +597,6 @@ namespace MediaBazaar
             this.WorkHours.TabIndex = 4;
             this.WorkHours.Text = "WorkHours";
             this.WorkHours.UseVisualStyleBackColor = true;
-            // 
-            // btnSeatchDepartment
-            // 
-            this.btnSeatchDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSeatchDepartment.Location = new System.Drawing.Point(789, 135);
-            this.btnSeatchDepartment.Name = "btnSeatchDepartment";
-            this.btnSeatchDepartment.Size = new System.Drawing.Size(244, 41);
-            this.btnSeatchDepartment.TabIndex = 9;
-            this.btnSeatchDepartment.Text = "Search";
-            this.btnSeatchDepartment.UseVisualStyleBackColor = true;
-            this.btnSeatchDepartment.Click += new System.EventHandler(this.btnSeatchDepartment_Click);
             // 
             // dgvAtendance
             // 
@@ -751,8 +737,8 @@ namespace MediaBazaar
             this.gbCompanyInfo.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbDepartment.ResumeLayout(false);
+            this.gbDepartment.PerformLayout();
             this.WorkHours.ResumeLayout(false);
             this.WorkHours.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtendance)).EndInit();
@@ -785,7 +771,7 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox tbCompanyName;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dgvDepartments;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbDepartment;
         private System.Windows.Forms.ComboBox cbHeadDepartments;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -824,6 +810,5 @@ namespace MediaBazaar
         private System.Windows.Forms.Button e;
         private System.Windows.Forms.Button btnMonthIncrease;
         private System.Windows.Forms.DataGridView dgvAtendance;
-        private System.Windows.Forms.Button btnSeatchDepartment;
     }
 }

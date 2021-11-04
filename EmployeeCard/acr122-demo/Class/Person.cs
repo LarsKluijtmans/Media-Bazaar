@@ -19,7 +19,7 @@ namespace acr122_demo
 		private string email;
 		private int phoneNumber;
 		private string dateOfBirth;
-
+		private string cardNumber;
 
 		private string preferedWorkTime;
 		private string leastPreferedWorkTime;
@@ -36,9 +36,10 @@ namespace acr122_demo
 		public string Email { get; set; }
 		public int PhoneNumber { get; set; }
 		public string DateOfBirth { get; set; }
+		public string CardNumber { get; set; }
 
 		//constructor
-		public Person(int employeeID, string firstName, string lastName, int phoneNumber, string email, string city, string dateOfBirth, int bsn, string username, string password)
+		public Person(int employeeID, string firstName, string lastName, int phoneNumber, string email, string city, string dateOfBirth, int bsn, string username, string password, string cardNum)
 		{
 
 			this.EmployeeID = employeeID;
@@ -52,6 +53,7 @@ namespace acr122_demo
 			this.Email = email;
 			this.PhoneNumber = phoneNumber;
 			this.DateOfBirth = dateOfBirth;
+			CardNumber = cardNum;
 		}
 		// methodes
 		public override string ToString()
