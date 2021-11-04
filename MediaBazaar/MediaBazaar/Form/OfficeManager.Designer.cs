@@ -87,6 +87,7 @@ namespace MediaBazaar
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.btnDeleteDepartment = new System.Windows.Forms.Button();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -488,6 +489,7 @@ namespace MediaBazaar
             // 
             // gbDepartment
             // 
+            this.gbDepartment.Controls.Add(this.btnDeleteDepartment);
             this.gbDepartment.Controls.Add(this.labDepartmentName);
             this.gbDepartment.Controls.Add(this.labDepartmentID);
             this.gbDepartment.Controls.Add(this.btnEditDepartment);
@@ -523,7 +525,7 @@ namespace MediaBazaar
             // btnEditDepartment
             // 
             this.btnEditDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditDepartment.Location = new System.Drawing.Point(141, 359);
+            this.btnEditDepartment.Location = new System.Drawing.Point(129, 296);
             this.btnEditDepartment.Name = "btnEditDepartment";
             this.btnEditDepartment.Size = new System.Drawing.Size(361, 42);
             this.btnEditDepartment.TabIndex = 5;
@@ -534,7 +536,7 @@ namespace MediaBazaar
             // btnAddDepartment
             // 
             this.btnAddDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddDepartment.Location = new System.Drawing.Point(141, 288);
+            this.btnAddDepartment.Location = new System.Drawing.Point(129, 248);
             this.btnAddDepartment.Name = "btnAddDepartment";
             this.btnAddDepartment.Size = new System.Drawing.Size(361, 42);
             this.btnAddDepartment.TabIndex = 4;
@@ -713,6 +715,17 @@ namespace MediaBazaar
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // btnDeleteDepartment
+            // 
+            this.btnDeleteDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDeleteDepartment.Location = new System.Drawing.Point(129, 344);
+            this.btnDeleteDepartment.Name = "btnDeleteDepartment";
+            this.btnDeleteDepartment.Size = new System.Drawing.Size(361, 42);
+            this.btnDeleteDepartment.TabIndex = 7;
+            this.btnDeleteDepartment.Text = "Delete Department";
+            this.btnDeleteDepartment.UseVisualStyleBackColor = true;
+            this.btnDeleteDepartment.Click += new System.EventHandler(this.btnDeleteDepartment_Click);
+            // 
             // OfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -810,5 +823,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Button e;
         private System.Windows.Forms.Button btnMonthIncrease;
         private System.Windows.Forms.DataGridView dgvAtendance;
+        private System.Windows.Forms.Button btnDeleteDepartment;
     }
 }
