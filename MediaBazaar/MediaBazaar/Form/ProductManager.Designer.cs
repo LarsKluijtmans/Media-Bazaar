@@ -37,18 +37,16 @@ namespace MediaBazaar
             this.label5 = new System.Windows.Forms.Label();
             this.lstOverviewSchedule = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbxPrice = new System.Windows.Forms.TextBox();
             this.cbxProductType = new System.Windows.Forms.ComboBox();
             this.dgProducts = new System.Windows.Forms.DataGridView();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.tbBarcode = new System.Windows.Forms.TextBox();
-            this.tbAmountInDepot = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnAddPorduct = new System.Windows.Forms.Button();
-            this.tbmountInStore = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnGet = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -137,18 +135,16 @@ namespace MediaBazaar
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Controls.Add(this.tbxPrice);
             this.tabPage3.Controls.Add(this.cbxProductType);
             this.tabPage3.Controls.Add(this.dgProducts);
             this.tabPage3.Controls.Add(this.tbName);
             this.tabPage3.Controls.Add(this.label4);
             this.tabPage3.Controls.Add(this.lblName);
-            this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.tbBarcode);
-            this.tabPage3.Controls.Add(this.tbAmountInDepot);
             this.tabPage3.Controls.Add(this.lblEmail);
-            this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.btnAddPorduct);
-            this.tabPage3.Controls.Add(this.tbmountInStore);
             this.tabPage3.Controls.Add(this.btnDelete);
             this.tabPage3.Controls.Add(this.btnGet);
             this.tabPage3.Controls.Add(this.btnEdit);
@@ -165,10 +161,31 @@ namespace MediaBazaar
             this.tabPage3.Text = "Product";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(915, 308);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 28);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "Price (advice):";
+            // 
+            // tbxPrice
+            // 
+            this.tbxPrice.Location = new System.Drawing.Point(1051, 302);
+            this.tbxPrice.Name = "tbxPrice";
+            this.tbxPrice.Size = new System.Drawing.Size(183, 34);
+            this.tbxPrice.TabIndex = 46;
+            // 
             // cbxProductType
             // 
             this.cbxProductType.FormattingEnabled = true;
-            this.cbxProductType.Location = new System.Drawing.Point(1053, 244);
+            this.cbxProductType.Items.AddRange(new object[] {
+            "KITCHEN_HOME",
+            "PHOTO_VIDEO_NAVIGATION",
+            "SMART_HOME_APPLIANCES",
+            "GAMING_MUSIC_COMPUTERS"});
+            this.cbxProductType.Location = new System.Drawing.Point(1051, 247);
             this.cbxProductType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbxProductType.Name = "cbxProductType";
             this.cbxProductType.Size = new System.Drawing.Size(183, 36);
@@ -214,16 +231,6 @@ namespace MediaBazaar
             this.lblName.TabIndex = 30;
             this.lblName.Text = "Name:";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(904, 368);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(166, 28);
-            this.label6.TabIndex = 42;
-            this.label6.Text = "Amount in depot:";
-            // 
             // tbBarcode
             // 
             this.tbBarcode.Location = new System.Drawing.Point(1051, 187);
@@ -231,14 +238,6 @@ namespace MediaBazaar
             this.tbBarcode.Name = "tbBarcode";
             this.tbBarcode.Size = new System.Drawing.Size(185, 34);
             this.tbBarcode.TabIndex = 31;
-            // 
-            // tbAmountInDepot
-            // 
-            this.tbAmountInDepot.Location = new System.Drawing.Point(1053, 356);
-            this.tbAmountInDepot.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tbAmountInDepot.Name = "tbAmountInDepot";
-            this.tbAmountInDepot.Size = new System.Drawing.Size(185, 34);
-            this.tbAmountInDepot.TabIndex = 41;
             // 
             // lblEmail
             // 
@@ -250,16 +249,6 @@ namespace MediaBazaar
             this.lblEmail.TabIndex = 32;
             this.lblEmail.Text = "Barcode:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(910, 309);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 28);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Amount in store:";
-            // 
             // btnAddPorduct
             // 
             this.btnAddPorduct.Location = new System.Drawing.Point(952, 473);
@@ -270,14 +259,6 @@ namespace MediaBazaar
             this.btnAddPorduct.Text = "Add Product";
             this.btnAddPorduct.UseVisualStyleBackColor = true;
             this.btnAddPorduct.Click += new System.EventHandler(this.btnAddPorduct_Click);
-            // 
-            // tbmountInStore
-            // 
-            this.tbmountInStore.Location = new System.Drawing.Point(1053, 297);
-            this.tbmountInStore.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tbmountInStore.Name = "tbmountInStore";
-            this.tbmountInStore.Size = new System.Drawing.Size(185, 34);
-            this.tbmountInStore.TabIndex = 39;
             // 
             // btnDelete
             // 
@@ -309,6 +290,7 @@ namespace MediaBazaar
             this.btnEdit.TabIndex = 35;
             this.btnEdit.Text = "Edit Product";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // lblId
             // 
@@ -397,13 +379,9 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbBarcode;
-        private System.Windows.Forms.TextBox tbAmountInDepot;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddPorduct;
-        private System.Windows.Forms.TextBox tbmountInStore;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnGet;
         private System.Windows.Forms.Button btnEdit;
@@ -413,5 +391,7 @@ namespace MediaBazaar
         private System.Windows.Forms.DataGridView dgProducts;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cbxProductType;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbxPrice;
     }
 }
