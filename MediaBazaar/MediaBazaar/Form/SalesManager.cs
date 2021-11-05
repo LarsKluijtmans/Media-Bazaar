@@ -79,18 +79,23 @@ namespace MediaBazaar
         }
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
-            //string productID = txtID.Text;
-            //string productName = txtName.Text;
-            //string barcode = txtBarcode.Text;
-            //string productType = txtProductType.Text;
-            //string sellingPrice = txtPrice.Text;
+            int productID = Convert.ToInt32(tbxProductID.Text);
+            double price = Convert.ToDouble(tbxPrice.Text);
+            if (price == 0)
+            {
+                MessageBox.Show("Please enter a price");
+            }
 
-            //store.productManagment.EditProduct(productID, productName, barcode, productType, "", "", sellingPrice);
+            store.productManagment.EditPrice(productID, price);
+
+            UpdateProducts();
         }
         private void btnDiscontinue_Click(object sender, EventArgs e)
         {
-            //string productID = txtID.Text;
-            //store.productManagment.DiscontinueProduct(productID);
+            int productID = Convert.ToInt32(tbxProductID.Text);
+            store.productManagment.DiscontinueProduct(productID);
+
+            UpdateProducts();
         }
 
 

@@ -47,7 +47,7 @@ namespace MediaBazaar
 
         private void btnSeatchDepartment_Click(object sender, EventArgs e)
         {
-            GetAtendeance();
+            
         }
 
         //Login
@@ -89,6 +89,7 @@ namespace MediaBazaar
 
             year--;
             labYear.Text = year.ToString();
+            GetAtendeance();
         }
 
         private void btnIncreaseYear_Click(object sender, EventArgs e)
@@ -97,6 +98,7 @@ namespace MediaBazaar
 
             year++;
             labYear.Text = year.ToString();
+            GetAtendeance();
         }
 
         private void btnMonthDecrease_Click(object sender, EventArgs e)
@@ -113,6 +115,7 @@ namespace MediaBazaar
                 month--;
                 labMonth.Text = month.ToString();
             }
+            GetAtendeance();
         }
 
         private void btnMonthIncrease_Click(object sender, EventArgs e)
@@ -129,6 +132,7 @@ namespace MediaBazaar
                 month++;
                 labMonth.Text = month.ToString();
             }
+            GetAtendeance();
         }
 
         private void btnMakeExcelSheet_Click_1(object sender, EventArgs e)
@@ -458,6 +462,7 @@ namespace MediaBazaar
             }
 
             store.departmentManagment.AddDepartment(Name, Head, CompanyID);
+            ViewAllDepartments();
         } 
 
         private void btnEditDepartment_Click(object sender, EventArgs e)
@@ -490,6 +495,7 @@ namespace MediaBazaar
             }
 
             store.departmentManagment.EditDepartment(Name, Head, DepartmentID.ToString());
+            ViewAllDepartments();
         }
 
         private void dgvDepartments_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -547,6 +553,15 @@ namespace MediaBazaar
                 MessageBox.Show("'BTW number' field is required.");
                 return;
             }
+            try
+            {
+                Convert.ToInt32(BTW);
+            }
+            catch 
+            {
+                MessageBox.Show("'BTW number' field must be only numbers.");
+                return;
+            }
 
             string Email = tbEmail.Text;
             if (string.IsNullOrEmpty(Email))
@@ -561,9 +576,27 @@ namespace MediaBazaar
                 MessageBox.Show("'PhoneNumber' field is required.");
                 return;
             }
+            try
+            {
+                Convert.ToInt32(PhoneNumber);
+            }
+            catch
+            {
+                MessageBox.Show("'PhoneNumber' field must be only numbers.");
+                return;
+            }
 
             string KVK = tbKVK.Text;
             if (string.IsNullOrEmpty(KVK))
+            {
+                MessageBox.Show("'KVK number' field is required.");
+                return;
+            }
+            try
+            {
+                Convert.ToInt32(KVK);
+            }
+            catch
             {
                 MessageBox.Show("'KVK number' field is required.");
                 return;
@@ -662,7 +695,39 @@ namespace MediaBazaar
             }
         }
 
-        private void btnMakeExcelSheet_Click(object sender, EventArgs e)
-        {}
+        private void btnDeleteDepartment_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(labDepartmentID.Text) > 4)
+            {
+                MySqlConnection conn = Utils.GetConnection();
+
+                string sql = "DELETE FROM departments WHERE DepartmentID = @ID;";
+
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", labDepartmentID.Text);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException msqEx)
+                {
+                    MessageBox.Show(msqEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something went wrong" + ex);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("You can't delete the head departments");
+            }
+            ViewAllDepartments();
+        }
     }
 }
