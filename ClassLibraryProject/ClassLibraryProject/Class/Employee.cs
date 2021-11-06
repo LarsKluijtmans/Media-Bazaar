@@ -6,52 +6,91 @@ namespace ClassLibraryProject.Class
 {
     public class Employee
     {
-        // fields
         private int employeeID;
-        private string lastName;
-        private string firstName;
-        private int phoneNumber;
-        private string email;
-        private string city;
-        private string dateOfBirth;
-        private int bsn;
-        private string username;
-        private string password;
+		private string firstName;
+		private string lastName;
+		private int phoneNumber;
+		private string email;
+		private string city;
+		private string dateOfBirth;
+		private int bsn;
+		private string username;
+		private string password;
 
-        private Contract contract; /* every employee has 1 contract*/
+		public string FirstName
+		{
+			get { return firstName; }
+			set { firstName = value; }
+		}
+		public string LastName
+		{
+			get { return lastName; }
+			set { lastName = value; }
+		}
 
+		public int PhoneNumber
+		{
+			get { return phoneNumber; }
+			set { phoneNumber = value; }
+		}
+		public string City
+		{
+			get { return city; }
+			set { city = value; }
+		}
+		public string DateOfBirth
+		{
+			get { return dateOfBirth; }
+			set { dateOfBirth = value; }
+		}
+		public int BSN
+		{
+			get { return bsn; }
+			set { bsn = value; }
+		}
+		public string Username
+		{
+			get { return username; }
+			set { username = value; }
+		}
+		public string Password
+		{
+			get { return password; }
+			set { password = value; }
+		}
+		public string Email
+		{
+			get { return email; }
+			set { email = value; }
+		}
+		public int ID
+		{
+			get { return employeeID; }
+			set { employeeID = value; }
+		}
 
-        // properties
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        
-        public int PhoneNumber { get; set; }
-        public string City { get; set; }
-        public string DateOfBirth { get; set; }
-        public int BSN { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public int EmployeeID { get; private set; }
-        public Contract Contract { get; set; }
-        // constructor
-        public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
-         {
-            this.LastName = LastName;
-            this.FirstName = firstname;
-            this.PhoneNumber = phonenumber;
-            this.Email = email;
-            this.City = city;
-            this.DateOfBirth = dateofbirth;
-            this.BSN = bsn;
-            this.Username = username;
-            this.Password = password;
-              
-         }
-        // methodes
-        public override string ToString()
-        {
-            return $"ID: {EmployeeID} - Name: {FirstName} {LastName} - Email: {Email}";
-        }
-    }
-    }
+		public Employee(int employeeID, string firstname, string lastname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
+		{
+			ID = employeeID;
+			LastName = firstname;
+			FirstName = lastname;
+			PhoneNumber = phonenumber;
+			Email = email;
+			City = city;
+			DateOfBirth = dateofbirth;
+			BSN = bsn;
+			Username = username;
+			Password = password;
+
+		}
+		public Employee(int id)
+		{
+			ID = id;
+		}
+
+		public override string ToString()
+		{
+			return $"ID: {ID} - Name: {FirstName} {LastName}";
+		}
+	}
+}

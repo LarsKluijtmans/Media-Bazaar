@@ -18,20 +18,28 @@ namespace MediaBazaar
         }
         public void UpdateOrder()
         {
-            infoManagment.GetAllOrderInfo();         
+            infoManagment.GetAllOrderInfo();
 
-            foreach(OrderInfo info in infoManagment.OrderInfos)
+            foreach (OrderInfo info in infoManagment.OrderInfos)
             {
                 if (info.SupplierID == supplierID)
                 {
-                    txtProductID.Text = info.ProductID.ToString();
-                    lblOrderID.Text = info.OrderInfoID.ToString();
-                    txtSupplierID.Text = supplierID.ToString();
-                    txtMultiples.Text = info.Multiples.ToString();
+                    if (!txtProductID.Items.Contains(info.ProductID))
+                    {
+                        txtProductID.Items.Add(info.ProductID);
+                    }
+                }
+            }
+            foreach (OrderInfo info in infoManagment.OrderInfos)
+            {
+                if (txtProductID.Text == info.ProductID.ToString() && txtSupplierID.Text == info.SupplierID.ToString())
+                {
                     txtMaxAmount.Text = info.MaxAmount.ToString();
                     txtMinAmount.Text = info.MinAmount.ToString();
+                    txtMultiples.Text = info.Multiples.ToString();
+                    lblOrderID.Text = info.OrderInfoID.ToString();
                 }
-            }  
+            }
         }
 
         private void btnUpdate_Click(object sender, System.EventArgs e)
@@ -48,9 +56,7 @@ namespace MediaBazaar
         private void btnRemove_Click(object sender, System.EventArgs e)
         {
             infoManagment.DeleteOrderInfo(Convert.ToInt32(lblOrderID.Text));
-            txtMultiples.Clear();
-            txtMaxAmount.Clear();
-            txtMinAmount.Clear();
+            Close();
         }
 
         private void btnAddNewOrder_Click(object sender, EventArgs e)
