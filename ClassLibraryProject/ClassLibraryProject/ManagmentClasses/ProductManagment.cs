@@ -18,9 +18,12 @@ namespace ClassLibraryProject.ManagmentClasses
 
         //MohammadStart
         public static string GET_PRODUCTS = "SELECT * FROM product WHERE Barcode = @Barcode";
+
+        public List<Product> RemoteProducts { get; set; }
+
         public void GetProduct(string Barcode)
         {
-            Products.Clear();
+            RemoteProducts.Clear();
             MySqlConnection conn = Utils.GetConnection();
             string sql = GET_PRODUCTS;
             try
@@ -46,6 +49,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     product = new Product(productID, name, productType, barcode, sellingPrice, amountInDepot, amountInStore);
                     if (!product.IsDiscontinued)
                     {
+                        RemoteProducts.Add(product);
                         Products.Add(product);
                     }
                 }

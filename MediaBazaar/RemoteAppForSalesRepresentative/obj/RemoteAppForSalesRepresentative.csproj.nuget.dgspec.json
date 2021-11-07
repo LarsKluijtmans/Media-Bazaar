@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj": {}
+    "E:\\Study\\Semester 2\\PRJ\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj": {}
   },
   "projects": {
-    "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+    "E:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "projectUniqueName": "E:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
         "projectName": "ClassLibraryProject",
-        "projectPath": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "projectPath": "E:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
         "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
-        "outputPath": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
+        "outputPath": "E:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -64,14 +64,14 @@
         }
       }
     },
-    "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj": {
+    "E:\\Study\\Semester 2\\PRJ\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj",
+        "projectUniqueName": "E:\\Study\\Semester 2\\PRJ\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj",
         "projectName": "RemoteAppForSalesRepresentative",
-        "projectPath": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj",
+        "projectPath": "E:\\Study\\Semester 2\\PRJ\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj",
         "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
-        "outputPath": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForSalesRepresentative\\obj\\",
+        "outputPath": "E:\\Study\\Semester 2\\PRJ\\MediaBazaar\\RemoteAppForSalesRepresentative\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -88,8 +88,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
-                "projectPath": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+              "E:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+                "projectPath": "E:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
               }
             }
           }

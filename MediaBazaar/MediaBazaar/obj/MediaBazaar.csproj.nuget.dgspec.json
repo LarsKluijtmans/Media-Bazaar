@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {}
+    "E:\\Study\\Semester 2\\PRJ\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {}
   },
   "projects": {
-    "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+    "E:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "projectUniqueName": "E:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
         "projectName": "ClassLibraryProject",
-        "projectPath": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "projectPath": "E:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
         "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
-        "outputPath": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
+        "outputPath": "E:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -64,14 +64,14 @@
         }
       }
     },
-    "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {
+    "E:\\Study\\Semester 2\\PRJ\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+        "projectUniqueName": "E:\\Study\\Semester 2\\PRJ\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
         "projectName": "MediaBazaar",
-        "projectPath": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+        "projectPath": "E:\\Study\\Semester 2\\PRJ\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
         "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
-        "outputPath": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\obj\\",
+        "outputPath": "E:\\Study\\Semester 2\\PRJ\\MediaBazaar\\MediaBazaar\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -88,8 +88,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
-                "projectPath": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+              "E:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+                "projectPath": "E:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
               }
             }
           }

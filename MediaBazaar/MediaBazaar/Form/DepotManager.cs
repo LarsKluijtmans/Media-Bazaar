@@ -22,6 +22,7 @@ namespace MediaBazaar
             Initialize();
             UpdateRestockRequests();
             UpdateSchedule();
+            UpdatePlanningSchedule();
             UpdateSupplier();
         }
 
@@ -296,12 +297,14 @@ namespace MediaBazaar
                 string day = Convert.ToString(selectedRow.Cells["Day"].Value);
                 string shift = Convert.ToString(selectedColumn.Name);
 
+                lstEmpCanWork.Items.Clear();
                 store.employeeManagement.GetAvailableEmployees(week, day, shift);
                 foreach (Employee employee in store.employeeManagement.AvailableEmployee)
                 {
                     lstEmpCanWork.Items.Add(employee);
                 }
 
+                lstEmpEnlisted.Items.Clear();
                 store.employeeManagement.GetEnlistedEmployees(year, week, day, shift);
                 foreach (Employee employee in store.employeeManagement.EnlistedEmployee)
                 {
@@ -315,7 +318,21 @@ namespace MediaBazaar
         }
         private void lstEmpCanWork_DoubleClick(object sender, EventArgs e)
         {
-
+            Object EmployeeObject = lstEmpCanWork.SelectedItem;
+            if (!(EmployeeObject is Employee))
+            {
+                return;
+            }
+            Employee employee = (Employee)EmployeeObject;
+            int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
+            int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
+            DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
+            DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
+            int year = Convert.ToInt32(txtPlanningYear.Text);
+            int week = Convert.ToInt32(lblPlanningWeek.Text);
+            string day = Convert.ToString(selectedRow.Cells["Day"].Value);
+            string shift = Convert.ToString(selectedColumn.Name);
+            store.planningManagment.AddPlanning(year, week, day, shift, employee.ID);
         }
 
         private void btnRemoveFromSchedule_Click(object sender, EventArgs e)

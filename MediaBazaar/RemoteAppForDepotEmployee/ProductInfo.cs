@@ -16,7 +16,7 @@ namespace RemoteAppForDepotEmployee
         {
             InitializeComponent();
             s = store;
-            foreach (Product product in s.productManagment.Products)
+            foreach (Product product in s.productManagment.RemoteProducts)
             {
                 lbAmount.Text = product.AmountInDepot.ToString();
                 lbName.Text = product.Name;
@@ -25,23 +25,23 @@ namespace RemoteAppForDepotEmployee
 
         private void btnRequest_Click(object sender, EventArgs e)
         {
-            foreach (Product product in s.productManagment.Products)
+            foreach (Product product in s.productManagment.RemoteProducts)
             {
                 s.restockManagment.RequestRestock(product.Barcode, product.ProductID);
             }
-            s.productManagment.Products.Clear();
+            s.productManagment.RemoteProducts.Clear();
             Close();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            s.productManagment.Products.Clear();
+            s.productManagment.RemoteProducts.Clear();
             Close();
         }
 
         private void ProductInfo_FormClosing(object sender, FormClosingEventArgs e)
         {
-            s.productManagment.Products.Clear();
+            s.productManagment.RemoteProducts.Clear();
         }
     }
 }

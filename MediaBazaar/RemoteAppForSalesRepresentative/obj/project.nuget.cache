@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rrN6FbK+JgEEJn8KmhyV9oz9DVBqPWCvjW8reGY44r9rAVQbusrMB1hXLHgIuIPRJiX+ehzr5uuJ0MGaN+2BGA==",
+  "dgSpecHash": "ym4QdgsSitbRaAyA7ThHsL7zJWQefDzQQoBuG38D2xZ/ooi7wuUwkml+ESLhGKwN1pAIkq2/YgpCnUIoEHwVmw==",
   "success": true,
-  "projectFilePath": "E:\\Study\\Semester 2\\PRJ\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj",
+  "projectFilePath": "E:\\Study\\Semester 2\\PRJ\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nazib\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\nazib\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
