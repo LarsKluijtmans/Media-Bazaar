@@ -35,8 +35,8 @@ namespace MediaBazaar
             this.label28 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.txtPlanningYear = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnDecreasePlanningWeek = new System.Windows.Forms.Button();
+            this.btnIncreasePlanningWeek = new System.Windows.Forms.Button();
             this.lblPlanningWeek = new System.Windows.Forms.Label();
             this.dgPlanningSchedule = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
@@ -114,7 +114,7 @@ namespace MediaBazaar
             this.label26 = new System.Windows.Forms.Label();
             this.btnRemoveSupplier = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.btnAddNewOrder = new System.Windows.Forms.Button();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
             this.tabSchedule.SuspendLayout();
@@ -158,8 +158,8 @@ namespace MediaBazaar
             this.tabPlanning.Controls.Add(this.label28);
             this.tabPlanning.Controls.Add(this.label30);
             this.tabPlanning.Controls.Add(this.txtPlanningYear);
-            this.tabPlanning.Controls.Add(this.button3);
-            this.tabPlanning.Controls.Add(this.button4);
+            this.tabPlanning.Controls.Add(this.btnDecreasePlanningWeek);
+            this.tabPlanning.Controls.Add(this.btnIncreasePlanningWeek);
             this.tabPlanning.Controls.Add(this.lblPlanningWeek);
             this.tabPlanning.Controls.Add(this.dgPlanningSchedule);
             this.tabPlanning.Controls.Add(this.label4);
@@ -201,25 +201,27 @@ namespace MediaBazaar
             this.txtPlanningYear.Size = new System.Drawing.Size(97, 29);
             this.txtPlanningYear.TabIndex = 77;
             // 
-            // button3
+            // btnDecreasePlanningWeek
             // 
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(186, 44);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(27, 35);
-            this.button3.TabIndex = 76;
-            this.button3.Text = "<";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDecreasePlanningWeek.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDecreasePlanningWeek.Location = new System.Drawing.Point(186, 44);
+            this.btnDecreasePlanningWeek.Name = "btnDecreasePlanningWeek";
+            this.btnDecreasePlanningWeek.Size = new System.Drawing.Size(27, 35);
+            this.btnDecreasePlanningWeek.TabIndex = 76;
+            this.btnDecreasePlanningWeek.Text = "<";
+            this.btnDecreasePlanningWeek.UseVisualStyleBackColor = true;
+            this.btnDecreasePlanningWeek.Click += new System.EventHandler(this.btnDecreasePlanningWeek_Click);
             // 
-            // button4
+            // btnIncreasePlanningWeek
             // 
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(259, 44);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(27, 35);
-            this.button4.TabIndex = 75;
-            this.button4.Text = ">";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnIncreasePlanningWeek.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnIncreasePlanningWeek.Location = new System.Drawing.Point(259, 44);
+            this.btnIncreasePlanningWeek.Name = "btnIncreasePlanningWeek";
+            this.btnIncreasePlanningWeek.Size = new System.Drawing.Size(27, 35);
+            this.btnIncreasePlanningWeek.TabIndex = 75;
+            this.btnIncreasePlanningWeek.Text = ">";
+            this.btnIncreasePlanningWeek.UseVisualStyleBackColor = true;
+            this.btnIncreasePlanningWeek.Click += new System.EventHandler(this.btnIncreasePlanningWeek_Click);
             // 
             // lblPlanningWeek
             // 
@@ -239,6 +241,7 @@ namespace MediaBazaar
             this.dgPlanningSchedule.RowTemplate.Height = 25;
             this.dgPlanningSchedule.Size = new System.Drawing.Size(525, 275);
             this.dgPlanningSchedule.TabIndex = 14;
+            this.dgPlanningSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPlanningSchedule_CellClick);
             // 
             // label4
             // 
@@ -276,6 +279,7 @@ namespace MediaBazaar
             this.btnRemoveFromSchedule.TabIndex = 10;
             this.btnRemoveFromSchedule.Text = "Remove Employee";
             this.btnRemoveFromSchedule.UseVisualStyleBackColor = true;
+            this.btnRemoveFromSchedule.Click += new System.EventHandler(this.btnRemoveFromSchedule_Click);
             // 
             // lstEmpCanWork
             // 
@@ -286,6 +290,7 @@ namespace MediaBazaar
             this.lstEmpCanWork.Name = "lstEmpCanWork";
             this.lstEmpCanWork.Size = new System.Drawing.Size(293, 395);
             this.lstEmpCanWork.TabIndex = 8;
+            this.lstEmpCanWork.DoubleClick += new System.EventHandler(this.lstEmpCanWork_DoubleClick);
             // 
             // lstEmpEnlisted
             // 
@@ -832,7 +837,7 @@ namespace MediaBazaar
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnClear);
+            this.groupBox3.Controls.Add(this.btnAddNewOrder);
             this.groupBox3.Controls.Add(this.btnOrderInfo);
             this.groupBox3.Controls.Add(this.btnAddSupplier);
             this.groupBox3.Controls.Add(this.txtPostalCode);
@@ -864,10 +869,10 @@ namespace MediaBazaar
             // btnOrderInfo
             // 
             this.btnOrderInfo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnOrderInfo.Location = new System.Drawing.Point(158, 337);
+            this.btnOrderInfo.Location = new System.Drawing.Point(90, 337);
             this.btnOrderInfo.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnOrderInfo.Name = "btnOrderInfo";
-            this.btnOrderInfo.Size = new System.Drawing.Size(127, 30);
+            this.btnOrderInfo.Size = new System.Drawing.Size(126, 30);
             this.btnOrderInfo.TabIndex = 109;
             this.btnOrderInfo.Text = "Order Info";
             this.btnOrderInfo.UseVisualStyleBackColor = true;
@@ -1075,17 +1080,16 @@ namespace MediaBazaar
             this.label27.TabIndex = 92;
             this.label27.Text = "Supplier:";
             // 
-            // btnClear
+            // btnAddNewOrder
             // 
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnClear.Location = new System.Drawing.Point(281, 25);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(54, 30);
-            this.btnClear.TabIndex = 110;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnAddNewOrder.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddNewOrder.Location = new System.Drawing.Point(220, 337);
+            this.btnAddNewOrder.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnAddNewOrder.Name = "btnAddNewOrder";
+            this.btnAddNewOrder.Size = new System.Drawing.Size(126, 30);
+            this.btnAddNewOrder.TabIndex = 110;
+            this.btnAddNewOrder.Text = "Add New Order";
+            this.btnAddNewOrder.UseVisualStyleBackColor = true;
             // 
             // DepotManager
             // 
@@ -1207,10 +1211,10 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox txtPlanningYear;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnDecreasePlanningWeek;
+        private System.Windows.Forms.Button btnIncreasePlanningWeek;
         private System.Windows.Forms.Label lblPlanningWeek;
         private System.Windows.Forms.Button btnOrderInfo;
-        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnAddNewOrder;
     }
 }

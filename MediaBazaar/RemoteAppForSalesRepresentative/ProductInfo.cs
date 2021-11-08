@@ -21,7 +21,7 @@ namespace RemoteAppForSalesRepresentative
         }
         private void UpdateProduct()
         {
-            foreach (Product product in s.productManagment.Products)
+            foreach (Product product in s.productManagment.RemoteProducts)
             {
                 lbAmount.Text = product.AmountInDepot.ToString();
                 lbName.Text = product.Name;
@@ -32,7 +32,7 @@ namespace RemoteAppForSalesRepresentative
             int amount = Convert.ToInt32(txtRequest.Text);
             try
             {
-                foreach (Product product in s.productManagment.Products)
+                foreach (Product product in s.productManagment.RemoteProducts)
                 {
                     s.reshelfManagment.RequestReshelf(product.Barcode, product.ProductID, amount);
                 }
@@ -42,18 +42,18 @@ namespace RemoteAppForSalesRepresentative
                 MessageBox.Show("Fill up the amount to request.");
             }
             MessageBox.Show("Restock requested");
-            s.productManagment.Products.Clear();
+            s.productManagment.RemoteProducts.Clear();
             Close();
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
-            s.productManagment.Products.Clear();
+            s.productManagment.RemoteProducts.Clear();
             Close();
         }
 
         private void ProductInfo_FormClosing(object sender, FormClosingEventArgs e)
         {
-            s.productManagment.Products.Clear();
+            s.productManagment.RemoteProducts.Clear();
         }
     }
     

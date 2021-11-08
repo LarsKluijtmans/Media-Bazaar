@@ -10,6 +10,7 @@ namespace MediaBazaar
         int ID;
         Store store;
         int i;
+        int pi;
 
         public DepotManager(int UserID, Store s)
         {
@@ -21,6 +22,7 @@ namespace MediaBazaar
             Initialize();
             UpdateRestockRequests();
             UpdateSchedule();
+            UpdatePlanningSchedule();
             UpdateSupplier();
         }
 
@@ -29,8 +31,11 @@ namespace MediaBazaar
         {
             DateTime date = DateTime.Now;
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
+            lblPlanningWeek.Text = GetCurrentWeekOfYear(date).ToString();
             i = Convert.ToInt32(lblWeek.Text);
+            pi = Convert.ToInt32(lblPlanningWeek.Text);
             txtYear.Text = date.Year.ToString();
+            txtPlanningYear.Text = date.Year.ToString();
         }
 
         //Overview
@@ -99,12 +104,10 @@ namespace MediaBazaar
                 MessageBox.Show("Select any restock request you want to finalize.");
             }
             UpdateRestockRequests();
-            MessageBox.Show("Product ordered. Wait for shipment to arrive");
         }
         private void btnDeleteRestockRequest_Click(object sender, EventArgs e)
         {
             DeleteRestockRequest();
-            MessageBox.Show("Restock request deleted!");
         }
         private void dgRestock_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -196,7 +199,6 @@ namespace MediaBazaar
             }
 
             UpdateSchedule();
-            MessageBox.Show("Schedule updated!");
         }
         private void btnIncreaseWeek_Click(object sender, EventArgs e)
         {
@@ -233,7 +235,110 @@ namespace MediaBazaar
         }
 
         //Planning
+        public void UpdatePlanningSchedule()
+        {
+            try
+            {
+                if (store.scheduleManagment.GetDepotCount(Convert.ToInt32(txtPlanningYear.Text), Convert.ToInt32(lblPlanningWeek.Text)) == true)
+                {
+                    store.scheduleManagment.CreateDepotWeek(Convert.ToInt32(txtPlanningYear.Text), Convert.ToInt32(lblPlanningWeek.Text));
+                }
+                dgPlanningSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblPlanningWeek.Text), Convert.ToInt32(txtYear.Text));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please insert year!");
+            }
+        }
+        private void btnIncreasePlanningWeek_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (pi < ISOWeek.GetWeeksInYear(Convert.ToInt32(txtPlanningYear.Text)))
+                {
+                    pi++;
+                }
+                else if (pi >= ISOWeek.GetWeeksInYear(Convert.ToInt32(txtPlanningYear.Text)))
+                {
+                    pi = ISOWeek.GetWeeksInYear(Convert.ToInt32(txtPlanningYear.Text));
+                }
+                lblPlanningWeek.Text = pi.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please insert year!");
+            }
+            UpdatePlanningSchedule();
+        }
 
+        private void btnDecreasePlanningWeek_Click(object sender, EventArgs e)
+        {
+            if (pi > 1)
+            {
+                pi--;
+            }
+            else if (pi <= 0)
+            {
+                pi = 1;
+            }
+            lblPlanningWeek.Text = pi.ToString();
+            UpdatePlanningSchedule();
+        }
+        private void dgPlanningSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
+                int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
+                DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
+                DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
+                int year = Convert.ToInt32(txtPlanningYear.Text);
+                int week = Convert.ToInt32(lblPlanningWeek.Text);
+                string day = Convert.ToString(selectedRow.Cells["Day"].Value);
+                string shift = Convert.ToString(selectedColumn.Name);
+
+                lstEmpCanWork.Items.Clear();
+                store.employeeManagement.GetAvailableEmployees(week, day, shift);
+                foreach (Employee employee in store.employeeManagement.AvailableEmployee)
+                {
+                    lstEmpCanWork.Items.Add(employee);
+                }
+
+                lstEmpEnlisted.Items.Clear();
+                store.employeeManagement.GetEnlistedEmployees(year, week, day, shift);
+                foreach (Employee employee in store.employeeManagement.EnlistedEmployee)
+                {
+                    lstEmpEnlisted.Items.Add(employee);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Select amount");
+            }
+        }
+        private void lstEmpCanWork_DoubleClick(object sender, EventArgs e)
+        {
+            Object EmployeeObject = lstEmpCanWork.SelectedItem;
+            if (!(EmployeeObject is Employee))
+            {
+                return;
+            }
+            Employee employee = (Employee)EmployeeObject;
+            int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
+            int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
+            DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
+            DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
+            int year = Convert.ToInt32(txtPlanningYear.Text);
+            int week = Convert.ToInt32(lblPlanningWeek.Text);
+            string day = Convert.ToString(selectedRow.Cells["Day"].Value);
+            string shift = Convert.ToString(selectedColumn.Name);
+            store.planningManagment.AddPlanning(year, week, day, shift, employee.ID);
+        }
+
+        private void btnRemoveFromSchedule_Click(object sender, EventArgs e)
+        {
+
+        }
 
         //Supplier
         private void UpdateSupplier()
@@ -299,7 +404,6 @@ namespace MediaBazaar
                 MessageBox.Show("Select a supplier you want to edit");
             }
             UpdateSupplier();
-            MessageBox.Show("Supplier added!");
         }
         private void btnEditSupplier_Click(object sender, EventArgs e)
         {
@@ -345,7 +449,6 @@ namespace MediaBazaar
                 MessageBox.Show("Select a supplier you want to edit");
             }
             UpdateSupplier();
-            MessageBox.Show("Selected supplier deleted!");
         }
         private void btnRemoveSupplier_Click(object sender, EventArgs e)
         {
@@ -360,7 +463,6 @@ namespace MediaBazaar
             }
 
             UpdateSupplier();
-            MessageBox.Show("Selected supplier deleted!");
         }
         private void btnOrderInfo_Click(object sender, EventArgs e)
         {
@@ -374,17 +476,6 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Select supplier");
             }
-        }
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtSupplierID.Text = "";
-            txtSupplierName.Text = "";
-            txtCountry.Text = "";
-            txtBuildingNumber.Text = "";
-            txtPostalCode.Text = "";
-            txtEmail.Text = "";
-            txtPhoneNumber.Text = "";
-            txtBankNumber.Text = "";
         }
     }
 }

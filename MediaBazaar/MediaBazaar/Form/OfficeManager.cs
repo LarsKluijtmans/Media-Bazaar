@@ -695,7 +695,39 @@ namespace MediaBazaar
             }
         }
 
-        private void btnMakeExcelSheet_Click(object sender, EventArgs e)
-        {}
+        private void btnDeleteDepartment_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(labDepartmentID.Text) > 4)
+            {
+                MySqlConnection conn = Utils.GetConnection();
+
+                string sql = "DELETE FROM departments WHERE DepartmentID = @ID;";
+
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", labDepartmentID.Text);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException msqEx)
+                {
+                    MessageBox.Show(msqEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something went wrong" + ex);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("You can't delete the head departments");
+            }
+            ViewAllDepartments();
+        }
     }
 }

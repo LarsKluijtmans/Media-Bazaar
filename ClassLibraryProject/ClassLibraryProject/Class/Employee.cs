@@ -29,11 +29,17 @@ namespace ClassLibraryProject.Class
         public string City { get; set; }
         public string DateOfBirth { get; set; }
         public int BSN { get; set; }
-        public string Username { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public int EmployeeID { get; private set; }
+        public int EmployeeID { get;  set; }
         public Contract Contract { get; set; }
+
+
+        public Employee()
+        {
+
+        }
         // constructor
         public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
          {
@@ -44,7 +50,7 @@ namespace ClassLibraryProject.Class
             this.City = city;
             this.DateOfBirth = dateofbirth;
             this.BSN = bsn;
-            this.Username = username;
+            this.UserName = username;
             this.Password = password;
               
          }
