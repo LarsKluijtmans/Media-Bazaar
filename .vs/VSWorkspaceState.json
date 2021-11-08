@@ -1,10 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\ClassLibraryProject",
+    "\\ClassLibraryProject\\ClassLibraryProject",
     "\\MediaBazaar",
-    "\\MediaBazaar\\MediaBazaar",
-    "\\MediaBazaar\\MediaBazaar\\Form"
+    "\\website",
+    "\\website\\ClassLibrary1",
+    "\\website\\MediaBazzar",
+    "\\website\\MediaBazzar\\wwwroot\\css",
+    "\\website\\MediaBazzar\\wwwroot\\image"
   ],
-  "SelectedNode": "\\MediaBazaar\\MediaBazaar\\Form\\FormDepotManager.cs",
+  "SelectedNode": "\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
   "PreviewInSolutionExplorer": false
 }

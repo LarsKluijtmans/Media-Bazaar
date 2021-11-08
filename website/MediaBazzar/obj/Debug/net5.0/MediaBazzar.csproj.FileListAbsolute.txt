@@ -49,3 +49,11 @@ C:\Users\csten\source\repos\MediaBazzar\obj\Debug\net5.0\MediaBazzar.dll
 C:\Users\csten\source\repos\MediaBazzar\obj\Debug\net5.0\ref\MediaBazzar.dll
 C:\Users\csten\source\repos\MediaBazzar\obj\Debug\net5.0\MediaBazzar.pdb
 C:\Users\csten\source\repos\MediaBazzar\obj\Debug\net5.0\MediaBazzar.genruntimeconfig.cache
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.csproj.AssemblyReference.cache
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.AssemblyInfoInputs.cache
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.AssemblyInfo.cs
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.csproj.CoreCompileInputs.cache
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.RazorAssemblyInfo.cache
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.RazorAssemblyInfo.cs

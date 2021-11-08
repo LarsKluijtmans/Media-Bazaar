@@ -78,3 +78,11 @@ E:\Study\Semester 2\PRJ\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\C
 E:\Study\Semester 2\PRJ\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.CoreCompileInputs.cache
 E:\Study\Semester 2\PRJ\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.dll
 E:\Study\Semester 2\PRJ\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.pdb
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.AssemblyReference.cache
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Core.dll
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.ResolveComReference.cache
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfoInputs.cache
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfo.cs
+C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.CoreCompileInputs.cache
