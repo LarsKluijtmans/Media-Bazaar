@@ -11,9 +11,9 @@ namespace ClassLibrary1
         {
 
         }
-        public Login(string userName, string password, string fisrtname, string lastname, string email, string department, string shift)
+        public Login(string username, string password, string fisrtname, string lastname, string email, string department, string shift)
         {
-            UserName = userName;
+            Username = username;
             Password = password;
             Firstname = fisrtname;
             Lastname = lastname;
@@ -23,7 +23,7 @@ namespace ClassLibrary1
         }
 
         [Required]
-        public string UserName { get; set; }
+        public string Username { get; set; }
         [Required]
         public string Password { get; set; }
         [Required]

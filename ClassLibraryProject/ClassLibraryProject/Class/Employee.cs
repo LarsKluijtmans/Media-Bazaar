@@ -32,8 +32,14 @@ namespace ClassLibraryProject.Class
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public int EmployeeID { get; private set; }
+        public int EmployeeID { get;  set; }
         public Contract Contract { get; set; }
+
+
+        public Employee()
+        {
+
+        }
         // constructor
         public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
          {

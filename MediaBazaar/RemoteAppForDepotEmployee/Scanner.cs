@@ -25,7 +25,7 @@ namespace RemoteAppForDepotEmployee
         private void timerUpdate_Tick(object sender, EventArgs e)
         {
             store.productManagment.GetProduct(txtBarcode.Text);
-            if (store.productManagment.Products.Count > 0)
+            if (store.productManagment.RemoteProducts.Count > 0)
             {
                 ProductInfo productInfo = new ProductInfo(store);
                 productInfo.Show();
@@ -35,11 +35,11 @@ namespace RemoteAppForDepotEmployee
 
         private void timerRevival_Tick(object sender, EventArgs e)
         {
-            if (store.productManagment.Products.Count > 0)
+            if (store.productManagment.RemoteProducts.Count > 0)
             {
                 timerUpdate.Stop();
             }
-            else if (store.productManagment.Products.Count <= 0)
+            else if (store.productManagment.RemoteProducts.Count <= 0)
             {
                 timerUpdate.Start();
             }
