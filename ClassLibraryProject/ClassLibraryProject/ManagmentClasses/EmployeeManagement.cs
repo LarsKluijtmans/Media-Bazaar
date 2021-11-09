@@ -69,8 +69,8 @@ namespace ClassLibraryProject.ManagmentClasses
                 {
                     int employeeID = reader.GetInt32("EmployeeID");
 
-                    employee = new Employee(employeeID);
-                    AvailableEmployee.Add(employee);
+                    //employee = new Employee(employeeID);
+                    //AvailableEmployee.Add(employee);
                 }
             }
             catch (MySqlException)
@@ -110,8 +110,8 @@ namespace ClassLibraryProject.ManagmentClasses
                 {
                     int employeeID = reader.GetInt32("EmployeeID");
 
-                    employee = new Employee(employeeID);
-                    EnlistedEmployee.Add(employee);
+                    //employee = new Employee(employeeID);
+                   // EnlistedEmployee.Add(employee);
                 }
             }
             catch (MySqlException)
