@@ -104,7 +104,7 @@ namespace acr122_demo {
             this.Controls.Add(this.labLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
