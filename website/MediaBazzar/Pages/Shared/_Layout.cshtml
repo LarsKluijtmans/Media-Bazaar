@@ -8,60 +8,57 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="web-body">
+    <!-- nav bar -->
+    <section class="header">
+        <nav>
+            <a asp-area="" asp-page="/Index">MediaBazaar</a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a asp-area="" asp-page="/Index">Home</a></li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-page="/Profile">Login</a></li>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-page="/Profile">Profile</a></li>
+                        <li><a asp-area="" asp-page="/Schedule">Schedule</a></li>
+                        <li><a asp-area="" asp-page="/Logout" asp-page-handler="Logout">LOGOUT</a></li>
+                    }
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <li><a asp-area="" asp-page="/Admin">ADMIN</a></li>
+                    }
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
 
-        <!-- nav bar -->
-        <div class="header">
-            <nav>
-                <label class="logo">MediaBazaar</label>
-                <div class="nav-links id=navLinks">
-                    <i class="fa fa-times" onclick="hideMenu()"></i>
-                    <ul>
-                        <li><a asp-area="" asp-page="/Index">Home</a></li>
-                        @if (!User.Identity.IsAuthenticated)
-                        {
-                            <li><a asp-area="" asp-page="/Profile">Login</a></li>
-                        }
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li><a asp-area="" asp-page="/Profile">Profile</a></li>
-                            <li><a asp-area="" asp-page="/Schedule">Schedule</a></li>
-                            <li><a asp-area="" asp-page="/Logout" asp-page-handler="Logout">LOGOUT</a></li>
-                        }
-                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                        {
-                            <li><a asp-area="" asp-page="/Admin">ADMIN</a></li>
-                        }
-                    </ul>
-                </div>
-                <i class="fa fa-bars" onclick="showMenu()"></i>
-            </nav>
-        </div>
-
-        <!-- main content-->
-        <div>
-            @RenderBody()
-        </div>
-
-        <!-- footer -->
-        <div class="footer">
-            <a class="a nav-link text-dark" asp-area="" asp-page="/">Contact us</a>
-        </div>
-
-        <!-- JavaScript for toggle menu -->
-        <script>
-            var navLinks = document.getElementById("navLinks");
-
-            function showMenu() {
-                navLinks.style.right = "0";
-            }
-
-            function hideMenu() {
-                navLinks.style.right = "-200px";
-            }
-        </script>
-
-        @RenderSection("Scripts", required: false)
+    <!-- main content-->
+    <div>
+        @RenderBody()
     </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <a class="a nav-link text-dark" asp-area="" asp-page="/">Contact us</a> <p>&copy; Media Bazaar - Group One, 2021</p>
+    </div>
+
+    <!-- JavaScript for toggle menu -->
+    <script>
+        var navLinks = document.getElementById("navLinks");
+
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

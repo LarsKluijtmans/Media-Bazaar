@@ -16,7 +16,6 @@
 <div class="content-container">
     <div class="login-box">
         <form class="login-form" formaction="/login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">
-            <img src="~/Images/avatar.png" alt="anonymous-user">
             <h2>Login</h2>
             @if (!string.IsNullOrEmpty(error))
             {
