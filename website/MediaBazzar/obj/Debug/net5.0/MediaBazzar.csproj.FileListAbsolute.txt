@@ -57,3 +57,11 @@ C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\website\Me
 C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.RazorAssemblyInfo.cache
 C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.RazorAssemblyInfo.cs
+C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.csproj.AssemblyReference.cache
+C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.AssemblyInfoInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.AssemblyInfo.cs
+C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.csproj.CoreCompileInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.RazorAssemblyInfo.cache
+C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazzar.RazorAssemblyInfo.cs
