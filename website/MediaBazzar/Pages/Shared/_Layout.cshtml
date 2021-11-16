@@ -11,19 +11,19 @@
     <!-- nav bar -->
     <section class="header">
         <nav>
-            <a asp-area="" asp-page="/Index">MediaBazaar</a>
+            <a asp-area="" asp-page="/Index"><img src="~/image/MB Logo.png" alt="logo" /></a>
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
-                    <li><a asp-area="" asp-page="/Index">Home</a></li>
+                    <li><a asp-area="" asp-page="/Index">HOME</a></li>
                     @if (!User.Identity.IsAuthenticated)
                     {
-                        <li><a asp-area="" asp-page="/Profile">Login</a></li>
+                        <li><a asp-area="" asp-page="/Profile">LOGIN</a></li>
                     }
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li><a asp-area="" asp-page="/Profile">Profile</a></li>
-                        <li><a asp-area="" asp-page="/Schedule">Schedule</a></li>
+                        <li><a asp-area="" asp-page="/Profile">PROFILE</a></li>
+                        <li><a asp-area="" asp-page="/Schedule">SCHEDULE</a></li>
                         <li><a asp-area="" asp-page="/Logout" asp-page-handler="Logout">LOGOUT</a></li>
                     }
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
@@ -34,6 +34,7 @@
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
+        
     </section>
 
     <!-- main content-->
