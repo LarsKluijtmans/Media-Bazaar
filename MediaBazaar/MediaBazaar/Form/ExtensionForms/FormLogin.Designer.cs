@@ -44,9 +44,9 @@ namespace MediaBazaar
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(162)))), ((int)(((byte)(232)))));
-            this.label1.Location = new System.Drawing.Point(105, 318);
+            this.label1.Location = new System.Drawing.Point(98, 296);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 32);
+            this.label1.Size = new System.Drawing.Size(104, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "UserName:";
             // 
@@ -55,26 +55,28 @@ namespace MediaBazaar
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(127)))), ((int)(((byte)(39)))));
-            this.label2.Location = new System.Drawing.Point(119, 363);
+            this.label2.Location = new System.Drawing.Point(110, 330);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 32);
+            this.label2.Size = new System.Drawing.Size(95, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Password:";
             // 
             // tbxUsername
             // 
             this.tbxUsername.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxUsername.Location = new System.Drawing.Point(241, 318);
+            this.tbxUsername.Location = new System.Drawing.Point(217, 296);
+            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(169, 39);
+            this.tbxUsername.Size = new System.Drawing.Size(148, 33);
             this.tbxUsername.TabIndex = 2;
             // 
             // tbxPassword
             // 
             this.tbxPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxPassword.Location = new System.Drawing.Point(241, 363);
+            this.tbxPassword.Location = new System.Drawing.Point(217, 330);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(169, 39);
+            this.tbxPassword.Size = new System.Drawing.Size(148, 33);
             this.tbxPassword.TabIndex = 3;
             this.tbxPassword.UseSystemPasswordChar = true;
             // 
@@ -83,9 +85,10 @@ namespace MediaBazaar
             this.btnLogin.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnLogin.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(241, 420);
+            this.btnLogin.Location = new System.Drawing.Point(217, 373);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(169, 40);
+            this.btnLogin.Size = new System.Drawing.Size(148, 30);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -95,18 +98,19 @@ namespace MediaBazaar
             // pictureBox1
             // 
             this.pictureBox1.Image = global::MediaBazaar.Properties.Resources.MicrosoftTeams_image__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(469, 306);
+            this.pictureBox1.Size = new System.Drawing.Size(457, 288);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(492, 484);
+            this.ClientSize = new System.Drawing.Size(485, 420);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbxPassword);
@@ -114,6 +118,7 @@ namespace MediaBazaar
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormLogin";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
