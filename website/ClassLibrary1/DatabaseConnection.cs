@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    class DatabaseConnection
+    public class DatabaseConnection
     {
 
 
@@ -16,7 +16,7 @@ namespace ClassLibrary1
 
         
 
-        public MySqlConnection GetConnected()
+        public static MySqlConnection GetConnected()
         {
             MySqlConnection conn =
             new MySqlConnection("Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=Nijlpaard;SslMode =none;");
