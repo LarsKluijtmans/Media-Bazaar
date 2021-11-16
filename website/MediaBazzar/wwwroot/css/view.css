@@ -5,6 +5,13 @@ body {
     box-sizing: border-box;
 }
 
+.main {
+    background-image: url('../image/Mediabazaar.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
 .web-body {
     margin: 0px;
     padding: 0px;
@@ -126,10 +133,10 @@ nav .fa {
     /*grid-area: header;*/
     min-height: 100vh;
     width: 100%;
-    background-image: url('../image/Mediabazaar.jpg');
+    /*background-image: url('../image/Mediabazaar.jpg');
     background-position: center;
     background-size: cover;
-    position: relative;
+    position: relative;*/
 }
 
 .home-text{
@@ -169,39 +176,73 @@ nav .fa {
 
 /* login page*/
 .login-main {
-    height: 100vh;
-    width: 100vw;
-    background-image: url('../image/Mediabazaar.jpg');
+    min-height: 100vh;
+    width: 100%;
     background-position: center;
     background-size: cover;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 .login-form {
     width: 500px;
-    background: rgba(0,0,0,0.8);
+    background: rgba(115,206,240,0.9);
     margin: 12% auto;
     padding: 50px 0;
     color: #fff;
     box-shadow: 0 0 20px 2px rgba(0,0,0,0.5);
 }
-.login-form h1{
+.login-form h2{
     text-align: center;
     margin-bottom: 40px;
+    color: #FF7F27;
+}
+
+.input {
+    margin: 31px auto;
+    width: 80%;
+    border-bottom: 1px solid #fff;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.input input{
+    width: 90%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+}
+::placeholder {
+    color: #FF7F27;
+}
+
+.fa {
+    margin-right: 10px;
+}
+.eye {
+    position: absolute;
+}
+#hidePassword {
+    display: none;
+}
+
+.login-btn {
+    margin: 40px auto 20px;
+    width: 80%;
+    display: block;
+    outline: none;
+    padding: 10px 0;
+    border: 1px solid #fff;
+    cursor: pointer;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
 }
 
 /* idk */
-.login-button {
-    color: black;
-    margin-right: 5px;
-    margin-left: auto;
-    float:right;
-}
 
-    .login-button:hover {
-        color: white;
-        background-color: #DDDBF1;
-        padding: 10px 20px 10px 20px;
-    }
 
 
     /*Main Body*/
@@ -229,7 +270,7 @@ nav .fa {
 
 /*Other*/
 
-.button{
+/*.button{
      padding: 10px;
      width: 30%;
      height: 50px;
@@ -239,8 +280,8 @@ nav .fa {
 
 .login-box input[type="submit"]:hover {
     background: #DDDBF1;
-}
-.login-box input[type="text"],
+} */
+/*.login-box input[type="text"],
 input[type="password"] {
     border: none;
     border-bottom: 1px solid #fff;
@@ -249,7 +290,7 @@ input[type="password"] {
     height: 30px;
     color: #fff;
     font-size: 16px;
-}
+}*/
 .login-box {
     align-items: center;
     width: 320px;
@@ -286,7 +327,7 @@ action {
     box-sizing: border-box;
 }
 
-input[type=text], select, textarea {
+/*input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -320,7 +361,7 @@ input[type=submit]:hover {
 
 input[type=button]:hover {
     background-color: #D1BEB0;
-}
+}*/
 
 .footer {
     /*grid-area: footer;
