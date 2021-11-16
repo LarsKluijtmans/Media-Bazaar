@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
-namespace MediaBazaar
+namespace AdminBackups
 {
     public partial class OfficeManager : Form
     {
@@ -168,8 +168,13 @@ namespace MediaBazaar
             oRng = oSheet.get_Range("A1", "F1");
             oRng.EntireColumn.AutoFit();
 
+            int year, month;
+
+            year = Convert.ToInt32(labYear.Text);
+            month = Convert.ToInt32(labMonth.Text);
+
             int i = 2;
-            foreach (TimeWorked c in store.checkinManagment.times)
+            foreach (TimeWorked c in store.checkinManagment.getAllAtendanceTime(year, month))
             {
                 oSheet.Cells[i, 1] = c.EmployeeID.ToString();
                 oSheet.Cells[i, 2] = c.Name.ToString(); ;
@@ -513,15 +518,15 @@ namespace MediaBazaar
 
         private void ViewCompany()
         {
-            store.companyManagment.GetCompany(ID);
+            Company company = store.companyManagment.GetCompany(ID);
 
-            tbCompanyName.Text = store.companyManagment.company.CompanyName;
-            tbAdress.Text = store.companyManagment.company.Address;
-            tbBTW.Text = store.companyManagment.company.Btw;
-            tbEmail.Text = store.companyManagment.company.Email;
-            tbPhoneNumber.Text = store.companyManagment.company.PhoneNumber;
-            tbKVK.Text = store.companyManagment.company.KVK;
-            tbID.Text = store.companyManagment.company.CompanyID;
+            tbCompanyName.Text = company.CompanyName;
+            tbAdress.Text = company.Address;
+            tbBTW.Text = company.Btw;
+            tbEmail.Text = company.Email;
+            tbPhoneNumber.Text = company.PhoneNumber;
+            tbKVK.Text = company.KVK;
+            tbID.Text = company.CompanyID;
         }
 
         private void btnEditCompany_Click(object sender, EventArgs e)

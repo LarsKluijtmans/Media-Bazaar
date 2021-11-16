@@ -1,5 +1,5 @@
 ﻿
-namespace MediaBazaar
+namespace AdminBackups
 {
     partial class OfficeManager
     {

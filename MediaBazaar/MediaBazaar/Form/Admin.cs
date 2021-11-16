@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 
 
-namespace MediaBazaar
+namespace AdminBackups
 {
     public partial class Admin : Form
     {
@@ -182,9 +182,11 @@ namespace MediaBazaar
         {
             MessageBox.Show("This might take a minute");
 
+            string FileLocation =   @"D:\Company\CompanyDatabase\" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
+
             string constring = "Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=Nijlpaard;SslMode =none;";
 
-            string file = @"D:\Company\CompanyDatabase\" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
+            string file = FileLocation;
 
             using (MySqlConnection conn = new MySqlConnection(constring))
             {

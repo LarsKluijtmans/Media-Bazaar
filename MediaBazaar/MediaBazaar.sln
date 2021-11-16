@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RemoteAppForDepotEmployee",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RemoteAppForSalesRepresentative", "RemoteAppForSalesRepresentative\RemoteAppForSalesRepresentative.csproj", "{19A335D1-0600-4F83-89A7-465E14A68E4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminBackups", "AdminBackups\AdminBackups.csproj", "{BF3A9387-CAF4-4FFF-984F-62BB363DAD3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{19A335D1-0600-4F83-89A7-465E14A68E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19A335D1-0600-4F83-89A7-465E14A68E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19A335D1-0600-4F83-89A7-465E14A68E4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF3A9387-CAF4-4FFF-984F-62BB363DAD3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF3A9387-CAF4-4FFF-984F-62BB363DAD3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF3A9387-CAF4-4FFF-984F-62BB363DAD3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF3A9387-CAF4-4FFF-984F-62BB363DAD3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace MediaBazaar
+namespace AdminBackups
 {
     public partial class DepotEmployee : Form
     {

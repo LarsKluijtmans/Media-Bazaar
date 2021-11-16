@@ -1,5 +1,5 @@
 ﻿
-namespace MediaBazaar
+namespace AdminBackups
 {
     partial class Admin
     {
@@ -81,7 +81,7 @@ namespace MediaBazaar
             this.gbMakeEmployee.Controls.Add(this.groupBox2);
             this.gbMakeEmployee.Controls.Add(this.groupBox1);
             this.gbMakeEmployee.Controls.Add(this.label1);
-            this.gbMakeEmployee.Location = new System.Drawing.Point(434, 452);
+            this.gbMakeEmployee.Location = new System.Drawing.Point(25, 68);
             this.gbMakeEmployee.Name = "gbMakeEmployee";
             this.gbMakeEmployee.Size = new System.Drawing.Size(1100, 489);
             this.gbMakeEmployee.TabIndex = 84;

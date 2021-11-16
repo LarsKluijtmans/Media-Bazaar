@@ -6,7 +6,7 @@ using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 
 
-namespace MediaBazaar
+namespace AdminBackups
 {
     public partial class FormViewEmployee : Form
     {

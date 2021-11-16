@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
-namespace MediaBazaar
+namespace AdminBackups
 {
     public partial class FormOrderInfo : Form
     {

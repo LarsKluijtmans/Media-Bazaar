@@ -1,5 +1,5 @@
 ﻿
-namespace MediaBazaar
+namespace AdminBackups
 {
     partial class FormLogin
     {
@@ -94,7 +94,7 @@ namespace MediaBazaar
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::MediaBazaar.Properties.Resources.MicrosoftTeams_image__1_;
+            this.pictureBox1.Image = global::AdminBackups.Properties.Resources.MicrosoftTeams_image__1_;
             this.pictureBox1.Location = new System.Drawing.Point(12, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(469, 306);
