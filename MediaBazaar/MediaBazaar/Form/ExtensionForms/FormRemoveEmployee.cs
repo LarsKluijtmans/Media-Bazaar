@@ -25,16 +25,19 @@ namespace AdminBackups
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UpdateContract();
-            Close();
+            if (UpdateContract() == true)
+            {
+                Close();
+            }
         }
-        public void UpdateContract()
+        public bool UpdateContract()
         {
             string employeeID = employee.EmployeeID.ToString();
             string reasonForTermination = tbxReasonTermination.Text;
             if (string.IsNullOrEmpty(reasonForTermination))
             {
                 MessageBox.Show("Please enter a reason for termination");
+                return false;
             }
 
             string contractEndDate;
@@ -44,12 +47,13 @@ namespace AdminBackups
                 if (string.IsNullOrEmpty(contractEndDate))
                 {
                     MessageBox.Show("Please enter a contract end date");
+                    return false;
                 }
             }
             else
             {
                 MessageBox.Show("Please enter a valid End date");
-                return;
+                return false;
             }
 
             MySqlConnection conn = Utils.GetConnection();
@@ -63,6 +67,7 @@ namespace AdminBackups
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
+                return true;
             }
             catch (MySqlException msqEx)
             {
@@ -76,6 +81,7 @@ namespace AdminBackups
             {
                 conn.Close();
             }
+            return false;
         }
         protected override void OnClosing(CancelEventArgs e)
         {

@@ -20,7 +20,6 @@ namespace AdminBackups
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
             CreateEmployee();
-            Close();
         }
         // create employee
         public void CreateEmployee()
@@ -172,6 +171,8 @@ namespace AdminBackups
 
                 em.Email(password, username, email);
                 MessageBox.Show("Email send");
+
+                return;
             }
             catch (MySqlException msqEx)
             {

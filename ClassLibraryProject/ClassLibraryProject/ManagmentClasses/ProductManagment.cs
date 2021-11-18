@@ -104,20 +104,19 @@ namespace ClassLibraryProject.ManagmentClasses
 
         // sql 
         public static string CREATE_PRODUCTS = "INSERT INTO Product (Name, Barcode, Type, Price, AmountInDepot, AmountInStore, Discontinued) VALUES (@Name, @Barcode, @Type, @Price, @AmountInDepot, @AmountInStore, @Discontinued);";
-        public static string READ_PRODUCTS = "SELECT * FROM Product ORDER BY ProductID;";
+        public static string READ_PRODUCTS = "SELECT * FROM `product` WHERE Name LIKE '%@Like%' || Type LIKE '%@Like%'; ORDER BY ProductID;";
         public static string UPDATE_PRODUCTS = "UPDATE Product SET Name = @Name, Barcode = @Barcode, Type = @Type WHERE ProductID = @ProductID;";
         public static string DELETE_PRODUCTS = "DELETE FROM Product WHERE ProductID = @ProductID;";
         public static string UPDATE_PRICE = "UPDATE Product SET Price = @Price WHERE ProductID = @ProductID;";
         public static string DISCONTINUE_PRODUCT = "UPDATE Product SET Discontinued = @Discontinued WHERE ProductID = @ProductID;";
-        public DataTable ViewAllProducts()
+        public DataTable ViewAllProducts( string Search)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = READ_PRODUCTS;
+            string sql = "SELECT * FROM `product` WHERE Name LIKE '%" + Search + "%' || Type LIKE '%" + Search + "%' ORDER BY ProductID;";
 
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-
                 conn.Open();
 
                 MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
