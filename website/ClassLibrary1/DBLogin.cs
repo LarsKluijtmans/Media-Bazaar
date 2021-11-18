@@ -10,10 +10,10 @@ namespace ClassLibrary1
     public class DBLogin
     {
         // sql string
-        public static string LOGIN = "SELECT * FROM User;";
+        public static string LOGIN = "SELECT EmployeeID, FirstName, LastName, Username, Password, Active, Address, Email, Phonenumber FROM Employee WHERE Username = @Username AND Password = @Password;";
 
         // method that returns userObj if given username & given password match username/password 
-        public Employee CheckLogin(string givenUsername, string givenPassword)
+        public CurrentUser CheckLogin(string givenUsername, string givenPassword)
         {
             MySqlConnection conn = DatabaseConnection.GetConnected();
             string sql = LOGIN;
@@ -23,33 +23,28 @@ namespace ClassLibrary1
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 conn.Open();
 
+                cmd.Parameters.AddWithValue("@Username", givenUsername);
+                cmd.Parameters.AddWithValue("@Password", givenPassword);
+
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                Employee user;
+                CurrentUser user;
 
                 while (reader.Read())
                 {
-                    if (reader.GetString("Username") == givenUsername && reader.GetString("Password") == givenPassword)
-                    {
-                        int employeeID = reader.GetInt32("EmployeeID");
-                        string firstName = reader.GetString("FirstName");
-                        string lastName = reader.GetString("LastName");
-                        string username = reader.GetString("Username");
-                        string password = reader.GetString("Password");
-                        int bsn = reader.GetInt32("BSN");
-                        int active = reader.GetInt32("Active");
-                        string city = reader.GetString("City");
-                        string email = reader.GetString("Email");
-                        int phoneNumber = reader.GetInt32("PhoneNumber");
-                        string dateOfBirth = reader.GetString("DateOfBirth");
+                    int employeeID = reader.GetInt32("EmployeeID");
+                    string firstName = reader.GetString("FirstName");
+                    string lastName = reader.GetString("LastName");
+                    string username = reader.GetString("Username");
+                    string password = reader.GetString("Password");
+                    int active = reader.GetInt32("Active");
+                    string city = reader.GetString("Address");
+                    string email = reader.GetString("Email");
+                    int phoneNumber = reader.GetInt32("PhoneNumber");
 
-                        if (active == 1)
-                        {
-                            user = new Employee(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                    user = new CurrentUser(employeeID, firstName, lastName, email, username, password, active);
 
-                            return user;
-                        }
-                    }
+                    return user;
                 }
             }
             catch (MySqlException msqEx)
