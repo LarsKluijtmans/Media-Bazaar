@@ -24,7 +24,7 @@ namespace AdminBackups
             txtYear.Text = "2021";
 
             UpdateSchedule();
-            UpdateProducts("");
+            UpdateProducts(tbProductSearch.Text);
             Initialize();
 
             timer2.Start();
@@ -114,14 +114,14 @@ namespace AdminBackups
 
             store.productManagment.EditPrice(productID, price);
 
-            UpdateProducts("");
+            UpdateProducts(tbProductSearch.Text);
         }
         private void btnDiscontinue_Click(object sender, EventArgs e)
         {
             int productID = Convert.ToInt32(tbxProductID.Text);
             store.productManagment.DiscontinueProduct(productID);
 
-            UpdateProducts("");
+            UpdateProducts(tbProductSearch.Text);
         }
 
         //Schedule
