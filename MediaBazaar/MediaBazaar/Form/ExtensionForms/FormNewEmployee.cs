@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 
-namespace MediaBazaar
+namespace AdminBackups
 {
     public partial class FormNewEmployee : Form
     {

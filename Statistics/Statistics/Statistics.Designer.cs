@@ -39,7 +39,6 @@ namespace Statistics
             this.btnIncreaseYear = new System.Windows.Forms.Button();
             this.btnDecreaseMonth = new System.Windows.Forms.Button();
             this.btnDecreaseYear = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.labMonth = new System.Windows.Forms.Label();
             this.labYear = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -90,17 +89,6 @@ namespace Statistics
             this.btnDecreaseYear.UseVisualStyleBackColor = true;
             this.btnDecreaseYear.Click += new System.EventHandler(this.btnDecreaseYear_Click);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(624, 10);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(148, 43);
-            this.btnSearch.TabIndex = 11;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // labMonth
             // 
             this.labMonth.AutoSize = true;
@@ -123,6 +111,8 @@ namespace Statistics
             // 
             // chart1
             // 
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.IsSameFontSizeForAllAxes = true;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -130,9 +120,18 @@ namespace Statistics
             this.chart1.Location = new System.Drawing.Point(41, 88);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
+            series1.CustomProperties = "EmptyPointValue=Zero";
+            series1.EmptyPointStyle.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
+            series1.EmptyPointStyle.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series1.EmptyPointStyle.BorderWidth = 0;
+            series1.EmptyPointStyle.IsVisibleInLegend = false;
             series1.Legend = "Legend1";
             series1.Name = "TimeWorked";
             series2.ChartArea = "ChartArea1";
+            series2.CustomProperties = "EmptyPointValue=Zero";
+            series2.EmptyPointStyle.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
+            series2.EmptyPointStyle.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series2.EmptyPointStyle.BorderWidth = 0;
             series2.Legend = "Legend1";
             series2.Name = "WorkHours";
             this.chart1.Series.Add(series1);
@@ -153,7 +152,6 @@ namespace Statistics
             this.Controls.Add(this.btnIncreaseYear);
             this.Controls.Add(this.btnDecreaseMonth);
             this.Controls.Add(this.btnDecreaseYear);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.labMonth);
             this.Controls.Add(this.labYear);
             this.Controls.Add(this.chart1);
@@ -172,7 +170,6 @@ namespace Statistics
         private System.Windows.Forms.Button btnIncreaseYear;
         private System.Windows.Forms.Button btnDecreaseMonth;
         private System.Windows.Forms.Button btnDecreaseYear;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label labMonth;
         private System.Windows.Forms.Label labYear;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;

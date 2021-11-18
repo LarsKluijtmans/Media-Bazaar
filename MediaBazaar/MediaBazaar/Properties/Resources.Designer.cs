@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MediaBazaar.Properties {
+namespace AdminBackups.Properties {
     using System;
     
     

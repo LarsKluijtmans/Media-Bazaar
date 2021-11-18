@@ -1,101 +1,36 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClassLibraryProject.Class;
+using ClassLibraryProject.Interfaces;
+using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using MySql.Data;
-using ClassLibraryProject.Class;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
     public class DepartmentManagment
     {
+        IDepartmentManagment iDepartmentManagment;
 
-        public static string GET_DEPARTMENTS = "SELECT `DepartmentID` , `HeadDepatment`,`DepartmentName` FROM `departments`;";
-        public static string ADD_DEPARTMENT = "INSERT INTO departments ( DepartmentName, CompanyID, HeadDepatment) VALUES (@DepartmentName, @CompanyID, @HeadDepatment);";
-        public static string EDIT_DEPARTMENT = "UPDATE departments SET DepartmentName = @DepartmentName, HeadDepatment = @HeadDepatment WHERE DepartmentID = @DepartmentID;";
+        public DepartmentManagment(IDepartmentManagment departmentManagment)
+        { 
+            iDepartmentManagment = departmentManagment;
+        }
 
+        //Get all departments
         public DataTable ViewAllDepartments()
         {
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = GET_DEPARTMENTS;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
-
-                DataTable table = new DataTable();
-                reader.Fill(table);
-
-                return table;
-            }
-            catch (MySqlException )
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-            DataTable a = new DataTable();
-            return a;
+            return iDepartmentManagment.ViewAllDepartments();
         }
 
+        //Add a new department
         public void AddDepartment(string Name, string Head, string CompanyID)
         {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = ADD_DEPARTMENT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@DepartmentName", Name);
-                cmd.Parameters.AddWithValue("@HeadDepatment", Head);
-                cmd.Parameters.AddWithValue("@CompanyID", CompanyID);
-
-
-                conn.Open();
-
-                int numCreatedRows = cmd.ExecuteNonQuery();
-
-            }
-            catch (MySqlException )
-            {  }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
+            iDepartmentManagment.AddDepartment(Name, Head, CompanyID);
         }
 
+        // edit a department
         public void EditDepartment(string Name, string Head, string DepartmetnID)
         {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = EDIT_DEPARTMENT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@DepartmentName", Name);
-                cmd.Parameters.AddWithValue("@HeadDepatment", Head);
-                cmd.Parameters.AddWithValue("@DepartmentID", DepartmetnID);
-
-
-                conn.Open();
-
-                int numCreatedRows = cmd.ExecuteNonQuery();
-
-            }
-            catch (MySqlException )
-            { }
-            catch (Exception)
-            {  }
-            finally
-            {
-                conn.Close();
-            }
+            iDepartmentManagment.EditDepartment(Name, Head, DepartmetnID);
         }
     }
 }

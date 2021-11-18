@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace MediaBazaar
+namespace AdminBackups
 {
     public partial class SalesManager : Form
     {

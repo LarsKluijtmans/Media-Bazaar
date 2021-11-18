@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MySql.Data.MySqlClient;
+using System;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    class BackUpManagment
+    public class BackUpManagment
     {
-
-        //BACKUP DATABASE testDB TO DISK = "D:";
+        public void MakeBackUp(string FileLocation)
+        {
+           
+        }
     }
 }

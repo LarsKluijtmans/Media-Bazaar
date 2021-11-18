@@ -1,4 +1,5 @@
-﻿using ClassLibraryProject.ManagmentClasses;
+﻿using ClassLibraryProject.dbClasses;
+using ClassLibraryProject.ManagmentClasses;
 
 namespace ClassLibraryProject.Class
 {
@@ -17,10 +18,7 @@ namespace ClassLibraryProject.Class
         public SupplierManagment supplierManagment;
         public OrderInfoManagment orderInfoManagment;
         public EmailManager emailManager;
-
-        //public EmployeeManagment employeeManagment;
-        //public ContractManagment contractManagment;
-
+        public BackUpManagment backUpManagment;
         public Store()
         {
             productManagment = new ProductManagment();
@@ -28,16 +26,20 @@ namespace ClassLibraryProject.Class
             reshelfManagment = new ReshelfManagment();
             scheduleManagment = new ScheduleManagment();
             planningManagment = new PlanningManagment();
-            loginManagment = new LoginManagment();
-            departmentManagment = new DepartmentManagment();
-            companyManagment = new CompanyManagment();
-            checkinManagment = new CheckinManagment();
             employeeManagement = new EmployeeManagement();
             supplierManagment = new SupplierManagment();
             orderInfoManagment = new OrderInfoManagment();
+
+            //Have interface
+            loginManagment = new LoginManagment(new dbLoginManager());
+            departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
+            companyManagment = new CompanyManagment( new dbCompanyManagment());
+            checkinManagment = new CheckinManagment( new dbCheckinManagment());
+
+
+            //Dont need interface
             emailManager = new EmailManager();
-            //employeeManagment = new employeeManagment();
-            //contractManagment = new contractManagment();
+            backUpManagment = new BackUpManagment();
         }
     }
 }

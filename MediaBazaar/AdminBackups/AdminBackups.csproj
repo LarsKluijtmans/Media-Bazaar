@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\lars\.nuget\packages\mysqlbackup.net.devartexpress\2.3.6\contentFiles\any\netcoreapp3.0\logo.ico" />
+    <Content Remove="C:\Users\lars\.nuget\packages\mysqlbackup.net\2.3.6.1\contentFiles\any\netstandard2.1\logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.27" />
+    <PackageReference Include="MySqlBackup.NET" Version="2.3.6.1" />
+    <PackageReference Include="MySqlBackup.Net.DevartExpress" Version="2.3.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ClassLibraryProject\ClassLibraryProject\ClassLibraryProject.csproj" />
+  </ItemGroup>
+
+</Project>

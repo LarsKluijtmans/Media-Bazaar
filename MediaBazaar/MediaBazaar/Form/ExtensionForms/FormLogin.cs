@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
 
-namespace MediaBazaar
+namespace AdminBackups
 {
     public partial class FormLogin : Form
     {
@@ -38,7 +38,7 @@ namespace MediaBazaar
             int ID = store.loginManagment.GetID(UserName, Password);
             if (ID != 0)
             {
-                switch (store.loginManagment.checkLogin(UserName, Password))
+                switch (store.loginManagment.CheckLogin(UserName, Password))
                 {
                     case "CEO": MessageBox.Show("Please use the CEO application"); break;
                     case "ADMIN": Admin admin = new Admin(Convert.ToInt32(ID), store); Hide(); admin.Show(); break;
@@ -75,7 +75,7 @@ namespace MediaBazaar
             int ID = store.loginManagment.GetID(UserName, Password);
             if (ID != 0)
             {
-                switch (store.loginManagment.checkLogin(UserName, Password))
+                switch (store.loginManagment.CheckLogin(UserName, Password))
                 {
                     case "CEO": MessageBox.Show("Please use the CEO application"); break;
                     case "ADMIN": Admin admin = new Admin(Convert.ToInt32(ID), store); Hide(); admin.Show(); break;

@@ -46,7 +46,6 @@
     <PackageReference Include="MySql.Data" Version="8.0.27" />
     <PackageReference Include="MySqlBackup.NET" Version="2.3.6.1" />
     <PackageReference Include="MySqlBackup.Net.DevartExpress" Version="2.3.6" />
-    <PackageReference Include="MySqlConnector" Version="1.3.14" />
   </ItemGroup>
 
   <ItemGroup>
