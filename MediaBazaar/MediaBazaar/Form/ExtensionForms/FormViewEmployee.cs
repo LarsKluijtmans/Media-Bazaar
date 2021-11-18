@@ -50,8 +50,6 @@ namespace AdminBackups
         {
             UpdateEmployee();
             UpdateContract();
-
-            this.Close();
         }
         public void UpdateEmployee()
         {
