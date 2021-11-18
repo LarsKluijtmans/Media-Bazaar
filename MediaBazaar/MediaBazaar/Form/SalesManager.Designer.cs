@@ -29,7 +29,6 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesManager));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabOverview = new System.Windows.Forms.TabPage();
@@ -91,7 +90,6 @@ namespace AdminBackups
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).BeginInit();
@@ -130,7 +128,7 @@ namespace AdminBackups
             this.tabOverview.Controls.Add(this.dgOverviewSchedule);
             this.tabOverview.Location = new System.Drawing.Point(4, 30);
             this.tabOverview.Name = "tabOverview";
-            this.tabOverview.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabOverview.Padding = new System.Windows.Forms.Padding(3);
             this.tabOverview.Size = new System.Drawing.Size(981, 529);
             this.tabOverview.TabIndex = 12;
             this.tabOverview.Text = "Overview";
@@ -615,7 +613,7 @@ namespace AdminBackups
             this.tabPlanning.Controls.Add(this.lstEmpEnlisted);
             this.tabPlanning.Location = new System.Drawing.Point(4, 30);
             this.tabPlanning.Name = "tabPlanning";
-            this.tabPlanning.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPlanning.Padding = new System.Windows.Forms.Padding(3);
             this.tabPlanning.Size = new System.Drawing.Size(981, 529);
             this.tabPlanning.TabIndex = 11;
             this.tabPlanning.Text = "Planning";
@@ -758,12 +756,6 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // SalesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -859,6 +851,5 @@ namespace AdminBackups
         private System.Windows.Forms.TextBox tbxBarcode;
         private System.Windows.Forms.TextBox tbxProductName;
         private System.Windows.Forms.TextBox tbxProductID;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

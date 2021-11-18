@@ -1,5 +1,4 @@
 using ClassLibrary1;
-using ClassLibraryProject.Class;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
@@ -30,7 +29,6 @@ namespace MediaBazzar.Pages
             if (ModelState.IsValid)
             {
                 var user = dbLogin.CheckLogin(Model.Username, Model.Password);
-
                 if (user != null)
                 {
                     var claims = new List<Claim>();

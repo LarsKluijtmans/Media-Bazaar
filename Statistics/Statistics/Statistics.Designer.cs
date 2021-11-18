@@ -65,12 +65,12 @@ namespace Statistics
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tbEmployeeWorkHours = new System.Windows.Forms.TabPage();
             this.tbPorductsRestock = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnIncreaseMonthProducts = new System.Windows.Forms.Button();
+            this.btnIncreaseYearProducts = new System.Windows.Forms.Button();
+            this.btnDecreaseMonthProduct = new System.Windows.Forms.Button();
+            this.labYearProducts = new System.Windows.Forms.Label();
+            this.btnDecreaseYearProduct = new System.Windows.Forms.Button();
+            this.labMonthProducts = new System.Windows.Forms.Label();
             this.tbRestockRequests = new System.Windows.Forms.TabControl();
             this.tbRestockAmount = new System.Windows.Forms.TabPage();
             this.tbResctockRequests = new System.Windows.Forms.TabPage();
@@ -98,7 +98,7 @@ namespace Statistics
             // btnIncreaseMonth
             // 
             this.btnIncreaseMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncreaseMonth.Location = new System.Drawing.Point(232, 42);
+            this.btnIncreaseMonth.Location = new System.Drawing.Point(212, 26);
             this.btnIncreaseMonth.Name = "btnIncreaseMonth";
             this.btnIncreaseMonth.Size = new System.Drawing.Size(52, 33);
             this.btnIncreaseMonth.TabIndex = 15;
@@ -109,7 +109,7 @@ namespace Statistics
             // btnIncreaseYear
             // 
             this.btnIncreaseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncreaseYear.Location = new System.Drawing.Point(48, 42);
+            this.btnIncreaseYear.Location = new System.Drawing.Point(28, 26);
             this.btnIncreaseYear.Name = "btnIncreaseYear";
             this.btnIncreaseYear.Size = new System.Drawing.Size(52, 33);
             this.btnIncreaseYear.TabIndex = 14;
@@ -120,7 +120,7 @@ namespace Statistics
             // btnDecreaseMonth
             // 
             this.btnDecreaseMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDecreaseMonth.Location = new System.Drawing.Point(359, 42);
+            this.btnDecreaseMonth.Location = new System.Drawing.Point(339, 26);
             this.btnDecreaseMonth.Name = "btnDecreaseMonth";
             this.btnDecreaseMonth.Size = new System.Drawing.Size(52, 33);
             this.btnDecreaseMonth.TabIndex = 13;
@@ -131,7 +131,7 @@ namespace Statistics
             // btnDecreaseYear
             // 
             this.btnDecreaseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDecreaseYear.Location = new System.Drawing.Point(161, 42);
+            this.btnDecreaseYear.Location = new System.Drawing.Point(141, 26);
             this.btnDecreaseYear.Name = "btnDecreaseYear";
             this.btnDecreaseYear.Size = new System.Drawing.Size(52, 33);
             this.btnDecreaseYear.TabIndex = 12;
@@ -143,7 +143,7 @@ namespace Statistics
             // 
             this.labMonth.AutoSize = true;
             this.labMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labMonth.Location = new System.Drawing.Point(290, 46);
+            this.labMonth.Location = new System.Drawing.Point(270, 30);
             this.labMonth.Name = "labMonth";
             this.labMonth.Size = new System.Drawing.Size(63, 24);
             this.labMonth.TabIndex = 10;
@@ -153,7 +153,7 @@ namespace Statistics
             // 
             this.labYear.AutoSize = true;
             this.labYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labYear.Location = new System.Drawing.Point(106, 46);
+            this.labYear.Location = new System.Drawing.Point(86, 30);
             this.labYear.Name = "labYear";
             this.labYear.Size = new System.Drawing.Size(49, 24);
             this.labYear.TabIndex = 9;
@@ -167,7 +167,7 @@ namespace Statistics
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(18, 111);
+            this.chart1.Location = new System.Drawing.Point(8, 65);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.CustomProperties = "EmptyPointValue=Zero";
@@ -186,7 +186,7 @@ namespace Statistics
             series2.Name = "WorkHours";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(875, 382);
+            this.chart1.Size = new System.Drawing.Size(1162, 550);
             this.chart1.TabIndex = 8;
             this.chart1.Text = "chart1";
             title1.Name = "Employee atendance";
@@ -215,7 +215,7 @@ namespace Statistics
             this.tbEmployeeWorkHours.Location = new System.Drawing.Point(4, 22);
             this.tbEmployeeWorkHours.Name = "tbEmployeeWorkHours";
             this.tbEmployeeWorkHours.Padding = new System.Windows.Forms.Padding(3);
-            this.tbEmployeeWorkHours.Size = new System.Drawing.Size(919, 508);
+            this.tbEmployeeWorkHours.Size = new System.Drawing.Size(1176, 621);
             this.tbEmployeeWorkHours.TabIndex = 0;
             this.tbEmployeeWorkHours.Text = "Employee work hours";
             this.tbEmployeeWorkHours.UseVisualStyleBackColor = true;
@@ -223,12 +223,12 @@ namespace Statistics
             // tbPorductsRestock
             // 
             this.tbPorductsRestock.Controls.Add(this.tbRestockRequests);
-            this.tbPorductsRestock.Controls.Add(this.button1);
-            this.tbPorductsRestock.Controls.Add(this.button2);
-            this.tbPorductsRestock.Controls.Add(this.button3);
-            this.tbPorductsRestock.Controls.Add(this.label1);
-            this.tbPorductsRestock.Controls.Add(this.button4);
-            this.tbPorductsRestock.Controls.Add(this.label2);
+            this.tbPorductsRestock.Controls.Add(this.btnIncreaseMonthProducts);
+            this.tbPorductsRestock.Controls.Add(this.btnIncreaseYearProducts);
+            this.tbPorductsRestock.Controls.Add(this.btnDecreaseMonthProduct);
+            this.tbPorductsRestock.Controls.Add(this.labYearProducts);
+            this.tbPorductsRestock.Controls.Add(this.btnDecreaseYearProduct);
+            this.tbPorductsRestock.Controls.Add(this.labMonthProducts);
             this.tbPorductsRestock.Location = new System.Drawing.Point(4, 22);
             this.tbPorductsRestock.Name = "tbPorductsRestock";
             this.tbPorductsRestock.Padding = new System.Windows.Forms.Padding(3);
@@ -237,65 +237,65 @@ namespace Statistics
             this.tbPorductsRestock.Text = "Products restock";
             this.tbPorductsRestock.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnIncreaseMonthProducts
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(236, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(52, 33);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "<";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnIncreaseMonthProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIncreaseMonthProducts.Location = new System.Drawing.Point(236, 17);
+            this.btnIncreaseMonthProducts.Name = "btnIncreaseMonthProducts";
+            this.btnIncreaseMonthProducts.Size = new System.Drawing.Size(52, 33);
+            this.btnIncreaseMonthProducts.TabIndex = 22;
+            this.btnIncreaseMonthProducts.Text = "<";
+            this.btnIncreaseMonthProducts.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnIncreaseYearProducts
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(52, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(52, 33);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnIncreaseYearProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIncreaseYearProducts.Location = new System.Drawing.Point(52, 17);
+            this.btnIncreaseYearProducts.Name = "btnIncreaseYearProducts";
+            this.btnIncreaseYearProducts.Size = new System.Drawing.Size(52, 33);
+            this.btnIncreaseYearProducts.TabIndex = 21;
+            this.btnIncreaseYearProducts.Text = "<";
+            this.btnIncreaseYearProducts.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnDecreaseMonthProduct
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(363, 17);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(52, 33);
-            this.button3.TabIndex = 20;
-            this.button3.Text = ">";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDecreaseMonthProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDecreaseMonthProduct.Location = new System.Drawing.Point(363, 17);
+            this.btnDecreaseMonthProduct.Name = "btnDecreaseMonthProduct";
+            this.btnDecreaseMonthProduct.Size = new System.Drawing.Size(52, 33);
+            this.btnDecreaseMonthProduct.TabIndex = 20;
+            this.btnDecreaseMonthProduct.Text = ">";
+            this.btnDecreaseMonthProduct.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // labYearProducts
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(110, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 24);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Year";
+            this.labYearProducts.AutoSize = true;
+            this.labYearProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labYearProducts.Location = new System.Drawing.Point(110, 21);
+            this.labYearProducts.Name = "labYearProducts";
+            this.labYearProducts.Size = new System.Drawing.Size(49, 24);
+            this.labYearProducts.TabIndex = 17;
+            this.labYearProducts.Text = "Year";
             // 
-            // button4
+            // btnDecreaseYearProduct
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(165, 17);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(52, 33);
-            this.button4.TabIndex = 19;
-            this.button4.Text = ">";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnDecreaseYearProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDecreaseYearProduct.Location = new System.Drawing.Point(165, 17);
+            this.btnDecreaseYearProduct.Name = "btnDecreaseYearProduct";
+            this.btnDecreaseYearProduct.Size = new System.Drawing.Size(52, 33);
+            this.btnDecreaseYearProduct.TabIndex = 19;
+            this.btnDecreaseYearProduct.Text = ">";
+            this.btnDecreaseYearProduct.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // labMonthProducts
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(294, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 24);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Month";
+            this.labMonthProducts.AutoSize = true;
+            this.labMonthProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labMonthProducts.Location = new System.Drawing.Point(294, 21);
+            this.labMonthProducts.Name = "labMonthProducts";
+            this.labMonthProducts.Size = new System.Drawing.Size(63, 24);
+            this.labMonthProducts.TabIndex = 18;
+            this.labMonthProducts.Text = "Month";
             // 
             // tbRestockRequests
             // 
@@ -531,12 +531,12 @@ namespace Statistics
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tbPorductsRestock;
         private System.Windows.Forms.TabPage tbEmployeeWorkHours;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnIncreaseMonthProducts;
+        private System.Windows.Forms.Button btnIncreaseYearProducts;
+        private System.Windows.Forms.Button btnDecreaseMonthProduct;
+        private System.Windows.Forms.Label labYearProducts;
+        private System.Windows.Forms.Button btnDecreaseYearProduct;
+        private System.Windows.Forms.Label labMonthProducts;
         private System.Windows.Forms.TabControl tbRestockRequests;
         private System.Windows.Forms.TabPage tbRestockAmount;
         private System.Windows.Forms.DataVisualization.Charting.Chart CRestockAmount;
