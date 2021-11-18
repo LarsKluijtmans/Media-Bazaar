@@ -17,7 +17,9 @@ namespace AdminBackups
             id = UserID;
             store = s;
 
-            UpdateProducts();
+            UpdateProducts(tbProductSearch.Text);
+
+            timer2.Start();
         }
 
         //Logout 
@@ -49,14 +51,13 @@ namespace AdminBackups
 
         private void btnGet_Click(object sender, EventArgs e)
         {
-            UpdateProducts();
+            UpdateProducts(tbProductSearch.Text);
         }
 
         // products (Esther)
-        public void UpdateProducts()
+        public void UpdateProducts(string Search)
         {
-            //Get Back here
-            dgProducts.DataSource = store.productManagment.ViewAllProducts("");
+            dgProducts.DataSource = store.productManagment.ViewAllProducts(Search);
         }
 
         private void dgProducts_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -107,7 +108,7 @@ namespace AdminBackups
                 MessageBox.Show(ex.ToString());
             }
 
-            UpdateProducts();
+            UpdateProducts(tbProductSearch.Text);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -132,7 +133,7 @@ namespace AdminBackups
 
             store.productManagment.EditProduct(productID, name, barcode, type, price);
 
-            UpdateProducts();
+            UpdateProducts(tbProductSearch.Text);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -146,7 +147,25 @@ namespace AdminBackups
                 MessageBox.Show(ex.ToString());
             }
 
-            UpdateProducts();
+            UpdateProducts(tbProductSearch.Text);
+        }
+
+        //Timer
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (ActiveControl == tbProductSearch)
+            {
+                timer1.Start();
+            }
+            else 
+            { 
+                timer1.Stop(); 
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            UpdateProducts(tbProductSearch.Text);
         }
     }
 }

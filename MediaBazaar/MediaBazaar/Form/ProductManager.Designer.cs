@@ -52,6 +52,8 @@ namespace AdminBackups
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.labProductSearch = new System.Windows.Forms.Label();
+            this.tbProductSearch = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).BeginInit();
@@ -70,6 +72,8 @@ namespace AdminBackups
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.labProductSearch);
+            this.tabPage3.Controls.Add(this.tbProductSearch);
             this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.tbxPrice);
             this.tabPage3.Controls.Add(this.cbxProductType);
@@ -88,7 +92,7 @@ namespace AdminBackups
             this.tabPage3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1130, 499);
             this.tabPage3.TabIndex = 10;
             this.tabPage3.Text = "Product";
@@ -127,11 +131,11 @@ namespace AdminBackups
             // dgProducts
             // 
             this.dgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgProducts.Location = new System.Drawing.Point(31, 41);
+            this.dgProducts.Location = new System.Drawing.Point(31, 57);
             this.dgProducts.Name = "dgProducts";
             this.dgProducts.RowHeadersWidth = 51;
             this.dgProducts.RowTemplate.Height = 25;
-            this.dgProducts.Size = new System.Drawing.Size(755, 408);
+            this.dgProducts.Size = new System.Drawing.Size(755, 392);
             this.dgProducts.TabIndex = 44;
             this.dgProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProducts_CellClick);
             // 
@@ -238,7 +242,7 @@ namespace AdminBackups
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(31, 16);
+            this.label2.Location = new System.Drawing.Point(31, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 21);
             this.label2.TabIndex = 12;
@@ -265,6 +269,30 @@ namespace AdminBackups
             this.button1.TabIndex = 23;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // labProductSearch
+            // 
+            this.labProductSearch.AutoSize = true;
+            this.labProductSearch.Location = new System.Drawing.Point(440, 21);
+            this.labProductSearch.Name = "labProductSearch";
+            this.labProductSearch.Size = new System.Drawing.Size(60, 21);
+            this.labProductSearch.TabIndex = 101;
+            this.labProductSearch.Text = "Search:";
+            // 
+            // tbProductSearch
+            // 
+            this.tbProductSearch.Location = new System.Drawing.Point(518, 18);
+            this.tbProductSearch.Name = "tbProductSearch";
+            this.tbProductSearch.Size = new System.Drawing.Size(268, 29);
+            this.tbProductSearch.TabIndex = 100;
             // 
             // ProductManager
             // 
@@ -312,5 +340,7 @@ namespace AdminBackups
         private System.Windows.Forms.TextBox tbxPrice;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label labProductSearch;
+        private System.Windows.Forms.TextBox tbProductSearch;
     }
 }
