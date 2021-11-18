@@ -55,7 +55,8 @@ namespace AdminBackups
         // products (Esther)
         public void UpdateProducts()
         {
-            dgProducts.DataSource = store.productManagment.ViewAllProducts();
+            //Get Back here
+            dgProducts.DataSource = store.productManagment.ViewAllProducts("");
         }
 
         private void dgProducts_CellClick(object sender, DataGridViewCellEventArgs e)
