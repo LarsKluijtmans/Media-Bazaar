@@ -31,3 +31,4 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\bin\Debug\S
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\obj\Debug\Statistics.Login.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\obj\Debug\Statistics.Statistics.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\Statistics\Statistics\obj\Debug\Statistics.csproj.CopyComplete

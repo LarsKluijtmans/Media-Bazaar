@@ -20,6 +20,8 @@ namespace Statistics
 
             labYear.Text = DateTime.Now.Year.ToString();
             labMonth.Text = DateTime.Now.Month.ToString();
+
+            ShowData();
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -40,12 +42,14 @@ namespace Statistics
 
         // chose year and month
 
+
         private void btnIncreaseYear_Click(object sender, EventArgs e)
         {
             int year = Convert.ToInt16(labYear.Text);
 
             year++;
             labYear.Text = year.ToString();
+            ShowData();
         }
 
         private void btnDecreaseYear_Click(object sender, EventArgs e)
@@ -54,6 +58,7 @@ namespace Statistics
 
             year--;
             labYear.Text = year.ToString();
+            ShowData();
         }
 
         private void btnIncreaseMonth_Click(object sender, EventArgs e)
@@ -70,6 +75,7 @@ namespace Statistics
                 month++;
                 labMonth.Text = month.ToString();
             }
+            ShowData();
         }
 
         private void btnDecreaseMonth_Click(object sender, EventArgs e)
@@ -86,13 +92,18 @@ namespace Statistics
                 month--;
                 labMonth.Text = month.ToString();
             }
+            ShowData();
         }
 
         // show data
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        public void ShowData()
         {
             GetAtendeance();
+
+            this.chart1.Series["TimeWorked"].Points.Clear();
+            this.chart1.Series["WorkHours"].Points.Clear();
+
             foreach (EmployeeWorkTime ee in a.emp)
             {
                 this.chart1.Series["TimeWorked"].Points.AddXY(ee.EmployeeID, Convert.ToInt32(ee.Timeworked.TotalHours));
