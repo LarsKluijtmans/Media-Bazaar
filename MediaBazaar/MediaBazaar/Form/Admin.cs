@@ -25,14 +25,10 @@ namespace AdminBackups
             if (AmountOfEmployees() >= 2)
             {
                 gbMakeEmployee.Visible = false;
-                btnBackup.Visible = true;
-                labBackup.Visible = true;
             }
             else 
             {
                 gbMakeEmployee.Visible = true;
-                btnBackup.Visible = false;
-                labBackup.Visible = false;
             }
 
         }
@@ -176,41 +172,6 @@ namespace AdminBackups
                 conn.Close();
             }
             return 0;
-        }
-
-        private void btnBackup_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This might take a minute");
-
-            string FileLocation =   @"D:\Company\CompanyDatabase\" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
-
-            string constring = "Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=Nijlpaard;SslMode =none;";
-
-            string file = FileLocation;
-
-            using (MySqlConnection conn = new MySqlConnection(constring))
-            {
-                using (MySqlCommand cmd = new MySqlCommand())
-                {
-                    using (MySqlBackup mb = new MySqlBackup(cmd))
-                    {
-                        cmd.Connection = conn;
-                        conn.Open();
-                        mb.ExportToFile(file);
-                        conn.Close();
-                    }
-                }
-            }
-
-            MessageBox.Show(@"Backup succesfull, please go to the D:\Company\CompanyDatabase for the backup.");
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            WordManager w = new WordManager();
-
-            w.ContractDoc(10.ToString());
         }
     }
 }
