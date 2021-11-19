@@ -111,11 +111,9 @@ namespace Statistics
 
             foreach (EmployeeWorkTime ee in a.emp)
             {
-                this.chart1.Series["TimeWorked"].Points.AddXY(ee.EmployeeID, Convert.ToInt32(ee.Timeworked.TotalHours));
-                this.chart1.Series["WorkHours"].Points.AddXY(ee.EmployeeID, ee.WorkHours * 4);
+                this.chart1.Series["TimeWorked"].Points.AddXY(ee.EmployeeName, Convert.ToInt32(ee.Timeworked.TotalHours));
+                this.chart1.Series["WorkHours"].Points.AddXY(ee.EmployeeName, ee.WorkHours * 4);
             }
-
-
         }
 
         public void ShowRestockAmountData()
