@@ -1,4 +1,5 @@
 using ClassLibrary1;
+using ClassLibraryProject.Class;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +15,7 @@ namespace MediaBazzar.Pages
     public class LoginModel : PageModel
     {
         [BindProperty]
-        public Login Model { get; set; }
+        public Login Login { get; set; }
         private DBLogin dbLogin = new DBLogin();
 
         public void OnGet(string returnUrl)
@@ -28,17 +29,17 @@ namespace MediaBazzar.Pages
 
             if (ModelState.IsValid)
             {
-                var user = dbLogin.CheckLogin(Model.Username, Model.Password);
+                var user = dbLogin.CheckLogin(Login.Username, Login.Password);
+
                 if (user != null)
                 {
                     var claims = new List<Claim>();
                     claims.Add(new Claim("username", user.Username));
                     claims.Add(new Claim(ClaimTypes.NameIdentifier, user.EmployeeID.ToString()));
                     claims.Add(new Claim(ClaimTypes.Name, user.Username));
-                    claims.Add(new Claim(ClaimTypes.Email, user.Email));
-                    claims.Add(new Claim(ClaimTypes.DateOfBirth, user.DateOfBirth));
-                    claims.Add(new Claim(ClaimTypes.GivenName, user.FirstName));
-                    claims.Add(new Claim(ClaimTypes.Surname, user.LastName));
+                    //claims.Add(new Claim(ClaimTypes.Email, user.Email));
+                    //claims.Add(new Claim(ClaimTypes.GivenName, user.FirstName));
+                    //claims.Add(new Claim(ClaimTypes.Surname, user.LastName));
 
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);

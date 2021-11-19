@@ -13,12 +13,8 @@
 
 <!--<div class="content-container">
     <div class="login-box">
-        <form class="login-form" formaction="/login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">
+        <form class="login-form" formaction="/login?ReturnUrl=m.Net.WebUtility.UrlEncode(returnUrl)" method="post">
             <h2>Login</h2>
-            @if (!string.IsNullOrEmpty(error))
-            {
-                <h2>@error</h2>
-            }
             <div class="input">
                 <input asp-for="Model.Username" type="text" name="username" id="username" required>
                 <label asp-for="Model.Username">Username:</label>
@@ -43,16 +39,16 @@
                 <h2>@error</h2>
             }
             <div class="input">
-                <input asp-for="Model.Username" type="text" name="username" id="username" placeholder="Username">
-                <span asp-validation-for="Model.Username"></span>
+                <input asp-for="Login.Username" type="text" name="username" id="username" placeholder="Username">
+                <span asp-validation-for="Login.Username"></span>
             </div>
             <div class="input">
-                <input asp-for="Model.Password" type="password" name="password" id="password" placeholder="Password">
+                <input asp-for="Login.Password" type="password" name="password" id="password" placeholder="Password">
                 <span class="eye" onclick="showPassword()">
                     <i id="hidePassword" class="fa fa-eye"></i>
                     <i id="showPassword" class="fa fa-eye-slash"></i>
                 </span>
-                <span asp-validation-for="Model.Password"></span>
+                <span asp-validation-for="Login.Password"></span>
             </div>
             <input type="submit" class="login-btn" value="Login">
         </form>
