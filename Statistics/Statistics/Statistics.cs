@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Statistics.ProductData;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,10 @@ namespace Statistics
             labMonth.Text = DateTime.Now.Month.ToString();
 
             ShowData();
+            ShowRestockAmountData();
+            ShowRestockRequestData();
+            ShowReshelfAmountData();
+            ShowReshelfRequestData();
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -108,6 +113,56 @@ namespace Statistics
             {
                 this.chart1.Series["TimeWorked"].Points.AddXY(ee.EmployeeID, Convert.ToInt32(ee.Timeworked.TotalHours));
                 this.chart1.Series["WorkHours"].Points.AddXY(ee.EmployeeID, ee.WorkHours * 4);
+            }
+
+
+        }
+
+        public void ShowRestockAmountData()
+        {
+            RestockData rd = new RestockData();
+
+            this.CRestockAmount.Series["Amount"].Points.Clear();
+
+            foreach (ProductsData ee in rd.RestockAmount())
+            {
+                this.CRestockAmount.Series["Amount"].Points.AddXY(ee.ProductName, ee.Amount);
+            }
+        }
+
+        public void ShowRestockRequestData()
+        {
+            RestockData rd = new RestockData();
+
+            this.CRestockRequest.Series["Amount"].Points.Clear();
+
+            foreach (ProductsData ee in rd.RestockProductAmount())
+            {
+                this.CRestockRequest.Series["Amount"].Points.AddXY(ee.ProductName, ee.Amount);
+            }
+        }
+
+        public void ShowReshelfAmountData()
+        {
+            ReshelfData rd = new ReshelfData();
+
+            this.CReshelfAmount.Series["Amount"].Points.Clear();
+
+            foreach (ProductsData ee in rd.ReshelfAmount())
+            {
+                this.CReshelfAmount.Series["Amount"].Points.AddXY(ee.ProductName, ee.Amount);
+            }
+        }
+
+        public void ShowReshelfRequestData()
+        {
+            ReshelfData rd = new ReshelfData();
+
+            this.CReshelfRequest.Series["Amount"].Points.Clear();
+
+            foreach (ProductsData ee in rd.ReshelfProductAmount())
+            {
+                this.CReshelfRequest.Series["Amount"].Points.AddXY(ee.ProductName, ee.Amount);
             }
         }
     }

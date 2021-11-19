@@ -4,18 +4,18 @@ using System.Collections.Generic;
 
 namespace Statistics.ProductData
 {
-    class RestockData
+    class ReshelfData
     {
-        private static string RESTOCK_AMOUNT = "SELECT Name, COUNT(product.ProductID) FROM `product` INNER JOIN restockreplenishment ON product.ProductID = restockreplenishment.ProductID GROUP BY product.ProductID;";
-        private static string RESTOCK_PRODUCT_AMOUNT = "SELECT Name, sum(restockreplenishment.ReceivedAmount) FROM `product` INNER JOIN restockreplenishment ON product.ProductID = restockreplenishment.ProductID GROUP BY product.ProductID  HAVING sum(restockreplenishment.ReceivedAmount) > 1;";
+        private static string RESHELF_AMOUNT = "SELECT Name, COUNT(product.ProductID) FROM `product` INNER JOIN shelfreplenishment ON product.ProductID = shelfreplenishment.ProductID GROUP BY product.ProductID;";
+        private static string RESHELF_PRODUCT_AMOUNT = "SELECT Name, sum(shelfreplenishment.AmountRequested) FROM `product` INNER JOIN shelfreplenishment ON product.ProductID = shelfreplenishment.ProductID GROUP BY product.ProductID  HAVING sum(shelfreplenishment.AmountRequested) > 1;";
        
-        public ProductsData[] RestockAmount()
+        public ProductsData[] ReshelfAmount()
         {
             List<ProductsData> products = new List<ProductsData>();
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = RESTOCK_AMOUNT;
+            string sql = RESHELF_AMOUNT;
 
             try
             {
@@ -45,14 +45,14 @@ namespace Statistics.ProductData
             return products.ToArray();
         }
 
-        public ProductsData[] RestockProductAmount()
+        public ProductsData[] ReshelfProductAmount()
         {
 
             List<ProductsData> products = new List<ProductsData>();
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = RESTOCK_PRODUCT_AMOUNT;
+            string sql = RESHELF_PRODUCT_AMOUNT;
 
             try
             {
