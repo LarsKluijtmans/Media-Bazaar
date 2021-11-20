@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MuYja3tqM0Pis6BF97l7x6nvUfuCHiSRvz3suxdiqAV4bDJLrd9i/ww3j1KxOVfN2y1/bNIEwm1/rMjom2IWrg==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazzar.csproj",
+  "dgSpecHash": "7QEdXQ9fbnpgpnQRluVOg1IT6l4WUkbN8kNHiT/hnyHJkdTTihqumijaZSf5LphHlUOvdnhmECC6YKH5MnXjcg==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lars\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\lars\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
@@ -24,5 +24,15 @@
     "C:\\Users\\lars\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
     "C:\\Users\\lars\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Unable to find project information for 'C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
+      "libraryId": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

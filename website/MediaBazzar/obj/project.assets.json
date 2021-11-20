@@ -276,19 +276,6 @@
           }
         }
       },
-      "ClassLibrary1/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "ClassLibraryProject": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/ClassLibrary1.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ClassLibrary1.dll": {}
-        }
-      },
       "ClassLibraryProject/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -858,11 +845,6 @@
         "version.txt"
       ]
     },
-    "ClassLibrary1/1.0.0": {
-      "type": "project",
-      "path": "../ClassLibrary1/ClassLibrary1.csproj",
-      "msbuildProject": "../ClassLibrary1/ClassLibrary1.csproj"
-    },
     "ClassLibraryProject/1.0.0": {
       "type": "project",
       "path": "../../ClassLibraryProject/ClassLibraryProject/ClassLibraryProject.csproj",
@@ -871,7 +853,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "ClassLibrary1 >= 1.0.0",
+      "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj",
       "ClassLibraryProject >= 1.0.0"
     ]
   },
@@ -881,9 +863,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazzar.csproj",
-      "projectName": "MediaBazzar",
-      "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazzar.csproj",
+      "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
+      "projectName": "MediaBazaarWebsite",
+      "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
       "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\obj\\",
       "projectStyle": "PackageReference",
@@ -941,5 +923,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Unable to find project information for 'C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
+      "libraryId": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }
