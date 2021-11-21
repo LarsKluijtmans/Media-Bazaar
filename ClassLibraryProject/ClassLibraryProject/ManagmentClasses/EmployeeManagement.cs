@@ -125,7 +125,79 @@ namespace ClassLibraryProject.ManagmentClasses
         }
         //MohammadEnd
 
+        // esther start
+        public void CreateEmployee(string firstName, string lastName, int bsn, string city, string email, string dateOfBirth, string personalEmail, string username, string password, int phoneNumber, string jobTitle, int workHoursPerWeek, double salary, string startDate)
+        {
+            EmailManager em = new EmailManager();
 
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = CREATE_EMPLOYEE;
 
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@FirstName", firstName);
+                cmd.Parameters.AddWithValue("@LastName", lastName);
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Password", password);
+                cmd.Parameters.AddWithValue("@BSN", bsn);
+                cmd.Parameters.AddWithValue("@Active", 1);
+                cmd.Parameters.AddWithValue("@City", city);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                cmd.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+
+                conn.Open();
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+                long id = cmd.LastInsertedId;
+
+                int employeeID = Convert.ToInt32(id);
+                CreateContract(employeeID, jobTitle, workHoursPerWeek, salary, startDate);
+
+                em.Email(password, username, personalEmail);
+
+                return;
+            }
+            catch (MySqlException msqEx)
+            {
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void CreateContract(int employeeID, string jobTitle, int workHoursPerWeek, double salary, string startDate)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = ContractManagement.CREATE_CONTRACT;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                cmd.Parameters.AddWithValue("@JobTitle", jobTitle);
+                cmd.Parameters.AddWithValue("@WorkHoursPerWeek", workHoursPerWeek);
+                cmd.Parameters.AddWithValue("@SalaryPerHour", salary);
+                cmd.Parameters.AddWithValue("@StartDate", startDate);
+
+                conn.Open();
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+                //long id = cmd.LastInsertedId;
+            }
+            catch (MySqlException msqEx)
+            {
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

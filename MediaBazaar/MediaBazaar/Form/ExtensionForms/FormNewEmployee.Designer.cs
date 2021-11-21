@@ -46,11 +46,9 @@ namespace AdminBackups
             this.tbxPhoneNumber = new System.Windows.Forms.TextBox();
             this.tbxLastName = new System.Windows.Forms.TextBox();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
-            this.tbxEmployeeID = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbxStartDate = new System.Windows.Forms.TextBox();
@@ -61,6 +59,8 @@ namespace AdminBackups
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tbxPersonalEmail = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +94,7 @@ namespace AdminBackups
             // 
             // tbxEmail
             // 
-            this.tbxEmail.Location = new System.Drawing.Point(113, 124);
+            this.tbxEmail.Location = new System.Drawing.Point(113, 94);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.ReadOnly = true;
@@ -104,7 +104,7 @@ namespace AdminBackups
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(62, 127);
+            this.label12.Location = new System.Drawing.Point(62, 97);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(39, 15);
             this.label12.TabIndex = 74;
@@ -175,7 +175,7 @@ namespace AdminBackups
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(295, 76);
+            this.label15.Location = new System.Drawing.Point(312, 77);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(31, 15);
             this.label15.TabIndex = 65;
@@ -183,7 +183,7 @@ namespace AdminBackups
             // 
             // tbxPhoneNumber
             // 
-            this.tbxPhoneNumber.Location = new System.Drawing.Point(113, 100);
+            this.tbxPhoneNumber.Location = new System.Drawing.Point(113, 70);
             this.tbxPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxPhoneNumber.Multiline = true;
             this.tbxPhoneNumber.Name = "tbxPhoneNumber";
@@ -192,7 +192,7 @@ namespace AdminBackups
             // 
             // tbxLastName
             // 
-            this.tbxLastName.Location = new System.Drawing.Point(113, 76);
+            this.tbxLastName.Location = new System.Drawing.Point(113, 46);
             this.tbxLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxLastName.Name = "tbxLastName";
             this.tbxLastName.Size = new System.Drawing.Size(149, 23);
@@ -200,25 +200,16 @@ namespace AdminBackups
             // 
             // tbxFirstName
             // 
-            this.tbxFirstName.Location = new System.Drawing.Point(113, 51);
+            this.tbxFirstName.Location = new System.Drawing.Point(113, 21);
             this.tbxFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxFirstName.Name = "tbxFirstName";
             this.tbxFirstName.Size = new System.Drawing.Size(149, 23);
             this.tbxFirstName.TabIndex = 60;
             // 
-            // tbxEmployeeID
-            // 
-            this.tbxEmployeeID.Location = new System.Drawing.Point(113, 24);
-            this.tbxEmployeeID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxEmployeeID.Name = "tbxEmployeeID";
-            this.tbxEmployeeID.ReadOnly = true;
-            this.tbxEmployeeID.Size = new System.Drawing.Size(149, 23);
-            this.tbxEmployeeID.TabIndex = 59;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(10, 100);
+            this.label16.Location = new System.Drawing.Point(10, 70);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(89, 15);
             this.label16.TabIndex = 58;
@@ -227,7 +218,7 @@ namespace AdminBackups
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(37, 78);
+            this.label18.Location = new System.Drawing.Point(37, 48);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(64, 15);
             this.label18.TabIndex = 56;
@@ -236,24 +227,16 @@ namespace AdminBackups
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(37, 54);
+            this.label19.Location = new System.Drawing.Point(37, 24);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(65, 15);
             this.label19.TabIndex = 55;
             this.label19.Text = "First name:";
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(22, 26);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(76, 15);
-            this.label20.TabIndex = 54;
-            this.label20.Text = "Employee ID:";
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.tbxPersonalEmail);
             this.groupBox1.Controls.Add(this.tbxBSN);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.tbxDateOfBirth);
@@ -262,7 +245,6 @@ namespace AdminBackups
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.tbxEmployeeID);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.tbxFirstName);
             this.groupBox1.Controls.Add(this.tbxPassword);
@@ -376,6 +358,22 @@ namespace AdminBackups
             this.label3.TabIndex = 20;
             this.label3.Text = "Salary:";
             // 
+            // tbxPersonalEmail
+            // 
+            this.tbxPersonalEmail.Location = new System.Drawing.Point(113, 121);
+            this.tbxPersonalEmail.Name = "tbxPersonalEmail";
+            this.tbxPersonalEmail.Size = new System.Drawing.Size(149, 23);
+            this.tbxPersonalEmail.TabIndex = 78;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 125);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 15);
+            this.label4.TabIndex = 79;
+            this.label4.Text = "Personal Email:";
+            // 
             // FormNewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -413,11 +411,9 @@ namespace AdminBackups
         private System.Windows.Forms.TextBox tbxPhoneNumber;
         private System.Windows.Forms.TextBox tbxLastName;
         private System.Windows.Forms.TextBox tbxFirstName;
-        private System.Windows.Forms.TextBox tbxEmployeeID;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox tbxStartDate;
@@ -428,5 +424,7 @@ namespace AdminBackups
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbxPersonalEmail;
     }
 }
