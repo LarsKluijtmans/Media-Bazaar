@@ -881,9 +881,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazzar.csproj",
-      "projectName": "MediaBazzar",
-      "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazzar.csproj",
+      "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
+      "projectName": "MediaBazaarWebsite",
+      "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
       "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\obj\\",
       "projectStyle": "PackageReference",

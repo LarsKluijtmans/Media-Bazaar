@@ -1,19 +1,21 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Statistics.ProductData
 {
     class RestockData
     {
-        public void GetAtendanceData(int year, int month)
+        private static string RESTOCK_AMOUNT = "SELECT Name, COUNT(product.ProductID) FROM `product` INNER JOIN restockreplenishment ON product.ProductID = restockreplenishment.ProductID GROUP BY product.ProductID;";
+        private static string RESTOCK_PRODUCT_AMOUNT = "SELECT Name, sum(restockreplenishment.ReceivedAmount) FROM `product` INNER JOIN restockreplenishment ON product.ProductID = restockreplenishment.ProductID GROUP BY product.ProductID  HAVING sum(restockreplenishment.ReceivedAmount) > 1;";
+       
+        public ProductsData[] RestockAmount()
         {
+            List<ProductsData> products = new List<ProductsData>();
+
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = "SELECT employee.`EmployeeID`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))), `WorkHoursPerWeek`FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '%" + year + "-" + month + "%' group by contract.EmployeeID;";
+            string sql = RESTOCK_AMOUNT;
 
             try
             {
@@ -22,15 +24,15 @@ namespace Statistics.ProductData
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                List<ProductsData> ProductsDatas = new List<ProductsData>();
+                ProductsData productsData;
 
                 while (reader.Read())
                 {
-                    ProductsData productsData = new ProductsData(Convert.ToInt32( reader[0]), Convert.ToInt32(reader[1]));
-
-                    ProductsDatas.Add(productsData);
+                    productsData = new ProductsData(reader[0].ToString(), Convert.ToInt32(reader[1]));
+                    products.Add(productsData);
                 }
 
+                return products.ToArray();
             }
             catch (MySqlException)
             { }
@@ -40,6 +42,46 @@ namespace Statistics.ProductData
             {
                 conn.Close();
             }
+            return products.ToArray();
+        }
+
+        public ProductsData[] RestockProductAmount()
+        {
+
+            List<ProductsData> products = new List<ProductsData>();
+
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = RESTOCK_PRODUCT_AMOUNT;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                ProductsData productsData;
+
+                while (reader.Read())
+                {
+
+                    productsData = new ProductsData(reader[0].ToString(), Convert.ToInt32(reader[1]));
+                    products.Add(productsData);
+
+                }
+
+                return products.ToArray();
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+            return products.ToArray();
         }
     }
 }

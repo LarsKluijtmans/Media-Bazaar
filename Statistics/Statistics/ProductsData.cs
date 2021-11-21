@@ -8,13 +8,13 @@ namespace Statistics
 {
     public class ProductsData
     {
-        private int productID;
+        private string productName;
         private int amount;
 
-        public int ProductID
+        public string ProductName
         {
-            get { return productID; }
-            set { productID = value; }
+            get { return productName; }
+            set { productName = value; }
         }
 
         public int Amount
@@ -23,9 +23,9 @@ namespace Statistics
             set { amount = value; }
         }
 
-        public ProductsData(int productID, int amount)
+        public ProductsData(string productName, int amount)
         {
-            ProductID = productID;
+            ProductName = productName;
             Amount = amount;
         }
     }

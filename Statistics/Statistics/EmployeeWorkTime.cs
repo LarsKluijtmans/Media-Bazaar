@@ -9,8 +9,12 @@ namespace Statistics
     public  class EmployeeWorkTime
     {
         private int employeeID;
+        private string employeeName;
         private TimeSpan timeworked;
         private int workHours;
+
+        public string EmployeeName
+        { get { return employeeName; } }
 
         public int EmployeeID
         { get { return employeeID; } }
@@ -20,12 +24,12 @@ namespace Statistics
         public int WorkHours
         { get { return workHours; } }
 
-        public EmployeeWorkTime(int EmployeeID, TimeSpan Timeworked, int WorkHours)
+        public EmployeeWorkTime(int EmployeeID, string EmployeeName, TimeSpan Timeworked, int WorkHours)
         {
             employeeID = EmployeeID;
             timeworked = Timeworked;
             workHours = WorkHours;
-
+            employeeName = EmployeeName;
         }
     }
 }

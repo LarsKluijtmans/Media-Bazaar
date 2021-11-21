@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{539CCA11-1F44-4612-A7F3-06700DBF69CD}</ProjectGuid>
+    <ProjectGuid>{BC05D8EA-6F2C-401E-82E8-A15048F74EAA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CardReader</RootNamespace>
     <AssemblyName>CardReader</AssemblyName>
