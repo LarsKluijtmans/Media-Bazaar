@@ -54,3 +54,30 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmpl
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.pdb
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.genruntimeconfig.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.csproj.CopyComplete
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.exe
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.deps.json
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.runtimeconfig.json
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.runtimeconfig.dev.json
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.pdb
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\MySql.Data.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\Zstandard.Net.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\ClassLibraryProject.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\ClassLibraryProject.pdb
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.csproj.AssemblyReference.cache
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.BarcodeScannerDepot.resources
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.csproj.GenerateResource.cache
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.GeneratedMSBuildEditorConfig.editorconfig
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.AssemblyInfoInputs.cache
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.AssemblyInfo.cs
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.csproj.CoreCompileInputs.cache
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.csproj.CopyComplete
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.pdb
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.genruntimeconfig.cache

@@ -17,20 +17,17 @@ namespace ClassLibraryProject.ManagmentClasses
         public static string DISCONTINUE_PRODUCT_BY_ID = "UPDATE Product SET IsDiscontinued = @IsDiscontinued  WHERE ProductID = @ProductID";
 
         //MohammadStart
-        public static string GET_PRODUCTS = "SELECT * FROM product WHERE Barcode = @Barcode";
+        public static string GET_PRODUCTS = "SELECT * FROM product";
 
         public List<Product> RemoteProducts { get; set; }
 
-        public void GetProduct(string Barcode)
+        public void GetProduct()
         {
-            RemoteProducts.Clear();
             MySqlConnection conn = Utils.GetConnection();
             string sql = GET_PRODUCTS;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@Barcode", Barcode);
 
                 conn.Open();
 
@@ -72,8 +69,9 @@ namespace ClassLibraryProject.ManagmentClasses
         public ProductManagment()
         {
             Products = new List<Product>();
+            RemoteProducts = new List<Product>();
         }
-        
+
         public void DiscontinueProduct(string ID)
         {
             MySqlConnection conn = Utils.GetConnection();
