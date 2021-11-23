@@ -19,29 +19,59 @@ namespace RemoteAppForSalesRepresentative
             InitializeComponent();
             store = new Store();
             timerUpdate.Start();
-            timerRevival.Start();
+            store.productManagment.GetProduct();
+        }
+
+        private bool UpdateProduct()
+        {
+            foreach (Product p in store.productManagment.RemoteProducts)
+            {
+                if (p.Barcode == txtBarcode.Text)
+                {
+                    lbName.Text = p.Name;
+                    lbAmount.Text = Convert.ToString(p.AmountInStore);
+                    return true;
+                }
+                else
+                {
+                    lbName.Text = "";
+                    lbAmount.Text = "";
+                }
+            }
+            return false;
+        }
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (Product product in store.productManagment.RemoteProducts)
+                {
+                    if (product.Barcode == txtBarcode.Text)
+                    {
+                        store.reshelfManagment.RequestReshelf(product.Barcode, product.ProductID, Convert.ToInt32(txtRequest.Text));
+                    }
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Error");
+            }
         }
 
         private void timerUpdate_Tick(object sender, EventArgs e)
         {
-            store.productManagment.GetProduct(txtBarcode.Text);
-            if (store.productManagment.RemoteProducts.Count > 0)
-            {
-                ProductInfo productInfo = new ProductInfo(store);
-                productInfo.Show();
-                txtBarcode.Clear();
-            }
+            UpdateProduct();
         }
 
         private void timerRevival_Tick(object sender, EventArgs e)
         {
-            if (store.productManagment.RemoteProducts.Count > 0)
-            {
-                timerUpdate.Stop();
-            }
-            else if (store.productManagment.RemoteProducts.Count <= 0)
+            if (UpdateProduct())
             {
                 timerUpdate.Start();
+            }
+            else
+            {
+                timerUpdate.Stop();
             }
         }
     }

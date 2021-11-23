@@ -86,3 +86,33 @@ C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\ClassLibra
 C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfoInputs.cache
 C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfo.cs
 C:\Users\csten\Documents\Semester2\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.CoreCompileInputs.cache
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.deps.json
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.dll
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.pdb
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Core.dll
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.AssemblyReference.cache
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Core.dll
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.ResolveComReference.cache
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.GeneratedMSBuildEditorConfig.editorconfig
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfoInputs.cache
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfo.cs
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.CoreCompileInputs.cache
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.dll
+E:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.pdb
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.deps.json
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.dll
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.pdb
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Core.dll
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.AssemblyReference.cache
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Core.dll
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.ResolveComReference.cache
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.GeneratedMSBuildEditorConfig.editorconfig
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfoInputs.cache
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfo.cs
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.CoreCompileInputs.cache
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.dll
+F:\Study\Semester 2\PRJ\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.pdb

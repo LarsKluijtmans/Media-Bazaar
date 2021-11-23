@@ -34,7 +34,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 Body = message.ToString(),
                 IsBodyHtml = true,
             };
-            mailMessage.To.Add("MediaBazaar.HQ@gmail.com");
+            mailMessage.To.Add(Email);
 
             smtpClient.Send(mailMessage);
         }
