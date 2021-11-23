@@ -8,7 +8,7 @@ namespace ClassLibraryProject.ManagmentClasses
 {
     public class EmailManager
     {
-        public void Email(string password, string username, string email)
+        public void Email(string Password, string Username, string Email)
         {
             var smtpClient = new SmtpClient("smtp.gmail.com")
             {
@@ -22,9 +22,9 @@ namespace ClassLibraryProject.ManagmentClasses
             message.Append(" <h1>Here is your acount information.</h1>");
             message.AppendLine("<p>Here is your acount information.</p>");
             message.AppendLine("<p>You can use these in the diferent mediabazaar apps and websites.</p>");
-            message.AppendLine($"<p>                Username: {username}</p>");
-            message.AppendLine($"<p>                password: {password}</p>");
-            message.AppendLine("<p> Please change your password on www.mediaBazaar.nl</p>");
+            message.AppendLine($"<p>                Username: {Username}</p>");
+            message.AppendLine($"<p>                password: {Password}</p>");
+            message.AppendLine("<p> Please change your password on i474883core.venus.fhict.nl </p>");
             message.AppendLine("<p> Contact us with this email adress if you run in to any problems: nazibul.kabir.srv@gmail.com</p>");
 
             var mailMessage = new MailMessage
@@ -34,7 +34,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 Body = message.ToString(),
                 IsBodyHtml = true,
             };
-            mailMessage.To.Add("MediaBazaar.HQ@gmail.com");
+            mailMessage.To.Add(Email);
 
             smtpClient.Send(mailMessage);
         }

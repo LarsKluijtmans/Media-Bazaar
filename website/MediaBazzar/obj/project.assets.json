@@ -883,9 +883,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazzar.csproj",
-      "projectName": "MediaBazzar",
-      "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazzar.csproj",
+      "projectUniqueName": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
+      "projectName": "MediaBazaarWebsite",
+      "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
       "packagesPath": "C:\\Users\\esthe\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\obj\\",
       "projectStyle": "PackageReference",

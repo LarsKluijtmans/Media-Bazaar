@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "enqI/HJdaEVlMDrlaH8SDf9padefKBfmeUD/ydgco7jwQzqDs6j0p8n2g51NbftBjcRs1pIMa6iz6fT9LZP4MA==",
+  "dgSpecHash": "iI+EehAI7eSvAreMhMOKnv89X3hIRCgRSznh09QKJs6OXNOy0xfqGWHAAeAxUyRqCAiKjdMX1bUDz7LQCBv+4g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazzar.csproj",
+  "projectFilePath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\esthe\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\esthe\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",

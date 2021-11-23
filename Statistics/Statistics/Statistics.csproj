@@ -102,6 +102,9 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginManagement.cs" />
+    <Compile Include="ProductData\ReshelfData.cs" />
+    <Compile Include="ProductData\RestockData.cs" />
+    <Compile Include="ProductsData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statistics.cs">

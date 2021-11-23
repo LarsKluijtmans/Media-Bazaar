@@ -6,7 +6,7 @@ using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 
 
-namespace MediaBazaar
+namespace AdminBackups
 {
     public partial class FormViewEmployee : Form
     {
@@ -50,8 +50,6 @@ namespace MediaBazaar
         {
             UpdateEmployee();
             UpdateContract();
-
-            this.Close();
         }
         public void UpdateEmployee()
         {

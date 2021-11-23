@@ -7,7 +7,7 @@ using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 
 
-namespace MediaBazaar
+namespace AdminBackups
 {
     public partial class FormRemoveEmployee : Form
     {
@@ -25,16 +25,19 @@ namespace MediaBazaar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UpdateContract();
-            Close();
+            if (UpdateContract() == true)
+            {
+                Close();
+            }
         }
-        public void UpdateContract()
+        public bool UpdateContract()
         {
             string employeeID = employee.EmployeeID.ToString();
             string reasonForTermination = tbxReasonTermination.Text;
             if (string.IsNullOrEmpty(reasonForTermination))
             {
                 MessageBox.Show("Please enter a reason for termination");
+                return false;
             }
 
             string contractEndDate;
@@ -44,12 +47,13 @@ namespace MediaBazaar
                 if (string.IsNullOrEmpty(contractEndDate))
                 {
                     MessageBox.Show("Please enter a contract end date");
+                    return false;
                 }
             }
             else
             {
                 MessageBox.Show("Please enter a valid End date");
-                return;
+                return false;
             }
 
             MySqlConnection conn = Utils.GetConnection();
@@ -63,6 +67,7 @@ namespace MediaBazaar
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
+                return true;
             }
             catch (MySqlException msqEx)
             {
@@ -76,6 +81,7 @@ namespace MediaBazaar
             {
                 conn.Close();
             }
+            return false;
         }
         protected override void OnClosing(CancelEventArgs e)
         {

@@ -3,7 +3,7 @@ using System;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace MediaBazaar
+namespace AdminBackups
 {
     public partial class DepotManager : Form
     {

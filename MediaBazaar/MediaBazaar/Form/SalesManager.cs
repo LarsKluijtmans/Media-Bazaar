@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace MediaBazaar
+namespace AdminBackups
 {
     public partial class SalesManager : Form
     {
@@ -21,9 +21,13 @@ namespace MediaBazaar
             ID = UserID;
             store = s;
 
+            txtYear.Text = "2021";
+
             UpdateSchedule();
-            UpdateProducts();
+            UpdateProducts(tbProductSearch.Text);
             Initialize();
+
+            timer2.Start();
         }
 
         //Initialize
@@ -36,6 +40,24 @@ namespace MediaBazaar
             pi = Convert.ToInt32(lblPlanningWeek.Text);
             txtYear.Text = date.Year.ToString();
             txtPlanningYear.Text = date.Year.ToString();
+        }
+
+        //Timer
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (ActiveControl == tbProductSearch)
+            {
+                timer1.Start();
+            }
+            else 
+            { 
+                timer1.Stop();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            UpdateProducts(tbProductSearch.Text);
         }
 
         //Overview
@@ -64,9 +86,9 @@ namespace MediaBazaar
 
         //Products
         //Esther//Esther
-        public void UpdateProducts()
+        public void UpdateProducts(string search)
         {
-            dgvProducts.DataSource = store.productManagment.ViewAllProducts();
+            dgvProducts.DataSource = store.productManagment.ViewAllProducts(search);
         }
         private void dgvProducts_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -92,25 +114,15 @@ namespace MediaBazaar
 
             store.productManagment.EditPrice(productID, price);
 
-            UpdateProducts();
+            UpdateProducts(tbProductSearch.Text);
         }
         private void btnDiscontinue_Click(object sender, EventArgs e)
         {
             int productID = Convert.ToInt32(tbxProductID.Text);
             store.productManagment.DiscontinueProduct(productID);
 
-            UpdateProducts();
+            UpdateProducts(tbProductSearch.Text);
         }
-
-
-
-
-
-
-
-
-
-
 
         //Schedule
         public static int GetCurrentWeekOfYear(DateTime time)
@@ -297,10 +309,6 @@ namespace MediaBazaar
             }
         }
         private void lstEmpCanWork_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
-        private void btnRemoveFromSchedule_Click(object sender, EventArgs e)
         {
 
         }

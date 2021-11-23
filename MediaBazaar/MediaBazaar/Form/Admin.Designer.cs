@@ -1,5 +1,5 @@
 ﻿
-namespace MediaBazaar
+namespace AdminBackups
 {
     partial class Admin
     {
@@ -64,13 +64,10 @@ namespace MediaBazaar
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBackup = new System.Windows.Forms.Button();
-            this.labBackup = new System.Windows.Forms.Label();
             this.Edit = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.gbMakeEmployee.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -81,7 +78,7 @@ namespace MediaBazaar
             this.gbMakeEmployee.Controls.Add(this.groupBox2);
             this.gbMakeEmployee.Controls.Add(this.groupBox1);
             this.gbMakeEmployee.Controls.Add(this.label1);
-            this.gbMakeEmployee.Location = new System.Drawing.Point(434, 452);
+            this.gbMakeEmployee.Location = new System.Drawing.Point(25, 58);
             this.gbMakeEmployee.Name = "gbMakeEmployee";
             this.gbMakeEmployee.Size = new System.Drawing.Size(1100, 489);
             this.gbMakeEmployee.TabIndex = 84;
@@ -415,27 +412,6 @@ namespace MediaBazaar
             this.label1.Text = "Please add the first employee, this employee will be a office manager so he/she c" +
     "an add all other employees in the future ";
             // 
-            // btnBackup
-            // 
-            this.btnBackup.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnBackup.Location = new System.Drawing.Point(179, 272);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(754, 123);
-            this.btnBackup.TabIndex = 0;
-            this.btnBackup.Text = "Make backup";
-            this.btnBackup.UseVisualStyleBackColor = true;
-            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
-            // 
-            // labBackup
-            // 
-            this.labBackup.AutoSize = true;
-            this.labBackup.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labBackup.Location = new System.Drawing.Point(287, 141);
-            this.labBackup.Name = "labBackup";
-            this.labBackup.Size = new System.Drawing.Size(527, 37);
-            this.labBackup.TabIndex = 1;
-            this.labBackup.Text = "It is advised to make at least daily backups!";
-            // 
             // Edit
             // 
             this.Edit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -477,17 +453,6 @@ namespace MediaBazaar
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 44);
-            this.button1.TabIndex = 85;
-            this.button1.Text = "btnSendEmail";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -495,9 +460,6 @@ namespace MediaBazaar
             this.ClientSize = new System.Drawing.Size(1153, 555);
             this.Controls.Add(this.gbMakeEmployee);
             this.Controls.Add(this.btnLogout);
-            this.Controls.Add(this.btnBackup);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.labBackup);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin";
             this.Text = "Admin";
@@ -508,7 +470,6 @@ namespace MediaBazaar
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -524,7 +485,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox lbWorkId;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnBackup;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -560,8 +520,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox gbMakeEmployee;
-        private System.Windows.Forms.Label labBackup;
-        private System.Windows.Forms.Button button1;
     }
 }
 
