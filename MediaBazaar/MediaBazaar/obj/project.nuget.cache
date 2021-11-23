@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uZAPK+W12u12yvPlOyFDS9Qvg2OI3fQj1GbNiDXY3hPx8Hz7uRp9Z15uKxPkt6QgdoOhtmBagPIb61v8t1Cx1Q==",
+  "dgSpecHash": "KAksitrHHwnlvtcT8/3CfoNLIKYKUO5XJ38DYc62rwJatRKYb6iduW8jpjqwhr5C3as7ohl9F39x3oBboNeN/Q==",
   "success": true,
   "projectFilePath": "F:\\Study\\Semester 2\\PRJ\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
   "expectedPackageFiles": [
@@ -15,7 +15,6 @@
     "C:\\Users\\nazib\\.nuget\\packages\\mysql.data\\8.0.27\\mysql.data.8.0.27.nupkg.sha512",
     "C:\\Users\\nazib\\.nuget\\packages\\mysqlbackup.net\\2.3.6.1\\mysqlbackup.net.2.3.6.1.nupkg.sha512",
     "C:\\Users\\nazib\\.nuget\\packages\\mysqlbackup.net.devartexpress\\2.3.6\\mysqlbackup.net.devartexpress.2.3.6.nupkg.sha512",
-    "C:\\Users\\nazib\\.nuget\\packages\\mysqlconnector\\1.3.14\\mysqlconnector.1.3.14.nupkg.sha512",
     "C:\\Users\\nazib\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\nazib\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\nazib\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",

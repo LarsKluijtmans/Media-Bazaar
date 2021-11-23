@@ -74,5 +74,10 @@ namespace RemoteAppForSalesRepresentative
                 timerUpdate.Stop();
             }
         }
+
+        private void Scanner_Click(object sender, EventArgs e)
+        {
+            txtBarcode.Clear();
+        }
     }
 }

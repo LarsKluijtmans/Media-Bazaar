@@ -23,9 +23,11 @@ namespace AdminBackups
 
             txtYear.Text = "2021";
 
-            UpdateSchedule();
-            UpdateProducts(tbProductSearch.Text);
             Initialize();
+            UpdateSchedule();
+            UpdatePlanningSchedule();
+            UpdateProducts(tbProductSearch.Text);
+            
 
             timer2.Start();
         }

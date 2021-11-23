@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
-using ClassLibraryProject.Class;
-using System.Text;
+using System;
+using System.Collections.Generic;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
@@ -20,8 +19,8 @@ namespace ClassLibraryProject.ManagmentClasses
         public static string REMOVE_EMPLOYEE_BY_ID = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
 
         //MohammadStart
-        private static string GET_AVAILABLE_EMPLOYEE = "SELECT EmployeeID FROM availability WHERE Week = @Week AND Day = @Day AND Shift = @Shift;";
-        private static string GET_ENLISTED_EMPLOYEE = "SELECT EmployeeID FROM planning WHERE Year = @Year AND Week = @Week AND Day = @Day AND Shift = @Shift;";
+        private static string GET_AVAILABLE_EMPLOYEE = "SELECT * FROM availability INNER JOIN employee ON availability.EmployeeID = employee.EmployeeID WHERE Week = @Week AND Day = @Day AND Shift = @Shift;";
+        private static string GET_ENLISTED_EMPLOYEE = "SELECT * FROM planning INNER JOIN employee ON planning.EmployeeID = employee.EmployeeID WHERE Year = @Year AND Week = @Week AND Day = @Day AND Shift = @Shift;";
 
         private List<Employee> availableEmployee;
         private List<Employee> enlistedEmployee;
@@ -59,6 +58,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@Day", day);
                 cmd.Parameters.AddWithValue("@Shift", shift);
 
+
                 conn.Open();
 
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -68,9 +68,22 @@ namespace ClassLibraryProject.ManagmentClasses
                 while (reader.Read())
                 {
                     int employeeID = reader.GetInt32("EmployeeID");
+                    string lastName = reader.GetString("LastName");
+                    string firstName = reader.GetString("FirstName");
+                    int phoneNumber = reader.GetInt32("PhoneNumber");
+                    string email = reader.GetString("Email");
+                    string city = reader.GetString("Address");
+                    string dateOfBirth = reader.GetString("DateOfBirth");
+                    int bsn = reader.GetInt32("BSN");
+                    string username = reader.GetString("Username");
+                    string password = reader.GetString("Password");
+                    int active = reader.GetInt32("Active");
 
-                    //employee = new Employee(employeeID);
-                    //AvailableEmployee.Add(employee);
+                    if(active == 1)
+                    {
+                        employee = new Employee(lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                        AvailableEmployee.Add(employee);
+                    } 
                 }
             }
             catch (MySqlException)
@@ -109,9 +122,22 @@ namespace ClassLibraryProject.ManagmentClasses
                 while (reader.Read())
                 {
                     int employeeID = reader.GetInt32("EmployeeID");
+                    string lastName = reader.GetString("LastName");
+                    string firstName = reader.GetString("FirstName");
+                    int phoneNumber = reader.GetInt32("PhoneNumber");
+                    string email = reader.GetString("Email");
+                    string city = reader.GetString("Address");
+                    string dateOfBirth = reader.GetString("DateOfBirth");
+                    int bsn = reader.GetInt32("BSN");
+                    string username = reader.GetString("Username");
+                    string password = reader.GetString("Password");
+                    int active = reader.GetInt32("Active");
 
-                    //employee = new Employee(employeeID);
-                   // EnlistedEmployee.Add(employee);
+                    if (active == 1)
+                    {
+                        employee = new Employee(lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                        EnlistedEmployee.Add(employee);
+                    } 
                 }
             }
             catch (MySqlException)

@@ -67,5 +67,10 @@ namespace RemoteAppForDepotEmployee
             }
 
         }
+
+        private void BarcodeScannerDepot_Click(object sender, EventArgs e)
+        {
+            txtBarcode.Clear();
+        }
     }
 }
