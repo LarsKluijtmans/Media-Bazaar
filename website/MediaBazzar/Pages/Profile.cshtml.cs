@@ -83,8 +83,6 @@ namespace MediaBazzar.Pages
                 conn.Open();
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
-
-                ViewData["Message"] = numCreatedRows.ToString();
             }
             catch (MySqlException)
             {
