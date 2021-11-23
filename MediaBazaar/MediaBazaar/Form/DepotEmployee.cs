@@ -20,12 +20,6 @@ namespace AdminBackups
         }
 
         //Overview
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            FormLogin login = new FormLogin();
-            login.Show();
-        }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Close();

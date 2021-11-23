@@ -157,6 +157,7 @@ namespace RemoteAppForSalesRepresentative
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Scanner";
             this.Text = "Barcode Scanner Sales";
+            this.Click += new System.EventHandler(this.Scanner_Click);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

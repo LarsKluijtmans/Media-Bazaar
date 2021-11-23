@@ -122,6 +122,7 @@ namespace RemoteAppForDepotEmployee
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BarcodeScannerDepot";
             this.Text = "Barcode Scanner Depot";
+            this.Click += new System.EventHandler(this.BarcodeScannerDepot_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
