@@ -60,12 +60,20 @@ namespace RemoteAppForDepotEmployee
         {
             foreach (Product product in store.productManagment.RemoteProducts)
             {
-                if(product.Barcode == txtBarcode.Text)
+                if (product.Barcode == txtBarcode.Text)
                 {
-                    store.restockManagment.RequestRestock(product.Barcode, product.ProductID);
+                    if (store.restockManagment.GetStatus(txtBarcode.Text) != "Pending")
+                    {
+                        store.restockManagment.RequestRestock(product.Barcode, product.ProductID);
+                        MessageBox.Show("requested!");
+                        txtBarcode.Clear();
+                    }
                 }
             }
-
+            if (store.restockManagment.GetStatus(txtBarcode.Text) == "Pending")
+            {
+                MessageBox.Show("Already requested!");
+            }
         }
 
         private void BarcodeScannerDepot_Click(object sender, EventArgs e)

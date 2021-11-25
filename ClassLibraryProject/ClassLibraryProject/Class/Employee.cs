@@ -57,7 +57,7 @@ namespace ClassLibraryProject.Class
         // methodes
         public override string ToString()
         {
-            return $"ID: {EmployeeID} - Name: {FirstName} {LastName} - Email: {Email}";
+            return $"Name: {FirstName} {LastName} - Email: {Email}";
         }
     }
     }

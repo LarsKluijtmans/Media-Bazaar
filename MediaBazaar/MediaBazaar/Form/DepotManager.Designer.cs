@@ -93,6 +93,7 @@ namespace AdminBackups
             this.tabSupplier = new System.Windows.Forms.TabPage();
             this.dgSupplier = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAddNewOrder = new System.Windows.Forms.Button();
             this.btnOrderInfo = new System.Windows.Forms.Button();
             this.btnAddSupplier = new System.Windows.Forms.Button();
             this.txtPostalCode = new System.Windows.Forms.TextBox();
@@ -114,7 +115,6 @@ namespace AdminBackups
             this.label26 = new System.Windows.Forms.Label();
             this.btnRemoveSupplier = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
-            this.btnAddNewOrder = new System.Windows.Forms.Button();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
             this.tabSchedule.SuspendLayout();
@@ -866,6 +866,18 @@ namespace AdminBackups
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Supplier Management";
             // 
+            // btnAddNewOrder
+            // 
+            this.btnAddNewOrder.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddNewOrder.Location = new System.Drawing.Point(220, 337);
+            this.btnAddNewOrder.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnAddNewOrder.Name = "btnAddNewOrder";
+            this.btnAddNewOrder.Size = new System.Drawing.Size(126, 30);
+            this.btnAddNewOrder.TabIndex = 110;
+            this.btnAddNewOrder.Text = "Add New Order";
+            this.btnAddNewOrder.UseVisualStyleBackColor = true;
+            this.btnAddNewOrder.Click += new System.EventHandler(this.btnAddNewOrder_Click);
+            // 
             // btnOrderInfo
             // 
             this.btnOrderInfo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1079,17 +1091,6 @@ namespace AdminBackups
             this.label27.Size = new System.Drawing.Size(71, 21);
             this.label27.TabIndex = 92;
             this.label27.Text = "Supplier:";
-            // 
-            // btnAddNewOrder
-            // 
-            this.btnAddNewOrder.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddNewOrder.Location = new System.Drawing.Point(220, 337);
-            this.btnAddNewOrder.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnAddNewOrder.Name = "btnAddNewOrder";
-            this.btnAddNewOrder.Size = new System.Drawing.Size(126, 30);
-            this.btnAddNewOrder.TabIndex = 110;
-            this.btnAddNewOrder.Text = "Add New Order";
-            this.btnAddNewOrder.UseVisualStyleBackColor = true;
             // 
             // DepotManager
             // 

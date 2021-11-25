@@ -78,11 +78,18 @@ namespace ClassLibraryProject.ManagmentClasses
                     string username = reader.GetString("Username");
                     string password = reader.GetString("Password");
                     int active = reader.GetInt32("Active");
-
+                    //GetEnlistedEmployees(2021, week, day, shift);
                     if(active == 1)
                     {
-                        employee = new Employee(lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
-                        AvailableEmployee.Add(employee);
+                        //foreach(Employee emp in EnlistedEmployee)
+                        //{
+                        //    if(emp.FirstName != firstName)
+                        //    {
+                                employee = new Employee(lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                                AvailableEmployee.Add(employee);
+                        //    }
+                        //}
+                        
                     } 
                 }
             }

@@ -3,15 +3,17 @@ namespace ClassLibraryProject.Class
 {
     public class Reshelf
     {
-        private int reshelfReplinishmentID;
-        private int productID;
+        private int id;
+        //private Product product;
         private string barcode;
+        private int productID;
         private int amountRequested;
+        private string status;
 
-        public int ReshelfReplenishmentID
+        public int ID
         {
-            get { return reshelfReplinishmentID; }
-            set { reshelfReplinishmentID = value; }
+            get { return id; }
+            set { id = value; }
         }
         public int ProductID
         {
@@ -23,18 +25,30 @@ namespace ClassLibraryProject.Class
             get { return barcode; }
             set { barcode = value; }
         }
+        //public Product Product
+        //{
+        //    get { return product; }
+        //    set { product = value; }
+        //}
         public int AmountRequested
         {
             get { return amountRequested; }
             set { amountRequested = value; }
         }
-
-        public Reshelf(int restockReplenishmentID, int productID, string barcode, int amountInDepot, int amountRequested)
+        public string Status
         {
-            ReshelfReplenishmentID = restockReplenishmentID;
-            ProductID = productID;
+            get { return status; }
+            set { status = value; }
+        }
+
+        public Reshelf(int id, /*Product product*/string barcode, int productID, int amountRequested, string status)
+        {
+            ID = id;
             Barcode = barcode;
+            ProductID = productID;
+            //Product = product;
             AmountRequested = amountRequested;
+            Status = status;
         }
     }
 }
