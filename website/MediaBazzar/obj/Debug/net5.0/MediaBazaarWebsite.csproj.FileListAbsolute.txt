@@ -134,3 +134,6 @@ C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\ref\MediaBazaarWebsite.dll
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazaarWebsite.pdb
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazaarWebsite.genruntimeconfig.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\bin\Debug\net5.0\Devart.Data.MySql.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\bin\Debug\net5.0\Devart.Data.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\bin\Debug\net5.0\MySqlBackupNet.DevartExpress.dll

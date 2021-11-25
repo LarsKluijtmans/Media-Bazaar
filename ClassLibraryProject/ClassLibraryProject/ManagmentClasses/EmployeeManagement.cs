@@ -17,6 +17,9 @@ namespace ClassLibraryProject.ManagmentClasses
 
         public static string VIEW_EMPLOYEE = "SELECT * FROM Employee WHERE EmployeeID = @EmployeeID;";
         public static string REMOVE_EMPLOYEE_BY_ID = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
+        //Used in website
+        public static string GET_EMPLOYEE_BY_USERNAME = "SELECT * FROM Employee WHERE UserName = @UserName;";
+        public static string EDIT_EMPLOYEE_BY_ID = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Password = @Password, UserName = @UserName,  BSN = @BSN, Address = @City, PhoneNumber = @PhoneNumber, Email = @Email WHERE EmployeeID = @EmployeeID;";
 
         //MohammadStart
         private static string GET_AVAILABLE_EMPLOYEE = "SELECT * FROM availability INNER JOIN employee ON availability.EmployeeID = employee.EmployeeID WHERE Week = @Week AND Day = @Day AND Shift = @Shift;";

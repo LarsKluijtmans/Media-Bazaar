@@ -11,6 +11,17 @@
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
         }
       },
+      "dotConnect.Express.for.MySQL/8.19.1985": {
+        "type": "package",
+        "compile": {
+          "lib/Devart.Data.MySql.dll": {},
+          "lib/Devart.Data.dll": {}
+        },
+        "runtime": {
+          "lib/Devart.Data.MySql.dll": {},
+          "lib/Devart.Data.dll": {}
+        }
+      },
       "Google.Protobuf/3.14.0": {
         "type": "package",
         "dependencies": {
@@ -110,6 +121,25 @@
           "lib/net5.0/MySql.Data.dll": {},
           "lib/net5.0/Ubiety.Dns.Core.dll": {},
           "lib/net5.0/Zstandard.Net.dll": {}
+        }
+      },
+      "MySqlBackup.Net.DevartExpress/2.3.6": {
+        "type": "package",
+        "dependencies": {
+          "dotConnect.Express.for.MySQL": "8.19.1985"
+        },
+        "compile": {
+          "lib/net5.0/MySqlBackupNet.DevartExpress.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/MySqlBackupNet.DevartExpress.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
         }
       },
       "System.Buffers/4.5.1": {
@@ -280,7 +310,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "MySql.Data": "8.0.26"
+          "MySql.Data": "8.0.26",
+          "MySqlBackup.Net.DevartExpress": "2.3.6"
         },
         "compile": {
           "bin/placeholder/ClassLibraryProject.dll": {}
@@ -315,6 +346,22 @@
         "lib/netstandard2.0/BouncyCastle.Crypto.xml",
         "lib/xamarinios/BouncyCastle.Crypto.dll",
         "lib/xamarinios/BouncyCastle.Crypto.xml"
+      ]
+    },
+    "dotConnect.Express.for.MySQL/8.19.1985": {
+      "sha512": "aWpPU1S6e7+zHplkTheaOSI+GeMWM3fkKE1Hd/Ga2Kr02KsO3tkgXOOM4O6JG6eOGhUajcGJEHHhumMZuE/RZA==",
+      "type": "package",
+      "path": "dotconnect.express.for.mysql/8.19.1985",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/app.config.transform",
+        "content/web.config.transform",
+        "dotconnect.express.for.mysql.8.19.1985.nupkg.sha512",
+        "dotconnect.express.for.mysql.nuspec",
+        "lib/Devart.Data.MySql.dll",
+        "lib/Devart.Data.dll",
+        "mysql.png"
       ]
     },
     "Google.Protobuf/3.14.0": {
@@ -469,6 +516,38 @@
         "lib/netstandard2.1/Zstandard.Net.dll",
         "mysql.data.8.0.26.nupkg.sha512",
         "mysql.data.nuspec"
+      ]
+    },
+    "MySqlBackup.Net.DevartExpress/2.3.6": {
+      "sha512": "UMmuzi64MplDilQJadzlow0Yos+6AH+ONawoF9DYzAZd49f9wloa29A/oi8qxP9ruwciP/S0B7YPYmHLp8ncTw==",
+      "type": "package",
+      "path": "mysqlbackup.net.devartexpress/2.3.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "content/logo.ico",
+        "contentFiles/any/net452/logo.ico",
+        "contentFiles/any/net461/logo.ico",
+        "contentFiles/any/net472/logo.ico",
+        "contentFiles/any/net48/logo.ico",
+        "contentFiles/any/net5.0/logo.ico",
+        "contentFiles/any/netcoreapp2.0/logo.ico",
+        "contentFiles/any/netcoreapp2.1/logo.ico",
+        "contentFiles/any/netcoreapp2.2/logo.ico",
+        "contentFiles/any/netcoreapp3.0/logo.ico",
+        "lib/net452/MySqlBackupNet.DevartExpress.dll",
+        "lib/net461/MySqlBackupNet.DevartExpress.dll",
+        "lib/net472/MySqlBackupNet.DevartExpress.dll",
+        "lib/net48/MySqlBackupNet.DevartExpress.dll",
+        "lib/net5.0/MySqlBackupNet.DevartExpress.dll",
+        "lib/netcoreapp2.0/MySqlBackupNet.DevartExpress.dll",
+        "lib/netcoreapp2.1/MySqlBackupNet.DevartExpress.dll",
+        "lib/netcoreapp2.2/MySqlBackupNet.DevartExpress.dll",
+        "lib/netcoreapp3.0/MySqlBackupNet.DevartExpress.dll",
+        "logo128.png",
+        "mysqlbackup.net.devartexpress.2.3.6.nupkg.sha512",
+        "mysqlbackup.net.devartexpress.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -857,19 +936,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\csten\\.nuget\\packages\\": {}
+    "C:\\Users\\lars\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\ClassLibrary1.csproj",
+      "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj",
       "projectName": "ClassLibrary1",
-      "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\ClassLibrary1.csproj",
-      "packagesPath": "C:\\Users\\csten\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\obj\\",
+      "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj",
+      "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\csten\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -883,8 +962,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
-              "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+            "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+              "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
             }
           }
         }
@@ -913,8 +992,20 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'dotConnect.Express.for.MySQL 8.19.1985' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "dotConnect.Express.for.MySQL",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

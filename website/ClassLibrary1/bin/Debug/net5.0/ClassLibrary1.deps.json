@@ -22,6 +22,18 @@
           }
         }
       },
+      "dotConnect.Express.for.MySQL/8.19.1985": {
+        "runtime": {
+          "lib/Devart.Data.MySql.dll": {
+            "assemblyVersion": "8.19.1985.0",
+            "fileVersion": "8.19.1985.0"
+          },
+          "lib/Devart.Data.dll": {
+            "assemblyVersion": "5.0.2777.0",
+            "fileVersion": "5.0.2777.0"
+          }
+        }
+      },
       "Google.Protobuf/3.14.0": {
         "dependencies": {
           "System.Memory": "4.5.3",
@@ -112,6 +124,17 @@
           "lib/net5.0/Zstandard.Net.dll": {
             "assemblyVersion": "1.1.7.0",
             "fileVersion": "1.1.7.0"
+          }
+        }
+      },
+      "MySqlBackup.Net.DevartExpress/2.3.6": {
+        "dependencies": {
+          "dotConnect.Express.for.MySQL": "8.19.1985"
+        },
+        "runtime": {
+          "lib/net5.0/MySqlBackupNet.DevartExpress.dll": {
+            "assemblyVersion": "2.3.6.0",
+            "fileVersion": "2.3.6.0"
           }
         }
       },
@@ -216,7 +239,8 @@
       },
       "ClassLibraryProject/1.0.0": {
         "dependencies": {
-          "MySql.Data": "8.0.26"
+          "MySql.Data": "8.0.26",
+          "MySqlBackup.Net.DevartExpress": "2.3.6"
         },
         "runtime": {
           "ClassLibraryProject.dll": {}
@@ -236,6 +260,13 @@
       "sha512": "sha512-6uxsQw2UXrt82VQAWC2td3oBSJjUZ3P4u4DliagB8wf67KsU53V8sW9xwdF+IwZOOZFR0TCZuv/YKZ2BlrfAag==",
       "path": "bouncycastle.netcore/1.8.5",
       "hashPath": "bouncycastle.netcore.1.8.5.nupkg.sha512"
+    },
+    "dotConnect.Express.for.MySQL/8.19.1985": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aWpPU1S6e7+zHplkTheaOSI+GeMWM3fkKE1Hd/Ga2Kr02KsO3tkgXOOM4O6JG6eOGhUajcGJEHHhumMZuE/RZA==",
+      "path": "dotconnect.express.for.mysql/8.19.1985",
+      "hashPath": "dotconnect.express.for.mysql.8.19.1985.nupkg.sha512"
     },
     "Google.Protobuf/3.14.0": {
       "type": "package",
@@ -285,6 +316,13 @@
       "sha512": "sha512-iOxE24dI01JZlZ1EObkz9WwYMzX+0RnBf5a11OkPDCOGv2Yo0tTWmwAJfVXkuuSD47XngOir7l7+xZZ56lZyAA==",
       "path": "mysql.data/8.0.26",
       "hashPath": "mysql.data.8.0.26.nupkg.sha512"
+    },
+    "MySqlBackup.Net.DevartExpress/2.3.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UMmuzi64MplDilQJadzlow0Yos+6AH+ONawoF9DYzAZd49f9wloa29A/oi8qxP9ruwciP/S0B7YPYmHLp8ncTw==",
+      "path": "mysqlbackup.net.devartexpress/2.3.6",
+      "hashPath": "mysqlbackup.net.devartexpress.2.3.6.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",

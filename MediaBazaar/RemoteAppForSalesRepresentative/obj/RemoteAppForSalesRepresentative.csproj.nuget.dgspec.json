@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj": {}
+    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj": {}
   },
   "projects": {
-    "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
         "projectName": "ClassLibraryProject",
-        "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
-        "packagesPath": "C:\\Users\\csten\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
+        "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\csten\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,6 +43,10 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.26, )"
+            },
+            "MySqlBackup.Net.DevartExpress": {
+              "target": "Package",
+              "version": "[2.3.6, )"
             }
           },
           "imports": [
@@ -60,21 +64,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj": {
+    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj",
+        "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj",
         "projectName": "RemoteAppForSalesRepresentative",
-        "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj",
-        "packagesPath": "C:\\Users\\csten\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForSalesRepresentative\\obj\\",
+        "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\RemoteAppForSalesRepresentative\\RemoteAppForSalesRepresentative.csproj",
+        "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\RemoteAppForSalesRepresentative\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\csten\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,8 +92,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
-                "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+              "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+                "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
               }
             }
           }
@@ -121,7 +125,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
