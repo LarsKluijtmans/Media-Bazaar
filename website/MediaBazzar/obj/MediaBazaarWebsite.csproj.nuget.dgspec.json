@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj": {}
+    "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+    "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "projectUniqueName": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
         "projectName": "ClassLibraryProject",
-        "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
-        "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
+        "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "packagesPath": "C:\\Users\\csten\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\csten\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,21 +60,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj": {
+    "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\ClassLibrary1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj",
+        "projectUniqueName": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\ClassLibrary1.csproj",
         "projectName": "ClassLibrary1",
-        "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj",
-        "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\obj\\",
+        "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\ClassLibrary1.csproj",
+        "packagesPath": "C:\\Users\\csten\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\csten\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,8 +88,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
-                "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+              "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+                "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
               }
             }
           }
@@ -118,21 +118,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj": {
+    "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
+        "projectUniqueName": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
         "projectName": "MediaBazaarWebsite",
-        "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
-        "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\obj\\",
+        "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
+        "packagesPath": "C:\\Users\\csten\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\csten\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -146,11 +146,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
-                "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+              "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+                "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
               },
-              "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj": {
-                "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj"
+              "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\ClassLibrary1.csproj": {
+                "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\ClassLibrary1.csproj"
               }
             }
           }
@@ -182,7 +182,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

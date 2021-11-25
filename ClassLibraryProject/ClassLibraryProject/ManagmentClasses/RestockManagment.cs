@@ -25,7 +25,7 @@ namespace ClassLibraryProject.ManagmentClasses
         //Extra
         private static string GET_AMOUNT_RECEIVED = "SELECT restockreplenishment.ReceivedAmount FROM restockreplenishment INNER JOIN product ON restockreplenishment.ProductID = product.ProductID WHERE RestockReplenishmentID = @RestockReplenishmentID;";
         private static string GET_AMOUNT_DEPOT = "SELECT product.AmountInDepot FROM restockreplenishment INNER JOIN product ON restockreplenishment.ProductID = product.ProductID WHERE RestockReplenishmentID = @RestockReplenishmentID;";
-        private static string GET_STATUS = "SELECT Status FROM restockreplenishment WHERE Barcode = @Barcode;";
+
 
         //manager
         public DataTable ViewPendingRestockRequests()
@@ -291,34 +291,6 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
             return 0;
-        }
-        public string GetStatus(string barcode)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = GET_STATUS;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Barcode", barcode);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    string status = reader.GetString("Status");
-                    return status;
-                }
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-            return "";
         }
     }
 }

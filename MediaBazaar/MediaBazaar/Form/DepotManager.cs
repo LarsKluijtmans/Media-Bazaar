@@ -332,10 +332,7 @@ namespace AdminBackups
             int week = Convert.ToInt32(lblPlanningWeek.Text);
             string day = Convert.ToString(selectedRow.Cells["Day"].Value);
             string shift = Convert.ToString(selectedColumn.Name);
-
-             
             store.planningManagment.AddPlanning(year, week, day, shift, employee.EmployeeID);
-            //MessageBox.Show(dgPlanningSchedule.CurrentCell.Value.ToString());
         }
 
         private void btnRemoveFromSchedule_Click(object sender, EventArgs e)
@@ -479,11 +476,6 @@ namespace AdminBackups
             {
                 MessageBox.Show("Select supplier");
             }
-        }
-
-        private void btnAddNewOrder_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

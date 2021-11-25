@@ -41,6 +41,7 @@ namespace AdminBackups
             this.lblOrderID = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAddNewOrder = new System.Windows.Forms.Button();
             this.txtSupplierID = new System.Windows.Forms.Label();
             this.txtProductID = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
@@ -161,6 +162,17 @@ namespace AdminBackups
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // btnAddNewOrder
+            // 
+            this.btnAddNewOrder.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddNewOrder.Location = new System.Drawing.Point(261, 176);
+            this.btnAddNewOrder.Name = "btnAddNewOrder";
+            this.btnAddNewOrder.Size = new System.Drawing.Size(130, 32);
+            this.btnAddNewOrder.TabIndex = 14;
+            this.btnAddNewOrder.Text = "Add New Order";
+            this.btnAddNewOrder.UseVisualStyleBackColor = true;
+            this.btnAddNewOrder.Click += new System.EventHandler(this.btnAddNewOrder_Click);
+            // 
             // txtSupplierID
             // 
             this.txtSupplierID.AutoSize = true;
@@ -188,6 +200,7 @@ namespace AdminBackups
             this.ClientSize = new System.Drawing.Size(464, 258);
             this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.txtSupplierID);
+            this.Controls.Add(this.btnAddNewOrder);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lblOrderID);
@@ -221,6 +234,7 @@ namespace AdminBackups
         private System.Windows.Forms.Label lblOrderID;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnAddNewOrder;
         private System.Windows.Forms.Label txtSupplierID;
         private System.Windows.Forms.ComboBox txtProductID;
     }

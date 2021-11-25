@@ -48,17 +48,8 @@ namespace RemoteAppForSalesRepresentative
                 {
                     if (product.Barcode == txtBarcode.Text)
                     {
-                        if (store.reshelfManagment.GetStatus(txtBarcode.Text) != "Pending")
-                        {
-                            store.reshelfManagment.RequestReshelf(product.Barcode, product.ProductID, Convert.ToInt32(txtRequest.Text));
-                            MessageBox.Show("requested!");
-                            txtBarcode.Clear();
-                        }
+                        store.reshelfManagment.RequestReshelf(product.Barcode, product.ProductID, Convert.ToInt32(txtRequest.Text));
                     }
-                }
-                if (store.reshelfManagment.GetStatus(txtBarcode.Text) == "Pending")
-                {
-                    MessageBox.Show("Already requested!");
                 }
             }
             catch(Exception)

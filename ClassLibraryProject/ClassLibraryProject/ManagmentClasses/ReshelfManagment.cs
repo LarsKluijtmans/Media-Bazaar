@@ -22,7 +22,6 @@ namespace ClassLibraryProject.ManagmentClasses
         private static string GET_AMOUNT_REQUESTED = "SELECT shelfreplenishment.AmountRequested FROM `shelfreplenishment` INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
         private static string GET_AMOUNT_STORE = "SELECT product.AmountInStore FROM `shelfreplenishment` INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
         private static string GET_AMOUNT_DEPOT = "SELECT product.AmountInDepot FROM `shelfreplenishment` INNER JOIN product ON shelfreplenishment.ProductID = product.ProductID WHERE ShelfReplenishmentID = @ShelfReplenishmentID;";
-        private static string GET_STATUS = "SELECT Status FROM shelfreplenishment WHERE Barcode = @Barcode;";
 
         //For sales
         public void RequestReshelf(string barcode, int id, int amountRequested)
@@ -248,76 +247,5 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return 0;
         }
-        public string GetStatus(string barcode)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = GET_STATUS;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Barcode", barcode);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    string status = reader.GetString("Status");
-                    return status;
-                }
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-            return "";
-        }
-
-        private List<Reshelf> reshelves;
-        public List<Reshelf> Reshelves
-        {
-            get { return reshelves; }
-            set { reshelves = value; }
-        }
-        private void GetAllReshelfRequest()
-        {
-            Reshelves = new List<Reshelf>();
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = GET_PENDING_SHELF_REPLENISHMENT_REQUESTS;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Reshelf reshelf;
-
-                while (reader.Read())
-                {
-                    int id = reader.GetInt32("ShelfReplenishmentID");
-                    int productID = reader.GetInt32("ProductID");
-                    string barcode = reader.GetString("Barcode");
-                    int amountRequested = reader.GetInt32("AmountRequested");
-                    string status = reader.GetString("Status");
-
-                    reshelf = new Reshelf(id, barcode, productID, amountRequested, status);
-                    Reshelves.Add(reshelf);
-                }
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
-    } 
-    
+    }   
 }

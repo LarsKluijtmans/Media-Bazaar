@@ -6,37 +6,38 @@ namespace ClassLibraryProject.Class
 {
     public class Restock
     {
-        private int id;
-        private Product product;
+        private int restockReplenishmentID;
+        private int productID;
+        private string barcode;
         private int amountReceived;
-        private string status;
 
-        public int ID
+        public int RestockReplenishmentID
         {
-            get { return id; }
-            set { id = value; }
+            get { return restockReplenishmentID; }
+            set { restockReplenishmentID = value; }
         }
-        public Product Product
+        public int ProductID
         {
-            get { return product; }
-            set { product = value; }
+            get { return productID; }
+            set { productID = value; }
+        }
+        public string Barcode
+        {
+            get { return barcode; }
+            set { barcode = value; }
         }
         public int AmountReceived
         {
             get { return amountReceived; }
             set { amountReceived = value; }
         }
-        public string Status
+
+        public Restock(int restockReplenishmentID, int productID, string barcode, int amountInDepot, int amountReceived)
         {
-            get { return status; }
-            set { status = value; }
-        }
-        public Restock(int id, Product product, int amountReceived, string status)
-        {
-            ID = id;
-            Product = product;
+            RestockReplenishmentID = restockReplenishmentID;
+            ProductID = productID;
+            Barcode = barcode;
             AmountReceived = amountReceived;
-            Status = status;
         }
     }
 }
