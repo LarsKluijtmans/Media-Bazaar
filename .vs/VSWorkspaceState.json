@@ -1,15 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ClassLibraryProject",
-    "\\ClassLibraryProject\\ClassLibraryProject",
-    "\\MediaBazaar",
+    "\\MediaBazaar\\MediaBazaar",
+    "\\Minutes\\Minutes",
     "\\website",
-    "\\website\\ClassLibrary1",
-    "\\website\\MediaBazzar",
-    "\\website\\MediaBazzar\\wwwroot\\css",
-    "\\website\\MediaBazzar\\wwwroot\\image"
+    "\\website\\MediaBazzar"
   ],
-  "SelectedNode": "\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+  "SelectedNode": "\\website\\MediaBazzar\\MediaBazzar.sln",
   "PreviewInSolutionExplorer": false
 }

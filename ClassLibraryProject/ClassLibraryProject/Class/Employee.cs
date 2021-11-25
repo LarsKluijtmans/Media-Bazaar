@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace ClassLibraryProject.Class
@@ -23,38 +22,28 @@ namespace ClassLibraryProject.Class
 
 
         // properties
-        [Required]
         public string FirstName { get; set; }
-        [Required]
         public string LastName { get; set; }
-        [Required]
+        
         public int PhoneNumber { get; set; }
-        [Required]
         public string City { get; set; }
-        [Required]
         public string DateOfBirth { get; set; }
-        [Required]
         public int BSN { get; set; }
-        [Required]
         public string Username { get; set; }
-        [Required]
         public string Password { get; set; }
-        [Required]
         public string Email { get; set; }
-        public int EmployeeID 
-        {
-            get { return employeeID; }  
-            set { employeeID = value; } 
-        }
+        public int EmployeeID { get;  set; }
         public Contract Contract { get; set; }
 
-        // constructor
-        public Employee()
-        { }
 
+        public Employee()
+        {
+
+        }
+        // constructor
         public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
          {
-            this.LastName = lastname;
+            this.LastName = LastName;
             this.FirstName = firstname;
             this.PhoneNumber = phonenumber;
             this.Email = email;
@@ -63,22 +52,8 @@ namespace ClassLibraryProject.Class
             this.BSN = bsn;
             this.Username = username;
             this.Password = password;
+              
          }
-
-        public Employee(int employeeid, string lastname, string firstname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
-        {
-            this.LastName = lastname;
-            this.FirstName = firstname;
-            this.PhoneNumber = phonenumber;
-            this.Email = email;
-            this.City = city;
-            this.DateOfBirth = dateofbirth;
-            this.BSN = bsn;
-            this.Username = username;
-            this.Password = password;
-            this.EmployeeID = employeeid;
-        }
-
         // methodes
         public override string ToString()
         {
