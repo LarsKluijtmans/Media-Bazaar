@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace ClassLibraryProject.Class
@@ -22,28 +23,38 @@ namespace ClassLibraryProject.Class
 
 
         // properties
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
-        
+        [Required]
         public int PhoneNumber { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string DateOfBirth { get; set; }
+        [Required]
         public int BSN { get; set; }
+        [Required]
         public string Username { get; set; }
+        [Required]
         public string Password { get; set; }
+        [Required]
         public string Email { get; set; }
-        public int EmployeeID { get;  set; }
+        public int EmployeeID 
+        {
+            get { return employeeID; }  
+            set { employeeID = value; } 
+        }
         public Contract Contract { get; set; }
 
-
-        public Employee()
-        {
-
-        }
         // constructor
+        public Employee()
+        { }
+
         public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
          {
-            this.LastName = LastName;
+            this.LastName = lastname;
             this.FirstName = firstname;
             this.PhoneNumber = phonenumber;
             this.Email = email;
@@ -52,8 +63,8 @@ namespace ClassLibraryProject.Class
             this.BSN = bsn;
             this.Username = username;
             this.Password = password;
-              
          }
+
         // methodes
         public override string ToString()
         {
