@@ -66,6 +66,7 @@ namespace AdminBackups
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvDepartments = new System.Windows.Forms.DataGridView();
             this.gbDepartment = new System.Windows.Forms.GroupBox();
+            this.btnDeleteDepartment = new System.Windows.Forms.Button();
             this.labDepartmentName = new System.Windows.Forms.Label();
             this.labDepartmentID = new System.Windows.Forms.Label();
             this.btnEditDepartment = new System.Windows.Forms.Button();
@@ -87,7 +88,6 @@ namespace AdminBackups
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.btnDeleteDepartment = new System.Windows.Forms.Button();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -504,6 +504,17 @@ namespace AdminBackups
             this.gbDepartment.TabIndex = 1;
             this.gbDepartment.TabStop = false;
             // 
+            // btnDeleteDepartment
+            // 
+            this.btnDeleteDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDeleteDepartment.Location = new System.Drawing.Point(129, 344);
+            this.btnDeleteDepartment.Name = "btnDeleteDepartment";
+            this.btnDeleteDepartment.Size = new System.Drawing.Size(361, 42);
+            this.btnDeleteDepartment.TabIndex = 7;
+            this.btnDeleteDepartment.Text = "Delete Department";
+            this.btnDeleteDepartment.UseVisualStyleBackColor = true;
+            this.btnDeleteDepartment.Click += new System.EventHandler(this.btnDeleteDepartment_Click);
+            // 
             // labDepartmentName
             // 
             this.labDepartmentName.AutoSize = true;
@@ -714,17 +725,6 @@ namespace AdminBackups
             // timer2
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // btnDeleteDepartment
-            // 
-            this.btnDeleteDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDeleteDepartment.Location = new System.Drawing.Point(129, 344);
-            this.btnDeleteDepartment.Name = "btnDeleteDepartment";
-            this.btnDeleteDepartment.Size = new System.Drawing.Size(361, 42);
-            this.btnDeleteDepartment.TabIndex = 7;
-            this.btnDeleteDepartment.Text = "Delete Department";
-            this.btnDeleteDepartment.UseVisualStyleBackColor = true;
-            this.btnDeleteDepartment.Click += new System.EventHandler(this.btnDeleteDepartment_Click);
             // 
             // OfficeManager
             // 
