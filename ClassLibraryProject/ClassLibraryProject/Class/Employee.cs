@@ -65,6 +65,20 @@ namespace ClassLibraryProject.Class
             this.Password = password;
          }
 
+        public Employee(int employeeid, string lastname, string firstname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
+        {
+            this.LastName = lastname;
+            this.FirstName = firstname;
+            this.PhoneNumber = phonenumber;
+            this.Email = email;
+            this.City = city;
+            this.DateOfBirth = dateofbirth;
+            this.BSN = bsn;
+            this.Username = username;
+            this.Password = password;
+            this.EmployeeID = employeeid;
+        }
+
         // methodes
         public override string ToString()
         {

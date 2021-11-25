@@ -14,7 +14,7 @@ namespace ClassLibraryProject.ManagmentClasses
         public static string GET_ALL_EMPLOYEES = "SELECT * FROM Employee ORDER BY EmployeeID;";
         public static string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Address = @City, PhoneNumber = @PhoneNumber WHERE EmployeeID = @EmployeeID;";
         public static string DELETE_EMPLOYEE_BY_ID = "DELETE FROM Employee WHERE EmployeeID = @EmployeeID";
-       
+
         public static string VIEW_EMPLOYEE = "SELECT * FROM Employee WHERE EmployeeID = @EmployeeID;";
         public static string REMOVE_EMPLOYEE_BY_ID = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
 
@@ -83,11 +83,15 @@ namespace ClassLibraryProject.ManagmentClasses
                     string password = reader.GetString("Password");
                     int active = reader.GetInt32("Active");
 
-                    if(active == 1)
+                    GetEnlistedEmployees(2021, week, day, shift);
+                    if (active == 1)
                     {
-                        employee = new Employee(lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
-                        AvailableEmployee.Add(employee);
-                    } 
+                        if (IsInList(employeeID) == true)
+                        {
+                            employee = new Employee(employeeID, lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                            AvailableEmployee.Add(employee);
+                        }
+                    }
                 }
             }
             catch (MySqlException)
@@ -139,9 +143,9 @@ namespace ClassLibraryProject.ManagmentClasses
 
                     if (active == 1)
                     {
-                        employee = new Employee(lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                        employee = new Employee(employeeID, lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
                         EnlistedEmployee.Add(employee);
-                    } 
+                    }
                 }
             }
             catch (MySqlException)
@@ -229,5 +233,17 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
+        public bool IsInList(int ID)
+        {
+            foreach (Employee e in EnlistedEmployee)
+            {
+                if (e.EmployeeID == ID)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
     }
 }
