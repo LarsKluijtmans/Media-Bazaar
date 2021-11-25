@@ -328,7 +328,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "MySql.Data": "8.0.26"
+          "MySql.Data": "8.0.26",
+          "MySqlBackup.Net.DevartExpress": "2.3.6"
         },
         "compile": {
           "bin/placeholder/ClassLibraryProject.dll": {}

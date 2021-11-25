@@ -43,6 +43,10 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.26, )"
+            },
+            "MySqlBackup.Net.DevartExpress": {
+              "target": "Package",
+              "version": "[2.3.6, )"
             }
           },
           "imports": [
