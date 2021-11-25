@@ -11,7 +11,7 @@ namespace AdminBackups
         Store store;
         int i;
         int pi;
-
+        DateTime date = DateTime.Now;
         public DepotManager(int UserID, Store s)
         {
             InitializeComponent();
@@ -24,12 +24,12 @@ namespace AdminBackups
             UpdateSchedule();
             UpdatePlanningSchedule();
             UpdateSupplier();
+            UpdateEmployeesWorkingToday();
         }
 
         //Initialize
         public void Initialize()
         {
-            DateTime date = DateTime.Now;
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
             lblPlanningWeek.Text = GetCurrentWeekOfYear(date).ToString();
             i = Convert.ToInt32(lblWeek.Text);
@@ -62,7 +62,15 @@ namespace AdminBackups
         {
             tabControl1.SelectTab(4);
         }
-
+        private void UpdateEmployeesWorkingToday()
+        {
+            store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
+            lstEmployeesWorkingToday.Items.Clear();
+            foreach(Employee employee in store.employeeManagement.EmployeeWorkingToday)
+            {
+                lstEmployeesWorkingToday.Items.Add(employee);
+            }
+        }
         //Restock
         public void UpdateRestockRequests()
         {

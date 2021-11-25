@@ -40,6 +40,20 @@ namespace ClassLibraryProject.Class
         {
 
         }
+        public Employee(int id,string lastname, string firstname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
+        {
+            EmployeeID = id;
+            this.LastName = lastname;
+            this.FirstName = firstname;
+            this.PhoneNumber = phonenumber;
+            this.Email = email;
+            this.City = city;
+            this.DateOfBirth = dateofbirth;
+            this.BSN = bsn;
+            this.Username = username;
+            this.Password = password;
+
+        }
         // constructor
         public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
          {

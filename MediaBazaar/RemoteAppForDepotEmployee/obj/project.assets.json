@@ -857,19 +857,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\csten\\.nuget\\packages\\": {}
+    "C:\\Users\\nazib\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForDepotEmployee\\RemoteAppForDepotEmployee.csproj",
+      "projectUniqueName": "F:\\Study\\Semester 2\\PRJ\\MediaBazaar\\RemoteAppForDepotEmployee\\RemoteAppForDepotEmployee.csproj",
       "projectName": "RemoteAppForDepotEmployee",
-      "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForDepotEmployee\\RemoteAppForDepotEmployee.csproj",
-      "packagesPath": "C:\\Users\\csten\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForDepotEmployee\\obj\\",
+      "projectPath": "F:\\Study\\Semester 2\\PRJ\\MediaBazaar\\RemoteAppForDepotEmployee\\RemoteAppForDepotEmployee.csproj",
+      "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
+      "outputPath": "F:\\Study\\Semester 2\\PRJ\\MediaBazaar\\RemoteAppForDepotEmployee\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\csten\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -883,8 +883,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
-              "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+            "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+              "projectPath": "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
             }
           }
         }
@@ -916,7 +916,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

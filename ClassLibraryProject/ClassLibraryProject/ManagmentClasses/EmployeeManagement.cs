@@ -22,9 +22,11 @@ namespace ClassLibraryProject.ManagmentClasses
         private static string GET_AVAILABLE_EMPLOYEE = "SELECT * FROM availability INNER JOIN employee ON availability.EmployeeID = employee.EmployeeID WHERE Week = @Week AND Day = @Day AND Shift = @Shift;";
         private static string GET_ENLISTED_EMPLOYEE = "SELECT * FROM planning INNER JOIN employee ON planning.EmployeeID = employee.EmployeeID WHERE Year = @Year AND Week = @Week AND Day = @Day AND Shift = @Shift;";
 
+        private static string GET_EMPLOYEE_WORKING_TODAY = "SELECT * FROM planning INNER JOIN employee ON planning.EmployeeID = employee.EmployeeID WHERE Year = @Year AND Week = @Week AND Day = @Day;";
+
         private List<Employee> availableEmployee;
         private List<Employee> enlistedEmployee;
-
+        private List<Employee> employeeWorkingToday;
         public List<Employee> AvailableEmployee
         {
             get { return availableEmployee; }
@@ -35,10 +37,16 @@ namespace ClassLibraryProject.ManagmentClasses
             get { return enlistedEmployee; }
             set { enlistedEmployee = value; }
         }
+        public List<Employee> EmployeeWorkingToday
+        {
+            get { return employeeWorkingToday; }
+            set { employeeWorkingToday = value; }
+        }
         public EmployeeManagement()
         {
             AvailableEmployee = new List<Employee>();
             EnlistedEmployee = new List<Employee>();
+            EmployeeWorkingToday = new List<Employee>();
         }
 
         public void GetAvailableEmployees(int week, string day, string shift)
@@ -81,7 +89,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
                     if(active == 1)
                     {
-                        employee = new Employee(lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                        employee = new Employee(employeeID, lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
                         AvailableEmployee.Add(employee);
                     } 
                 }
@@ -135,9 +143,62 @@ namespace ClassLibraryProject.ManagmentClasses
 
                     if (active == 1)
                     {
-                        employee = new Employee(lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                        employee = new Employee(employeeID, lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
                         EnlistedEmployee.Add(employee);
                     } 
+                }
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void GetEmployeesWorkingToday(int year, int week, string day)
+        {
+            EnlistedEmployee.Clear();
+
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = GET_EMPLOYEE_WORKING_TODAY;
+
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@Year", year);
+                cmd.Parameters.AddWithValue("@Week", week);
+                cmd.Parameters.AddWithValue("@Day", day);
+
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Employee employee;
+
+                while (reader.Read())
+                {
+                    int employeeID = reader.GetInt32("EmployeeID");
+                    string lastName = reader.GetString("LastName");
+                    string firstName = reader.GetString("FirstName");
+                    int phoneNumber = reader.GetInt32("PhoneNumber");
+                    string email = reader.GetString("Email");
+                    string city = reader.GetString("Address");
+                    string dateOfBirth = reader.GetString("DateOfBirth");
+                    int bsn = reader.GetInt32("BSN");
+                    string username = reader.GetString("Username");
+                    string password = reader.GetString("Password");
+                    int active = reader.GetInt32("Active");
+
+                    if (active == 1)
+                    {
+                        employee = new Employee(employeeID, lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
+                        EmployeeWorkingToday.Add(employee);
+                    }
                 }
             }
             catch (MySqlException)
