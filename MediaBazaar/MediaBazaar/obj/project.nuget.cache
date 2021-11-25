@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "DupG4BFGMf4GDICXThl6CA1DtHPsfMO1sv0nz2ujwnI55iXTniKRi61DqLx1xKkQB7lGlKENXDdM1jokqvpE/w==",
+=======
+  "dgSpecHash": "VVo70/lUf1SIP0eCg2GK4ltCwbrbv0AYGeSVMW4wmgSU4/7aqY8a3Oo3bNXCQUFcTw3bbmb7KS23EFo3pvMrOA==",
+>>>>>>> d547a6561f3c66ccbd502c95c3feffc96a74c374
   "success": true,
   "projectFilePath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
   "expectedPackageFiles": [
