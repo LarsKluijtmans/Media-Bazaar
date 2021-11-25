@@ -1,9 +1,3 @@
-<<<<<<< HEAD
 is_global = true
 build_property.RootNamespace = RemoteAppForSalesRepresentative
-build_property.ProjectDir = C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\
-=======
-is_global = true
-build_property.RootNamespace = RemoteAppForSalesRepresentative
-build_property.ProjectDir = C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesRepresentative\
->>>>>>> d547a6561f3c66ccbd502c95c3feffc96a74c374
+build_property.ProjectDir = C:\Users\esthe\OneDrive\Bureaublad\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesRepresentative\
