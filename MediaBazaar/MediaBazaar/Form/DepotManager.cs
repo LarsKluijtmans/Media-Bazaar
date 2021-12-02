@@ -340,7 +340,23 @@ namespace AdminBackups
             int week = Convert.ToInt32(lblPlanningWeek.Text);
             string day = Convert.ToString(selectedRow.Cells["Day"].Value);
             string shift = Convert.ToString(selectedColumn.Name);
+
             store.planningManagment.AddPlanning(year, week, day, shift, employee.EmployeeID);
+
+            lstEmpCanWork.Items.Clear();
+            store.employeeManagement.GetAvailableEmployees(week, day, shift);
+            foreach (Employee emp in store.employeeManagement.AvailableEmployee)
+            {
+                lstEmpCanWork.Items.Add(emp);
+            }
+
+            lstEmpEnlisted.Items.Clear();
+            store.employeeManagement.GetEnlistedEmployees(year, week, day, shift);
+            foreach (Employee emp in store.employeeManagement.EnlistedEmployee)
+            {
+                lstEmpEnlisted.Items.Add(emp);
+            }
+
         }
 
         private void btnRemoveFromSchedule_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Devart.Data.MySql;
+using MySql.Data.MySqlClient;
 using System;
 
 namespace ClassLibraryProject.ManagmentClasses
@@ -7,7 +8,6 @@ namespace ClassLibraryProject.ManagmentClasses
     {
         public void MakeBackUp(string FileLocation)
         {
-           
         }
     }
 }

@@ -9,8 +9,10 @@
     <div class="main-index">
         <div class="home-text">
             <h1>Media Bazaar</h1>
-            <p>Lorem ipsum ... media bazaar text ...</p>
-            <a asp-area="" asp-page="/Profile" class="btn">Login</a>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a asp-area="" asp-page="/Profile" class="btn">Login</a>
+            }
         </div>
     </div>
 </div>

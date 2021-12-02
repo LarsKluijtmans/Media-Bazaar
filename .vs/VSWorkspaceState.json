@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\MediaBazaar\\MediaBazaar",
-    "\\Minutes\\Minutes",
-    "\\website",
-    "\\website\\MediaBazzar"
+    "\\MediaBazaar"
   ],
-  "SelectedNode": "\\website\\MediaBazzar\\MediaBazzar.sln",
+  "SelectedNode": "\\MediaBazaar\\MediaBazaar.sln",
   "PreviewInSolutionExplorer": false
 }

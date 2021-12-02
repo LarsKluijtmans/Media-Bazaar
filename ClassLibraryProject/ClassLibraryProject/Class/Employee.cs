@@ -40,9 +40,9 @@ namespace ClassLibraryProject.Class
         {
 
         }
-        public Employee(int id,string lastname, string firstname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
-        {
-            EmployeeID = id;
+        // constructor
+        public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
+         {
             this.LastName = lastname;
             this.FirstName = firstname;
             this.PhoneNumber = phonenumber;
@@ -52,12 +52,11 @@ namespace ClassLibraryProject.Class
             this.BSN = bsn;
             this.Username = username;
             this.Password = password;
+         }
 
-        }
-        // constructor
-        public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
-         {
-            this.LastName = LastName;
+        public Employee(int  employeeID,string lastname, string firstname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
+        {
+            this.LastName = lastname;
             this.FirstName = firstname;
             this.PhoneNumber = phonenumber;
             this.Email = email;
@@ -66,8 +65,8 @@ namespace ClassLibraryProject.Class
             this.BSN = bsn;
             this.Username = username;
             this.Password = password;
-              
-         }
+            this.employeeID = employeeID;
+        }
         // methodes
         public override string ToString()
         {
