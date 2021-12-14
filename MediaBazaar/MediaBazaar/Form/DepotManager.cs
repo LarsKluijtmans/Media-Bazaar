@@ -7,17 +7,17 @@ namespace AdminBackups
 {
     public partial class DepotManager : Form
     {
-        int ID;
+        Employee depotManager;
         Store store;
         int i;
         int pi;
-        DateTime date = DateTime.Now;
+
         public DepotManager(int UserID, Store s)
         {
             InitializeComponent();
 
-            store = s;
-            ID = UserID;
+            this.depotManager = depotManager;
+            this.store = store;
 
             Initialize();
             UpdateRestockRequests();
@@ -28,6 +28,16 @@ namespace AdminBackups
         }
 
         //Initialize
+        DateTime date = DateTime.Now;
+        private void UpdateEmployeesWorkingToday()
+        {
+            store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
+            lstEmployeesWorkingToday.Items.Clear();
+            foreach (Employee employee in store.employeeManagement.EmployeeWorkingToday)
+            {
+                lstEmployeesWorkingToday.Items.Add(employee);
+            }
+        }
         public void Initialize()
         {
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
