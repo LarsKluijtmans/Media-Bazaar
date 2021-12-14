@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibraryProject.Class
 {
-    public class Employee
+    public abstract class Employee
     {
         // fields
         private int employeeID;
@@ -65,7 +65,7 @@ namespace ClassLibraryProject.Class
             this.BSN = bsn;
             this.Username = username;
             this.Password = password;
-            this.employeeID = employeeID;
+            this.EmployeeID = employeeID;
         }
         // methodes
         public override string ToString()

@@ -248,8 +248,8 @@ namespace Statistics
             this.CRestockAmount.Series.Add(series3);
             this.CRestockAmount.Size = new System.Drawing.Size(1163, 577);
             this.CRestockAmount.TabIndex = 17;
-            title2.Name = "Restock Amount";
-            title2.Text = "Restock Amount";
+            title2.Name = "Amount of times Restocked";
+            title2.Text = "Amount of times Restocked";
             this.CRestockAmount.Titles.Add(title2);
             // 
             // tbResctockRequests
@@ -325,7 +325,7 @@ namespace Statistics
             this.CReshelfAmount.TabStop = false;
             this.CReshelfAmount.Text = "chart4";
             title4.Name = "Reshelf Amount";
-            title4.Text = "Reshelf Amount";
+            title4.Text = "Amount of times Reshelfed";
             this.CReshelfAmount.Titles.Add(title4);
             // 
             // tabPage2
@@ -346,7 +346,7 @@ namespace Statistics
             this.CReshelfRequest.ChartAreas.Add(chartArea5);
             legend5.Name = "Legend1";
             this.CReshelfRequest.Legends.Add(legend5);
-            this.CReshelfRequest.Location = new System.Drawing.Point(3, 3);
+            this.CReshelfRequest.Location = new System.Drawing.Point(-4, 3);
             this.CReshelfRequest.Name = "CReshelfRequest";
             series6.ChartArea = "ChartArea1";
             series6.CustomProperties = "EmptyPointValue=Zero";
@@ -363,7 +363,7 @@ namespace Statistics
             this.CReshelfRequest.Series.Add(series6);
             this.CReshelfRequest.Size = new System.Drawing.Size(1163, 575);
             this.CReshelfRequest.TabIndex = 18;
-            this.CReshelfRequest.Text = "chart5";
+            this.CReshelfRequest.Text = "+";
             title5.Name = "Total Reshelf amount";
             title5.Text = "Total Reshelf amount";
             this.CReshelfRequest.Titles.Add(title5);

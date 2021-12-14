@@ -1,8 +1,9 @@
-﻿using ClassLibraryProject.Interfaces;
+﻿using ClassLibraryProject.Class;
+using ClassLibraryProject.Interfaces;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class LoginManagment
+    public class LoginManagment : ILogin
     {
         ILoginManagement iLoginManagement;
 
@@ -12,7 +13,7 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         //Gets the jobtitle of the employee that users this username and password, if exists
-        public string CheckLogin(string UserName, string Password)
+        public Employee CheckLogin(string UserName, string Password)
         {
             return iLoginManagement.checkLogin(UserName, Password);
         }

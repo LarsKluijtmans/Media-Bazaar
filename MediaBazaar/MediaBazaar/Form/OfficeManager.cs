@@ -11,15 +11,15 @@ namespace AdminBackups
 {
     public partial class OfficeManager : Form
     {
-        int ID;
+        Employee officeManager;
         Store store;
 
-        public OfficeManager(int UserID, Store s)
+        public OfficeManager(Employee officeManager, Store store)
         {
             InitializeComponent();
 
-            ID = UserID;
-            store = s;
+            this.officeManager = officeManager;
+            this.store = store;
 
             cbHeadDepartments.Text = "Sales";
             cbHeadDepartments.Items.Add("Sales");
@@ -518,7 +518,7 @@ namespace AdminBackups
 
         private void ViewCompany()
         {
-            Company company = store.companyManagment.GetCompany(ID);
+            Company company = store.companyManagment.GetCompany(officeManager.EmployeeID);
 
             tbCompanyName.Text = company.CompanyName;
             tbAdress.Text = company.Address;

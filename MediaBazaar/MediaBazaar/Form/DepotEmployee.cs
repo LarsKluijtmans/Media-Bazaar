@@ -7,14 +7,15 @@ namespace AdminBackups
 {
     public partial class DepotEmployee : Form
     {
-        int id;
+        Employee depotemployee;
         Store store;
-
-        public DepotEmployee(int UserID, Store s)
+        public DepotEmployee(Employee depotemployee, Store store)
         {
             InitializeComponent();
-            id = UserID;
-            store = s;
+
+            this.depotemployee = depotemployee;
+            this.store = store;
+
             UpdateReshelveRequests();
             UpdateOrders();
         }

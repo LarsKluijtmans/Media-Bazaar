@@ -11,14 +11,14 @@ namespace AdminBackups
 {
     public partial class SalesManager : Form
     {
-        int ID;
+        Employee salesManager;
         Store store;
         int i;
         int pi;
-        public SalesManager(int UserID, Store s)
+        public SalesManager(Employee salesManager, Store s)
         {
             InitializeComponent();
-            ID = UserID;
+            this.salesManager = salesManager;
             store = s;
 
             txtYear.Text = "2021";
@@ -27,12 +27,22 @@ namespace AdminBackups
             UpdateSchedule();
             UpdatePlanningSchedule();
             UpdateProducts(tbProductSearch.Text);
-            
+            UpdateEmployeesWorkingToday();
 
             timer2.Start();
         }
 
         //Initialize
+        DateTime date = DateTime.Now;
+        private void UpdateEmployeesWorkingToday()
+        {
+            store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
+            lstEmployeesWorkingToday.Items.Clear();
+            foreach (Employee employee in store.employeeManagement.EmployeeWorkingToday)
+            {
+                lstEmployeesWorkingToday.Items.Add(employee);
+            }
+        }
         public void Initialize()
         {
             DateTime date = DateTime.Now;
@@ -91,6 +101,7 @@ namespace AdminBackups
         public void UpdateProducts(string search)
         {
             dgvProducts.DataSource = store.productManagment.ViewAllProducts(search);
+            dgProduct.DataSource = store.productManagment.ViewAllProducts(search);
         }
         private void dgvProducts_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -293,12 +304,14 @@ namespace AdminBackups
                 string day = Convert.ToString(selectedRow.Cells["Day"].Value);
                 string shift = Convert.ToString(selectedColumn.Name);
 
+                lstEmpCanWork.Items.Clear();
                 store.employeeManagement.GetAvailableEmployees(week, day, shift);
                 foreach (Employee employee in store.employeeManagement.AvailableEmployee)
                 {
                     lstEmpCanWork.Items.Add(employee);
                 }
 
+                lstEmpEnlisted.Items.Clear();
                 store.employeeManagement.GetEnlistedEmployees(year, week, day, shift);
                 foreach (Employee employee in store.employeeManagement.EnlistedEmployee)
                 {
@@ -309,10 +322,6 @@ namespace AdminBackups
             {
                 MessageBox.Show("Select amount");
             }
-        }
-        private void lstEmpCanWork_DoubleClick(object sender, EventArgs e)
-        {
-
         }
     }
 }

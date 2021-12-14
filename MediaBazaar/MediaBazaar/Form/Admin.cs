@@ -13,14 +13,14 @@ namespace AdminBackups
 {
     public partial class Admin : Form
     {
-        int ID;
+        Employee admin;
         Store store;
 
-        public Admin(int userID, Store s)
+        public Admin(Employee admin, Store store)
         {
             InitializeComponent();
-            ID = userID;
-            store = s;
+            this.admin = admin;
+            this.store = store;
 
             if (AmountOfEmployees() >= 2)
             {
@@ -95,6 +95,8 @@ namespace AdminBackups
             tbxUsername.Text = username;
             tbxPassword.Text = password;
             tbxEmail.Text = email;
+
+            Store store = new Store();
 
             store.emailManager.Email(password, username, email);
             MessageBox.Show("Email send");

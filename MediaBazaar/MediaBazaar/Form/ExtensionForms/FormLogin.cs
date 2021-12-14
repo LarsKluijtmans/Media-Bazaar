@@ -2,16 +2,22 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using ClassLibraryProject.Class;
-using MySql.Data.MySqlClient;
+using ClassLibraryProject.dbClasses;
+using ClassLibraryProject.Interfaces;
+using ClassLibraryProject.ManagmentClasses;
 
 namespace AdminBackups
 {
     public partial class FormLogin : Form
     {
-        Store store = new Store();
+        Login login;
+        Store store;
         public FormLogin()
         {
             InitializeComponent();
+
+           login = new Login(new LoginManagment(new dbLoginManager()));
+            store = new Store();
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -35,18 +41,19 @@ namespace AdminBackups
                 return;
             }
 
-            int ID = store.loginManagment.GetID(UserName, Password);
+            int ID = login.GetID(UserName, Password);
             if (ID != 0)
             {
-                switch (store.loginManagment.CheckLogin(UserName, Password))
+                Employee employee = login.CheckLogin(UserName, Password);
+                switch (employee.Contract.JobTitle)
                 {
                     case "CEO": MessageBox.Show("Please use the CEO application"); break;
-                    case "ADMIN": Admin admin = new Admin(Convert.ToInt32(ID), store); Hide(); admin.Show(); break;
-                    case "SALES MANAGER": SalesManager salesManager = new SalesManager(Convert.ToInt32(ID), store); Hide(); salesManager.Show(); break;
-                    case "OFFICE MANAGER": OfficeManager officeManager = new OfficeManager(Convert.ToInt32(ID), store); Hide(); officeManager.Show(); break;
-                    case "PRODUCT MANAGER": ProductManager officeEmployee = new ProductManager(Convert.ToInt32(ID), store); Hide(); officeEmployee.Show(); break;
-                    case "DEPOT MANAGER": DepotManager depotManager = new DepotManager(Convert.ToInt32(ID), store);/* Hide();*/ depotManager.Show(); break;
-                    case "DEPOT EMPLOYEE": DepotEmployee depotEmployee = new DepotEmployee(Convert.ToInt32(ID), store);/* Hide();*/ depotEmployee.Show(); break;
+                    case "ADMIN": Admin admin = new Admin(employee, store); Hide(); admin.Show(); break;
+                    case "SALES MANAGER": SalesManager salesManager = new SalesManager(employee, store); Hide(); salesManager.Show(); break;
+                    case "OFFICE MANAGER": OfficeManager officeManager = new OfficeManager(employee, store); Hide(); officeManager.Show(); break;
+                    case "PRODUCT MANAGER": ProductManager officeEmployee = new ProductManager(employee, store); Hide(); officeEmployee.Show(); break;
+                    case "DEPOT MANAGER": DepotManager depotManager = new DepotManager(employee, store);/* Hide();*/ depotManager.Show(); break;
+                    case "DEPOT EMPLOYEE": DepotEmployee depotEmployee = new DepotEmployee(employee, store);/* Hide();*/ depotEmployee.Show(); break;
                     case "Wrong info!": MessageBox.Show("Wrong info!"); break;
                 }
             }
@@ -72,19 +79,20 @@ namespace AdminBackups
                 return;
             }
 
-            int ID = store.loginManagment.GetID(UserName, Password);
+            int ID = login.GetID(UserName, Password);
             if (ID != 0)
             {
-                switch (store.loginManagment.CheckLogin(UserName, Password))
+                Employee employee = login.CheckLogin(UserName, Password);
+                switch (employee.Contract.JobTitle)
                 {
                     case "CEO": MessageBox.Show("Please use the CEO application"); break;
-                    case "ADMIN": Admin admin = new Admin(Convert.ToInt32(ID), store); Hide(); admin.Show(); break;
-                    case "SALES MANAGER": SalesManager salesManager = new SalesManager(Convert.ToInt32(ID), store); Hide(); salesManager.Show(); break;
-                    case "OFFICE MANAGER": OfficeManager officeManager = new OfficeManager(Convert.ToInt32(ID), store); Hide(); officeManager.Show(); break;
-                    case "PRODUCT MANAGER": ProductManager officeEmployee = new ProductManager(Convert.ToInt32(ID), store); Hide(); officeEmployee.Show(); break;
-                    case "DEPOT MANAGER": DepotManager depotManager = new DepotManager(Convert.ToInt32(ID), store);/* Hide();*/ depotManager.Show(); break;
-                    case "DEPOT EMPLOYEE": DepotEmployee depotEmployee = new DepotEmployee(Convert.ToInt32(ID), store);/* Hide();*/ depotEmployee.Show(); break;
-                    case "Wrong info!": MessageBox.Show("Wrong info!"); break;
+                    case "ADMIN": Admin admin = new Admin(employee, store); Hide(); admin.Show(); break;
+                    case "SALES MANAGER": SalesManager salesManager = new SalesManager(employee, store); Hide(); salesManager.Show(); break;
+                    case "OFFICE MANAGER": OfficeManager officeManager = new OfficeManager(employee, store); Hide(); officeManager.Show(); break;
+                    case "PRODUCT MANAGER": ProductManager officeEmployee = new ProductManager(employee, store); Hide(); officeEmployee.Show(); break;
+                    case "DEPOT MANAGER": DepotManager depotManager = new DepotManager(employee, store);/* Hide();*/ depotManager.Show(); break;
+                    case "DEPOT EMPLOYEE": DepotEmployee depotEmployee = new DepotEmployee(employee, store);/* Hide();*/ depotEmployee.Show(); break;
+                    case "": MessageBox.Show("Wrong info!"); break;
                 }
             }
             else

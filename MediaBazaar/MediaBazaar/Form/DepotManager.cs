@@ -7,26 +7,37 @@ namespace AdminBackups
 {
     public partial class DepotManager : Form
     {
-        int ID;
+        Employee depotManager;
         Store store;
         int i;
         int pi;
 
-        public DepotManager(int UserID, Store s)
+        public DepotManager(Employee depotManager, Store store)
         {
             InitializeComponent();
 
-            store = s;
-            ID = UserID;
+            this.depotManager = depotManager;
+            this.store = store;
 
             Initialize();
             UpdateRestockRequests();
             UpdateSchedule();
             UpdatePlanningSchedule();
             UpdateSupplier();
+            UpdateEmployeesWorkingToday();
         }
 
         //Initialize
+        DateTime date = DateTime.Now;
+        private void UpdateEmployeesWorkingToday()
+        {
+            store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
+            lstEmployeesWorkingToday.Items.Clear();
+            foreach (Employee employee in store.employeeManagement.EmployeeWorkingToday)
+            {
+                lstEmployeesWorkingToday.Items.Add(employee);
+            }
+        }
         public void Initialize()
         {
             DateTime date = DateTime.Now;

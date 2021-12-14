@@ -8,13 +8,13 @@ namespace AdminBackups
 {
     public partial class ProductManager : Form
     {
-        int id;
+        Employee productManager;
         Store store;
 
-        public ProductManager(int UserID, Store s)
+        public ProductManager(Employee productManager, Store s)
         {
             InitializeComponent();
-            id = UserID;
+            this.productManager = productManager;
             store = s;
 
             UpdateProducts(tbProductSearch.Text);

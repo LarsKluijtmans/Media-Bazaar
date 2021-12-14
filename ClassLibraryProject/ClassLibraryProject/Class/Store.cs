@@ -10,7 +10,6 @@ namespace ClassLibraryProject.Class
         public ReshelfManagment reshelfManagment;
         public ScheduleManagment scheduleManagment;
         public PlanningManagment planningManagment;
-        public LoginManagment loginManagment;
         public DepartmentManagment departmentManagment;
         public CompanyManagment companyManagment;
         public CheckinManagment checkinManagment;
@@ -19,6 +18,7 @@ namespace ClassLibraryProject.Class
         public OrderInfoManagment orderInfoManagment;
         public EmailManager emailManager;
         public BackUpManagment backUpManagment;
+
         public Store()
         {
             productManagment = new ProductManagment();
@@ -31,7 +31,6 @@ namespace ClassLibraryProject.Class
             orderInfoManagment = new OrderInfoManagment();
 
             //Have interface
-            loginManagment = new LoginManagment(new dbLoginManager());
             departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
             companyManagment = new CompanyManagment( new dbCompanyManagment());
             checkinManagment = new CheckinManagment( new dbCheckinManagment());
