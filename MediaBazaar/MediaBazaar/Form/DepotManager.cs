@@ -7,17 +7,17 @@ namespace AdminBackups
 {
     public partial class DepotManager : Form
     {
-        Employee depotManager;
+        int ID;
         Store store;
         int i;
         int pi;
-
-        public DepotManager(Employee depotManager, Store store)
+        DateTime date = DateTime.Now;
+        public DepotManager(int UserID, Store s)
         {
             InitializeComponent();
 
-            this.depotManager = depotManager;
-            this.store = store;
+            store = s;
+            ID = UserID;
 
             Initialize();
             UpdateRestockRequests();
@@ -28,19 +28,8 @@ namespace AdminBackups
         }
 
         //Initialize
-        DateTime date = DateTime.Now;
-        private void UpdateEmployeesWorkingToday()
-        {
-            store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
-            lstEmployeesWorkingToday.Items.Clear();
-            foreach (Employee employee in store.employeeManagement.EmployeeWorkingToday)
-            {
-                lstEmployeesWorkingToday.Items.Add(employee);
-            }
-        }
         public void Initialize()
         {
-            DateTime date = DateTime.Now;
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
             lblPlanningWeek.Text = GetCurrentWeekOfYear(date).ToString();
             i = Convert.ToInt32(lblWeek.Text);
@@ -73,7 +62,15 @@ namespace AdminBackups
         {
             tabControl1.SelectTab(4);
         }
-
+        private void UpdateEmployeesWorkingToday()
+        {
+            store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
+            lstEmployeesWorkingToday.Items.Clear();
+            foreach(Employee employee in store.employeeManagement.EmployeeWorkingToday)
+            {
+                lstEmployeesWorkingToday.Items.Add(employee);
+            }
+        }
         //Restock
         public void UpdateRestockRequests()
         {
