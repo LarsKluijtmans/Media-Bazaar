@@ -1,4 +1,5 @@
-﻿using ClassLibraryProject.Class;
+﻿using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 using System;
@@ -9,12 +10,12 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace AdminBackups
 {
-    public partial class OfficeManager : Form
+    public partial class FromOfficeManager : Form
     {
         Employee officeManager;
         Store store;
 
-        public OfficeManager(Employee officeManager, Store store)
+        public FromOfficeManager(Employee officeManager, Store store)
         {
             InitializeComponent();
 
@@ -47,11 +48,10 @@ namespace AdminBackups
 
         private void btnSeatchDepartment_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         //Login
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Close();
@@ -63,7 +63,6 @@ namespace AdminBackups
         }
 
         //Timer
-
         private void timer2_Tick(object sender, EventArgs e)
         {
             if (ActiveControl == tbxSearchEmployee)
@@ -75,7 +74,6 @@ namespace AdminBackups
                 timer1.Stop();
             }
         }
-
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             ViewAllDepartments();
@@ -85,13 +83,12 @@ namespace AdminBackups
         //Atendance
         private void btnDecreaseYear_Click(object sender, EventArgs e)
         {
-          int year = Convert.ToInt16(labYear.Text);
+            int year = Convert.ToInt16(labYear.Text);
 
             year--;
             labYear.Text = year.ToString();
             GetAtendeance();
         }
-
         private void btnIncreaseYear_Click(object sender, EventArgs e)
         {
             int year = Convert.ToInt16(labYear.Text);
@@ -100,7 +97,6 @@ namespace AdminBackups
             labYear.Text = year.ToString();
             GetAtendeance();
         }
-
         private void btnMonthDecrease_Click(object sender, EventArgs e)
         {
             int month = Convert.ToInt16(labMonth.Text);
@@ -117,7 +113,6 @@ namespace AdminBackups
             }
             GetAtendeance();
         }
-
         private void btnMonthIncrease_Click(object sender, EventArgs e)
         {
             int month = Convert.ToInt16(labMonth.Text);
@@ -134,7 +129,6 @@ namespace AdminBackups
             }
             GetAtendeance();
         }
-
         private void btnMakeExcelSheet_Click_1(object sender, EventArgs e)
         {
             Excel.Application oXL;
@@ -190,7 +184,6 @@ namespace AdminBackups
                 i++;
             }
         }
-
         public void GetAtendeance()
         {
             int year, month;
@@ -269,25 +262,25 @@ namespace AdminBackups
                         }
                         else if (rbnDepotEmployees.Checked)
                         {
-                                if (c.JobTitle == "DEPOT EMPLOYEE" || c.JobTitle == "DEPOT MANAGER")
-                                {
-                                    lbxEmployees.Items.Add(employee);
-                                }
+                            if (c.JobTitle == "DEPOT EMPLOYEE" || c.JobTitle == "DEPOT MANAGER")
+                            {
+                                lbxEmployees.Items.Add(employee);
+                            }
                         }
                         else if (rbnOfficeEmployees.Checked)
                         {
-                                if (c.JobTitle == "OFFICE MANAGER")
-                                {
-                                    lbxEmployees.Items.Add(employee);
-                                }
+                            if (c.JobTitle == "OFFICE MANAGER")
+                            {
+                                lbxEmployees.Items.Add(employee);
+                            }
                         }
                         else if (rbnSalesEmployees.Checked)
                         {
-                                if (c.JobTitle == "SALES REPRESENTATIVE" || c.JobTitle == "SALES MANAGER")
-                                {
-                                    lbxEmployees.Items.Add(employee);
+                            if (c.JobTitle == "SALES REPRESENTATIVE" || c.JobTitle == "SALES MANAGER")
+                            {
+                                lbxEmployees.Items.Add(employee);
 
-                                }
+                            }
                         }
                     }
                 }
@@ -322,6 +315,7 @@ namespace AdminBackups
             FormViewEmployee formViewEmployee = new FormViewEmployee(employee, contract);
             formViewEmployee.Show();
         }
+
         // get contract
         public Contract GetContract(string employeeID)
         {
@@ -402,34 +396,32 @@ namespace AdminBackups
                 {
                     conn.Close();
                 }
-            } 
+            }
             catch (NullReferenceException nullRef)
             {
                 MessageBox.Show(nullRef + ". Please select an employee");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Something went wrong" + ex);
             }
 
             ViewAllEmployees();
         }
+
         // view employees
         private void rbnAllEmployees_CheckedChanged(object sender, EventArgs e)
         {
             ViewAllEmployees();
         }
-
         private void rbnOfficeEmployees_CheckedChanged(object sender, EventArgs e)
         {
             ViewAllEmployees();
         }
-
         private void rbnSalesEmployees_CheckedChanged(object sender, EventArgs e)
         {
             ViewAllEmployees();
         }
-
         private void rbnDepotEmployees_CheckedChanged(object sender, EventArgs e)
         {
             ViewAllEmployees();
@@ -438,9 +430,15 @@ namespace AdminBackups
         //Departments
         public void ViewAllDepartments()
         {
-            store.departmentManagment.ViewAllDepartments();
-
-            dgvDepartments.DataSource = store.departmentManagment.ViewAllDepartments();
+            if (officeManager is OfficeManager)
+            {
+                ((OfficeManager)officeManager).departmentManagment.ViewAllDepartments();
+                dgvDepartments.DataSource = ((OfficeManager)officeManager).departmentManagment.ViewAllDepartments();
+            }
+            else
+            {
+                MessageBox.Show("type casting failed");
+            }
         }
 
         private void btnAddDepartment_Click(object sender, EventArgs e)
@@ -466,9 +464,17 @@ namespace AdminBackups
                 return;
             }
 
-            store.departmentManagment.AddDepartment(Name, Head, CompanyID);
+            if (officeManager is OfficeManager)
+            {
+                ((OfficeManager)officeManager).departmentManagment.AddDepartment(Name, Head, CompanyID);
+            }
+            else
+            {
+                MessageBox.Show("type casting failed");
+            }
+
             ViewAllDepartments();
-        } 
+        }
 
         private void btnEditDepartment_Click(object sender, EventArgs e)
         {
@@ -498,8 +504,15 @@ namespace AdminBackups
                 MessageBox.Show("You can't edit the head Departments");
                 return;
             }
+            if (officeManager is OfficeManager)
+            {
+                ((OfficeManager)officeManager).departmentManagment.EditDepartment(Name, Head, DepartmentID.ToString());
+            }
+            else
+            {
+                MessageBox.Show("type casting failed");
+            }
 
-            store.departmentManagment.EditDepartment(Name, Head, DepartmentID.ToString());
             ViewAllDepartments();
         }
 
@@ -518,7 +531,13 @@ namespace AdminBackups
 
         private void ViewCompany()
         {
-            Company company = store.companyManagment.GetCompany(officeManager.EmployeeID);
+            Company company = new Company();
+            if (officeManager is OfficeManager)
+            {
+                company = ((OfficeManager)officeManager).companyManagment.GetCompany(officeManager.EmployeeID);
+            }
+            else
+            { MessageBox.Show("type casting failed."); }
 
             tbCompanyName.Text = company.CompanyName;
             tbAdress.Text = company.Address;
@@ -562,7 +581,7 @@ namespace AdminBackups
             {
                 Convert.ToInt32(BTW);
             }
-            catch 
+            catch
             {
                 MessageBox.Show("'BTW number' field must be only numbers.");
                 return;
@@ -606,8 +625,12 @@ namespace AdminBackups
                 MessageBox.Show("'KVK number' field is required.");
                 return;
             }
-
-            store.companyManagment.EditCompany(Name, Adress, PhoneNumber, Email, BTW, KVK, ID);
+            if (officeManager is OfficeManager)
+            {
+                ((OfficeManager)officeManager).companyManagment.EditCompany(Name, Adress, PhoneNumber, Email, BTW, KVK, ID);
+            }
+            else
+            { MessageBox.Show("type casting failed."); }
         }
 
 

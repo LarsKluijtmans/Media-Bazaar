@@ -1,7 +1,7 @@
 ﻿
 namespace AdminBackups
 {
-    partial class Admin
+    partial class FromAdmin
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FromAdmin));
             this.gbMakeEmployee = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbxJobTitle = new System.Windows.Forms.TextBox();

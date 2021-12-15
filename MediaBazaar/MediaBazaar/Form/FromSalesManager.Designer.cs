@@ -1,7 +1,7 @@
 ﻿
 namespace AdminBackups
 {
-    partial class SalesManager
+    partial class FromSalesManager
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace AdminBackups
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesManager));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FromSalesManager));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabOverview = new System.Windows.Forms.TabPage();
             this.label13 = new System.Windows.Forms.Label();

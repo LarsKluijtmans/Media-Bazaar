@@ -1,7 +1,7 @@
 ﻿
 namespace AdminBackups
 {
-    partial class DepotManager
+    partial class FromDepotManager
     {
         /// <summary>
         /// Required designer variable.

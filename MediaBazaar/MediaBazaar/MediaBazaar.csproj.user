@@ -4,13 +4,13 @@
     <Compile Update="Form\ExtensionForms\FormOrderInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\Admin.cs">
+    <Compile Update="Form\FromAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\DepotEmployee.cs">
+    <Compile Update="Form\FromDepotEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\DepotManager.cs">
+    <Compile Update="Form\FromDepotManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\ExtensionForms\FormLogin.cs">
@@ -25,13 +25,13 @@
     <Compile Update="Form\ExtensionForms\FormViewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\OfficeManager.cs">
+    <Compile Update="Form\FromOfficeManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\ProductManager.cs">
+    <Compile Update="Form\FromProductManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\SalesManager.cs">
+    <Compile Update="Form\FromSalesManager.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

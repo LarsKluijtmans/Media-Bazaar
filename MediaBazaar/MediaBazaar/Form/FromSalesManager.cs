@@ -9,13 +9,13 @@ using System.Windows.Forms;
 
 namespace AdminBackups
 {
-    public partial class SalesManager : Form
+    public partial class FromSalesManager : Form
     {
         Employee salesManager;
         Store store;
         int i;
         int pi;
-        public SalesManager(Employee salesManager, Store s)
+        public FromSalesManager(Employee salesManager, Store s)
         {
             InitializeComponent();
             this.salesManager = salesManager;

@@ -6,12 +6,12 @@ using System.Windows.Forms;
 
 namespace AdminBackups
 {
-    public partial class ProductManager : Form
+    public partial class FromProductManager : Form
     {
         Employee productManager;
         Store store;
 
-        public ProductManager(Employee productManager, Store s)
+        public FromProductManager(Employee productManager, Store s)
         {
             InitializeComponent();
             this.productManager = productManager;

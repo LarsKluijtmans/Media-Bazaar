@@ -50,6 +50,10 @@
 
 
         //constructor
+        public Company()
+        {
+
+        }
         public Company(string CompanyName, string Address, string Email, string KVK, string Btw, string PhoneNumber,string CompanyID)
         {
             companyID = CompanyID;

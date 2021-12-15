@@ -48,12 +48,12 @@ namespace AdminBackups
                 switch (employee.Contract.JobTitle)
                 {
                     case "CEO": MessageBox.Show("Please use the CEO application"); break;
-                    case "ADMIN": Admin admin = new Admin(employee, store); Hide(); admin.Show(); break;
-                    case "SALES MANAGER": SalesManager salesManager = new SalesManager(employee, store); Hide(); salesManager.Show(); break;
-                    case "OFFICE MANAGER": OfficeManager officeManager = new OfficeManager(employee, store); Hide(); officeManager.Show(); break;
-                    case "PRODUCT MANAGER": ProductManager officeEmployee = new ProductManager(employee, store); Hide(); officeEmployee.Show(); break;
-                    case "DEPOT MANAGER": DepotManager depotManager = new DepotManager(employee, store);/* Hide();*/ depotManager.Show(); break;
-                    case "DEPOT EMPLOYEE": DepotEmployee depotEmployee = new DepotEmployee(employee, store);/* Hide();*/ depotEmployee.Show(); break;
+                    case "ADMIN": FromAdmin admin = new FromAdmin(employee, store); Hide(); admin.Show(); break;
+                    case "SALES MANAGER": FromSalesManager salesManager = new FromSalesManager(employee, store); Hide(); salesManager.Show(); break;
+                    case "OFFICE MANAGER": FromOfficeManager officeManager = new FromOfficeManager(employee, store); Hide(); officeManager.Show(); break;
+                    case "PRODUCT MANAGER": FromProductManager officeEmployee = new FromProductManager(employee, store); Hide(); officeEmployee.Show(); break;
+                    case "DEPOT MANAGER": FromDepotManager depotManager = new FromDepotManager(employee, store);/* Hide();*/ depotManager.Show(); break;
+                    case "DEPOT EMPLOYEE": FromDepotEmployee depotEmployee = new FromDepotEmployee(employee, store);/* Hide();*/ depotEmployee.Show(); break;
                     case "Wrong info!": MessageBox.Show("Wrong info!"); break;
                 }
             }
@@ -86,12 +86,12 @@ namespace AdminBackups
                 switch (employee.Contract.JobTitle)
                 {
                     case "CEO": MessageBox.Show("Please use the CEO application"); break;
-                    case "ADMIN": Admin admin = new Admin(employee, store); Hide(); admin.Show(); break;
-                    case "SALES MANAGER": SalesManager salesManager = new SalesManager(employee, store); Hide(); salesManager.Show(); break;
-                    case "OFFICE MANAGER": OfficeManager officeManager = new OfficeManager(employee, store); Hide(); officeManager.Show(); break;
-                    case "PRODUCT MANAGER": ProductManager officeEmployee = new ProductManager(employee, store); Hide(); officeEmployee.Show(); break;
-                    case "DEPOT MANAGER": DepotManager depotManager = new DepotManager(employee, store);/* Hide();*/ depotManager.Show(); break;
-                    case "DEPOT EMPLOYEE": DepotEmployee depotEmployee = new DepotEmployee(employee, store);/* Hide();*/ depotEmployee.Show(); break;
+                    case "ADMIN": FromAdmin admin = new FromAdmin(employee, store); Hide(); admin.Show(); break;
+                    case "SALES MANAGER": FromSalesManager salesManager = new FromSalesManager(employee, store); Hide(); salesManager.Show(); break;
+                    case "OFFICE MANAGER": FromOfficeManager officeManager = new FromOfficeManager(employee, store); Hide(); officeManager.Show(); break;
+                    case "PRODUCT MANAGER": FromProductManager officeEmployee = new FromProductManager(employee, store); Hide(); officeEmployee.Show(); break;
+                    case "DEPOT MANAGER": FromDepotManager depotManager = new FromDepotManager(employee, store);/* Hide();*/ depotManager.Show(); break;
+                    case "DEPOT EMPLOYEE": FromDepotEmployee depotEmployee = new FromDepotEmployee(employee, store);/* Hide();*/ depotEmployee.Show(); break;
                     case "": MessageBox.Show("Wrong info!"); break;
                 }
             }

@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace AdminBackups
 {
-    public partial class Admin : Form
+    public partial class FromAdmin : Form
     {
         Employee admin;
         Store store;
 
-        public Admin(Employee admin, Store store)
+        public FromAdmin(Employee admin, Store store)
         {
             InitializeComponent();
             this.admin = admin;

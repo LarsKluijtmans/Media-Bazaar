@@ -5,14 +5,14 @@ using System.Windows.Forms;
 
 namespace AdminBackups
 {
-    public partial class DepotManager : Form
+    public partial class FromDepotManager : Form
     {
         Employee depotManager;
         Store store;
         int i;
         int pi;
 
-        public DepotManager(int UserID, Store s)
+        public FromDepotManager(Employee depotManager, Store store)
         {
             InitializeComponent();
 
@@ -29,15 +29,15 @@ namespace AdminBackups
 
         //Initialize
         DateTime date = DateTime.Now;
-        private void UpdateEmployeesWorkingToday()
-        {
-            store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
-            lstEmployeesWorkingToday.Items.Clear();
-            foreach (Employee employee in store.employeeManagement.EmployeeWorkingToday)
-            {
-                lstEmployeesWorkingToday.Items.Add(employee);
-            }
-        }
+        //private void UpdateEmployeesWorkingToday()
+        //{
+        //    store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
+        //    lstEmployeesWorkingToday.Items.Clear();
+        //    foreach (Employee employee in store.employeeManagement.EmployeeWorkingToday)
+        //    {
+        //        lstEmployeesWorkingToday.Items.Add(employee);
+        //    }
+        //}
         public void Initialize()
         {
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();

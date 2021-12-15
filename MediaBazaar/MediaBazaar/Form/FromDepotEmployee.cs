@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace AdminBackups
 {
-    public partial class DepotEmployee : Form
+    public partial class FromDepotEmployee : Form
     {
         Employee depotemployee;
         Store store;
-        public DepotEmployee(Employee depotemployee, Store store)
+        public FromDepotEmployee(Employee depotemployee, Store store)
         {
             InitializeComponent();
 
