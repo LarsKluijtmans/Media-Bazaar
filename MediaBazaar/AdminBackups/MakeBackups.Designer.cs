@@ -53,6 +53,7 @@ namespace AdminBackups
             this.niMakingBackups.Icon = ((System.Drawing.Icon)(resources.GetObject("niMakingBackups.Icon")));
             this.niMakingBackups.Text = "Just making backups Dont mind me";
             this.niMakingBackups.Visible = true;
+            this.niMakingBackups.MouseClick += new System.Windows.Forms.MouseEventHandler(this.niMakingBackups_MouseClick);
             this.niMakingBackups.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // progressBar1

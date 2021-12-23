@@ -27,6 +27,12 @@ namespace AdminBackups
             this.WindowState = FormWindowState.Normal;
             niMakingBackups.Visible = true;
         }
+        private void niMakingBackups_MouseClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            niMakingBackups.Visible = true;
+        }
 
         //Resize
         private void MakeBackups_Resize(object sender, EventArgs e)
