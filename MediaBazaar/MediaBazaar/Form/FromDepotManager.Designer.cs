@@ -93,6 +93,7 @@ namespace AdminBackups
             this.tabSupplier = new System.Windows.Forms.TabPage();
             this.dgSupplier = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAddNewOrder = new System.Windows.Forms.Button();
             this.btnOrderInfo = new System.Windows.Forms.Button();
             this.btnAddSupplier = new System.Windows.Forms.Button();
             this.txtPostalCode = new System.Windows.Forms.TextBox();
@@ -114,7 +115,6 @@ namespace AdminBackups
             this.label26 = new System.Windows.Forms.Label();
             this.btnRemoveSupplier = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
-            this.btnAddNewOrder = new System.Windows.Forms.Button();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
             this.tabSchedule.SuspendLayout();
@@ -171,7 +171,7 @@ namespace AdminBackups
             this.tabPlanning.Location = new System.Drawing.Point(4, 30);
             this.tabPlanning.Name = "tabPlanning";
             this.tabPlanning.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPlanning.Size = new System.Drawing.Size(1051, 510);
+            this.tabPlanning.Size = new System.Drawing.Size(1051, 529);
             this.tabPlanning.TabIndex = 11;
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
@@ -317,7 +317,7 @@ namespace AdminBackups
             this.tabSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabSchedule.Name = "tabSchedule";
             this.tabSchedule.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabSchedule.Size = new System.Drawing.Size(1051, 510);
+            this.tabSchedule.Size = new System.Drawing.Size(1051, 529);
             this.tabSchedule.TabIndex = 0;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
@@ -511,7 +511,7 @@ namespace AdminBackups
             this.tabRestock.Location = new System.Drawing.Point(4, 30);
             this.tabRestock.Name = "tabRestock";
             this.tabRestock.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRestock.Size = new System.Drawing.Size(1051, 510);
+            this.tabRestock.Size = new System.Drawing.Size(1051, 529);
             this.tabRestock.TabIndex = 5;
             this.tabRestock.Text = "Restock";
             this.tabRestock.UseVisualStyleBackColor = true;
@@ -704,11 +704,11 @@ namespace AdminBackups
             this.tabControl1.Controls.Add(this.tabPlanning);
             this.tabControl1.Controls.Add(this.tabSupplier);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabControl1.Location = new System.Drawing.Point(33, 49);
+            this.tabControl1.Location = new System.Drawing.Point(33, 30);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1059, 544);
+            this.tabControl1.Size = new System.Drawing.Size(1059, 563);
             this.tabControl1.TabIndex = 0;
             // 
             // tabOverview
@@ -724,7 +724,7 @@ namespace AdminBackups
             this.tabOverview.Location = new System.Drawing.Point(4, 30);
             this.tabOverview.Name = "tabOverview";
             this.tabOverview.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOverview.Size = new System.Drawing.Size(1051, 510);
+            this.tabOverview.Size = new System.Drawing.Size(1051, 529);
             this.tabOverview.TabIndex = 12;
             this.tabOverview.Text = "Overview";
             this.tabOverview.UseVisualStyleBackColor = true;
@@ -819,7 +819,7 @@ namespace AdminBackups
             this.tabSupplier.Location = new System.Drawing.Point(4, 30);
             this.tabSupplier.Name = "tabSupplier";
             this.tabSupplier.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSupplier.Size = new System.Drawing.Size(1051, 510);
+            this.tabSupplier.Size = new System.Drawing.Size(1051, 529);
             this.tabSupplier.TabIndex = 13;
             this.tabSupplier.Text = "Supplier";
             this.tabSupplier.UseVisualStyleBackColor = true;
@@ -865,6 +865,17 @@ namespace AdminBackups
             this.groupBox3.TabIndex = 93;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Supplier Management";
+            // 
+            // btnAddNewOrder
+            // 
+            this.btnAddNewOrder.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddNewOrder.Location = new System.Drawing.Point(220, 337);
+            this.btnAddNewOrder.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnAddNewOrder.Name = "btnAddNewOrder";
+            this.btnAddNewOrder.Size = new System.Drawing.Size(126, 30);
+            this.btnAddNewOrder.TabIndex = 110;
+            this.btnAddNewOrder.Text = "Add New Order";
+            this.btnAddNewOrder.UseVisualStyleBackColor = true;
             // 
             // btnOrderInfo
             // 
@@ -1080,18 +1091,7 @@ namespace AdminBackups
             this.label27.TabIndex = 92;
             this.label27.Text = "Supplier:";
             // 
-            // btnAddNewOrder
-            // 
-            this.btnAddNewOrder.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddNewOrder.Location = new System.Drawing.Point(220, 337);
-            this.btnAddNewOrder.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnAddNewOrder.Name = "btnAddNewOrder";
-            this.btnAddNewOrder.Size = new System.Drawing.Size(126, 30);
-            this.btnAddNewOrder.TabIndex = 110;
-            this.btnAddNewOrder.Text = "Add New Order";
-            this.btnAddNewOrder.UseVisualStyleBackColor = true;
-            // 
-            // DepotManager
+            // FromDepotManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1099,7 +1099,7 @@ namespace AdminBackups
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "DepotManager";
+            this.Name = "FromDepotManager";
             this.Text = "DepotManager";
             this.tabPlanning.ResumeLayout(false);
             this.tabPlanning.PerformLayout();

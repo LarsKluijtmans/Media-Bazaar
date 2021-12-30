@@ -18,8 +18,6 @@ namespace AdminBackups
             store = s;
 
             UpdateProducts(tbProductSearch.Text);
-
-            timer2.Start();
         }
 
         //Logout 
@@ -151,19 +149,7 @@ namespace AdminBackups
         }
 
         //Timer
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if (ActiveControl == tbProductSearch)
-            {
-                timer1.Start();
-            }
-            else 
-            { 
-                timer1.Stop(); 
-            }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
+        private void tbProductSearch_TextChanged(object sender, EventArgs e)
         {
             UpdateProducts(tbProductSearch.Text);
         }

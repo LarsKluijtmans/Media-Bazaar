@@ -110,7 +110,7 @@ namespace ClassLibraryProject.ManagmentClasses
         public DataTable ViewAllProducts( string Search)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = "SELECT * FROM `product` WHERE Name LIKE '%" + Search + "%' || Type LIKE '%" + Search + "%' ORDER BY ProductID;";
+            string sql = "SELECT * FROM `product` WHERE Name LIKE '%" + Search + "%' || Type LIKE '%" + Search + "%' ORDER BY ProductID LIMIT 25;";
 
             try
             {

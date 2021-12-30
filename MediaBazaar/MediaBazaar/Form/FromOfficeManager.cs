@@ -31,9 +31,6 @@ namespace AdminBackups
             labYear.Text = DateTime.Now.Year.ToString();
             labMonth.Text = DateTime.Now.Month.ToString();
 
-            timer1.Start();
-            timer2.Start();
-
             ViewCompany();
             ViewAllEmployees();
             GetAtendeance();
@@ -60,24 +57,6 @@ namespace AdminBackups
         {
             FormLogin login = new FormLogin();
             login.Show();
-        }
-
-        //Timer
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if (ActiveControl == tbxSearchEmployee)
-            {
-                timer1.Start();
-            }
-            else
-            {
-                timer1.Stop();
-            }
-        }
-        private void timer1_Tick_1(object sender, EventArgs e)
-        {
-            ViewAllDepartments();
-            GetAtendeance();
         }
 
         //Atendance

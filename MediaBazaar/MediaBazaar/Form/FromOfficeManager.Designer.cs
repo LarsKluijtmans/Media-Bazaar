@@ -29,7 +29,6 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.Comapny = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -66,6 +65,7 @@ namespace AdminBackups
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvDepartments = new System.Windows.Forms.DataGridView();
             this.gbDepartment = new System.Windows.Forms.GroupBox();
+            this.btnDeleteDepartment = new System.Windows.Forms.Button();
             this.labDepartmentName = new System.Windows.Forms.Label();
             this.labDepartmentID = new System.Windows.Forms.Label();
             this.btnEditDepartment = new System.Windows.Forms.Button();
@@ -85,9 +85,6 @@ namespace AdminBackups
             this.btnMakeExcelSheet = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.btnDeleteDepartment = new System.Windows.Forms.Button();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -504,6 +501,17 @@ namespace AdminBackups
             this.gbDepartment.TabIndex = 1;
             this.gbDepartment.TabStop = false;
             // 
+            // btnDeleteDepartment
+            // 
+            this.btnDeleteDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDeleteDepartment.Location = new System.Drawing.Point(129, 344);
+            this.btnDeleteDepartment.Name = "btnDeleteDepartment";
+            this.btnDeleteDepartment.Size = new System.Drawing.Size(361, 42);
+            this.btnDeleteDepartment.TabIndex = 7;
+            this.btnDeleteDepartment.Text = "Delete Department";
+            this.btnDeleteDepartment.UseVisualStyleBackColor = true;
+            this.btnDeleteDepartment.Click += new System.EventHandler(this.btnDeleteDepartment_Click);
+            // 
             // labDepartmentName
             // 
             this.labDepartmentName.AutoSize = true;
@@ -707,26 +715,7 @@ namespace AdminBackups
             this.textBox3.Size = new System.Drawing.Size(326, 33);
             this.textBox3.TabIndex = 6;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
-            // 
-            // timer2
-            // 
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // btnDeleteDepartment
-            // 
-            this.btnDeleteDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDeleteDepartment.Location = new System.Drawing.Point(129, 344);
-            this.btnDeleteDepartment.Name = "btnDeleteDepartment";
-            this.btnDeleteDepartment.Size = new System.Drawing.Size(361, 42);
-            this.btnDeleteDepartment.TabIndex = 7;
-            this.btnDeleteDepartment.Text = "Delete Department";
-            this.btnDeleteDepartment.UseVisualStyleBackColor = true;
-            this.btnDeleteDepartment.Click += new System.EventHandler(this.btnDeleteDepartment_Click);
-            // 
-            // OfficeManager
+            // FromOfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -734,7 +723,7 @@ namespace AdminBackups
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.Comapny);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "OfficeManager";
+            this.Name = "FromOfficeManager";
             this.Text = "FormOfficeManager";
             this.Comapny.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -811,9 +800,7 @@ namespace AdminBackups
         private System.Windows.Forms.TabPage WorkHours;
         private System.Windows.Forms.Button btnMakeExcelSheet;
         private System.Windows.Forms.Label labDepartmentName;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label labYear;
         private System.Windows.Forms.Button btnDecreaseYear;
         private System.Windows.Forms.Label labMonth;
