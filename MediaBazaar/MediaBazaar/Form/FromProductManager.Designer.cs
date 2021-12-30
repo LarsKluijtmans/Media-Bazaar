@@ -143,6 +143,8 @@ namespace AdminBackups
             // 
             // dgProducts
             // 
+            this.dgProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProducts.Location = new System.Drawing.Point(31, 57);
             this.dgProducts.Name = "dgProducts";
