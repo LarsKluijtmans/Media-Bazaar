@@ -5,6 +5,7 @@ using MySql.Data.MySqlClient;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ClassLibraryProject.ChildClasses;
 
 namespace MediaBazzar.Pages
 {
@@ -12,7 +13,7 @@ namespace MediaBazzar.Pages
     public class ProfileModel : PageModel
     {
         [BindProperty]
-        public Employee employee { get; set; }
+        public Admin employee { get; set; }
 
         public void OnGet()
         {
@@ -34,7 +35,7 @@ namespace MediaBazzar.Pages
                 {
                     if (reader.GetInt32("Active") == 1)
                     {
-                        employee = new Employee();
+                        employee = new Admin();
 
                         employee.EmployeeID = reader.GetInt32("EmployeeID");
                         employee.FirstName = reader.GetString("FirstName");
