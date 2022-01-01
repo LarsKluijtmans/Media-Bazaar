@@ -86,11 +86,14 @@ namespace MediaBazzar.Pages
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
 
-                ViewData["Message"] = numCreatedRows.ToString();
             }
             catch (MySqlException)
             {
-                ViewData["Message"] = "Error please try again later. ";
+                ViewData["Message"] = "Error!! There is aproblem with the database. ";
+            }
+            catch
+            { 
+                ViewData["Message"] = "Error please try again later."; 
             }
             finally
             {
