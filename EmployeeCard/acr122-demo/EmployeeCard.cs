@@ -1,10 +1,8 @@
 ﻿using acr122_demo;
 using acr122_demo.Class;
-using MySql.Data.MySqlClient;
 using Sydesoft.NfcDevice;
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace CardReader
@@ -12,11 +10,13 @@ namespace CardReader
     public partial class EmployeeCard : Form
     {
         private static MyACR122U acr122u;
+        DBPersonManager personManager;
 
         public EmployeeCard()
         {
             InitializeComponent();
             acr122u = new MyACR122U();
+            personManager = new DBPersonManager();
 
             try
             {
@@ -64,9 +64,7 @@ namespace CardReader
                 MessageBox.Show("Put a card that is not already in use against the card reader.");
                 return;
             }
-
-            DBPersonManager emp = new DBPersonManager();
-            emp.changeID(ID, CardNumber);
+            personManager.changeID(ID, CardNumber);
 
             tbEmployeeID.Text = "";
             tbEmployeeName.Text = "";
@@ -105,7 +103,7 @@ namespace CardReader
         //timer
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (acr122u.ReadId != null && GetEmployeeID(acr122u.ReadId.ToString()) != 0)
+            if (acr122u.ReadId != null && personManager.GetEmployeeID(acr122u.ReadId.ToString()) != 0)
             {
                 ViewAllEmployees(tbSearch.Text);
                 acr122u.ReadId = null;
@@ -126,96 +124,11 @@ namespace CardReader
         public void ViewAllEmployees(string search)
         {
             lbEmployee.Items.Clear();
-
-            MySqlConnection conn = Connection.GetConnection();
-
-            string sql = $"SELECT * FROM Employee INNER JOIN contract on contract.EmployeeID = Employee.EmployeeID where Active = 1 AND FirstName LIKE '{search}%' OR Active = 1 AND LastName LIKE '{search}%' ORDER BY Employee.EmployeeID;";
-
-            try
+            foreach (Person p in personManager.ViewAllEmployees(search))
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Person employee;
-
-                while (reader.Read())
-                {
-                    employee = new Person(
-                        reader.GetInt32("EmployeeID"),
-                        reader.GetString("FirstName"),
-                        reader.GetString("LastName"),
-                        reader.GetInt32("PhoneNumber"),
-                        reader.GetString("Email"),
-                        reader.GetString("Address"),
-                        reader.GetString("DateOfBirth"),
-                        reader.GetInt32("BSN"),
-                        reader.GetString("UserName"),
-                        reader.GetString("Password"),
-                        reader.GetString("CardNumber"));
-
-                    if (reader.GetString("CardNumber") != null)
-                    {
-                        employee.CardNumber = reader.GetString("CardNumber");
-                    }
-
-                    lbEmployee.Items.Add(employee);
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                Debug.WriteLine(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-            finally
-            {
-                if (conn != null)
-                {
-                    conn.Close();
-                }
+                lbEmployee.Items.Add(p);
             }
         }
-
-        //Get employee by ID
-        public int GetEmployeeID(string CardNumber)
-        {
-            MySqlConnection conn = Connection.GetConnection();
-
-            string sql = "SELECT `EmployeeID` FROM `employee` WHERE `CardNumber`= @CardNumber;";
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                cmd.Parameters.AddWithValue("@CardNumber", CardNumber);
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    return Convert.ToInt32(reader[0]);
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Something went wrong");
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return 0;
-        }
-
     }
 
     internal class MyACR122U : ACR122U
