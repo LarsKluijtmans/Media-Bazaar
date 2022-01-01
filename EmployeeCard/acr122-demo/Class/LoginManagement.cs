@@ -32,7 +32,6 @@ namespace CardReader.Class
                         return reader[2].ToString();
                     }
                 }
-                return "Wrong info!";
             }
             catch (MySqlException)
             { }
@@ -42,7 +41,7 @@ namespace CardReader.Class
             {
                 conn.Close();
             }
-            return "";
+            return "Wrong info!";
         }
 
         public int GetID(string UserName, string Password)

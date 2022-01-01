@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace acr122_demo.Class
 {
-    public class Employee
+    public class DBPersonManager
     {
-        private static string CHANGE_CARD_INFO = "UPDATE Employee SET CardNumber = @CardNumber WHERE EmployeeID = @EmployeeID;";
+        private string CHANGE_CARD_INFO = "UPDATE Employee SET CardNumber = @CardNumber WHERE EmployeeID = @EmployeeID;";
 
         public void changeID(string employeeID, string CardNumber)
         {

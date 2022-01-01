@@ -43,7 +43,6 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmpl
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\ClassLibraryProject.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\ClassLibraryProject.pdb
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.csproj.AssemblyReference.cache
-C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.ProductInfo.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.BarcodeScannerDepot.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.csproj.GenerateResource.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.GeneratedMSBuildEditorConfig.editorconfig
@@ -81,3 +80,6 @@ F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcorea
 F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.dll
 F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.pdb
 F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.genruntimeconfig.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\Devart.Data.MySql.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\Devart.Data.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\MySqlBackupNet.DevartExpress.dll

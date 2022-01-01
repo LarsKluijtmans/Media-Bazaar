@@ -98,11 +98,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Atendance.cs" />
-    <Compile Include="Class\Ckecks.cs" />
     <Compile Include="Class\Connection.cs" />
-    <Compile Include="Class\Contract.cs" />
-    <Compile Include="Class\Employee.cs" />
+    <Compile Include="Class\dbPersonManager.cs" />
     <Compile Include="Class\LoginManagement.cs" />
     <Compile Include="EmployeeCard.cs">
       <SubType>Form</SubType>
@@ -116,8 +113,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\Manager.cs" />
-    <Compile Include="Class\ManagerDepot.cs" />
     <Compile Include="Class\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

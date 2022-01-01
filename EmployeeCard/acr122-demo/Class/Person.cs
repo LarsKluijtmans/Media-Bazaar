@@ -8,22 +8,6 @@ namespace acr122_demo
 {
     public class Person
     {
-		private int employeeID;
-		private string firstName;
-		private string lastName;
-		private string username;
-		private string password;
-		private int bsn;
-		private int active;
-		private string city;
-		private string email;
-		private int phoneNumber;
-		private string dateOfBirth;
-		private string cardNumber;
-
-		private string preferedWorkTime;
-		private string leastPreferedWorkTime;
-
 		// properties
 		public int EmployeeID { get; set; }
 		public string FirstName { get; set; }
@@ -41,7 +25,6 @@ namespace acr122_demo
 		//constructor
 		public Person(int employeeID, string firstName, string lastName, int phoneNumber, string email, string city, string dateOfBirth, int bsn, string username, string password, string cardNum)
 		{
-
 			this.EmployeeID = employeeID;
 			this.LastName = firstName;
 			this.FirstName = lastName;
@@ -55,15 +38,11 @@ namespace acr122_demo
 			this.DateOfBirth = dateOfBirth;
 			CardNumber = cardNum;
 		}
+
 		// methodes
 		public override string ToString()
 		{
 			return $"ID: {EmployeeID} - {FirstName} {LastName}";
-		}
-		public void SelectWorkTime(string preferedWorkTime, string leastPreferedWorkTime)
-		{
-			this.preferedWorkTime = preferedWorkTime;
-			this.leastPreferedWorkTime = leastPreferedWorkTime;
 		}
 	}
 }

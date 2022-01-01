@@ -43,7 +43,6 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepr
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\bin\Debug\netcoreapp3.1\ClassLibraryProject.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\bin\Debug\netcoreapp3.1\ClassLibraryProject.pdb
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.csproj.AssemblyReference.cache
-C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.ProductInfo.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.Scanner.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.csproj.GenerateResource.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.GeneratedMSBuildEditorConfig.editorconfig
@@ -81,3 +80,6 @@ F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\ne
 F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.dll
 F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.pdb
 F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.genruntimeconfig.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\bin\Debug\netcoreapp3.1\Devart.Data.MySql.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\bin\Debug\netcoreapp3.1\Devart.Data.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\bin\Debug\netcoreapp3.1\MySqlBackupNet.DevartExpress.dll

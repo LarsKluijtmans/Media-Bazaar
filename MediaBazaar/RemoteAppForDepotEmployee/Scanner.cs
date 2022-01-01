@@ -65,7 +65,6 @@ namespace RemoteAppForDepotEmployee
                     store.restockManagment.RequestRestock(product.Barcode, product.ProductID);
                 }
             }
-
         }
 
         private void BarcodeScannerDepot_Click(object sender, EventArgs e)
