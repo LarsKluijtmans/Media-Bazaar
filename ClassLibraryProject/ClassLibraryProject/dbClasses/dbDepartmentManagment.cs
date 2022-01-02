@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.Interfaces;
+using System.Diagnostics;
 
 namespace ClassLibraryProject.dbClasses
 {
@@ -30,13 +31,20 @@ namespace ClassLibraryProject.dbClasses
 
                 return table;
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             DataTable a = new DataTable();
             return a;
@@ -59,13 +67,20 @@ namespace ClassLibraryProject.dbClasses
                 int numCreatedRows = cmd.ExecuteNonQuery();
 
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -86,13 +101,20 @@ namespace ClassLibraryProject.dbClasses
                 int numCreatedRows = cmd.ExecuteNonQuery();
 
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
     }

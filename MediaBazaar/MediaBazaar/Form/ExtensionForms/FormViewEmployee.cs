@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
@@ -94,15 +95,18 @@ namespace AdminBackups
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
         public void UpdateContract()
@@ -142,15 +146,18 @@ namespace AdminBackups
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
     }

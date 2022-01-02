@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace CardReader
@@ -49,13 +50,16 @@ namespace CardReader
             {
                 MessageBox.Show("Make sure to Use the provided vpn");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Make sure to Use the provided vpn");
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -81,15 +85,18 @@ namespace CardReader
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return 0;
         }
@@ -115,15 +122,18 @@ namespace CardReader
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return false;
         }
@@ -146,15 +156,18 @@ namespace CardReader
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -175,15 +188,18 @@ namespace CardReader
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
     }

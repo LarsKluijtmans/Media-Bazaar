@@ -4,6 +4,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 
 namespace ClassLibraryProject.dbClasses
 {
@@ -43,13 +44,20 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return checkin;
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return checkin;
         }
@@ -80,13 +88,20 @@ namespace ClassLibraryProject.dbClasses
 
                 return timeWorkeds;
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return timeWorkeds;
         }
@@ -110,13 +125,20 @@ namespace ClassLibraryProject.dbClasses
 
                 return table;
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             DataTable a = new DataTable();
             return a;
@@ -147,13 +169,20 @@ namespace ClassLibraryProject.dbClasses
 
                 return timeWorkeds;
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return timeWorkeds;
         }
@@ -186,13 +215,20 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return checkins;
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return checkins;
         }
@@ -217,13 +253,20 @@ namespace ClassLibraryProject.dbClasses
                     return Convert.ToInt32(reader[0]);
                 }
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return 0;
         }
@@ -247,13 +290,20 @@ namespace ClassLibraryProject.dbClasses
                     return true;
                 }
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return false;
         }
@@ -274,13 +324,20 @@ namespace ClassLibraryProject.dbClasses
                 conn.Open();
                 int n = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -299,13 +356,20 @@ namespace ClassLibraryProject.dbClasses
                 conn.Open();
                 int n = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
     }

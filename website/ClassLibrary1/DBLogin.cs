@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Diagnostics;
 
 namespace ClassLibrary1
 {
@@ -45,15 +46,18 @@ namespace ClassLibrary1
             }
             catch (MySqlException msqEx)
             {
-
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
-
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
 
             return null;

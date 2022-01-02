@@ -3,6 +3,7 @@ using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 
@@ -78,15 +79,18 @@ namespace AdminBackups
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
 
             tbxUsername.Text = username;
@@ -127,15 +131,18 @@ namespace AdminBackups
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -160,15 +167,18 @@ namespace AdminBackups
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return 0;
         }

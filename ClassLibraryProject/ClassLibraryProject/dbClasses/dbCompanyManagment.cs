@@ -2,6 +2,7 @@
 using ClassLibraryProject.Interfaces;
 using MySql.Data.MySqlClient;
 using System;
+using System.Diagnostics;
 
 namespace ClassLibraryProject.dbClasses
 {
@@ -34,13 +35,20 @@ namespace ClassLibraryProject.dbClasses
                     return Company;
                 }
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return null;
         }
@@ -66,13 +74,20 @@ namespace ClassLibraryProject.dbClasses
 
                 MySqlDataReader reader = cmd.ExecuteReader();
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
     }

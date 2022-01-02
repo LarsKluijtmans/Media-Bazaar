@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.Interfaces;
@@ -65,13 +66,20 @@ namespace ClassLibraryProject.dbClasses
                     }
                 }
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return employee;
         }
@@ -99,15 +107,20 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return 0;
             }
-            catch (MySqlException a)
+            catch (MySqlException msqEx)
             {
+                Debug.WriteLine(msqEx);
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return 0;
         }

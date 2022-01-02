@@ -38,15 +38,18 @@ namespace acr122_demo.Class
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -72,15 +75,18 @@ namespace acr122_demo.Class
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return 0;
         }

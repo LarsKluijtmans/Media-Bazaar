@@ -67,7 +67,7 @@ namespace AdminBackups
             // 
             // BtnNewEmployee
             // 
-            this.BtnNewEmployee.Location = new System.Drawing.Point(357, 91);
+            this.BtnNewEmployee.Location = new System.Drawing.Point(528, 103);
             this.BtnNewEmployee.Name = "BtnNewEmployee";
             this.BtnNewEmployee.Size = new System.Drawing.Size(143, 33);
             this.BtnNewEmployee.TabIndex = 41;

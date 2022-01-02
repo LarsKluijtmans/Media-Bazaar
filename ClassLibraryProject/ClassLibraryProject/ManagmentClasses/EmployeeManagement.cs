@@ -3,6 +3,7 @@ using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
@@ -101,13 +102,20 @@ namespace ClassLibraryProject.ManagmentClasses
                     }
                 }
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
         public void GetEnlistedEmployees(int year, int week, string day, string shift)
@@ -155,13 +163,20 @@ namespace ClassLibraryProject.ManagmentClasses
                     }
                 }
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
         //MohammadEnd
@@ -204,13 +219,18 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             catch (MySqlException msqEx)
             {
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
         public void CreateContract(int employeeID, string jobTitle, int workHoursPerWeek, double salary, string startDate)
@@ -236,13 +256,18 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             catch (MySqlException msqEx)
             {
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
         public bool IsInList(int ID)
@@ -322,13 +347,20 @@ namespace ClassLibraryProject.ManagmentClasses
                     }
                 }
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
