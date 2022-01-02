@@ -18,7 +18,7 @@ namespace AdminBackups
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MakeBackups());
+            Application.Run(new FormLogin());
         }
     }
 }

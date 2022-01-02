@@ -1,5 +1,4 @@
 ﻿using ClassLibraryProject.Class;
-using MySql.Data.MySqlClient;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;

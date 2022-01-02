@@ -30,3 +30,4 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\bin\Debu
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\bin\Debug\netcoreapp3.1\Devart.Data.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\bin\Debug\netcoreapp3.1\MySqlBackupNet.DevartExpress.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.csproj.CopyComplete
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.FormLogin.resources

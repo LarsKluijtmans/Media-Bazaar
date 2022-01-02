@@ -1,9 +1,6 @@
 ﻿using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses;
 using ClassLibraryProject.ManagmentClasses;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ClassLibraryProject.ChildClasses
 {

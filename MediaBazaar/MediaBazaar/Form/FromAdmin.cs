@@ -3,9 +3,6 @@ using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 using System;
 using System.ComponentModel;
-using System.Net;
-using System.Net.Mail;
-using System.Text;
 using System.Windows.Forms;
 
 

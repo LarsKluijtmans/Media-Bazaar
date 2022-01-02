@@ -1,7 +1,4 @@
-﻿using ClassLibraryProject.Class;
-using ClassLibraryProject.Interfaces;
-using MySql.Data.MySqlClient;
-using System;
+﻿using ClassLibraryProject.Interfaces;
 using System.Data;
 
 namespace ClassLibraryProject.ManagmentClasses

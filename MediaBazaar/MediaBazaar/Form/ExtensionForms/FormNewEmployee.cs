@@ -1,6 +1,4 @@
-﻿using ClassLibraryProject.Class;
-using ClassLibraryProject.ManagmentClasses;
-using MySql.Data.MySqlClient;
+﻿using ClassLibraryProject.ManagmentClasses;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;

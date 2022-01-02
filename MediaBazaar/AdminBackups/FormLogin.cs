@@ -1,29 +1,28 @@
-﻿using System;
-using System.ComponentModel;
-using System.Windows.Forms;
-using ClassLibraryProject.Class;
+﻿using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses;
 using ClassLibraryProject.ManagmentClasses;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace AdminBackups
 {
     public partial class FormLogin : Form
     {
         Login login;
-        Store store;
         public FormLogin()
         {
             InitializeComponent();
-
-           login = new Login(new LoginManagment(new dbLoginManager()));
-            store = new Store();
+            login = new Login(new LoginManagment(new dbLoginManager()));
         }
 
+        //Close app
         protected override void OnClosing(CancelEventArgs e)
         {
             Application.Exit();
         }
 
+        // Login
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string UserName = tbxUsername.Text;
@@ -46,13 +45,7 @@ namespace AdminBackups
                 Employee employee = login.CheckLogin(UserName, Password);
                 switch (employee.Contract.JobTitle)
                 {
-                    case "CEO": MessageBox.Show("Please use the CEO application"); break;
-                    case "ADMIN": FromAdmin admin = new FromAdmin(employee, store); Hide(); admin.Show(); break;
-                    case "SALES MANAGER": FromSalesManager salesManager = new FromSalesManager(employee, store); Hide(); salesManager.Show(); break;
-                    case "OFFICE MANAGER": FromOfficeManager officeManager = new FromOfficeManager(employee, store); Hide(); officeManager.Show(); break;
-                    case "PRODUCT MANAGER": FromProductManager officeEmployee = new FromProductManager(employee, store); Hide(); officeEmployee.Show(); break;
-                    case "DEPOT MANAGER": FromDepotManager depotManager = new FromDepotManager(employee, store);/* Hide();*/ depotManager.Show(); break;
-                    case "DEPOT EMPLOYEE": FromDepotEmployee depotEmployee = new FromDepotEmployee(employee, store);/* Hide();*/ depotEmployee.Show(); break;
+                    case "ADMIN": MakeBackups admin = new MakeBackups(); Hide(); admin.Show(); break;
                     case "Wrong info!": MessageBox.Show("Wrong info!"); break;
                 }
             }
@@ -61,7 +54,6 @@ namespace AdminBackups
                 MessageBox.Show("Wrong login information! Please try again.");
             }
         }
-
         private void btnLogin_Enter(object sender, EventArgs e)
         {
             string UserName = tbxUsername.Text;
@@ -84,14 +76,8 @@ namespace AdminBackups
                 Employee employee = login.CheckLogin(UserName, Password);
                 switch (employee.Contract.JobTitle)
                 {
-                    case "CEO": MessageBox.Show("Please use the CEO application"); break;
-                    case "ADMIN": FromAdmin admin = new FromAdmin(employee, store); Hide(); admin.Show(); break;
-                    case "SALES MANAGER": FromSalesManager salesManager = new FromSalesManager(employee, store); Hide(); salesManager.Show(); break;
-                    case "OFFICE MANAGER": FromOfficeManager officeManager = new FromOfficeManager(employee, store); Hide(); officeManager.Show(); break;
-                    case "PRODUCT MANAGER": FromProductManager officeEmployee = new FromProductManager(employee, store); Hide(); officeEmployee.Show(); break;
-                    case "DEPOT MANAGER": FromDepotManager depotManager = new FromDepotManager(employee, store);/* Hide();*/ depotManager.Show(); break;
-                    case "DEPOT EMPLOYEE": FromDepotEmployee depotEmployee = new FromDepotEmployee(employee, store);/* Hide();*/ depotEmployee.Show(); break;
-                    case "": MessageBox.Show("Wrong info!"); break;
+                    case "ADMIN": MakeBackups admin = new MakeBackups(); Hide(); admin.Show(); break;
+                    case "Wrong info!": MessageBox.Show("Wrong info!"); break;
                 }
             }
             else

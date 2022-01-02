@@ -1,8 +1,5 @@
-﻿using acr122_demo.Class;
-using CardReader;
+﻿using CardReader;
 using CardReader.Class;
-using MySql.Data.MySqlClient;
-using Sydesoft.NfcDevice;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -76,7 +73,7 @@ namespace acr122_demo
             {
                 switch (loginManagment.checkLogin(UserName, Password))
                 {
-                    case "OFFICE_MANAGER": return true; 
+                    case "OFFICE MANAGER": return true; 
                     case "Wrong info!": return false; 
                 }
             }

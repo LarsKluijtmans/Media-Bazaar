@@ -2,8 +2,6 @@
 using System.Data;
 using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
