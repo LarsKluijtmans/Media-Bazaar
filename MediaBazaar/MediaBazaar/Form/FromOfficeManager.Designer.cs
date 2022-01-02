@@ -475,6 +475,8 @@ namespace AdminBackups
             // 
             // dgvDepartments
             // 
+            this.dgvDepartments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvDepartments.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDepartments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDepartments.Location = new System.Drawing.Point(37, 27);
             this.dgvDepartments.Name = "dgvDepartments";
@@ -610,6 +612,8 @@ namespace AdminBackups
             // 
             // dgvAtendance
             // 
+            this.dgvAtendance.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvAtendance.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAtendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAtendance.Location = new System.Drawing.Point(10, 13);
             this.dgvAtendance.Name = "dgvAtendance";

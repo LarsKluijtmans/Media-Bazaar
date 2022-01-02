@@ -9,9 +9,12 @@ namespace ClassLibraryProject.dbClasses
 {
     class dbDepartmentManagment : IDepartmentManagment
     {
-        public static string GET_DEPARTMENTS = "SELECT `DepartmentID` , `HeadDepatment`,`DepartmentName` FROM `departments`;";
-        public static string ADD_DEPARTMENT = "INSERT INTO departments ( DepartmentName, CompanyID, HeadDepatment) VALUES (@DepartmentName, @CompanyID, @HeadDepatment);";
-        public static string EDIT_DEPARTMENT = "UPDATE departments SET DepartmentName = @DepartmentName, HeadDepatment = @HeadDepatment WHERE DepartmentID = @DepartmentID;";
+        private string GET_DEPARTMENTS = "SELECT `DepartmentID` , `HeadDepatment`,`DepartmentName` FROM `departments`;";
+        private string ADD_DEPARTMENT = "INSERT INTO departments ( DepartmentName, CompanyID, HeadDepatment) VALUES (@DepartmentName, @CompanyID, @HeadDepatment);";
+        private string EDIT_DEPARTMENT = "UPDATE departments SET DepartmentName = @DepartmentName, HeadDepatment = @HeadDepatment WHERE DepartmentID = @DepartmentID;";
+        private string DELETE_DEPARTMENT = "DELETE FROM departments WHERE DepartmentID = @ID;";
+        private string MOVE_EMPLOYEES_TO_HEAD_DEPARTMENT = "UPDATE contract SET Department = @HeadDepartment WHERE Department = @Department;";
+        private string GET_HEAD_DEPARTMENT = "select  `HeadDepatment`,`DepartmentName` FROM `departments` WHERE DepartmentID = @ID;";
 
         public DataTable ViewAllDepartments()
         {
@@ -108,6 +111,117 @@ namespace ClassLibraryProject.dbClasses
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public void DeleteDepartment(int departmentID)
+        {
+            MoveEmployeesToHeadDepartment(departmentID);
+
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = DELETE_DEPARTMENT;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ID", departmentID);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private bool MoveEmployeesToHeadDepartment(int departmentID)
+        {
+            string HeadDepartment = "";
+            string Department = "";
+
+            MySqlConnection conn = Utils.GetConnection();
+            
+            string sql = GET_HEAD_DEPARTMENT;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ID", departmentID);
+
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    HeadDepartment = reader[0].ToString();
+                    Department = reader[1].ToString();
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            if (HeadDepartment == "")
+            {
+                return false;
+            }
+
+            sql = MOVE_EMPLOYEES_TO_HEAD_DEPARTMENT;
+           
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@HeadDepartment", HeadDepartment);
+                cmd.Parameters.AddWithValue("@Department", Department);
+
+                conn.Open();
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
             }
             finally
             {

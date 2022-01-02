@@ -498,28 +498,20 @@ namespace AdminBackups
         {
             if (Convert.ToInt32(labDepartmentID.Text) > 4)
             {
-                MySqlConnection conn = Utils.GetConnection();
-
-                string sql = "DELETE FROM departments WHERE DepartmentID = @ID;";
-
-                try
+                if (officeManager is OfficeManager)
                 {
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@ID", labDepartmentID.Text);
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        ((OfficeManager)officeManager).departmentManagment.DeleteDepartment(Convert.ToInt32(labDepartmentID.Text));
+                    }
+                    catch
+                    { 
+                        MessageBox.Show("Select a department to delete"); 
+                    }
                 }
-                catch (MySqlException msqEx)
+                else
                 {
-                    MessageBox.Show(msqEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Something went wrong" + ex);
-                }
-                finally
-                {
-                    conn.Close();
+                    MessageBox.Show("type casting failed");
                 }
             }
             else
@@ -722,6 +714,6 @@ namespace AdminBackups
             }
         }
 
-  
+
     }
 }

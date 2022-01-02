@@ -29,5 +29,10 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             iDepartmentManagment.EditDepartment(Name, Head, DepartmetnID);
         }
+
+        public void DeleteDepartment(int departmentID)
+        {
+            iDepartmentManagment.DeleteDepartment(departmentID);
+        }
     }
 }
