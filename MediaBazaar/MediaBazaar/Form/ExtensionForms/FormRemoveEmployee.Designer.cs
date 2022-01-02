@@ -35,13 +35,13 @@ namespace AdminBackups
             this.label2 = new System.Windows.Forms.Label();
             this.lblEmployee = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.tbxEndDate = new System.Windows.Forms.TextBox();
+            this.tbxEndDate = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 54);
+            this.label1.Location = new System.Drawing.Point(29, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 15);
             this.label1.TabIndex = 0;
@@ -49,16 +49,16 @@ namespace AdminBackups
             // 
             // tbxReasonTermination
             // 
-            this.tbxReasonTermination.Location = new System.Drawing.Point(166, 51);
+            this.tbxReasonTermination.Location = new System.Drawing.Point(29, 69);
             this.tbxReasonTermination.Multiline = true;
             this.tbxReasonTermination.Name = "tbxReasonTermination";
-            this.tbxReasonTermination.Size = new System.Drawing.Size(139, 47);
+            this.tbxReasonTermination.Size = new System.Drawing.Size(404, 56);
             this.tbxReasonTermination.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 107);
+            this.label2.Location = new System.Drawing.Point(56, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 15);
             this.label2.TabIndex = 2;
@@ -76,7 +76,7 @@ namespace AdminBackups
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(230, 142);
+            this.button1.Location = new System.Drawing.Point(231, 176);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -86,16 +86,19 @@ namespace AdminBackups
             // 
             // tbxEndDate
             // 
-            this.tbxEndDate.Location = new System.Drawing.Point(166, 104);
+            this.tbxEndDate.Location = new System.Drawing.Point(167, 141);
+            this.tbxEndDate.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
+            this.tbxEndDate.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
             this.tbxEndDate.Name = "tbxEndDate";
-            this.tbxEndDate.Size = new System.Drawing.Size(139, 23);
-            this.tbxEndDate.TabIndex = 6;
+            this.tbxEndDate.Size = new System.Drawing.Size(200, 23);
+            this.tbxEndDate.TabIndex = 7;
+            this.tbxEndDate.Value = new System.DateTime(2022, 1, 2, 0, 0, 0, 0);
             // 
             // FormRemoveEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 177);
+            this.ClientSize = new System.Drawing.Size(460, 222);
             this.Controls.Add(this.tbxEndDate);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblEmployee);
@@ -118,6 +121,6 @@ namespace AdminBackups
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblEmployee;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox tbxEndDate;
+        private System.Windows.Forms.DateTimePicker tbxEndDate;
     }
 }

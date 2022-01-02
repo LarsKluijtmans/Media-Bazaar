@@ -174,6 +174,8 @@ namespace ClassLibraryProject.ManagmentClasses
             MySqlConnection conn = Utils.GetConnection();
             string sql = CREATE_EMPLOYEE;
 
+            DateTime DateOfBirth = Convert.ToDateTime(dateOfBirth);
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -186,7 +188,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@City", city);
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                cmd.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+                cmd.Parameters.AddWithValue("@DateOfBirth", DateOfBirth.ToString("yyyy-MM-dd")) ;
 
                 conn.Open();
 
@@ -215,6 +217,9 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = ContractManagement.CREATE_CONTRACT;
+
+            DateTime StartDate = Convert.ToDateTime(startDate);
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -222,7 +227,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@JobTitle", jobTitle);
                 cmd.Parameters.AddWithValue("@WorkHoursPerWeek", workHoursPerWeek);
                 cmd.Parameters.AddWithValue("@SalaryPerHour", salary);
-                cmd.Parameters.AddWithValue("@StartDate", startDate);
+                cmd.Parameters.AddWithValue("@StartDate", StartDate.ToString("yyyy-MM-dd"));
 
                 conn.Open();
 

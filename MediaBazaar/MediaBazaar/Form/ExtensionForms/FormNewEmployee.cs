@@ -43,8 +43,18 @@ namespace AdminBackups
 
             string username = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
             string password = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
+            int bsn = 0;
 
-            int bsn = Convert.ToInt32(tbxBSN.Text);
+
+            try
+            {
+                bsn = Convert.ToInt32(tbxBSN.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid bsn");
+            }
+
             if (bsn == 0)
             {
                 MessageBox.Show("Please enter a bsn");
@@ -71,22 +81,6 @@ namespace AdminBackups
                 return;
             }
 
-            string dateOfBirth;
-            if (Regex.IsMatch(tbxDateOfBirth.Text, @"\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$"))
-            {
-                dateOfBirth = tbxDateOfBirth.Text;
-                if (string.IsNullOrEmpty(dateOfBirth))
-                {
-                    MessageBox.Show("Please enter a date of birth");
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please enter a valid date of birth");
-                return;
-            }
-
             string personalEmail = tbxPersonalEmail.Text;
             if (string.IsNullOrEmpty(personalEmail))
             {
@@ -107,21 +101,8 @@ namespace AdminBackups
                 MessageBox.Show("Please enter salary");
             }
 
-            string startDate;
-            if (Regex.IsMatch(tbxStartDate.Text, @"\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$"))
-            {
-                startDate = tbxStartDate.Text;
-                if (string.IsNullOrEmpty(startDate))
-                {
-                    MessageBox.Show("Please enter a date of birth");
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please enter a valid date of birth");
-                return;
-            }
+            string startDate = tbxStartDate.Text;
+            string dateOfBirth = tbxDateOfBirth.Text;
 
             employeeM.CreateEmployee(firstName, lastName, bsn, city, email, dateOfBirth, personalEmail, username, password, phoneNumber, jobTitle, workHoursPerWeek, salary, startDate);
         }

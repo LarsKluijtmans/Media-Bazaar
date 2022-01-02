@@ -43,11 +43,6 @@ namespace AdminBackups
             dgvAtendance.DataSource = store.checkinManagment.getAtendanceData(year, month);
         }
 
-        private void btnSeatchDepartment_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //Login
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -180,13 +175,11 @@ namespace AdminBackups
         {
             Person tempPerson = GetTempEmployee();
         }
-
         private void btnCreateEmployee_Click(object sender, EventArgs e)
         {
             FormNewEmployee formNewEmployee = new FormNewEmployee();
             formNewEmployee.Show();
         }
-
         private Person GetTempEmployee()
         {
             Object personObj = lbxEmployees.SelectedItem;
@@ -338,7 +331,6 @@ namespace AdminBackups
 
             return null;
         }
-
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
             try
@@ -419,7 +411,6 @@ namespace AdminBackups
                 MessageBox.Show("type casting failed");
             }
         }
-
         private void btnAddDepartment_Click(object sender, EventArgs e)
         {
             string Name = tbDepartmentName.Text;
@@ -454,7 +445,6 @@ namespace AdminBackups
 
             ViewAllDepartments();
         }
-
         private void btnEditDepartment_Click(object sender, EventArgs e)
         {
             string Name = tbDepartmentName.Text;
@@ -494,7 +484,6 @@ namespace AdminBackups
 
             ViewAllDepartments();
         }
-
         private void dgvDepartments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -505,9 +494,42 @@ namespace AdminBackups
                 cbHeadDepartments.Text = row.Cells["HeadDepatment"].Value.ToString();
             }
         }
+        private void btnDeleteDepartment_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(labDepartmentID.Text) > 4)
+            {
+                MySqlConnection conn = Utils.GetConnection();
+
+                string sql = "DELETE FROM departments WHERE DepartmentID = @ID;";
+
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", labDepartmentID.Text);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException msqEx)
+                {
+                    MessageBox.Show(msqEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something went wrong" + ex);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("You can't delete the head departments");
+            }
+            ViewAllDepartments();
+        }
 
         //Company
-
         private void ViewCompany()
         {
             Company company = new Company();
@@ -526,7 +548,6 @@ namespace AdminBackups
             tbKVK.Text = company.KVK;
             tbID.Text = company.CompanyID;
         }
-
         private void btnEditCompany_Click(object sender, EventArgs e)
         {
             string ID = tbID.Text;
@@ -613,13 +634,11 @@ namespace AdminBackups
         }
 
 
-        //Connect card to employee
-
+        //Seleceted index
         private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
             Person tempPerson = getperson();
         }
-
         public Person getperson()
         {
             Object personObj = lbxEmployees.SelectedItem;
@@ -633,6 +652,7 @@ namespace AdminBackups
             return tempPerson;
         }
 
+        //Search bar
         private void tbxSearchEmployee_TextChanged(object sender, EventArgs e)
         {
             string nameSearched = tbxSearchEmployee.Text;
@@ -702,39 +722,6 @@ namespace AdminBackups
             }
         }
 
-        private void btnDeleteDepartment_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(labDepartmentID.Text) > 4)
-            {
-                MySqlConnection conn = Utils.GetConnection();
-
-                string sql = "DELETE FROM departments WHERE DepartmentID = @ID;";
-
-                try
-                {
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@ID", labDepartmentID.Text);
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                }
-                catch (MySqlException msqEx)
-                {
-                    MessageBox.Show(msqEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Something went wrong" + ex);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-            else
-            {
-                MessageBox.Show("You can't delete the head departments");
-            }
-            ViewAllDepartments();
-        }
+  
     }
 }
