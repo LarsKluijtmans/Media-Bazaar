@@ -135,7 +135,9 @@ namespace ClassLibraryProject.dbClasses
                     }
                     else if (jobTitle == "OFFICE MANAGER")
                     {
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        IEmployeeManagerOffice employeeManagerOffice = new EmployeeManager();
+
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, employeeManagerOffice);
                         return employee;
                     }
                     else if (jobTitle == "PRODUCT MANAGER")
