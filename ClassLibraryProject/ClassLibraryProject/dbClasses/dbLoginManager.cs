@@ -9,7 +9,7 @@ namespace ClassLibraryProject.dbClasses
 {
      public class dbLoginManager : ILoginManagement
     {
-        private string LOGIN_EMPLOYEE = " SELECT * FROM employee as e INNER JOIN contract as c ON c.employeeID = e.Employeeid where e.UserName = @UserName  AND e.Password = @Password AND Active = 1 ;";
+        private string LOGIN_EMPLOYEE = " SELECT * FROM employee as e INNER JOIN contract as c ON c.employeeID = e.Employeeid where e.UserName = @UserName  AND e.Password = @Password AND e.Active = 1 ;";
         private string GET_EMPLOYEEID = " SELECT employeeID, password, userName FROM employee where UserName = @UserName";
 
 
