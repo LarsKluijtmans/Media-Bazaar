@@ -63,13 +63,6 @@
       <FileName>Class\Store.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ClassLibraryProject.Class.Utils" Collapsed="true">
-    <Position X="14.5" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAAABAAAAAAAAAAGAAAAAAAAREAAAA=</HashCode>
-      <FileName>Class\Utils.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ClassLibraryProject.dbClasses.dbLoginManager" BaseTypeListCollapsed="true">
     <Position X="21" Y="7.75" Width="1.5" />
     <TypeIdentifier>
