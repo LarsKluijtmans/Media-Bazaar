@@ -7,24 +7,28 @@ namespace ClassLibraryProject
 {
     public class EmployeeManager : IEmployeeManagerOffice
     {
+        IDBEmployeeManagerOffice DBEmployeeManagerOffice { get; set; }
+
+        public EmployeeManager()
+        {
+            DBEmployeeManagerOffice = new DBEmployeeManager();
+        }
+
         public bool CreateEmployee(Employee e)
         {
-            throw new NotImplementedException();
+            return DBEmployeeManagerOffice.CreateEmployee(e);
         }
-
-        public bool DeleteEmployee(Employee e)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Employee> ReadEmployees()
         {
-            throw new NotImplementedException();
+            return DBEmployeeManagerOffice.ReadEmployees();
         }
-
         public bool UpdateEmployee(Employee e)
         {
-            throw new NotImplementedException();
+            return DBEmployeeManagerOffice.UpdateEmployee(e);
+        }
+        public bool DeleteEmployee(Employee e)
+        {
+            return DBEmployeeManagerOffice.DeleteEmployee(e);
         }
     }
 }
