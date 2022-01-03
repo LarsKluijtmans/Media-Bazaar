@@ -32,19 +32,18 @@ namespace AdminBackups
             this.Comapny = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbxEmployeeType = new System.Windows.Forms.ComboBox();
+            this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnRemoveEmployee = new System.Windows.Forms.Button();
+            this.bntUpdateEmployee = new System.Windows.Forms.Button();
+            this.btnReadEmployees = new System.Windows.Forms.Button();
+            this.btnDeleteEmployee = new System.Windows.Forms.Button();
             this.btnCreateEmployee = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbxSearchEmployee = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rbnDepotEmployees = new System.Windows.Forms.RadioButton();
-            this.rbnOfficeEmployees = new System.Windows.Forms.RadioButton();
-            this.rbnAllEmployees = new System.Windows.Forms.RadioButton();
-            this.rbnSalesEmployees = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
-            this.lbxEmployees = new System.Windows.Forms.ListBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnEditCompany = new System.Windows.Forms.Button();
             this.gbCompanyInfo = new System.Windows.Forms.GroupBox();
@@ -88,9 +87,9 @@ namespace AdminBackups
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbCompanyInfo.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -127,11 +126,12 @@ namespace AdminBackups
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.cbxEmployeeType);
+            this.groupBox1.Controls.Add(this.dgvEmployees);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox5);
-            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.lbxEmployees);
             this.groupBox1.Location = new System.Drawing.Point(5, 3);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
@@ -141,29 +141,87 @@ namespace AdminBackups
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Employees";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(17, 32);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(117, 30);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Employees:";
+            // 
+            // cbxEmployeeType
+            // 
+            this.cbxEmployeeType.FormattingEnabled = true;
+            this.cbxEmployeeType.Items.AddRange(new object[] {
+            "All Employees",
+            "CEO",
+            "Admins",
+            "Depot Managers",
+            "Depot Employees",
+            "Sales Managers",
+            "Sales Representatives",
+            "Product Managers",
+            "Office Managers"});
+            this.cbxEmployeeType.Location = new System.Drawing.Point(140, 39);
+            this.cbxEmployeeType.Name = "cbxEmployeeType";
+            this.cbxEmployeeType.Size = new System.Drawing.Size(163, 23);
+            this.cbxEmployeeType.TabIndex = 16;
+            this.cbxEmployeeType.SelectedIndexChanged += new System.EventHandler(this.cbxEmployeeType_SelectedIndexChanged);
+            // 
+            // dgvEmployees
+            // 
+            this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployees.Location = new System.Drawing.Point(17, 86);
+            this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.RowTemplate.Height = 25;
+            this.dgvEmployees.Size = new System.Drawing.Size(616, 386);
+            this.dgvEmployees.TabIndex = 15;
+            // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.btnRemoveEmployee);
+            this.groupBox4.Controls.Add(this.bntUpdateEmployee);
+            this.groupBox4.Controls.Add(this.btnReadEmployees);
+            this.groupBox4.Controls.Add(this.btnDeleteEmployee);
             this.groupBox4.Controls.Add(this.btnCreateEmployee);
-            this.groupBox4.Location = new System.Drawing.Point(490, 32);
+            this.groupBox4.Location = new System.Drawing.Point(639, 80);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(183, 94);
+            this.groupBox4.Size = new System.Drawing.Size(183, 168);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Manage Employees";
             // 
-            // btnRemoveEmployee
+            // bntUpdateEmployee
             // 
-            this.btnRemoveEmployee.Location = new System.Drawing.Point(6, 56);
-            this.btnRemoveEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRemoveEmployee.Name = "btnRemoveEmployee";
-            this.btnRemoveEmployee.Size = new System.Drawing.Size(168, 31);
-            this.btnRemoveEmployee.TabIndex = 7;
-            this.btnRemoveEmployee.Text = "Delete Employees";
-            this.btnRemoveEmployee.UseVisualStyleBackColor = true;
-            this.btnRemoveEmployee.Click += new System.EventHandler(this.btnRemoveEmployee_Click);
+            this.bntUpdateEmployee.Location = new System.Drawing.Point(6, 93);
+            this.bntUpdateEmployee.Name = "bntUpdateEmployee";
+            this.bntUpdateEmployee.Size = new System.Drawing.Size(167, 31);
+            this.bntUpdateEmployee.TabIndex = 9;
+            this.bntUpdateEmployee.Text = "Update Employee";
+            this.bntUpdateEmployee.UseVisualStyleBackColor = true;
+            // 
+            // btnReadEmployees
+            // 
+            this.btnReadEmployees.Location = new System.Drawing.Point(6, 56);
+            this.btnReadEmployees.Name = "btnReadEmployees";
+            this.btnReadEmployees.Size = new System.Drawing.Size(168, 31);
+            this.btnReadEmployees.TabIndex = 8;
+            this.btnReadEmployees.Text = "View Employees";
+            this.btnReadEmployees.UseVisualStyleBackColor = true;
+            this.btnReadEmployees.Click += new System.EventHandler(this.btnReadEmployees_Click);
+            // 
+            // btnDeleteEmployee
+            // 
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(6, 129);
+            this.btnDeleteEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
+            this.btnDeleteEmployee.Size = new System.Drawing.Size(168, 31);
+            this.btnDeleteEmployee.TabIndex = 7;
+            this.btnDeleteEmployee.Text = "Delete Employee";
+            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
             // 
             // btnCreateEmployee
             // 
@@ -180,11 +238,11 @@ namespace AdminBackups
             // 
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.tbxSearchEmployee);
-            this.groupBox5.Location = new System.Drawing.Point(306, 32);
+            this.groupBox5.Location = new System.Drawing.Point(639, 252);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(177, 83);
+            this.groupBox5.Size = new System.Drawing.Size(183, 83);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Search:";
@@ -206,67 +264,6 @@ namespace AdminBackups
             this.tbxSearchEmployee.TabIndex = 11;
             this.tbxSearchEmployee.TextChanged += new System.EventHandler(this.tbxSearchEmployee_TextChanged);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.rbnDepotEmployees);
-            this.groupBox3.Controls.Add(this.rbnOfficeEmployees);
-            this.groupBox3.Controls.Add(this.rbnAllEmployees);
-            this.groupBox3.Controls.Add(this.rbnSalesEmployees);
-            this.groupBox3.Location = new System.Drawing.Point(17, 32);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(284, 82);
-            this.groupBox3.TabIndex = 13;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Select department:";
-            // 
-            // rbnDepotEmployees
-            // 
-            this.rbnDepotEmployees.AutoSize = true;
-            this.rbnDepotEmployees.Location = new System.Drawing.Point(144, 56);
-            this.rbnDepotEmployees.Name = "rbnDepotEmployees";
-            this.rbnDepotEmployees.Size = new System.Drawing.Size(117, 19);
-            this.rbnDepotEmployees.TabIndex = 5;
-            this.rbnDepotEmployees.Text = "Depot Employees";
-            this.rbnDepotEmployees.UseVisualStyleBackColor = true;
-            this.rbnDepotEmployees.CheckedChanged += new System.EventHandler(this.rbnDepotEmployees_CheckedChanged);
-            // 
-            // rbnOfficeEmployees
-            // 
-            this.rbnOfficeEmployees.AutoSize = true;
-            this.rbnOfficeEmployees.Location = new System.Drawing.Point(144, 21);
-            this.rbnOfficeEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbnOfficeEmployees.Name = "rbnOfficeEmployees";
-            this.rbnOfficeEmployees.Size = new System.Drawing.Size(117, 19);
-            this.rbnOfficeEmployees.TabIndex = 2;
-            this.rbnOfficeEmployees.Text = "Office employees";
-            this.rbnOfficeEmployees.UseVisualStyleBackColor = true;
-            this.rbnOfficeEmployees.CheckedChanged += new System.EventHandler(this.rbnOfficeEmployees_CheckedChanged);
-            // 
-            // rbnAllEmployees
-            // 
-            this.rbnAllEmployees.AutoSize = true;
-            this.rbnAllEmployees.Checked = true;
-            this.rbnAllEmployees.Location = new System.Drawing.Point(17, 21);
-            this.rbnAllEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbnAllEmployees.Name = "rbnAllEmployees";
-            this.rbnAllEmployees.Size = new System.Drawing.Size(99, 19);
-            this.rbnAllEmployees.TabIndex = 0;
-            this.rbnAllEmployees.TabStop = true;
-            this.rbnAllEmployees.Text = "All employees";
-            this.rbnAllEmployees.UseVisualStyleBackColor = true;
-            this.rbnAllEmployees.CheckedChanged += new System.EventHandler(this.rbnAllEmployees_CheckedChanged);
-            // 
-            // rbnSalesEmployees
-            // 
-            this.rbnSalesEmployees.AutoSize = true;
-            this.rbnSalesEmployees.Location = new System.Drawing.Point(16, 54);
-            this.rbnSalesEmployees.Name = "rbnSalesEmployees";
-            this.rbnSalesEmployees.Size = new System.Drawing.Size(111, 19);
-            this.rbnSalesEmployees.TabIndex = 6;
-            this.rbnSalesEmployees.Text = "Sales Employees";
-            this.rbnSalesEmployees.UseVisualStyleBackColor = true;
-            this.rbnSalesEmployees.CheckedChanged += new System.EventHandler(this.rbnSalesEmployees_CheckedChanged);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -275,18 +272,6 @@ namespace AdminBackups
             this.label9.Size = new System.Drawing.Size(13, 15);
             this.label9.TabIndex = 7;
             this.label9.Text = "  ";
-            // 
-            // lbxEmployees
-            // 
-            this.lbxEmployees.FormattingEnabled = true;
-            this.lbxEmployees.ItemHeight = 15;
-            this.lbxEmployees.Location = new System.Drawing.Point(17, 120);
-            this.lbxEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbxEmployees.Name = "lbxEmployees";
-            this.lbxEmployees.Size = new System.Drawing.Size(467, 349);
-            this.lbxEmployees.TabIndex = 4;
-            this.lbxEmployees.SelectedIndexChanged += new System.EventHandler(this.lbxEmployees_SelectedIndexChanged);
-            this.lbxEmployees.DoubleClick += new System.EventHandler(this.lbxEmployees_DoubleClick);
             // 
             // tabPage1
             // 
@@ -720,7 +705,7 @@ namespace AdminBackups
             this.textBox3.Size = new System.Drawing.Size(326, 33);
             this.textBox3.TabIndex = 6;
             // 
-            // FromOfficeManager
+            // FormOfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -728,17 +713,16 @@ namespace AdminBackups
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.Comapny);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FromOfficeManager";
+            this.Name = "FormOfficeManager";
             this.Text = "FormOfficeManager";
             this.Comapny.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.gbCompanyInfo.ResumeLayout(false);
             this.gbCompanyInfo.PerformLayout();
@@ -759,15 +743,10 @@ namespace AdminBackups
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox lbxEmployees;
-        private System.Windows.Forms.RadioButton rbnOfficeEmployees;
-        private System.Windows.Forms.RadioButton rbnAllEmployees;
         private System.Windows.Forms.ListBox lbProduct;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnRemoveEmployee;
+        private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Windows.Forms.Button btnCreateEmployee;
-        private System.Windows.Forms.RadioButton rbnSalesEmployees;
-        private System.Windows.Forms.RadioButton rbnDepotEmployees;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox gbCompanyInfo;
         private System.Windows.Forms.Label label3;
@@ -801,7 +780,6 @@ namespace AdminBackups
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbxSearchEmployee;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TabPage WorkHours;
         private System.Windows.Forms.Button btnMakeExcelSheet;
         private System.Windows.Forms.Label labDepartmentName;
@@ -816,5 +794,10 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnMonthIncrease;
         private System.Windows.Forms.DataGridView dgvAtendance;
         private System.Windows.Forms.Button btnDeleteDepartment;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbxEmployeeType;
+        private System.Windows.Forms.DataGridView dgvEmployees;
+        private System.Windows.Forms.Button bntUpdateEmployee;
+        private System.Windows.Forms.Button btnReadEmployees;
     }
 }

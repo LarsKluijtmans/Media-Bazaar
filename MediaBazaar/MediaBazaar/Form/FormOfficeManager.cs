@@ -1,8 +1,10 @@
-﻿using ClassLibraryProject.ChildClasses;
+﻿using ClassLibraryProject;
+using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
 using System.Windows.Forms;
@@ -32,7 +34,7 @@ namespace AdminBackups
             labMonth.Text = DateTime.Now.Month.ToString();
 
             ViewCompany();
-            ViewAllEmployees();
+            ReadEmployees();
             GetAtendeance();
             ViewAllDepartments();
 
@@ -53,7 +55,135 @@ namespace AdminBackups
             FormLogin login = new FormLogin();
             login.Show();
         }
+        /* Start Employee */
+        private void CreateEmployee()
+        {
+            FormNewEmployee formNewEmployee = new FormNewEmployee(officeManager);
+            formNewEmployee.Show();
+        }
+        public void ReadEmployees()
+        {
+            List<Employee> employees = officeManager.EmployeeManagerOffice.ReadEmployees();
+            List<Employee> departmentEmployees = new List<Employee>();
 
+            if (cbxEmployeeType.SelectedIndex == 1)
+            {
+                departmentEmployees.Clear();
+                foreach (Employee e in employees)
+                {
+                    if (e is CEO)
+                    {
+                        departmentEmployees.Add(e);
+                    }
+                }
+            } else if (cbxEmployeeType.SelectedIndex == 2)
+            {
+                departmentEmployees.Clear();
+                foreach (Employee e in employees)
+                {
+                    if (e is Admin)
+                    {
+                        departmentEmployees.Add(e);
+                    }
+                }
+            } else if (cbxEmployeeType.SelectedIndex == 3)
+            {
+                departmentEmployees.Clear();
+                foreach (Employee e in employees)
+                {
+                    if (e is DepotManager)
+                    {
+                        departmentEmployees.Add(e);
+                    }
+                }
+            }
+            else if (cbxEmployeeType.SelectedIndex == 4)
+            {
+                departmentEmployees.Clear();
+                foreach (Employee e in employees)
+                {
+                    if (e is DepotEmployee)
+                    {
+                        departmentEmployees.Add(e);
+                    }
+                }
+            }
+            else if (cbxEmployeeType.SelectedIndex == 5)
+            {
+                departmentEmployees.Clear();
+                foreach (Employee e in employees)
+                {
+                    if (e is SalesManager)
+                    {
+                        departmentEmployees.Add(e);
+                    }
+                }
+            }
+            else if (cbxEmployeeType.SelectedIndex == 6)
+            {
+                departmentEmployees.Clear();
+                foreach (Employee e in employees)
+                {
+                    if (e is SalesRepresentative)
+                    {
+                        departmentEmployees.Add(e);
+                    }
+                }
+            }
+            else if (cbxEmployeeType.SelectedIndex == 7)
+            {
+                departmentEmployees.Clear();
+                foreach (Employee e in employees)
+                {
+                    if (e is ProductManager)
+                    {
+                        departmentEmployees.Add(e);
+                    }
+                }
+            }
+            else if (cbxEmployeeType.SelectedIndex == 8)
+            {
+                departmentEmployees.Clear();
+                foreach (Employee e in employees)
+                {
+                    if (e is OfficeManager)
+                    {
+                        departmentEmployees.Add(e);
+                    }
+                }
+            }
+            dgvEmployees.DataSource = departmentEmployees;
+
+            if (cbxEmployeeType.SelectedIndex == 0)
+            {
+                dgvEmployees.DataSource = employees;
+            }
+
+            dgvEmployees.Columns["Password"].Visible = false;
+        }
+        private void UpdateEmployee()
+        {
+
+        }
+        private void DeleteEmployee()
+        {
+
+        }
+        private void cbxEmployeeType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ReadEmployees();
+        }
+        private void btnCreateEmployee_Click(object sender, EventArgs e)
+        {
+            CreateEmployee();
+        }
+        private void btnReadEmployees_Click(object sender, EventArgs e)
+        {
+            ReadEmployees();
+        }
+        /* End Employees*/
+        
+        
         //Atendance
         private void btnDecreaseYear_Click(object sender, EventArgs e)
         {
@@ -167,235 +297,6 @@ namespace AdminBackups
             dgvAtendance.DataSource = store.checkinManagment.getAtendanceData(year, month);
 
             store.checkinManagment.getAllAtendanceTime(year, month);
-        }
-
-        // employees
-
-        private void lbxEmployees_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Person tempPerson = GetTempEmployee();
-        }
-        private void btnCreateEmployee_Click(object sender, EventArgs e)
-        {
-            FormNewEmployee formNewEmployee = new FormNewEmployee();
-            formNewEmployee.Show();
-        }
-        private Person GetTempEmployee()
-        {
-            Object personObj = lbxEmployees.SelectedItem;
-            if (!(personObj is Person))
-            {
-                MessageBox.Show("Error");
-            }
-
-            Person tempPerson = (Person)personObj;
-
-            return tempPerson;
-        }
-        public void ViewAllEmployees()
-        {
-            lbxEmployees.Items.Clear();
-            //lbEmployee.Items.Clear();
-
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = EmployeeManagement.GET_ALL_EMPLOYEES;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Person employee;
-
-                while (reader.Read())
-                {
-                    if (reader.GetInt32("Active") == 1)
-                    {
-                        int employeeID = reader.GetInt32("EmployeeID");
-                        string firstName = reader.GetString("FirstName");
-                        string lastName = reader.GetString("LastName");
-                        string username = reader.GetString("UserName");
-                        string password = reader.GetString("Password");
-                        int bsn = reader.GetInt32("BSN");
-                        string city = reader.GetString("Address");
-                        string email = reader.GetString("Email");
-                        int phoneNumber = reader.GetInt32("PhoneNumber");
-                        string dateOfBirth = reader.GetString("DateOfBirth");
-
-                        Contract c = GetContract(employeeID.ToString());
-                        employee = new Person(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
-
-                        if (rbnAllEmployees.Checked)
-                        {
-                            lbxEmployees.Items.Add(employee);
-                        }
-                        else if (rbnDepotEmployees.Checked)
-                        {
-                            if (c.JobTitle == "DEPOT EMPLOYEE" || c.JobTitle == "DEPOT MANAGER")
-                            {
-                                lbxEmployees.Items.Add(employee);
-                            }
-                        }
-                        else if (rbnOfficeEmployees.Checked)
-                        {
-                            if (c.JobTitle == "OFFICE MANAGER")
-                            {
-                                lbxEmployees.Items.Add(employee);
-                            }
-                        }
-                        else if (rbnSalesEmployees.Checked)
-                        {
-                            if (c.JobTitle == "SALES REPRESENTATIVE" || c.JobTitle == "SALES MANAGER")
-                            {
-                                lbxEmployees.Items.Add(employee);
-
-                            }
-                        }
-                    }
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong" + ex);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        private void btnUpdateEmployee_Click(object sender, EventArgs e)
-        {
-            ViewEmployeeDetails();
-        }
-        private void lbxEmployees_DoubleClick(object sender, EventArgs e)
-        {
-            ViewEmployeeDetails();
-        }
-        public void ViewEmployeeDetails()
-        {
-            Person employee = GetTempEmployee();
-            Contract contract = GetContract(employee.EmployeeID.ToString());
-
-            FormViewEmployee formViewEmployee = new FormViewEmployee(employee, contract);
-            formViewEmployee.Show();
-        }
-
-        // get contract
-        public Contract GetContract(string employeeID)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = ContractManagement.CONTRACT_BY_EMPLOYEEID;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Contract c;
-
-                while (reader.Read())
-                {
-                    string jobTitle = reader.GetString("JobTitle");
-                    int workHours = reader.GetInt32("WorkHoursPerWeek");
-                    int salary = reader.GetInt32("SalaryPerHour");
-                    string startDate = reader.GetString("StartDate");
-
-                    c = new Contract(Convert.ToInt32(employeeID), jobTitle, workHours, salary, startDate);
-
-                    return c;
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong" + ex);
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            return null;
-        }
-        private void btnRemoveEmployee_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Person employee = GetTempEmployee();
-                Contract contract = GetContract(employee.EmployeeID.ToString());
-                FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(employee, contract);
-                formRemoveEmployee.Show();
-
-                string employeeID = employee.EmployeeID.ToString();
-                string active = "0";
-
-                MySqlConnection conn = Utils.GetConnection();
-                string sql = EmployeeManagement.REMOVE_EMPLOYEE_BY_ID;
-
-                try
-                {
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                    cmd.Parameters.AddWithValue("@Active", active);
-                    conn.Open();
-
-                    int numAffectedRows = cmd.ExecuteNonQuery();
-                }
-                catch (MySqlException msqEx)
-                {
-                    MessageBox.Show(msqEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Something went wrong" + ex);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-            catch (NullReferenceException nullRef)
-            {
-                MessageBox.Show(nullRef + ". Please select an employee");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong" + ex);
-            }
-
-            ViewAllEmployees();
-        }
-
-        // view employees
-        private void rbnAllEmployees_CheckedChanged(object sender, EventArgs e)
-        {
-            ViewAllEmployees();
-        }
-        private void rbnOfficeEmployees_CheckedChanged(object sender, EventArgs e)
-        {
-            ViewAllEmployees();
-        }
-        private void rbnSalesEmployees_CheckedChanged(object sender, EventArgs e)
-        {
-            ViewAllEmployees();
-        }
-        private void rbnDepotEmployees_CheckedChanged(object sender, EventArgs e)
-        {
-            ViewAllEmployees();
         }
 
         //Departments
@@ -626,28 +527,10 @@ namespace AdminBackups
         }
 
 
-        //Seleceted index
-        private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Person tempPerson = getperson();
-        }
-        public Person getperson()
-        {
-            Object personObj = lbxEmployees.SelectedItem;
-            if (!(personObj is Person))
-            {
-                MessageBox.Show("Error");
-            }
-
-            Person tempPerson = (Person)personObj;
-
-            return tempPerson;
-        }
-
         //Search bar
         private void tbxSearchEmployee_TextChanged(object sender, EventArgs e)
         {
-            string nameSearched = tbxSearchEmployee.Text;
+            /*string nameSearched = tbxSearchEmployee.Text;
 
             if (!String.IsNullOrEmpty(nameSearched))
             {
@@ -710,10 +593,10 @@ namespace AdminBackups
             }
             else if (tbxSearchEmployee.Text == "")
             {
-                ViewAllEmployees();
-            }
+                //ViewAllEmployees();
+            }*/
         }
 
-
+        
     }
 }

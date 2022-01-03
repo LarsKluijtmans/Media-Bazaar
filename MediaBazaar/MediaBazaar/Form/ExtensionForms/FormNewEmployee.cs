@@ -1,4 +1,5 @@
-﻿using ClassLibraryProject.ManagmentClasses;
+﻿using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.ManagmentClasses;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -8,11 +9,16 @@ namespace AdminBackups
 {
     public partial class FormNewEmployee : Form
     {
+        OfficeManager officeManager;
+
         EmailManager em;
         EmployeeManagement employeeM;
-        public FormNewEmployee()
+        public FormNewEmployee(OfficeManager officeManager)
         {
             InitializeComponent();
+
+            this.officeManager = officeManager;
+
             em = new EmailManager();
             employeeM = new EmployeeManagement();
         }
