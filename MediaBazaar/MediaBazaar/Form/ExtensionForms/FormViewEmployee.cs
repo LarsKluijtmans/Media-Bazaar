@@ -43,7 +43,7 @@ namespace AdminBackups
             cbxJobTitle.Text = c.JobTitle;
             tbxWorkHours.Text = c.WorkHoursPerWeek.ToString();
             tbxSalary.Text = c.SalaryPerHour.ToString();
-            tbxStartDate.Text = c.StartDate;
+            tbxStartDate.Text = c.StartDate.ToString();
         }
 
         private void btnEditData_Click(object sender, EventArgs e)

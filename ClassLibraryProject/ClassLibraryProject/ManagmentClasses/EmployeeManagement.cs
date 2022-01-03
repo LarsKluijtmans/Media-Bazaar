@@ -92,14 +92,14 @@ namespace ClassLibraryProject.ManagmentClasses
                     int active = reader.GetInt32("Active");
 
                     GetEnlistedEmployees(2021, week, day, shift);
-                    if (active == 1)
+                    /*if (active == 1)
                     {
                         if (IsInList(employeeID) == true)
                         {
                             employee = new Admin(employeeID, lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
                             AvailableEmployee.Add(employee);
                         }
-                    }
+                    }*/
                 }
             }
             catch (MySqlException msqEx)
@@ -156,11 +156,11 @@ namespace ClassLibraryProject.ManagmentClasses
                     string password = reader.GetString("Password");
                     int active = reader.GetInt32("Active");
 
-                    if (active == 1)
+                    /*if (active == 1)
                     {
                         employee = new Admin(employeeID, lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
                         EnlistedEmployee.Add(employee);
-                    }
+                    }*/
                 }
             }
             catch (MySqlException msqEx)
@@ -340,11 +340,11 @@ namespace ClassLibraryProject.ManagmentClasses
 
 
 
-                    if (active == 1)
+                    /*if (active == 1)
                     {
                         employee = new Admin(employeeID, lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
                         EmployeeWorkingToday.Add(employee);
-                    }
+                    }*/
                 }
             }
             catch (MySqlException msqEx)

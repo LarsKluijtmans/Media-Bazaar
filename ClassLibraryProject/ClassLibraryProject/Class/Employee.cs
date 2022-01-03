@@ -1,72 +1,77 @@
-﻿namespace ClassLibraryProject.Class
+﻿using System;
+using System.Collections.Generic;
+
+namespace ClassLibraryProject.Class
 {
     public abstract class Employee
     {
         // fields
         private int employeeID;
-        private string lastName;
         private string firstName;
-        private int phoneNumber;
+        private string lastName;
+        private string phoneNumber;
         private string email;
+        private string zipCode;
+        private string streetName;
         private string city;
-        private string dateOfBirth;
+        private DateTime dateOfBirth;
         private int bsn;
         private string username;
         private string password;
 
-        private Contract contract; /* every employee has 1 contract*/
-
+        private List<Contract> contracts; // list of contracts for employee (only 1 can be active)
 
         // properties
+        public int EmployeeID { get;  set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public string ZipCode { get; set; }
+        public string StreetName { get; set; }
         public string City { get; set; }
-        public string DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public int BSN { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string Email { get; set; }
-        public int EmployeeID { get;  set; }
-        public Contract Contract { get; set; }
+        public List<Contract> Contracts { get; set; }
 
-
+        // constructor
         public Employee()
         {
 
         }
-        // constructor
-        public Employee(string lastname, string firstname,  int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
+        public Employee(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
          {
-            this.LastName = lastname;
-            this.FirstName = firstname;
-            this.PhoneNumber = phonenumber;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.PhoneNumber = phoneNumber;
             this.Email = email;
             this.City = city;
-            this.DateOfBirth = dateofbirth;
+            this.DateOfBirth = dateOfBirth;
             this.BSN = bsn;
             this.Username = username;
             this.Password = password;
          }
 
-        public Employee(int  employeeID,string lastname, string firstname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
+        public Employee(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
         {
-            this.LastName = lastname;
-            this.FirstName = firstname;
-            this.PhoneNumber = phonenumber;
+            this.EmployeeID = employeeID;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.PhoneNumber = phoneNumber;
             this.Email = email;
             this.City = city;
-            this.DateOfBirth = dateofbirth;
+            this.DateOfBirth = dateOfBirth;
             this.BSN = bsn;
             this.Username = username;
             this.Password = password;
-            this.EmployeeID = employeeID;
         }
+
         // methodes
         public override string ToString()
         {
             return $"ID: {EmployeeID} - Name: {FirstName} {LastName} - Email: {Email}";
         }
     }
-    }
+}

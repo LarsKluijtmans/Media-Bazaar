@@ -1,7 +1,7 @@
 ﻿
 namespace AdminBackups
 {
-    partial class FromDepotEmployee
+    partial class FormDepotEmployee
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FromDepotEmployee));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDepotEmployee));
             this.btnLogout = new System.Windows.Forms.Button();
             this.lstAnnouncement = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
