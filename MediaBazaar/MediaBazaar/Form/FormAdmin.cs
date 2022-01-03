@@ -1,4 +1,5 @@
-﻿using ClassLibraryProject.Class;
+﻿using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 using System;
@@ -9,16 +10,16 @@ using System.Windows.Forms;
 
 namespace AdminBackups
 {
-    public partial class FromAdmin : Form
+    public partial class FormAdmin : Form
     {
-        Employee admin;
+        Admin admin;
         Store store;
 
-        public FromAdmin(Employee admin, Store store)
+        public FormAdmin(Admin a, Store s)
         {
             InitializeComponent();
-            this.admin = admin;
-            this.store = store;
+            this.admin = a;
+            this.store = s;
 
             if (AmountOfOfficeManagers() > 0)
             {

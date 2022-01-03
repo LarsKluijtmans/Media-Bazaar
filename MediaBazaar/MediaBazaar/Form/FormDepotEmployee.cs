@@ -1,19 +1,20 @@
-﻿using ClassLibraryProject.Class;
+﻿using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.Class;
 using System;
 using System.Windows.Forms;
 
 namespace AdminBackups
 {
-    public partial class FromDepotEmployee : Form
+    public partial class FormDepotEmployee : Form
     {
-        Employee depotemployee;
+        DepotEmployee depotEmployee;
         Store store;
-        public FromDepotEmployee(Employee depotemployee, Store store)
+        public FormDepotEmployee(DepotEmployee e, Store s)
         {
             InitializeComponent();
 
-            this.depotemployee = depotemployee;
-            this.store = store;
+            this.depotEmployee = e;
+            this.store = s;
 
             UpdateReshelveRequests();
             UpdateOrders();

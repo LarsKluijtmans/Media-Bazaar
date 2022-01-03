@@ -1,7 +1,7 @@
 ﻿
 namespace AdminBackups
 {
-    partial class FromOfficeManager
+    partial class FormOfficeManager
     {
         /// <summary>
         /// Required designer variable.

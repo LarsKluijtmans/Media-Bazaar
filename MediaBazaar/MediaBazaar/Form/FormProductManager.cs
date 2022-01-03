@@ -1,16 +1,17 @@
-﻿using ClassLibraryProject.Class;
+﻿using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.Class;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace AdminBackups
 {
-    public partial class FromProductManager : Form
+    public partial class FormProductManager : Form
     {
-        Employee productManager;
+        ProductManager productManager;
         Store store;
 
-        public FromProductManager(Employee productManager, Store s)
+        public FormProductManager(ProductManager productManager, Store s)
         {
             InitializeComponent();
             this.productManager = productManager;

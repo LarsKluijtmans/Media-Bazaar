@@ -10,12 +10,12 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace AdminBackups
 {
-    public partial class FromOfficeManager : Form
+    public partial class FormOfficeManager : Form
     {
-        Employee officeManager;
+        OfficeManager officeManager;
         Store store;
 
-        public FromOfficeManager(Employee officeManager, Store store)
+        public FormOfficeManager(OfficeManager officeManager, Store store)
         {
             InitializeComponent();
 

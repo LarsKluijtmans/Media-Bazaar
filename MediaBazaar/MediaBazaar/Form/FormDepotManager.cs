@@ -1,18 +1,19 @@
-﻿using ClassLibraryProject.Class;
+﻿using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.Class;
 using System;
 using System.Globalization;
 using System.Windows.Forms;
 
 namespace AdminBackups
 {
-    public partial class FromDepotManager : Form
+    public partial class FormDepotManager : Form
     {
-        Employee depotManager;
+        DepotManager depotManager;
         Store store;
         int i;
         int pi;
 
-        public FromDepotManager(Employee depotManager, Store store)
+        public FormDepotManager(DepotManager depotManager, Store store)
         {
             InitializeComponent();
 

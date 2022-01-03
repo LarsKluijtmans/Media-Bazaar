@@ -1,4 +1,5 @@
-﻿using ClassLibraryProject.Class;
+﻿using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.Class;
 using System;
 using System.ComponentModel;
 using System.Globalization;
@@ -6,13 +7,15 @@ using System.Windows.Forms;
 
 namespace AdminBackups
 {
-    public partial class FromSalesManager : Form
+    public partial class FormSalesManager : Form
     {
-        Employee salesManager;
+        SalesManager salesManager;
         Store store;
+
+        // ???
         int i;
         int pi;
-        public FromSalesManager(Employee salesManager, Store s)
+        public FormSalesManager(SalesManager salesManager, Store s)
         {
             InitializeComponent();
             this.salesManager = salesManager;
