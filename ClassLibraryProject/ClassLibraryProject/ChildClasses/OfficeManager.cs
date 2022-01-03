@@ -15,14 +15,14 @@ namespace ClassLibraryProject.ChildClasses
             departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
             companyManagment = new CompanyManagment(new dbCompanyManagment());
         }
-        public OfficeManager(string firstName, string lastName, int phoneNumber, string email, string city, DateTime dateOfBirth, int bsn, string username, string password)
-       : base(firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password)
+        public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
+       : base(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password)
         {
             departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
             companyManagment = new CompanyManagment(new dbCompanyManagment());
         }
-        public OfficeManager(int employeeID, string firstName, string lastName, int phoneNumber, string email, string city, DateTime dateOfBirth, int bsn, string username, string password)
-       : base(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password)
+        public OfficeManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
+       : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password)
         {
             departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
             companyManagment = new CompanyManagment(new dbCompanyManagment());

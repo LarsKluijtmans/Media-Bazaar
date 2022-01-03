@@ -9,8 +9,10 @@ namespace ClassLibraryProject.Class
         private int employeeID;
         private string firstName;
         private string lastName;
-        private int phoneNumber;
+        private string phoneNumber;
         private string email;
+        private string zipCode;
+        private string streetName;
         private string city;
         private DateTime dateOfBirth;
         private int bsn;
@@ -23,8 +25,10 @@ namespace ClassLibraryProject.Class
         public int EmployeeID { get;  set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string ZipCode { get; set; }
+        public string StreetName { get; set; }
         public string City { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int BSN { get; set; }
@@ -37,7 +41,7 @@ namespace ClassLibraryProject.Class
         {
 
         }
-        public Employee(string firstName, string lastName, int phoneNumber, string email, string city, DateTime dateOfBirth, int bsn, string username, string password)
+        public Employee(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
          {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -50,7 +54,7 @@ namespace ClassLibraryProject.Class
             this.Password = password;
          }
 
-        public Employee(int employeeID, string firstName, string lastName, int phoneNumber, string email, string city, DateTime dateOfBirth, int bsn, string username, string password)
+        public Employee(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
         {
             this.EmployeeID = employeeID;
             this.FirstName = firstName;
