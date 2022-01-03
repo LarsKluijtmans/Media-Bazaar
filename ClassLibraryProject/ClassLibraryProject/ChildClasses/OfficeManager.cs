@@ -1,6 +1,7 @@
 ﻿using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses;
 using ClassLibraryProject.ManagmentClasses;
+using System;
 
 namespace ClassLibraryProject.ChildClasses
 {
@@ -14,9 +15,14 @@ namespace ClassLibraryProject.ChildClasses
             departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
             companyManagment = new CompanyManagment(new dbCompanyManagment());
         }
-
-        public OfficeManager(int employeeID, string lastname, string firstname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
-       : base(employeeID, lastname, firstname, phonenumber, email, city, dateofbirth, bsn, username, password)
+        public OfficeManager(string firstName, string lastName, int phoneNumber, string email, string city, DateTime dateOfBirth, int bsn, string username, string password)
+       : base(firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password)
+        {
+            departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
+            companyManagment = new CompanyManagment(new dbCompanyManagment());
+        }
+        public OfficeManager(int employeeID, string firstName, string lastName, int phoneNumber, string email, string city, DateTime dateOfBirth, int bsn, string username, string password)
+       : base(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password)
         {
             departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
             companyManagment = new CompanyManagment(new dbCompanyManagment());

@@ -1,4 +1,5 @@
 ﻿using ClassLibraryProject.Class;
+using System;
 
 namespace ClassLibraryProject.ChildClasses
 {
@@ -6,8 +7,13 @@ namespace ClassLibraryProject.ChildClasses
     {
         public DepotEmployee() : base()
         { }
-        public DepotEmployee(int employeeID, string lastname, string firstname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
-       : base(employeeID, lastname, firstname, phonenumber, email, city, dateofbirth, bsn, username, password)
+        public DepotEmployee(string firstName, string lastName, int phoneNumber, string email, string city, DateTime dateOfBirth, int bsn, string username, string password)
+       : base(firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password)
+        {
+
+        }
+        public DepotEmployee(int employeeID, string firstName, string lastName, int phoneNumber, string email, string city, DateTime dateOfBirth, int bsn, string username, string password)
+       : base(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password)
         {
 
         }
