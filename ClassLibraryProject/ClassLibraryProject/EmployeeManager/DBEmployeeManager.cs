@@ -135,9 +135,14 @@ namespace ClassLibraryProject
                     {
                         employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
                         employees.Add(employee);
-                    } else if (jobTitle == "SALES REPRESENTATIVE")
+                    } else if (jobTitle == "SALES MANAGER")
                     {
                         employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employees.Add(employee);
+                    }
+                    else if (jobTitle == "SALES REPRESENTATIVE")
+                    {
+                        employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
                         employees.Add(employee);
                     }
                 }
