@@ -68,6 +68,7 @@ namespace AdminBackups
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.labEmployeeAlreadyAdded = new System.Windows.Forms.Label();
             this.gbMakeEmployee.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -453,15 +454,28 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // Admin
+            // labEmployeeAlreadyAdded
+            // 
+            this.labEmployeeAlreadyAdded.AutoSize = true;
+            this.labEmployeeAlreadyAdded.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labEmployeeAlreadyAdded.ForeColor = System.Drawing.Color.Red;
+            this.labEmployeeAlreadyAdded.Location = new System.Drawing.Point(387, 12);
+            this.labEmployeeAlreadyAdded.Name = "labEmployeeAlreadyAdded";
+            this.labEmployeeAlreadyAdded.Size = new System.Drawing.Size(402, 45);
+            this.labEmployeeAlreadyAdded.TabIndex = 84;
+            this.labEmployeeAlreadyAdded.Text = "Can\'t add more employees";
+            this.labEmployeeAlreadyAdded.Visible = false;
+            // 
+            // FromAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 555);
+            this.Controls.Add(this.labEmployeeAlreadyAdded);
             this.Controls.Add(this.gbMakeEmployee);
             this.Controls.Add(this.btnLogout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Admin";
+            this.Name = "FromAdmin";
             this.Text = "Admin";
             this.gbMakeEmployee.ResumeLayout(false);
             this.gbMakeEmployee.PerformLayout();
@@ -470,6 +484,7 @@ namespace AdminBackups
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -520,6 +535,7 @@ namespace AdminBackups
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox gbMakeEmployee;
+        private System.Windows.Forms.Label labEmployeeAlreadyAdded;
     }
 }
 

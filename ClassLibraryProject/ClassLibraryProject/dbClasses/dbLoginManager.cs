@@ -9,8 +9,8 @@ namespace ClassLibraryProject.dbClasses
 {
      public class dbLoginManager : ILoginManagement
     {
-        public static string LOGIN_BY_EMPLOYEEID = " SELECT * FROM employee INNER JOIN contract ON contract.employeeID = employee.Employeeid where employee.UserName = @UserName  AND Password = @Password AND Active = 1 ;";
-        public static string GET_EMPLOYEEID = " SELECT employeeID, password, userName FROM employee where UserName = @UserName";
+        private string LOGIN_BY_EMPLOYEEID = " SELECT * FROM employee INNER JOIN contract ON contract.employeeID = employee.Employeeid where employee.UserName = @UserName  AND Password = @Password AND Active = 1 ;";
+        private string GET_EMPLOYEEID = " SELECT employeeID, password, userName FROM employee where UserName = @UserName";
 
 
         public Employee checkLogin(string userName, string password)
@@ -38,8 +38,7 @@ namespace ClassLibraryProject.dbClasses
                             contract = new Contract(Convert.ToInt32(reader["EmployeeID"]), reader["JobTitle"].ToString(),Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), reader["StartDate"].ToString());
                             employee.Contract = contract;
                             break;
-                        case "ADMIN": employee = new Admin(Convert.ToInt32(reader["EmployeeID"]), reader["LastName"].ToString(), reader["FirstName"].ToString(), Convert.ToInt32(reader["PhoneNumber"]), reader["Email"].ToString(),
-                            reader["Address"].ToString(), reader["DateOfBirth"].ToString(), Convert.ToInt32(reader["BSN"]), reader["UserName"].ToString(), reader["Password"].ToString());
+                        case "ADMIN": employee = new Admin(Convert.ToInt32(reader["EmployeeID"]), reader["LastName"].ToString(), reader["FirstName"].ToString(), Convert.ToInt32(reader["PhoneNumber"]), reader["Email"].ToString(), reader["Address"].ToString(), reader["DateOfBirth"].ToString(), Convert.ToInt32(reader["BSN"]), reader["UserName"].ToString(), reader["Password"].ToString());
                             contract = new Contract(Convert.ToInt32(reader["EmployeeID"]), reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), reader["StartDate"].ToString());
                             employee.Contract = contract;
                             break;

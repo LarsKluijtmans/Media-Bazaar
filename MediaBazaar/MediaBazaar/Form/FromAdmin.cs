@@ -20,28 +20,33 @@ namespace AdminBackups
             this.admin = admin;
             this.store = store;
 
-            if (AmountOfEmployees() >= 2)
+            if (AmountOfOfficeManagers() > 0)
             {
                 gbMakeEmployee.Visible = false;
+                labEmployeeAlreadyAdded.Visible = true;
             }
             else 
             {
                 gbMakeEmployee.Visible = true;
+                labEmployeeAlreadyAdded.Visible = false;
             }
 
         }
 
+        //close
         protected override void OnClosing(CancelEventArgs e)
         {
             FormLogin login = new FormLogin();
             login.Show();
         }
-
+        //Logout
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+
+        //Move to employee manager class
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
             string firstName = tbxFirstName.Text;
@@ -102,7 +107,6 @@ namespace AdminBackups
             store.emailManager.Email(password, username, email);
             MessageBox.Show("Email send");
         }
-
         private void btnAddContract_Click(object sender, EventArgs e)
         {
             int employeeID = Convert.ToInt32(tbxEmployeeID.Text);
@@ -146,13 +150,17 @@ namespace AdminBackups
             }
         }
 
-        public int AmountOfEmployees()
+
+        //Move to db class
+        private int AmountOfOfficeManagers()
         {
             MySqlConnection conn = Utils.GetConnection();
 
+            string sql = "SELECT COUNT(employee.EmployeeID) FROM employee INNER JOIN contract on contract.employeeID = employee.EmployeeID WHERE jobtitle = 'OFFICE MANAGER';";
+            
             try
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT COUNT(EMPLOYEEid) FROM employee;", conn);
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
                 conn.Open();
 
 
@@ -163,7 +171,6 @@ namespace AdminBackups
                 {
                     return Convert.ToInt16(reader[0]);
                 }
-                return 0;
             }
             catch (MySqlException msqEx)
             {

@@ -531,6 +531,7 @@ namespace AdminBackups
             this.labDepartmentID.Name = "labDepartmentID";
             this.labDepartmentID.Size = new System.Drawing.Size(88, 17);
             this.labDepartmentID.TabIndex = 0;
+            this.labDepartmentID.Visible = false;
             // 
             // btnEditDepartment
             // 
