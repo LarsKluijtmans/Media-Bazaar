@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using ClassLibraryProject;
 using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses;
@@ -12,11 +13,12 @@ namespace AdminBackups
     {
         Login login;
         Store store;
+
         public FormLogin()
         {
             InitializeComponent();
 
-           login = new Login(new LoginManagment(new dbLoginManager()));
+            login = new Login(new LoginManagment(new dbLoginManager()));
             store = new Store();
         }
 
@@ -27,78 +29,40 @@ namespace AdminBackups
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string UserName = tbxUsername.Text;
-            if (string.IsNullOrEmpty(UserName))
+            string username = tbxUsername.Text;
+            if (string.IsNullOrEmpty(username))
             {
                 MessageBox.Show("'UserName' field is required.");
                 return;
             }
 
-            string Password = tbxPassword.Text;
-            if (string.IsNullOrEmpty(Password))
+            string password = tbxPassword.Text;
+            if (string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("'password' field is required.");
                 return;
             }
 
-            int ID = login.GetID(UserName, Password);
-            if (ID != 0)
-            {
-                Employee employee = login.CheckLogin(UserName, Password);
-                switch (employee.Contract.JobTitle)
-                {
-                    case "CEO": MessageBox.Show("Please use the CEO application"); break;
-                    case "ADMIN": FormAdmin admin = new FromAdmin(employee, store); Hide(); admin.Show(); break;
-                    case "SALES MANAGER": FormSalesManager salesManager = new FromSalesManager(employee, store); Hide(); salesManager.Show(); break;
-                    case "OFFICE MANAGER": FormOfficeManager officeManager = new FromOfficeManager(employee, store); Hide(); officeManager.Show(); break;
-                    case "PRODUCT MANAGER": FormProductManager officeEmployee = new FromProductManager(employee, store); Hide(); officeEmployee.Show(); break;
-                    case "DEPOT MANAGER": FormDepotManager depotManager = new FromDepotManager(employee, store);/* Hide();*/ depotManager.Show(); break;
-                    case "DEPOT EMPLOYEE": FormDepotEmployee depotEmployee = new FromDepotEmployee(employee, store);/* Hide();*/ depotEmployee.Show(); break;
-                    case "Wrong info!": MessageBox.Show("Wrong info!"); break;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Wrong login information! Please try again.");
-            }
+            Login(username, password);
         }
 
         private void btnLogin_Enter(object sender, EventArgs e)
         {
-            string UserName = tbxUsername.Text;
-            if (string.IsNullOrEmpty(UserName))
+            string username = tbxUsername.Text;
+            if (string.IsNullOrEmpty(username))
             {
                 MessageBox.Show("'UserName' field is required.");
                 return;
             }
 
-            string Password = tbxPassword.Text;
-            if (string.IsNullOrEmpty(Password))
+            string password = tbxPassword.Text;
+            if (string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("'password' field is required.");
                 return;
             }
 
-            int ID = login.GetID(UserName, Password);
-            if (ID != 0)
-            {
-                Employee employee = login.CheckLogin(UserName, Password);
-                switch (employee.Contract.JobTitle)
-                {
-                    case "CEO": MessageBox.Show("Please use the CEO application"); break;
-                    case "ADMIN": FormAdmin admin = new FormAdmin(employee, store); Hide(); admin.Show(); break;
-                    case "SALES MANAGER": FormSalesManager salesManager = new FromSalesManager(employee, store); Hide(); salesManager.Show(); break;
-                    case "OFFICE MANAGER": FormOfficeManager officeManager = new FromOfficeManager(employee, store); Hide(); officeManager.Show(); break;
-                    case "PRODUCT MANAGER": FormProductManager officeEmployee = new FromProductManager(employee, store); Hide(); officeEmployee.Show(); break;
-                    case "DEPOT MANAGER": FormDepotManager depotManager = new FromDepotManager(employee, store);/* Hide();*/ depotManager.Show(); break;
-                    case "DEPOT EMPLOYEE": FormDepotEmployee depotEmployee = new FromDepotEmployee(employee, store);/* Hide();*/ depotEmployee.Show(); break;
-                    case "": MessageBox.Show("Wrong info!"); break;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Wrong login information! Please try again.");
-            }
+            Login(username, password);
         }
         private void Login(string username, string password)
         {
@@ -112,8 +76,47 @@ namespace AdminBackups
                     return;
                 } else if (employee is Admin)
                 {
-                    //Fo
+                    FormAdmin formAdmin = new FormAdmin((Admin)employee, store);
+                    formAdmin.Show();
+                    this.Hide();
+                } else if (employee is SalesManager)
+                {
+                    FormSalesManager formSalesManager = new FormSalesManager((SalesManager)employee, store);
+                    formSalesManager.Show();
+                    this.Hide();
                 }
+                else if (employee is OfficeManager)
+                {
+                    FormOfficeManager formOfficeManager = new FormOfficeManager((OfficeManager)employee, store);
+                    formOfficeManager.Show();
+                    this.Hide();
+                }
+                else if (employee is ProductManager)
+                {
+                    FormProductManager formProductManager = new FormProductManager((ProductManager)employee, store);
+                    formProductManager.Show();
+                    this.Hide();
+                }
+                else if (employee is DepotManager)
+                {
+                    FormDepotManager formDepotManager = new FormDepotManager((DepotManager)employee, store);
+                    formDepotManager.Show();
+                    this.Hide();
+                }
+                else if (employee is DepotEmployee)
+                {
+                    FormDepotEmployee formDepotEmployee = new FormDepotEmployee((DepotEmployee)employee, store);
+                    formDepotEmployee.Show();
+                    this.Hide();
+                }
+                else if (employee is SalesRepresentative)
+                {
+                    MessageBox.Show("Please use the Sales Representative remote application");
+                    return;
+                }
+            } else
+            {
+                MessageBox.Show("Wrong credentials");
             }
         }
     }
