@@ -168,6 +168,7 @@ namespace AdminBackups
             this.cbxEmployeeType.Name = "cbxEmployeeType";
             this.cbxEmployeeType.Size = new System.Drawing.Size(163, 23);
             this.cbxEmployeeType.TabIndex = 16;
+            this.cbxEmployeeType.Text = "All Employees";
             this.cbxEmployeeType.SelectedIndexChanged += new System.EventHandler(this.cbxEmployeeType_SelectedIndexChanged);
             // 
             // dgvEmployees

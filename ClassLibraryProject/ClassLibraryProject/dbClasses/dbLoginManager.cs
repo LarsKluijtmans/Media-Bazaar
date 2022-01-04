@@ -49,29 +49,21 @@ namespace ClassLibraryProject.dbClasses
                     if (jobTitle == "ADMIN")
                     {
                         employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
-                        Contract contract = new Contract(employee, reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), Convert.ToDateTime( reader["StartDate"]), new DateTime(0,0,0));
-                        employee.Contracts.Add( contract);
                         return employee;
                     }
                     else if (jobTitle == "CEO")
                     {
                         employee = new CEO(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
-                        Contract contract = new Contract(employee, reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), Convert.ToDateTime(reader["StartDate"]), new DateTime(0, 0, 0));
-                        employee.Contracts.Add(contract);
                         return employee;
                     }
                     else if (jobTitle == "DEPOT MANAGER")
                     {
                         employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
-                        Contract contract = new Contract(employee, reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), Convert.ToDateTime(reader["StartDate"]), new DateTime(0, 0, 0));
-                        employee.Contracts.Add(contract);
                         return employee;
                     }
                     else if (jobTitle == "DEPOT EMPLOYEE")
                     {
                         employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
-                        Contract contract = new Contract(employee, reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), Convert.ToDateTime(reader["StartDate"]), new DateTime(0, 0, 0));
-                        employee.Contracts.Add(contract);
                         return employee;
                     }
                     else if (jobTitle == "OFFICE MANAGER")
@@ -79,29 +71,21 @@ namespace ClassLibraryProject.dbClasses
                         IEmployeeManagerOffice employeeManagerOffice = new EmployeeManager();
 
                         employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, employeeManagerOffice);
-                        Contract contract = new Contract(employee, reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), Convert.ToDateTime(reader["StartDate"]), new DateTime(0, 0, 0));
-                        employee.Contracts.Add(contract);
                         return employee;
                     }
                     else if (jobTitle == "PRODUCT MANAGER")
                     {
                         employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
-                        Contract contract = new Contract(employee, reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), Convert.ToDateTime(reader["StartDate"]), new DateTime(0, 0, 0));
-                        employee.Contracts.Add(contract);
                         return employee;
                     }
                     else if (jobTitle == "SALES MANAGER")
                     {
                         employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
-                        Contract contract = new Contract(employee, reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), Convert.ToDateTime(reader["StartDate"]), new DateTime(0, 0, 0));
-                        employee.Contracts.Add(contract);
                         return employee;
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")
                     {
                         employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
-                        Contract contract = new Contract(employee, reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), Convert.ToDateTime(reader["StartDate"]), new DateTime(0, 0, 0));
-                        employee.Contracts.Add(contract);
                         return employee;
                     }
                 }
