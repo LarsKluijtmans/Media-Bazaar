@@ -19,7 +19,16 @@ namespace Statistics
             emp.Clear();
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = "SELECT employee.`EmployeeID`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))), `WorkHoursPerWeek`, `FirstName`,`LastName` FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '%" + year + "-" + month + "%' group by contract.EmployeeID;";
+            string sql = "";
+
+            if (month > 9)
+            {
+                sql = "SELECT employee.`EmployeeID`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))), `WorkHoursPerWeek`, `FirstName`,`LastName` FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '" + year + "-" + month + "%' group by contract.EmployeeID;";
+            }
+            else
+            {
+                sql = "SELECT employee.`EmployeeID`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))), `WorkHoursPerWeek`, `FirstName`,`LastName` FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '" + year + "-0" + month + "%' group by contract.EmployeeID;";
+            }
 
             try
             {
@@ -38,7 +47,7 @@ namespace Statistics
                     string minute = date[3].ToString() + date[4].ToString();
                     string seconds = date[6].ToString() + date[7].ToString();
 
-                    TimeSpan t = new TimeSpan(Convert.ToInt16( hour), Convert.ToInt16(minute), Convert.ToInt16(seconds));
+                    TimeSpan t = new TimeSpan(Convert.ToInt16(hour), Convert.ToInt16(minute), Convert.ToInt16(seconds));
                     a = new EmployeeWorkTime(Convert.ToInt32(reader[0]), reader[3].ToString() + " " + reader[4].ToString(), t, Convert.ToInt32(reader[2]));
                           emp.Add(a);
                 }
