@@ -3,6 +3,7 @@ using System.Diagnostics;
 using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.Interfaces;
+using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 
 namespace ClassLibraryProject.dbClasses
@@ -15,73 +16,6 @@ namespace ClassLibraryProject.dbClasses
 
         public Employee checkLogin(string givenUsername, string givenPassword)
         {
-            /*Employee employee = new CEO();
-            Contract contract;
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = LOGIN_BY_EMPLOYEEID;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@UserName", givenUsername); 
-                cmd.Parameters.AddWithValue("@Password", givenPassword);
-
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    switch (reader["JobTitle"])
-                    {
-                        case "CEO": employee = new CEO( Convert.ToInt32(reader["EmployeeID"]), reader["LastName"].ToString(), reader["FirstName"].ToString(), Convert.ToInt32(reader["PhoneNumber"]), reader["Email"].ToString(), reader["Address"].ToString(), reader["DateOfBirth"].ToString(), Convert.ToInt32(reader["BSN"]), reader["UserName"].ToString(),  reader["Password"].ToString());
-                            contract = new Contract(Convert.ToInt32(reader["EmployeeID"]), reader["JobTitle"].ToString(),Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), reader["StartDate"].ToString());
-                            employee.Contract = contract;
-                            break;
-                        case "ADMIN": employee = new Admin(Convert.ToInt32(reader["EmployeeID"]), reader["LastName"].ToString(), reader["FirstName"].ToString(), Convert.ToInt32(reader["PhoneNumber"]), reader["Email"].ToString(), reader["Address"].ToString(), reader["DateOfBirth"].ToString(), Convert.ToInt32(reader["BSN"]), reader["UserName"].ToString(), reader["Password"].ToString());
-                            contract = new Contract(Convert.ToInt32(reader["EmployeeID"]), reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), reader["StartDate"].ToString());
-                            employee.Contract = contract;
-                            break;
-                        case "SALES MANAGER": employee = new SalesManager(Convert.ToInt32(reader["EmployeeID"]), reader["LastName"].ToString(), reader["FirstName"].ToString(), Convert.ToInt32(reader["PhoneNumber"]), reader["Email"].ToString(), reader["Address"].ToString(), reader["DateOfBirth"].ToString(), Convert.ToInt32(reader["BSN"]), reader["UserName"].ToString(), reader["Password"].ToString());
-                            contract = new Contract(Convert.ToInt32(reader["EmployeeID"]), reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), reader["StartDate"].ToString());
-                            employee.Contract = contract;
-                            break;
-                        case "OFFICE MANAGER": employee = new OfficeManager(Convert.ToInt32(reader["EmployeeID"]), reader["LastName"].ToString(), reader["FirstName"].ToString(), Convert.ToInt32(reader["PhoneNumber"]), reader["Email"].ToString(), reader["Address"].ToString(), reader["DateOfBirth"].ToString(), Convert.ToInt32(reader["BSN"]), reader["UserName"].ToString(), reader["Password"].ToString());
-                            contract = new Contract(Convert.ToInt32(reader["EmployeeID"]), reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), reader["StartDate"].ToString());
-                            employee.Contract = contract;
-                            break;
-                        case "PRODUCT MANAGER": employee = new ProductManager(Convert.ToInt32(reader["EmployeeID"]), reader["LastName"].ToString(), reader["FirstName"].ToString(), Convert.ToInt32(reader["PhoneNumber"]), reader["Email"].ToString(), reader["Address"].ToString(), reader["DateOfBirth"].ToString(), Convert.ToInt32(reader["BSN"]), reader["UserName"].ToString(), reader["Password"].ToString());
-                            contract = new Contract(Convert.ToInt32(reader["EmployeeID"]), reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), reader["StartDate"].ToString());
-                            employee.Contract = contract;
-                            break;
-                        case "DEPOT MANAGER": employee = new DepotManager(Convert.ToInt32(reader["EmployeeID"]), reader["LastName"].ToString(), reader["FirstName"].ToString(), Convert.ToInt32(reader["PhoneNumber"]), reader["Email"].ToString(), reader["Address"].ToString(), reader["DateOfBirth"].ToString(), Convert.ToInt32(reader["BSN"]), reader["UserName"].ToString(), reader["Password"].ToString());
-                            contract = new Contract(Convert.ToInt32(reader["EmployeeID"]), reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), reader["StartDate"].ToString());
-                            employee.Contract = contract;
-                            break;
-                        case "DEPOT EMPLOYEE": employee = new DepotEmployee(Convert.ToInt32(reader["EmployeeID"]), reader["LastName"].ToString(), reader["FirstName"].ToString(), Convert.ToInt32(reader["PhoneNumber"]), reader["Email"].ToString(), reader["Address"].ToString(), reader["DateOfBirth"].ToString(), Convert.ToInt32(reader["BSN"]), reader["UserName"].ToString(), reader["Password"].ToString());
-                            contract = new Contract(Convert.ToInt32(reader["EmployeeID"]), reader["JobTitle"].ToString(), Convert.ToInt32(reader["WorkHoursPerWeek"]), Convert.ToInt32(reader["SalaryPerHour"]), reader["StartDate"].ToString());
-                            employee.Contract = contract;
-                            break;
-                    }
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                Debug.WriteLine(msqEx);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                if (conn != null)
-                {
-                    conn.Close();
-                }
-            }
-            return employee;*/
-
             MySqlConnection conn = Utils.GetConnection();
             string sql = LOGIN_EMPLOYEE;
 
@@ -115,7 +49,8 @@ namespace ClassLibraryProject.dbClasses
 
                     if (jobTitle == "ADMIN")
                     {
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        IAddEmployee addEmployee = new AdminAddEmployee();
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee);
                         return employee;
                     }
                     else if (jobTitle == "CEO")
@@ -136,8 +71,10 @@ namespace ClassLibraryProject.dbClasses
                     else if (jobTitle == "OFFICE MANAGER")
                     {
                         IEmployeeManagerOffice employeeManagerOffice = new EmployeeManager();
-
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, employeeManagerOffice);
+                        IDepartment department = new DepartmentManagment( new dbDepartmentManagment());
+                        ICompany company = new CompanyManagment( new dbCompanyManagment());
+                        IAddEmployee addEmployee = new AdminAddEmployee();
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, employeeManagerOffice, department, company, addEmployee );
                         return employee;
                     }
                     else if (jobTitle == "PRODUCT MANAGER")
@@ -157,13 +94,20 @@ namespace ClassLibraryProject.dbClasses
                     }
                 }
             }
+             catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
             catch (Exception ex)
             {
-
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
 
             return null;

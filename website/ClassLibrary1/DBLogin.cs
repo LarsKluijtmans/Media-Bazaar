@@ -7,7 +7,7 @@ namespace ClassLibrary1
     public class DBLogin
     {
         // sql string
-        public static string LOGIN = "SELECT EmployeeID, FirstName, LastName, Username, Password, Active, Address, Email, Phonenumber FROM Employee WHERE Username = @Username AND Password = @Password;";
+        public static string LOGIN = "SELECT EmployeeID, FirstName, LastName, Username, Password, Active, City, Email, Phonenumber FROM Employee WHERE Username = @Username AND Password = @Password;";
 
         // method that returns userObj if given username & given password match username/password 
         public CurrentUser CheckLogin(string givenUsername, string givenPassword)
@@ -35,7 +35,7 @@ namespace ClassLibrary1
                     string username = reader.GetString("Username");
                     string password = reader.GetString("Password");
                     int active = reader.GetInt32("Active");
-                    string city = reader.GetString("Address");
+                    string city = reader.GetString("City");
                     string email = reader.GetString("Email");
                     int phoneNumber = reader.GetInt32("PhoneNumber");
 

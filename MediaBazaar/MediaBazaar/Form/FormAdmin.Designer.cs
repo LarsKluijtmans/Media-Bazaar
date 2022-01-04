@@ -31,28 +31,33 @@ namespace AdminBackups
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdmin));
             this.gbMakeEmployee = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Edit = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.labEmployeeAlreadyAdded = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbxJobTitle = new System.Windows.Forms.TextBox();
-            this.btnAddContract = new System.Windows.Forms.Button();
-            this.tbxStartDate = new System.Windows.Forms.TextBox();
+            this.tbxStartDate = new System.Windows.Forms.DateTimePicker();
+            this.BtnNewEmployee = new System.Windows.Forms.Button();
             this.tbxSalary = new System.Windows.Forms.TextBox();
             this.tbxWorkHours = new System.Windows.Forms.TextBox();
+            this.cbxJobTitle = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.BtnNewEmployee = new System.Windows.Forms.Button();
+            this.tbxDateOfBirth = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbxPersonalEmail = new System.Windows.Forms.TextBox();
             this.tbxBSN = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.tbxDateOfBirth = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbxEmployeeID = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
@@ -63,12 +68,6 @@ namespace AdminBackups
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Edit = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.labEmployeeAlreadyAdded = new System.Windows.Forms.Label();
             this.gbMakeEmployee.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -81,337 +80,19 @@ namespace AdminBackups
             this.gbMakeEmployee.Controls.Add(this.label1);
             this.gbMakeEmployee.Location = new System.Drawing.Point(25, 58);
             this.gbMakeEmployee.Name = "gbMakeEmployee";
-            this.gbMakeEmployee.Size = new System.Drawing.Size(1100, 489);
+            this.gbMakeEmployee.Size = new System.Drawing.Size(755, 438);
             this.gbMakeEmployee.TabIndex = 84;
             this.gbMakeEmployee.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.cbxJobTitle);
-            this.groupBox2.Controls.Add(this.btnAddContract);
-            this.groupBox2.Controls.Add(this.tbxStartDate);
-            this.groupBox2.Controls.Add(this.tbxSalary);
-            this.groupBox2.Controls.Add(this.tbxWorkHours);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(741, 56);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(350, 421);
-            this.groupBox2.TabIndex = 83;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Contract Info:";
-            // 
-            // cbxJobTitle
-            // 
-            this.cbxJobTitle.Location = new System.Drawing.Point(140, 62);
-            this.cbxJobTitle.Name = "cbxJobTitle";
-            this.cbxJobTitle.ReadOnly = true;
-            this.cbxJobTitle.Size = new System.Drawing.Size(191, 35);
-            this.cbxJobTitle.TabIndex = 85;
-            this.cbxJobTitle.Text = "OFFICE MANAGER";
-            // 
-            // btnAddContract
-            // 
-            this.btnAddContract.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddContract.Location = new System.Drawing.Point(63, 337);
-            this.btnAddContract.Name = "btnAddContract";
-            this.btnAddContract.Size = new System.Drawing.Size(230, 62);
-            this.btnAddContract.TabIndex = 84;
-            this.btnAddContract.Text = "Add Contract";
-            this.btnAddContract.UseVisualStyleBackColor = true;
-            this.btnAddContract.Click += new System.EventHandler(this.btnAddContract_Click);
-            // 
-            // tbxStartDate
-            // 
-            this.tbxStartDate.Location = new System.Drawing.Point(140, 262);
-            this.tbxStartDate.Name = "tbxStartDate";
-            this.tbxStartDate.Size = new System.Drawing.Size(191, 35);
-            this.tbxStartDate.TabIndex = 25;
-            // 
-            // tbxSalary
-            // 
-            this.tbxSalary.Location = new System.Drawing.Point(140, 190);
-            this.tbxSalary.Name = "tbxSalary";
-            this.tbxSalary.Size = new System.Drawing.Size(191, 35);
-            this.tbxSalary.TabIndex = 24;
-            // 
-            // tbxWorkHours
-            // 
-            this.tbxWorkHours.Location = new System.Drawing.Point(140, 122);
-            this.tbxWorkHours.Name = "tbxWorkHours";
-            this.tbxWorkHours.Size = new System.Drawing.Size(191, 35);
-            this.tbxWorkHours.TabIndex = 23;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(39, 62);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(95, 30);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Job Title:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 125);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 30);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Work hours:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 265);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 30);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Start Date:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(61, 193);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 30);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Salary:";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.BtnNewEmployee);
-            this.groupBox1.Controls.Add(this.tbxBSN);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.tbxDateOfBirth);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.tbxEmail);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.tbxEmployeeID);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.tbxFirstName);
-            this.groupBox1.Controls.Add(this.tbxPassword);
-            this.groupBox1.Controls.Add(this.tbxLastName);
-            this.groupBox1.Controls.Add(this.tbxUsername);
-            this.groupBox1.Controls.Add(this.tbxCity);
-            this.groupBox1.Controls.Add(this.tbxPhoneNumber);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(16, 56);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(719, 421);
-            this.groupBox1.TabIndex = 82;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Employee Info:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(31, 47);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(135, 30);
-            this.label20.TabIndex = 54;
-            this.label20.Text = "Employee ID:";
-            // 
-            // BtnNewEmployee
-            // 
-            this.BtnNewEmployee.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnNewEmployee.Location = new System.Drawing.Point(62, 337);
-            this.BtnNewEmployee.Name = "BtnNewEmployee";
-            this.BtnNewEmployee.Size = new System.Drawing.Size(317, 62);
-            this.BtnNewEmployee.TabIndex = 81;
-            this.BtnNewEmployee.Text = "Add Empolyee";
-            this.BtnNewEmployee.UseVisualStyleBackColor = true;
-            this.BtnNewEmployee.Click += new System.EventHandler(this.BtnNewEmployee_Click);
-            // 
-            // tbxBSN
-            // 
-            this.tbxBSN.Location = new System.Drawing.Point(524, 96);
-            this.tbxBSN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxBSN.Name = "tbxBSN";
-            this.tbxBSN.Size = new System.Drawing.Size(175, 35);
-            this.tbxBSN.TabIndex = 77;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(51, 99);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(114, 30);
-            this.label19.TabIndex = 55;
-            this.label19.Text = "First name:";
-            // 
-            // tbxDateOfBirth
-            // 
-            this.tbxDateOfBirth.Location = new System.Drawing.Point(524, 44);
-            this.tbxDateOfBirth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxDateOfBirth.Name = "tbxDateOfBirth";
-            this.tbxDateOfBirth.Size = new System.Drawing.Size(175, 35);
-            this.tbxDateOfBirth.TabIndex = 76;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(52, 158);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(113, 30);
-            this.label18.TabIndex = 56;
-            this.label18.Text = "Last name:";
-            // 
-            // tbxEmail
-            // 
-            this.tbxEmail.Location = new System.Drawing.Point(171, 264);
-            this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.ReadOnly = true;
-            this.tbxEmail.Size = new System.Drawing.Size(191, 35);
-            this.tbxEmail.TabIndex = 75;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(97, 267);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(68, 30);
-            this.label12.TabIndex = 74;
-            this.label12.Text = "Email:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(10, 210);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(155, 30);
-            this.label16.TabIndex = 58;
-            this.label16.Text = "Phone number:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(461, 99);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 30);
-            this.label5.TabIndex = 73;
-            this.label5.Text = "BSN:";
-            // 
-            // tbxEmployeeID
-            // 
-            this.tbxEmployeeID.Location = new System.Drawing.Point(172, 47);
-            this.tbxEmployeeID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxEmployeeID.Name = "tbxEmployeeID";
-            this.tbxEmployeeID.ReadOnly = true;
-            this.tbxEmployeeID.Size = new System.Drawing.Size(190, 35);
-            this.tbxEmployeeID.TabIndex = 59;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(382, 47);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(136, 30);
-            this.label8.TabIndex = 72;
-            this.label8.Text = "Date of Birth:";
-            // 
-            // tbxFirstName
-            // 
-            this.tbxFirstName.Location = new System.Drawing.Point(171, 96);
-            this.tbxFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxFirstName.Name = "tbxFirstName";
-            this.tbxFirstName.Size = new System.Drawing.Size(191, 35);
-            this.tbxFirstName.TabIndex = 60;
-            // 
-            // tbxPassword
-            // 
-            this.tbxPassword.Location = new System.Drawing.Point(524, 262);
-            this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.ReadOnly = true;
-            this.tbxPassword.Size = new System.Drawing.Size(175, 35);
-            this.tbxPassword.TabIndex = 71;
-            // 
-            // tbxLastName
-            // 
-            this.tbxLastName.Location = new System.Drawing.Point(171, 155);
-            this.tbxLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxLastName.Name = "tbxLastName";
-            this.tbxLastName.Size = new System.Drawing.Size(191, 35);
-            this.tbxLastName.TabIndex = 61;
-            // 
-            // tbxUsername
-            // 
-            this.tbxUsername.Location = new System.Drawing.Point(524, 207);
-            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.ReadOnly = true;
-            this.tbxUsername.Size = new System.Drawing.Size(175, 35);
-            this.tbxUsername.TabIndex = 70;
-            // 
-            // tbxCity
-            // 
-            this.tbxCity.Location = new System.Drawing.Point(524, 155);
-            this.tbxCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxCity.Name = "tbxCity";
-            this.tbxCity.Size = new System.Drawing.Size(175, 35);
-            this.tbxCity.TabIndex = 69;
-            // 
-            // tbxPhoneNumber
-            // 
-            this.tbxPhoneNumber.Location = new System.Drawing.Point(171, 207);
-            this.tbxPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxPhoneNumber.Multiline = true;
-            this.tbxPhoneNumber.Name = "tbxPhoneNumber";
-            this.tbxPhoneNumber.Size = new System.Drawing.Size(191, 35);
-            this.tbxPhoneNumber.TabIndex = 63;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(414, 267);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(104, 30);
-            this.label13.TabIndex = 67;
-            this.label13.Text = "Password:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(465, 155);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 30);
-            this.label15.TabIndex = 65;
-            this.label15.Text = "City:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(407, 210);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(111, 30);
-            this.label14.TabIndex = 66;
-            this.label14.Text = "Username:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(26, 19);
+            this.label1.Location = new System.Drawing.Point(187, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1034, 25);
+            this.label1.Size = new System.Drawing.Size(300, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Please add the first employee, this employee will be a office manager so he/she c" +
-    "an add all other employees in the future ";
+            this.label1.Text = "Make sure to add a new employee";
             // 
             // Edit
             // 
@@ -446,7 +127,7 @@ namespace AdminBackups
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogout.Location = new System.Drawing.Point(991, 12);
+            this.btnLogout.Location = new System.Drawing.Point(646, 17);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(134, 40);
             this.btnLogout.TabIndex = 1;
@@ -459,23 +140,336 @@ namespace AdminBackups
             this.labEmployeeAlreadyAdded.AutoSize = true;
             this.labEmployeeAlreadyAdded.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labEmployeeAlreadyAdded.ForeColor = System.Drawing.Color.Red;
-            this.labEmployeeAlreadyAdded.Location = new System.Drawing.Point(387, 12);
+            this.labEmployeeAlreadyAdded.Location = new System.Drawing.Point(164, 12);
             this.labEmployeeAlreadyAdded.Name = "labEmployeeAlreadyAdded";
             this.labEmployeeAlreadyAdded.Size = new System.Drawing.Size(402, 45);
             this.labEmployeeAlreadyAdded.TabIndex = 84;
             this.labEmployeeAlreadyAdded.Text = "Can\'t add more employees";
             this.labEmployeeAlreadyAdded.Visible = false;
             // 
-            // FromAdmin
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tbxStartDate);
+            this.groupBox2.Controls.Add(this.BtnNewEmployee);
+            this.groupBox2.Controls.Add(this.tbxSalary);
+            this.groupBox2.Controls.Add(this.tbxWorkHours);
+            this.groupBox2.Controls.Add(this.cbxJobTitle);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Location = new System.Drawing.Point(26, 257);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(712, 161);
+            this.groupBox2.TabIndex = 81;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Contract Info:";
+            // 
+            // tbxStartDate
+            // 
+            this.tbxStartDate.Location = new System.Drawing.Point(113, 113);
+            this.tbxStartDate.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
+            this.tbxStartDate.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
+            this.tbxStartDate.Name = "tbxStartDate";
+            this.tbxStartDate.Size = new System.Drawing.Size(209, 23);
+            this.tbxStartDate.TabIndex = 25;
+            this.tbxStartDate.Value = new System.DateTime(2022, 1, 2, 0, 0, 0, 0);
+            // 
+            // BtnNewEmployee
+            // 
+            this.BtnNewEmployee.Location = new System.Drawing.Point(528, 103);
+            this.BtnNewEmployee.Name = "BtnNewEmployee";
+            this.BtnNewEmployee.Size = new System.Drawing.Size(143, 33);
+            this.BtnNewEmployee.TabIndex = 41;
+            this.BtnNewEmployee.Text = "Add Empolyee";
+            this.BtnNewEmployee.UseVisualStyleBackColor = true;
+            this.BtnNewEmployee.Click += new System.EventHandler(this.BtnNewEmployee_Click_1);
+            // 
+            // tbxSalary
+            // 
+            this.tbxSalary.Location = new System.Drawing.Point(113, 85);
+            this.tbxSalary.Name = "tbxSalary";
+            this.tbxSalary.Size = new System.Drawing.Size(209, 23);
+            this.tbxSalary.TabIndex = 24;
+            // 
+            // tbxWorkHours
+            // 
+            this.tbxWorkHours.Location = new System.Drawing.Point(113, 58);
+            this.tbxWorkHours.Name = "tbxWorkHours";
+            this.tbxWorkHours.Size = new System.Drawing.Size(209, 23);
+            this.tbxWorkHours.TabIndex = 23;
+            // 
+            // cbxJobTitle
+            // 
+            this.cbxJobTitle.FormattingEnabled = true;
+            this.cbxJobTitle.Items.AddRange(new object[] {
+            "ADMIN",
+            "CEO",
+            "SALES REPRESENTATIVE",
+            "SALES MANAGER",
+            "DEPOT EMPLOYEE",
+            "DEPOT MANAGER",
+            "OFFICE MANAGER",
+            "PRODUCT MANAGER"});
+            this.cbxJobTitle.Location = new System.Drawing.Point(113, 29);
+            this.cbxJobTitle.Name = "cbxJobTitle";
+            this.cbxJobTitle.Size = new System.Drawing.Size(209, 23);
+            this.cbxJobTitle.TabIndex = 22;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(53, 31);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 15);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Job Title:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(35, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 15);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Work hours:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(45, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 15);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Start Date:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(65, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 15);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Salary:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.tbxDateOfBirth);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.tbxPersonalEmail);
+            this.groupBox1.Controls.Add(this.tbxBSN);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.tbxEmail);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.tbxFirstName);
+            this.groupBox1.Controls.Add(this.tbxPassword);
+            this.groupBox1.Controls.Add(this.tbxLastName);
+            this.groupBox1.Controls.Add(this.tbxUsername);
+            this.groupBox1.Controls.Add(this.tbxCity);
+            this.groupBox1.Controls.Add(this.tbxPhoneNumber);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Location = new System.Drawing.Point(26, 66);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(712, 176);
+            this.groupBox1.TabIndex = 80;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Employee Info:";
+            // 
+            // tbxDateOfBirth
+            // 
+            this.tbxDateOfBirth.Location = new System.Drawing.Point(430, 22);
+            this.tbxDateOfBirth.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
+            this.tbxDateOfBirth.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
+            this.tbxDateOfBirth.Name = "tbxDateOfBirth";
+            this.tbxDateOfBirth.Size = new System.Drawing.Size(200, 23);
+            this.tbxDateOfBirth.TabIndex = 80;
+            this.tbxDateOfBirth.Value = new System.DateTime(2022, 1, 2, 0, 0, 0, 0);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 136);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 15);
+            this.label5.TabIndex = 79;
+            this.label5.Text = "Personal Email:";
+            // 
+            // tbxPersonalEmail
+            // 
+            this.tbxPersonalEmail.Location = new System.Drawing.Point(113, 134);
+            this.tbxPersonalEmail.Name = "tbxPersonalEmail";
+            this.tbxPersonalEmail.Size = new System.Drawing.Size(209, 23);
+            this.tbxPersonalEmail.TabIndex = 78;
+            // 
+            // tbxBSN
+            // 
+            this.tbxBSN.Location = new System.Drawing.Point(430, 52);
+            this.tbxBSN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxBSN.Name = "tbxBSN";
+            this.tbxBSN.Size = new System.Drawing.Size(200, 23);
+            this.tbxBSN.TabIndex = 77;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(41, 28);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 15);
+            this.label19.TabIndex = 55;
+            this.label19.Text = "First name:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(42, 57);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(64, 15);
+            this.label18.TabIndex = 56;
+            this.label18.Text = "Last name:";
+            // 
+            // tbxEmail
+            // 
+            this.tbxEmail.Location = new System.Drawing.Point(113, 105);
+            this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxEmail.Name = "tbxEmail";
+            this.tbxEmail.ReadOnly = true;
+            this.tbxEmail.Size = new System.Drawing.Size(209, 23);
+            this.tbxEmail.TabIndex = 75;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(68, 107);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 15);
+            this.label12.TabIndex = 74;
+            this.label12.Text = "Email:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(18, 81);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(89, 15);
+            this.label16.TabIndex = 58;
+            this.label16.Text = "Phone number:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(392, 57);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 15);
+            this.label7.TabIndex = 73;
+            this.label7.Text = "BSN:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(348, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 15);
+            this.label8.TabIndex = 72;
+            this.label8.Text = "Date of Birth:";
+            // 
+            // tbxFirstName
+            // 
+            this.tbxFirstName.Location = new System.Drawing.Point(113, 25);
+            this.tbxFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxFirstName.Name = "tbxFirstName";
+            this.tbxFirstName.Size = new System.Drawing.Size(209, 23);
+            this.tbxFirstName.TabIndex = 60;
+            // 
+            // tbxPassword
+            // 
+            this.tbxPassword.Location = new System.Drawing.Point(430, 134);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.ReadOnly = true;
+            this.tbxPassword.Size = new System.Drawing.Size(200, 23);
+            this.tbxPassword.TabIndex = 71;
+            // 
+            // tbxLastName
+            // 
+            this.tbxLastName.Location = new System.Drawing.Point(113, 52);
+            this.tbxLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxLastName.Name = "tbxLastName";
+            this.tbxLastName.Size = new System.Drawing.Size(209, 23);
+            this.tbxLastName.TabIndex = 61;
+            // 
+            // tbxUsername
+            // 
+            this.tbxUsername.Location = new System.Drawing.Point(430, 105);
+            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.ReadOnly = true;
+            this.tbxUsername.Size = new System.Drawing.Size(200, 23);
+            this.tbxUsername.TabIndex = 70;
+            // 
+            // tbxCity
+            // 
+            this.tbxCity.Location = new System.Drawing.Point(430, 79);
+            this.tbxCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxCity.Name = "tbxCity";
+            this.tbxCity.Size = new System.Drawing.Size(200, 23);
+            this.tbxCity.TabIndex = 69;
+            // 
+            // tbxPhoneNumber
+            // 
+            this.tbxPhoneNumber.Location = new System.Drawing.Point(113, 79);
+            this.tbxPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxPhoneNumber.Multiline = true;
+            this.tbxPhoneNumber.Name = "tbxPhoneNumber";
+            this.tbxPhoneNumber.Size = new System.Drawing.Size(209, 20);
+            this.tbxPhoneNumber.TabIndex = 63;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(364, 136);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 15);
+            this.label13.TabIndex = 67;
+            this.label13.Text = "Password:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(393, 81);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(31, 15);
+            this.label15.TabIndex = 65;
+            this.label15.Text = "City:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(361, 107);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(63, 15);
+            this.label14.TabIndex = 66;
+            this.label14.Text = "Username:";
+            // 
+            // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 555);
+            this.ClientSize = new System.Drawing.Size(794, 506);
             this.Controls.Add(this.labEmployeeAlreadyAdded);
             this.Controls.Add(this.gbMakeEmployee);
             this.Controls.Add(this.btnLogout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FromAdmin";
+            this.Name = "FormAdmin";
             this.Text = "Admin";
             this.gbMakeEmployee.ResumeLayout(false);
             this.gbMakeEmployee.PerformLayout();
@@ -502,28 +496,28 @@ namespace AdminBackups
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.GroupBox gbMakeEmployee;
+        private System.Windows.Forms.Label labEmployeeAlreadyAdded;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox cbxJobTitle;
-        private System.Windows.Forms.Button btnAddContract;
-        private System.Windows.Forms.TextBox tbxStartDate;
+        private System.Windows.Forms.DateTimePicker tbxStartDate;
+        private System.Windows.Forms.Button BtnNewEmployee;
         private System.Windows.Forms.TextBox tbxSalary;
         private System.Windows.Forms.TextBox tbxWorkHours;
+        private System.Windows.Forms.ComboBox cbxJobTitle;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button BtnNewEmployee;
+        private System.Windows.Forms.DateTimePicker tbxDateOfBirth;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbxPersonalEmail;
         private System.Windows.Forms.TextBox tbxBSN;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox tbxDateOfBirth;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbxEmployeeID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbxFirstName;
         private System.Windows.Forms.TextBox tbxPassword;
@@ -534,8 +528,6 @@ namespace AdminBackups
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.GroupBox gbMakeEmployee;
-        private System.Windows.Forms.Label labEmployeeAlreadyAdded;
     }
 }
 

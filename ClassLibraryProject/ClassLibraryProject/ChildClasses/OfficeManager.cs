@@ -1,5 +1,6 @@
 ﻿using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses;
+using ClassLibraryProject.Interfaces;
 using ClassLibraryProject.ManagmentClasses;
 using System;
 
@@ -7,43 +8,45 @@ namespace ClassLibraryProject.ChildClasses
 {
      public class OfficeManager :Employee
     {
-        public DepartmentManagment departmentManagment;
-        public CompanyManagment companyManagment;
+        public IDepartment departmentManagment;
+        public ICompany companyManagment;
 
         public IEmployeeManagerOffice EmployeeManagerOffice { get; set; }
+        public IAddEmployee addEmployee;
 
-        public OfficeManager() : base()
+        public OfficeManager(IDepartment departmentManagment, ICompany companyManagment, IAddEmployee addEmployee) : base()
         { 
-            departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
-            companyManagment = new CompanyManagment(new dbCompanyManagment());
+            this.departmentManagment = departmentManagment;
+            this.companyManagment = companyManagment;
+            this.addEmployee = addEmployee;
         }
+
         public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
        : base(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password)
         {
-            departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
-            companyManagment = new CompanyManagment(new dbCompanyManagment());
         }
         public OfficeManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
        : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password)
         {
-            departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
-            companyManagment = new CompanyManagment(new dbCompanyManagment());
         }
-        public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, IEmployeeManagerOffice employeeManagerOffice)
+      
+        public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment, IAddEmployee addEmployee)
        : base(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password)
         {
             this.EmployeeManagerOffice = employeeManagerOffice;
 
-            departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
-            companyManagment = new CompanyManagment(new dbCompanyManagment());
+            this.departmentManagment = departmentManagment;
+            this.companyManagment = companyManagment;
+            this.addEmployee = addEmployee;
         }
-        public OfficeManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, IEmployeeManagerOffice employeeManagerOffice)
+        public OfficeManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment, IAddEmployee addEmployee)
        : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password)
         {
             this.EmployeeManagerOffice = employeeManagerOffice;
 
-            departmentManagment = new DepartmentManagment(new dbDepartmentManagment());
-            companyManagment = new CompanyManagment(new dbCompanyManagment());
+            this.departmentManagment = departmentManagment;
+            this.companyManagment = companyManagment;
+            this.addEmployee = addEmployee;
         }
     }
 }

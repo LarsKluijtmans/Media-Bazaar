@@ -3,7 +3,7 @@ using System.Data;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class DepartmentManagment
+    public class DepartmentManagment: IDepartment
     {
         IDepartmentManagment iDepartmentManagment;
 

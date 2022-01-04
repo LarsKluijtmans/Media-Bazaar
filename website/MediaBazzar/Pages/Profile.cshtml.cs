@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ClassLibraryProject.ChildClasses;
+using System;
 
 namespace MediaBazzar.Pages
 {
@@ -43,9 +44,9 @@ namespace MediaBazzar.Pages
                         employee.Username = reader.GetString("UserName");
                         employee.Password = reader.GetString("Password");
                         employee.BSN = reader.GetInt32("BSN");
-                        employee.City = reader.GetString("Address");
+                        employee.City = reader.GetString("City");
                         employee.Email = reader.GetString("Email");
-                        employee.PhoneNumber = reader.GetInt32("PhoneNumber");
+                        employee.PhoneNumber = reader.GetString("PhoneNumber");
                     }
                     else
                     {

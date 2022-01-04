@@ -1,4 +1,5 @@
-﻿using ClassLibraryProject.Class;
+﻿using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses;
 using ClassLibraryProject.ManagmentClasses;
 using System;
@@ -43,10 +44,13 @@ namespace AdminBackups
             if (ID != 0)
             {
                 Employee employee = login.CheckLogin(UserName, Password);
-                switch (employee.Contract.JobTitle)
+                if (employee is Admin)
                 {
-                    case "ADMIN": MakeBackups admin = new MakeBackups(); Hide(); admin.Show(); break;
-                    case "Wrong info!": MessageBox.Show("Wrong info!"); break;
+                    MakeBackups admin = new MakeBackups(); Hide(); admin.Show();
+                }
+                else
+                { 
+                    MessageBox.Show("Wrong info!"); 
                 }
             }
             else
@@ -74,10 +78,13 @@ namespace AdminBackups
             if (ID != 0)
             {
                 Employee employee = login.CheckLogin(UserName, Password);
-                switch (employee.Contract.JobTitle)
+                if (employee is Admin)
                 {
-                    case "ADMIN": MakeBackups admin = new MakeBackups(); Hide(); admin.Show(); break;
-                    case "Wrong info!": MessageBox.Show("Wrong info!"); break;
+                    MakeBackups admin = new MakeBackups(); Hide(); admin.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong info!");
                 }
             }
             else
