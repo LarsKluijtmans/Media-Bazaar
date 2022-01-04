@@ -2,7 +2,7 @@
 using ClassLibraryProject.Interfaces;
 namespace ClassLibraryProject.ManagmentClasses
 {
-   public class CompanyManagment
+   public class CompanyManagment: ICompany
     {
         ICompanyManagment icompanyManagment;
         public CompanyManagment(ICompanyManagment companyManagment)

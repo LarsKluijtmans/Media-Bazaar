@@ -3,6 +3,7 @@ using System.Diagnostics;
 using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.Interfaces;
+using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 
 namespace ClassLibraryProject.dbClasses
@@ -69,8 +70,10 @@ namespace ClassLibraryProject.dbClasses
                     else if (jobTitle == "OFFICE MANAGER")
                     {
                         IEmployeeManagerOffice employeeManagerOffice = new EmployeeManager();
+                        IDepartment department = new DepartmentManagment( new dbDepartmentManagment());
+                        ICompany company = new CompanyManagment( new dbCompanyManagment());
 
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, employeeManagerOffice);
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, employeeManagerOffice, department, company);
                         return employee;
                     }
                     else if (jobTitle == "PRODUCT MANAGER")
