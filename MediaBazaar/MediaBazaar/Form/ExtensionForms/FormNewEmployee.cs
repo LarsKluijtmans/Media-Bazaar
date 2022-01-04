@@ -44,31 +44,34 @@ namespace AdminBackups
                 return;
             }
 
-            if (!Regex.IsMatch(tbxPhoneNumber.Text, @"^(\+)316[0-9]{8}$"))
-            {
-                MessageBox.Show("Please enter a valid phone number");
-                return;
-            }
+            
             string phoneNumber = tbxPhoneNumber.Text;
             if (string.IsNullOrEmpty(phoneNumber))
             {
                 MessageBox.Show("Please enter a phone number");
                 return;
             }
+            if (!Regex.IsMatch(tbxPhoneNumber.Text, @"^(\+)316[0-9]{8}$"))
+            {
+                MessageBox.Show("Please enter a valid phone number");
+                return;
+            }
 
             string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
             
-            if (!Regex.IsMatch(tbxZipCode.Text, @"^[0-9]{4}[A-Z]{2}$"))
-            {
-                MessageBox.Show("Please enter a valid zip code");
-                return;
-            }
+            
             string zipCode = tbxZipCode.Text;
             if (string.IsNullOrEmpty(zipCode))
             {
                 MessageBox.Show("Please enter a zip code");
                 return;
             }
+            if (!Regex.IsMatch(tbxZipCode.Text, @"^[0-9]{4}[A-Z]{2}$"))
+            {
+                MessageBox.Show("Please enter a valid zip code");
+                return;
+            }
+
 
             string streetName = tbxAddress.Text;
             if (string.IsNullOrEmpty(streetName))
@@ -84,6 +87,7 @@ namespace AdminBackups
                 return;
             }
 
+            // fix
             DateTime dateOfBirth = tbxDateOfBirth.Value;
             if (string.IsNullOrEmpty(tbxDateOfBirth.Value.ToString()))
             {
@@ -97,14 +101,15 @@ namespace AdminBackups
                 return;
             }
 
-            if (!Regex.IsMatch(tbxBSN.Text, @"\b[0-9]{8,9}\b"))
-            {
-                MessageBox.Show("Please enter a valid BSN");
-                return;
-            }
+            
             if (string.IsNullOrEmpty(tbxBSN.Text))
             {
                 MessageBox.Show("Please enter a BSN");
+                return;
+            }
+            if (!Regex.IsMatch(tbxBSN.Text, @"\b[0-9]{8,9}\b"))
+            {
+                MessageBox.Show("Please enter a valid BSN");
                 return;
             }
             int bsn = Convert.ToInt32(tbxBSN.Text);
@@ -147,6 +152,13 @@ namespace AdminBackups
             {
                 newEmployee = new ProductManager(username, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
             }
+        }
+        private void CreateContract()
+        {
+            // get employee id for contract
+
+
+
         }
     }
 }
