@@ -3,7 +3,7 @@
   <Class Name="ClassLibraryProject.ChildClasses.Admin">
     <Position X="3.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ChildClasses\Admin.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -29,9 +29,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ClassLibraryProject.ChildClasses.OfficeManager">
-    <Position X="5.75" Y="7.5" Width="2.25" />
+    <Position X="5.75" Y="8" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQBAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAQBAAAAA=</HashCode>
       <FileName>ChildClasses\OfficeManager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -52,7 +52,7 @@
   <Class Name="ClassLibraryProject.Class.Employee">
     <Position X="9.25" Y="0.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>EAIAAEAAACBAAAAsAQAASAEAAEAQAgACAAgICgAAKAg=</HashCode>
+      <HashCode>EAIAAUAAACBAAACsAQAASAEAAEAQAgADAAgICgAAKIg=</HashCode>
       <FileName>Class\Employee.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +66,7 @@
   <Class Name="ClassLibraryProject.dbClasses.dbLoginManager" BaseTypeListCollapsed="true">
     <Position X="21" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAgAAAAAABAAgAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAiAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>dbClasses\dbLoginManager.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -85,6 +85,27 @@
       <FileName>ManagmentClasses\LoginManagment.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassLibraryProject.Class.Person" Collapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIAAEAAACBAABAsAQAASAECAEAQAgAiACgAKgAAIAg=</HashCode>
+      <FileName>Class\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibraryProject.Class.Manager" Collapsed="true">
+    <Position X="2.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class\Manager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibraryProject.Class.ManagerDepot" Collapsed="true">
+    <Position X="2.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class\ManagerDepot.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

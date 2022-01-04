@@ -1,5 +1,7 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
+using ClassLibraryProject.Interfaces;
+using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -122,7 +124,8 @@ namespace ClassLibraryProject
 
                     if (jobTitle == "ADMIN")
                     {
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        IAddEmployee addEmployee = new AdminAddEmployee();
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee);
                         employees.Add(employee);
                     } else if (jobTitle == "CEO")
                     {

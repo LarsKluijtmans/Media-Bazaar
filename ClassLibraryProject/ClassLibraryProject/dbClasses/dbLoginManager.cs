@@ -49,7 +49,8 @@ namespace ClassLibraryProject.dbClasses
 
                     if (jobTitle == "ADMIN")
                     {
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        IAddEmployee addEmployee = new AdminAddEmployee();
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee);
                         return employee;
                     }
                     else if (jobTitle == "CEO")
@@ -72,8 +73,8 @@ namespace ClassLibraryProject.dbClasses
                         IEmployeeManagerOffice employeeManagerOffice = new EmployeeManager();
                         IDepartment department = new DepartmentManagment( new dbDepartmentManagment());
                         ICompany company = new CompanyManagment( new dbCompanyManagment());
-
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, employeeManagerOffice, department, company);
+                        IAddEmployee addEmployee = new AdminAddEmployee();
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, employeeManagerOffice, department, company, addEmployee );
                         return employee;
                     }
                     else if (jobTitle == "PRODUCT MANAGER")

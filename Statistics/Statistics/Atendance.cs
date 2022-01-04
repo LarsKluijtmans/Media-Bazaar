@@ -32,7 +32,13 @@ namespace Statistics
 
                 while (reader.Read())
                 {
-                    TimeSpan t = (TimeSpan)reader[1];
+                    string date = reader[1].ToString();
+
+                    string hour = date[0].ToString() + date[1].ToString();
+                    string minute = date[3].ToString() + date[4].ToString();
+                    string seconds = date[6].ToString() + date[7].ToString();
+
+                    TimeSpan t = new TimeSpan(Convert.ToInt16( hour), Convert.ToInt16(minute), Convert.ToInt16(seconds));
                     a = new EmployeeWorkTime(Convert.ToInt32(reader[0]), reader[3].ToString() + " " + reader[4].ToString(), t, Convert.ToInt32(reader[2]));
                           emp.Add(a);
                 }
