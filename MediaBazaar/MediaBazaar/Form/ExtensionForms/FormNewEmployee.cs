@@ -161,8 +161,24 @@ namespace AdminBackups
         {
             // get employee id for contract
 
+            // get email
+            string firstName = tbxFirstName.Text;
+            if (string.IsNullOrEmpty(firstName))
+            {
+                MessageBox.Show("Please enter a first name");
+                return;
+            }
 
+            string lastName = tbxLastName.Text;
+            if (string.IsNullOrEmpty(lastName))
+            {
+                MessageBox.Show("Please enter a last name");
+                return;
+            }
 
+            string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
+
+            
         }
     }
 }

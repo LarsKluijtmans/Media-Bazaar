@@ -11,5 +11,6 @@ namespace ClassLibraryProject
         public List<Employee> ReadEmployees();
         public bool UpdateEmployee(Employee e);
         public bool DeleteEmployee(Employee e);
+        public Employee GetEmployeeID(string givenEmail, string jobTitle);
     }
 }

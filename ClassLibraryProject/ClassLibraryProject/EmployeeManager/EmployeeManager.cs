@@ -30,5 +30,10 @@ namespace ClassLibraryProject
         {
             return DBEmployeeManagerOffice.DeleteEmployee(e);
         }
+
+        public Employee GetEmployeeID(string givenEmail, string jobTitle)
+        {
+            return DBEmployeeManagerOffice.GetEmployeeID(givenEmail, jobTitle);
+        }
     }
 }

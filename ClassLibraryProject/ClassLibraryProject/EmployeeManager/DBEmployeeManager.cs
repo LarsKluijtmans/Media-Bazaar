@@ -19,6 +19,8 @@ namespace ClassLibraryProject
         public static string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode WHERE EmployeeID = @EmployeeID;";
         public static string DELETE_EMPLOYEE = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
 
+        public static string GET_EMPLOYEE_ID = "SELECT * FROM Employee WHERE Email = @Email AND Active = @Active;";
+
         /*public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, Address, Email, PhoneNumber, DateOfBirth) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth);";
         public static string GET_ALL_EMPLOYEES = "SELECT * FROM Employee ORDER BY EmployeeID LIMIT 25;";
         public static string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Address = @City, PhoneNumber = @PhoneNumber WHERE EmployeeID = @EmployeeID;";
@@ -183,11 +185,103 @@ namespace ClassLibraryProject
             throw new NotImplementedException();
         }
 
-        
-
         public bool UpdateEmployee(Employee e)
         {
             throw new NotImplementedException();
+        }
+
+        public Employee GetEmployeeID(string givenEmail, string jobTitle)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = GET_EMPLOYEE_ID;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@Active", 1);
+                cmd.Parameters.AddWithValue("@Email", givenEmail);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Employee employee;
+
+                while (reader.Read())
+                {
+                    int employeeID = reader.GetInt32(0);
+                    string firstName = reader.GetString(1);
+                    string lastName = reader.GetString(2);
+                    string username = reader.GetString(3);
+                    string password = reader.GetString(4);
+                    int bsn = reader.GetInt32(5);
+                    string city = reader.GetString(7);
+                    string email = reader.GetString(8);
+                    string phoneNumber = reader.GetString(9);
+                    DateTime dateOfBirth = reader.GetDateTime(10);
+                    string streetName = reader.GetString(12);
+                    string zipCode = reader.GetString(13);
+
+                    if (jobTitle == "ADMIN")
+                    {
+                        IAddEmployee addEmployee = new AdminAddEmployee();
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee);
+                        return employee;
+                    }
+                    else if (jobTitle == "CEO")
+                    {
+                        employee = new CEO(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        return employee;
+                    }
+                    else if (jobTitle == "DEPOT MANAGER")
+                    {
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        return employee;
+                    }
+                    else if (jobTitle == "DEPOT EMPLOYEE")
+                    {
+                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        return employee;
+                    }
+                    else if (jobTitle == "OFFICE MANAGER")
+                    {
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        return employee;
+                    }
+                    else if (jobTitle == "PRODUCT MANAGER")
+                    {
+                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        return employee;
+                    }
+                    else if (jobTitle == "SALES MANAGER")
+                    {
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        return employee;
+                    }
+                    else if (jobTitle == "SALES REPRESENTATIVE")
+                    {
+                        employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        return employee;
+                    }
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return null;
         }
     }
 }
