@@ -49,7 +49,6 @@ namespace AdminBackups
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbxDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.tbxPersonalEmail = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -61,6 +60,7 @@ namespace AdminBackups
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tbxDateOfBirth = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -253,16 +253,6 @@ namespace AdminBackups
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Employee Info:";
             // 
-            // tbxDateOfBirth
-            // 
-            this.tbxDateOfBirth.Location = new System.Drawing.Point(430, 22);
-            this.tbxDateOfBirth.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
-            this.tbxDateOfBirth.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
-            this.tbxDateOfBirth.Name = "tbxDateOfBirth";
-            this.tbxDateOfBirth.Size = new System.Drawing.Size(200, 23);
-            this.tbxDateOfBirth.TabIndex = 80;
-            this.tbxDateOfBirth.Value = new System.DateTime(2022, 1, 2, 0, 0, 0, 0);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -376,6 +366,14 @@ namespace AdminBackups
             this.label3.TabIndex = 20;
             this.label3.Text = "Salary:";
             // 
+            // tbxDateOfBirth
+            // 
+            this.tbxDateOfBirth.Location = new System.Drawing.Point(430, 24);
+            this.tbxDateOfBirth.Name = "tbxDateOfBirth";
+            this.tbxDateOfBirth.PlaceholderText = "dd/mm/yyyy";
+            this.tbxDateOfBirth.Size = new System.Drawing.Size(200, 23);
+            this.tbxDateOfBirth.TabIndex = 80;
+            // 
             // FormNewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -425,7 +423,7 @@ namespace AdminBackups
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbxPersonalEmail;
-        private System.Windows.Forms.DateTimePicker tbxDateOfBirth;
         private System.Windows.Forms.DateTimePicker tbxStartDate;
+        private System.Windows.Forms.TextBox tbxDateOfBirth;
     }
 }

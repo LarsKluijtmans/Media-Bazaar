@@ -88,19 +88,23 @@ namespace AdminBackups
             }
 
             // fix
-            DateTime dateOfBirth = tbxDateOfBirth.Value;
-            if (string.IsNullOrEmpty(tbxDateOfBirth.Value.ToString()))
+            if (string.IsNullOrEmpty(tbxDateOfBirth.Text))
             {
                 MessageBox.Show("Please enter a date of birth");
                 return;
             }
+            if (!Regex.IsMatch(tbxDateOfBirth.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+            {
+                MessageBox.Show("Please enter a valid date of birth");
+                return;
+            }
+            DateTime dateOfBirth = DateTime.ParseExact(tbxDateOfBirth.Text, "dd/MM/yyyy", null);
             DateTime firstBirthDay = DateTime.Now.AddYears(-16);
-            if (dateOfBirth < firstBirthDay)
+            if (dateOfBirth > firstBirthDay)
             {
                 MessageBox.Show("New employee should be at least 16 years old");
                 return;
             }
-
             
             if (string.IsNullOrEmpty(tbxBSN.Text))
             {
