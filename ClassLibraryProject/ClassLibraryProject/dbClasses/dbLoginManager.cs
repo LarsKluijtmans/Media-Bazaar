@@ -60,7 +60,7 @@ namespace ClassLibraryProject.dbClasses
                     }
                     else if (jobTitle == "DEPOT MANAGER")
                     {
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new DepotDepartmentsManagment(new dbDepotDepartments()));
                         return employee;
                     }
                     else if (jobTitle == "DEPOT EMPLOYEE")
@@ -84,7 +84,8 @@ namespace ClassLibraryProject.dbClasses
                     }
                     else if (jobTitle == "SALES MANAGER")
                     {
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new SalesDepartmentsManagment(new dbSalesDepartments()));
                         return employee;
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")
