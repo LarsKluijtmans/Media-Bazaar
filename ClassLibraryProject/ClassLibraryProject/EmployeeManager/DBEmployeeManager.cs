@@ -18,7 +18,7 @@ namespace ClassLibraryProject
     public class DBEmployeeManager : IDBEmployeeManagerOffice, IDBEmployeeManagerAdmin
     {
         // sql
-        public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, City, Email, PhoneNumber, DateOfBirth, StreetName, ZipCode) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth, @StreetName, @ZipCode);";
+        public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, City, Email, PhoneNumber, DateOfBirth, StreetName, ZipCode, PersonalEmail) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth, @StreetName, @ZipCode, @PersonalEmail);";
         public static string READ_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = @Active;";
         public static string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode WHERE EmployeeID = @EmployeeID;";
         public static string DELETE_EMPLOYEE = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
@@ -73,6 +73,7 @@ namespace ClassLibraryProject
                 cmd.Parameters.AddWithValue("@DateOfBirth", e.DateOfBirth);
                 cmd.Parameters.AddWithValue("@StreetName", e.StreetName);
                 cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
+                cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
             }
@@ -91,6 +92,9 @@ namespace ClassLibraryProject
                     conn.Close();
                 }
             }
+
+            // fix sending email
+            //SendEmail(e);
 
             return true;
         }
@@ -327,40 +331,9 @@ namespace ClassLibraryProject
                 IsBodyHtml = true,
             };
 
-            mailMessage.To.Add(e.PersonalEmail);
+            mailMessage.To.Add("estherwolfs@hotmail.com");
 
             smtpClient.Send(mailMessage);
         }
-
-        /*public void Email(string Password, string Username, string Email)
-        {
-            var smtpClient = new SmtpClient("smtp.gmail.com")
-            {
-                Port = 587,
-                Credentials = new NetworkCredential("MediaBazaar.HQ@gmail.com", "MediaBazaar21"),
-                EnableSsl = true,
-            };
-
-            StringBuilder message = new StringBuilder();
-
-            message.Append(" <h1>Here is your acount information.</h1>");
-            message.AppendLine("<p>Here is your acount information.</p>");
-            message.AppendLine("<p>You can use these in the diferent mediabazaar apps and websites.</p>");
-            message.AppendLine($"<p>                Username: {Username}</p>");
-            message.AppendLine($"<p>                password: {Password}</p>");
-            message.AppendLine("<p> Please change your password on i474883core.venus.fhict.nl </p>");
-            message.AppendLine("<p> Contact us with this email adress if you run in to any problems: nazibul.kabir.srv@gmail.com</p>");
-
-            var mailMessage = new MailMessage
-            {
-                From = new MailAddress("MediaBazaar.HQ@gmail.com"),
-                Subject = "Mediabazaar acount information",
-                Body = message.ToString(),
-                IsBodyHtml = true,
-            };
-            mailMessage.To.Add(Email);
-
-            smtpClient.Send(mailMessage);
-        }*/
     }
 }

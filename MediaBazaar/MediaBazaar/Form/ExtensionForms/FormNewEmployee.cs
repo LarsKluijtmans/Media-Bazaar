@@ -126,6 +126,11 @@ namespace AdminBackups
                 MessageBox.Show("Please enter a personal email");
                 return;
             }
+            if (!Regex.IsMatch(personalEmail, @"[a-z0-9]+(?:\.[a-z0-9]+)*@(?:[a-z](?:[a-z]*[a-z])?\.)nl|com"))
+            {
+                MessageBox.Show("Please enter a valid personal email");
+                return;
+            }
 
             // make the employee object
 
