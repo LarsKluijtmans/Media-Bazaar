@@ -57,6 +57,7 @@ namespace AdminBackups
             this.label5 = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.tabSchedule = new System.Windows.Forms.TabPage();
+            this.cbSchebuleByDepartment = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtYear = new System.Windows.Forms.TextBox();
@@ -94,7 +95,7 @@ namespace AdminBackups
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.cbSchebuleByDepartment = new System.Windows.Forms.ComboBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).BeginInit();
@@ -420,6 +421,14 @@ namespace AdminBackups
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
             // 
+            // cbSchebuleByDepartment
+            // 
+            this.cbSchebuleByDepartment.FormattingEnabled = true;
+            this.cbSchebuleByDepartment.Location = new System.Drawing.Point(22, 36);
+            this.cbSchebuleByDepartment.Name = "cbSchebuleByDepartment";
+            this.cbSchebuleByDepartment.Size = new System.Drawing.Size(289, 29);
+            this.cbSchebuleByDepartment.TabIndex = 83;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -623,6 +632,7 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.progressBar1);
             this.tabPlanning.Controls.Add(this.btnAutoSchedule);
             this.tabPlanning.Controls.Add(this.cbDepartments);
             this.tabPlanning.Controls.Add(this.label15);
@@ -655,6 +665,7 @@ namespace AdminBackups
             this.btnAutoSchedule.TabIndex = 83;
             this.btnAutoSchedule.Text = "Auto schedule";
             this.btnAutoSchedule.UseVisualStyleBackColor = true;
+            this.btnAutoSchedule.Click += new System.EventHandler(this.btnAutoSchedule_Click);
             // 
             // cbDepartments
             // 
@@ -773,9 +784,9 @@ namespace AdminBackups
             this.lstEmpCanWork.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmpCanWork.FormattingEnabled = true;
             this.lstEmpCanWork.ItemHeight = 17;
-            this.lstEmpCanWork.Location = new System.Drawing.Point(574, 50);
+            this.lstEmpCanWork.Location = new System.Drawing.Point(574, 24);
             this.lstEmpCanWork.Name = "lstEmpCanWork";
-            this.lstEmpCanWork.Size = new System.Drawing.Size(345, 378);
+            this.lstEmpCanWork.Size = new System.Drawing.Size(345, 361);
             this.lstEmpCanWork.TabIndex = 16;
             // 
             // lstEmpEnlisted
@@ -800,13 +811,12 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // cbSchebuleByDepartment
+            // progressBar1
             // 
-            this.cbSchebuleByDepartment.FormattingEnabled = true;
-            this.cbSchebuleByDepartment.Location = new System.Drawing.Point(22, 36);
-            this.cbSchebuleByDepartment.Name = "cbSchebuleByDepartment";
-            this.cbSchebuleByDepartment.Size = new System.Drawing.Size(289, 29);
-            this.cbSchebuleByDepartment.TabIndex = 83;
+            this.progressBar1.Location = new System.Drawing.Point(574, 402);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(345, 23);
+            this.progressBar1.TabIndex = 84;
             // 
             // FormSalesManager
             // 
@@ -908,5 +918,6 @@ namespace AdminBackups
         private System.Windows.Forms.ComboBox cbDepartments;
         private System.Windows.Forms.Button btnAutoSchedule;
         private System.Windows.Forms.ComboBox cbSchebuleByDepartment;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

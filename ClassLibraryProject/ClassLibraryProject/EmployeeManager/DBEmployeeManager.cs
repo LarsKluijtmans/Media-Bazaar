@@ -1,6 +1,7 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses;
+using ClassLibraryProject.dbClasses.AutoSchedule;
 using ClassLibraryProject.Interfaces;
 using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
@@ -138,7 +139,8 @@ namespace ClassLibraryProject
                         employees.Add(employee);
                     } else if (jobTitle == "DEPOT MANAGER")
                     {
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new DepotDepartmentsManagment(new dbDepotDepartments()));
+                        AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
                         employees.Add(employee);
                     } else if (jobTitle == "DEPOT EMPLOYEE")
                     {
@@ -154,7 +156,8 @@ namespace ClassLibraryProject
                         employees.Add(employee);
                     } else if (jobTitle == "SALES MANAGER")
                     {
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new SalesDepartmentsManagment(new dbSalesDepartments()));
+                        AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()) , new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule);
                         employees.Add(employee);
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")
@@ -240,7 +243,8 @@ namespace ClassLibraryProject
                     }
                     else if (jobTitle == "DEPOT MANAGER")
                     {
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new DepotDepartmentsManagment(new dbDepotDepartments()));
+                        AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
                         return employee;
                     }
                     else if (jobTitle == "DEPOT EMPLOYEE")
@@ -260,7 +264,8 @@ namespace ClassLibraryProject
                     }
                     else if (jobTitle == "SALES MANAGER")
                     {
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new SalesDepartmentsManagment(new dbSalesDepartments()));
+                        AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule);
                         return employee;
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")

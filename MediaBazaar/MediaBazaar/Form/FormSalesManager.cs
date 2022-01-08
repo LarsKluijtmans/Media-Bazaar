@@ -1,6 +1,8 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
+using ClassLibraryProject.Enum;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
@@ -317,6 +319,98 @@ namespace AdminBackups
             {
                 MessageBox.Show("Select amount");
             }
+        }
+
+        private void btnAutoSchedule_Click(object sender, EventArgs e)
+        {
+            int week = 0;
+            int year = 0;
+            string department = cbDepartments.Text;
+            try
+            {
+                week = Convert.ToInt32(lblPlanningWeek.Text);
+                year = Convert.ToInt32(txtPlanningYear.Text);
+            }
+            catch
+            { }
+
+            salesManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
+
+            progressBar1.Maximum = 59;
+
+            for (int loop = 0; loop < 3; loop++)
+            {
+                Days Day = Days.Monday;
+                Shifts Shift = Shifts.Morning;
+                for (int i = 0; i < 7; i++)
+                {
+                    Shift = Shifts.Morning;
+
+                    for (int j = 0; j < 3; j++)
+                    {
+                        List<int> Employees = new List<int>();
+                        int AmountToSchedule = 0;
+
+                        if (loop == 0)
+                        {
+                            AmountToSchedule = salesManager.autoSchedule.amountOfEmployeesNeeded.AmountOfEmployeesToSchedule(Day.ToString(), Shift.ToString(), week, year, department);
+
+                            if (AmountToSchedule != 0)
+                            {
+                                if (Shift == Shifts.Evening)
+                                { Employees = salesManager.autoSchedule.employeesAvailible.EveningEmployeesShiftPrefered(Day.ToString(), Shift.ToString(), week, year, department); }
+                                else
+                                { Employees = salesManager.autoSchedule.employeesAvailible.EmployeesShiftPrefered(Day.ToString(), Shift.ToString(), week, year, department); }
+                            }
+                        }
+                        else if (loop == 1)
+                        {
+                            AmountToSchedule = salesManager.autoSchedule.amountOfEmployeesNeeded.AmountLeftToSchedule(Day.ToString(), Shift.ToString(), week, year, department);
+
+                            if (AmountToSchedule != 0)
+                            {
+                                if (Shift == Shifts.Evening)
+                                { Employees = salesManager.autoSchedule.employeesAvailible.EveningShiftWithoughtPreference(Day.ToString(), Shift.ToString(), week, year, department); }
+                                else
+                                { Employees = salesManager.autoSchedule.employeesAvailible.EmployeesWithoughtPreference(Day.ToString(), Shift.ToString(), week, year, department); }
+                            }
+                        }
+                        else if (loop == 2)
+                        {
+                            AmountToSchedule = salesManager.autoSchedule.amountOfEmployeesNeeded.AmountLeftToSchedule(Day.ToString(), Shift.ToString(), week, year, department);
+
+                            if (AmountToSchedule != 0)
+                            {
+                                if (Shift == Shifts.Evening)
+                                { Employees = salesManager.autoSchedule.employeesAvailible.EveningShiftUnPrefered(Day.ToString(), Shift.ToString(), week, year, department); }
+                                else
+                                { Employees = salesManager.autoSchedule.employeesAvailible.EmployeesUnPrefered(Day.ToString(), Shift.ToString(), week, year, department); }
+                            }
+                        }
+
+                        if (AmountToSchedule != 0)
+                        {
+                            if (Employees.Count < AmountToSchedule)
+                            {
+                                salesManager.autoSchedule.asignShift.ScheduleAllEmployees(Employees, AmountToSchedule, Day.ToString(), Shift.ToString(), week, year);
+                            }
+                            else
+                            {
+                                salesManager.autoSchedule.asignShift.ScheduleShift(Employees, AmountToSchedule, Day.ToString(), Shift.ToString(), week, year);
+                            }
+                        }
+
+                        if (progressBar1.Value != 58)
+                        {
+                            progressBar1.Value++;
+                        }
+                        Shift++;
+                    }
+                    Day++;
+                }
+            }
+
+            progressBar1.Value = 0;
         }
     }
 }

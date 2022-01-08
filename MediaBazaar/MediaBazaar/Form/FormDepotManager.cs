@@ -1,6 +1,8 @@
 ﻿using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.Enum;
 using ClassLibraryProject.Class;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -521,6 +523,98 @@ namespace AdminBackups
             {
                 MessageBox.Show("Select supplier");
             }
+        }
+
+        private void btnAutoSchedule_Click(object sender, EventArgs e)
+        {
+            int week = 0;
+            int year = 0;
+            string department = cbDepartments.Text;
+            try
+            {
+                week = Convert.ToInt32(lblPlanningWeek.Text);
+                year = Convert.ToInt32(txtPlanningYear.Text);
+            } 
+            catch 
+            { }
+
+            depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week,year, department);
+
+            progressBar1.Maximum = 59;
+
+            for (int loop = 0; loop < 3; loop++)
+            {
+                Days Day = Days.Monday;
+                Shifts Shift = Shifts.Morning;
+                for (int i = 0; i < 7; i++)
+                {
+                    Shift = Shifts.Morning;
+
+                    for (int j = 0; j < 3; j++)
+                    {
+                        List<int> Employees = new List<int>();
+                        int AmountToSchedule = 0;
+
+                        if (loop == 0)
+                        {
+                            AmountToSchedule = depotManager.autoSchedule.amountOfEmployeesNeeded.AmountOfEmployeesToSchedule(Day.ToString(), Shift.ToString(), week, year, department);
+
+                            if (AmountToSchedule != 0)
+                            {
+                                if (Shift == Shifts.Evening)
+                                { Employees = depotManager.autoSchedule.employeesAvailible.EveningEmployeesShiftPrefered(Day.ToString(), Shift.ToString(), week, year, department); }
+                                else
+                                { Employees = depotManager.autoSchedule.employeesAvailible.EmployeesShiftPrefered(Day.ToString(), Shift.ToString(), week, year, department); }
+                            }
+                        }
+                        else if (loop == 1)
+                        {
+                            AmountToSchedule = depotManager.autoSchedule.amountOfEmployeesNeeded.AmountLeftToSchedule(Day.ToString(), Shift.ToString(), week, year, department);
+
+                            if (AmountToSchedule != 0)
+                            {
+                                if (Shift == Shifts.Evening)
+                                { Employees = depotManager.autoSchedule.employeesAvailible.EveningShiftWithoughtPreference(Day.ToString(), Shift.ToString(), week, year, department); }
+                                else
+                                { Employees = depotManager.autoSchedule.employeesAvailible.EmployeesWithoughtPreference(Day.ToString(), Shift.ToString(), week, year, department); }
+                            }
+                        }
+                        else if (loop == 2)
+                        {
+                            AmountToSchedule = depotManager.autoSchedule.amountOfEmployeesNeeded.AmountLeftToSchedule(Day.ToString(), Shift.ToString(), week, year, department);
+
+                            if (AmountToSchedule != 0)
+                            {
+                                if (Shift == Shifts.Evening)
+                                { Employees = depotManager.autoSchedule.employeesAvailible.EveningShiftUnPrefered(Day.ToString(), Shift.ToString(), week, year, department); }
+                                else
+                                { Employees = depotManager.autoSchedule.employeesAvailible.EmployeesUnPrefered(Day.ToString(), Shift.ToString(), week, year, department); }
+                            }
+                        }
+
+                        if (AmountToSchedule != 0)
+                        {
+                            if (Employees.Count < AmountToSchedule)
+                            {
+                                depotManager.autoSchedule.asignShift.ScheduleAllEmployees(Employees, AmountToSchedule, Day.ToString(), Shift.ToString(), week, year);
+                            }
+                            else
+                            {
+                                depotManager.autoSchedule.asignShift.ScheduleShift(Employees, AmountToSchedule, Day.ToString(), Shift.ToString(), week, year);
+                            }
+                        }
+
+                        if (progressBar1.Value != 58)
+                        {
+                            progressBar1.Value++;
+                        }
+                        Shift++;
+                    }
+                    Day++;
+                }
+            }
+
+            progressBar1.Value = 0;
         }
     }
 }
