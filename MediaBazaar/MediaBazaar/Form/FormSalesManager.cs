@@ -27,6 +27,7 @@ namespace AdminBackups
             {
                 foreach (Department d in ((SalesManager)salesManager).viewDepartments.ViewAllDepartments())
                 {
+                    cbSchebuleByDepartment.Items.Add(d);
                     cbDepartments.Items.Add(d);
                 }
             }

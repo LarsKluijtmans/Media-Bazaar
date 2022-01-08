@@ -117,6 +117,7 @@ namespace AdminBackups
             this.label26 = new System.Windows.Forms.Label();
             this.btnRemoveSupplier = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
+            this.cbSchebuleByDepartment = new System.Windows.Forms.ComboBox();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
             this.tabSchedule.SuspendLayout();
@@ -326,6 +327,7 @@ namespace AdminBackups
             // 
             // tabSchedule
             // 
+            this.tabSchedule.Controls.Add(this.cbSchebuleByDepartment);
             this.tabSchedule.Controls.Add(this.label18);
             this.tabSchedule.Controls.Add(this.label19);
             this.tabSchedule.Controls.Add(this.txtYear);
@@ -347,7 +349,7 @@ namespace AdminBackups
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(317, 15);
+            this.label18.Location = new System.Drawing.Point(464, 14);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(40, 21);
             this.label18.TabIndex = 73;
@@ -356,7 +358,7 @@ namespace AdminBackups
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(221, 15);
+            this.label19.Location = new System.Drawing.Point(368, 14);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(48, 21);
             this.label19.TabIndex = 72;
@@ -364,7 +366,7 @@ namespace AdminBackups
             // 
             // txtYear
             // 
-            this.txtYear.Location = new System.Drawing.Point(317, 42);
+            this.txtYear.Location = new System.Drawing.Point(464, 41);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(97, 29);
             this.txtYear.TabIndex = 71;
@@ -372,7 +374,7 @@ namespace AdminBackups
             // btnDecreaseWeek
             // 
             this.btnDecreaseWeek.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDecreaseWeek.Location = new System.Drawing.Point(196, 39);
+            this.btnDecreaseWeek.Location = new System.Drawing.Point(343, 38);
             this.btnDecreaseWeek.Name = "btnDecreaseWeek";
             this.btnDecreaseWeek.Size = new System.Drawing.Size(27, 35);
             this.btnDecreaseWeek.TabIndex = 70;
@@ -383,7 +385,7 @@ namespace AdminBackups
             // btnIncreaseWeek
             // 
             this.btnIncreaseWeek.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnIncreaseWeek.Location = new System.Drawing.Point(269, 39);
+            this.btnIncreaseWeek.Location = new System.Drawing.Point(416, 38);
             this.btnIncreaseWeek.Name = "btnIncreaseWeek";
             this.btnIncreaseWeek.Size = new System.Drawing.Size(27, 35);
             this.btnIncreaseWeek.TabIndex = 69;
@@ -394,7 +396,7 @@ namespace AdminBackups
             // lblWeek
             // 
             this.lblWeek.AutoSize = true;
-            this.lblWeek.Location = new System.Drawing.Point(229, 45);
+            this.lblWeek.Location = new System.Drawing.Point(376, 44);
             this.lblWeek.Name = "lblWeek";
             this.lblWeek.Size = new System.Drawing.Size(34, 21);
             this.lblWeek.TabIndex = 68;
@@ -403,7 +405,7 @@ namespace AdminBackups
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 62);
+            this.label6.Location = new System.Drawing.Point(42, 94);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 21);
             this.label6.TabIndex = 12;
@@ -412,7 +414,7 @@ namespace AdminBackups
             // dgSchedule
             // 
             this.dgSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSchedule.Location = new System.Drawing.Point(33, 89);
+            this.dgSchedule.Location = new System.Drawing.Point(42, 121);
             this.dgSchedule.Name = "dgSchedule";
             this.dgSchedule.RowHeadersWidth = 51;
             this.dgSchedule.RowTemplate.Height = 25;
@@ -431,7 +433,7 @@ namespace AdminBackups
             this.groupBox2.Controls.Add(this.lbScheduleEvening);
             this.groupBox2.Controls.Add(this.lbScheduleAfternoon);
             this.groupBox2.Controls.Add(this.lbScheduleMorning);
-            this.groupBox2.Location = new System.Drawing.Point(622, 31);
+            this.groupBox2.Location = new System.Drawing.Point(635, 137);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(224, 269);
             this.groupBox2.TabIndex = 4;
@@ -1113,6 +1115,14 @@ namespace AdminBackups
             this.label27.TabIndex = 92;
             this.label27.Text = "Supplier:";
             // 
+            // cbSchebuleByDepartment
+            // 
+            this.cbSchebuleByDepartment.FormattingEnabled = true;
+            this.cbSchebuleByDepartment.Location = new System.Drawing.Point(33, 41);
+            this.cbSchebuleByDepartment.Name = "cbSchebuleByDepartment";
+            this.cbSchebuleByDepartment.Size = new System.Drawing.Size(289, 29);
+            this.cbSchebuleByDepartment.TabIndex = 84;
+            // 
             // FormDepotManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1240,5 +1250,6 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnAddNewOrder;
         private System.Windows.Forms.ComboBox cbDepartments;
         private System.Windows.Forms.Button btnAutoSchedule;
+        private System.Windows.Forms.ComboBox cbSchebuleByDepartment;
     }
 }
