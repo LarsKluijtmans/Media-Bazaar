@@ -23,6 +23,14 @@ namespace AdminBackups
 
             txtYear.Text = "2021";
 
+            if (salesManager is SalesManager)
+            {
+                foreach (Department d in ((SalesManager)salesManager).viewDepartments.ViewAllDepartments())
+                {
+                    cbDepartments.Items.Add(d);
+                }
+            }
+
             Initialize();
             UpdateSchedule();
             UpdatePlanningSchedule();

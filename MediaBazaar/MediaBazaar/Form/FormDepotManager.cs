@@ -20,12 +20,21 @@ namespace AdminBackups
             this.depotManager = depotManager;
             this.store = store;
 
+            if (depotManager is DepotManager)
+            {
+                foreach (Department d in ((DepotManager)depotManager).viewDepartments.ViewAllDepartments())
+                {
+                    cbDepartments.Items.Add(d);
+                }
+            }
+
             Initialize();
             UpdateRestockRequests();
             UpdateSchedule();
             UpdatePlanningSchedule();
             UpdateSupplier();
             UpdateEmployeesWorkingToday();
+
         }
 
         //Initialize

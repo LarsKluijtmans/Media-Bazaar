@@ -1,5 +1,6 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
+using ClassLibraryProject.dbClasses;
 using ClassLibraryProject.Interfaces;
 using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
@@ -135,7 +136,7 @@ namespace ClassLibraryProject
                         employees.Add(employee);
                     } else if (jobTitle == "DEPOT MANAGER")
                     {
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new DepotDepartmentsManagment(new dbDepotDepartments()));
                         employees.Add(employee);
                     } else if (jobTitle == "DEPOT EMPLOYEE")
                     {
@@ -151,7 +152,7 @@ namespace ClassLibraryProject
                         employees.Add(employee);
                     } else if (jobTitle == "SALES MANAGER")
                     {
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new SalesDepartmentsManagment(new dbSalesDepartments()));
                         employees.Add(employee);
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")
@@ -235,7 +236,7 @@ namespace ClassLibraryProject
                     }
                     else if (jobTitle == "DEPOT MANAGER")
                     {
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new DepotDepartmentsManagment(new dbDepotDepartments()));
                         return employee;
                     }
                     else if (jobTitle == "DEPOT EMPLOYEE")
@@ -255,7 +256,7 @@ namespace ClassLibraryProject
                     }
                     else if (jobTitle == "SALES MANAGER")
                     {
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new SalesDepartmentsManagment(new dbSalesDepartments()));
                         return employee;
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")

@@ -36,7 +36,7 @@
         //methods
         public override string ToString()
         {
-            return "DepartmentID: " + departmentID + "Head department: " + head + "Name: " + name;
+            return name;
         }
     }
 }
