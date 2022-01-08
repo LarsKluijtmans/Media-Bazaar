@@ -22,17 +22,17 @@ namespace ClassLibraryProject.ChildClasses
             this.addEmployee = addEmployee;
         }
 
-        public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
-       : base(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password)
+        public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
+       : base(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
         {
         }
-        public OfficeManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
-       : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password)
+        public OfficeManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
+       : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
         {
         }
       
-        public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment, IAddEmployee addEmployee, IContractManager contractManager)
-       : base(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password)
+        public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment, IAddEmployee addEmployee, IContractManager contractManager)
+       : base(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
         {
             this.EmployeeManagerOffice = employeeManagerOffice;
             this.ContractManager = contractManager;
@@ -42,8 +42,8 @@ namespace ClassLibraryProject.ChildClasses
             this.addEmployee = addEmployee;
 
         }
-        public OfficeManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment, IAddEmployee addEmployee, IContractManager contractManager)
-       : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password)
+        public OfficeManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment, IAddEmployee addEmployee, IContractManager contractManager)
+       : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
         {
             this.EmployeeManagerOffice = employeeManagerOffice;
             this.ContractManager = contractManager;

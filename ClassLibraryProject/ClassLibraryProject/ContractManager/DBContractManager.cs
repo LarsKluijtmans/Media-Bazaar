@@ -101,5 +101,7 @@ namespace ClassLibraryProject
         {
             throw new NotImplementedException();
         }
+
+        // Send Email for new contract
     }
 }
