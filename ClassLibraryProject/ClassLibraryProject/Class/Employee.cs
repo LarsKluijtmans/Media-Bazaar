@@ -52,6 +52,8 @@ namespace ClassLibraryProject.Class
             this.BSN = bsn;
             this.Username = username;
             this.Password = password;
+            this.ZipCode = zipCode;
+            this.StreetName = streetName;
          }
 
         public Employee(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
@@ -66,6 +68,8 @@ namespace ClassLibraryProject.Class
             this.BSN = bsn;
             this.Username = username;
             this.Password = password;
+            this.ZipCode = zipCode;
+            this.StreetName = streetName;
         }
 
         // methodes
