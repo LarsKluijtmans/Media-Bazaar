@@ -17,13 +17,17 @@ namespace AdminBackups
         // ???
         int i;
         int pi;
+        DateTime date;
+
         public FormSalesManager(SalesManager salesManager, Store s)
         {
             InitializeComponent();
             this.salesManager = salesManager;
             store = s;
+           
+            date = DateTime.Now;
 
-            txtYear.Text = "2021";
+            txtYear.Text = date.Year.ToString();
 
             if (salesManager is SalesManager)
             {
@@ -33,6 +37,9 @@ namespace AdminBackups
                     cbDepartments.Items.Add(d);
                 }
             }
+            cbSchebuleByDepartment.Text = cbSchebuleByDepartment.Items[0].ToString();
+            cbDepartments.Text = cbDepartments.Items[0].ToString();
+
 
             Initialize();
             UpdateSchedule();
@@ -41,8 +48,6 @@ namespace AdminBackups
             UpdateEmployeesWorkingToday();
         }
 
-        //Initialize
-        DateTime date = DateTime.Now;
         private void UpdateEmployeesWorkingToday()
         {
             store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
@@ -149,12 +154,12 @@ namespace AdminBackups
         {
             try
             {
-                if (store.scheduleManagment.GetSalesCount(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text)) == true)
+                if (store.scheduleManagment.GetSalesCount(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text) == true)
                 {
-                    store.scheduleManagment.CreateSalesWeek(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text));
+                    store.scheduleManagment.CreateSalesWeek(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text);
                 }
-                dgSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
-                dgOverviewSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
+                dgSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+                dgOverviewSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
             }
             catch (Exception)
             {
@@ -201,7 +206,14 @@ namespace AdminBackups
                 MessageBox.Show("Day is required.");
                 return;
             }
-            store.scheduleManagment.EditSalesSchedule(Day, Morning, Afternoon, Evening, Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text));
+            string Department = cbSchebuleByDepartment.Text;
+            if (string.IsNullOrEmpty(Department))
+            {
+                MessageBox.Show("Department is required.");
+                return;
+            }
+
+            store.scheduleManagment.EditSalesSchedule(Day, Morning, Afternoon, Evening, Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), Department);
 
             UpdateSchedule();
         }
@@ -244,11 +256,11 @@ namespace AdminBackups
         {
             try
             {
-                if (store.scheduleManagment.GetSalesCount(Convert.ToInt32(txtPlanningYear.Text), Convert.ToInt32(lblPlanningWeek.Text)) == true)
+                if (store.scheduleManagment.GetSalesCount(Convert.ToInt32(txtPlanningYear.Text), Convert.ToInt32(lblPlanningWeek.Text), cbDepartments.Text) == true)
                 {
-                    store.scheduleManagment.CreateSalesWeek(Convert.ToInt32(txtPlanningYear.Text), Convert.ToInt32(lblPlanningWeek.Text));
+                    store.scheduleManagment.CreateSalesWeek(Convert.ToInt32(txtPlanningYear.Text), Convert.ToInt32(lblPlanningWeek.Text), cbDepartments.Text);
                 }
-                dgPlanningSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblPlanningWeek.Text), Convert.ToInt32(txtYear.Text));
+                dgPlanningSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblPlanningWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
             }
             catch (Exception)
             {
@@ -321,6 +333,8 @@ namespace AdminBackups
             }
         }
 
+
+        //Auto schedule
         private void btnAutoSchedule_Click(object sender, EventArgs e)
         {
             if (cbDepartments.Text == "")
