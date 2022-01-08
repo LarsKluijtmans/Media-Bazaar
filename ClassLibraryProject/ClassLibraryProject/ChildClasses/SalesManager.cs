@@ -1,11 +1,13 @@
 ﻿using ClassLibraryProject.Class;
 using ClassLibraryProject.Interfaces;
+using ClassLibraryProject.ManagmentClasses;
 using System;
 
 namespace ClassLibraryProject.ChildClasses
 {
    public class SalesManager : Employee
     {
+        public AutoScheduleManagment autoSchedule;
         public IViewDepartments viewDepartments;
         public SalesManager() : base()
         { }
@@ -14,9 +16,10 @@ namespace ClassLibraryProject.ChildClasses
         {
 
         }
-        public SalesManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, IViewDepartments viewDepartments)
+        public SalesManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, IViewDepartments viewDepartments, AutoScheduleManagment autoSchedule)
        : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password)
         {
+            this.autoSchedule = autoSchedule;
             this.viewDepartments = viewDepartments;
         }
     }
