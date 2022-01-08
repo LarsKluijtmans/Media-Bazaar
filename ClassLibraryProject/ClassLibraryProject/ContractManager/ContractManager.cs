@@ -7,24 +7,30 @@ namespace ClassLibraryProject
 {
     public class ContractManager : IContractManager
     {
+        IDBContractManager DBContractManager { get; set; }
+
+        public ContractManager()
+        {
+            DBContractManager = new DBContractManager();
+        }
         public bool CreateContract(Contract c)
         {
-            throw new NotImplementedException();
+            return DBContractManager.CreateContract(c);
         }
 
         public bool DeleteContract(Contract c)
         {
-            throw new NotImplementedException();
+            return DBContractManager.DeleteContract(c);
         }
 
         public Contract ReadContract(Employee e)
         {
-            throw new NotImplementedException();
+            return DBContractManager.ReadContract(e);
         }
 
         public bool UpdateContract(Contract c)
         {
-            throw new NotImplementedException();
+            return DBContractManager.UpdateContract(c);
         }
     }
 }

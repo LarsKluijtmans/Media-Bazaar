@@ -13,6 +13,7 @@ namespace ClassLibraryProject.Class
         private DateTime startDate;
         private DateTime endDate;
         private string reasonForTermination;
+        private string department;
 
         // properties
         public int ContractID { get; set; }
@@ -23,9 +24,10 @@ namespace ClassLibraryProject.Class
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string ReasonForTermination { get; set; }
+        public string Department { get; set; }
 
         // constructor
-        public Contract(Employee employee, string jobTitle, int workHoursPerWeek, double salaryPerHour, DateTime startDate, DateTime endDate)
+        public Contract(Employee employee, string jobTitle, int workHoursPerWeek, double salaryPerHour, DateTime startDate, DateTime endDate, string department)
         {
             this.Employee = employee;
             this.JobTitle = jobTitle;
@@ -34,6 +36,7 @@ namespace ClassLibraryProject.Class
             this.StartDate = startDate;
             this.EndDate = endDate;
             this.ReasonForTermination = null;
+            this.Department = department;
         }
 
         public void EndContract(string reasonForTermination, DateTime endDate)
