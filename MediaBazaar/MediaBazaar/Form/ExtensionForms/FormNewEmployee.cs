@@ -87,7 +87,6 @@ namespace AdminBackups
                 return;
             }
 
-            // fix
             if (string.IsNullOrEmpty(tbxDateOfBirth.Text))
             {
                 MessageBox.Show("Please enter a date of birth");
@@ -128,33 +127,136 @@ namespace AdminBackups
             if (cbxJobTitle.SelectedIndex == 0)
             {
                 newEmployee = new Admin(username, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                    if (dr == DialogResult.Yes)
+                    {
+
+                    } else if ( dr == DialogResult.No)
+                    {
+                        this.Close();
+                    }
+                }
             }
             else if (cbxJobTitle.SelectedIndex == 1)
             {
                 newEmployee = new CEO(username, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                    if (dr == DialogResult.Yes)
+                    {
+
+                    }
+                    else if (dr == DialogResult.No)
+                    {
+                        this.Close();
+                    }
+                }
             } else if (cbxJobTitle.SelectedIndex == 2)
             {
                 newEmployee = new SalesRepresentative(username, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                    if (dr == DialogResult.Yes)
+                    {
+
+                    }
+                    else if (dr == DialogResult.No)
+                    {
+                        this.Close();
+                    }
+                }
             }
             else if (cbxJobTitle.SelectedIndex == 3)
             {
                 newEmployee = new SalesManager(username, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                    if (dr == DialogResult.Yes)
+                    {
+
+                    }
+                    else if (dr == DialogResult.No)
+                    {
+                        this.Close();
+                    }
+                }
             }
             else if (cbxJobTitle.SelectedIndex == 4)
             {
                 newEmployee = new DepotEmployee(username, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                    if (dr == DialogResult.Yes)
+                    {
+
+                    }
+                    else if (dr == DialogResult.No)
+                    {
+                        this.Close();
+                    }
+                }
             }
             else if (cbxJobTitle.SelectedIndex == 5)
             {
                 newEmployee = new DepotManager(username, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                    if (dr == DialogResult.Yes)
+                    {
+
+                    }
+                    else if (dr == DialogResult.No)
+                    {
+                        this.Close();
+                    }
+                }
             }
             else if (cbxJobTitle.SelectedIndex == 6)
             {
                 newEmployee = new OfficeManager(username, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                    if (dr == DialogResult.Yes)
+                    {
+
+                    }
+                    else if (dr == DialogResult.No)
+                    {
+                        this.Close();
+                    }
+                }
             }
             else if (cbxJobTitle.SelectedIndex == 7)
             {
                 newEmployee = new ProductManager(username, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                    if (dr == DialogResult.Yes)
+                    {
+
+                    }
+                    else if (dr == DialogResult.No)
+                    {
+                        this.Close();
+                    }
+                }
             }
         }
         private void CreateContract()
@@ -178,7 +280,12 @@ namespace AdminBackups
 
             string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
 
-            
+            // get job title
+            string jobTitle = cbxJobTitle.Text;
+
+            // get employee 
+            Employee newEmployee = officeManager.EmployeeManagerOffice.GetEmployeeID(email, jobTitle);
+            MessageBox.Show(newEmployee.EmployeeID.ToString());
         }
     }
 }
