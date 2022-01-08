@@ -5,13 +5,15 @@ using System.Text;
 
 namespace ClassLibraryProject
 {
-    public class EmployeeManager : IEmployeeManagerOffice
+    public class EmployeeManager : IEmployeeManagerOffice, IEmployeeManagerAdmin
     {
         IDBEmployeeManagerOffice DBEmployeeManagerOffice { get; set; }
+        IDBEmployeeManagerAdmin DBEmployeeManagerAdmin { get; set; }
 
         public EmployeeManager()
         {
             DBEmployeeManagerOffice = new DBEmployeeManager();
+            DBEmployeeManagerAdmin = new DBEmployeeManager();
         }
 
         public bool CreateEmployee(Employee e)

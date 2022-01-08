@@ -50,7 +50,9 @@ namespace ClassLibraryProject.dbClasses
                     if (jobTitle == "ADMIN")
                     {
                         IAddEmployee addEmployee = new AdminAddEmployee();
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee);
+                        IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
+
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee, employeeManagerAdmin);
                         return employee;
                     }
                     else if (jobTitle == "CEO")

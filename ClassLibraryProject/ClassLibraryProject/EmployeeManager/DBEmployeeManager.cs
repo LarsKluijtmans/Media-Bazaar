@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 
 namespace ClassLibraryProject
 {
-    public class DBEmployeeManager : IDBEmployeeManagerOffice
+    public class DBEmployeeManager : IDBEmployeeManagerOffice, IDBEmployeeManagerAdmin
     {
         // sql
         public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, City, Email, PhoneNumber, DateOfBirth, StreetName, ZipCode) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth, @StreetName, @ZipCode);";
@@ -128,7 +128,9 @@ namespace ClassLibraryProject
                     if (jobTitle == "ADMIN")
                     {
                         IAddEmployee addEmployee = new AdminAddEmployee();
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee);
+                        IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
+
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee, employeeManagerAdmin);
                         employees.Add(employee);
                     } else if (jobTitle == "CEO")
                     {
@@ -226,7 +228,9 @@ namespace ClassLibraryProject
                     if (jobTitle == "ADMIN")
                     {
                         IAddEmployee addEmployee = new AdminAddEmployee();
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee);
+                        IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
+
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee, employeeManagerAdmin);
                         return employee;
                     }
                     else if (jobTitle == "CEO")
