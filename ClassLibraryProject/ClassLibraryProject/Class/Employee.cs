@@ -18,6 +18,7 @@ namespace ClassLibraryProject.Class
         private int bsn;
         private string username;
         private string password;
+        private string personalEmail;
 
         private List<Contract> contracts; // list of contracts for employee (only 1 can be active)
 
@@ -34,6 +35,7 @@ namespace ClassLibraryProject.Class
         public int BSN { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string PersonalEmail { get; set; }
         public List<Contract> Contracts { get; set; }
 
         // constructor
@@ -41,7 +43,7 @@ namespace ClassLibraryProject.Class
         {
 
         }
-        public Employee(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
+        public Employee(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
          {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -54,9 +56,10 @@ namespace ClassLibraryProject.Class
             this.Password = password;
             this.ZipCode = zipCode;
             this.StreetName = streetName;
+            this.PersonalEmail = personalEmail;
          }
 
-        public Employee(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password)
+        public Employee(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
         {
             this.EmployeeID = employeeID;
             this.FirstName = firstName;
@@ -70,6 +73,7 @@ namespace ClassLibraryProject.Class
             this.Password = password;
             this.ZipCode = zipCode;
             this.StreetName = streetName;
+            this.PersonalEmail = personalEmail;
         }
 
         // methodes

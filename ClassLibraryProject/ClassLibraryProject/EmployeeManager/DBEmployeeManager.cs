@@ -8,6 +8,8 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -16,7 +18,7 @@ namespace ClassLibraryProject
     public class DBEmployeeManager : IDBEmployeeManagerOffice, IDBEmployeeManagerAdmin
     {
         // sql
-        public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, City, Email, PhoneNumber, DateOfBirth, StreetName, ZipCode) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth, @StreetName, @ZipCode);";
+        public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, City, Email, PhoneNumber, DateOfBirth, StreetName, ZipCode, PersonalEmail) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth, @StreetName, @ZipCode, @PersonalEmail);";
         public static string READ_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = @Active;";
         public static string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode WHERE EmployeeID = @EmployeeID;";
         public static string DELETE_EMPLOYEE = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
@@ -71,6 +73,7 @@ namespace ClassLibraryProject
                 cmd.Parameters.AddWithValue("@DateOfBirth", e.DateOfBirth);
                 cmd.Parameters.AddWithValue("@StreetName", e.StreetName);
                 cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
+                cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
             }
@@ -89,6 +92,9 @@ namespace ClassLibraryProject
                     conn.Close();
                 }
             }
+
+            // fix sending email
+            //SendEmail(e);
 
             return true;
         }
@@ -124,45 +130,46 @@ namespace ClassLibraryProject
                     DateTime dateOfBirth = reader.GetDateTime(10);
                     string streetName = reader.GetString(12);
                     string zipCode = reader.GetString(13);
-                    string jobTitle = reader.GetString(16);
+                    string jobTitle = reader.GetString(17);
+                    string personalEmail = reader.GetString(14);
 
                     if (jobTitle == "ADMIN")
                     {
                         IAddEmployee addEmployee = new AdminAddEmployee();
                         IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
 
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee, employeeManagerAdmin);
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, addEmployee, employeeManagerAdmin);
                         employees.Add(employee);
                     } else if (jobTitle == "CEO")
                     {
-                        employee = new CEO(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new CEO(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         employees.Add(employee);
                     } else if (jobTitle == "DEPOT MANAGER")
                     {
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
                         employees.Add(employee);
                     } else if (jobTitle == "DEPOT EMPLOYEE")
                     {
-                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         employees.Add(employee);
                     } else if (jobTitle == "OFFICE MANAGER")
                     {
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         employees.Add(employee);
                     } else if (jobTitle == "PRODUCT MANAGER")
                     {
-                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         employees.Add(employee);
                     } else if (jobTitle == "SALES MANAGER")
                     {
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()) , new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule);
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule);
                         employees.Add(employee);
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")
                     {
-                        employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         employees.Add(employee);
                     }
                 }
@@ -227,50 +234,51 @@ namespace ClassLibraryProject
                     DateTime dateOfBirth = reader.GetDateTime(10);
                     string streetName = reader.GetString(12);
                     string zipCode = reader.GetString(13);
+                    string personalEmail = reader.GetString(14);
 
                     if (jobTitle == "ADMIN")
                     {
                         IAddEmployee addEmployee = new AdminAddEmployee();
                         IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
 
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee, employeeManagerAdmin);
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, addEmployee, employeeManagerAdmin);
                         return employee;
                     }
                     else if (jobTitle == "CEO")
                     {
-                        employee = new CEO(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new CEO(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "DEPOT MANAGER")
                     {
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
                         return employee;
                     }
                     else if (jobTitle == "DEPOT EMPLOYEE")
                     {
-                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "OFFICE MANAGER")
                     {
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "PRODUCT MANAGER")
                     {
-                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "SALES MANAGER")
                     {
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule);
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule);
                         return employee;
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")
                     {
-                        employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                 }
@@ -292,6 +300,40 @@ namespace ClassLibraryProject
             }
 
             return null;
+        }
+
+        /* Send Email to new Employee */
+        public void SendEmail(Employee e)
+        {
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("mediabazaar.hq@gmail.com", "MediaBazaar21"),
+                EnableSsl = true,
+            };
+
+            StringBuilder message = new StringBuilder();
+
+            message.Append("<h1>Welcome to Media Bazaar!</h1>");
+            message.AppendLine("<h2>Here is your account information:</h2>");
+            message.AppendLine("<p>You can use these credentials to log in to the different Media Bazaar apps and the website</p>");
+            message.AppendLine($"<p>                username: {e.Username}</p>");
+            message.AppendLine($"<p>                password: {e.Password}</p>");
+            message.AppendLine($"<p>                email: {e.Email}</p>");
+            message.AppendLine("<p>Please change your password on our website: i474883core.venus.fhict.nl</p>");
+            message.AppendLine("<p>If you run into any problems please contact us at mediabazaar.hq@gmail.com</p>");
+
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress("mediabazaar.hq@gmail.com"),
+                Subject = "Welcome to Media Bazaar!",
+                Body = message.ToString(),
+                IsBodyHtml = true,
+            };
+
+            mailMessage.To.Add("estherwolfs@hotmail.com");
+
+            smtpClient.Send(mailMessage);
         }
     }
 }
