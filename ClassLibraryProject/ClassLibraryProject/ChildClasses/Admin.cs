@@ -6,6 +6,8 @@ namespace ClassLibraryProject.ChildClasses
 {
     public class Admin : Employee
     {
+        public IEmployeeManagerAdmin EmployeeManagerAdmin { get; set; }
+
         public Admin()
         {
 
@@ -21,10 +23,11 @@ namespace ClassLibraryProject.ChildClasses
         {
 
         }
-        public Admin(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, IAddEmployee addEmployee) 
+        public Admin(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, IAddEmployee addEmployee, IEmployeeManagerAdmin employeeManagerAdmin) 
             : base (employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password)
         {
             this.addEmployee = addEmployee;
+            this.EmployeeManagerAdmin = employeeManagerAdmin;
         }
     }
 }
