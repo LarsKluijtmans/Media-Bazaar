@@ -46,30 +46,31 @@ namespace ClassLibraryProject.dbClasses
                     DateTime dateOfBirth = reader.GetDateTime(10);
                     string streetName = reader.GetString(12);
                     string zipCode = reader.GetString(13);
-                    string jobTitle = reader.GetString(16);
+                    string jobTitle = reader.GetString(17);
+                    string personalEmail = reader.GetString(14);
 
                     if (jobTitle == "ADMIN")
                     {
                         IAddEmployee addEmployee = new AdminAddEmployee();
                         IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
 
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, addEmployee, employeeManagerAdmin);
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, addEmployee, employeeManagerAdmin);
                         return employee;
                     }
                     else if (jobTitle == "CEO")
                     {
-                        employee = new CEO(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new CEO(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "DEPOT MANAGER")
                     {
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
                         return employee;
                     }
                     else if (jobTitle == "DEPOT EMPLOYEE")
                     {
-                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "OFFICE MANAGER")
@@ -79,23 +80,23 @@ namespace ClassLibraryProject.dbClasses
                         IDepartment department = new DepartmentManagment( new dbDepartmentManagment());
                         ICompany company = new CompanyManagment( new dbCompanyManagment());
                         IAddEmployee addEmployee = new AdminAddEmployee();
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, employeeManagerOffice, department, company, addEmployee, contractManager);
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerOffice, department, company, addEmployee, contractManager);
                         return employee;
                     }
                     else if (jobTitle == "PRODUCT MANAGER")
                     {
-                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "SALES MANAGER")
                     {
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule);
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule);
                         return employee;
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")
                     {
-                        employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                        employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                 }

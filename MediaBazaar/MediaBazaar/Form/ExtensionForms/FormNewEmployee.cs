@@ -120,13 +120,20 @@ namespace AdminBackups
             string username = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
             string password = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
 
+            string personalEmail = tbxPersonalEmail.Text;
+            if (string.IsNullOrEmpty(personalEmail))
+            {
+                MessageBox.Show("Please enter a personal email");
+                return;
+            }
+
             // make the employee object
 
             Employee newEmployee;
 
             if (cbxJobTitle.SelectedIndex == 0)
             {
-                newEmployee = new Admin(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                newEmployee = new Admin(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
                     if (CreateContract())
@@ -149,7 +156,7 @@ namespace AdminBackups
             }
             else if (cbxJobTitle.SelectedIndex == 1)
             {
-                newEmployee = new CEO(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                newEmployee = new CEO(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
                     if (CreateContract())
@@ -172,7 +179,7 @@ namespace AdminBackups
                 }
             } else if (cbxJobTitle.SelectedIndex == 2)
             {
-                newEmployee = new SalesRepresentative(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                newEmployee = new SalesRepresentative(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
                     if (CreateContract())
@@ -196,7 +203,7 @@ namespace AdminBackups
             }
             else if (cbxJobTitle.SelectedIndex == 3)
             {
-                newEmployee = new SalesManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                newEmployee = new SalesManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
                     if (CreateContract())
@@ -220,7 +227,7 @@ namespace AdminBackups
             }
             else if (cbxJobTitle.SelectedIndex == 4)
             {
-                newEmployee = new DepotEmployee(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                newEmployee = new DepotEmployee(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
                     if (CreateContract())
@@ -244,7 +251,7 @@ namespace AdminBackups
             }
             else if (cbxJobTitle.SelectedIndex == 5)
             {
-                newEmployee = new DepotManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                newEmployee = new DepotManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
                     if (CreateContract())
@@ -268,7 +275,7 @@ namespace AdminBackups
             }
             else if (cbxJobTitle.SelectedIndex == 6)
             {
-                newEmployee = new OfficeManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                newEmployee = new OfficeManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
                     if (CreateContract())
@@ -292,7 +299,7 @@ namespace AdminBackups
             }
             else if (cbxJobTitle.SelectedIndex == 7)
             {
-                newEmployee = new ProductManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
+                newEmployee = new ProductManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
                     if (CreateContract())
