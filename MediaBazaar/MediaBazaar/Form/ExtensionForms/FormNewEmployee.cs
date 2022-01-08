@@ -129,15 +129,21 @@ namespace AdminBackups
                 newEmployee = new Admin(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    CreateContract();
-                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
-
-                    if (dr == DialogResult.Yes)
+                    if (CreateContract())
                     {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
-                    } else if ( dr == DialogResult.No)
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
+                    } else
                     {
-                        this.Close();
+                        return;
                     }
                 }
             }
@@ -146,16 +152,22 @@ namespace AdminBackups
                 newEmployee = new CEO(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
-                    CreateContract();
-
-                    if (dr == DialogResult.Yes)
+                    if (CreateContract())
                     {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
                     }
-                    else if (dr == DialogResult.No)
+                    else
                     {
-                        this.Close();
+                        return;
                     }
                 }
             } else if (cbxJobTitle.SelectedIndex == 2)
@@ -163,16 +175,22 @@ namespace AdminBackups
                 newEmployee = new SalesRepresentative(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
-                    CreateContract();
-
-                    if (dr == DialogResult.Yes)
+                    if (CreateContract())
                     {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
                     }
-                    else if (dr == DialogResult.No)
+                    else
                     {
-                        this.Close();
+                        return;
                     }
                 }
             }
@@ -181,16 +199,22 @@ namespace AdminBackups
                 newEmployee = new SalesManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
-                    CreateContract();
-
-                    if (dr == DialogResult.Yes)
+                    if (CreateContract())
                     {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
                     }
-                    else if (dr == DialogResult.No)
+                    else
                     {
-                        this.Close();
+                        return;
                     }
                 }
             }
@@ -199,16 +223,22 @@ namespace AdminBackups
                 newEmployee = new DepotEmployee(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
-                    CreateContract();
-
-                    if (dr == DialogResult.Yes)
+                    if (CreateContract())
                     {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
                     }
-                    else if (dr == DialogResult.No)
+                    else
                     {
-                        this.Close();
+                        return;
                     }
                 }
             }
@@ -217,16 +247,22 @@ namespace AdminBackups
                 newEmployee = new DepotManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
-                    CreateContract();
-
-                    if (dr == DialogResult.Yes)
+                    if (CreateContract())
                     {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
                     }
-                    else if (dr == DialogResult.No)
+                    else
                     {
-                        this.Close();
+                        return;
                     }
                 }
             }
@@ -235,16 +271,22 @@ namespace AdminBackups
                 newEmployee = new OfficeManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
-                    CreateContract();
-
-                    if (dr == DialogResult.Yes)
+                    if (CreateContract())
                     {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
                     }
-                    else if (dr == DialogResult.No)
+                    else
                     {
-                        this.Close();
+                        return;
                     }
                 }
             }
@@ -253,21 +295,27 @@ namespace AdminBackups
                 newEmployee = new ProductManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
-                    CreateContract();
-
-                    if (dr == DialogResult.Yes)
+                    if (CreateContract())
                     {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
                     }
-                    else if (dr == DialogResult.No)
+                    else
                     {
-                        this.Close();
+                        return;
                     }
                 }
             }
         }
-        private void CreateContract()
+        private bool CreateContract()
         {
             // get employee id for contract
 
@@ -276,14 +324,14 @@ namespace AdminBackups
             if (string.IsNullOrEmpty(firstName))
             {
                 MessageBox.Show("Please enter a first name");
-                return;
+                return false;
             }
 
             string lastName = tbxLastName.Text;
             if (string.IsNullOrEmpty(lastName))
             {
                 MessageBox.Show("Please enter a last name");
-                return;
+                return false;
             }
 
             string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
@@ -295,30 +343,87 @@ namespace AdminBackups
             Employee newEmployee = officeManager.EmployeeManagerOffice.GetEmployeeID(email, jobTitle);
 
             // get input for contract
+            if (string.IsNullOrEmpty(tbxWorkHours.Text))
+            {
+                MessageBox.Show("Please enter work hours per week");
+                return false;
+            }
             int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+            if (workHoursPerWeek % 4 != 0)
+            {
+                MessageBox.Show("Work hours has to be a multiple of 4");
+                return false;
+            }
+            if (workHoursPerWeek == 0)
+            {
+                MessageBox.Show("Work hours must be at least 4 hours per week");
+                return false;
+            }
 
+            if (string.IsNullOrEmpty(tbxSalary.Text))
+            {
+                MessageBox.Show("Please enter salary per hour");
+                return false;
+            }
             double salaryPerHour = Convert.ToDouble(tbxSalary.Text);
 
+            if (string.IsNullOrEmpty(tbxStartDate.Text))
+            {
+                MessageBox.Show("Please enter a start date");
+                return false;
+            }
+            if (!Regex.IsMatch(tbxStartDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+            {
+                MessageBox.Show("Please enter a valid start date");
+                return false;
+            }
             DateTime startDate = DateTime.ParseExact(tbxStartDate.Text, "dd/MM/yyyy", null);
+            if (startDate < DateTime.Now)
+            {
+                MessageBox.Show("Start date must be in the future");
+                return false;
+            }
 
+            if (string.IsNullOrEmpty(tbxEndDate.Text))
+            {
+                MessageBox.Show("Please enter an end date");
+                return false;
+            }
+            if (!Regex.IsMatch(tbxEndDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+            {
+                MessageBox.Show("Please enter a valid end date");
+                return false;
+            }
             DateTime endDate = DateTime.ParseExact(tbxEndDate.Text, "dd/MM/yyyy", null);
-            /*if (string.IsNullOrEmpty(tbxDateOfBirth.Text))
+            if (endDate < DateTime.Now)
             {
-                MessageBox.Show("Please enter a date of birth");
-                return;
+                MessageBox.Show("End date must be in the future");
+                return false;
             }
-            if (!Regex.IsMatch(tbxDateOfBirth.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+
+            if (startDate > endDate)
             {
-                MessageBox.Show("Please enter a valid date of birth");
-                return;
+                MessageBox.Show("End date must be after start date");
+                return false;
             }
-            DateTime dateOfBirth = DateTime.ParseExact(tbxDateOfBirth.Text, "dd/MM/yyyy", null);
-            DateTime firstBirthDay = DateTime.Now.AddYears(-16);
-            if (dateOfBirth > firstBirthDay)
+
+            var contractDays = (endDate - startDate).TotalDays;
+            if (contractDays > 365)
             {
-                MessageBox.Show("New employee should be at least 16 years old");
-                return;
-            }*/
+                MessageBox.Show("Contract length can be max 1 year");
+                return false;
+            }
+
+            string department = cbxDepartment.Text;
+            if (string.IsNullOrEmpty(department))
+            {
+                MessageBox.Show("Please enter a department");
+                return false;
+            }
+
+            Contract newContract = new Contract(newEmployee, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
+
+            return officeManager.ContractManager.CreateContract(newContract);
         }
     }
 }
