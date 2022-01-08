@@ -46,8 +46,8 @@ namespace ClassLibraryProject.dbClasses
                     DateTime dateOfBirth = reader.GetDateTime(10);
                     string streetName = reader.GetString(12);
                     string zipCode = reader.GetString(13);
-                    string jobTitle = reader.GetString(16);
-
+                    string jobTitle = reader.GetString(17);
+                    
                     if (jobTitle == "ADMIN")
                     {
                         IAddEmployee addEmployee = new AdminAddEmployee();

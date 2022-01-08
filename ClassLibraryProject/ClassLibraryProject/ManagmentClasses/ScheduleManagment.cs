@@ -9,13 +9,13 @@ namespace ClassLibraryProject.ManagmentClasses
     public class ScheduleManagment
     {
         //Sales
-        public static string UPDATE_SALES_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day AND Department = 'sales' AND Week = @Week AND Year = @Year;";
-        public static string GET_SALES_COUNT = "SELECT COUNT(ScheduleID) FROM Schedule WHERE Department = 'Sales' AND Year = @Year AND Week = @Week;";
-        public static string CREATE_WEEK_SALES = "INSERT INTO `schedule` (`Department`, `Year`, `Week`, `Day`, `Morning`, `Afternoon`, `Evening`) VALUES ('Sales', @Year, @Week, 'Monday', '0', '0', '0'), ('Sales',  @Year, @Week, 'Tuesday', '0', '0', '0'), ('Sales',  @Year, @Week, 'Wednesday', '0', '0', '0'), ('Sales',  @Year, @Week, 'Thursday', '0', '0', '0'), ('Sales',  @Year, @Week, 'Friday', '0', '0', '0'), ('Sales',  @Year, @Week, 'Saturday', '0', '0', '0'), ('Sales',  @Year, @Week, 'Sunday', '0', '0', '0');";
+        public static string UPDATE_SALES_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day AND Department = '@Department' AND Week = @Week AND Year = @Year;";
+        public static string GET_SALES_COUNT = "SELECT COUNT(ScheduleID) FROM Schedule WHERE Department = '@Department' AND Year = @Year AND Week = @Week;";
+        public static string CREATE_WEEK_SALES = "INSERT INTO `schedule` (`Department`, `Year`, `Week`, `Day`, `Morning`, `Afternoon`, `Evening`) VALUES ('@Department', @Year, @Week, 'Monday', '0', '0', '0'), ('@Department',  @Year, @Week, 'Tuesday', '0', '0', '0'), ('@Department',  @Year, @Week, 'Wednesday', '0', '0', '0'), ('@Department',  @Year, @Week, 'Thursday', '0', '0', '0'), ('@Department',  @Year, @Week, 'Friday', '0', '0', '0'), ('@Department',  @Year, @Week, 'Saturday', '0', '0', '0'), ('@Department',  @Year, @Week, 'Sunday', '0', '0', '0');";
         //Depot
-        public static string UPDATE_DEPOT_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day AND Department = 'depot' AND Week = @Week AND Year = @Year;";
-        public static string GET_DEPOT_COUNT = "SELECT COUNT(ScheduleID) FROM Schedule WHERE Department = 'Depot' AND Year = @Year AND Week = @Week;";
-        public static string CREATE_WEEK_DEPOT = "INSERT INTO `schedule` (`Department`, `Year`, `Week`, `Day`, `Morning`, `Afternoon`, `Evening`) VALUES ('Depot', @Year, @Week, 'Monday', '0', '0', '0'), ('Depot',  @Year, @Week, 'Tuesday', '0', '0', '0'), ('Depot',  @Year, @Week, 'Wednesday', '0', '0', '0'), ('Depot',  @Year, @Week, 'Thursday', '0', '0', '0'), ('Depot',  @Year, @Week, 'Friday', '0', '0', '0'), ('Depot',  @Year, @Week, 'Saturday', '0', '0', '0'), ('Depot',  @Year, @Week, 'Sunday', '0', '0', '0');";
+        public static string UPDATE_DEPOT_SCHEDULE = "UPDATE schedule SET morning = @morning, afternoon = @afternoon, evening = @evening WHERE Day = @Day AND Department = '@Department' AND Week = @Week AND Year = @Year;";
+        public static string GET_DEPOT_COUNT = "SELECT COUNT(ScheduleID) FROM Schedule WHERE Department = '@Department' AND Year = @Year AND Week = @Week;";
+        public static string CREATE_WEEK_DEPOT = "INSERT INTO `schedule` (`Department`, `Year`, `Week`, `Day`, `Morning`, `Afternoon`, `Evening`) VALUES ('@Department', @Year, @Week, 'Monday', '0', '0', '0'), ('@Department',  @Year, @Week, 'Tuesday', '0', '0', '0'), ('@Department',  @Year, @Week, 'Wednesday', '0', '0', '0'), ('@Department',  @Year, @Week, 'Thursday', '0', '0', '0'), ('@Department',  @Year, @Week, 'Friday', '0', '0', '0'), ('@Department',  @Year, @Week, 'Saturday', '0', '0', '0'), ('@Department',  @Year, @Week, 'Sunday', '0', '0', '0');";
         //CRUD
         public static string GET_ALL_SCHEDULES = "SELECT * FROM SCHEDULE;";
 
@@ -33,11 +33,11 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         //Sales
-        public DataTable ViewSalesSchedule(int week, int year)
+        public DataTable ViewSalesSchedule(int week, int year, string Department)
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"SELECT  day, morning, afternoon, evening from SCHEDULE where Department = 'sales' AND Year = {year} AND Week = {week};";
+            string sql = $"SELECT  day, morning, afternoon, evening from SCHEDULE where Department = '{Department}' AND Year = {year} AND Week = {week};";
 
             try
             {
@@ -63,7 +63,7 @@ namespace ClassLibraryProject.ManagmentClasses
             DataTable a = new DataTable();
             return a;
         }
-        public void EditSalesSchedule(string day, string morning, string afternoon, string evening, int week, int year)
+        public void EditSalesSchedule(string day, string morning, string afternoon, string evening, int week, int year, string Department)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = UPDATE_SALES_SCHEDULE;
@@ -76,6 +76,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@evening", evening);
                 cmd.Parameters.AddWithValue("@Week", week);
                 cmd.Parameters.AddWithValue("@Year", year);
+                cmd.Parameters.AddWithValue("@Department", Department);
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
@@ -90,7 +91,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
-        public void CreateSalesWeek(int year, int week)
+        public void CreateSalesWeek(int year, int week, string Department)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -101,6 +102,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@Year", year);
                 cmd.Parameters.AddWithValue("@Week", week);
+                cmd.Parameters.AddWithValue("@Department", Department);
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
@@ -114,7 +116,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
-        public bool GetSalesCount(int year, int week)
+        public bool GetSalesCount(int year, int week, string Department)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -125,6 +127,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@Year", year);
                 cmd.Parameters.AddWithValue("@Week", week);
+                cmd.Parameters.AddWithValue("@Department", Department);
                 conn.Open();
 
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -150,15 +153,18 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         //Depot
-        public DataTable ViewDepotSchedule(int week, int year)
+        public DataTable ViewDepotSchedule(int week, int year, string Department)
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"SELECT   day, morning, afternoon, evening from SCHEDULE where Department = 'depot' AND Year = {year} AND Week = {week};";
+            string sql = $"SELECT   day, morning, afternoon, evening from SCHEDULE where Department = '{Department}' AND Year = {year} AND Week = {week};";
 
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                
+                cmd.Parameters.AddWithValue("@Department", Department);
+
                 conn.Open();
 
                 MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
@@ -179,7 +185,7 @@ namespace ClassLibraryProject.ManagmentClasses
             DataTable a = new DataTable();
             return a;
         }
-        public void EditDepotSchedule(string day, string morning, string afternoon, string evening, int week, int year)
+        public void EditDepotSchedule(string day, string morning, string afternoon, string evening, int week, int year, string Department)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = UPDATE_DEPOT_SCHEDULE;
@@ -192,6 +198,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@evening", evening);
                 cmd.Parameters.AddWithValue("@Week", week);
                 cmd.Parameters.AddWithValue("@Year", year);
+                cmd.Parameters.AddWithValue("@Department", Department);
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
@@ -206,7 +213,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
-        public void CreateDepotWeek(int year, int week)
+        public void CreateDepotWeek(int year, int week, string Department)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -217,6 +224,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@Year", year);
                 cmd.Parameters.AddWithValue("@Week", week);
+                cmd.Parameters.AddWithValue("@Department", Department);
                 conn.Open();
 
                 int numAffectedRows = cmd.ExecuteNonQuery();
@@ -230,7 +238,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
-        public bool GetDepotCount(int year, int week)
+        public bool GetDepotCount(int year, int week, string Department)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -241,6 +249,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@Year", year);
                 cmd.Parameters.AddWithValue("@Week", week);
+                cmd.Parameters.AddWithValue("@Department", Department);
                 conn.Open();
 
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -264,6 +273,7 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return false;
         }
+     
         //CRUD
         public void GetAllSchedule()
         {
@@ -310,8 +320,6 @@ namespace ClassLibraryProject.ManagmentClasses
             {
                 conn.Close();
             }
-        }
-
-        
+        } 
     }
 }
