@@ -14,6 +14,7 @@ namespace ClassLibraryProject.Class
         private DateTime endDate;
         private string reasonForTermination;
         private string department;
+        private bool isActive;
 
         // properties
         public int ContractID { get; set; }
@@ -25,6 +26,7 @@ namespace ClassLibraryProject.Class
         public DateTime EndDate { get; set; }
         public string ReasonForTermination { get; set; }
         public string Department { get; set; }
+        public bool IsActive { get; set; }
 
         // constructor
         public Contract(Employee employee, string jobTitle, int workHoursPerWeek, double salaryPerHour, DateTime startDate, DateTime endDate, string department)
@@ -37,6 +39,7 @@ namespace ClassLibraryProject.Class
             this.EndDate = endDate;
             this.ReasonForTermination = null;
             this.Department = department;
+            this.IsActive = true;
         }
 
         public void EndContract(string reasonForTermination, DateTime endDate)

@@ -79,7 +79,8 @@ namespace AdminBackups
                     FormAdmin formAdmin = new FormAdmin((Admin)employee, store);
                     formAdmin.Show();
                     this.Hide();
-                } else if (employee is SalesManager)
+                }
+                else if (employee is SalesManager)
                 {
                     FormSalesManager formSalesManager = new FormSalesManager((SalesManager)employee, store);
                     formSalesManager.Show();
