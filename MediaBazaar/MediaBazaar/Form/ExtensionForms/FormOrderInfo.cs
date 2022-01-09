@@ -22,22 +22,22 @@ namespace AdminBackups
 
             foreach (OrderInfo info in infoManagment.OrderInfos)
             {
-                if (info.SupplierID == supplierID)
+                if (info.Supplier == supplierID)
                 {
-                    if (!txtProductID.Items.Contains(info.ProductID))
+                    if (!txtProductID.Items.Contains(info.Product))
                     {
-                        txtProductID.Items.Add(info.ProductID);
+                        txtProductID.Items.Add(info.Product);
                     }
                 }
             }
             foreach (OrderInfo info in infoManagment.OrderInfos)
             {
-                if (txtProductID.Text == info.ProductID.ToString() && txtSupplierID.Text == info.SupplierID.ToString())
+                if (txtProductID.Text == info.Product.ToString() && txtSupplierID.Text == info.Supplier.ToString())
                 {
                     txtMaxAmount.Text = info.MaxAmount.ToString();
                     txtMinAmount.Text = info.MinAmount.ToString();
                     txtMultiples.Text = info.Multiples.ToString();
-                    lblOrderID.Text = info.OrderInfoID.ToString();
+                    lblOrderID.Text = info.ID.ToString();
                 }
             }
         }

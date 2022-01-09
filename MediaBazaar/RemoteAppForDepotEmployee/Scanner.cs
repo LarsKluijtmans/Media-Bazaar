@@ -62,7 +62,7 @@ namespace RemoteAppForDepotEmployee
             {
                 if(product.Barcode == txtBarcode.Text)
                 {
-                    store.restockManagment.RequestRestock(product.Barcode, product.ProductID);
+                    store.restockManagment.RequestRestock(product.Barcode, product.ID);
                 }
             }
 

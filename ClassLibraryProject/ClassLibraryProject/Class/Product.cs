@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ClassLibraryProject.Class
+﻿namespace ClassLibraryProject.Class
 {
     public class Product
     {
         //fields
-        private int productID;
+        private int id;
         private string barcode;
         private string name;
         private string productType;
         private int amountInStore;
         private int amountInDepot;
-
         private int sellingPrice;
         private bool isDiscontinued;
 
 
         //properties
-        public int ProductID
+        public int ID
         {
-            get { return productID; }
-            set { productID = value; }
+            get { return id; }
+            set { id = value; }
         }
         public string Barcode
         {
@@ -39,7 +34,6 @@ namespace ClassLibraryProject.Class
             get { return name; }
             set { name = value; }
         }
-
         public int AmountInStore
         {
             get { return amountInStore; }
@@ -50,13 +44,21 @@ namespace ClassLibraryProject.Class
             get { return amountInDepot; }
             set { amountInDepot = value; }
         }
+        public int SellingPrice
+        {
+            get { return sellingPrice; }
+            set { sellingPrice = value; }
+        }
+        public bool IsDiscontinued
+        { 
+            get { return isDiscontinued; } 
+            set { isDiscontinued = value; } 
+        }
 
-        public int SellingPrice { get; set; }
-        public bool IsDiscontinued { get; set; }
         //constructor
         public Product(int id, string name, string type, string barcode, int sellingPrice)
         {
-            ProductID = id;
+            ID = id;
             Barcode = barcode;
             Name = name;
             ProductType = type;
@@ -67,7 +69,7 @@ namespace ClassLibraryProject.Class
         }
         public Product(int id, string name, string type, string barcode, int sellingPrice, int amountInDepot, int amountInStore)
         {
-            ProductID = id;
+            ID = id;
             Barcode = barcode;
             Name = name;
             ProductType = type;
@@ -76,10 +78,11 @@ namespace ClassLibraryProject.Class
             SellingPrice = sellingPrice;
             IsDiscontinued = false;
         }
+
         // methods
         public override string ToString()
         {
-            return $"ID: {ProductID} - name:{Name}";
+            return $"ID: {ID} - name:{Name}";
         }
     }
 }
