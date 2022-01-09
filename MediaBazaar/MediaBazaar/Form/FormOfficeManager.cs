@@ -402,7 +402,7 @@ namespace AdminBackups
             }
             if (officeManager is OfficeManager)
             {
-                ((OfficeManager)officeManager).departmentManagment.EditDepartment(Name, Head, DepartmentID.ToString());
+                udResult.Value = ((OfficeManager)officeManager).departmentManagment.EditDepartment(Name, Head, DepartmentID.ToString());
             }
             else
             {
@@ -419,6 +419,8 @@ namespace AdminBackups
                 labDepartmentID.Text = row.Cells["departmentID"].Value.ToString();
                 tbDepartmentName.Text = row.Cells["DepartmentName"].Value.ToString();
                 cbHeadDepartments.Text = row.Cells["HeadDepatment"].Value.ToString();
+
+                udResult.Value = 0;
             }
         }
         private void btnDeleteDepartment_Click(object sender, EventArgs e)
@@ -622,7 +624,5 @@ namespace AdminBackups
                 //ViewAllEmployees();
             }*/
         }
-
-        
     }
 }
