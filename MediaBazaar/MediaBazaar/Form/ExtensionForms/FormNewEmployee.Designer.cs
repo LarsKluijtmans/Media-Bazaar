@@ -65,10 +65,8 @@ namespace AdminBackups
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataLink1 = new Devart.Data.DataLink();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataLink1)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnNewEmployee
@@ -427,10 +425,6 @@ namespace AdminBackups
             this.label3.TabIndex = 20;
             this.label3.Text = "Salary:";
             // 
-            // dataLink1
-            // 
-            this.dataLink1.Name = "dataLink1";
-            // 
             // FormNewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -445,7 +439,6 @@ namespace AdminBackups
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataLink1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -487,6 +480,5 @@ namespace AdminBackups
         private System.Windows.Forms.ComboBox cbxDepartment;
         private System.Windows.Forms.TextBox tbxEndDate;
         private System.Windows.Forms.TextBox tbxStartDate;
-        private Devart.Data.DataLink dataLink1;
     }
 }

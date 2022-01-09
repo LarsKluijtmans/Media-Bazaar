@@ -11,7 +11,7 @@ namespace ClassLibraryProject
     public class DBContractManager : IDBContractManager
     {
         // sql
-        public static string CREATE_CONTRACT = "INSERT INTO Contract (EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES (@EmployeeID, @JobTitle, @WorkHoursPerWeek, @SalaryPerHour, @StartDate, @EndDate, @Department, @Active);";
+        public static string CREATE_CONTRACT = "INSERT INTO Contract (EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES (@EmployeeID, '@JobTitle', @WorkHoursPerWeek, @SalaryPerHour, '@StartDate', '@EndDate', '@Department', @Active);";
         public static string READ_CONTRACT = "SELECT * FROM Contract as c INNER JOIN Employee as e on c.EmployeeID = e.EmployeeID WHERE c.EmployeeID = @EmployeeID;";
         public static string UPDATE_CONTRACT = "UPDATE Contract SET;";
         public static string DELETE_CONTRACT = "DELETE FROM Contract WHERE EmployeeID = @EmployeeID;";
@@ -29,8 +29,8 @@ namespace ClassLibraryProject
                 cmd.Parameters.AddWithValue("@EmployeeID", c.Employee.EmployeeID);
                 cmd.Parameters.AddWithValue("@WorkHoursPerWeek", c.WorkHoursPerWeek);
                 cmd.Parameters.AddWithValue("@SalaryPerHour", c.SalaryPerHour);
-                cmd.Parameters.AddWithValue("@StartDate", c.StartDate);
-                cmd.Parameters.AddWithValue("@EndDate", c.EndDate);
+                cmd.Parameters.AddWithValue("@StartDate", c.StartDate.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@EndDate", c.EndDate.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@Department", c.Department);
                 cmd.Parameters.AddWithValue("@Active", 1);
 
