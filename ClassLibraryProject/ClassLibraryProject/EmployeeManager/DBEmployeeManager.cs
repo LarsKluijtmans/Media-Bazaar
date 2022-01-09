@@ -176,10 +176,7 @@ namespace ClassLibraryProject
 
                     if (jobTitle == "ADMIN")
                     {
-                        IAddEmployee addEmployee = new AdminAddEmployee();
-                        IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
-
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, addEmployee, employeeManagerAdmin);
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         employees.Add(employee);
                     } else if (jobTitle == "CEO")
                     {
@@ -187,8 +184,7 @@ namespace ClassLibraryProject
                         employees.Add(employee);
                     } else if (jobTitle == "DEPOT MANAGER")
                     {
-                        AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         employees.Add(employee);
                     } else if (jobTitle == "DEPOT EMPLOYEE")
                     {
@@ -204,8 +200,7 @@ namespace ClassLibraryProject
                         employees.Add(employee);
                     } else if (jobTitle == "SALES MANAGER")
                     {
-                        AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()) , new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule);
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         employees.Add(employee);
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")
@@ -315,10 +310,8 @@ namespace ClassLibraryProject
 
                     if (jobTitle == "ADMIN")
                     {
-                        IAddEmployee addEmployee = new AdminAddEmployee();
-                        IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
-
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, addEmployee, employeeManagerAdmin);
+                       
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "CEO")
@@ -413,10 +406,11 @@ namespace ClassLibraryProject
 
                     if (jobTitle == "ADMIN")
                     {
-                        IAddEmployee addEmployee = new AdminAddEmployee();
                         IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
+                        IContractManager contractManager = new ContractManager();
 
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, addEmployee, employeeManagerAdmin);
+
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAdmin, contractManager);
                         return employee;
                     }
                     else if (jobTitle == "CEO")
