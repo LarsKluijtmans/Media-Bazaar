@@ -2,21 +2,16 @@
 {
     public class Schedule
     {
-
-        private int id;
+        //fields
         private string department;
-        private int week;
         private int year;
+        private int week;
         private string day;
         private int morningAmount;
         private int afternoonAmount;
         private int eveningAmount;
 
-        public int ID
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        //properties
         public string Department
         {
             get { return department; }
@@ -37,28 +32,25 @@
             get { return day; }
             set { day = value; }
         }
-
         public int MorningAmount
         {
             get { return morningAmount; }
             set { morningAmount = value; }
         }
-
         public int AfternoonAmount
         {
             get { return afternoonAmount; }
             set { afternoonAmount = value; }
         }
-
         public int EveningAmount
         {
             get { return eveningAmount; }
             set { eveningAmount = value; }
         }
 
-        public Schedule(int id, string department, int year, int week, string day, int morningAmount, int afternoonAmount, int eveningAmount)
+        //constructor
+        public Schedule(string department, int year, int week, string day, int morningAmount, int afternoonAmount, int eveningAmount)
         {
-            ID = id;
             Department = department;
             Year = year;
             Week = week;

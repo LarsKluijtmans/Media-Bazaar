@@ -3,38 +3,47 @@ namespace ClassLibraryProject.Class
 {
     public class Restock
     {
-        private int restockReplenishmentID;
-        private int productID;
-        private string barcode;
-        private int amountReceived;
+        //fields
+        private int id;
+        private Product product;
+        private int amountRequested;
+        private string status;
 
-        public int RestockReplenishmentID
+        //properties
+        public int ID
         {
-            get { return restockReplenishmentID; }
-            set { restockReplenishmentID = value; }
+            get { return id; }
+            set { id = value; }
         }
-        public int ProductID
+        public Product Product
         {
-            get { return productID; }
-            set { productID = value; }
+            get { return product; }
+            set { product = value; }
         }
-        public string Barcode
+        public int AmountRequested
         {
-            get { return barcode; }
-            set { barcode = value; }
+            get { return amountRequested; }
+            set { amountRequested = value; }
         }
-        public int AmountReceived
+        public string Status
         {
-            get { return amountReceived; }
-            set { amountReceived = value; }
+            get { return status; }
+            set { status = value; }
         }
 
-        public Restock(int restockReplenishmentID, int productID, string barcode, int amountInDepot, int amountReceived)
+        //constructors
+        public Restock(int id, Product product, int amountRequested, string status)
         {
-            RestockReplenishmentID = restockReplenishmentID;
-            ProductID = productID;
-            Barcode = barcode;
-            AmountReceived = amountReceived;
+            ID = id;
+            Product = product;
+            AmountRequested = amountRequested;
+            Status = status;
+        }
+        public Restock(int id, Product product)
+        {
+            ID = id;
+            Product = product;
+            Status = "Pending";
         }
     }
 }

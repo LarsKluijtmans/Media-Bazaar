@@ -2,27 +2,29 @@
 {
     public class OrderInfo
     {
-        private int orderInfoID;
-        private int supplierID;
-        private int productID;
+        //fields
+        private int id;
+        private Supplier supplier;
+        private Product product;
         private int minAmount;
         private int maxAmount;
         private int multiples;
 
-        public int OrderInfoID
+        //properties
+        public int ID
         {
-            get { return orderInfoID; }
-            set { orderInfoID = value; }
+            get { return id; }
+            set { id = value; }
         }
-        public int SupplierID
+        public Supplier Supplier
         {
-            get { return supplierID; }
-            set { supplierID = value; }
+            get { return supplier; }
+            set { supplier = value; }
         }
-        public int ProductID
+        public Product Product
         {
-            get { return productID; }
-            set { productID = value; }
+            get { return product; }
+            set { product = value; }
         }
         public int MinAmount
         {
@@ -39,11 +41,13 @@
             get { return multiples; }
             set { multiples = value; }
         }
-        public OrderInfo(int orderInfoID, int supplierID, int productID, int minAmount, int maxAmount, int multiples)
+
+        //constructor
+        public OrderInfo(int id, Supplier supplier, Product product, int minAmount, int maxAmount, int multiples)
         {
-            OrderInfoID = orderInfoID;
-            SupplierID = supplierID;
-            ProductID = productID;
+            ID = id;
+            Supplier = supplier;
+            Product = product;
             MinAmount = minAmount;
             MaxAmount = maxAmount;
             Multiples = multiples;

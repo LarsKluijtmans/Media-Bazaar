@@ -41,7 +41,7 @@ namespace RemoteAppForSalesRepresentative
                 {
                     if (product.Barcode == txtBarcode.Text)
                     {
-                        store.reshelfManagment.RequestReshelf(product.Barcode, product.ProductID, Convert.ToInt32(txtRequest.Text));
+                        store.reshelfManagment.RequestReshelf(product.Barcode, product.ID, Convert.ToInt32(txtRequest.Text));
                     }
                 }
             }
