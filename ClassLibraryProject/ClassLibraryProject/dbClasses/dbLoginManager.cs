@@ -39,7 +39,7 @@ namespace ClassLibraryProject.dbClasses
                     string lastName = reader.GetString(2);
                     string username = reader.GetString(3);
                     string password = reader.GetString(4);
-                    int bsn = reader.GetInt32(5);
+                    int bsn = reader.GetInt32(5); 
                     string city = reader.GetString(7);
                     string email = reader.GetString(8);
                     string phoneNumber = reader.GetString(9);
