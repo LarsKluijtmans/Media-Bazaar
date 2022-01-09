@@ -19,16 +19,16 @@ namespace AdminBackups
             this.admin = a;
             this.store = s;
 
-            //if (admin.EmployeeManagerAdmin.AmountOfOfficeManagers() > 0)
-            //{
-            //    gbMakeEmployee.Visible = false;
-            //    labEmployeeAlreadyAdded.Visible = true;
-            //}
-            //else
-            //{
-            //    gbMakeEmployee.Visible = true;
-            //    labEmployeeAlreadyAdded.Visible = false;
-            //}
+            if (admin.EmployeeManagerAdmin.AmountOfOfficeManagers() > 0)
+            {
+                gbMakeEmployee.Visible = false;
+                labEmployeeAlreadyAdded.Visible = true;
+            }
+            else
+            {
+                gbMakeEmployee.Visible = true;
+                labEmployeeAlreadyAdded.Visible = false;
+            }
 
             AddDepartments();
         }
