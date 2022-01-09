@@ -20,13 +20,13 @@ namespace ClassLibraryProject.Class
         public Store()
         {
             productManagment = new ProductManagment();
-            restockManagment = new RestockManagment();
-            reshelfManagment = new ReshelfManagment();
-            scheduleManagment = new ScheduleManagment();
-            planningManagment = new PlanningManagment();
+            //restockManagment = new RestockManagment();
+            //reshelfManagment = new ReshelfManagment();
+            //scheduleManagment = new ScheduleManagment();
+            //planningManagment = new PlanningManagment();
             employeeManagement = new EmployeeManagement();
-            supplierManagment = new SupplierManagment();
-            orderInfoManagment = new OrderInfoManagment();
+            //supplierManagment = new SupplierManagment();
+            //orderInfoManagment = new OrderInfoManagment();
 
             checkinManagment = new CheckinManagment( new dbCheckinManagment());
 
