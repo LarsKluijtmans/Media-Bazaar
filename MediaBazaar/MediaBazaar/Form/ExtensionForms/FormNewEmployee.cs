@@ -20,6 +20,8 @@ namespace AdminBackups
             InitializeComponent();
 
             this.officeManager = officeManager;
+
+            AddDepartment();
         }
 
         private void BtnNewEmployee_Click(object sender, EventArgs e)
@@ -437,6 +439,93 @@ namespace AdminBackups
             Contract newContract = new Contract(newEmployee, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
 
             return officeManager.ContractManager.CreateContract(newContract);
+        }
+
+        private void AddDepartment()
+        {
+            cbxDepartment.Items.Clear();
+
+            foreach (DataRow r in officeManager.departmentManagment.ViewAllDepartments().Rows)
+            {
+                if (Convert.ToInt16(r[0]) > 4)
+                {
+                    if (cbxJobTitle.Text == "SALES REPRESENTATIVE" || cbxJobTitle.Text == "SALES MANAGER")
+                    {
+                        if (r[1].ToString() == "Sales")
+                        {
+                            Department d = new Department(
+                            r[0].ToString(),
+                            r[1].ToString(),
+                            r[2].ToString()); cbxDepartment.Items.Add(d);
+                        }
+                    }
+                    else if (cbxJobTitle.Text == "DEPOT EMPLOYEE" || cbxJobTitle.Text == "DEPOT MANAGER" || cbxJobTitle.Text == "PRODUCT MANAGER")
+                    {
+                        if (r[1].ToString() == "Depot")
+                        {
+                            Department d = new Department(
+                            r[0].ToString(),
+                            r[1].ToString(),
+                            r[2].ToString()); cbxDepartment.Items.Add(d);
+                        }
+                    }
+                    else if (cbxJobTitle.Text == "OFFICE MANAGER")
+                    {
+                        if (r[1].ToString() == "Office")
+                        {
+                            Department d = new Department(
+                            r[0].ToString(),
+                            r[1].ToString(),
+                            r[2].ToString()); cbxDepartment.Items.Add(d);
+                        }
+                    }
+                    else if (cbxJobTitle.Text == "CEO" || cbxJobTitle.Text == "ADMIN")
+                    {
+                        if (r[1].ToString() == "Other")
+                        {
+                            Department d = new Department(
+                            r[0].ToString(),
+                            r[1].ToString(),
+                            r[2].ToString()); cbxDepartment.Items.Add(d);
+                        }
+                    }
+                }
+            }
+
+            if (cbxJobTitle.Text == "SALES REPRESENTATIVE" || cbxJobTitle.Text == "SALES MANAGER")
+            {
+                if (cbxDepartment.Items.Count == 0)
+                {
+                    cbxDepartment.Items.Add("Sales");
+                }
+            }
+            else if (cbxJobTitle.Text == "DEPOT EMPLOYEE" || cbxJobTitle.Text == "DEPOT MANAGER" || cbxJobTitle.Text == "PRODUCT MANAGER")
+            { 
+                if (cbxDepartment.Items.Count == 0)
+                {
+                    cbxDepartment.Items.Add("Depot");
+                }
+            }
+            else if (cbxJobTitle.Text == "OFFICE MANAGER")
+            {
+                if (cbxDepartment.Items.Count == 0)
+                {
+                    cbxDepartment.Items.Add("Office");
+                }
+            }
+            else if (cbxJobTitle.Text == "CEO" || cbxJobTitle.Text == "ADMIN")
+            {
+                if (cbxDepartment.Items.Count == 0)
+                {
+                    cbxDepartment.Items.Add("Other");
+                }
+            }
+            cbxDepartment.Text = cbxDepartment.Items[0].ToString();
+        }
+
+        private void cbxJobTitle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddDepartment();
         }
     }
 }

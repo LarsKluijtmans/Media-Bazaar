@@ -172,6 +172,7 @@ namespace AdminBackups
             // 
             // cbxDepartment
             // 
+            this.cbxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDepartment.FormattingEnabled = true;
             this.cbxDepartment.Items.AddRange(new object[] {
             "Kitchen/Home",
@@ -185,6 +186,7 @@ namespace AdminBackups
             // 
             // cbxJobTitle
             // 
+            this.cbxJobTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxJobTitle.FormattingEnabled = true;
             this.cbxJobTitle.Items.AddRange(new object[] {
             "OFFICE MANAGER"});
@@ -192,7 +194,6 @@ namespace AdminBackups
             this.cbxJobTitle.Name = "cbxJobTitle";
             this.cbxJobTitle.Size = new System.Drawing.Size(209, 23);
             this.cbxJobTitle.TabIndex = 22;
-            this.cbxJobTitle.Text = "OFFICE MANAGER";
             // 
             // label11
             // 
