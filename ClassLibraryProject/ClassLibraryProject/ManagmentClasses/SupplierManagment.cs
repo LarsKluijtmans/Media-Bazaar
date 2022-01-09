@@ -7,10 +7,10 @@ namespace ClassLibraryProject.ManagmentClasses
 {
     public class SupplierManagment
     {
-        private static string ADD_SUPPLIER = "INSERT INTO supplier (SupplierName, Country, BuildingNumber, PostalCode, Email, PhoneNumber, BankNumber) VALUES (@SupplierName, @Country, @BuildingNumber, @PostalCode, @Email, @PhoneNumber, @BankNumber);";
-        private static string GET_SUPPLIERS = "SELECT * FROM supplier;";
-        private static string DELETE_SUPPLIER_BY_ID = "DELETE FROM supplier WHERE SupplierID = @SupplierID;";
-        private static string UPDATE_SUPPLIER = "UPDATE supplier SET SupplierName = @SupplierName, Country = @Country, BuildingNumber = @BuildingNumber, PostalCode = @PostalCode, Email = @Email, PhoneNumber = @PhoneNumber, BankNumber = @BankNumber WHERE SupplierID = @SupplierID;";
+        private string ADD_SUPPLIER = "INSERT INTO supplier (SupplierName, Country, BuildingNumber, PostalCode, Email, PhoneNumber, BankNumber) VALUES (@SupplierName, @Country, @BuildingNumber, @PostalCode, @Email, @PhoneNumber, @BankNumber);";
+        private string GET_SUPPLIERS = "SELECT * FROM supplier;";
+        private string DELETE_SUPPLIER_BY_ID = "DELETE FROM supplier WHERE SupplierID = @SupplierID;";
+        private string UPDATE_SUPPLIER = "UPDATE supplier SET SupplierName = @SupplierName, Country = @Country, BuildingNumber = @BuildingNumber, PostalCode = @PostalCode, Email = @Email, PhoneNumber = @PhoneNumber, BankNumber = @BankNumber WHERE SupplierID = @SupplierID;";
 
         public DataTable ViewAllSuppliers()
         {
