@@ -1,192 +1,97 @@
 ﻿using System;
 using System.Collections.Generic;
 using ClassLibraryProject.Class;
+using ClassLibraryProject.dbClasses.IDB;
+using ClassLibraryProject.ManagmentClasses.IProductManager;
 using MySql.Data.MySqlClient;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class OrderInfoManagment
+    public class OrderInfoManagment: IOrderInfoProductManager
     {
-        private string GET_ALL_ORDER_INFO = "SELECT * FROM orderinfo;";
-        private string ADD_ORDER_INFO = "INSERT INTO orderinfo (SupplierID,ProductID,MinAmountOrdered,MaxAmountOrdered,Multiples) VALUES (@SupplierID, @ProductID, @MinAmountOrdered, @MaxAmountOrdered, @Multiples);";
-        private string UPDATE_ORDER_INFO = "UPDATE orderinfo SET ProductID = @ProductID, MaxAmountOrdered = @MaxAmountOrdered, MinAmountOrdered = @MinAmountOrdered, Multiples = @Multiples WHERE SupplierID = @SupplierID;";
-        private string DELETE_ORDER_INFO_BY_ID = "DELETE FROM orderinfo WHERE OrderInfoID = @OrderInfoID;";
-        private string GET_ALL_PRODUCTS = "SELECT ProductID FROM orderinfo WHERE SupplierID = @SupplierID;";
-        
-        private List<OrderInfo> orderInfos;
-        
-        private List<int> products;
-        
-        public List<OrderInfo> OrderInfos
+        private List<int> numbers = new List<int>();
+        public int id()
         {
-            get { return orderInfos; }
-            set { orderInfos = value; }
-        }
-        
-        public List<int> Products
-        {
-            get { return products; }
-            set { products = value; }
-        }
-        public OrderInfoManagment()
-        {
-            OrderInfos = new List<OrderInfo>();
-            Products = new List<int>();
-        }
-        public void GetAllOrderInfo()
-        {
-            OrderInfos.Clear();
-
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = GET_ALL_ORDER_INFO;
-
-
-            try
+            int n = 1;
+            Random random = new Random();
+            for (int i = 1000; i < 9999; i++)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                OrderInfo orderinfo;
-
-                while (reader.Read())
+                numbers.Add(i);
+            }
+            foreach (int i in numbers)
+            {
+                n = random.Next(numbers.Count);
+                if (i == numbers[n])
                 {
-                    int orderInfoID = reader.GetInt32("OrderInfoID");
-                    int supplierID = reader.GetInt32("SupplierID");
-                    int minAmount = reader.GetInt32("MinAmountOrdered");
-                    int maxAmount = reader.GetInt32("MaxAmountOrdered");
-                    int productID = reader.GetInt32("ProductID");
-                    int multiples = reader.GetInt32("Multiples");
-
-
-                    orderinfo = new OrderInfo(orderInfoID, supplierID, productID, minAmount, maxAmount, multiples);
-                    OrderInfos.Add(orderinfo);
+                    numbers.Remove(i);
+                    return i;
                 }
             }
-            catch (MySqlException)
-            {
-
-            }
-            catch (Exception)
-            {
-            }
-            finally
-            {
-                conn.Close();
-            }
+            return n;
         }
-        public void AddOrderInfo(int supplierID, int productID, int minAmount, int maxAmount, int multiples)
+
+        private IDBOrderInfo db;
+
+        public OrderInfoManagment(IDBOrderInfo dbOrderInfo)
         {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = ADD_ORDER_INFO;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", productID);
-                cmd.Parameters.AddWithValue("@SupplierID", supplierID);
-                cmd.Parameters.AddWithValue("@MinAmountOrdered", minAmount);
-                cmd.Parameters.AddWithValue("@MaxAmountOrdered", maxAmount);
-                cmd.Parameters.AddWithValue("@Multiples", multiples);
-
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
+            db = dbOrderInfo;
         }
-        public void EditOrderInfo(int supplierID, int productID, int minAmount, int maxAmount, int multiples)
+
+        public List<OrderInfo> GetOrderInfos()
         {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = UPDATE_ORDER_INFO;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", productID);
-                cmd.Parameters.AddWithValue("@SupplierID", supplierID);
-                cmd.Parameters.AddWithValue("@MinAmountOrdered", minAmount);
-                cmd.Parameters.AddWithValue("@MaxAmountOrdered", maxAmount);
-                cmd.Parameters.AddWithValue("@Multiples", multiples);
-
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
+            return db.GetOrderInfos();
         }
-        public void DeleteOrderInfo(int orderInfoID)
+        public bool AddOrderInfo(Supplier supplier, Product product, int minAmount, int maxAmount, int multiples)
         {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = DELETE_ORDER_INFO_BY_ID;
-            try
+            if(db.AddOrderInfo(id(), supplier, product, minAmount, maxAmount, multiples) == true)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@OrderInfoID", orderInfoID);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
+                return true;
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
+            return false;
         }
-        public void GetAllProducts(int supplierID)
+        public bool DeleteOrderInfo(int id)
         {
-            OrderInfos.Clear();
-
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = GET_ALL_PRODUCTS;
-
-
-            try
+            if (OrderInfoExist(id) == true)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@SupplierID", supplierID);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                if (db.DeleteOrderInfo(id))
                 {
-                    int productID = Convert.ToInt32(reader[0]);
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        public bool UpdateOrderInfo(int id, int minAmount, int maxAmount, int multiples)
+        {
+            if (OrderInfoExist(id) == true)
+            {
+                if (db.UpdateOrderInfo(id, minAmount, maxAmount, multiples))
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
 
-                    products.Add(productID);
+        private OrderInfo GetOrderInfo(int id)
+        {
+            foreach(OrderInfo orderInfo in db.GetOrderInfos())
+            {
+                if(orderInfo.ID == id)
+                {
+                    return orderInfo;
                 }
             }
-            catch (MySqlException)
+            return null;
+        }
+        private bool OrderInfoExist(int id)
+        {
+            if (GetOrderInfo(id) != null)
             {
-
+                return true;
             }
-            catch (Exception)
-            {
-            }
-            finally
-            {
-                conn.Close();
-            }
+            return false;
         }
     }
 }

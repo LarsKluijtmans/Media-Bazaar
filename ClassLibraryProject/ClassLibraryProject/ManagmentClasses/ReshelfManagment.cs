@@ -11,6 +11,27 @@ namespace ClassLibraryProject.ManagmentClasses
 {
     public class ReshelfManagment : IReshelfDepotEmployee, IReshelfSalesEmployee
     {
+        private List<int> numbers = new List<int>();
+        public int id()
+        {
+            int n = 1;
+            Random random = new Random();
+            for (int i = 1000; i < 9999; i++)
+            {
+                numbers.Add(i);
+            }
+            foreach (int i in numbers)
+            {
+                n = random.Next(numbers.Count);
+                if (i == numbers[n])
+                {
+                    numbers.Remove(i);
+                    return i;
+                }
+            }
+            return n;
+        }
+
         private IDBReshelf db;
 
         public ReshelfManagment(IDBReshelf dbReshelf)
@@ -53,11 +74,11 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         //sales employee
-        public bool RequestReshelf(int id, Product product, int amount)
+        public bool RequestReshelf(Product product, int amount)
         {
             if (ReshelfExist(product))
             {
-                if (db.RequestReshelf(id, product, amount)
+                if (db.RequestReshelf(id(), product, amount))
                 {
                     return true;
                 }

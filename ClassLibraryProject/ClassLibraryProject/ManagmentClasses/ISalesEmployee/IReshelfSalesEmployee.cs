@@ -7,6 +7,6 @@ namespace ClassLibraryProject.ManagmentClasses.ISalesEmployee
 {
     public interface IReshelfSalesEmployee
     {
-        bool RequestReshelf(int id, Product product, int amount);
+        bool RequestReshelf(Product product, int amount);
     }
 }

@@ -71,7 +71,9 @@ namespace ClassLibraryProject.dbClasses
         public bool AddSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
         {
             MySqlConnection conn = Utils.GetConnection();
+
             string sql = ADD_SUPPLIER;
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -110,10 +112,13 @@ namespace ClassLibraryProject.dbClasses
         public bool UpdateSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
         {
             MySqlConnection conn = Utils.GetConnection();
+
             string sql = UPDATE_SUPPLIER;
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+
                 cmd.Parameters.AddWithValue("@ID", id);
                 cmd.Parameters.AddWithValue("@SupplierName", name);
                 cmd.Parameters.AddWithValue("@Country", country);
@@ -155,11 +160,15 @@ namespace ClassLibraryProject.dbClasses
         public bool DeleteSupplier(int id)
         {
             MySqlConnection conn = Utils.GetConnection();
+
             string sql = DELETE_SUPPLIER;
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+
                 cmd.Parameters.AddWithValue("@ID", id);
+
                 conn.Open();
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
