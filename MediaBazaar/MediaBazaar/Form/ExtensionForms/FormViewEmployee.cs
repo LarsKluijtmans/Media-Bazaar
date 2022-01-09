@@ -16,12 +16,19 @@ namespace AdminBackups
         OfficeManager officeManager;
         Employee employee;
         Contract contract;
-        public FormViewEmployee(OfficeManager om, Employee e, Contract c)
+        public FormViewEmployee(OfficeManager om, Employee e)
         {
             InitializeComponent();
             this.officeManager = om;
             this.employee = e;
-            this.contract = c;
+            
+            foreach (Contract c in employee.Contracts)
+            {
+                if (c.IsActive)
+                {
+                    this.contract = c;
+                }
+            }
 
             this.Text = $"{employee.FirstName} {employee.LastName}";
 
