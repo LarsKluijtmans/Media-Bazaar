@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
@@ -10,155 +13,122 @@ namespace AdminBackups
 {
     public partial class FormViewEmployee : Form
     {
-        Person p;
-        Contract c;
-        public FormViewEmployee(Person p, Contract c)
+        OfficeManager officeManager;
+        Employee employee;
+        Contract contract;
+        public FormViewEmployee(OfficeManager om, Employee e, Contract c)
         {
             InitializeComponent();
-            this.p = p;
-            this.c = c;
+            this.officeManager = om;
+            this.employee = e;
+            this.contract = c;
 
-            try
-            {
+            this.Text = $"{employee.FirstName} {employee.LastName}";
 
-                lblEmployeeName.Text = $"{p.FirstName} {p.LastName}";
-            }
-            catch
-            {
-                MessageBox.Show("Please select a employee from the list.");
-            }
-
+            LoadEmployeeInfo();
+        }
+        private void LoadEmployeeInfo()
+        {
             // employee
-            tbxEmployeeID.Text = p.EmployeeID.ToString(); // read only
-            tbxFirstName.Text = p.FirstName;
-            tbxLastName.Text = p.LastName;
-            tbxUserName.Text = p.Username; //
-            tbxBSN.Text = p.BSN.ToString(); //
-            tbxCity.Text = p.City;
-            tbxEmail.Text = p.Email; //
-            tbxPhoneNumber.Text = p.PhoneNumber.ToString();
-            tbxDateOfBirth.Text = p.DateOfBirth; //
+            tbxEmployeeID.Text = employee.EmployeeID.ToString(); // read only
+            tbxFirstName.Text = employee.FirstName;
+            tbxLastName.Text = employee.LastName;
+            tbxPhoneNumber.Text = employee.PhoneNumber;
+            tbxEmail.Text = employee.Email; //
+            tbxPersonalEmail.Text = employee.PersonalEmail;
+            tbxUsername.Text = employee.Username; //
+            tbxDateOfBirth.Text = employee.DateOfBirth.ToString("dd-MM-yyyy"); //
+            tbxBSN.Text = employee.BSN.ToString(); //
+            tbxCity.Text = employee.City;
+            tbxAddress.Text = employee.Address;
+            tbxZipCode.Text = employee.ZipCode;
 
             // contract
-            cbxJobTitle.Text = c.JobTitle;
-            tbxWorkHours.Text = c.WorkHoursPerWeek.ToString();
-            tbxSalary.Text = c.SalaryPerHour.ToString();
-            tbxStartDate.Text = c.StartDate.ToString();
+            tbxJobTitle.Text = contract.JobTitle.ToLower();
+            tbxWorkHours.Text = contract.WorkHoursPerWeek.ToString();
+            tbxSalary.Text = contract.SalaryPerHour.ToString();
+            tbxStartDate.Text = contract.StartDate.ToString("dd-MM-yyyy");
+            tbxEndDate.Text = contract.EndDate.ToString("dd-MM-yyyy");
         }
-
         private void btnEditData_Click(object sender, EventArgs e)
         {
             UpdateEmployee();
-            UpdateContract();
+            var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
+            formOfficeManager.ReadEmployees();
+
+            this.Close();
         }
         public void UpdateEmployee()
         {
-            string employeeID = tbxEmployeeID.Text;
-            string firstName = tbxFirstName.Text;
-            if (string.IsNullOrEmpty(firstName))
+            if (string.IsNullOrEmpty(tbxFirstName.Text))
             {
-                MessageBox.Show("Please enter a first name");
+                MessageBox.Show("First name cannot be empty");
                 return;
             }
-            string lastName = tbxLastName.Text;
-            if (string.IsNullOrEmpty(lastName))
-            {
-                MessageBox.Show("Please enter a last name");
-                return;
-            }
-            string city = tbxCity.Text;
-            if (string.IsNullOrEmpty(city))
-            {
-                MessageBox.Show("Please enter a city");
-                return;
-            }
-            string phoneNumber = tbxPhoneNumber.Text;
-            if (string.IsNullOrEmpty(phoneNumber))
-            {
-                MessageBox.Show("Please enter a phone number");
-                return;
-            }
+            employee.FirstName = tbxFirstName.Text;
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = EmployeeManagement.UPDATE_EMPLOYEE;
-            try
+            if (string.IsNullOrEmpty(tbxLastName.Text))
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                cmd.Parameters.AddWithValue("@FirstName", firstName);
-                cmd.Parameters.AddWithValue("@LastName", lastName);
-                cmd.Parameters.AddWithValue("@City", city);
-                cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                conn.Open();
+                MessageBox.Show("Last name cannot be empty");
+                return;
+            }
+            employee.LastName = tbxLastName.Text;
 
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException msqEx)
+            if (string.IsNullOrEmpty(tbxPhoneNumber.Text))
             {
-                Debug.WriteLine(msqEx);
+                MessageBox.Show("Phone number cannot be empty");
+                return;
             }
-            catch (Exception ex)
+            if (!Regex.IsMatch(tbxPhoneNumber.Text, @"^(\+)316[0-9]{8}$"))
             {
-                Debug.WriteLine(ex);
+                MessageBox.Show("Please enter a valid phone number");
+                return;
             }
-            finally
+            employee.PhoneNumber = tbxPhoneNumber.Text;
+
+            if (string.IsNullOrEmpty(tbxPersonalEmail.Text))
             {
-                if (conn != null)
-                {
-                    conn.Close();
-                }
+                MessageBox.Show("Personal email cannot be empty");
+                return;
             }
-        }
-        public void UpdateContract()
+            if (!Regex.IsMatch(tbxPersonalEmail.Text, @"[a-z0-9]+(?:\.[a-z0-9]+)*@(?:[a-z](?:[a-z]*[a-z])?\.)nl|com"))
+            {
+                MessageBox.Show("Please enter a valid personal email");
+                return;
+            }
+            employee.PersonalEmail = tbxPersonalEmail.Text;
+
+            if (string.IsNullOrEmpty(tbxCity.Text))
+            {
+                MessageBox.Show("City cannot be empty");
+                return;
+            }
+            employee.City = tbxCity.Text;
+
+            if (string.IsNullOrEmpty(tbxAddress.Text))
+            {
+                MessageBox.Show("Address cannot be empty");
+                return;
+            }
+            employee.Address = tbxAddress.Text;
+
+            if (string.IsNullOrEmpty(tbxZipCode.Text))
+            {
+                MessageBox.Show("Zip Code cannot be empty");
+                return; 
+            }
+            if (!Regex.IsMatch(tbxZipCode.Text, @"^[0-9]{4}[A-Z]{2}$"))
+            {
+                MessageBox.Show("Please enter a valid zip code");
+                return;
+            }
+            employee.ZipCode = tbxZipCode.Text;
+
+            officeManager.EmployeeManagerOffice.UpdateEmployee(employee);
+        }  
+        public void CreateNewContract()
         {
-            string employeeID = tbxEmployeeID.Text;
-            string jobTitle = cbxJobTitle.SelectedItem.ToString();
-            if (string.IsNullOrEmpty(jobTitle))
-            {
-                MessageBox.Show("Please select a job title");
-                return;
-            }
-            string workHours = tbxWorkHours.Text;
-            if (string.IsNullOrEmpty(workHours))
-            {
-                MessageBox.Show("Please enter work hours");
-                return;
-            }
-            string salary = tbxSalary.Text;
-            if (string.IsNullOrEmpty(salary))
-            {
-                MessageBox.Show("Please enter salary");
-                return;
-            }
-
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = ContractManagement.UPDATE_CONTRACT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                cmd.Parameters.AddWithValue("@JobTitle", jobTitle);
-                cmd.Parameters.AddWithValue("@WorkHoursPerWeek", workHours);
-                cmd.Parameters.AddWithValue("@SalaryPerHour", salary);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException msqEx)
-            {
-                Debug.WriteLine(msqEx);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                if (conn != null)
-                {
-                    conn.Close();
-                }
-            }
+            
         }
     }
 }

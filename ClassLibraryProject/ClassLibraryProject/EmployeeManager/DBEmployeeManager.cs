@@ -71,7 +71,7 @@ namespace ClassLibraryProject
                 cmd.Parameters.AddWithValue("@Email", e.Email);
                 cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
                 cmd.Parameters.AddWithValue("@DateOfBirth", e.DateOfBirth);
-                cmd.Parameters.AddWithValue("@StreetName", e.StreetName);
+                cmd.Parameters.AddWithValue("@StreetName", e.Address);
                 cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
                 cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
 
