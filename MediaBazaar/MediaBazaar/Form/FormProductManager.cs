@@ -98,7 +98,7 @@ namespace AdminBackups
                 //}
 
                 store.productManagment.AddProduct(name, barcode, type, price);
-            } catch (NullReferenceException nullRefEx)
+            } catch (NullReferenceException)
             {
                 MessageBox.Show("Please enter all product details");
             } catch (Exception ex)

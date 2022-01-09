@@ -13,13 +13,11 @@ namespace ClassLibraryProject.ChildClasses
 
         public IEmployeeManagerOffice EmployeeManagerOffice { get; set; }
         public IContractManager ContractManager { get; set; }
-        public IAddEmployee addEmployee;
 
-        public OfficeManager(IDepartment departmentManagment, ICompany companyManagment, IAddEmployee addEmployee) : base()
+        public OfficeManager(IDepartment departmentManagment, ICompany companyManagment) : base()
         { 
             this.departmentManagment = departmentManagment;
             this.companyManagment = companyManagment;
-            this.addEmployee = addEmployee;
         }
 
         public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
@@ -31,7 +29,7 @@ namespace ClassLibraryProject.ChildClasses
         {
         }
       
-        public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment, IAddEmployee addEmployee, IContractManager contractManager)
+        public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment,  IContractManager contractManager)
        : base(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
         {
             this.EmployeeManagerOffice = employeeManagerOffice;
@@ -39,10 +37,8 @@ namespace ClassLibraryProject.ChildClasses
 
             this.departmentManagment = departmentManagment;
             this.companyManagment = companyManagment;
-            this.addEmployee = addEmployee;
-
         }
-        public OfficeManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment, IAddEmployee addEmployee, IContractManager contractManager)
+        public OfficeManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment,  IContractManager contractManager)
        : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
         {
             this.EmployeeManagerOffice = employeeManagerOffice;
@@ -50,7 +46,6 @@ namespace ClassLibraryProject.ChildClasses
 
             this.departmentManagment = departmentManagment;
             this.companyManagment = companyManagment;
-            this.addEmployee = addEmployee;
         }
     }
 }
