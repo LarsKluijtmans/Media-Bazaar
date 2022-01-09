@@ -11,12 +11,12 @@ namespace ClassLibraryProject.dbClasses
     {
         private string GET_ALL_RESTOCKS = "SELECT * FROM restock;";
 
-        //For employee
+        //employee
         private string ADD_RESTOCK_REQUEST = "INSERT INTO restock (ID, ProductBarcode, Amount, Status) VALUES (@ID, @Barcode, null, 'Pending');";
         private string RECEIVE_RESTOCK = "UPDATE restock SET Status = 'Fulfilled' WHERE ID = @ID;";
         private string CHANGE_AMOUNT = "UPDATE product SET AmountInDepot = @Amount WHERE Barcode = @Barcode;";
 
-        //For manager
+        //manager
         private string ORDER_RESTOCK = "UPDATE restock SET Status = 'Ordered', Amount = @Amount WHERE ID = @ID;";
         private string DELETE_RESTOCK_BY_ID = "DELETE FROM restock WHERE ID = @ID;";
 
@@ -154,7 +154,7 @@ namespace ClassLibraryProject.dbClasses
             }
         }
 
-        //For employee
+        //employee
         public bool RequestRestock(int id, Product product)
         {
             MySqlConnection conn = Utils.GetConnection();

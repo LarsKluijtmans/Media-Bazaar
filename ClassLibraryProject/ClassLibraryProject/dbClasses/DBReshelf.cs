@@ -12,12 +12,12 @@ namespace ClassLibraryProject.dbClasses
     {
         private string GET_ALL_RESHELVES = "SELECT * FROM reshelf;";
 
-        //For depot
+        //depot
         private string COMPLETE_RESHELF = "UPDATE reshelf SET Status = 'Fulfilled'  WHERE ID = @ID;";
         private string DELETE_RESHELF = "DELETE FROM reshelf WHERE ID = @ID;";
         private string CHANGE_AMOUNT = "UPDATE product SET AmountInDepot = @Amount WHERE Barcode = @Barcode;";
 
-        //For sales
+        //sales
         private string REQUEST_RESHELF = "INSERT INTO reshelf (ID, ProductBarcode, Amount, Status) VALUES (@ID, @Barcode, @Amount, 'Pending');";
 
         private List<Reshelf> reshelves;
@@ -74,7 +74,7 @@ namespace ClassLibraryProject.dbClasses
             }
         }
 
-        //For sales
+        //sales
         public bool RequestReshelf(int id, Product product, int amount)
         {
             MySqlConnection conn = Utils.GetConnection();
@@ -111,7 +111,7 @@ namespace ClassLibraryProject.dbClasses
             }
         }
 
-        //Depot
+        //depot
         public bool DeleteReshelf(int id)
         {
             MySqlConnection conn = Utils.GetConnection();

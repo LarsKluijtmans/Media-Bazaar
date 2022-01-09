@@ -1,123 +1,100 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using ClassLibraryProject.Class;
+using ClassLibraryProject.dbClasses.IDB;
+using ClassLibraryProject.ManagmentClasses.IProductManager;
 using MySql.Data.MySqlClient;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class SupplierManagment
+    public class SupplierManagment: ISupplierProductManager
     {
-        private static string ADD_SUPPLIER = "INSERT INTO supplier (SupplierName, Country, BuildingNumber, PostalCode, Email, PhoneNumber, BankNumber) VALUES (@SupplierName, @Country, @BuildingNumber, @PostalCode, @Email, @PhoneNumber, @BankNumber);";
-        private static string GET_SUPPLIERS = "SELECT * FROM supplier;";
-        private static string DELETE_SUPPLIER_BY_ID = "DELETE FROM supplier WHERE SupplierID = @SupplierID;";
-        private static string UPDATE_SUPPLIER = "UPDATE supplier SET SupplierName = @SupplierName, Country = @Country, BuildingNumber = @BuildingNumber, PostalCode = @PostalCode, Email = @Email, PhoneNumber = @PhoneNumber, BankNumber = @BankNumber WHERE SupplierID = @SupplierID;";
+        private IDBSupplier db;
 
-        public DataTable ViewAllSuppliers()
+        public SupplierManagment(IDBSupplier dbSupplier)
         {
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = GET_SUPPLIERS;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                conn.Open();
-
-                MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
-
-                DataTable table = new DataTable();
-                reader.Fill(table);
-
-                return table;
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-            DataTable a = new DataTable();
-            return a;
+            db = dbSupplier;
         }
-        public void AddSupplier(string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = ADD_SUPPLIER;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@SupplierName", name);
-                cmd.Parameters.AddWithValue("@Country", country);
-                cmd.Parameters.AddWithValue("@BuildingNumber", buildingNumber);
-                cmd.Parameters.AddWithValue("@PostalCode", postalCode);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                cmd.Parameters.AddWithValue("@BankNumber", bankNumber);
 
-                conn.Open();
-                int numCreatedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
+        public List<Supplier> GetSuppliers()
+        {
+            return db.GetSuppliers();
         }
-        public void EditSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
+        public bool AddSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
         {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = UPDATE_SUPPLIER;
-            try
+            if (SupplierExist(name) == false)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@SupplierID", id);
-                cmd.Parameters.AddWithValue("@SupplierName", name);
-                cmd.Parameters.AddWithValue("@Country", country);
-                cmd.Parameters.AddWithValue("@BuildingNumber", buildingNumber);
-                cmd.Parameters.AddWithValue("@PostalCode", postalCode);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                cmd.Parameters.AddWithValue("@BankNumber", bankNumber);
-
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
+                if(db.AddSupplier(id, name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber) == true)
+                {
+                    return true;
+                }
+                return false;
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
+            return false;
         }
-        public void DeleteSupplier(int supplierID)
+        public bool DeleteSupplier(int id)
         {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = DELETE_SUPPLIER_BY_ID;
-            try
+            if (SupplierExistByID(id) == false)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@SupplierID", supplierID);
-                conn.Open();
+                if (db.DeleteSupplier(id) == true)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        public bool UpdateSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
+        {
+            if (SupplierExistByID(id) == false)
+            {
+                if (db.UpdateSupplier(id, name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber) == true)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
 
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
+        private Supplier GetSupplier(string name)
+        {
+            foreach(Supplier supplier in db.GetSuppliers())
             {
-                conn.Close();
+                if(supplier.Name == name)
+                {
+                    return supplier;
+                }
             }
+            return null;
+        }
+        private Supplier GetSupplierByID(int id)
+        {
+            foreach (Supplier supplier in db.GetSuppliers())
+            {
+                if (supplier.ID == id)
+                {
+                    return supplier;
+                }
+            }
+            return null;
+        }
+        private bool SupplierExist(string name)
+        {
+            if (GetSupplier(name) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+        private bool SupplierExistByID(int id)
+        {
+            if (GetSupplierByID(id) != null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
