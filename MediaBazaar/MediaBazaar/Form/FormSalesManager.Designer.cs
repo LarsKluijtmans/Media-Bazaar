@@ -79,6 +79,7 @@ namespace AdminBackups
             this.lbScheduleAfternoon = new System.Windows.Forms.TextBox();
             this.lbScheduleMorning = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnAutoSchedule = new System.Windows.Forms.Button();
             this.cbDepartments = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -95,7 +96,6 @@ namespace AdminBackups
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).BeginInit();
@@ -656,6 +656,13 @@ namespace AdminBackups
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(574, 402);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(345, 23);
+            this.progressBar1.TabIndex = 84;
+            // 
             // btnAutoSchedule
             // 
             this.btnAutoSchedule.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -754,7 +761,7 @@ namespace AdminBackups
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(574, 26);
+            this.label9.Location = new System.Drawing.Point(574, 3);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(122, 21);
             this.label9.TabIndex = 19;
@@ -810,13 +817,6 @@ namespace AdminBackups
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(574, 402);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(345, 23);
-            this.progressBar1.TabIndex = 84;
             // 
             // FormSalesManager
             // 

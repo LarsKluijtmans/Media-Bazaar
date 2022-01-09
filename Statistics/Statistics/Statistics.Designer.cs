@@ -88,10 +88,9 @@ namespace Statistics
             // btnIncreaseMonth
             // 
             this.btnIncreaseMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncreaseMonth.Location = new System.Drawing.Point(283, 32);
-            this.btnIncreaseMonth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnIncreaseMonth.Location = new System.Drawing.Point(212, 26);
             this.btnIncreaseMonth.Name = "btnIncreaseMonth";
-            this.btnIncreaseMonth.Size = new System.Drawing.Size(69, 41);
+            this.btnIncreaseMonth.Size = new System.Drawing.Size(52, 33);
             this.btnIncreaseMonth.TabIndex = 15;
             this.btnIncreaseMonth.Text = "<";
             this.btnIncreaseMonth.UseVisualStyleBackColor = true;
@@ -100,10 +99,9 @@ namespace Statistics
             // btnIncreaseYear
             // 
             this.btnIncreaseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncreaseYear.Location = new System.Drawing.Point(37, 32);
-            this.btnIncreaseYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnIncreaseYear.Location = new System.Drawing.Point(28, 26);
             this.btnIncreaseYear.Name = "btnIncreaseYear";
-            this.btnIncreaseYear.Size = new System.Drawing.Size(69, 41);
+            this.btnIncreaseYear.Size = new System.Drawing.Size(52, 33);
             this.btnIncreaseYear.TabIndex = 14;
             this.btnIncreaseYear.Text = "<";
             this.btnIncreaseYear.UseVisualStyleBackColor = true;
@@ -112,10 +110,9 @@ namespace Statistics
             // btnDecreaseMonth
             // 
             this.btnDecreaseMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDecreaseMonth.Location = new System.Drawing.Point(452, 32);
-            this.btnDecreaseMonth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDecreaseMonth.Location = new System.Drawing.Point(339, 26);
             this.btnDecreaseMonth.Name = "btnDecreaseMonth";
-            this.btnDecreaseMonth.Size = new System.Drawing.Size(69, 41);
+            this.btnDecreaseMonth.Size = new System.Drawing.Size(52, 33);
             this.btnDecreaseMonth.TabIndex = 13;
             this.btnDecreaseMonth.Text = ">";
             this.btnDecreaseMonth.UseVisualStyleBackColor = true;
@@ -124,10 +121,9 @@ namespace Statistics
             // btnDecreaseYear
             // 
             this.btnDecreaseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDecreaseYear.Location = new System.Drawing.Point(188, 32);
-            this.btnDecreaseYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDecreaseYear.Location = new System.Drawing.Point(141, 26);
             this.btnDecreaseYear.Name = "btnDecreaseYear";
-            this.btnDecreaseYear.Size = new System.Drawing.Size(69, 41);
+            this.btnDecreaseYear.Size = new System.Drawing.Size(52, 33);
             this.btnDecreaseYear.TabIndex = 12;
             this.btnDecreaseYear.Text = ">";
             this.btnDecreaseYear.UseVisualStyleBackColor = true;
@@ -137,8 +133,7 @@ namespace Statistics
             // 
             this.labMonth.AutoSize = true;
             this.labMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labMonth.Location = new System.Drawing.Point(360, 37);
-            this.labMonth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labMonth.Location = new System.Drawing.Point(270, 30);
             this.labMonth.Name = "labMonth";
             this.labMonth.Size = new System.Drawing.Size(63, 24);
             this.labMonth.TabIndex = 10;
@@ -148,8 +143,7 @@ namespace Statistics
             // 
             this.labYear.AutoSize = true;
             this.labYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labYear.Location = new System.Drawing.Point(115, 37);
-            this.labYear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labYear.Location = new System.Drawing.Point(86, 30);
             this.labYear.Name = "labYear";
             this.labYear.Size = new System.Drawing.Size(49, 24);
             this.labYear.TabIndex = 9;
@@ -163,8 +157,7 @@ namespace Statistics
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(11, 80);
-            this.chart1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chart1.Location = new System.Drawing.Point(8, 65);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.CustomProperties = "EmptyPointValue=Zero";
@@ -183,7 +176,7 @@ namespace Statistics
             series2.Name = "WorkHours";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(1549, 677);
+            this.chart1.Size = new System.Drawing.Size(1162, 550);
             this.chart1.TabIndex = 8;
             this.chart1.Text = "chart1";
             title1.Name = "Employee atendance";
@@ -195,20 +188,18 @@ namespace Statistics
             this.tabControl.Controls.Add(this.tbPorductsRestock);
             this.tabControl.Controls.Add(this.tbEmployeeWorkHours);
             this.tabControl.Location = new System.Drawing.Point(0, 0);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1579, 796);
+            this.tabControl.Size = new System.Drawing.Size(1184, 647);
             this.tabControl.TabIndex = 17;
             // 
             // tbPorductsRestock
             // 
             this.tbPorductsRestock.Controls.Add(this.tbRestockRequests);
-            this.tbPorductsRestock.Location = new System.Drawing.Point(4, 25);
-            this.tbPorductsRestock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPorductsRestock.Location = new System.Drawing.Point(4, 22);
             this.tbPorductsRestock.Name = "tbPorductsRestock";
-            this.tbPorductsRestock.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbPorductsRestock.Size = new System.Drawing.Size(1571, 767);
+            this.tbPorductsRestock.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbPorductsRestock.Size = new System.Drawing.Size(1176, 621);
             this.tbPorductsRestock.TabIndex = 1;
             this.tbPorductsRestock.Text = "Products restock";
             this.tbPorductsRestock.UseVisualStyleBackColor = true;
@@ -219,21 +210,19 @@ namespace Statistics
             this.tbRestockRequests.Controls.Add(this.tbResctockRequests);
             this.tbRestockRequests.Controls.Add(this.tabPage1);
             this.tbRestockRequests.Controls.Add(this.tabPage2);
-            this.tbRestockRequests.Location = new System.Drawing.Point(0, 12);
-            this.tbRestockRequests.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbRestockRequests.Location = new System.Drawing.Point(0, 10);
             this.tbRestockRequests.Name = "tbRestockRequests";
             this.tbRestockRequests.SelectedIndex = 0;
-            this.tbRestockRequests.Size = new System.Drawing.Size(1572, 752);
+            this.tbRestockRequests.Size = new System.Drawing.Size(1179, 611);
             this.tbRestockRequests.TabIndex = 23;
             // 
             // tbRestockAmount
             // 
             this.tbRestockAmount.Controls.Add(this.CRestockAmount);
-            this.tbRestockAmount.Location = new System.Drawing.Point(4, 25);
-            this.tbRestockAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbRestockAmount.Location = new System.Drawing.Point(4, 22);
             this.tbRestockAmount.Name = "tbRestockAmount";
-            this.tbRestockAmount.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbRestockAmount.Size = new System.Drawing.Size(1564, 723);
+            this.tbRestockAmount.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbRestockAmount.Size = new System.Drawing.Size(1171, 585);
             this.tbRestockAmount.TabIndex = 0;
             this.tbRestockAmount.Text = "Restock amount";
             this.tbRestockAmount.UseVisualStyleBackColor = true;
@@ -246,8 +235,7 @@ namespace Statistics
             this.CRestockAmount.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.CRestockAmount.Legends.Add(legend2);
-            this.CRestockAmount.Location = new System.Drawing.Point(4, 1);
-            this.CRestockAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CRestockAmount.Location = new System.Drawing.Point(3, 1);
             this.CRestockAmount.Name = "CRestockAmount";
             series3.ChartArea = "ChartArea1";
             series3.CustomProperties = "EmptyPointValue=Zero";
@@ -258,7 +246,7 @@ namespace Statistics
             series3.Legend = "Legend1";
             series3.Name = "Amount";
             this.CRestockAmount.Series.Add(series3);
-            this.CRestockAmount.Size = new System.Drawing.Size(1551, 710);
+            this.CRestockAmount.Size = new System.Drawing.Size(1163, 577);
             this.CRestockAmount.TabIndex = 17;
             title2.Name = "Amount of times Restocked";
             title2.Text = "Amount of times Restocked";
@@ -267,11 +255,10 @@ namespace Statistics
             // tbResctockRequests
             // 
             this.tbResctockRequests.Controls.Add(this.CRestockRequest);
-            this.tbResctockRequests.Location = new System.Drawing.Point(4, 25);
-            this.tbResctockRequests.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbResctockRequests.Location = new System.Drawing.Point(4, 22);
             this.tbResctockRequests.Name = "tbResctockRequests";
-            this.tbResctockRequests.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbResctockRequests.Size = new System.Drawing.Size(1564, 723);
+            this.tbResctockRequests.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbResctockRequests.Size = new System.Drawing.Size(1171, 585);
             this.tbResctockRequests.TabIndex = 1;
             this.tbResctockRequests.Text = "Restock requests";
             this.tbResctockRequests.UseVisualStyleBackColor = true;
@@ -284,8 +271,7 @@ namespace Statistics
             this.CRestockRequest.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.CRestockRequest.Legends.Add(legend3);
-            this.CRestockRequest.Location = new System.Drawing.Point(4, 4);
-            this.CRestockRequest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CRestockRequest.Location = new System.Drawing.Point(3, 3);
             this.CRestockRequest.Name = "CRestockRequest";
             series4.ChartArea = "ChartArea1";
             series4.CustomProperties = "EmptyPointValue=Zero";
@@ -297,7 +283,7 @@ namespace Statistics
             series4.Name = "Amount";
             series4.YValuesPerPoint = 2;
             this.CRestockRequest.Series.Add(series4);
-            this.CRestockRequest.Size = new System.Drawing.Size(1551, 708);
+            this.CRestockRequest.Size = new System.Drawing.Size(1163, 575);
             this.CRestockRequest.TabIndex = 18;
             this.CRestockRequest.Text = "chart3";
             title3.Name = "Total Restock Amount";
@@ -307,10 +293,9 @@ namespace Statistics
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.CReshelfAmount);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1564, 723);
+            this.tabPage1.Size = new System.Drawing.Size(1171, 585);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Reshelf amount";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -323,8 +308,7 @@ namespace Statistics
             this.CReshelfAmount.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
             this.CReshelfAmount.Legends.Add(legend4);
-            this.CReshelfAmount.Location = new System.Drawing.Point(4, 4);
-            this.CReshelfAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CReshelfAmount.Location = new System.Drawing.Point(3, 3);
             this.CReshelfAmount.Name = "CReshelfAmount";
             series5.ChartArea = "ChartArea1";
             series5.CustomProperties = "EmptyPointValue=Zero";
@@ -336,7 +320,7 @@ namespace Statistics
             series5.Name = "Amount";
             series5.YValuesPerPoint = 2;
             this.CReshelfAmount.Series.Add(series5);
-            this.CReshelfAmount.Size = new System.Drawing.Size(1551, 708);
+            this.CReshelfAmount.Size = new System.Drawing.Size(1163, 575);
             this.CReshelfAmount.TabIndex = 18;
             this.CReshelfAmount.TabStop = false;
             this.CReshelfAmount.Text = "chart4";
@@ -347,10 +331,9 @@ namespace Statistics
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.CReshelfRequest);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1564, 723);
+            this.tabPage2.Size = new System.Drawing.Size(1171, 585);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "reshelf requests";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -363,8 +346,7 @@ namespace Statistics
             this.CReshelfRequest.ChartAreas.Add(chartArea5);
             legend5.Name = "Legend1";
             this.CReshelfRequest.Legends.Add(legend5);
-            this.CReshelfRequest.Location = new System.Drawing.Point(-5, 4);
-            this.CReshelfRequest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CReshelfRequest.Location = new System.Drawing.Point(-4, 3);
             this.CReshelfRequest.Name = "CReshelfRequest";
             series6.ChartArea = "ChartArea1";
             series6.CustomProperties = "EmptyPointValue=Zero";
@@ -379,7 +361,7 @@ namespace Statistics
             series6.Name = "Amount";
             series6.YValuesPerPoint = 2;
             this.CReshelfRequest.Series.Add(series6);
-            this.CReshelfRequest.Size = new System.Drawing.Size(1551, 708);
+            this.CReshelfRequest.Size = new System.Drawing.Size(1163, 575);
             this.CReshelfRequest.TabIndex = 18;
             this.CReshelfRequest.Text = "+";
             title5.Name = "Total Reshelf amount";
@@ -395,23 +377,21 @@ namespace Statistics
             this.tbEmployeeWorkHours.Controls.Add(this.labYear);
             this.tbEmployeeWorkHours.Controls.Add(this.btnDecreaseYear);
             this.tbEmployeeWorkHours.Controls.Add(this.labMonth);
-            this.tbEmployeeWorkHours.Location = new System.Drawing.Point(4, 25);
-            this.tbEmployeeWorkHours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbEmployeeWorkHours.Location = new System.Drawing.Point(4, 22);
             this.tbEmployeeWorkHours.Name = "tbEmployeeWorkHours";
-            this.tbEmployeeWorkHours.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbEmployeeWorkHours.Size = new System.Drawing.Size(1571, 767);
+            this.tbEmployeeWorkHours.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbEmployeeWorkHours.Size = new System.Drawing.Size(1176, 621);
             this.tbEmployeeWorkHours.TabIndex = 0;
             this.tbEmployeeWorkHours.Text = "Employee work hours";
             this.tbEmployeeWorkHours.UseVisualStyleBackColor = true;
             // 
             // Statistics
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1581, 793);
+            this.ClientSize = new System.Drawing.Size(1186, 644);
             this.Controls.Add(this.tabControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Statistics";
             this.Text = "Statistics";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();

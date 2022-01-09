@@ -1,8 +1,11 @@
-﻿namespace ClassLibraryProject.Class
+﻿using System.Collections.Generic;
+
+namespace ClassLibraryProject.Class
 {
     public class Supplier
     {
-        private int supplierID;
+        //fields
+        private int id;
         private string name;
         private string country;
         private int buildingNumber;
@@ -10,11 +13,13 @@
         private string email;
         private int phoneNumber;
         private string bankNumber;
+        private List<OrderInfo> orderInfos;
 
-        public int SupplierID
+        //properties
+        public int ID
         {
-            get { return supplierID; }
-            set { supplierID = value; }
+            get { return id; }
+            set { id = value; }
         }
         public string Name
         {
@@ -51,9 +56,16 @@
             get { return bankNumber; }
             set { bankNumber = value; }
         }
+        public List<OrderInfo> OrderInfos
+        {
+            get { return orderInfos; }
+            set { orderInfos = value; }
+        }
+
+        //constructor
         public Supplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
         {
-            SupplierID = id;
+            ID = id;
             Name = name;
             Country = country;
             BuildingNumber = buildingNumber;
@@ -61,6 +73,7 @@
             Email = email;
             PhoneNumber = phoneNumber;
             BankNumber = bankNumber;
+            OrderInfos = new List<OrderInfo>();
         }
     }
 }

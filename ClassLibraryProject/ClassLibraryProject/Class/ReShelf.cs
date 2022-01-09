@@ -3,38 +3,48 @@ namespace ClassLibraryProject.Class
 {
     public class Reshelf
     {
-        private int reshelfReplinishmentID;
-        private int productID;
-        private string barcode;
+        //fields
+        private int id;
+        private Product product;
         private int amountRequested;
+        private string status;
 
-        public int ReshelfReplenishmentID
+        //properties
+        public int ID
         {
-            get { return reshelfReplinishmentID; }
-            set { reshelfReplinishmentID = value; }
+            get { return id; }
+            set { id = value; }
         }
-        public int ProductID
+        public Product Product
         {
-            get { return productID; }
-            set { productID = value; }
-        }
-        public string Barcode
-        {
-            get { return barcode; }
-            set { barcode = value; }
+            get { return product; }
+            set { product = value; }
         }
         public int AmountRequested
         {
             get { return amountRequested; }
             set { amountRequested = value; }
         }
-
-        public Reshelf(int restockReplenishmentID, int productID, string barcode, int amountInDepot, int amountRequested)
+        public string Status
         {
-            ReshelfReplenishmentID = restockReplenishmentID;
-            ProductID = productID;
-            Barcode = barcode;
+            get { return status; }
+            set { status = value; }
+        }
+
+        //constructors
+        public Reshelf(int id, Product product, int amountRequested, string status)
+        {
+            ID = id;
+            Product = product;
             AmountRequested = amountRequested;
+            Status = status;
+        }
+        public Reshelf(int id, Product product, int amountRequested)
+        {
+            ID = id;
+            Product = product;
+            AmountRequested = amountRequested;
+            Status = "Pending";
         }
     }
 }

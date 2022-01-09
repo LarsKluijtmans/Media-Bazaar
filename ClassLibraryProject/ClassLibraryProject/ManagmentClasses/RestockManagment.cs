@@ -1,295 +1,129 @@
 ﻿using ClassLibraryProject.Class;
-using MySql.Data.MySqlClient;
-using System;
-using System.Data;
+using ClassLibraryProject.dbClasses.IDB;
+using ClassLibraryProject.ManagmentClasses.IDepotEmployee;
+using ClassLibraryProject.ManagmentClasses.IDepotManager;
+using System.Collections.Generic;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class RestockManagment
+    public class RestockManagment: IRestockDepotManager, IRestockDepotEmployee 
     {
-        //For Action
-            //For employee
-        private static string REQUEST_RESTOCKREPLENISHMENT = "INSERT INTO restockreplenishment (Barcode, ProductID, ReceivedAmount, Status) VALUES (@Barcode, @ProductID, @ReceivedAmount, 'Pending');";
-        private static string RESTOCK_REPLENISHMENT = "UPDATE restockreplenishment SET Status = 'Fulfilled', ReceivedAmount = @ReceivedAmount WHERE RestockReplenishmentID = @RestockReplenishmentID;";
-        private static string ADD_TO_DEPOT = "UPDATE restockreplenishment INNER JOIN product ON restockreplenishment.ProductID = product.ProductID SET product.AmountInDepot = @AmountInDepot WHERE RestockReplenishmentID = @RestockReplenishmentID;";
-            //For manager
-        private static string ORDER_RESTOCK = "UPDATE restockreplenishment SET Status = 'Ordered' WHERE RestockReplenishmentID = @RestockReplenishmentID;";
-        private static string DELETE_RESTOCKREPLENISHMENT_BY_ID = "DELETE FROM restockreplenishment WHERE RestockReplenishmentID = @RestockReplenishmentID;";
-        //For Viewing
-             //For manager
-        private static string GET_PENDING_RESTOCKREPLENISHMENT_REQUESTS = "SELECT * FROM restockreplenishment WHERE Status = 'Pending';";
-        private static string GET_HISTORY_RESTOCKREPLENISHMENT_REQUESTS = "SELECT * FROM restockreplenishment WHERE Status = 'Fulfilled';";
-            //For employee
-        private static string GET_ORDERED_RESTOCKREPLENISHMENT_REQUESTS = "SELECT * FROM restockreplenishment WHERE Status = 'Ordered';";
-        //Extra
-        private static string GET_AMOUNT_RECEIVED = "SELECT restockreplenishment.ReceivedAmount FROM restockreplenishment INNER JOIN product ON restockreplenishment.ProductID = product.ProductID WHERE RestockReplenishmentID = @RestockReplenishmentID;";
-        private static string GET_AMOUNT_DEPOT = "SELECT product.AmountInDepot FROM restockreplenishment INNER JOIN product ON restockreplenishment.ProductID = product.ProductID WHERE RestockReplenishmentID = @RestockReplenishmentID;";
+        private IDBRestock db;
 
+        public RestockManagment(IDBRestock dbRestock)
+        {
+            db = dbRestock;
+        }
 
         //manager
-        public DataTable ViewPendingRestockRequests()
+        public bool OrderRestock(int id, int amount)
         {
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = GET_PENDING_RESTOCKREPLENISHMENT_REQUESTS;
-
-            try
+            if (RestockByIDExist(id))
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                conn.Open();
-
-                MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
-
-                DataTable table = new DataTable();
-                reader.Fill(table);
-
-                return table;
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-            DataTable a = new DataTable();
-            return a;
-        }
-        public DataTable ViewHistoryRestockRequests()
-        {
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = GET_HISTORY_RESTOCKREPLENISHMENT_REQUESTS;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                conn.Open();
-
-                MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
-
-                DataTable table = new DataTable();
-                reader.Fill(table);
-
-                return table;
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-            DataTable a = new DataTable();
-            return a;
-        }
-        public void DeleteRestockRequest(int restockID)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = DELETE_RESTOCKREPLENISHMENT_BY_ID;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", restockID);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
-        public void OrderRestock(int restockReplinishmentID)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = ORDER_RESTOCK;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", restockReplinishmentID);
-
-
-                conn.Open();
-                int numCreatedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
-        //For employee
-        public DataTable ViewOrderedRestockRequests()
-        {
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = GET_ORDERED_RESTOCKREPLENISHMENT_REQUESTS;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                conn.Open();
-
-                MySqlDataAdapter reader = new MySqlDataAdapter(sql, conn);
-
-                DataTable table = new DataTable();
-                reader.Fill(table);
-
-                return table;
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-            DataTable a = new DataTable();
-            return a;
-        }
-        public void RequestRestock(string barcode, int id)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = REQUEST_RESTOCKREPLENISHMENT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", id);
-                cmd.Parameters.AddWithValue("@Barcode", barcode);
-                cmd.Parameters.AddWithValue("ReceivedAmount", null);
-
-
-                conn.Open();
-                int numCreatedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }       
-        public void RestockReplenishment(int restockReplenishmentID, int amountReceived)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = RESTOCK_REPLENISHMENT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", restockReplenishmentID);
-                cmd.Parameters.AddWithValue("@ReceivedAmount", amountReceived);
-
-                conn.Open();
-                int numCreatedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
-        public void AddToDepot(int restockReplenishmentID)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = ADD_TO_DEPOT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", restockReplenishmentID);
-
-                int newAmountDepot = GetAmountDepot(restockReplenishmentID) + GetAmountReceived(restockReplenishmentID);
-
-                cmd.Parameters.AddWithValue("@AmountInDepot", newAmountDepot);
-
-                conn.Open();
-                int numCreatedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        private int GetAmountReceived(int RestockReplenishmentID)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = GET_AMOUNT_RECEIVED;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestockReplenishmentID);
-
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                if(db.OrderRestock(id, amount) == true)
                 {
-                    int amountRequested = Convert.ToInt32(reader[0]);
-                    return amountRequested;
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        public List<Restock> GetAllRestockRequests()
+        {
+            return db.GetRestockRequests();
+        }
+        public bool DeleteRestock(int id)
+        {
+            if (RestockByIDExist(id))
+            {
+                if (db.DeleteRestock(id) == true)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
+        //employee
+        public List<Restock> GetOrderedRestockRequests()
+        {
+            List<Restock> restocks = new List<Restock>();
+
+            foreach(Restock restock in db.GetRestockRequests())
+            {
+                if(restock.Status == "Ordered")
+                {
+                    restocks.Add(restock);
                 }
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-            return 0;
-        }
-        private int GetAmountDepot(int RestockReplenishmentID)
+            return restocks;
+        }    
+        public bool RequestRestock(int id, Product product)
         {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = GET_AMOUNT_DEPOT;
-            try
+            if (RestockExist(product))
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RestockReplenishmentID", RestockReplenishmentID);
-
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                if (db.RequestRestock(id, product) == true)
                 {
-                    int amountInDepot = Convert.ToInt32(reader[0]);
-                    return amountInDepot;
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        public bool ReceiveRestock(int id, Product product)
+        {
+            if (RestockExist(product))
+            {
+                if (db.ReceiveRestock(id) == true)
+                {
+                    int newAmount = product.AmountInDepot + GetRestockByID(id).AmountRequested;
+                    db.ChangeAmount(product, newAmount);
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
+        //check
+        private Restock GetRestock(Product product)
+        {
+            foreach(Restock restock in db.GetRestockRequests())
+            {
+                if(restock.Product == product && restock.Status == "Pending" || restock.Status == "Ordered")
+                {
+                    return restock;
                 }
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-            return 0;
+            return null;
         }
+        private Restock GetRestockByID(int id)
+        {
+            foreach (Restock restock in db.GetRestockRequests())
+            {
+                if (restock.ID == id)
+                {
+                    return restock;
+                }
+            }
+            return null;
+        }
+        private bool RestockExist(Product product)
+        {
+            if (GetRestock(product) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+        private bool RestockByIDExist(int id)
+        {
+            if (GetRestockByID(id) != null)
+            {
+                return true;
+            }
+            return false;
+        }  
     }
 }
