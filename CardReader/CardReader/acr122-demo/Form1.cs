@@ -6,7 +6,6 @@ using System.Windows.Forms;
 
 namespace acr122_demo
 {
-
     public partial class Checks : Form
     {
         string last = "";
@@ -41,12 +40,20 @@ namespace acr122_demo
             }
         }
 
+        //On close
         protected override void OnClosing(CancelEventArgs e)
         {
             Application.Exit();
         }
-    
-
+   
+        // Card reader
+        private static void Acr122u_CardInserted(PCSC.ICardReader reader)
+        {
+            acr122u.ReadId = BitConverter.ToString(acr122u.GetUID(reader)).Replace("-", "");
+        }
+        private static void Acr122u_CardRemoved()
+        { }
+     
         public void GetAtendanceIn()
         {
             lbCheck.Items.Clear();
@@ -56,14 +63,6 @@ namespace acr122_demo
                 lbCheck.Items.Add(k);
             }
         }
-
-        private static void Acr122u_CardInserted(PCSC.ICardReader reader)
-        {
-            acr122u.ReadId = BitConverter.ToString(acr122u.GetUID(reader)).Replace("-", "");
-        }
-
-        private static void Acr122u_CardRemoved()
-        { }
 
         private void timer1_Tick(object sender, EventArgs e)
         {

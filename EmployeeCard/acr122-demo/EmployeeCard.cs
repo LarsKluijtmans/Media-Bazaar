@@ -1,214 +1,54 @@
 ﻿using acr122_demo;
 using acr122_demo.Class;
-using MySql.Data.MySqlClient;
 using Sydesoft.NfcDevice;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CardReader
 {
     public partial class EmployeeCard : Form
     {
-        string last = "";
-        DateTime date;
-        private static MyACR122U acr122u = new MyACR122U();
-        Atendance at;
+        private static MyACR122U acr122u;
+        DBPersonManager personManager;
 
-        public static string GET_ALL_EMPLOYEES = "SELECT * FROM Employee ORDER BY EmployeeID;";
-
-        public static string CONTRACT_BY_EMPLOYEEID = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID;";
         public EmployeeCard()
         {
             InitializeComponent();
+            acr122u = new MyACR122U();
+            personManager = new DBPersonManager();
 
             try
             {
                 acr122u.Init(false, 50, 4, 4, 200);  // NTAG213
                 acr122u.CardInserted += Acr122u_CardInserted;
                 acr122u.CardRemoved += Acr122u_CardRemoved;
-
-                timer1.Start();
             }
             catch
             {
                 MessageBox.Show("Make sure to connect the card reader");
             }
-            at = new Atendance();
-            try
-            {
-                ViewAllEmployees();
-            }
-            catch
-            {
-                Close();
-            }
+
+            ViewAllEmployees(tbSearch.Text);
+
+            timer1.Start();
         }
+
+        //Close page
         protected override void OnClosing(CancelEventArgs e)
         {
             Application.Exit();
         }
 
         // CardReader
-
         private void Acr122u_CardInserted(PCSC.ICardReader reader)
         {
             acr122u.ReadId = BitConverter.ToString(acr122u.GetUID(reader)).Replace("-", "");
         }
-
         private static void Acr122u_CardRemoved()
         { }
 
-        //view employee
-
-        public void ViewAllEmployees()
-        {
-            lbEmployee.Items.Clear();
-            //lbEmployee.Items.Clear();
-
-            MySqlConnection conn = Connection.GetConnection();
-
-            string sql = GET_ALL_EMPLOYEES;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Person employee;
-
-                while (reader.Read())
-                {
-                    if (reader.GetInt32("Active") == 1)
-                    {
-                        int employeeID = reader.GetInt32("EmployeeID");
-                        string firstName = reader.GetString("FirstName");
-                        string lastName = reader.GetString("LastName");
-                        string username = reader.GetString("UserName");
-                        string password = reader.GetString("Password");
-                        int bsn = reader.GetInt32("BSN");
-                        string city = reader.GetString("Address");
-                        string email = reader.GetString("Email");
-                        int phoneNumber = reader.GetInt32("PhoneNumber");
-                        string dateOfBirth = reader.GetString("DateOfBirth");
-                        string CardNumber = "";
-                        try
-                        {
-                            CardNumber = reader.GetString("CardNumber");
-                        }
-                        catch { }
-
-
-                        Contract c = GetContract(employeeID.ToString());
-                        employee = new Person(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password, CardNumber);
-
-                        if (rbnAllEmployees.Checked)
-                        {
-                            lbEmployee.Items.Add(employee);
-                        }
-                        else if (rbnDepotEmployees.Checked)
-                        {
-                            if (c.JobTitle == "DEPOT EMPLOYEE" || c.JobTitle == "DEPOT MANAGER")
-                            {
-                                lbEmployee.Items.Add(employee);
-                            }
-                        }
-                        else if (rbnOfficeEmployees.Checked)
-                        {
-                            if (c.JobTitle == "OFFICE MANAGER")
-                            {
-                                lbEmployee.Items.Add(employee);
-                            }
-                        }
-                        else if (rbnSalesEmployees.Checked)
-                        {
-                            if (c.JobTitle == "SALES REPRESENTATIVE" || c.JobTitle == "SALES MANAGER")
-                            {
-                                lbEmployee.Items.Add(employee);
-
-                            }
-                        }
-                    }
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong" + ex);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public Person getperson()
-        {
-            Object personObj = lbEmployee.SelectedItem;
-            if (!(personObj is Person))
-            {
-                MessageBox.Show("Error");
-            }
-
-            Person tempPerson = (Person)personObj;
-
-            return tempPerson;
-        }
-
-        public Contract GetContract(string employeeID)
-        {
-            MySqlConnection conn = Connection.GetConnection();
-            string sql = CONTRACT_BY_EMPLOYEEID;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                Contract c;
-
-                while (reader.Read())
-                {
-                    string jobTitle = reader.GetString("JobTitle");
-                    int workHours = reader.GetInt32("WorkHoursPerWeek");
-                    int salary = reader.GetInt32("SalaryPerHour");
-                    string startDate = reader.GetString("StartDate");
-
-                    c = new Contract(Convert.ToInt32(employeeID), jobTitle, workHours, salary, startDate);
-
-                    return c;
-                }
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong" + ex);
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            return null;
-        }
-
+        //Update cart number
         private void btnConnectCardAndEmployee_Click(object sender, EventArgs e)
         {
             string ID = tbEmployeeID.Text;
@@ -218,41 +58,54 @@ namespace CardReader
                 return;
             }
 
-            string Head = tbCardNumber.Text;
-            if (string.IsNullOrEmpty(Head))
+            string CardNumber = tbCardNumber.Text;
+            if (string.IsNullOrEmpty(CardNumber))
             {
                 MessageBox.Show("Put a card that is not already in use against the card reader.");
                 return;
             }
-
-            Employee emp = new Employee();
-            emp.changeID(tbEmployeeID.Text.ToString(), tbCardNumber.Text.ToString());
+            personManager.changeID(ID, CardNumber);
 
             tbEmployeeID.Text = "";
             tbEmployeeName.Text = "";
             tbCardNumber.Text = "";
+            tbPhoneNumber.Text = "";
+            tbEmail.Text = "";
+            tbAddress.Text = "";
+            tbDateOfBirth.Text = "";
+            tbBSN.Text = "";
+
+            ViewAllEmployees(tbSearch.Text);
         }
 
+        //Select employee
         private void lbEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (lbEmployee.SelectedItem is Person)
             {
-                Person tempPerson = getperson();
+                try
+                {
+                    Person Person = (Person)lbEmployee.SelectedItem;
 
-                tbEmployeeID.Text = tempPerson.EmployeeID.ToString();
-                tbEmployeeName.Text = tempPerson.LastName + " " + tempPerson.FirstName;
-                tbCardNumber.Text = tempPerson.CardNumber.ToString();
+                    tbEmployeeID.Text = Person.EmployeeID.ToString();
+                    tbEmployeeName.Text = Person.LastName + " " + Person.FirstName;
+                    tbCardNumber.Text = Person.CardNumber.ToString();
+                    tbPhoneNumber.Text = Person.PhoneNumber.ToString();
+                    tbEmail.Text = Person.Email;
+                    tbAddress.Text = Person.City.ToString();
+                    tbDateOfBirth.Text = Person.DateOfBirth.ToString();
+                    tbBSN.Text = Person.BSN.ToString();
+                }
+                catch { MessageBox.Show("Error!"); }
             }
-            catch { }
         }
 
         //timer
-
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (acr122u.ReadId != null && at.GetEmployeeID(acr122u.ReadId.ToString()) != 0)
+            if (acr122u.ReadId != null && personManager.GetEmployeeID(acr122u.ReadId.ToString()) != 0)
             {
-                ViewAllEmployees();
+                ViewAllEmployees(tbSearch.Text);
                 acr122u.ReadId = null;
             }
             else if (acr122u.ReadId != null)
@@ -262,24 +115,19 @@ namespace CardReader
             }
         }
 
-        private void rbnOfficeEmployees_CheckedChanged(object sender, EventArgs e)
-        {
-            ViewAllEmployees();
-        }
 
-        private void rbnDepotEmployees_CheckedChanged(object sender, EventArgs e)
+        //View employees
+        private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            ViewAllEmployees();
+            ViewAllEmployees(tbSearch.Text);
         }
-
-        private void rbnSalesEmployees_CheckedChanged(object sender, EventArgs e)
+        public void ViewAllEmployees(string search)
         {
-            ViewAllEmployees();
-        }
-
-        private void rbnAllEmployees_CheckedChanged(object sender, EventArgs e)
-        {
-            ViewAllEmployees();
+            lbEmployee.Items.Clear();
+            foreach (Person p in personManager.ViewAllEmployees(search))
+            {
+                lbEmployee.Items.Add(p);
+            }
         }
     }
 

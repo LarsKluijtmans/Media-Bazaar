@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ClassLibraryProject.Class;
@@ -71,15 +72,18 @@ namespace AdminBackups
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
             return false;
         }

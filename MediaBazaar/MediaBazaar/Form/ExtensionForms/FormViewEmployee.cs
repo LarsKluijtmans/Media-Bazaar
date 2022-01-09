@@ -1,5 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Forms;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
@@ -43,7 +43,7 @@ namespace AdminBackups
             cbxJobTitle.Text = c.JobTitle;
             tbxWorkHours.Text = c.WorkHoursPerWeek.ToString();
             tbxSalary.Text = c.SalaryPerHour.ToString();
-            tbxStartDate.Text = c.StartDate;
+            tbxStartDate.Text = c.StartDate.ToString();
         }
 
         private void btnEditData_Click(object sender, EventArgs e)
@@ -95,15 +95,18 @@ namespace AdminBackups
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
         public void UpdateContract()
@@ -143,15 +146,18 @@ namespace AdminBackups
             }
             catch (MySqlException msqEx)
             {
-                MessageBox.Show(msqEx.Message);
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong" + ex);
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
     }

@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
@@ -52,15 +53,20 @@ namespace ClassLibraryProject.ManagmentClasses
                 }
 
             }
-            catch (MySqlException)
+            catch (MySqlException msqEx)
             {
+                Debug.WriteLine(msqEx);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
         //MohammadEnd
@@ -110,7 +116,7 @@ namespace ClassLibraryProject.ManagmentClasses
         public DataTable ViewAllProducts( string Search)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = "SELECT * FROM `product` WHERE Name LIKE '%" + Search + "%' || Type LIKE '%" + Search + "%' ORDER BY ProductID;";
+            string sql = "SELECT * FROM `product` WHERE Name LIKE '%" + Search + "%' || Type LIKE '%" + Search + "%' ORDER BY ProductID LIMIT 15;";
 
             try
             {

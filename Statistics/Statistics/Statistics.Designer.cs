@@ -198,7 +198,7 @@ namespace Statistics
             this.tbPorductsRestock.Controls.Add(this.tbRestockRequests);
             this.tbPorductsRestock.Location = new System.Drawing.Point(4, 22);
             this.tbPorductsRestock.Name = "tbPorductsRestock";
-            this.tbPorductsRestock.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPorductsRestock.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tbPorductsRestock.Size = new System.Drawing.Size(1176, 621);
             this.tbPorductsRestock.TabIndex = 1;
             this.tbPorductsRestock.Text = "Products restock";
@@ -221,7 +221,7 @@ namespace Statistics
             this.tbRestockAmount.Controls.Add(this.CRestockAmount);
             this.tbRestockAmount.Location = new System.Drawing.Point(4, 22);
             this.tbRestockAmount.Name = "tbRestockAmount";
-            this.tbRestockAmount.Padding = new System.Windows.Forms.Padding(3);
+            this.tbRestockAmount.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tbRestockAmount.Size = new System.Drawing.Size(1171, 585);
             this.tbRestockAmount.TabIndex = 0;
             this.tbRestockAmount.Text = "Restock amount";
@@ -257,7 +257,7 @@ namespace Statistics
             this.tbResctockRequests.Controls.Add(this.CRestockRequest);
             this.tbResctockRequests.Location = new System.Drawing.Point(4, 22);
             this.tbResctockRequests.Name = "tbResctockRequests";
-            this.tbResctockRequests.Padding = new System.Windows.Forms.Padding(3);
+            this.tbResctockRequests.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tbResctockRequests.Size = new System.Drawing.Size(1171, 585);
             this.tbResctockRequests.TabIndex = 1;
             this.tbResctockRequests.Text = "Restock requests";
@@ -379,7 +379,7 @@ namespace Statistics
             this.tbEmployeeWorkHours.Controls.Add(this.labMonth);
             this.tbEmployeeWorkHours.Location = new System.Drawing.Point(4, 22);
             this.tbEmployeeWorkHours.Name = "tbEmployeeWorkHours";
-            this.tbEmployeeWorkHours.Padding = new System.Windows.Forms.Padding(3);
+            this.tbEmployeeWorkHours.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tbEmployeeWorkHours.Size = new System.Drawing.Size(1176, 621);
             this.tbEmployeeWorkHours.TabIndex = 0;
             this.tbEmployeeWorkHours.Text = "Employee work hours";

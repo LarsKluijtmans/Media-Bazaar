@@ -1,12 +1,9 @@
-﻿using ClassLibraryProject.Class;
-using ClassLibraryProject.Interfaces;
-using MySql.Data.MySqlClient;
-using System;
+﻿using ClassLibraryProject.Interfaces;
 using System.Data;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class DepartmentManagment
+    public class DepartmentManagment: IDepartment
     {
         IDepartmentManagment iDepartmentManagment;
 
@@ -31,6 +28,11 @@ namespace ClassLibraryProject.ManagmentClasses
         public void EditDepartment(string Name, string Head, string DepartmetnID)
         {
             iDepartmentManagment.EditDepartment(Name, Head, DepartmetnID);
+        }
+
+        public void DeleteDepartment(int departmentID)
+        {
+            iDepartmentManagment.DeleteDepartment(departmentID);
         }
     }
 }

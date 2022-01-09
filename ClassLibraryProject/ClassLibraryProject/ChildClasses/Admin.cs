@@ -1,19 +1,33 @@
 ﻿using ClassLibraryProject.Class;
+using ClassLibraryProject.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ClassLibraryProject.ChildClasses
 {
     public class Admin : Employee
     {
-        public Admin() : base()
-        { }
+        public IEmployeeManagerAdmin EmployeeManagerAdmin { get; set; }
 
-        public Admin(int employeeID, string lastname, string firstname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password) 
-            : base (employeeID, lastname, firstname, phonenumber, email, city, dateofbirth, bsn, username, password)
+        public Admin()
         {
 
+        }
+
+        public IAddEmployee addEmployee;
+        public Admin(IAddEmployee addEmployee) : base()
+        { 
+            this.addEmployee = addEmployee;
+        }
+        public Admin(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
+            : base(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
+        {
+
+        }
+        public Admin(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IAddEmployee addEmployee, IEmployeeManagerAdmin employeeManagerAdmin) 
+            : base (employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
+        {
+            this.addEmployee = addEmployee;
+            this.EmployeeManagerAdmin = employeeManagerAdmin;
         }
     }
 }

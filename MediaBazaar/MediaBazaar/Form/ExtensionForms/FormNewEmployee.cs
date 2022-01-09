@@ -1,7 +1,9 @@
-﻿using ClassLibraryProject.Class;
+﻿using ClassLibraryProject;
+using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
-using MySql.Data.MySqlClient;
 using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -10,26 +12,29 @@ namespace AdminBackups
 {
     public partial class FormNewEmployee : Form
     {
-        EmailManager em;
-        EmployeeManagement employeeM;
-        public FormNewEmployee()
+        OfficeManager officeManager;
+
+        public FormNewEmployee(OfficeManager officeManager)
         {
             InitializeComponent();
-            em = new EmailManager();
-            employeeM = new EmployeeManagement();
+
+            this.officeManager = officeManager;
         }
 
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
+            CreateEmployee();
+            var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
+            formOfficeManager.ReadEmployees();
+        }
+        private void CreateEmployee()
+        {
+            // get all input 
             string firstName = tbxFirstName.Text;
             if (string.IsNullOrEmpty(firstName))
             {
                 MessageBox.Show("Please enter a first name");
                 return;
-            }
-            if (char.IsLower(firstName[0]))
-            {
-                char.ToUpper(firstName[0]);
             }
 
             string lastName = tbxLastName.Text;
@@ -38,18 +43,40 @@ namespace AdminBackups
                 MessageBox.Show("Please enter a last name");
                 return;
             }
-            if (char.IsLower(lastName[0]))
+
+            
+            string phoneNumber = tbxPhoneNumber.Text;
+            if (string.IsNullOrEmpty(phoneNumber))
             {
-                char.ToUpper(lastName[0]);
+                MessageBox.Show("Please enter a phone number");
+                return;
+            }
+            if (!Regex.IsMatch(tbxPhoneNumber.Text, @"^(\+)316[0-9]{8}$"))
+            {
+                MessageBox.Show("Please enter a valid phone number");
+                return;
             }
 
-            string username = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
-            string password = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
-
-            int bsn = Convert.ToInt32(tbxBSN.Text);
-            if (bsn == 0)
+            string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
+            
+            
+            string zipCode = tbxZipCode.Text;
+            if (string.IsNullOrEmpty(zipCode))
             {
-                MessageBox.Show("Please enter a bsn");
+                MessageBox.Show("Please enter a zip code");
+                return;
+            }
+            if (!Regex.IsMatch(tbxZipCode.Text, @"^[0-9]{4}[A-Z]{2}$"))
+            {
+                MessageBox.Show("Please enter a valid zip code");
+                return;
+            }
+
+
+            string streetName = tbxAddress.Text;
+            if (string.IsNullOrEmpty(streetName))
+            {
+                MessageBox.Show("Please enter a street name");
                 return;
             }
 
@@ -59,217 +86,356 @@ namespace AdminBackups
                 MessageBox.Show("Please enter a city");
                 return;
             }
-            if (char.IsLower(city[0]))
-            {
-                char.ToUpper(city[0]);
-            }
 
-            string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
-
-            int phoneNumber = Convert.ToInt32(tbxPhoneNumber.Text);
-            if (phoneNumber == 0)
+            if (string.IsNullOrEmpty(tbxDateOfBirth.Text))
             {
-                MessageBox.Show("Please enter a phone number");
+                MessageBox.Show("Please enter a date of birth");
                 return;
             }
-
-            string dateOfBirth;
-            if (Regex.IsMatch(tbxDateOfBirth.Text, @"\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$"))
-            {
-                dateOfBirth = tbxDateOfBirth.Text;
-                if (string.IsNullOrEmpty(dateOfBirth))
-                {
-                    MessageBox.Show("Please enter a date of birth");
-                    return;
-                }
-            }
-            else
+            if (!Regex.IsMatch(tbxDateOfBirth.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
             {
                 MessageBox.Show("Please enter a valid date of birth");
                 return;
             }
+            DateTime dateOfBirth = DateTime.ParseExact(tbxDateOfBirth.Text, "dd/MM/yyyy", null);
+            DateTime firstBirthDay = DateTime.Now.AddYears(-16);
+            if (dateOfBirth > firstBirthDay)
+            {
+                MessageBox.Show("New employee should be at least 16 years old");
+                return;
+            }
+            
+            if (string.IsNullOrEmpty(tbxBSN.Text))
+            {
+                MessageBox.Show("Please enter a BSN");
+                return;
+            }
+            if (!Regex.IsMatch(tbxBSN.Text, @"\b[0-9]{8,9}\b"))
+            {
+                MessageBox.Show("Please enter a valid BSN");
+                return;
+            }
+            int bsn = Convert.ToInt32(tbxBSN.Text);
+
+            string username = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
+            string password = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
 
             string personalEmail = tbxPersonalEmail.Text;
             if (string.IsNullOrEmpty(personalEmail))
             {
-                MessageBox.Show("Please enter a personal email address");
+                MessageBox.Show("Please enter a personal email");
+                return;
+            }
+            if (!Regex.IsMatch(personalEmail, @"[a-z0-9]+(?:\.[a-z0-9]+)*@(?:[a-z](?:[a-z]*[a-z])?\.)nl|com"))
+            {
+                MessageBox.Show("Please enter a valid personal email");
+                return;
             }
 
-            string jobTitle = cbxJobTitle.SelectedItem.ToString();
+            // make the employee object
 
-            int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
-            if (workHoursPerWeek == 0)
+            Employee newEmployee;
+
+            if (cbxJobTitle.SelectedIndex == 0)
+            {
+                newEmployee = new Admin(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    if (CreateContract())
+                    {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
+                    } else
+                    {
+                        return;
+                    }
+                }
+            }
+            else if (cbxJobTitle.SelectedIndex == 1)
+            {
+                newEmployee = new CEO(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    if (CreateContract())
+                    {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            } else if (cbxJobTitle.SelectedIndex == 2)
+            {
+                newEmployee = new SalesRepresentative(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    if (CreateContract())
+                    {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+            else if (cbxJobTitle.SelectedIndex == 3)
+            {
+                newEmployee = new SalesManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    if (CreateContract())
+                    {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+            else if (cbxJobTitle.SelectedIndex == 4)
+            {
+                newEmployee = new DepotEmployee(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    if (CreateContract())
+                    {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+            else if (cbxJobTitle.SelectedIndex == 5)
+            {
+                newEmployee = new DepotManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    if (CreateContract())
+                    {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+            else if (cbxJobTitle.SelectedIndex == 6)
+            {
+                newEmployee = new OfficeManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    if (CreateContract())
+                    {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+            else if (cbxJobTitle.SelectedIndex == 7)
+            {
+                newEmployee = new ProductManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
+                {
+                    if (CreateContract())
+                    {
+                        DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
+
+                        if (dr == DialogResult.Yes)
+                        {
+
+                        }
+                        else if (dr == DialogResult.No)
+                        {
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+        private bool CreateContract()
+        {
+            // get employee id for contract
+
+            // get email
+            string firstName = tbxFirstName.Text;
+            if (string.IsNullOrEmpty(firstName))
+            {
+                MessageBox.Show("Please enter a first name");
+                return false;
+            }
+
+            string lastName = tbxLastName.Text;
+            if (string.IsNullOrEmpty(lastName))
+            {
+                MessageBox.Show("Please enter a last name");
+                return false;
+            }
+
+            string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
+
+            // get job title
+            string jobTitle = "SALES REPRESENTATIVE";
+
+            // get employee 
+            Employee newEmployee = officeManager.EmployeeManagerOffice.GetEmployeeID(email, jobTitle);
+
+            // get input for contract
+            if (string.IsNullOrEmpty(tbxWorkHours.Text))
             {
                 MessageBox.Show("Please enter work hours per week");
+                return false;
+            }
+            int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+            if (workHoursPerWeek % 4 != 0)
+            {
+                MessageBox.Show("Work hours has to be a multiple of 4");
+                return false;
+            }
+            if (workHoursPerWeek == 0)
+            {
+                MessageBox.Show("Work hours must be at least 4 hours per week");
+                return false;
             }
 
-            double salary = Convert.ToDouble(tbxSalary.Text);
-            if (salary == 0)
+            if (string.IsNullOrEmpty(tbxSalary.Text))
             {
-                MessageBox.Show("Please enter salary");
+                MessageBox.Show("Please enter salary per hour");
+                return false;
+            }
+            double salaryPerHour = Convert.ToDouble(tbxSalary.Text);
+
+            if (string.IsNullOrEmpty(tbxStartDate.Text))
+            {
+                MessageBox.Show("Please enter a start date");
+                return false;
+            }
+            if (!Regex.IsMatch(tbxStartDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+            {
+                MessageBox.Show("Please enter a valid start date");
+                return false;
+            }
+            DateTime startDate = DateTime.ParseExact(tbxStartDate.Text, "dd/MM/yyyy", null);
+            if (startDate < DateTime.Now)
+            {
+                MessageBox.Show("Start date must be in the future");
+                return false;
             }
 
-            string startDate;
-            if (Regex.IsMatch(tbxStartDate.Text, @"\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$"))
+            if (string.IsNullOrEmpty(tbxEndDate.Text))
             {
-                startDate = tbxStartDate.Text;
-                if (string.IsNullOrEmpty(startDate))
-                {
-                    MessageBox.Show("Please enter a date of birth");
-                    return;
-                }
+                MessageBox.Show("Please enter an end date");
+                return false;
             }
-            else
+            if (!Regex.IsMatch(tbxEndDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
             {
-                MessageBox.Show("Please enter a valid date of birth");
-                return;
+                MessageBox.Show("Please enter a valid end date");
+                return false;
+            }
+            DateTime endDate = DateTime.ParseExact(tbxEndDate.Text, "dd/MM/yyyy", null);
+            if (endDate < DateTime.Now)
+            {
+                MessageBox.Show("End date must be in the future");
+                return false;
             }
 
-            employeeM.CreateEmployee(firstName, lastName, bsn, city, email, dateOfBirth, personalEmail, username, password, phoneNumber, jobTitle, workHoursPerWeek, salary, startDate);
+            if (startDate > endDate)
+            {
+                MessageBox.Show("End date must be after start date");
+                return false;
+            }
+
+            var contractDays = (endDate - startDate).TotalDays;
+            if (contractDays > 365)
+            {
+                MessageBox.Show("Contract length can be max 1 year");
+                return false;
+            }
+
+            string department = cbxDepartment.Text;
+            if (string.IsNullOrEmpty(department))
+            {
+                MessageBox.Show("Please enter a department");
+                return false;
+            }
+
+            Contract newContract = new Contract(newEmployee, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
+
+            return officeManager.ContractManager.CreateContract(newContract);
         }
-        // create employee
-        /*public void CreateEmployee()
-        {
-            try
-            {
-                int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
-                if (workHoursPerWeek == 0)
-                {
-                    MessageBox.Show("Please enter work hours per week");
-                    return;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Please put a number in Work hours");
-                return;
-            }
-
-            try
-            {
-                int salary = Convert.ToInt32(tbxSalary.Text);
-                if (salary == 0)
-                {
-                    MessageBox.Show("Please enter salary per hour");
-                    return;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Please put a number in Salary");
-                return;
-            }
-
-            string jobTitle = cbxJobTitle.Text.ToString();
-            if (string.IsNullOrEmpty(jobTitle))
-            {
-                MessageBox.Show("Please select a job title");
-                return;
-            }
-            string startDate;
-            if (Regex.IsMatch(tbxStartDate.Text, @"\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$"))
-            {
-                startDate = tbxStartDate.Text;
-                if (string.IsNullOrEmpty(startDate))
-                {
-                    MessageBox.Show("Please enter a start date");
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please enter a VALID start birth");
-                return;
-            }
-
-            
-
-            
-
-            
-
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = EmployeeManagement.CREATE_EMPLOYEE;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@FirstName", firstName);
-                cmd.Parameters.AddWithValue("@LastName", lastName);
-                cmd.Parameters.AddWithValue("@Username", username);
-                cmd.Parameters.AddWithValue("@Password", password);
-                cmd.Parameters.AddWithValue("@BSN", bsn);
-                cmd.Parameters.AddWithValue("@Active", 1);
-                cmd.Parameters.AddWithValue("@City", city);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                cmd.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
-
-                conn.Open();
-
-                int numCreatedRows = cmd.ExecuteNonQuery();
-                long id = cmd.LastInsertedId;
-
-                int employeeID = Convert.ToInt32(id);
-                CreateContract(employeeID);
-
-                string personalEmail = tbxPersonalEmail.Text;
-
-                em.Email(password, username, personalEmail);
-                MessageBox.Show("Email send");
-
-                return;
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong" + ex);
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            tbxUsername.Text = username;
-            tbxPassword.Text = password;
-            tbxEmail.Text = email;
-        }*/
-        // create contract
-        /*public void CreateContract(int id)
-        {
-            
-
-
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = ContractManagement.CREATE_CONTRACT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                cmd.Parameters.AddWithValue("@JobTitle", jobTitle);
-                cmd.Parameters.AddWithValue("@WorkHoursPerWeek", workHoursPerWeek);
-                cmd.Parameters.AddWithValue("@SalaryPerHour", salary);
-                cmd.Parameters.AddWithValue("@StartDate", startDate);
-
-                conn.Open();
-
-                int numCreatedRows = cmd.ExecuteNonQuery();
-                //long id = cmd.LastInsertedId;
-            }
-            catch (MySqlException msqEx)
-            {
-                MessageBox.Show(msqEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong" + ex);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }*/
     }
 }

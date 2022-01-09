@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ClassLibraryProject.Class
 {
@@ -8,38 +6,40 @@ namespace ClassLibraryProject.Class
     {
         // fields
         private int contractID;
-        private int employeeID;
+        private Employee employee;
         private string jobTitle;
         private int workHoursPerWeek;
-        private int salaryPerHour;
-        private string startDate;
-        private string endDate;
+        private double salaryPerHour;
+        private DateTime startDate;
+        private DateTime endDate;
         private string reasonForTermination;
+        private string department;
 
         // properties
         public int ContractID { get; set; }
-        public int EmployeeID { get; set; }
+        public Employee Employee { get; set; }
         public string JobTitle { get; set; }
         public int WorkHoursPerWeek { get; set; }
-        public int SalaryPerHour { get; set; }
-        public string StartDate { get; set; }
-        public string EndDate { get; set; }
+        public double SalaryPerHour { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public string ReasonForTermination { get; set; }
+        public string Department { get; set; }
 
         // constructor
-        public Contract(int employeeID, string jobTitle, int workHoursPerWeek, int salaryPerHour, string startDate)
+        public Contract(Employee employee, string jobTitle, int workHoursPerWeek, double salaryPerHour, DateTime startDate, DateTime endDate, string department)
         {
-            //this.ContractID = contractID;
-            this.EmployeeID = employeeID;
+            this.Employee = employee;
             this.JobTitle = jobTitle;
             this.WorkHoursPerWeek = workHoursPerWeek;
             this.SalaryPerHour = salaryPerHour;
             this.StartDate = startDate;
-            this.EndDate = null;
+            this.EndDate = endDate;
             this.ReasonForTermination = null;
+            this.Department = department;
         }
 
-        public void EndContract(string reasonForTermination, string endDate)
+        public void EndContract(string reasonForTermination, DateTime endDate)
         {
             this.ReasonForTermination = reasonForTermination;
             this.EndDate = endDate;

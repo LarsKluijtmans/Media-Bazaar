@@ -13,5 +13,8 @@ namespace ClassLibraryProject.Interfaces
 
         // edit a department
         public void EditDepartment(string Name, string Head, string DepartmetnID);
+
+        //Delete
+        public void DeleteDepartment(int departmentID);
     }
 }

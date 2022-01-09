@@ -10,6 +10,7 @@ namespace AdminBackups
         DateTime date;
         int amount;
         string Type;
+
         public MakeBackups()
         {
             InitializeComponent();

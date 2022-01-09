@@ -3,6 +3,7 @@ using ClassLibraryProject.Class;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
@@ -11,16 +12,17 @@ namespace ClassLibraryProject.ManagmentClasses
         // fields
 
         // sql
-        public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, Address, Email, PhoneNumber, DateOfBirth) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth);";
-        public static string GET_ALL_EMPLOYEES = "SELECT * FROM Employee ORDER BY EmployeeID;";
-        public static string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Address = @City, PhoneNumber = @PhoneNumber WHERE EmployeeID = @EmployeeID;";
+        public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, City, Email, PhoneNumber, DateOfBirth) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth);";
+        public static string GET_ALL_EMPLOYEES = "SELECT * FROM Employee ORDER BY EmployeeID LIMIT 25;";
+        public static string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber WHERE EmployeeID = @EmployeeID;";
         public static string DELETE_EMPLOYEE_BY_ID = "DELETE FROM Employee WHERE EmployeeID = @EmployeeID";
 
         public static string VIEW_EMPLOYEE = "SELECT * FROM Employee WHERE EmployeeID = @EmployeeID;";
         public static string REMOVE_EMPLOYEE_BY_ID = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
+       
         //Used in website
         public static string GET_EMPLOYEE_BY_USERNAME = "SELECT * FROM Employee WHERE UserName = @UserName;";
-        public static string EDIT_EMPLOYEE_BY_ID = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Password = @Password, UserName = @UserName,  BSN = @BSN, Address = @City, PhoneNumber = @PhoneNumber, Email = @Email WHERE EmployeeID = @EmployeeID;";
+        public static string EDIT_EMPLOYEE_BY_ID = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Password = @Password, UserName = @UserName,  BSN = @BSN, City = @City, PhoneNumber = @PhoneNumber, Email = @Email WHERE EmployeeID = @EmployeeID;";
 
         //MohammadStart
         private static string GET_AVAILABLE_EMPLOYEE = "SELECT * FROM availability INNER JOIN employee ON availability.EmployeeID = employee.EmployeeID WHERE Week = @Week AND Day = @Day AND Shift = @Shift;";
@@ -91,23 +93,30 @@ namespace ClassLibraryProject.ManagmentClasses
                     int active = reader.GetInt32("Active");
 
                     GetEnlistedEmployees(2021, week, day, shift);
-                    if (active == 1)
+                    /*if (active == 1)
                     {
                         if (IsInList(employeeID) == true)
                         {
                             employee = new Admin(employeeID, lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
                             AvailableEmployee.Add(employee);
                         }
-                    }
+                    }*/
                 }
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
         public void GetEnlistedEmployees(int year, int week, string day, string shift)
@@ -148,20 +157,27 @@ namespace ClassLibraryProject.ManagmentClasses
                     string password = reader.GetString("Password");
                     int active = reader.GetInt32("Active");
 
-                    if (active == 1)
+                    /*if (active == 1)
                     {
                         employee = new Admin(employeeID, lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
                         EnlistedEmployee.Add(employee);
-                    }
+                    }*/
                 }
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
         //MohammadEnd
@@ -173,6 +189,8 @@ namespace ClassLibraryProject.ManagmentClasses
 
             MySqlConnection conn = Utils.GetConnection();
             string sql = CREATE_EMPLOYEE;
+
+            DateTime DateOfBirth = Convert.ToDateTime(dateOfBirth);
 
             try
             {
@@ -186,7 +204,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@City", city);
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                cmd.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+                cmd.Parameters.AddWithValue("@DateOfBirth", DateOfBirth.ToString("yyyy-MM-dd")) ;
 
                 conn.Open();
 
@@ -202,19 +220,27 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             catch (MySqlException msqEx)
             {
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
         public void CreateContract(int employeeID, string jobTitle, int workHoursPerWeek, double salary, string startDate)
         {
             MySqlConnection conn = Utils.GetConnection();
             string sql = ContractManagement.CREATE_CONTRACT;
+
+            DateTime StartDate = Convert.ToDateTime(startDate);
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -222,7 +248,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 cmd.Parameters.AddWithValue("@JobTitle", jobTitle);
                 cmd.Parameters.AddWithValue("@WorkHoursPerWeek", workHoursPerWeek);
                 cmd.Parameters.AddWithValue("@SalaryPerHour", salary);
-                cmd.Parameters.AddWithValue("@StartDate", startDate);
+                cmd.Parameters.AddWithValue("@StartDate", StartDate.ToString("yyyy-MM-dd"));
 
                 conn.Open();
 
@@ -231,13 +257,18 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             catch (MySqlException msqEx)
             {
+                Debug.WriteLine(msqEx);
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
         public bool IsInList(int ID)
@@ -310,20 +341,27 @@ namespace ClassLibraryProject.ManagmentClasses
 
 
 
-                    if (active == 1)
+                    /*if (active == 1)
                     {
                         employee = new Admin(employeeID, lastName, firstName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
                         EmployeeWorkingToday.Add(employee);
-                    }
+                    }*/
                 }
             }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 

@@ -1,23 +1,25 @@
-﻿namespace ClassLibraryProject.Class
+﻿
+namespace ClassLibraryProject.Class
 {
     public class Product
     {
         //fields
-        private int id;
+        private int productID;
         private string barcode;
         private string name;
         private string productType;
         private int amountInStore;
         private int amountInDepot;
+
         private int sellingPrice;
         private bool isDiscontinued;
 
 
         //properties
-        public int ID
+        public int ProductID
         {
-            get { return id; }
-            set { id = value; }
+            get { return productID; }
+            set { productID = value; }
         }
         public string Barcode
         {
@@ -34,6 +36,7 @@
             get { return name; }
             set { name = value; }
         }
+
         public int AmountInStore
         {
             get { return amountInStore; }
@@ -44,21 +47,13 @@
             get { return amountInDepot; }
             set { amountInDepot = value; }
         }
-        public int SellingPrice
-        {
-            get { return sellingPrice; }
-            set { sellingPrice = value; }
-        }
-        public bool IsDiscontinued
-        { 
-            get { return isDiscontinued; } 
-            set { isDiscontinued = value; } 
-        }
 
+        public int SellingPrice { get; set; }
+        public bool IsDiscontinued { get; set; }
         //constructor
         public Product(int id, string name, string type, string barcode, int sellingPrice)
         {
-            ID = id;
+            ProductID = id;
             Barcode = barcode;
             Name = name;
             ProductType = type;
@@ -69,7 +64,7 @@
         }
         public Product(int id, string name, string type, string barcode, int sellingPrice, int amountInDepot, int amountInStore)
         {
-            ID = id;
+            ProductID = id;
             Barcode = barcode;
             Name = name;
             ProductType = type;
@@ -78,11 +73,10 @@
             SellingPrice = sellingPrice;
             IsDiscontinued = false;
         }
-
         // methods
         public override string ToString()
         {
-            return $"ID: {ID} - name:{Name}";
+            return $"ID: {ProductID} - name:{Name}";
         }
     }
 }

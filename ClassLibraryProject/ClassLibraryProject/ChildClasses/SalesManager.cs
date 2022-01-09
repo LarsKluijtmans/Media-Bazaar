@@ -1,18 +1,26 @@
 ﻿using ClassLibraryProject.Class;
+using ClassLibraryProject.Interfaces;
+using ClassLibraryProject.ManagmentClasses;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ClassLibraryProject.ChildClasses
 {
    public class SalesManager : Employee
     {
+        public AutoScheduleManagment autoSchedule;
+        public IViewDepartments viewDepartments;
         public SalesManager() : base()
         { }
-        public SalesManager(int employeeID, string lastname, string firstname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
-       : base(employeeID, lastname, firstname, phonenumber, email, city, dateofbirth, bsn, username, password)
+        public SalesManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
+       : base(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
         {
 
+        }
+        public SalesManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IViewDepartments viewDepartments, AutoScheduleManagment autoSchedule)
+       : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
+        {
+            this.autoSchedule = autoSchedule;
+            this.viewDepartments = viewDepartments;
         }
     }
 }

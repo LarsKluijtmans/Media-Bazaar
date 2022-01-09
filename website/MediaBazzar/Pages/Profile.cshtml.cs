@@ -5,6 +5,8 @@ using MySql.Data.MySqlClient;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ClassLibraryProject.ChildClasses;
+using System;
 
 namespace MediaBazzar.Pages
 {
@@ -12,7 +14,7 @@ namespace MediaBazzar.Pages
     public class ProfileModel : PageModel
     {
         [BindProperty]
-        public Employee employee { get; set; }
+        public Admin employee { get; set; }
 
         public void OnGet()
         {
@@ -34,7 +36,7 @@ namespace MediaBazzar.Pages
                 {
                     if (reader.GetInt32("Active") == 1)
                     {
-                        employee = new Employee();
+                        employee = new Admin();
 
                         employee.EmployeeID = reader.GetInt32("EmployeeID");
                         employee.FirstName = reader.GetString("FirstName");
@@ -42,9 +44,9 @@ namespace MediaBazzar.Pages
                         employee.Username = reader.GetString("UserName");
                         employee.Password = reader.GetString("Password");
                         employee.BSN = reader.GetInt32("BSN");
-                        employee.City = reader.GetString("Address");
+                        employee.City = reader.GetString("City");
                         employee.Email = reader.GetString("Email");
-                        employee.PhoneNumber = reader.GetInt32("PhoneNumber");
+                        employee.PhoneNumber = reader.GetString("PhoneNumber");
                     }
                     else
                     {
@@ -85,11 +87,14 @@ namespace MediaBazzar.Pages
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
 
-                ViewData["Message"] = numCreatedRows.ToString();
             }
             catch (MySqlException)
             {
-                ViewData["Message"] = "Error please try again later. ";
+                ViewData["Message"] = "Error!! There is aproblem with the database. ";
+            }
+            catch
+            { 
+                ViewData["Message"] = "Error please try again later."; 
             }
             finally
             {

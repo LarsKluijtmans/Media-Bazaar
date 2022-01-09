@@ -15,7 +15,7 @@ namespace MediaBazzar.Pages
     public class LoginModel : PageModel
     {
         [BindProperty]
-        public Login Login { get; set; }
+        public ClassLibrary1.Login Login { get; set; }
         private DBLogin dbLogin = new DBLogin();
 
         public void OnGet(string returnUrl)
@@ -29,7 +29,7 @@ namespace MediaBazzar.Pages
 
             if (ModelState.IsValid)
             {
-                var user = dbLogin.CheckLogin(Login.Username, Login.Password);
+                var user = dbLogin.CheckLogin(Login.Username , Login.Password);
 
                 if (user != null)
                 {

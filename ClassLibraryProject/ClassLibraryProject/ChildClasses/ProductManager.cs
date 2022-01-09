@@ -1,7 +1,5 @@
 ﻿using ClassLibraryProject.Class;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ClassLibraryProject.ChildClasses
 {
@@ -9,8 +7,13 @@ namespace ClassLibraryProject.ChildClasses
     {
         public ProductManager() : base()
         { }
-        public ProductManager(int employeeID, string lastname, string firstname, int phonenumber, string email, string city, string dateofbirth, int bsn, string username, string password)
-       : base(employeeID, lastname, firstname, phonenumber, email, city, dateofbirth, bsn, username, password)
+        public ProductManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
+       : base(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
+        {
+
+        }
+        public ProductManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
+       : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
         {
 
         }

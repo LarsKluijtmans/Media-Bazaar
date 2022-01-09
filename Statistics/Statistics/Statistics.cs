@@ -1,19 +1,15 @@
 ﻿using Statistics.ProductData;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Statistics
 {
     public partial class Statistics : Form
     {
         Atendance a;
+        int numberOfZoom;
         public Statistics()
         {
             InitializeComponent();
@@ -22,6 +18,13 @@ namespace Statistics
             labYear.Text = DateTime.Now.Year.ToString();
             labMonth.Text = DateTime.Now.Month.ToString();
 
+            chart1.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            chart1.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
+
+            numberOfZoom = 0;
+
+            chart1.MouseWheel += chart1_MouseWheel;
+
             ShowData();
             ShowRestockAmountData();
             ShowRestockRequestData();
@@ -29,13 +32,51 @@ namespace Statistics
             ShowReshelfRequestData();
         }
 
+        //Zoom
+        private void chart1_MouseWheel(object sender, MouseEventArgs e)
+        {
+            var chart = (Chart)sender;
+            var xAxis = chart.ChartAreas[0].AxisX;
+        
+            var xMin = xAxis.ScaleView.ViewMinimum;
+            var xMax = xAxis.ScaleView.ViewMaximum;
+           
+            int IntervalX = 4;
+            try
+            {
+                if (e.Delta < 0 && numberOfZoom > 0) // Scrolled down.
+                {
+                    var posXStart = xAxis.PixelPositionToValue(e.Location.X) - IntervalX *2 / Math.Pow(2, numberOfZoom);
+                    var posXFinish = xAxis.PixelPositionToValue(e.Location.X) + IntervalX *2/ Math.Pow(2, numberOfZoom);
+                  
+                    if (posXStart < 0) posXStart = 0;
+                    xAxis.ScaleView.Zoom(posXStart, posXFinish);
+                    numberOfZoom--;
+                }
+                else if (e.Delta < 0 && numberOfZoom == 0) //Last scrolled dowm
+                {
+                    xAxis.ScaleView.ZoomReset();
+                }
+                else if (e.Delta > 0) // Scrolled up.
+                {
+
+                    var posXStart = xAxis.PixelPositionToValue(e.Location.X) - IntervalX / Math.Pow(2, numberOfZoom);
+                    var posXFinish = xAxis.PixelPositionToValue(e.Location.X) + IntervalX / Math.Pow(2, numberOfZoom);
+                   
+                    xAxis.ScaleView.Zoom(posXStart, posXFinish);
+                    numberOfZoom++;
+                }
+
+                if (numberOfZoom < 0) numberOfZoom = 0;
+            }
+            catch { }
+        }
         protected override void OnClosing(CancelEventArgs e)
         {
             Application.Exit();
         }
 
         // connect to database
-
         public void GetAtendeance()
         {
             int year, month;
@@ -46,8 +87,6 @@ namespace Statistics
         }
 
         // chose year and month
-
-
         private void btnIncreaseYear_Click(object sender, EventArgs e)
         {
             int year = Convert.ToInt16(labYear.Text);
