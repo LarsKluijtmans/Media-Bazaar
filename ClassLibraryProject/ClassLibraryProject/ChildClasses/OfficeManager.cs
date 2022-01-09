@@ -14,10 +14,8 @@ namespace ClassLibraryProject.ChildClasses
         public IEmployeeManagerOffice EmployeeManagerOffice { get; set; }
         public IContractManager ContractManager { get; set; }
 
-        public OfficeManager(IDepartment departmentManagment, ICompany companyManagment) : base()
+        public OfficeManager() : base()
         { 
-            this.departmentManagment = departmentManagment;
-            this.companyManagment = companyManagment;
         }
 
         public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)

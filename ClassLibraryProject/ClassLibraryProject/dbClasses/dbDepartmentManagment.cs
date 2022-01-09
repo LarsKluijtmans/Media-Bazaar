@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace ClassLibraryProject.dbClasses
 {
-    class dbDepartmentManagment : IDepartmentManagment
+  public class dbDepartmentManagment : IDepartmentManagment
     {
         private string GET_DEPARTMENTS = "SELECT `DepartmentID` , `HeadDepatment`,`DepartmentName` FROM `departments`;";
         private string ADD_DEPARTMENT = "INSERT INTO departments ( DepartmentName, CompanyID, HeadDepatment) VALUES (@DepartmentName, @CompanyID, @HeadDepatment);";
