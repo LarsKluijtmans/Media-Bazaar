@@ -8,5 +8,6 @@ namespace ClassLibraryProject
     public interface IEmployeeManagerAdmin
     {
         public bool CreateEmployee(Employee e);
+        public int AmountOfOfficeManagers();
     }
 }

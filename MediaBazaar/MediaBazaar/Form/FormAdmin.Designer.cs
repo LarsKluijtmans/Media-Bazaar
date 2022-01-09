@@ -38,8 +38,12 @@ namespace AdminBackups
             this.btnLogout = new System.Windows.Forms.Button();
             this.labEmployeeAlreadyAdded = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbxStartDate = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.BtnNewEmployee = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbxDepartment = new System.Windows.Forms.ComboBox();
+            this.tbxEndDate = new System.Windows.Forms.TextBox();
+            this.tbxStartDate = new System.Windows.Forms.TextBox();
             this.tbxSalary = new System.Windows.Forms.TextBox();
             this.tbxWorkHours = new System.Windows.Forms.TextBox();
             this.cbxJobTitle = new System.Windows.Forms.ComboBox();
@@ -48,8 +52,8 @@ namespace AdminBackups
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbxDateOfBirth = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
+            this.tbxDateOfBirth = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tbxPersonalEmail = new System.Windows.Forms.TextBox();
             this.tbxBSN = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -57,12 +61,12 @@ namespace AdminBackups
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
-            this.tbxPassword = new System.Windows.Forms.TextBox();
+            this.tbxZipCode = new System.Windows.Forms.TextBox();
             this.tbxLastName = new System.Windows.Forms.TextBox();
-            this.tbxUsername = new System.Windows.Forms.TextBox();
+            this.tbxAddress = new System.Windows.Forms.TextBox();
             this.tbxCity = new System.Windows.Forms.TextBox();
             this.tbxPhoneNumber = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -80,7 +84,7 @@ namespace AdminBackups
             this.gbMakeEmployee.Controls.Add(this.label1);
             this.gbMakeEmployee.Location = new System.Drawing.Point(25, 58);
             this.gbMakeEmployee.Name = "gbMakeEmployee";
-            this.gbMakeEmployee.Size = new System.Drawing.Size(755, 438);
+            this.gbMakeEmployee.Size = new System.Drawing.Size(676, 405);
             this.gbMakeEmployee.TabIndex = 84;
             this.gbMakeEmployee.TabStop = false;
             // 
@@ -127,7 +131,7 @@ namespace AdminBackups
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogout.Location = new System.Drawing.Point(646, 17);
+            this.btnLogout.Location = new System.Drawing.Point(567, 17);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(134, 40);
             this.btnLogout.TabIndex = 1;
@@ -140,7 +144,7 @@ namespace AdminBackups
             this.labEmployeeAlreadyAdded.AutoSize = true;
             this.labEmployeeAlreadyAdded.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labEmployeeAlreadyAdded.ForeColor = System.Drawing.Color.Red;
-            this.labEmployeeAlreadyAdded.Location = new System.Drawing.Point(164, 12);
+            this.labEmployeeAlreadyAdded.Location = new System.Drawing.Point(82, 12);
             this.labEmployeeAlreadyAdded.Name = "labEmployeeAlreadyAdded";
             this.labEmployeeAlreadyAdded.Size = new System.Drawing.Size(402, 45);
             this.labEmployeeAlreadyAdded.TabIndex = 84;
@@ -149,8 +153,12 @@ namespace AdminBackups
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.tbxStartDate);
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.BtnNewEmployee);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.cbxDepartment);
+            this.groupBox2.Controls.Add(this.tbxEndDate);
+            this.groupBox2.Controls.Add(this.tbxStartDate);
             this.groupBox2.Controls.Add(this.tbxSalary);
             this.groupBox2.Controls.Add(this.tbxWorkHours);
             this.groupBox2.Controls.Add(this.cbxJobTitle);
@@ -158,34 +166,71 @@ namespace AdminBackups
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(26, 257);
+            this.groupBox2.Location = new System.Drawing.Point(15, 235);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(712, 161);
+            this.groupBox2.Size = new System.Drawing.Size(650, 160);
             this.groupBox2.TabIndex = 81;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contract Info:";
             // 
-            // tbxStartDate
+            // label6
             // 
-            this.tbxStartDate.Location = new System.Drawing.Point(113, 113);
-            this.tbxStartDate.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
-            this.tbxStartDate.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
-            this.tbxStartDate.Name = "tbxStartDate";
-            this.tbxStartDate.Size = new System.Drawing.Size(209, 23);
-            this.tbxStartDate.TabIndex = 25;
-            this.tbxStartDate.Value = new System.DateTime(2022, 1, 2, 0, 0, 0, 0);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(351, 90);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 15);
+            this.label6.TabIndex = 46;
+            this.label6.Text = "Department:";
             // 
             // BtnNewEmployee
             // 
-            this.BtnNewEmployee.Location = new System.Drawing.Point(528, 103);
+            this.BtnNewEmployee.Location = new System.Drawing.Point(487, 117);
             this.BtnNewEmployee.Name = "BtnNewEmployee";
             this.BtnNewEmployee.Size = new System.Drawing.Size(143, 33);
             this.BtnNewEmployee.TabIndex = 41;
             this.BtnNewEmployee.Text = "Add Empolyee";
             this.BtnNewEmployee.UseVisualStyleBackColor = true;
-            this.BtnNewEmployee.Click += new System.EventHandler(this.BtnNewEmployee_Click_1);
+            this.BtnNewEmployee.Click += new System.EventHandler(this.BtnNewEmployee_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(367, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 15);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "End Date:";
+            // 
+            // cbxDepartment
+            // 
+            this.cbxDepartment.FormattingEnabled = true;
+            this.cbxDepartment.Items.AddRange(new object[] {
+            "Kitchen/Home",
+            "Smart Home Appliances",
+            "Gaming/Music/Computer",
+            "Photo/Video/Navigation"});
+            this.cbxDepartment.Location = new System.Drawing.Point(430, 88);
+            this.cbxDepartment.Name = "cbxDepartment";
+            this.cbxDepartment.Size = new System.Drawing.Size(200, 23);
+            this.cbxDepartment.TabIndex = 44;
+            // 
+            // tbxEndDate
+            // 
+            this.tbxEndDate.Location = new System.Drawing.Point(430, 57);
+            this.tbxEndDate.Name = "tbxEndDate";
+            this.tbxEndDate.PlaceholderText = "dd/mm/yyyy";
+            this.tbxEndDate.Size = new System.Drawing.Size(200, 23);
+            this.tbxEndDate.TabIndex = 43;
+            // 
+            // tbxStartDate
+            // 
+            this.tbxStartDate.Location = new System.Drawing.Point(430, 29);
+            this.tbxStartDate.Name = "tbxStartDate";
+            this.tbxStartDate.PlaceholderText = "dd/mm/yyyy";
+            this.tbxStartDate.Size = new System.Drawing.Size(200, 23);
+            this.tbxStartDate.TabIndex = 42;
             // 
             // tbxSalary
             // 
@@ -239,7 +284,7 @@ namespace AdminBackups
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 118);
+            this.label3.Location = new System.Drawing.Point(363, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 15);
             this.label3.TabIndex = 21;
@@ -257,7 +302,7 @@ namespace AdminBackups
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tbxDateOfBirth);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.tbxPersonalEmail);
             this.groupBox1.Controls.Add(this.tbxBSN);
             this.groupBox1.Controls.Add(this.label19);
@@ -265,44 +310,42 @@ namespace AdminBackups
             this.groupBox1.Controls.Add(this.tbxEmail);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.tbxFirstName);
-            this.groupBox1.Controls.Add(this.tbxPassword);
+            this.groupBox1.Controls.Add(this.tbxZipCode);
             this.groupBox1.Controls.Add(this.tbxLastName);
-            this.groupBox1.Controls.Add(this.tbxUsername);
+            this.groupBox1.Controls.Add(this.tbxAddress);
             this.groupBox1.Controls.Add(this.tbxCity);
             this.groupBox1.Controls.Add(this.tbxPhoneNumber);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Location = new System.Drawing.Point(26, 66);
+            this.groupBox1.Location = new System.Drawing.Point(15, 55);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(712, 176);
+            this.groupBox1.Size = new System.Drawing.Size(650, 176);
             this.groupBox1.TabIndex = 80;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Employee Info:";
             // 
             // tbxDateOfBirth
             // 
-            this.tbxDateOfBirth.Location = new System.Drawing.Point(430, 22);
-            this.tbxDateOfBirth.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
-            this.tbxDateOfBirth.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
+            this.tbxDateOfBirth.Location = new System.Drawing.Point(430, 24);
             this.tbxDateOfBirth.Name = "tbxDateOfBirth";
+            this.tbxDateOfBirth.PlaceholderText = "dd/mm/yyyy";
             this.tbxDateOfBirth.Size = new System.Drawing.Size(200, 23);
             this.tbxDateOfBirth.TabIndex = 80;
-            this.tbxDateOfBirth.Value = new System.DateTime(2022, 1, 2, 0, 0, 0, 0);
             // 
-            // label5
+            // label7
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 136);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 15);
-            this.label5.TabIndex = 79;
-            this.label5.Text = "Personal Email:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(20, 136);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(87, 15);
+            this.label7.TabIndex = 79;
+            this.label7.Text = "Personal Email:";
             // 
             // tbxPersonalEmail
             // 
@@ -316,6 +359,7 @@ namespace AdminBackups
             this.tbxBSN.Location = new System.Drawing.Point(430, 52);
             this.tbxBSN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxBSN.Name = "tbxBSN";
+            this.tbxBSN.PlaceholderText = "12345678";
             this.tbxBSN.Size = new System.Drawing.Size(200, 23);
             this.tbxBSN.TabIndex = 77;
             // 
@@ -364,23 +408,23 @@ namespace AdminBackups
             this.label16.TabIndex = 58;
             this.label16.Text = "Phone number:";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(392, 57);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 15);
-            this.label7.TabIndex = 73;
-            this.label7.Text = "BSN:";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(348, 28);
+            this.label8.Location = new System.Drawing.Point(392, 57);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 15);
-            this.label8.TabIndex = 72;
-            this.label8.Text = "Date of Birth:";
+            this.label8.Size = new System.Drawing.Size(32, 15);
+            this.label8.TabIndex = 73;
+            this.label8.Text = "BSN:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(348, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 15);
+            this.label9.TabIndex = 72;
+            this.label9.Text = "Date of Birth:";
             // 
             // tbxFirstName
             // 
@@ -390,14 +434,14 @@ namespace AdminBackups
             this.tbxFirstName.Size = new System.Drawing.Size(209, 23);
             this.tbxFirstName.TabIndex = 60;
             // 
-            // tbxPassword
+            // tbxZipCode
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(430, 134);
-            this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.ReadOnly = true;
-            this.tbxPassword.Size = new System.Drawing.Size(200, 23);
-            this.tbxPassword.TabIndex = 71;
+            this.tbxZipCode.Location = new System.Drawing.Point(430, 134);
+            this.tbxZipCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxZipCode.Name = "tbxZipCode";
+            this.tbxZipCode.PlaceholderText = "1111AA";
+            this.tbxZipCode.Size = new System.Drawing.Size(200, 23);
+            this.tbxZipCode.TabIndex = 71;
             // 
             // tbxLastName
             // 
@@ -407,14 +451,13 @@ namespace AdminBackups
             this.tbxLastName.Size = new System.Drawing.Size(209, 23);
             this.tbxLastName.TabIndex = 61;
             // 
-            // tbxUsername
+            // tbxAddress
             // 
-            this.tbxUsername.Location = new System.Drawing.Point(430, 105);
-            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.ReadOnly = true;
-            this.tbxUsername.Size = new System.Drawing.Size(200, 23);
-            this.tbxUsername.TabIndex = 70;
+            this.tbxAddress.Location = new System.Drawing.Point(430, 105);
+            this.tbxAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxAddress.Name = "tbxAddress";
+            this.tbxAddress.Size = new System.Drawing.Size(200, 23);
+            this.tbxAddress.TabIndex = 70;
             // 
             // tbxCity
             // 
@@ -430,17 +473,18 @@ namespace AdminBackups
             this.tbxPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxPhoneNumber.Multiline = true;
             this.tbxPhoneNumber.Name = "tbxPhoneNumber";
+            this.tbxPhoneNumber.PlaceholderText = "+316";
             this.tbxPhoneNumber.Size = new System.Drawing.Size(209, 20);
             this.tbxPhoneNumber.TabIndex = 63;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(364, 136);
+            this.label13.Location = new System.Drawing.Point(369, 136);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 15);
+            this.label13.Size = new System.Drawing.Size(55, 15);
             this.label13.TabIndex = 67;
-            this.label13.Text = "Password:";
+            this.label13.Text = "ZipCode:";
             // 
             // label15
             // 
@@ -454,17 +498,17 @@ namespace AdminBackups
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(361, 107);
+            this.label14.Location = new System.Drawing.Point(372, 107);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 15);
+            this.label14.Size = new System.Drawing.Size(52, 15);
             this.label14.TabIndex = 66;
-            this.label14.Text = "Username:";
+            this.label14.Text = "Address:";
             // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 506);
+            this.ClientSize = new System.Drawing.Size(705, 471);
             this.Controls.Add(this.labEmployeeAlreadyAdded);
             this.Controls.Add(this.gbMakeEmployee);
             this.Controls.Add(this.btnLogout);
@@ -493,14 +537,17 @@ namespace AdminBackups
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox lbWorkId;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.GroupBox gbMakeEmployee;
         private System.Windows.Forms.Label labEmployeeAlreadyAdded;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker tbxStartDate;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button BtnNewEmployee;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbxDepartment;
+        private System.Windows.Forms.TextBox tbxEndDate;
+        private System.Windows.Forms.TextBox tbxStartDate;
         private System.Windows.Forms.TextBox tbxSalary;
         private System.Windows.Forms.TextBox tbxWorkHours;
         private System.Windows.Forms.ComboBox cbxJobTitle;
@@ -509,8 +556,8 @@ namespace AdminBackups
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker tbxDateOfBirth;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbxDateOfBirth;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbxPersonalEmail;
         private System.Windows.Forms.TextBox tbxBSN;
         private System.Windows.Forms.Label label19;
@@ -519,10 +566,11 @@ namespace AdminBackups
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbxFirstName;
-        private System.Windows.Forms.TextBox tbxPassword;
+        private System.Windows.Forms.TextBox tbxZipCode;
         private System.Windows.Forms.TextBox tbxLastName;
-        private System.Windows.Forms.TextBox tbxUsername;
+        private System.Windows.Forms.TextBox tbxAddress;
         private System.Windows.Forms.TextBox tbxCity;
         private System.Windows.Forms.TextBox tbxPhoneNumber;
         private System.Windows.Forms.Label label13;
