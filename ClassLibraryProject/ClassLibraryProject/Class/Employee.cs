@@ -12,7 +12,7 @@ namespace ClassLibraryProject.Class
         private string phoneNumber;
         private string email;
         private string zipCode;
-        private string streetName;
+        private string address;
         private string city;
         private DateTime dateOfBirth;
         private int bsn;
@@ -29,7 +29,7 @@ namespace ClassLibraryProject.Class
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string ZipCode { get; set; }
-        public string StreetName { get; set; }
+        public string Address { get; set; }
         public string City { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int BSN { get; set; }
@@ -43,7 +43,7 @@ namespace ClassLibraryProject.Class
         {
 
         }
-        public Employee(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
+        public Employee(string firstName, string lastName, string phoneNumber, string email, string zipCode, string address, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
          {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -55,11 +55,11 @@ namespace ClassLibraryProject.Class
             this.Username = username;
             this.Password = password;
             this.ZipCode = zipCode;
-            this.StreetName = streetName;
+            this.Address = address;
             this.PersonalEmail = personalEmail;
          }
 
-        public Employee(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
+        public Employee(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string address, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
         {
             this.EmployeeID = employeeID;
             this.FirstName = firstName;
@@ -72,7 +72,7 @@ namespace ClassLibraryProject.Class
             this.Username = username;
             this.Password = password;
             this.ZipCode = zipCode;
-            this.StreetName = streetName;
+            this.Address = address;
             this.PersonalEmail = personalEmail;
         }
 

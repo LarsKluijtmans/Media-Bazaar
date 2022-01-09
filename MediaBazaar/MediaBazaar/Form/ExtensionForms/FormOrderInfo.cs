@@ -22,7 +22,7 @@ namespace AdminBackups
 
             foreach (OrderInfo info in infoManagment.OrderInfos)
             {
-                if (info.Supplier == supplierID)
+                if (info.Supplier.ID == supplierID)
                 {
                     if (!txtProductID.Items.Contains(info.Product))
                     {

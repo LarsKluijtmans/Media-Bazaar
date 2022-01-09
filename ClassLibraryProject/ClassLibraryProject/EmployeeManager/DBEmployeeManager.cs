@@ -18,17 +18,58 @@ namespace ClassLibraryProject
     public class DBEmployeeManager : IDBEmployeeManagerOffice, IDBEmployeeManagerAdmin
     {
         // sql
-        public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, City, Email, PhoneNumber, DateOfBirth, StreetName, ZipCode, PersonalEmail) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth, @StreetName, @ZipCode, @PersonalEmail);";
-        public static string READ_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = @Active;";
-        public static string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode WHERE EmployeeID = @EmployeeID;";
-        public static string DELETE_EMPLOYEE = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
+        public string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, City, Email, PhoneNumber, DateOfBirth, StreetName, ZipCode, PersonalEmail) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth, @StreetName, @ZipCode, @PersonalEmail);";
+        public string READ_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = @Active;";
+        public string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode, PersonalEmail = @PersonalEmail WHERE EmployeeID = @EmployeeID;";
+        public string DELETE_EMPLOYEE = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
 
-        public static string GET_EMPLOYEE_ID = "SELECT * FROM Employee WHERE Email = @Email AND Active = @Active;";
+        public string GET_EMPLOYEE_ID = "SELECT * FROM Employee WHERE Email = @Email AND Active = @Active;";
+        public string GET_EMPLOYEE_BY_ID = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.EmployeeID = @EmployeeID AND e.Active = 1;";
+        public string AMOUNT_OF_OFFICEMANAGERS = "SELECT COUNT(employee.EmployeeID) FROM employee INNER JOIN contract on contract.employeeID = employee.EmployeeID WHERE jobtitle = 'OFFICE MANAGER';";
+
 
         /*public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, Address, Email, PhoneNumber, DateOfBirth) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth);";
         public static string GET_ALL_EMPLOYEES = "SELECT * FROM Employee ORDER BY EmployeeID LIMIT 25;";
         public static string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Address = @City, PhoneNumber = @PhoneNumber WHERE EmployeeID = @EmployeeID;";
         public static string DELETE_EMPLOYEE_BY_ID = "DELETE FROM Employee WHERE EmployeeID = @EmployeeID";*/
+
+        public int AmountOfOfficeManagers()
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = AMOUNT_OF_OFFICEMANAGERS;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    return Convert.ToInt16(reader[0]);
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return 0;
+        }
 
         public bool CreateEmployee(Employee e)
         {
@@ -71,7 +112,7 @@ namespace ClassLibraryProject
                 cmd.Parameters.AddWithValue("@Email", e.Email);
                 cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
                 cmd.Parameters.AddWithValue("@DateOfBirth", e.DateOfBirth);
-                cmd.Parameters.AddWithValue("@StreetName", e.StreetName);
+                cmd.Parameters.AddWithValue("@StreetName", e.Address);
                 cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
                 cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
 
@@ -200,7 +241,43 @@ namespace ClassLibraryProject
 
         public bool UpdateEmployee(Employee e)
         {
-            throw new NotImplementedException();
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = UPDATE_EMPLOYEE;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@EmployeeID", e.EmployeeID);
+
+                cmd.Parameters.AddWithValue("@FirstName", e.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", e.LastName);
+                cmd.Parameters.AddWithValue("@City", e.City);
+                cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
+                cmd.Parameters.AddWithValue("@StreetName", e.Address);
+                cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
+                cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return true;
         }
 
         public Employee GetEmployeeID(string givenEmail, string jobTitle)
@@ -301,8 +378,106 @@ namespace ClassLibraryProject
 
             return null;
         }
+        public Employee GetEmployeeByID(int givenEmployeeID)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = GET_EMPLOYEE_ID;
 
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@EmployeeID", givenEmployeeID);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Employee employee;
+
+                while (reader.Read())
+                {
+                    int employeeID = reader.GetInt32(0);
+                    string firstName = reader.GetString(1);
+                    string lastName = reader.GetString(2);
+                    string username = reader.GetString(3);
+                    string password = reader.GetString(4);
+                    int bsn = reader.GetInt32(5);
+                    string city = reader.GetString(7);
+                    string email = reader.GetString(8);
+                    string phoneNumber = reader.GetString(9);
+                    DateTime dateOfBirth = reader.GetDateTime(10);
+                    string streetName = reader.GetString(12);
+                    string zipCode = reader.GetString(13);
+                    string personalEmail = reader.GetString(14);
+                    string jobTitle = reader.GetString(17);
+
+                    if (jobTitle == "ADMIN")
+                    {
+                        IAddEmployee addEmployee = new AdminAddEmployee();
+                        IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
+
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, addEmployee, employeeManagerAdmin);
+                        return employee;
+                    }
+                    else if (jobTitle == "CEO")
+                    {
+                        employee = new CEO(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        return employee;
+                    }
+                    else if (jobTitle == "DEPOT MANAGER")
+                    {
+                        AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
+                        return employee;
+                    }
+                    else if (jobTitle == "DEPOT EMPLOYEE")
+                    {
+                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        return employee;
+                    }
+                    else if (jobTitle == "OFFICE MANAGER")
+                    {
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        return employee;
+                    }
+                    else if (jobTitle == "PRODUCT MANAGER")
+                    {
+                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        return employee;
+                    }
+                    else if (jobTitle == "SALES MANAGER")
+                    {
+                        AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule);
+                        return employee;
+                    }
+                    else if (jobTitle == "SALES REPRESENTATIVE")
+                    {
+                        employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        return employee;
+                    }
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return null;
+        }
         /* Send Email to new Employee */
+        // needs to be fixed!!!!
         public void SendEmail(Employee e)
         {
             var smtpClient = new SmtpClient("smtp.gmail.com")

@@ -39,7 +39,7 @@ namespace ClassLibraryProject.dbClasses
                     string lastName = reader.GetString(2);
                     string username = reader.GetString(3);
                     string password = reader.GetString(4);
-                    int bsn = reader.GetInt32(5);
+                    int bsn = reader.GetInt32(5); 
                     string city = reader.GetString(7);
                     string email = reader.GetString(8);
                     string phoneNumber = reader.GetString(9);
@@ -51,10 +51,10 @@ namespace ClassLibraryProject.dbClasses
 
                     if (jobTitle == "ADMIN")
                     {
-                        IAddEmployee addEmployee = new AdminAddEmployee();
                         IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
+                        IContractManager contractManager = new ContractManager();
 
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, addEmployee, employeeManagerAdmin);
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAdmin, contractManager);
                         return employee;
                     }
                     else if (jobTitle == "CEO")
@@ -79,8 +79,8 @@ namespace ClassLibraryProject.dbClasses
                         IContractManager contractManager = new ContractManager();
                         IDepartment department = new DepartmentManagment( new dbDepartmentManagment());
                         ICompany company = new CompanyManagment( new dbCompanyManagment());
-                        IAddEmployee addEmployee = new AdminAddEmployee();
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerOffice, department, company, addEmployee, contractManager);
+
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerOffice, department, company, contractManager);
                         return employee;
                     }
                     else if (jobTitle == "PRODUCT MANAGER")
