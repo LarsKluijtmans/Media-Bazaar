@@ -15,7 +15,7 @@ using System.Text.RegularExpressions;
 
 namespace ClassLibraryProject
 {
-    public class DBEmployeeManager : IDBEmployeeManagerOffice, IDBEmployeeManagerAdmin
+    public class DBEmployeeManager : IDBEmployeeManagerOffice, IDBEmployeeManagerAdmin, IDBEmployeeManagerAll
     {
         // sql
         public string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, City, Email, PhoneNumber, DateOfBirth, StreetName, ZipCode, PersonalEmail) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth, @StreetName, @ZipCode, @PersonalEmail);";
@@ -26,6 +26,8 @@ namespace ClassLibraryProject
         public string GET_EMPLOYEE_ID = "SELECT * FROM Employee WHERE Email = @Email AND Active = @Active;";
         public string GET_EMPLOYEE_BY_ID = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.EmployeeID = @EmployeeID AND e.Active = 1;";
         public string AMOUNT_OF_OFFICEMANAGERS = "SELECT COUNT(employee.EmployeeID) FROM employee INNER JOIN contract on contract.employeeID = employee.EmployeeID WHERE jobtitle = 'OFFICE MANAGER';";
+
+        public string GET_EMPLOYEE_CONTRACTS = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID";
 
 
         /*public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, Address, Email, PhoneNumber, DateOfBirth) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth);";
@@ -321,8 +323,9 @@ namespace ClassLibraryProject
                     }
                     else if (jobTitle == "DEPOT MANAGER")
                     {
+                        IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule, employeeManagerAll);
                         return employee;
                     }
                     else if (jobTitle == "DEPOT EMPLOYEE")
@@ -408,9 +411,9 @@ namespace ClassLibraryProject
                     {
                         IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
                         IContractManager contractManager = new ContractManager();
+                        IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
 
-
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAdmin, contractManager);
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAdmin, contractManager, employeeManagerAll);
                         return employee;
                     }
                     else if (jobTitle == "CEO")
@@ -421,7 +424,8 @@ namespace ClassLibraryProject
                     else if (jobTitle == "DEPOT MANAGER")
                     {
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
+                        IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule, employeeManagerAll);
                         return employee;
                     }
                     else if (jobTitle == "DEPOT EMPLOYEE")
@@ -503,6 +507,62 @@ namespace ClassLibraryProject
             mailMessage.To.Add("estherwolfs@hotmail.com");
 
             smtpClient.Send(mailMessage);
+        }
+
+        public bool UpdateOwnInfo(Employee e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Contract> GetEmployeeContracts(Employee e)
+        {
+            List<Contract> contracts = new List<Contract>();
+
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = GET_EMPLOYEE_CONTRACTS;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@EmployeeID", e.EmployeeID);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Contract contract;
+
+                while (reader.Read())
+                {
+                    string jobTitle = reader.GetString(2);
+                    int workHoursPerWeek = reader.GetInt32(3);
+                    double salaryPerHour = reader.GetDouble(4);
+                    DateTime startDate = reader.GetDateTime(5);
+                    DateTime endDate = reader.GetDateTime(6);
+                    string department = reader.GetString(8);
+                    bool isActive = reader.GetBoolean(9);
+
+                    contract = new Contract(e, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department, isActive);
+                    contracts.Add(contract);
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return contracts;
         }
     }
 }

@@ -53,8 +53,9 @@ namespace ClassLibraryProject.dbClasses
                     {
                         IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
                         IContractManager contractManager = new ContractManager();
+                        IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
 
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAdmin, contractManager);
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAdmin, contractManager, employeeManagerAll);
                         return employee;
                     }
                     else if (jobTitle == "CEO")
@@ -65,7 +66,9 @@ namespace ClassLibraryProject.dbClasses
                     else if (jobTitle == "DEPOT MANAGER")
                     {
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule);
+                        IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
+
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule, employeeManagerAll);
                         return employee;
                     }
                     else if (jobTitle == "DEPOT EMPLOYEE")

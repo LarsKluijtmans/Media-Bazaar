@@ -5,15 +5,17 @@ using System.Text;
 
 namespace ClassLibraryProject
 {
-    public class EmployeeManager : IEmployeeManagerOffice, IEmployeeManagerAdmin
+    public class EmployeeManager : IEmployeeManagerOffice, IEmployeeManagerAdmin, IEmployeeManagerAll
     {
         IDBEmployeeManagerOffice DBEmployeeManagerOffice { get; set; }
         IDBEmployeeManagerAdmin DBEmployeeManagerAdmin { get; set; }
+        IDBEmployeeManagerAll DBEmployeeManagerAll { get; set; }
 
         public EmployeeManager()
         {
             DBEmployeeManagerOffice = new DBEmployeeManager();
             DBEmployeeManagerAdmin = new DBEmployeeManager();
+            DBEmployeeManagerAll = new DBEmployeeManager();
         }
 
         public bool CreateEmployee(Employee e)
@@ -46,6 +48,16 @@ namespace ClassLibraryProject
         public Employee GetEmployeeByID(int givenEmployeeID)
         {
             return DBEmployeeManagerOffice.GetEmployeeByID(givenEmployeeID);
+        }
+
+        public bool UpdateOwnInfo(Employee e)
+        {
+            return DBEmployeeManagerAll.UpdateOwnInfo(e);
+        }
+
+        public List<Contract> GetEmployeeContracts(Employee e)
+        {
+            return DBEmployeeManagerAll.GetEmployeeContracts(e);
         }
     }
 }

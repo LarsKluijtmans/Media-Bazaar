@@ -38,6 +38,8 @@ namespace ClassLibraryProject.Class
         public string PersonalEmail { get; set; }
         public List<Contract> Contracts { get; set; }
 
+        IEmployeeManagerAll EmployeeManagerAll { get; set; }
+
         // constructor
         public Employee()
         {
@@ -75,7 +77,40 @@ namespace ClassLibraryProject.Class
             this.Address = address;
             this.PersonalEmail = personalEmail;
         }
+        public Employee(string firstName, string lastName, string phoneNumber, string email, string zipCode, string address, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerAll employeeManagerAll)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.PhoneNumber = phoneNumber;
+            this.Email = email;
+            this.City = city;
+            this.DateOfBirth = dateOfBirth;
+            this.BSN = bsn;
+            this.Username = username;
+            this.Password = password;
+            this.ZipCode = zipCode;
+            this.Address = address;
+            this.PersonalEmail = personalEmail;
+            this.EmployeeManagerAll = employeeManagerAll;
+        }
 
+        public Employee(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string address, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerAll employeeManagerAll)
+        {
+            this.EmployeeID = employeeID;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.PhoneNumber = phoneNumber;
+            this.Email = email;
+            this.City = city;
+            this.DateOfBirth = dateOfBirth;
+            this.BSN = bsn;
+            this.Username = username;
+            this.Password = password;
+            this.ZipCode = zipCode;
+            this.Address = address;
+            this.PersonalEmail = personalEmail;
+            this.EmployeeManagerAll = employeeManagerAll;
+        }
         // methodes
         public override string ToString()
         {
