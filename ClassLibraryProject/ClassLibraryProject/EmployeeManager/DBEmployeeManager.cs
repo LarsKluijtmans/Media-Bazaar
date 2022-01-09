@@ -20,7 +20,7 @@ namespace ClassLibraryProject
         // sql
         public string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, City, Email, PhoneNumber, DateOfBirth, StreetName, ZipCode, PersonalEmail) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth, @StreetName, @ZipCode, @PersonalEmail);";
         public string READ_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = @Active;";
-        public string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode WHERE EmployeeID = @EmployeeID;";
+        public string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode, PersonalEmail = @PersonalEmail WHERE EmployeeID = @EmployeeID;";
         public string DELETE_EMPLOYEE = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
 
         public string GET_EMPLOYEE_ID = "SELECT * FROM Employee WHERE Email = @Email AND Active = @Active;";
@@ -241,7 +241,43 @@ namespace ClassLibraryProject
 
         public bool UpdateEmployee(Employee e)
         {
-            throw new NotImplementedException();
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = UPDATE_EMPLOYEE;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@EmployeeID", e.EmployeeID);
+
+                cmd.Parameters.AddWithValue("@FirstName", e.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", e.LastName);
+                cmd.Parameters.AddWithValue("@City", e.City);
+                cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
+                cmd.Parameters.AddWithValue("@StreetName", e.Address);
+                cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
+                cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return true;
         }
 
         public Employee GetEmployeeID(string givenEmail, string jobTitle)
