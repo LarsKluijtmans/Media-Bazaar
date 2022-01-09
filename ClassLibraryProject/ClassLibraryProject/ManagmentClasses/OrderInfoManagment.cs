@@ -7,11 +7,11 @@ namespace ClassLibraryProject.ManagmentClasses
 {
     public class OrderInfoManagment
     {
-        private static string GET_ALL_ORDER_INFO = "SELECT * FROM orderinfo;";
-        private static string ADD_ORDER_INFO = "INSERT INTO orderinfo (SupplierID,ProductID,MinAmountOrdered,MaxAmountOrdered,Multiples) VALUES (@SupplierID, @ProductID, @MinAmountOrdered, @MaxAmountOrdered, @Multiples);";
-        private static string UPDATE_ORDER_INFO = "UPDATE orderinfo SET ProductID = @ProductID, MaxAmountOrdered = @MaxAmountOrdered, MinAmountOrdered = @MinAmountOrdered, Multiples = @Multiples WHERE SupplierID = @SupplierID;";
-        private static string DELETE_ORDER_INFO_BY_ID = "DELETE FROM orderinfo WHERE OrderInfoID = @OrderInfoID;";
-        private static string GET_ALL_PRODUCTS = "SELECT ProductID FROM orderinfo WHERE SupplierID = @SupplierID;";
+        private string GET_ALL_ORDER_INFO = "SELECT * FROM orderinfo;";
+        private string ADD_ORDER_INFO = "INSERT INTO orderinfo (SupplierID,ProductID,MinAmountOrdered,MaxAmountOrdered,Multiples) VALUES (@SupplierID, @ProductID, @MinAmountOrdered, @MaxAmountOrdered, @Multiples);";
+        private string UPDATE_ORDER_INFO = "UPDATE orderinfo SET ProductID = @ProductID, MaxAmountOrdered = @MaxAmountOrdered, MinAmountOrdered = @MinAmountOrdered, Multiples = @Multiples WHERE SupplierID = @SupplierID;";
+        private string DELETE_ORDER_INFO_BY_ID = "DELETE FROM orderinfo WHERE OrderInfoID = @OrderInfoID;";
+        private string GET_ALL_PRODUCTS = "SELECT ProductID FROM orderinfo WHERE SupplierID = @SupplierID;";
         
         private List<OrderInfo> orderInfos;
         
