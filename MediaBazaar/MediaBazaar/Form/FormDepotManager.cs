@@ -97,24 +97,24 @@ namespace AdminBackups
         //Restock
         public void UpdateRestockRequests()
         {
-            dgOverviewRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
-            dgRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
+            //dgOverviewRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
+            //dgRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
         }
         private void rbPending_Click(object sender, EventArgs e)
         {
-            dgRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
+            //dgRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
         }
 
         private void rbHistory_CheckedChanged(object sender, EventArgs e)
         {
-            dgRestock.DataSource = store.restockManagment.ViewHistoryRestockRequests();
+            //dgRestock.DataSource = store.restockManagment.ViewHistoryRestockRequests();
         }
         public void DeleteRestockRequest()
         {
             string restockID = txtRestockID.Text;
             try
             {
-                store.restockManagment.DeleteRestockRequest(Convert.ToInt32(restockID));
+                //store.restockManagment.DeleteRestockRequest(Convert.ToInt32(restockID));
             }
             catch (Exception)
             {
@@ -128,7 +128,7 @@ namespace AdminBackups
             string restockID = txtRestockID.Text;
             try
             {
-                store.restockManagment.OrderRestock(Convert.ToInt32(restockID));
+                //store.restockManagment.OrderRestock(Convert.ToInt32(restockID));
             }
             catch
             {
@@ -167,12 +167,12 @@ namespace AdminBackups
         {
             try
             {
-                if (store.scheduleManagment.GetDepotCount(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text) == true)
-                {
-                    store.scheduleManagment.CreateDepotWeek(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text);
-                }
-                dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
-                dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+                //if (store.scheduleManagment.GetDepotCount(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text) == true)
+                //{
+                //    store.scheduleManagment.CreateDepotWeek(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text);
+                //}
+                //dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+                //dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
             }
             catch (Exception)
             {
@@ -221,7 +221,7 @@ namespace AdminBackups
             }
             try
             {
-                store.scheduleManagment.EditDepotSchedule(Day, Morning, Afternoon, Evening, Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+                //store.scheduleManagment.EditDepotSchedule(Day, Morning, Afternoon, Evening, Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
             }
             catch (Exception)
             {
@@ -269,11 +269,11 @@ namespace AdminBackups
         {
             try
             {
-                if (store.scheduleManagment.GetDepotCount(Convert.ToInt32(txtPlanningYear.Text), Convert.ToInt32(lblPlanningWeek.Text), cbDepartments.Text) == true)
-                {
-                    store.scheduleManagment.CreateDepotWeek(Convert.ToInt32(txtPlanningYear.Text), Convert.ToInt32(lblPlanningWeek.Text), cbDepartments.Text);
-                }
-                dgPlanningSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblPlanningWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+                //if (store.scheduleManagment.GetDepotCount(Convert.ToInt32(txtPlanningYear.Text), Convert.ToInt32(lblPlanningWeek.Text), cbDepartments.Text) == true)
+                //{
+                //    store.scheduleManagment.CreateDepotWeek(Convert.ToInt32(txtPlanningYear.Text), Convert.ToInt32(lblPlanningWeek.Text), cbDepartments.Text);
+                //}
+                //dgPlanningSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblPlanningWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
             }
             catch (Exception)
             {
@@ -389,8 +389,8 @@ namespace AdminBackups
         //Supplier
         private void UpdateSupplier()
         {
-            dgOverviewSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
-            dgSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
+            //dgOverviewSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
+            //dgSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
         }
         private void dgSupplier_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -488,7 +488,7 @@ namespace AdminBackups
             }
             try
             {
-                store.supplierManagment.EditSupplier(Convert.ToInt32(id), name, country, Convert.ToInt32(buildingNumber), postalCode, email, Convert.ToInt32(phoneNumber), bankNumber);
+                //store.supplierManagment.EditSupplier(Convert.ToInt32(id), name, country, Convert.ToInt32(buildingNumber), postalCode, email, Convert.ToInt32(phoneNumber), bankNumber);
             }
             catch (Exception)
             {

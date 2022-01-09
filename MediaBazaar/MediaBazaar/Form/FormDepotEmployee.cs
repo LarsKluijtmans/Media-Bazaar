@@ -29,23 +29,23 @@ namespace AdminBackups
         //Reshelves
         public void UpdateReshelveRequests()
         {
-            dgReshelve.DataSource = store.reshelfManagment.ViewPendingReshelfRequests();
+            //dgReshelve.DataSource = store.reshelfManagment.ViewPendingReshelfRequests();
         }
         private void rbPending_Click(object sender, EventArgs e)
         {
-            dgReshelve.DataSource = store.reshelfManagment.ViewPendingReshelfRequests();
+            //dgReshelve.DataSource = store.reshelfManagment.ViewPendingReshelfRequests();
         }
 
         private void rbHistory_Click(object sender, EventArgs e)
         {
-            dgReshelve.DataSource = store.reshelfManagment.ViewHistoryReshelfRequests();
+            //dgReshelve.DataSource = store.reshelfManagment.ViewHistoryReshelfRequests();
         }
         public void DeleteReshelveRequest()
         {
             string reshelveID = txtReshelfID.Text;
             try
             {
-                store.reshelfManagment.DeleteReshelfRequest(Convert.ToInt32(reshelveID));
+                //store.reshelfManagment.DeleteReshelfRequest(Convert.ToInt32(reshelveID));
             }
             catch (Exception)
             {
@@ -58,7 +58,7 @@ namespace AdminBackups
             string id = txtReshelfID.Text;
             try
             {
-                store.reshelfManagment.ShelfReplenishment(Convert.ToInt32(id));
+                //store.reshelfManagment.ShelfReplenishment(Convert.ToInt32(id));
             }
             catch (Exception)
             {
@@ -86,7 +86,7 @@ namespace AdminBackups
         //Receive Product
         public void UpdateOrders()
         {
-            dgOrder.DataSource = store.restockManagment.ViewOrderedRestockRequests();
+            //dgOrder.DataSource = store.restockManagment.ViewOrderedRestockRequests();
         }
         private void dgOrder_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -104,8 +104,8 @@ namespace AdminBackups
             string amountReceived = txtAmountReceived.Text;
             try
             {
-                store.restockManagment.RestockReplenishment(Convert.ToInt32(restockID), Convert.ToInt32(amountReceived));
-                store.restockManagment.AddToDepot(Convert.ToInt32(restockID));
+                //store.restockManagment.RestockReplenishment(Convert.ToInt32(restockID), Convert.ToInt32(amountReceived));
+                //store.restockManagment.AddToDepot(Convert.ToInt32(restockID));
             }
             catch (Exception)
             {

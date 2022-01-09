@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace ClassLibraryProject.Class
 {
     public class Product
@@ -10,6 +12,8 @@ namespace ClassLibraryProject.Class
         private string productType;
         private int amountInStore;
         private int amountInDepot;
+
+        private List<OrderInfo> orderInfos;
 
         private int sellingPrice;
         private bool isDiscontinued;
@@ -47,7 +51,11 @@ namespace ClassLibraryProject.Class
             get { return amountInDepot; }
             set { amountInDepot = value; }
         }
-
+        public List<OrderInfo> OrderInfos
+        {
+            get { return orderInfos; }
+            set { orderInfos = value; }
+        }
         public int SellingPrice { get; set; }
         public bool IsDiscontinued { get; set; }
         //constructor
@@ -61,6 +69,7 @@ namespace ClassLibraryProject.Class
             AmountInStore = 0;
             SellingPrice = sellingPrice;
             IsDiscontinued = false;
+            OrderInfos = new List<OrderInfo>();
         }
         public Product(int id, string name, string type, string barcode, int sellingPrice, int amountInDepot, int amountInStore)
         {
@@ -72,6 +81,7 @@ namespace ClassLibraryProject.Class
             AmountInStore = amountInStore;
             SellingPrice = sellingPrice;
             IsDiscontinued = false;
+            OrderInfos = new List<OrderInfo>();
         }
         // methods
         public override string ToString()

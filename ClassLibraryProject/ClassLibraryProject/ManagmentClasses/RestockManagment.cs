@@ -2,12 +2,34 @@
 using ClassLibraryProject.dbClasses.IDB;
 using ClassLibraryProject.ManagmentClasses.IDepotEmployee;
 using ClassLibraryProject.ManagmentClasses.IDepotManager;
+using System;
 using System.Collections.Generic;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
     public class RestockManagment: IRestockDepotManager, IRestockDepotEmployee 
     {
+        private List<int> numbers = new List<int>();
+        public int id()
+        {
+            int n = 1;
+            Random random = new Random();
+            for (int i = 1000; i < 9999; i++)
+            {
+                numbers.Add(i);
+            }
+            foreach (int i in numbers)
+            {
+                n = random.Next(numbers.Count);
+                if (i == numbers[n])
+                {
+                    numbers.Remove(i);
+                    return i;
+                }
+            }
+            return n;
+        }
+
         private IDBRestock db;
 
         public RestockManagment(IDBRestock dbRestock)
@@ -59,11 +81,11 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return restocks;
         }    
-        public bool RequestRestock(int id, Product product)
+        public bool RequestRestock(Product product)
         {
             if (RestockExist(product))
             {
-                if (db.RequestRestock(id, product) == true)
+                if (db.RequestRestock(id(), product) == true)
                 {
                     return true;
                 }

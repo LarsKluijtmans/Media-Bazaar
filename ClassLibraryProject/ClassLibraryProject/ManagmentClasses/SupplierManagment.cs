@@ -10,6 +10,27 @@ namespace ClassLibraryProject.ManagmentClasses
 {
     public class SupplierManagment: ISupplierProductManager
     {
+        private List<int> numbers = new List<int>();
+        public int id()
+        {
+            int n = 1;
+            Random random = new Random();
+            for (int i = 1000; i < 9999; i++)
+            {
+                numbers.Add(i);
+            }
+            foreach (int i in numbers)
+            {
+                n = random.Next(numbers.Count);
+                if (i == numbers[n])
+                {
+                    numbers.Remove(i);
+                    return i;
+                }
+            }
+            return n;
+        }
+
         private IDBSupplier db;
 
         public SupplierManagment(IDBSupplier dbSupplier)
@@ -21,11 +42,11 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             return db.GetSuppliers();
         }
-        public bool AddSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
+        public bool AddSupplier(string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
         {
             if (SupplierExist(name) == false)
             {
-                if(db.AddSupplier(id, name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber) == true)
+                if(db.AddSupplier(id(), name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber) == true)
                 {
                     return true;
                 }
