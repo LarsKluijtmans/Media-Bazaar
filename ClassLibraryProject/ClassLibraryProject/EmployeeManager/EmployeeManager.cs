@@ -42,5 +42,10 @@ namespace ClassLibraryProject
         {
             return DBEmployeeManagerAdmin.AmountOfOfficeManagers();
         }
+
+        public Employee GetEmployeeByID(int givenEmployeeID)
+        {
+            return DBEmployeeManagerOffice.GetEmployeeByID(givenEmployeeID);
+        }
     }
 }

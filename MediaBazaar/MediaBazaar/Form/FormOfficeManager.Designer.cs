@@ -84,6 +84,7 @@ namespace AdminBackups
             this.btnMakeExcelSheet = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbxActiveEmployeeID = new System.Windows.Forms.TextBox();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -126,6 +127,7 @@ namespace AdminBackups
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbxActiveEmployeeID);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.cbxEmployeeType);
             this.groupBox1.Controls.Add(this.dgvEmployees);
@@ -179,6 +181,7 @@ namespace AdminBackups
             this.dgvEmployees.RowTemplate.Height = 25;
             this.dgvEmployees.Size = new System.Drawing.Size(616, 386);
             this.dgvEmployees.TabIndex = 15;
+            this.dgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellClick);
             // 
             // groupBox4
             // 
@@ -706,6 +709,14 @@ namespace AdminBackups
             this.textBox3.Size = new System.Drawing.Size(326, 33);
             this.textBox3.TabIndex = 6;
             // 
+            // tbxActiveEmployeeID
+            // 
+            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(484, 41);
+            this.tbxActiveEmployeeID.Name = "tbxActiveEmployeeID";
+            this.tbxActiveEmployeeID.ReadOnly = true;
+            this.tbxActiveEmployeeID.Size = new System.Drawing.Size(149, 23);
+            this.tbxActiveEmployeeID.TabIndex = 18;
+            // 
             // FormOfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -800,5 +811,6 @@ namespace AdminBackups
         private System.Windows.Forms.DataGridView dgvEmployees;
         private System.Windows.Forms.Button bntUpdateEmployee;
         private System.Windows.Forms.Button btnReadEmployees;
+        private System.Windows.Forms.TextBox tbxActiveEmployeeID;
     }
 }

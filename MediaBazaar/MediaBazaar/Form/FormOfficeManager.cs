@@ -163,6 +163,21 @@ namespace AdminBackups
         }
         private void UpdateEmployee()
         {
+            // get selected employee
+            int employeeID = Convert.ToInt32(tbxActiveEmployeeID.Text);
+            if (string.IsNullOrEmpty(tbxActiveEmployeeID.Text))
+            {
+                MessageBox.Show("Please select an employee");
+                return;
+            }
+
+            Employee activeEmployee = officeManager.EmployeeManagerOffice.GetEmployeeByID(employeeID);
+
+            // get active contract of employee
+
+            // open new update employee form
+            //FormViewEmployee formViewEmployee = new FormViewEmployee(officeManager, activeEmployee, activeContract)
+            // formViewEmployee.Show();
 
         }
         private void DeleteEmployee()
@@ -181,9 +196,20 @@ namespace AdminBackups
         {
             ReadEmployees();
         }
+        private void dgvEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvEmployees.Rows[e.RowIndex];
+
+                string employeeID = row.Cells["EmployeeID"].Value.ToString();
+
+                tbxActiveEmployeeID.Text = employeeID;
+            }
+        }
         /* End Employees*/
-        
-        
+
+
         //Atendance
         private void btnDecreaseYear_Click(object sender, EventArgs e)
         {
