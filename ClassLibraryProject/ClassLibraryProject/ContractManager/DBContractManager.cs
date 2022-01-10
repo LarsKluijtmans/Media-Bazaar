@@ -11,7 +11,7 @@ namespace ClassLibraryProject
     public class DBContractManager : IDBContractManager
     {
         // sql
-        public static string CREATE_CONTRACT = "INSERT INTO Contract (EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES (@EmployeeID, '@JobTitle', @WorkHoursPerWeek, @SalaryPerHour, '@StartDate', '@EndDate', '@Department', @Active);";
+        public static string CREATE_CONTRACT = "INSERT INTO Contract (EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES (@EmployeeID, @JobTitle, @WorkHoursPerWeek, @SalaryPerHour, @StartDate, @EndDate, @Department, @Active);";
         public static string READ_CONTRACT = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID AND Active = @Active;";
         public static string UPDATE_CONTRACT = "UPDATE Contract SET Active = @Active WHERE ContractID = @ContractID;";
         public static string DELETE_CONTRACT = "DELETE FROM Contract WHERE EmployeeID = @EmployeeID;";
@@ -20,9 +20,9 @@ namespace ClassLibraryProject
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            //  string sql = CREATE_CONTRACT;
-            string sql =  $"INSERT INTO Contract(EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES({ c.Employee.EmployeeID}, '{c.JobTitle}', { c.WorkHoursPerWeek}, { c.SalaryPerHour}, '{c.StartDate.ToString("yyyy-MM-dd")}', '{c.EndDate.ToString("yyyy-MM-dd")}', '{c.Department}', 1);";
-          
+            string sql = CREATE_CONTRACT;
+            //string sql =  $"INSERT INTO Contract(EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES({ c.Employee.EmployeeID}, '{c.JobTitle}', { c.WorkHoursPerWeek}, { c.SalaryPerHour}, '{c.StartDate.ToString("yyyy-MM-dd")}', '{c.EndDate.ToString("yyyy-MM-dd")}', '{c.Department}', 1);";
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -31,8 +31,8 @@ namespace ClassLibraryProject
                 cmd.Parameters.AddWithValue("@EmployeeID", c.Employee.EmployeeID);
                 cmd.Parameters.AddWithValue("@WorkHoursPerWeek", c.WorkHoursPerWeek);
                 cmd.Parameters.AddWithValue("@SalaryPerHour", c.SalaryPerHour);
-                cmd.Parameters.AddWithValue("@StartDate", c.StartDate.ToString("dd-MM-yyyy"));
-                cmd.Parameters.AddWithValue("@EndDate", c.EndDate.ToString("dd-MM-yyyy"));
+                cmd.Parameters.AddWithValue("@StartDate", c.StartDate);
+                cmd.Parameters.AddWithValue("@EndDate", c.EndDate);
                 cmd.Parameters.AddWithValue("@Department", c.Department);
                 cmd.Parameters.AddWithValue("@Active", 1);
                 cmd.Parameters.AddWithValue("@JobTitle", c.JobTitle);
@@ -118,7 +118,36 @@ namespace ClassLibraryProject
 
         public bool UpdateContract(Contract c)
         {
-            throw new NotImplementedException();
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = UPDATE_CONTRACT;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@ContractID", c.ContractID);
+                cmd.Parameters.AddWithValue("@Active", c.IsActive);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return true;
         }
 
         // Send Email for new contract
