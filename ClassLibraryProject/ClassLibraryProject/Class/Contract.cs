@@ -53,10 +53,5 @@ namespace ClassLibraryProject.Class
             this.Department = department;
             this.IsActive = isActive;
         }
-        public void EndContract(string reasonForTermination, DateTime endDate)
-        {
-            this.ReasonForTermination = reasonForTermination;
-            this.EndDate = endDate;
-        }
     }
 }

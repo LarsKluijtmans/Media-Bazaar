@@ -12,7 +12,7 @@ namespace ClassLibraryProject
     {
         // sql
         public static string CREATE_CONTRACT = "INSERT INTO Contract (EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES (@EmployeeID, '@JobTitle', @WorkHoursPerWeek, @SalaryPerHour, '@StartDate', '@EndDate', '@Department', @Active);";
-        public static string READ_CONTRACT = "SELECT * FROM Contract as c INNER JOIN Employee as e on c.EmployeeID = e.EmployeeID WHERE c.EmployeeID = @EmployeeID;";
+        public static string READ_CONTRACT = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID AND Active = @Active;";
         public static string UPDATE_CONTRACT = "UPDATE Contract SET;";
         public static string DELETE_CONTRACT = "DELETE FROM Contract WHERE EmployeeID = @EmployeeID;";
 
@@ -94,7 +94,51 @@ namespace ClassLibraryProject
 
         public Contract ReadContract(Employee e)
         {
-            throw new NotImplementedException();
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = READ_CONTRACT;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@EmployeeID", e.EmployeeID);
+                cmd.Parameters.AddWithValue("@Active", 1);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Contract contract;
+
+                while (reader.Read())
+                {
+                    string jobTitle = reader.GetString(2);
+                    int workHoursPerWeek = reader.GetInt32(3);
+                    double salaryPerHour = reader.GetDouble(4);
+                    DateTime startDate = reader.GetDateTime(5);
+                    DateTime endDate = reader.GetDateTime(6);
+                    string department = reader.GetString(8);
+
+                    contract = new Contract(e, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
+                    return contract;
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return null;
         }
 
         public bool UpdateContract(Contract c)
