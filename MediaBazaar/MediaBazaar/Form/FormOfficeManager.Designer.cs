@@ -217,6 +217,7 @@ namespace AdminBackups
             this.bntUpdateEmployee.TabIndex = 9;
             this.bntUpdateEmployee.Text = "Update Employee";
             this.bntUpdateEmployee.UseVisualStyleBackColor = true;
+            this.bntUpdateEmployee.Click += new System.EventHandler(this.bntUpdateEmployee_Click);
             // 
             // btnReadEmployees
             // 
