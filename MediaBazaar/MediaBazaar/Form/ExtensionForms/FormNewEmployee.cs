@@ -488,7 +488,11 @@ namespace AdminBackups
                     cbxDepartment.Items.Add("Other");
                 }
             }
-            cbxDepartment.Text = cbxDepartment.Items[0].ToString();
+            try
+            {
+                cbxDepartment.Text = cbxDepartment.Items[0].ToString();
+            }
+            catch { }
         }
 
         private void cbxJobTitle_SelectedIndexChanged(object sender, EventArgs e)

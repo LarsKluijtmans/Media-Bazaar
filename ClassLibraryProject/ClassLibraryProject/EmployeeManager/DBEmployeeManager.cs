@@ -119,6 +119,11 @@ namespace ClassLibraryProject
                 cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
+
+                if (numCreatedRows == 1)
+                {
+                    return true;
+                }
             }
             catch (MySqlException msqEx)
             {
@@ -139,7 +144,7 @@ namespace ClassLibraryProject
             // fix sending email
             //SendEmail(e);
 
-            return true;
+            return false;
         }
         public List<Employee> ReadEmployees()
         {
