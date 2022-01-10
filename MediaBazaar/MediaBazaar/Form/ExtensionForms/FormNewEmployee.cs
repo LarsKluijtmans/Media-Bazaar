@@ -353,11 +353,6 @@ namespace AdminBackups
 
             // get job title
             string jobTitle = cbxJobTitle.Text;
-            if (string.IsNullOrEmpty(cbxJobTitle.Text))
-            {
-                MessageBox.Show("Please select a jobtitle");
-                return false;
-            }
 
             // get employee 
             Employee newEmployee = officeManager.EmployeeManagerOffice.GetEmployeeID(email, jobTitle);
@@ -525,11 +520,7 @@ namespace AdminBackups
                     cbxDepartment.Items.Add("Other");
                 }
             }
-            try
-            {
-                cbxDepartment.Text = cbxDepartment.Items[0].ToString();
-            }
-            catch { }
+            cbxDepartment.Text = cbxDepartment.Items[0].ToString();
         }
 
         private void cbxJobTitle_SelectedIndexChanged(object sender, EventArgs e)
