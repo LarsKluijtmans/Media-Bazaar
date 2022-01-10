@@ -70,6 +70,8 @@ namespace AdminBackups
                 return;
             }
 
+            CreateNewContract();
+
             var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
             formOfficeManager.ReadEmployees();
 
