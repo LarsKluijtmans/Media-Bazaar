@@ -8,6 +8,7 @@ namespace ClassLibraryProject.Class
         private Product product;
         private int amountRequested;
         private string status;
+        private OrderInfo orderInfo;
 
         //properties
         public int ID
@@ -30,12 +31,18 @@ namespace ClassLibraryProject.Class
             get { return status; }
             set { status = value; }
         }
+        public OrderInfo OrderInfo
+        {
+            get { return orderInfo; }
+            set { orderInfo = value; }
+        }
 
         //constructors
-        public Restock(int id, Product product, int amountRequested, string status)
+        public Restock(int id, Product product, OrderInfo orderInfo, int amountRequested, string status)
         {
             ID = id;
             Product = product;
+            OrderInfo = orderInfo;
             AmountRequested = amountRequested;
             Status = status;
         }
