@@ -14,19 +14,20 @@ namespace AdminBackups
     public partial class FormNewEmployee : Form
     {
         OfficeManager officeManager;
+        Store store;
 
-        public FormNewEmployee(OfficeManager officeManager)
+        public FormNewEmployee(OfficeManager officeManager, Store s)
         {
             InitializeComponent();
 
             this.officeManager = officeManager;
-
+            store = s;
             AddDepartment();
         }
 
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
-            CreateEmployee()
+            CreateEmployee();
             var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
             formOfficeManager.ReadEmployees();
         }
@@ -146,6 +147,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -166,6 +168,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -185,6 +188,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -205,6 +209,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -225,6 +230,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -245,6 +251,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -265,6 +272,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                          if (dr == DialogResult.No)
@@ -285,6 +293,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                          if (dr == DialogResult.No)
