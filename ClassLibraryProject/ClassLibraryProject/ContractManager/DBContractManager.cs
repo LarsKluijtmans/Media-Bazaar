@@ -28,15 +28,15 @@ namespace ClassLibraryProject
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 conn.Open();
 
-                //cmd.Parameters.AddWithValue("@EmployeeID", c.Employee.EmployeeID);
-                //cmd.Parameters.AddWithValue("@WorkHoursPerWeek", c.WorkHoursPerWeek);
-                //cmd.Parameters.AddWithValue("@SalaryPerHour", c.SalaryPerHour);
-                //cmd.Parameters.AddWithValue("@StartDate", c.StartDate.ToString("dd-MM-yyyy"));
-                //cmd.Parameters.AddWithValue("@EndDate", c.EndDate.ToString("dd-MM-yyyy"));
-                //cmd.Parameters.AddWithValue("@Department", c.Department);
-                //cmd.Parameters.AddWithValue("@Active", 1);
-                //cmd.Parameters.AddWithValue("@JobTitle", c.JobTitle);
-               
+                cmd.Parameters.AddWithValue("@EmployeeID", c.Employee.EmployeeID);
+                cmd.Parameters.AddWithValue("@WorkHoursPerWeek", c.WorkHoursPerWeek);
+                cmd.Parameters.AddWithValue("@SalaryPerHour", c.SalaryPerHour);
+                cmd.Parameters.AddWithValue("@StartDate", c.StartDate.ToString("dd-MM-yyyy"));
+                cmd.Parameters.AddWithValue("@EndDate", c.EndDate.ToString("dd-MM-yyyy"));
+                cmd.Parameters.AddWithValue("@Department", c.Department);
+                cmd.Parameters.AddWithValue("@Active", 1);
+                cmd.Parameters.AddWithValue("@JobTitle", c.JobTitle);
+
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
 

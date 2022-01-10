@@ -26,7 +26,7 @@ namespace AdminBackups
 
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
-            CreateEmployee();
+            CreateEmployee()
             var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
             formOfficeManager.ReadEmployees();
         }
@@ -152,7 +152,8 @@ namespace AdminBackups
                         {
                             this.Close();
                         }
-                    } else
+                    } 
+                    else
                     {
                         return;
                     }

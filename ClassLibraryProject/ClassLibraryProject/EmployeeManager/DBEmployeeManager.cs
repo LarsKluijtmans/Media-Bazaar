@@ -122,6 +122,7 @@ namespace ClassLibraryProject
 
                 if (numCreatedRows == 1)
                 {
+                    SendEmail(e);
                     return true;
                 }
             }
@@ -140,9 +141,6 @@ namespace ClassLibraryProject
                     conn.Close();
                 }
             }
-
-            // fix sending email
-            //SendEmail(e);
 
             return false;
         }
@@ -498,8 +496,7 @@ namespace ClassLibraryProject
 
             return null;
         }
-        /* Send Email to new Employee */
-        // needs to be fixed!!!!
+
         public void SendEmail(Employee e)
         {
             var smtpClient = new SmtpClient("smtp.gmail.com")
@@ -528,7 +525,7 @@ namespace ClassLibraryProject
                 IsBodyHtml = true,
             };
 
-            mailMessage.To.Add("estherwolfs@hotmail.com");
+            mailMessage.To.Add(e.PersonalEmail);
 
             smtpClient.Send(mailMessage);
         }
