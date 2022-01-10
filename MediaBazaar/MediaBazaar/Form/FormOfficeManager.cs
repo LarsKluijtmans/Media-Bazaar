@@ -48,13 +48,11 @@ namespace AdminBackups
         //Login
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
+            logout.Show();
             Close();
         }
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            FormLogin login = new FormLogin();
-            login.Show();
-        }
+
         /* Start Employee */
         private void CreateEmployee()
         {
@@ -627,8 +625,6 @@ namespace AdminBackups
             {
                 //ViewAllEmployees();
             }*/
-        }
-
-        
+        }  
     }
 }
