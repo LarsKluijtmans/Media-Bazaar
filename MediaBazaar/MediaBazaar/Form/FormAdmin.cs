@@ -203,7 +203,7 @@ namespace AdminBackups
             // get job title
             string jobTitle = cbxJobTitle.Text;
 
-            Employee newEmployee = admin.EmployeeManagerAdmin.GetEmployeeID(email, jobTitle);
+           Employee newEmployee = admin.EmployeeManagerAdmin.GetEmployeeID(email, jobTitle);
 
            // get input for contract
             if (string.IsNullOrEmpty(tbxWorkHours.Text))
