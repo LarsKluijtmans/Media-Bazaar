@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using ClassLibraryProject;
 using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
@@ -56,12 +57,41 @@ namespace AdminBackups
             if (contract != null)
             {
                 this.Text = contract.ContractID.ToString();
-                tbxJobTitle.Text = contract.JobTitle.ToLower();
+                tbxJobTitle.Text = contract.JobTitle;
                 tbxWorkHours.Text = contract.WorkHoursPerWeek.ToString();
                 tbxSalary.Text = contract.SalaryPerHour.ToString();
-                tbxStartDate.Text = contract.StartDate.ToString("dd-MM-yyyy");
-                tbxEndDate.Text = contract.EndDate.ToString("dd-MM-yyyy");
+                tbxStartDate.Text = contract.StartDate.ToString("dd/MM/yyyy");
+                tbxEndDate.Text = contract.EndDate.ToString("dd/MM/yyyy");
+                cbxDepartment.Text = contract.Department;
+            } else
+            {
+                if (employee is Admin)
+                {
+                    tbxJobTitle.Text = "ADMIN";
+                } else if (employee is CEO)
+                {
+                    tbxJobTitle.Text = "CEO";
+                } else if (employee is DepotEmployee)
+                {
+                    tbxJobTitle.Text = "DEPOT EMPLOYEE";
+                } else if (employee is DepotManager)
+                {
+                    tbxJobTitle.Text = "DEPOT MANAGER";
+                } else if (employee is OfficeManager)
+                {
+                    tbxJobTitle.Text = "OFFICE MANAGER";
+                } else if (employee is ProductManager)
+                {
+                    tbxJobTitle.Text = "PRODUCT MANAGER";
+                } else if (employee is SalesManager)
+                {
+                    tbxJobTitle.Text = "SALES MANAGER";
+                } else if (employee is SalesRepresentative)
+                {
+                    tbxJobTitle.Text = "SALES REPRESENTATIVE";
+                }
             }
+
         }
         private void btnEditData_Click(object sender, EventArgs e)
         {
@@ -145,7 +175,7 @@ namespace AdminBackups
 
             return officeManager.EmployeeManagerOffice.UpdateEmployee(employee);
         }  
-        public void CreateNewContract()
+        public void CreateNewContract() // make bool
         {
             if (contract != null)
             {
