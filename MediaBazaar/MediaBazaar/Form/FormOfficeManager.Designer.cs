@@ -148,10 +148,10 @@ namespace AdminBackups
             // 
             // tbxActiveEmployeeID
             // 
-            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(484, 29);
+            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(899, 29);
             this.tbxActiveEmployeeID.Name = "tbxActiveEmployeeID";
             this.tbxActiveEmployeeID.ReadOnly = true;
-            this.tbxActiveEmployeeID.Size = new System.Drawing.Size(149, 23);
+            this.tbxActiveEmployeeID.Size = new System.Drawing.Size(186, 23);
             this.tbxActiveEmployeeID.TabIndex = 18;
             // 
             // label10
@@ -187,10 +187,10 @@ namespace AdminBackups
             // dgvEmployees
             // 
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmployees.Location = new System.Drawing.Point(17, 71);
+            this.dgvEmployees.Location = new System.Drawing.Point(16, 70);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.RowTemplate.Height = 25;
-            this.dgvEmployees.Size = new System.Drawing.Size(900, 401);
+            this.dgvEmployees.Size = new System.Drawing.Size(868, 401);
             this.dgvEmployees.TabIndex = 15;
             this.dgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellClick);
             // 
@@ -200,11 +200,11 @@ namespace AdminBackups
             this.groupBox4.Controls.Add(this.btnReadEmployees);
             this.groupBox4.Controls.Add(this.btnDeleteEmployee);
             this.groupBox4.Controls.Add(this.btnCreateEmployee);
-            this.groupBox4.Location = new System.Drawing.Point(923, 86);
+            this.groupBox4.Location = new System.Drawing.Point(894, 72);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(183, 168);
+            this.groupBox4.Size = new System.Drawing.Size(202, 168);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Manage Employees";
@@ -254,11 +254,11 @@ namespace AdminBackups
             // 
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.tbxSearchEmployee);
-            this.groupBox5.Location = new System.Drawing.Point(923, 258);
+            this.groupBox5.Location = new System.Drawing.Point(894, 244);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(183, 83);
+            this.groupBox5.Size = new System.Drawing.Size(202, 83);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Search:";
@@ -276,7 +276,7 @@ namespace AdminBackups
             // 
             this.tbxSearchEmployee.Location = new System.Drawing.Point(5, 56);
             this.tbxSearchEmployee.Name = "tbxSearchEmployee";
-            this.tbxSearchEmployee.Size = new System.Drawing.Size(164, 23);
+            this.tbxSearchEmployee.Size = new System.Drawing.Size(169, 23);
             this.tbxSearchEmployee.TabIndex = 11;
             this.tbxSearchEmployee.TextChanged += new System.EventHandler(this.tbxSearchEmployee_TextChanged);
             // 
