@@ -148,7 +148,7 @@ namespace AdminBackups
             // 
             // tbxActiveEmployeeID
             // 
-            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(484, 41);
+            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(484, 29);
             this.tbxActiveEmployeeID.Name = "tbxActiveEmployeeID";
             this.tbxActiveEmployeeID.ReadOnly = true;
             this.tbxActiveEmployeeID.Size = new System.Drawing.Size(149, 23);
@@ -158,7 +158,7 @@ namespace AdminBackups
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(17, 32);
+            this.label10.Location = new System.Drawing.Point(17, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(117, 30);
             this.label10.TabIndex = 17;
@@ -177,7 +177,7 @@ namespace AdminBackups
             "Sales Representatives",
             "Product Managers",
             "Office Managers"});
-            this.cbxEmployeeType.Location = new System.Drawing.Point(140, 39);
+            this.cbxEmployeeType.Location = new System.Drawing.Point(140, 27);
             this.cbxEmployeeType.Name = "cbxEmployeeType";
             this.cbxEmployeeType.Size = new System.Drawing.Size(163, 23);
             this.cbxEmployeeType.TabIndex = 16;
@@ -187,10 +187,10 @@ namespace AdminBackups
             // dgvEmployees
             // 
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmployees.Location = new System.Drawing.Point(17, 86);
+            this.dgvEmployees.Location = new System.Drawing.Point(17, 71);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.RowTemplate.Height = 25;
-            this.dgvEmployees.Size = new System.Drawing.Size(616, 386);
+            this.dgvEmployees.Size = new System.Drawing.Size(900, 401);
             this.dgvEmployees.TabIndex = 15;
             this.dgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellClick);
             // 
@@ -200,7 +200,7 @@ namespace AdminBackups
             this.groupBox4.Controls.Add(this.btnReadEmployees);
             this.groupBox4.Controls.Add(this.btnDeleteEmployee);
             this.groupBox4.Controls.Add(this.btnCreateEmployee);
-            this.groupBox4.Location = new System.Drawing.Point(639, 80);
+            this.groupBox4.Location = new System.Drawing.Point(923, 86);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -254,7 +254,7 @@ namespace AdminBackups
             // 
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.tbxSearchEmployee);
-            this.groupBox5.Location = new System.Drawing.Point(639, 252);
+            this.groupBox5.Location = new System.Drawing.Point(923, 258);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);

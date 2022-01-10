@@ -12,6 +12,7 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             this.dbAmountOfEmployeesNeeded = dbAmountOfEmployeesNeeded;
         }
+
         public int AmountLeftToSchedule(string shift, string day, int week, int year, string department)
         {
             return dbAmountOfEmployeesNeeded.AmountLeftToSchedule(shift, day, week, year, department);
