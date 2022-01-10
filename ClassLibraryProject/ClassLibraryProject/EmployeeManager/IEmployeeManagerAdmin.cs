@@ -9,5 +9,7 @@ namespace ClassLibraryProject
     {
         public bool CreateEmployee(Employee e);
         public int AmountOfOfficeManagers();
+
+        public Employee GetEmployeeID(string givenEmail, string jobTitle);
     }
 }
