@@ -54,7 +54,7 @@ namespace AdminBackups
         /* Start Employee */
         private void CreateEmployee()
         {
-            FormNewEmployee formNewEmployee = new FormNewEmployee(officeManager);
+            FormNewEmployee formNewEmployee = new FormNewEmployee(officeManager, store);
             formNewEmployee.Show();
         }
         public void ReadEmployees()
