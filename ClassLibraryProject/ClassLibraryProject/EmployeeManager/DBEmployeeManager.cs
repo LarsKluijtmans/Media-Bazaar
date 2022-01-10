@@ -119,6 +119,12 @@ namespace ClassLibraryProject
                 cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
+
+                if (numCreatedRows == 1)
+                {
+                    SendEmail(e);
+                    return true;
+                }
             }
             catch (MySqlException msqEx)
             {
@@ -136,10 +142,7 @@ namespace ClassLibraryProject
                 }
             }
 
-            // fix sending email
-            //SendEmail(e);
-
-            return true;
+            return false;
         }
         public List<Employee> ReadEmployees()
         {
@@ -493,8 +496,7 @@ namespace ClassLibraryProject
 
             return null;
         }
-        /* Send Email to new Employee */
-        // needs to be fixed!!!!
+
         public void SendEmail(Employee e)
         {
             var smtpClient = new SmtpClient("smtp.gmail.com")
@@ -523,7 +525,7 @@ namespace ClassLibraryProject
                 IsBodyHtml = true,
             };
 
-            mailMessage.To.Add("estherwolfs@hotmail.com");
+            mailMessage.To.Add(e.PersonalEmail);
 
             smtpClient.Send(mailMessage);
         }

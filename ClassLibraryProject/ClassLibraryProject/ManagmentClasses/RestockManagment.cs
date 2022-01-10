@@ -38,19 +38,23 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         //manager
-        public bool OrderRestock(int id, int amount)
+        public bool OrderRestock(int id, OrderInfo orderInfo, int amount)
         {
             if (RestockByIDExist(id))
             {
-                if(db.OrderRestock(id, amount) == true)
+                if(IsDivisible(orderInfo, amount) == true)
                 {
-                    return true;
+                    if (db.OrderRestock(id, orderInfo, amount) == true)
+                    {
+                        return true;
+                    }
+                    return false;
                 }
                 return false;
             }
             return false;
         }
-        public List<Restock> GetAllRestockRequests()
+        public List<Restock> GetRestockRequests()
         {
             return db.GetRestockRequests();
         }
@@ -109,6 +113,14 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         //check
+        public bool IsDivisible(OrderInfo orderInfo, int amount)
+        {
+            if(amount % orderInfo.Multiples == 0)
+            {
+                return true;
+            }
+            return false;
+        }
         private Restock GetRestock(Product product)
         {
             foreach(Restock restock in db.GetRestockRequests())

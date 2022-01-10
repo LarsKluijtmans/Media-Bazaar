@@ -17,21 +17,23 @@ namespace ClassLibraryProject.dbClasses
         private string CHANGE_AMOUNT = "UPDATE product SET AmountInDepot = @Amount WHERE Barcode = @Barcode;";
 
         //manager
-        private string ORDER_RESTOCK = "UPDATE restock SET Status = 'Ordered', Amount = @Amount WHERE ID = @ID;";
+        private string ORDER_RESTOCK = "UPDATE restock SET Status = 'Ordered', Amount = @Amount, OrderInfoID = @OrderID WHERE ID = @ID;";
         private string DELETE_RESTOCK_BY_ID = "DELETE FROM restock WHERE ID = @ID;";
 
         private List<Restock> restocks;
         private IGetProduct p;
+        private IGetOrderInfo o;
 
         public List<Restock> GetRestockRequests()
         {
             return restocks;
         }
 
-        public DBRestock(IGetProduct product)
+        public DBRestock(IGetProduct product, IGetOrderInfo orderInfo)
         {
             restocks = new List<Restock>();
             p = product;
+            o = orderInfo;
 
             GetAllRestocks();
         }
@@ -60,8 +62,9 @@ namespace ClassLibraryProject.dbClasses
                     string barcode = reader.GetString("ProductBarcode");
                     int amount = reader.GetInt32("Amount");
                     string status = reader.GetString("Status");
+                    int orderID = reader.GetInt32("OrderInfoID");
 
-                    restock = new Restock(id, p.GetProduct(barcode), amount, status);
+                    restock = new Restock(id, p.GetProduct(barcode), o.GetOrderInfo(orderID), amount, status);
                     restocks.Add(restock);
                 }
             }
@@ -113,7 +116,7 @@ namespace ClassLibraryProject.dbClasses
                 conn.Close();
             }
         }
-        public bool OrderRestock(int id, int amount)
+        public bool OrderRestock(int id, OrderInfo orderInfo, int amount)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -124,6 +127,7 @@ namespace ClassLibraryProject.dbClasses
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                 cmd.Parameters.AddWithValue("@ID", id);
+                cmd.Parameters.AddWithValue("@OrderID", orderInfo.ID);
                 cmd.Parameters.AddWithValue("@Amount", amount);
 
                 conn.Open();
@@ -137,6 +141,7 @@ namespace ClassLibraryProject.dbClasses
                         if (restock.ID == id)
                         {
                             restock.Status = "Ordered";
+                            restock.OrderInfo = orderInfo;
                             restock.AmountRequested = amount;
                         }
                     }

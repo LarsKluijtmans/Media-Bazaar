@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses.IDB;
+using ClassLibraryProject.dbClasses.IGetObject;
 using ClassLibraryProject.ManagmentClasses.IProductManager;
 using MySql.Data.MySqlClient;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class OrderInfoManagment: IOrderInfoProductManager
+    public class OrderInfoManagment: IOrderInfoProductManager, IGetOrderInfo
     {
         private List<int> numbers = new List<int>();
         public int id()
@@ -74,7 +75,7 @@ namespace ClassLibraryProject.ManagmentClasses
             return false;
         }
 
-        private OrderInfo GetOrderInfo(int id)
+        public OrderInfo GetOrderInfo(int id)
         {
             foreach(OrderInfo orderInfo in db.GetOrderInfos())
             {

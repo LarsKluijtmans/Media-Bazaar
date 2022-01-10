@@ -5,8 +5,8 @@ using System.Text;
 
 namespace ClassLibraryProject.dbClasses.IGetObject
 {
-    public interface IGetProduct
+    public interface IGetOrderInfo
     {
-        Product GetProduct(string barcode);
+        OrderInfo GetOrderInfo(int id);
     }
 }
