@@ -41,12 +41,12 @@ namespace AdminBackups
             Close();
         }
 
+        //Create Employee
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
             CreateEmployee();
             AddDepartments();
         }
-
         private void CreateEmployee()
         {
             // get all input 
@@ -299,6 +299,7 @@ namespace AdminBackups
             return admin.ContractManager.CreateContract(newContract);
         }
 
+        //Department
         private void AddDepartments()
         {
             cbxDepartment.Items.Clear();
