@@ -21,6 +21,8 @@ namespace AdminBackups
             InitializeComponent();
             this.officeManager = om;
             this.employee = e;
+
+            employee.Contracts = employee.EmployeeManagerAll.GetEmployeeContracts(employee);
             
             foreach (Contract c in employee.Contracts)
             {
@@ -51,11 +53,14 @@ namespace AdminBackups
             tbxZipCode.Text = employee.ZipCode;
 
             // contract
-            tbxJobTitle.Text = contract.JobTitle.ToLower();
-            tbxWorkHours.Text = contract.WorkHoursPerWeek.ToString();
-            tbxSalary.Text = contract.SalaryPerHour.ToString();
-            tbxStartDate.Text = contract.StartDate.ToString("dd-MM-yyyy");
-            tbxEndDate.Text = contract.EndDate.ToString("dd-MM-yyyy");
+            if (contract != null)
+            {
+                tbxJobTitle.Text = contract.JobTitle.ToLower();
+                tbxWorkHours.Text = contract.WorkHoursPerWeek.ToString();
+                tbxSalary.Text = contract.SalaryPerHour.ToString();
+                tbxStartDate.Text = contract.StartDate.ToString("dd-MM-yyyy");
+                tbxEndDate.Text = contract.EndDate.ToString("dd-MM-yyyy");
+            }
         }
         private void btnEditData_Click(object sender, EventArgs e)
         {

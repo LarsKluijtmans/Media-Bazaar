@@ -171,13 +171,13 @@ namespace AdminBackups
                 return;
             }
 
-          //  Employee activeEmployee = officeManager.EmployeeManagerOffice.GetEmployeeByID(employeeID);
+            Employee activeEmployee = officeManager.EmployeeManagerOffice.GetEmployeeByID(employeeID);
 
             // get active contract of employee
 
             // open new update employee form
-            //FormViewEmployee formViewEmployee = new FormViewEmployee(officeManager, activeEmployee, activeContract)
-            // formViewEmployee.Show();
+            FormViewEmployee formViewEmployee = new FormViewEmployee(officeManager, activeEmployee);
+            formViewEmployee.Show();
 
         }
         private void DeleteEmployee()
@@ -195,6 +195,10 @@ namespace AdminBackups
         private void btnReadEmployees_Click(object sender, EventArgs e)
         {
             ReadEmployees();
+        }
+        private void bntUpdateEmployee_Click(object sender, EventArgs e)
+        {
+            UpdateEmployee();
         }
         private void dgvEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -624,5 +628,7 @@ namespace AdminBackups
                 //ViewAllEmployees();
             }*/
         }
+
+        
     }
 }

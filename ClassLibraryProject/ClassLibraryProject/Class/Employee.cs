@@ -38,7 +38,7 @@ namespace ClassLibraryProject.Class
         public string PersonalEmail { get; set; }
         public List<Contract> Contracts { get; set; }
 
-        IEmployeeManagerAll EmployeeManagerAll { get; set; }
+        public IEmployeeManagerAll EmployeeManagerAll { get; set; }
 
         // constructor
         public Employee()
