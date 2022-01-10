@@ -1,10 +1,10 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using System;
-using System.ComponentModel;
 using System.Data;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace AdminBackups
 {
@@ -33,15 +33,11 @@ namespace AdminBackups
             AddDepartments();
         }
 
-        //close
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            FormLogin login = new FormLogin();
-            login.Show();
-        }
         //Logout
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
+            logout.Show();
             Close();
         }
 
