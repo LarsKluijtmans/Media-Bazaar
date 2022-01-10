@@ -352,7 +352,7 @@ namespace AdminBackups
             string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
 
             // get job title
-            string jobTitle = "SALES REPRESENTATIVE";
+            string jobTitle = cbxJobTitle.Text;
 
             // get employee 
             Employee newEmployee = officeManager.EmployeeManagerOffice.GetEmployeeID(email, jobTitle);

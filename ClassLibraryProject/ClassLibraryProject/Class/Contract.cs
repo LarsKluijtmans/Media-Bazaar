@@ -53,5 +53,18 @@ namespace ClassLibraryProject.Class
             this.Department = department;
             this.IsActive = isActive;
         }
+        public Contract(int contractID, Employee employee, string jobTitle, int workHoursPerWeek, double salaryPerHour, DateTime startDate, DateTime endDate, string department, bool isActive)
+        {
+            this.ContractID = contractID;
+            this.Employee = employee;
+            this.JobTitle = jobTitle;
+            this.WorkHoursPerWeek = workHoursPerWeek;
+            this.SalaryPerHour = salaryPerHour;
+            this.StartDate = startDate;
+            this.EndDate = endDate;
+            this.ReasonForTermination = null;
+            this.Department = department;
+            this.IsActive = isActive;
+        }
     }
 }

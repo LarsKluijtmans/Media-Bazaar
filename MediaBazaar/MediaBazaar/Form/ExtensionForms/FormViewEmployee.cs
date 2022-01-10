@@ -55,6 +55,7 @@ namespace AdminBackups
             // contract
             if (contract != null)
             {
+                this.Text = contract.ContractID.ToString();
                 tbxJobTitle.Text = contract.JobTitle.ToLower();
                 tbxWorkHours.Text = contract.WorkHoursPerWeek.ToString();
                 tbxSalary.Text = contract.SalaryPerHour.ToString();
@@ -64,83 +65,197 @@ namespace AdminBackups
         }
         private void btnEditData_Click(object sender, EventArgs e)
         {
-            UpdateEmployee();
+            if (!UpdateEmployee())
+            {
+                return;
+            }
+
             var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
             formOfficeManager.ReadEmployees();
 
             this.Close();
         }
-        public void UpdateEmployee()
+        public bool UpdateEmployee()
         {
             if (string.IsNullOrEmpty(tbxFirstName.Text))
             {
                 MessageBox.Show("First name cannot be empty");
-                return;
+                return false;
             }
             employee.FirstName = tbxFirstName.Text;
 
             if (string.IsNullOrEmpty(tbxLastName.Text))
             {
                 MessageBox.Show("Last name cannot be empty");
-                return;
+                return false;
             }
             employee.LastName = tbxLastName.Text;
 
             if (string.IsNullOrEmpty(tbxPhoneNumber.Text))
             {
                 MessageBox.Show("Phone number cannot be empty");
-                return;
+                return false;
             }
             if (!Regex.IsMatch(tbxPhoneNumber.Text, @"^(\+)316[0-9]{8}$"))
             {
                 MessageBox.Show("Please enter a valid phone number");
-                return;
+                return false;
             }
             employee.PhoneNumber = tbxPhoneNumber.Text;
 
             if (string.IsNullOrEmpty(tbxPersonalEmail.Text))
             {
                 MessageBox.Show("Personal email cannot be empty");
-                return;
+                return false;
             }
             if (!Regex.IsMatch(tbxPersonalEmail.Text, @"[a-z0-9]+(?:\.[a-z0-9]+)*@(?:[a-z](?:[a-z]*[a-z])?\.)nl|com"))
             {
                 MessageBox.Show("Please enter a valid personal email");
-                return;
+                return false;
             }
             employee.PersonalEmail = tbxPersonalEmail.Text;
 
             if (string.IsNullOrEmpty(tbxCity.Text))
             {
                 MessageBox.Show("City cannot be empty");
-                return;
+                return false;
             }
             employee.City = tbxCity.Text;
 
             if (string.IsNullOrEmpty(tbxAddress.Text))
             {
                 MessageBox.Show("Address cannot be empty");
-                return;
+                return false;
             }
             employee.Address = tbxAddress.Text;
 
             if (string.IsNullOrEmpty(tbxZipCode.Text))
             {
                 MessageBox.Show("Zip Code cannot be empty");
-                return; 
+                return false; 
             }
             if (!Regex.IsMatch(tbxZipCode.Text, @"^[0-9]{4}[A-Z]{2}$"))
             {
                 MessageBox.Show("Please enter a valid zip code");
-                return;
+                return false;
             }
             employee.ZipCode = tbxZipCode.Text;
 
-            officeManager.EmployeeManagerOffice.UpdateEmployee(employee);
+            return officeManager.EmployeeManagerOffice.UpdateEmployee(employee);
         }  
         public void CreateNewContract()
         {
-            
+            if (contract != null)
+            {
+                contract.IsActive = false;
+
+                officeManager.ContractManager.UpdateContract(contract);
+            }
+
+            // get input for new contract
+            string jobTitle = tbxJobTitle.Text;
+            if (string.IsNullOrEmpty(jobTitle))
+            {
+                MessageBox.Show("Please enter a jobtitle");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(tbxWorkHours.Text))
+            {
+                MessageBox.Show("Please enter work hours per week");
+                return;
+            }
+            int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+            if (workHoursPerWeek % 4 != 0)
+            {
+                MessageBox.Show("Work hours has to be a multiple of 4");
+                return;
+            }
+            if (workHoursPerWeek == 0)
+            {
+                MessageBox.Show("Work hours must be at least 4 hours per week");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(tbxSalary.Text))
+            {
+                MessageBox.Show("Please enter salary per hour");
+                return;
+            }
+            double salaryPerHour = Convert.ToDouble(tbxSalary.Text);
+
+            if (string.IsNullOrEmpty(tbxStartDate.Text))
+            {
+                MessageBox.Show("Please enter a start date");
+                return;
+            }
+            if (!Regex.IsMatch(tbxStartDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+            {
+                MessageBox.Show("Please enter a valid start date");
+                return;
+            }
+            DateTime startDate = DateTime.ParseExact(tbxStartDate.Text, "dd/MM/yyyy", null);
+            if (startDate < DateTime.Now)
+            {
+                MessageBox.Show("Start date must be in the future");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(tbxEndDate.Text))
+            {
+                MessageBox.Show("Please enter an end date");
+                return;
+            }
+            if (!Regex.IsMatch(tbxEndDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+            {
+                MessageBox.Show("Please enter a valid end date");
+                return;
+            }
+            DateTime endDate = DateTime.ParseExact(tbxEndDate.Text, "dd/MM/yyyy", null);
+            if (endDate < DateTime.Now)
+            {
+                MessageBox.Show("End date must be in the future");
+                return;
+            }
+
+            if (startDate > endDate)
+            {
+                MessageBox.Show("End date must be after start date");
+                return;
+            }
+
+            var contractDays = (endDate - startDate).TotalDays;
+            if (contractDays > 365)
+            {
+                MessageBox.Show("Contract length can be max 1 year");
+                return;
+            }
+
+            string department = cbxDepartment.Text;
+            if (string.IsNullOrEmpty(department))
+            {
+                MessageBox.Show("Please enter a department");
+                return;
+            }
+
+            Contract newContract = new Contract(employee, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
+            officeManager.ContractManager.CreateContract(newContract);
         }
+
+        /*private bool CreateContract()
+        {
+
+
+            string department = cbxDepartment.Text;
+            if (string.IsNullOrEmpty(department))
+            {
+                MessageBox.Show("Please enter a department");
+                return false;
+            }
+
+            Contract newContract = new Contract(newEmployee, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
+
+            return officeManager.ContractManager.CreateContract(newContract);
+        }*/
     }
 }
