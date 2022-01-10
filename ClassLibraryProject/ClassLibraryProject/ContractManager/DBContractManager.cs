@@ -21,7 +21,7 @@ namespace ClassLibraryProject
             MySqlConnection conn = Utils.GetConnection();
 
             //  string sql = CREATE_CONTRACT;
-            string sql =  "INSERT INTO Contract(EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES({ c.Employee.EmployeeID}, '{c.JobTitle}', { c.WorkHoursPerWeek}, { c.SalaryPerHour}, '{c.StartDate.ToString("yyyy-MM-dd")}', '{c.EndDate.ToString("yyyy-MM-dd")}', '{c.Department}', 1)";
+            string sql =  $"INSERT INTO Contract(EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES({ c.Employee.EmployeeID}, '{c.JobTitle}', { c.WorkHoursPerWeek}, { c.SalaryPerHour}, '{c.StartDate.ToString("yyyy-MM-dd")}', '{c.EndDate.ToString("yyyy-MM-dd")}', '{c.Department}', 1);";
           
             try
             {
