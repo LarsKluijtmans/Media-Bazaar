@@ -1,14 +1,12 @@
 ﻿using ClassLibraryProject;
 using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
-using ClassLibraryProject.ManagmentClasses;
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Linq;
 
 namespace AdminBackups
 {
@@ -45,16 +43,14 @@ namespace AdminBackups
             dgvAtendance.DataSource = store.checkinManagment.getAtendanceData(year, month);
         }
 
-        //Login
+        //Logout
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
+            logout.Show();
             Close();
         }
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            FormLogin login = new FormLogin();
-            login.Show();
-        }
+
         /* Start Employee */
         private void CreateEmployee()
         {
@@ -627,8 +623,6 @@ namespace AdminBackups
             {
                 //ViewAllEmployees();
             }*/
-        }
-
-        
+        }  
     }
 }

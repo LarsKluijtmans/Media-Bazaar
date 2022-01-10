@@ -2,6 +2,7 @@
 using ClassLibraryProject.Class;
 using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace AdminBackups
@@ -21,15 +22,10 @@ namespace AdminBackups
         }
 
         //Logout 
-
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            FormLogin login = new FormLogin();
-            login.Show();
-        }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
+            logout.Show();
             Close();
         }
 
