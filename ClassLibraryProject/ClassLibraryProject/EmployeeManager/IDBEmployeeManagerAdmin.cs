@@ -7,10 +7,8 @@ namespace ClassLibraryProject
 {
     public interface IDBEmployeeManagerAdmin
     {
-        public bool CreateEmployee(Employee e);
-
-        public int AmountOfOfficeManagers();
-
         public Employee GetEmployeeID(string givenEmail, string jobTitle);
+        public bool CreateEmployee(Employee e);
+        public int AmountOfOfficeManagers();
     }
 }

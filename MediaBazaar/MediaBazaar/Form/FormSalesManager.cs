@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace AdminBackups
@@ -48,6 +49,16 @@ namespace AdminBackups
             UpdateEmployeesWorkingToday();
         }
 
+
+        //Logout
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
+            logout.Show();
+            Close();
+        }
+
+
         private void UpdateEmployeesWorkingToday()
         {
             store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
@@ -75,15 +86,6 @@ namespace AdminBackups
         }
 
         //Overview
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            FormLogin login = new FormLogin();
-            login.Show();
-        }
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
         private void dgOverviewSchedule_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             tabControl1.SelectTab(2);

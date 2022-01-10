@@ -148,11 +148,7 @@ namespace AdminBackups
                     {
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
-                        if (dr == DialogResult.Yes)
-                        {
-
-                        }
-                        else if (dr == DialogResult.No)
+                        if (dr == DialogResult.No)
                         {
                             this.Close();
                         }
@@ -171,11 +167,7 @@ namespace AdminBackups
                     {
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
-                        if (dr == DialogResult.Yes)
-                        {
-
-                        }
-                        else if (dr == DialogResult.No)
+                        if (dr == DialogResult.No)
                         {
                             this.Close();
                         }
@@ -194,11 +186,7 @@ namespace AdminBackups
                     {
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
-                        if (dr == DialogResult.Yes)
-                        {
-
-                        }
-                        else if (dr == DialogResult.No)
+                        if (dr == DialogResult.No)
                         {
                             this.Close();
                         }
@@ -218,11 +206,7 @@ namespace AdminBackups
                     {
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
-                        if (dr == DialogResult.Yes)
-                        {
-
-                        }
-                        else if (dr == DialogResult.No)
+                        if (dr == DialogResult.No)
                         {
                             this.Close();
                         }
@@ -242,11 +226,7 @@ namespace AdminBackups
                     {
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
-                        if (dr == DialogResult.Yes)
-                        {
-
-                        }
-                        else if (dr == DialogResult.No)
+                        if (dr == DialogResult.No)
                         {
                             this.Close();
                         }
@@ -266,11 +246,7 @@ namespace AdminBackups
                     {
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
-                        if (dr == DialogResult.Yes)
-                        {
-
-                        }
-                        else if (dr == DialogResult.No)
+                        if (dr == DialogResult.No)
                         {
                             this.Close();
                         }
@@ -290,11 +266,7 @@ namespace AdminBackups
                     {
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
-                        if (dr == DialogResult.Yes)
-                        {
-
-                        }
-                        else if (dr == DialogResult.No)
+                         if (dr == DialogResult.No)
                         {
                             this.Close();
                         }
@@ -314,11 +286,7 @@ namespace AdminBackups
                     {
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
-                        if (dr == DialogResult.Yes)
-                        {
-
-                        }
-                        else if (dr == DialogResult.No)
+                         if (dr == DialogResult.No)
                         {
                             this.Close();
                         }
@@ -520,7 +488,11 @@ namespace AdminBackups
                     cbxDepartment.Items.Add("Other");
                 }
             }
-            cbxDepartment.Text = cbxDepartment.Items[0].ToString();
+            try
+            {
+                cbxDepartment.Text = cbxDepartment.Items[0].ToString();
+            }
+            catch { }
         }
 
         private void cbxJobTitle_SelectedIndexChanged(object sender, EventArgs e)

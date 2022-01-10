@@ -19,54 +19,29 @@ namespace ClassLibraryProject
         public bool CreateContract(Contract c)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = CREATE_CONTRACT;
 
+            //  string sql = CREATE_CONTRACT;
+            string sql =  $"INSERT INTO Contract(EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES({ c.Employee.EmployeeID}, '{c.JobTitle}', { c.WorkHoursPerWeek}, { c.SalaryPerHour}, '{c.StartDate.ToString("yyyy-MM-dd")}', '{c.EndDate.ToString("yyyy-MM-dd")}', '{c.Department}', 1);";
+          
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 conn.Open();
 
-                cmd.Parameters.AddWithValue("@EmployeeID", c.Employee.EmployeeID);
-                cmd.Parameters.AddWithValue("@WorkHoursPerWeek", c.WorkHoursPerWeek);
-                cmd.Parameters.AddWithValue("@SalaryPerHour", c.SalaryPerHour);
-                cmd.Parameters.AddWithValue("@StartDate", c.StartDate.ToString("dd-MM-yyyy"));
-                cmd.Parameters.AddWithValue("@EndDate", c.EndDate.ToString("dd-MM-yyyy"));
-                cmd.Parameters.AddWithValue("@Department", c.Department);
-                cmd.Parameters.AddWithValue("@Active", 1);
-
-                if (c.Employee is CEO)
-                {
-                    cmd.Parameters.AddWithValue("@JobTitle", "CEO");
-                } else if (c.Employee is Admin)
-                {
-                    cmd.Parameters.AddWithValue("@JobTitle", "ADMIN");
-                }
-                else if (c.Employee is DepotEmployee)
-                {
-                    cmd.Parameters.AddWithValue("@JobTitle", "DEPOT EMPLOYEE");
-                }
-                else if (c.Employee is DepotManager)
-                {
-                    cmd.Parameters.AddWithValue("@JobTitle", "DEPOT MANAGER");
-                }
-                else if (c.Employee is OfficeManager)
-                {
-                    cmd.Parameters.AddWithValue("@JobTitle", "OFFICE MANAGER");
-                }
-                else if (c.Employee is ProductManager)
-                {
-                    cmd.Parameters.AddWithValue("@JobTitle", "PRODUCT MANAGER");
-                }
-                else if (c.Employee is SalesManager)
-                {
-                    cmd.Parameters.AddWithValue("@JobTitle", "SALES MANAGER");
-                }
-                else if (c.Employee is SalesRepresentative)
-                {
-                    cmd.Parameters.AddWithValue("@JobTitle", "SALES REPRESENTATIVE");
-                }
+                //cmd.Parameters.AddWithValue("@EmployeeID", c.Employee.EmployeeID);
+                //cmd.Parameters.AddWithValue("@WorkHoursPerWeek", c.WorkHoursPerWeek);
+                //cmd.Parameters.AddWithValue("@SalaryPerHour", c.SalaryPerHour);
+                //cmd.Parameters.AddWithValue("@StartDate", c.StartDate.ToString("dd-MM-yyyy"));
+                //cmd.Parameters.AddWithValue("@EndDate", c.EndDate.ToString("dd-MM-yyyy"));
+                //cmd.Parameters.AddWithValue("@Department", c.Department);
+                //cmd.Parameters.AddWithValue("@Active", 1);
+                //cmd.Parameters.AddWithValue("@JobTitle", c.JobTitle);
+               
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
+
+                if (numCreatedRows == 1)
+                { return true; }
             }
             catch (MySqlException msqEx)
             {
@@ -84,7 +59,7 @@ namespace ClassLibraryProject
                 }
             }
 
-            return true;
+            return false;
         }
 
         public bool DeleteContract(Contract c)

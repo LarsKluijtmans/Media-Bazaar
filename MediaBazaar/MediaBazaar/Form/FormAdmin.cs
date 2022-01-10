@@ -1,10 +1,10 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using System;
-using System.ComponentModel;
 using System.Data;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace AdminBackups
 {
@@ -33,15 +33,11 @@ namespace AdminBackups
             AddDepartments();
         }
 
-        //close
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            FormLogin login = new FormLogin();
-            login.Show();
-        }
         //Logout
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
+            logout.Show();
             Close();
         }
 
@@ -204,10 +200,10 @@ namespace AdminBackups
 
             string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
 
-            // get job title
-            string jobTitle = cbxJobTitle.Text;
+           // get job title
+           string jobTitle = cbxJobTitle.Text;
 
-            Employee newEmployee = admin.EmployeeManagerAdmin.GetEmployeeID(email, jobTitle);
+           Employee newEmployee = admin.EmployeeManagerAdmin.GetEmployeeID(email, jobTitle);
 
            // get input for contract
             if (string.IsNullOrEmpty(tbxWorkHours.Text))
