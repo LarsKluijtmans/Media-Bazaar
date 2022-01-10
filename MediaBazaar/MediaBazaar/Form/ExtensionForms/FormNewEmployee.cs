@@ -25,6 +25,7 @@ namespace AdminBackups
             AddDepartment();
         }
 
+        //Create employee
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
             CreateEmployee();
@@ -419,6 +420,7 @@ namespace AdminBackups
             return officeManager.ContractManager.CreateContract(newContract);
         }
 
+        //Departments
         private void AddDepartment()
         {
             cbxDepartment.Items.Clear();
@@ -504,7 +506,6 @@ namespace AdminBackups
             }
             catch { }
         }
-
         private void cbxJobTitle_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddDepartment();
