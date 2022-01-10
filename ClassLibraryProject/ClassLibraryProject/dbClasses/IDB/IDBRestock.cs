@@ -9,7 +9,7 @@ namespace ClassLibraryProject.dbClasses.IDB
     {
         List<Restock> GetRestockRequests();
         bool DeleteRestock(int id);
-        bool OrderRestock(int id, int amount);
+        bool OrderRestock(int id, OrderInfo orderInfo, int amount);
         bool RequestRestock(int id, Product product);
         bool ReceiveRestock(int id);
         bool ChangeAmount(Product product, int amount);

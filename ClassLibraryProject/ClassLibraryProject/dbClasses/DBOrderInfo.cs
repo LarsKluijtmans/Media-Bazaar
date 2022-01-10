@@ -1,4 +1,5 @@
 ﻿using ClassLibraryProject.Class;
+using ClassLibraryProject.dbClasses.IDB;
 using ClassLibraryProject.dbClasses.IGetObject;
 using MySql.Data.MySqlClient;
 using System;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace ClassLibraryProject.dbClasses
 {
-    public class DBOrderInfo
+    public class DBOrderInfo: IDBOrderInfo
     {
         private string GET_ALL_ORDER_INFOS = "SELECT * FROM orderinfo;";
         private string ADD_ORDER_INFO = "INSERT INTO orderinfo (ID, SupplierID, ProductBarcode, MinAmount, MaxAmount, Multiples) VALUES (@SupplierID, @Barcode, @MinAmount, @MaxAmount, @Multiples);";

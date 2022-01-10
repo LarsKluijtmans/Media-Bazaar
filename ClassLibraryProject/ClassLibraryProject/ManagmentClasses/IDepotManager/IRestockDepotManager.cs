@@ -7,8 +7,8 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
 {
     public interface IRestockDepotManager
     {
-        List<Restock> GetAllRestockRequests();
-        bool OrderRestock(int id, int amount);
+        List<Restock> GetRestockRequests();
+        bool OrderRestock(int id, OrderInfo orderInfo, int amount);
         bool DeleteRestock(int id);
     }
 }

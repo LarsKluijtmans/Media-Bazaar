@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses.IDB;
+using ClassLibraryProject.dbClasses.IGetObject;
 using ClassLibraryProject.ManagmentClasses.IProductManager;
 using MySql.Data.MySqlClient;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class SupplierManagment: ISupplierProductManager
+    public class SupplierManagment: ISupplierProductManager, IGetSupplier
     {
         private List<int> numbers = new List<int>();
         public int id()
@@ -79,7 +80,7 @@ namespace ClassLibraryProject.ManagmentClasses
             return false;
         }
 
-        private Supplier GetSupplier(string name)
+        private Supplier GetSupplierByName(string name)
         {
             foreach(Supplier supplier in db.GetSuppliers())
             {
@@ -90,7 +91,7 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return null;
         }
-        private Supplier GetSupplierByID(int id)
+        public Supplier GetSupplier(int id)
         {
             foreach (Supplier supplier in db.GetSuppliers())
             {
@@ -103,7 +104,7 @@ namespace ClassLibraryProject.ManagmentClasses
         }
         private bool SupplierExist(string name)
         {
-            if (GetSupplier(name) != null)
+            if (GetSupplierByName(name) != null)
             {
                 return true;
             }
@@ -111,7 +112,7 @@ namespace ClassLibraryProject.ManagmentClasses
         }
         private bool SupplierExistByID(int id)
         {
-            if (GetSupplierByID(id) != null)
+            if (GetSupplier(id) != null)
             {
                 return true;
             }

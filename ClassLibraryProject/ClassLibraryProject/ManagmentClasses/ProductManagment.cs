@@ -1,4 +1,5 @@
 ﻿using ClassLibraryProject.Class;
+using ClassLibraryProject.dbClasses.IGetObject;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Diagnostics;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class ProductManagment
+    public class ProductManagment: IGetProduct
     {
 
         public static string CREATE_PRODUCT = "INSERT INTO Product ( Name, Barcode, Type, AmountInStore, AmountInDepot, SellingPrice, IsDiscontinued) VALUES (@Name, @Barcode, @Type, @AmountInStore, @AmountInDepot, @SellingPrice, @IsDiscontinued);";
@@ -275,6 +276,11 @@ namespace ClassLibraryProject.ManagmentClasses
             {
                 conn.Close();
             }
+        }
+
+        public Product GetProduct(string barcode)
+        {
+            throw new NotImplementedException();
         }
     }
 }
