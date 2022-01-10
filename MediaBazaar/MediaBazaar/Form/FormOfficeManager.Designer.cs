@@ -32,6 +32,7 @@ namespace AdminBackups
             this.Comapny = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbxActiveEmployeeID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cbxEmployeeType = new System.Windows.Forms.ComboBox();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
@@ -64,9 +65,11 @@ namespace AdminBackups
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvDepartments = new System.Windows.Forms.DataGridView();
             this.gbDepartment = new System.Windows.Forms.GroupBox();
+            this.labDepartmentID = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.udResult = new System.Windows.Forms.NumericUpDown();
             this.btnDeleteDepartment = new System.Windows.Forms.Button();
             this.labDepartmentName = new System.Windows.Forms.Label();
-            this.labDepartmentID = new System.Windows.Forms.Label();
             this.btnEditDepartment = new System.Windows.Forms.Button();
             this.btnAddDepartment = new System.Windows.Forms.Button();
             this.tbDepartmentName = new System.Windows.Forms.TextBox();
@@ -84,7 +87,6 @@ namespace AdminBackups
             this.btnMakeExcelSheet = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.tbxActiveEmployeeID = new System.Windows.Forms.TextBox();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -96,6 +98,7 @@ namespace AdminBackups
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).BeginInit();
             this.gbDepartment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.udResult)).BeginInit();
             this.WorkHours.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtendance)).BeginInit();
             this.SuspendLayout();
@@ -142,6 +145,14 @@ namespace AdminBackups
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Employees";
+            // 
+            // tbxActiveEmployeeID
+            // 
+            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(484, 41);
+            this.tbxActiveEmployeeID.Name = "tbxActiveEmployeeID";
+            this.tbxActiveEmployeeID.ReadOnly = true;
+            this.tbxActiveEmployeeID.Size = new System.Drawing.Size(149, 23);
+            this.tbxActiveEmployeeID.TabIndex = 18;
             // 
             // label10
             // 
@@ -471,31 +482,63 @@ namespace AdminBackups
             this.dgvDepartments.Name = "dgvDepartments";
             this.dgvDepartments.RowHeadersWidth = 51;
             this.dgvDepartments.RowTemplate.Height = 25;
-            this.dgvDepartments.Size = new System.Drawing.Size(421, 444);
+            this.dgvDepartments.Size = new System.Drawing.Size(487, 444);
             this.dgvDepartments.TabIndex = 2;
             this.dgvDepartments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartments_CellClick);
             // 
             // gbDepartment
             // 
+            this.gbDepartment.Controls.Add(this.labDepartmentID);
+            this.gbDepartment.Controls.Add(this.label12);
+            this.gbDepartment.Controls.Add(this.udResult);
             this.gbDepartment.Controls.Add(this.btnDeleteDepartment);
             this.gbDepartment.Controls.Add(this.labDepartmentName);
-            this.gbDepartment.Controls.Add(this.labDepartmentID);
             this.gbDepartment.Controls.Add(this.btnEditDepartment);
             this.gbDepartment.Controls.Add(this.btnAddDepartment);
             this.gbDepartment.Controls.Add(this.tbDepartmentName);
             this.gbDepartment.Controls.Add(this.label5);
             this.gbDepartment.Controls.Add(this.label4);
             this.gbDepartment.Controls.Add(this.cbHeadDepartments);
-            this.gbDepartment.Location = new System.Drawing.Point(483, 27);
+            this.gbDepartment.Location = new System.Drawing.Point(543, 27);
             this.gbDepartment.Name = "gbDepartment";
-            this.gbDepartment.Size = new System.Drawing.Size(618, 444);
+            this.gbDepartment.Size = new System.Drawing.Size(557, 444);
             this.gbDepartment.TabIndex = 1;
             this.gbDepartment.TabStop = false;
+            // 
+            // labDepartmentID
+            // 
+            this.labDepartmentID.AutoSize = true;
+            this.labDepartmentID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labDepartmentID.Location = new System.Drawing.Point(22, 29);
+            this.labDepartmentID.Name = "labDepartmentID";
+            this.labDepartmentID.Size = new System.Drawing.Size(111, 25);
+            this.labDepartmentID.TabIndex = 10;
+            this.labDepartmentID.Text = "I\'m invisible";
+            this.labDepartmentID.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(336, 31);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 25);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "Result:";
+            // 
+            // udResult
+            // 
+            this.udResult.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.udResult.Location = new System.Drawing.Point(408, 29);
+            this.udResult.Name = "udResult";
+            this.udResult.ReadOnly = true;
+            this.udResult.Size = new System.Drawing.Size(120, 33);
+            this.udResult.TabIndex = 8;
             // 
             // btnDeleteDepartment
             // 
             this.btnDeleteDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDeleteDepartment.Location = new System.Drawing.Point(129, 344);
+            this.btnDeleteDepartment.Location = new System.Drawing.Point(116, 366);
             this.btnDeleteDepartment.Name = "btnDeleteDepartment";
             this.btnDeleteDepartment.Size = new System.Drawing.Size(361, 42);
             this.btnDeleteDepartment.TabIndex = 7;
@@ -507,25 +550,17 @@ namespace AdminBackups
             // 
             this.labDepartmentName.AutoSize = true;
             this.labDepartmentName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labDepartmentName.Location = new System.Drawing.Point(22, 29);
+            this.labDepartmentName.Location = new System.Drawing.Point(22, 58);
             this.labDepartmentName.Name = "labDepartmentName";
-            this.labDepartmentName.Size = new System.Drawing.Size(73, 25);
+            this.labDepartmentName.Size = new System.Drawing.Size(111, 25);
             this.labDepartmentName.TabIndex = 6;
-            this.labDepartmentName.Text = "label10";
+            this.labDepartmentName.Text = "I\'m invisible";
             this.labDepartmentName.Visible = false;
-            // 
-            // labDepartmentID
-            // 
-            this.labDepartmentID.Location = new System.Drawing.Point(0, 0);
-            this.labDepartmentID.Name = "labDepartmentID";
-            this.labDepartmentID.Size = new System.Drawing.Size(88, 17);
-            this.labDepartmentID.TabIndex = 0;
-            this.labDepartmentID.Visible = false;
             // 
             // btnEditDepartment
             // 
             this.btnEditDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditDepartment.Location = new System.Drawing.Point(129, 296);
+            this.btnEditDepartment.Location = new System.Drawing.Point(116, 318);
             this.btnEditDepartment.Name = "btnEditDepartment";
             this.btnEditDepartment.Size = new System.Drawing.Size(361, 42);
             this.btnEditDepartment.TabIndex = 5;
@@ -536,7 +571,7 @@ namespace AdminBackups
             // btnAddDepartment
             // 
             this.btnAddDepartment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddDepartment.Location = new System.Drawing.Point(129, 248);
+            this.btnAddDepartment.Location = new System.Drawing.Point(116, 270);
             this.btnAddDepartment.Name = "btnAddDepartment";
             this.btnAddDepartment.Size = new System.Drawing.Size(361, 42);
             this.btnAddDepartment.TabIndex = 4;
@@ -547,7 +582,7 @@ namespace AdminBackups
             // tbDepartmentName
             // 
             this.tbDepartmentName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbDepartmentName.Location = new System.Drawing.Point(247, 73);
+            this.tbDepartmentName.Location = new System.Drawing.Point(188, 130);
             this.tbDepartmentName.Name = "tbDepartmentName";
             this.tbDepartmentName.Size = new System.Drawing.Size(340, 33);
             this.tbDepartmentName.TabIndex = 3;
@@ -556,7 +591,7 @@ namespace AdminBackups
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(150, 76);
+            this.label5.Location = new System.Drawing.Point(116, 133);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 25);
             this.label5.TabIndex = 2;
@@ -566,7 +601,7 @@ namespace AdminBackups
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(56, 155);
+            this.label4.Location = new System.Drawing.Point(22, 182);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(160, 25);
             this.label4.TabIndex = 1;
@@ -577,7 +612,7 @@ namespace AdminBackups
             this.cbHeadDepartments.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHeadDepartments.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbHeadDepartments.FormattingEnabled = true;
-            this.cbHeadDepartments.Location = new System.Drawing.Point(247, 152);
+            this.cbHeadDepartments.Location = new System.Drawing.Point(188, 179);
             this.cbHeadDepartments.Name = "cbHeadDepartments";
             this.cbHeadDepartments.Size = new System.Drawing.Size(340, 33);
             this.cbHeadDepartments.TabIndex = 0;
@@ -709,14 +744,6 @@ namespace AdminBackups
             this.textBox3.Size = new System.Drawing.Size(326, 33);
             this.textBox3.TabIndex = 6;
             // 
-            // tbxActiveEmployeeID
-            // 
-            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(484, 41);
-            this.tbxActiveEmployeeID.Name = "tbxActiveEmployeeID";
-            this.tbxActiveEmployeeID.ReadOnly = true;
-            this.tbxActiveEmployeeID.Size = new System.Drawing.Size(149, 23);
-            this.tbxActiveEmployeeID.TabIndex = 18;
-            // 
             // FormOfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -742,6 +769,7 @@ namespace AdminBackups
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).EndInit();
             this.gbDepartment.ResumeLayout(false);
             this.gbDepartment.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.udResult)).EndInit();
             this.WorkHours.ResumeLayout(false);
             this.WorkHours.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtendance)).EndInit();
@@ -788,7 +816,6 @@ namespace AdminBackups
         private System.Windows.Forms.TextBox tbBTW;
         private System.Windows.Forms.Label labCompanyID;
         private System.Windows.Forms.TextBox tbID;
-        private System.Windows.Forms.Label labDepartmentID;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbxSearchEmployee;
         private System.Windows.Forms.Label label9;
@@ -812,5 +839,8 @@ namespace AdminBackups
         private System.Windows.Forms.Button bntUpdateEmployee;
         private System.Windows.Forms.Button btnReadEmployees;
         private System.Windows.Forms.TextBox tbxActiveEmployeeID;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown udResult;
+        private System.Windows.Forms.Label labDepartmentID;
     }
 }

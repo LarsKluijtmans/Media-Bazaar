@@ -54,8 +54,9 @@ namespace ClassLibraryProject.dbClasses
                         IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
                         IContractManager contractManager = new ContractManager();
                         IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
+                        IDepartment department = new DepartmentManagment(new dbDepartmentManagment());
 
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAdmin, contractManager, employeeManagerAll);
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAdmin, contractManager, employeeManagerAll, department);
                         return employee;
                     }
                     else if (jobTitle == "CEO")

@@ -25,14 +25,14 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         // edit a department
-        public void EditDepartment(string Name, string Head, string DepartmetnID)
+        public int EditDepartment(string Name, string Head, string DepartmetnID)
         {
-            iDepartmentManagment.EditDepartment(Name, Head, DepartmetnID);
+           return iDepartmentManagment.EditDepartment(Name, Head, DepartmetnID);
         }
 
-        public void DeleteDepartment(int departmentID)
+        public int DeleteDepartment(int departmentID)
         {
-            iDepartmentManagment.DeleteDepartment(departmentID);
+            return iDepartmentManagment.DeleteDepartment(departmentID);
         }
     }
 }

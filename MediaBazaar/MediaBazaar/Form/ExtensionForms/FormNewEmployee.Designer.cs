@@ -53,6 +53,11 @@ namespace AdminBackups
             this.label4 = new System.Windows.Forms.Label();
             this.tbxPersonalEmail = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbxDepartment = new System.Windows.Forms.ComboBox();
+            this.tbxEndDate = new System.Windows.Forms.TextBox();
+            this.tbxStartDate = new System.Windows.Forms.TextBox();
             this.tbxSalary = new System.Windows.Forms.TextBox();
             this.tbxWorkHours = new System.Windows.Forms.TextBox();
             this.cbxJobTitle = new System.Windows.Forms.ComboBox();
@@ -60,11 +65,6 @@ namespace AdminBackups
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbxStartDate = new System.Windows.Forms.TextBox();
-            this.tbxEndDate = new System.Windows.Forms.TextBox();
-            this.cbxDepartment = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -308,6 +308,54 @@ namespace AdminBackups
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contract Info:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(351, 91);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 15);
+            this.label6.TabIndex = 46;
+            this.label6.Text = "Department:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(367, 60);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 15);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "End Date:";
+            // 
+            // cbxDepartment
+            // 
+            this.cbxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDepartment.FormattingEnabled = true;
+            this.cbxDepartment.Items.AddRange(new object[] {
+            "Kitchen/Home",
+            "Smart Home Appliances",
+            "Gaming/Music/Computer",
+            "Photo/Video/Navigation"});
+            this.cbxDepartment.Location = new System.Drawing.Point(430, 88);
+            this.cbxDepartment.Name = "cbxDepartment";
+            this.cbxDepartment.Size = new System.Drawing.Size(200, 23);
+            this.cbxDepartment.TabIndex = 44;
+            // 
+            // tbxEndDate
+            // 
+            this.tbxEndDate.Location = new System.Drawing.Point(430, 57);
+            this.tbxEndDate.Name = "tbxEndDate";
+            this.tbxEndDate.PlaceholderText = "dd/mm/yyyy";
+            this.tbxEndDate.Size = new System.Drawing.Size(200, 23);
+            this.tbxEndDate.TabIndex = 43;
+            // 
+            // tbxStartDate
+            // 
+            this.tbxStartDate.Location = new System.Drawing.Point(430, 29);
+            this.tbxStartDate.Name = "tbxStartDate";
+            this.tbxStartDate.PlaceholderText = "dd/mm/yyyy";
+            this.tbxStartDate.Size = new System.Drawing.Size(200, 23);
+            this.tbxStartDate.TabIndex = 42;
+            // 
             // tbxSalary
             // 
             this.tbxSalary.Location = new System.Drawing.Point(113, 85);
@@ -324,6 +372,7 @@ namespace AdminBackups
             // 
             // cbxJobTitle
             // 
+            this.cbxJobTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxJobTitle.FormattingEnabled = true;
             this.cbxJobTitle.Items.AddRange(new object[] {
             "ADMIN",
@@ -338,6 +387,7 @@ namespace AdminBackups
             this.cbxJobTitle.Name = "cbxJobTitle";
             this.cbxJobTitle.Size = new System.Drawing.Size(209, 23);
             this.cbxJobTitle.TabIndex = 22;
+            this.cbxJobTitle.SelectedIndexChanged += new System.EventHandler(this.cbxJobTitle_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -374,53 +424,6 @@ namespace AdminBackups
             this.label3.Size = new System.Drawing.Size(41, 15);
             this.label3.TabIndex = 20;
             this.label3.Text = "Salary:";
-            // 
-            // tbxStartDate
-            // 
-            this.tbxStartDate.Location = new System.Drawing.Point(430, 29);
-            this.tbxStartDate.Name = "tbxStartDate";
-            this.tbxStartDate.PlaceholderText = "dd/mm/yyyy";
-            this.tbxStartDate.Size = new System.Drawing.Size(200, 23);
-            this.tbxStartDate.TabIndex = 42;
-            // 
-            // tbxEndDate
-            // 
-            this.tbxEndDate.Location = new System.Drawing.Point(430, 57);
-            this.tbxEndDate.Name = "tbxEndDate";
-            this.tbxEndDate.PlaceholderText = "dd/mm/yyyy";
-            this.tbxEndDate.Size = new System.Drawing.Size(200, 23);
-            this.tbxEndDate.TabIndex = 43;
-            // 
-            // cbxDepartment
-            // 
-            this.cbxDepartment.FormattingEnabled = true;
-            this.cbxDepartment.Items.AddRange(new object[] {
-            "Kitchen/Home",
-            "Smart Home Appliances",
-            "Gaming/Music/Computer",
-            "Photo/Video/Navigation"});
-            this.cbxDepartment.Location = new System.Drawing.Point(430, 88);
-            this.cbxDepartment.Name = "cbxDepartment";
-            this.cbxDepartment.Size = new System.Drawing.Size(200, 23);
-            this.cbxDepartment.TabIndex = 44;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(367, 60);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 15);
-            this.label5.TabIndex = 45;
-            this.label5.Text = "End Date:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(351, 91);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 15);
-            this.label6.TabIndex = 46;
-            this.label6.Text = "Department:";
             // 
             // FormNewEmployee
             // 

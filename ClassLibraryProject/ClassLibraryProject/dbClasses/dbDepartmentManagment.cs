@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace ClassLibraryProject.dbClasses
 {
-    class dbDepartmentManagment : IDepartmentManagment
+  public class dbDepartmentManagment : IDepartmentManagment
     {
         private string GET_DEPARTMENTS = "SELECT `DepartmentID` , `HeadDepatment`,`DepartmentName` FROM `departments`;";
         private string ADD_DEPARTMENT = "INSERT INTO departments ( DepartmentName, CompanyID, HeadDepatment) VALUES (@DepartmentName, @CompanyID, @HeadDepatment);";
@@ -16,7 +16,7 @@ namespace ClassLibraryProject.dbClasses
         private string MOVE_EMPLOYEES_TO_HEAD_DEPARTMENT = "UPDATE contract SET Department = @HeadDepartment WHERE Department = @Department;";
         private string GET_HEAD_DEPARTMENT = "select  `HeadDepatment`,`DepartmentName` FROM `departments` WHERE DepartmentID = @ID;";
         private string GET_DEPARTMENTNAME = "SELECT `DepartmentName` FROM `departments` WHERE `DepartmentID` = @ID;";
-        private string UPDATE_EMPLOYEES_DEPARTMENT = "UPDATE Contract SET Department = '@NewDepartmentName' WHERE Department = '@OldDepartmentName';";
+        private string UPDATE_EMPLOYEES_DEPARTMENT = "UPDATE Contract SET Department = @NewDepartmentName WHERE Department = @OldDepartmentName;";
 
         public DataTable ViewAllDepartments()
         {
@@ -89,9 +89,10 @@ namespace ClassLibraryProject.dbClasses
             }
         }
 
-        public void EditDepartment(string Name, string Head, string DepartmetnID)
+        public int EditDepartment(string Name, string Head, string DepartmetnID)
         {
-            UpdateEmployeeInfo(GetDepartmentName(Convert.ToInt32(DepartmetnID)), Name);
+
+          int result =  UpdateEmployeeInfo(GetDepartmentName( Convert.ToInt32(DepartmetnID)), Name);
 
             MySqlConnection conn = Utils.GetConnection();
             string sql = EDIT_DEPARTMENT;
@@ -107,6 +108,7 @@ namespace ClassLibraryProject.dbClasses
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
 
+                return result;
             }
             catch (MySqlException msqEx)
             {
@@ -123,11 +125,12 @@ namespace ClassLibraryProject.dbClasses
                     conn.Close();
                 }
             }
+            return 0;
         }
 
-        public void DeleteDepartment(int departmentID)
+        public int DeleteDepartment(int departmentID)
         {
-            MoveEmployeesToHeadDepartment(departmentID);
+           int result = MoveEmployeesToHeadDepartment(departmentID);
 
             MySqlConnection conn = Utils.GetConnection();
 
@@ -139,6 +142,8 @@ namespace ClassLibraryProject.dbClasses
                 cmd.Parameters.AddWithValue("@ID", departmentID);
                 conn.Open();
                 cmd.ExecuteNonQuery();
+
+                return result;
             }
             catch (MySqlException msqEx)
             {
@@ -155,9 +160,11 @@ namespace ClassLibraryProject.dbClasses
                     conn.Close();
                 }
             }
+
+            return 0;
         }
 
-        private bool MoveEmployeesToHeadDepartment(int departmentID)
+        private int MoveEmployeesToHeadDepartment(int departmentID)
         {
             string HeadDepartment = "";
             string Department = "";
@@ -183,12 +190,10 @@ namespace ClassLibraryProject.dbClasses
             catch (MySqlException msqEx)
             {
                 Debug.WriteLine(msqEx);
-                return false;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-                return false;
             }
             finally
             {
@@ -200,7 +205,7 @@ namespace ClassLibraryProject.dbClasses
 
             if (HeadDepartment == "")
             {
-                return false;
+                return 0;
             }
 
             sql = MOVE_EMPLOYEES_TO_HEAD_DEPARTMENT;
@@ -213,19 +218,17 @@ namespace ClassLibraryProject.dbClasses
 
                 conn.Open();
 
-                cmd.ExecuteNonQuery();
+               int amountOfEmployeesReasigned = cmd.ExecuteNonQuery();
 
-                return true;
+                return amountOfEmployeesReasigned;
             }
             catch (MySqlException msqEx)
             {
                 Debug.WriteLine(msqEx);
-                return false;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-                return false;
             }
             finally
             {
@@ -234,6 +237,7 @@ namespace ClassLibraryProject.dbClasses
                     conn.Close();
                 }
             }
+            return 0;
         }
 
         private string GetDepartmentName(int departmentID)
@@ -273,26 +277,25 @@ namespace ClassLibraryProject.dbClasses
                 return "";
         }
 
-        private bool UpdateEmployeeInfo(string OldDepartmentName, string NewDepartmentName)
+        private int UpdateEmployeeInfo(string OldDepartmentName, string NewDepartmentName)
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = UPDATE_EMPLOYEES_DEPARTMENT;
+            //string sql = UPDATE_EMPLOYEES_DEPARTMENT;
+            string sql = $"UPDATE Contract SET Department = '{NewDepartmentName}' WHERE Department = '{OldDepartmentName}' ;";
 
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@OldDepartmentName", OldDepartmentName);
-                cmd.Parameters.AddWithValue("@NewDepartmentName", NewDepartmentName);
+               // cmd.Parameters.AddWithValue("@OldDepartmentName", OldDepartmentName);
+                //cmd.Parameters.AddWithValue("@NewDepartmentName", NewDepartmentName);
 
                 conn.Open();
 
                 int AmountAfacted =  cmd.ExecuteNonQuery();
 
-                if(AmountAfacted > 0)
-                { 
-                    return true; 
-                }
+                return AmountAfacted; 
+
             }
             catch (MySqlException msqEx)
             {
@@ -309,7 +312,7 @@ namespace ClassLibraryProject.dbClasses
                     conn.Close();
                 }
             }
-            return false;
+            return 0;
         }
     }
 }
