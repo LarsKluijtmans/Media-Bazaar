@@ -29,13 +29,6 @@ namespace ClassLibraryProject
 
         public string GET_EMPLOYEE_CONTRACTS = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID";
         public string SEARCH_EMPLOYEE = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.FirstName LIKE @Search OR e.LastName LIKE @Search AND e.Active = @Active GROUP BY e.FirstName, e.LastName;";
-        //string sql = "SELECT * FROM `product` WHERE Name LIKE '%" + Search + "%' || Type LIKE '%" + Search + "%' ORDER BY ProductID LIMIT 15;";
-
-
-        /*public static string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, Address, Email, PhoneNumber, DateOfBirth) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth);";
-        public static string GET_ALL_EMPLOYEES = "SELECT * FROM Employee ORDER BY EmployeeID LIMIT 25;";
-        public static string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Address = @City, PhoneNumber = @PhoneNumber WHERE EmployeeID = @EmployeeID;";
-        public static string DELETE_EMPLOYEE_BY_ID = "DELETE FROM Employee WHERE EmployeeID = @EmployeeID";*/
 
         public int AmountOfOfficeManagers()
         {
