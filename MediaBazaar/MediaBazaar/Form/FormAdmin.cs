@@ -21,13 +21,13 @@ namespace AdminBackups
 
             if (admin.EmployeeManagerAdmin.AmountOfOfficeManagers() > 0)
             {
-               // gbMakeEmployee.Visible = false;
-                //labEmployeeAlreadyAdded.Visible = true;
+                gbMakeEmployee.Visible = false;
+                labEmployeeAlreadyAdded.Visible = true;
             }
             else
             {
-               // gbMakeEmployee.Visible = true;
-               // labEmployeeAlreadyAdded.Visible = false;
+                gbMakeEmployee.Visible = true;
+                labEmployeeAlreadyAdded.Visible = false;
             }
 
             AddDepartments();
@@ -207,7 +207,9 @@ namespace AdminBackups
             // get job title
             string jobTitle = cbxJobTitle.Text;
 
-            // get input for contract
+            Employee newEmployee = admin.EmployeeManagerAdmin.GetEmployeeID(email, jobTitle);
+
+           // get input for contract
             if (string.IsNullOrEmpty(tbxWorkHours.Text))
             {
                 MessageBox.Show("Please enter work hours per week");
@@ -296,7 +298,7 @@ namespace AdminBackups
                 return false;
             }
 
-            Contract newContract = new Contract(new OfficeManager(), jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
+            Contract newContract = new Contract(newEmployee, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
 
             return admin.ContractManager.CreateContract(newContract);
         }

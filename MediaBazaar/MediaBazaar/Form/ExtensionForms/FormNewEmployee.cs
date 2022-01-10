@@ -352,7 +352,12 @@ namespace AdminBackups
             string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
 
             // get job title
-            string jobTitle = "SALES REPRESENTATIVE";
+            string jobTitle = cbxJobTitle.Text;
+            if (string.IsNullOrEmpty(cbxJobTitle.Text))
+            {
+                MessageBox.Show("Please select a jobtitle");
+                return false;
+            }
 
             // get employee 
             Employee newEmployee = officeManager.EmployeeManagerOffice.GetEmployeeID(email, jobTitle);
@@ -520,7 +525,11 @@ namespace AdminBackups
                     cbxDepartment.Items.Add("Other");
                 }
             }
-            cbxDepartment.Text = cbxDepartment.Items[0].ToString();
+            try
+            {
+                cbxDepartment.Text = cbxDepartment.Items[0].ToString();
+            }
+            catch { }
         }
 
         private void cbxJobTitle_SelectedIndexChanged(object sender, EventArgs e)
