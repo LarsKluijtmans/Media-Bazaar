@@ -58,6 +58,7 @@ namespace AdminBackups
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnUpdateContract = new System.Windows.Forms.Button();
             this.tbxJobTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -78,7 +79,7 @@ namespace AdminBackups
             // 
             this.lblEmployeeName.AutoSize = true;
             this.lblEmployeeName.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblEmployeeName.Location = new System.Drawing.Point(13, 13);
+            this.lblEmployeeName.Location = new System.Drawing.Point(12, 9);
             this.lblEmployeeName.Name = "lblEmployeeName";
             this.lblEmployeeName.Size = new System.Drawing.Size(200, 30);
             this.lblEmployeeName.TabIndex = 0;
@@ -86,11 +87,11 @@ namespace AdminBackups
             // 
             // btnEditData
             // 
-            this.btnEditData.Location = new System.Drawing.Point(555, 117);
+            this.btnEditData.Location = new System.Drawing.Point(511, 192);
             this.btnEditData.Name = "btnEditData";
-            this.btnEditData.Size = new System.Drawing.Size(75, 23);
+            this.btnEditData.Size = new System.Drawing.Size(115, 23);
             this.btnEditData.TabIndex = 21;
-            this.btnEditData.Text = "Save";
+            this.btnEditData.Text = "Update Employee";
             this.btnEditData.UseVisualStyleBackColor = true;
             this.btnEditData.Click += new System.EventHandler(this.btnEditData_Click);
             // 
@@ -98,6 +99,7 @@ namespace AdminBackups
             // 
             this.groupBox3.Controls.Add(this.tbxUsername);
             this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Controls.Add(this.btnEditData);
             this.groupBox3.Controls.Add(this.tbxEmployeeID);
             this.groupBox3.Controls.Add(this.label25);
             this.groupBox3.Controls.Add(this.tbxDateOfBirth);
@@ -124,7 +126,7 @@ namespace AdminBackups
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(650, 204);
+            this.groupBox3.Size = new System.Drawing.Size(650, 223);
             this.groupBox3.TabIndex = 79;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Employee Info:";
@@ -339,9 +341,9 @@ namespace AdminBackups
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnUpdateContract);
             this.groupBox1.Controls.Add(this.tbxJobTitle);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnEditData);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.cbxDepartment);
             this.groupBox1.Controls.Add(this.tbxEndDate);
@@ -352,7 +354,7 @@ namespace AdminBackups
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Location = new System.Drawing.Point(18, 253);
+            this.groupBox1.Location = new System.Drawing.Point(18, 272);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -360,6 +362,16 @@ namespace AdminBackups
             this.groupBox1.TabIndex = 80;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contract Info:";
+            // 
+            // btnUpdateContract
+            // 
+            this.btnUpdateContract.Location = new System.Drawing.Point(511, 117);
+            this.btnUpdateContract.Name = "btnUpdateContract";
+            this.btnUpdateContract.Size = new System.Drawing.Size(115, 23);
+            this.btnUpdateContract.TabIndex = 82;
+            this.btnUpdateContract.Text = "Update Contract";
+            this.btnUpdateContract.UseVisualStyleBackColor = true;
+            this.btnUpdateContract.Click += new System.EventHandler(this.btnUpdateContract_Click);
             // 
             // tbxJobTitle
             // 
@@ -475,7 +487,7 @@ namespace AdminBackups
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 414);
+            this.ClientSize = new System.Drawing.Size(688, 475);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.lblEmployeeName);
@@ -533,5 +545,6 @@ namespace AdminBackups
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnUpdateContract;
     }
 }

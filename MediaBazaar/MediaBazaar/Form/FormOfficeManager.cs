@@ -156,6 +156,7 @@ namespace AdminBackups
             }
 
             dgvEmployees.Columns["Password"].Visible = false;
+            dgvEmployees.Columns["EmployeeManagerAll"].Visible = false;
         }
         private void UpdateEmployee()
         {
@@ -170,9 +171,10 @@ namespace AdminBackups
             Employee activeEmployee = officeManager.EmployeeManagerOffice.GetEmployeeByID(employeeID);
 
             // get active contract of employee
+            Contract activeContract = officeManager.ContractManager.ReadContract(activeEmployee);
 
             // open new update employee form
-            FormViewEmployee formViewEmployee = new FormViewEmployee(officeManager, activeEmployee);
+            FormViewEmployee formViewEmployee = new FormViewEmployee(officeManager, activeEmployee, activeContract);
             formViewEmployee.Show();
 
         }
@@ -207,6 +209,8 @@ namespace AdminBackups
                 tbxActiveEmployeeID.Text = employeeID;
             }
         }
+        /* Search Bar for employees */
+        
         /* End Employees*/
 
 
@@ -553,76 +557,5 @@ namespace AdminBackups
             else
             { MessageBox.Show("type casting failed."); }
         }
-
-
-        //Search bar
-        private void tbxSearchEmployee_TextChanged(object sender, EventArgs e)
-        {
-            /*string nameSearched = tbxSearchEmployee.Text;
-
-            if (!String.IsNullOrEmpty(nameSearched))
-            {
-                lbxEmployees.Items.Clear();
-
-                MySqlConnection conn = Utils.GetConnection();
-
-                string sql = EmployeeManagement.GET_ALL_EMPLOYEES;
-
-                try
-                {
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    conn.Open();
-
-                    MySqlDataReader reader = cmd.ExecuteReader();
-
-                    Person employee;
-
-                    while (reader.Read())
-                    {
-                        if (reader.GetInt32("Active") == 1)
-                        {
-                            int employeeID = reader.GetInt32("EmployeeID");
-                            string firstName = reader.GetString("FirstName");
-                            string lastName = reader.GetString("LastName");
-                            string username = reader.GetString("UserName");
-                            string password = reader.GetString("Password");
-                            int bsn = reader.GetInt32("BSN");
-                            string city = reader.GetString("Address");
-                            string email = reader.GetString("Email");
-                            int phoneNumber = reader.GetInt32("PhoneNumber");
-                            string dateOfBirth = reader.GetString("DateOfBirth");
-
-                            Contract c = GetContract(employeeID.ToString());
-                            employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
-
-                            if (employee.FirstName.StartsWith(nameSearched) || employee.FirstName.StartsWith(nameSearched.ToUpper()))
-                            {
-                                lbxEmployees.Items.Add(employee);
-                            }
-                            else if (employee.LastName.StartsWith(nameSearched) || employee.LastName.StartsWith(nameSearched.ToUpper()))
-                            {
-                                lbxEmployees.Items.Add(employee);
-                            }
-                        }
-                    }
-                }
-                catch (MySqlException msqEx)
-                {
-                    MessageBox.Show(msqEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Something went wrong" + ex);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-            else if (tbxSearchEmployee.Text == "")
-            {
-                //ViewAllEmployees();
-            }*/
-        }  
     }
 }

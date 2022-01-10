@@ -32,6 +32,7 @@ namespace AdminBackups
             this.Comapny = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.tbxActiveEmployeeID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cbxEmployeeType = new System.Windows.Forms.ComboBox();
@@ -87,6 +88,8 @@ namespace AdminBackups
             this.btnMakeExcelSheet = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cbxDepartment = new System.Windows.Forms.ComboBox();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -130,6 +133,9 @@ namespace AdminBackups
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbxDepartment);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.tbxActiveEmployeeID);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.cbxEmployeeType);
@@ -146,9 +152,18 @@ namespace AdminBackups
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Employees";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(894, 20);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(109, 15);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Selected Employee:";
+            // 
             // tbxActiveEmployeeID
             // 
-            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(899, 29);
+            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(894, 44);
             this.tbxActiveEmployeeID.Name = "tbxActiveEmployeeID";
             this.tbxActiveEmployeeID.ReadOnly = true;
             this.tbxActiveEmployeeID.Size = new System.Drawing.Size(186, 23);
@@ -258,7 +273,7 @@ namespace AdminBackups
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(202, 83);
+            this.groupBox5.Size = new System.Drawing.Size(202, 80);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Search:";
@@ -274,11 +289,10 @@ namespace AdminBackups
             // 
             // tbxSearchEmployee
             // 
-            this.tbxSearchEmployee.Location = new System.Drawing.Point(5, 56);
+            this.tbxSearchEmployee.Location = new System.Drawing.Point(6, 42);
             this.tbxSearchEmployee.Name = "tbxSearchEmployee";
             this.tbxSearchEmployee.Size = new System.Drawing.Size(169, 23);
             this.tbxSearchEmployee.TabIndex = 11;
-            this.tbxSearchEmployee.TextChanged += new System.EventHandler(this.tbxSearchEmployee_TextChanged);
             // 
             // label9
             // 
@@ -745,6 +759,23 @@ namespace AdminBackups
             this.textBox3.Size = new System.Drawing.Size(326, 33);
             this.textBox3.TabIndex = 6;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(319, 30);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(73, 15);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "Department:";
+            // 
+            // cbxDepartment
+            // 
+            this.cbxDepartment.FormattingEnabled = true;
+            this.cbxDepartment.Location = new System.Drawing.Point(398, 27);
+            this.cbxDepartment.Name = "cbxDepartment";
+            this.cbxDepartment.Size = new System.Drawing.Size(154, 23);
+            this.cbxDepartment.TabIndex = 21;
+            // 
             // FormOfficeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -843,5 +874,8 @@ namespace AdminBackups
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown udResult;
         private System.Windows.Forms.Label labDepartmentID;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cbxDepartment;
+        private System.Windows.Forms.Label label14;
     }
 }
