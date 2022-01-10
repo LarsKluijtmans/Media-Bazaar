@@ -32,6 +32,8 @@ namespace AdminBackups
             this.Comapny = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxDepartment = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tbxActiveEmployeeID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -88,8 +90,6 @@ namespace AdminBackups
             this.btnMakeExcelSheet = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cbxDepartment = new System.Windows.Forms.ComboBox();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -151,6 +151,23 @@ namespace AdminBackups
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Employees";
+            // 
+            // cbxDepartment
+            // 
+            this.cbxDepartment.FormattingEnabled = true;
+            this.cbxDepartment.Location = new System.Drawing.Point(398, 27);
+            this.cbxDepartment.Name = "cbxDepartment";
+            this.cbxDepartment.Size = new System.Drawing.Size(154, 23);
+            this.cbxDepartment.TabIndex = 21;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(319, 30);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(73, 15);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "Department:";
             // 
             // label13
             // 
@@ -293,6 +310,7 @@ namespace AdminBackups
             this.tbxSearchEmployee.Name = "tbxSearchEmployee";
             this.tbxSearchEmployee.Size = new System.Drawing.Size(169, 23);
             this.tbxSearchEmployee.TabIndex = 11;
+            this.tbxSearchEmployee.TextChanged += new System.EventHandler(this.tbxSearchEmployee_TextChanged);
             // 
             // label9
             // 
@@ -758,23 +776,6 @@ namespace AdminBackups
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(326, 33);
             this.textBox3.TabIndex = 6;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(319, 30);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(73, 15);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "Department:";
-            // 
-            // cbxDepartment
-            // 
-            this.cbxDepartment.FormattingEnabled = true;
-            this.cbxDepartment.Location = new System.Drawing.Point(398, 27);
-            this.cbxDepartment.Name = "cbxDepartment";
-            this.cbxDepartment.Size = new System.Drawing.Size(154, 23);
-            this.cbxDepartment.TabIndex = 21;
             // 
             // FormOfficeManager
             // 

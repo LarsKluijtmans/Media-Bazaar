@@ -210,7 +210,119 @@ namespace AdminBackups
             }
         }
         /* Search Bar for employees */
-        
+        private void tbxSearchEmployee_TextChanged(object sender, EventArgs e)
+        {
+            string search = tbxSearchEmployee.Text;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                List<Employee> employees =  officeManager.EmployeeManagerOffice.SearchEmployee(search);
+                List<Employee> departmentEmployees = new List<Employee>();
+
+                if (cbxEmployeeType.SelectedIndex == 1)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is CEO)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 2)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is Admin)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 3)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is DepotManager)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 4)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is DepotEmployee)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 5)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is SalesManager)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 6)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is SalesRepresentative)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 7)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is ProductManager)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 8)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is OfficeManager)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                dgvEmployees.DataSource = departmentEmployees;
+
+                if (cbxEmployeeType.SelectedIndex == 0)
+                {
+                    dgvEmployees.DataSource = employees;
+                }
+
+                dgvEmployees.Columns["Password"].Visible = false;
+                dgvEmployees.Columns["EmployeeManagerAll"].Visible = false;
+
+            } else
+            {
+                ReadEmployees();
+            }
+        }
+
         /* End Employees*/
 
 
@@ -557,5 +669,7 @@ namespace AdminBackups
             else
             { MessageBox.Show("type casting failed."); }
         }
+
+        
     }
 }
