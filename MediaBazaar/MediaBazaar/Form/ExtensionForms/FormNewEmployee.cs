@@ -15,16 +15,18 @@ namespace AdminBackups
     public partial class FormNewEmployee : Form
     {
         OfficeManager officeManager;
+        Store store;
 
-        public FormNewEmployee(OfficeManager officeManager)
+        public FormNewEmployee(OfficeManager officeManager, Store s)
         {
             InitializeComponent();
 
             this.officeManager = officeManager;
-
+            store = s;
             AddDepartment();
         }
 
+        //Create employee
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
             CreateEmployee();
@@ -147,6 +149,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -166,6 +169,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -185,6 +189,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -205,6 +210,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -225,6 +231,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -245,6 +252,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -265,6 +273,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                          if (dr == DialogResult.No)
@@ -285,6 +294,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                          if (dr == DialogResult.No)
@@ -410,6 +420,7 @@ namespace AdminBackups
             return officeManager.ContractManager.CreateContract(newContract);
         }
 
+        //Departments
         private void AddDepartment()
         {
             cbxDepartment.Items.Clear();
@@ -498,7 +509,6 @@ namespace AdminBackups
             }
             
         }
-
         private void cbxJobTitle_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddDepartment();
