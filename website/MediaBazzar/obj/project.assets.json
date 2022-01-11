@@ -306,19 +306,6 @@
           }
         }
       },
-      "ClassLibrary1/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "ClassLibraryProject": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/ClassLibrary1.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ClassLibrary1.dll": {}
-        }
-      },
       "ClassLibraryProject/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -937,11 +924,6 @@
         "version.txt"
       ]
     },
-    "ClassLibrary1/1.0.0": {
-      "type": "project",
-      "path": "../ClassLibrary1/ClassLibrary1.csproj",
-      "msbuildProject": "../ClassLibrary1/ClassLibrary1.csproj"
-    },
     "ClassLibraryProject/1.0.0": {
       "type": "project",
       "path": "../../ClassLibraryProject/ClassLibraryProject/ClassLibraryProject.csproj",
@@ -950,7 +932,6 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "ClassLibrary1 >= 1.0.0",
       "ClassLibraryProject >= 1.0.0"
     ]
   },
@@ -983,9 +964,6 @@
           "projectReferences": {
             "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
               "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
-            },
-            "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj": {
-              "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj"
             }
           }
         }
