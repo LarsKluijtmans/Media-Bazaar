@@ -30,6 +30,7 @@ namespace ClassLibraryProject
         public string GET_EMPLOYEE_CONTRACTS = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID";
         public string SEARCH_EMPLOYEE = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.FirstName LIKE @Search OR e.LastName LIKE @Search AND e.Active = @Active GROUP BY e.FirstName, e.LastName;";
 
+        public string UPDATE_OWN_INFO = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode, PersonalEmail = @PersonalEmail, Password = @Password WHERE EmployeeID = @EmployeeID;";
         public int AmountOfOfficeManagers()
         {
             MySqlConnection conn = Utils.GetConnection();
@@ -527,30 +528,43 @@ namespace ClassLibraryProject
 
         public bool UpdateOwnInfo(Employee e)
         {
-            MySqlConnection conn = Utils.GetConnection();
+            if (!Regex.IsMatch(e.ZipCode, @"^[0-9]{4}[A-Z]{2}$"))
+            {
+                return false;
+            }
+            if (!Regex.IsMatch(e.PhoneNumber, @"^(\+)316[0-9]{8}$"))
+            {
+                return false;
+            }
 
-            string sql = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Password = @Password, UserName = @UserName,  BSN = @BSN, City = @City, PhoneNumber = @PhoneNumber, Email = @Email WHERE EmployeeID = @EmployeeID;";
+            // regex for personal email
+
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = UPDATE_OWN_INFO;
 
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@EmployeeID", e.EmployeeID);
-                cmd.Parameters.AddWithValue("@FirstName", e.FirstName);
-                cmd.Parameters.AddWithValue("@LastName", e.LastName);
-                cmd.Parameters.AddWithValue("@UserName", e.Username);
-                cmd.Parameters.AddWithValue("@Password", e.Password);
-                cmd.Parameters.AddWithValue("@BSN", e.BSN);
-                cmd.Parameters.AddWithValue("@City", e.City);
-                cmd.Parameters.AddWithValue("@Email", e.Email);
-                cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
-
                 conn.Open();
 
-                int numCreatedRows = cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("@EmployeeID", e.EmployeeID);
 
+                cmd.Parameters.AddWithValue("@FirstName", e.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", e.LastName);
+                cmd.Parameters.AddWithValue("@City", e.City);
+                cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
+                cmd.Parameters.AddWithValue("@StreetName", e.Address);
+                cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
+                cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
+                cmd.Parameters.AddWithValue("@Password", e.Password);
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
             }
-            catch (MySqlException ex)
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
@@ -561,6 +575,7 @@ namespace ClassLibraryProject
                     conn.Close();
                 }
             }
+
             return true;
         }
 
