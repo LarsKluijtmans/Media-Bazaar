@@ -527,7 +527,41 @@ namespace ClassLibraryProject
 
         public bool UpdateOwnInfo(Employee e)
         {
-            throw new NotImplementedException();
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Password = @Password, UserName = @UserName,  BSN = @BSN, City = @City, PhoneNumber = @PhoneNumber, Email = @Email WHERE EmployeeID = @EmployeeID;";
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@EmployeeID", e.EmployeeID);
+                cmd.Parameters.AddWithValue("@FirstName", e.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", e.LastName);
+                cmd.Parameters.AddWithValue("@UserName", e.Username);
+                cmd.Parameters.AddWithValue("@Password", e.Password);
+                cmd.Parameters.AddWithValue("@BSN", e.BSN);
+                cmd.Parameters.AddWithValue("@City", e.City);
+                cmd.Parameters.AddWithValue("@Email", e.Email);
+                cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
+
+                conn.Open();
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return true;
         }
 
         public List<Contract> GetEmployeeContracts(Employee e)

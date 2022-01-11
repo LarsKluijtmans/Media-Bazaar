@@ -5,7 +5,7 @@ using System.Data;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class CheckinManagment
+    public class CheckinManagment : ICheckin
     {
         ICheckinManagment icheckinManagment;
 
