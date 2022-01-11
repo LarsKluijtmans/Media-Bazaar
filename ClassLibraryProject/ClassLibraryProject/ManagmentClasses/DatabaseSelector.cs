@@ -49,7 +49,7 @@ namespace ClassLibraryProject.ManagmentClasses
             dbSupplier = new DBSupplier();
             lgSupplier = new SupplierManagment(dbSupplier);
 
-            dbProduct = new DBProduct();
+            dbProduct = new DBProductManager();
             lgProduct = new ProductManagment();
 
             dbOrderInfo = new DBOrderInfo(lgProduct, lgSupplier);

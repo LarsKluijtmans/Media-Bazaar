@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibraryProject.ChildClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,12 @@ namespace MediaBazaar
 {
     public partial class FormNewProduct : Form
     {
-        public FormNewProduct()
+        ProductManager productManager;
+        public FormNewProduct(ProductManager pm)
         {
             InitializeComponent();
+
+            this.productManager = pm;
         }
     }
 }
