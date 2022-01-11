@@ -54,6 +54,12 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return false;
         }
+
+        private bool IsDivisible(OrderInfo orderInfo, int amount)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Restock> GetRestockRequests()
         {
             return db.GetRestockRequests();
