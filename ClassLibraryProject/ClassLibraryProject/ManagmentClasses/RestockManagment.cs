@@ -113,7 +113,7 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         //check
-        public bool IsDivisible(OrderInfo orderInfo, int amount)
+        public bool IsValid(OrderInfo orderInfo, int amount)
         {
             if(amount % orderInfo.Multiples == 0)
             {
