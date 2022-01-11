@@ -1,5 +1,6 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
+using ClassLibraryProject.dbClasses;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -51,7 +52,7 @@ namespace AdminBackups
         // products (Esther)
         public void UpdateProducts(string Search)
         {
-            dgProducts.DataSource = store.productManagment.ViewAllProducts(Search);
+            //dgProducts.DataSource = store.productManagment.ViewAllProducts(Search);
         }
 
         private void dgProducts_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -93,7 +94,7 @@ namespace AdminBackups
                 //    MessageBox.Show("Please enter a price");
                 //}
 
-                store.productManagment.AddProduct(name, barcode, type, price);
+                //store.productManagment.AddProduct(name, barcode, type, price);
             } catch (NullReferenceException)
             {
                 MessageBox.Show("Please enter all product details");
@@ -125,7 +126,7 @@ namespace AdminBackups
             }
             double price = Convert.ToDouble(tbxPrice.Text);
 
-            store.productManagment.EditProduct(productID, name, barcode, type, price);
+            //DBProduct.EditProduct(productID, name, barcode, type, price);
 
             UpdateProducts(tbProductSearch.Text);
         }
@@ -135,7 +136,7 @@ namespace AdminBackups
             try
             {
                 int productID = Convert.ToInt32(tbID.Text);
-                store.productManagment.DeleteProduct(productID);
+                //DBProduct.DeleteProduct(productID);
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());

@@ -1,7 +1,10 @@
-﻿using ClassLibraryProject.dbClasses.IDB;
+﻿using ClassLibraryProject.Class;
+using ClassLibraryProject.dbClasses.IDB;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Text;
 
 namespace ClassLibraryProject.dbClasses
@@ -70,7 +73,7 @@ namespace ClassLibraryProject.dbClasses
         //MohammadEnd
         public List<Product> Products { get; set; }
 
-        public ProductManagment()
+        public DBProduct()
         {
             Products = new List<Product>();
             RemoteProducts = new List<Product>();
