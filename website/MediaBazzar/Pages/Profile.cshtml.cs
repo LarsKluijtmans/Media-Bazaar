@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ClassLibraryProject.ChildClasses;
 using System.Security.Claims;
+using ClassLibraryProject.dbClasses;
 
 namespace MediaBazzar.Pages
 {
@@ -13,6 +14,8 @@ namespace MediaBazzar.Pages
     {
         [BindProperty]
         public Employee CurrentEmployee { get; set; }
+
+        public dbLoginManager dbLogin = new dbLoginManager();
 
         [BindProperty]
         public string FirstName { get; set; }
@@ -35,6 +38,8 @@ namespace MediaBazzar.Pages
         {
             // get current employee
             var employeeID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            //CurrentEmployee = dbLogin.checkLogin()
 
             return Page();
 
