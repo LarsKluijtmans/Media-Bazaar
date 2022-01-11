@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ClassLibraryProject
 {
@@ -13,15 +14,45 @@ namespace ClassLibraryProject
         // sql
         public static string CREATE_CONTRACT = "INSERT INTO Contract (EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES (@EmployeeID, @JobTitle, @WorkHoursPerWeek, @SalaryPerHour, @StartDate, @EndDate, @Department, @Active);";
         public static string READ_CONTRACT = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID AND Active = @Active;";
-        public static string UPDATE_CONTRACT = "UPDATE Contract SET Active = @Active WHERE ContractID = @ContractID;";
+        public static string UPDATE_CONTRACT = "UPDATE Contract SET Active = @Active, ReasonForTermination = @ReasonForTermination, EndDate = @EndDate WHERE ContractID = @ContractID;";
         public static string DELETE_CONTRACT = "DELETE FROM Contract WHERE EmployeeID = @EmployeeID;";
 
         public bool CreateContract(Contract c)
         {
-            MySqlConnection conn = Utils.GetConnection();
+            /* Regex */
+            /*if (!Regex.IsMatch(tbxStartDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+            {
+                MessageBox.Show("Please enter a valid start date");
+                return false;
+            }*/
 
+            if (c.WorkHoursPerWeek % 4 != 0)
+            {
+                return false;
+            }
+            if (c.WorkHoursPerWeek == 0)
+            {
+                return false;
+            }
+            if (!Regex.IsMatch(c.StartDate.ToString("dd/MM/yyyy"), @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+            {
+                return false;
+            }
+            if (c.StartDate < DateTime.Now)
+            {
+                return false;
+            }
+            if (!Regex.IsMatch(c.EndDate.ToString("dd/MM/yyyy"), @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+            {
+                return false;
+            }
+            if (c.StartDate > c.EndDate)
+            {
+                return false;
+            }
+
+            MySqlConnection conn = Utils.GetConnection();
             string sql = CREATE_CONTRACT;
-            //string sql =  $"INSERT INTO Contract(EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES({ c.Employee.EmployeeID}, '{c.JobTitle}', { c.WorkHoursPerWeek}, { c.SalaryPerHour}, '{c.StartDate.ToString("yyyy-MM-dd")}', '{c.EndDate.ToString("yyyy-MM-dd")}', '{c.Department}', 1);";
 
             try
             {
@@ -86,14 +117,16 @@ namespace ClassLibraryProject
 
                 while (reader.Read())
                 {
+                    int contractID = reader.GetInt32(0);
                     string jobTitle = reader.GetString(2);
                     int workHoursPerWeek = reader.GetInt32(3);
                     double salaryPerHour = reader.GetDouble(4);
                     DateTime startDate = reader.GetDateTime(5);
                     DateTime endDate = reader.GetDateTime(6);
                     string department = reader.GetString(8);
+                    bool isActive = reader.GetBoolean(9);
 
-                    contract = new Contract(e, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
+                    contract = new Contract(contractID, e, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department, isActive);
                     return contract;
                 }
             }
@@ -128,6 +161,8 @@ namespace ClassLibraryProject
 
                 cmd.Parameters.AddWithValue("@ContractID", c.ContractID);
                 cmd.Parameters.AddWithValue("@Active", c.IsActive);
+                cmd.Parameters.AddWithValue("@ReasonForTermination", c.ReasonForTermination);
+                cmd.Parameters.AddWithValue("@EndDate", c.EndDate);
 
                 cmd.ExecuteNonQuery();
             }

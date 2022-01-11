@@ -32,6 +32,9 @@ namespace AdminBackups
             this.Comapny = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxDepartment = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.tbxActiveEmployeeID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cbxEmployeeType = new System.Windows.Forms.ComboBox();
@@ -87,7 +90,6 @@ namespace AdminBackups
             this.btnMakeExcelSheet = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.rbColor = new System.Windows.Forms.CheckBox();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -131,6 +133,9 @@ namespace AdminBackups
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbxDepartment);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.tbxActiveEmployeeID);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.cbxEmployeeType);
@@ -147,9 +152,35 @@ namespace AdminBackups
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Employees";
             // 
+            // cbxDepartment
+            // 
+            this.cbxDepartment.FormattingEnabled = true;
+            this.cbxDepartment.Location = new System.Drawing.Point(398, 27);
+            this.cbxDepartment.Name = "cbxDepartment";
+            this.cbxDepartment.Size = new System.Drawing.Size(154, 23);
+            this.cbxDepartment.TabIndex = 21;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(319, 30);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(73, 15);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "Department:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(894, 20);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(109, 15);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Selected Employee:";
+            // 
             // tbxActiveEmployeeID
             // 
-            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(899, 29);
+            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(894, 44);
             this.tbxActiveEmployeeID.Name = "tbxActiveEmployeeID";
             this.tbxActiveEmployeeID.ReadOnly = true;
             this.tbxActiveEmployeeID.Size = new System.Drawing.Size(186, 23);
@@ -259,7 +290,7 @@ namespace AdminBackups
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(202, 83);
+            this.groupBox5.Size = new System.Drawing.Size(202, 80);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Search:";
@@ -275,7 +306,7 @@ namespace AdminBackups
             // 
             // tbxSearchEmployee
             // 
-            this.tbxSearchEmployee.Location = new System.Drawing.Point(5, 56);
+            this.tbxSearchEmployee.Location = new System.Drawing.Point(6, 42);
             this.tbxSearchEmployee.Name = "tbxSearchEmployee";
             this.tbxSearchEmployee.Size = new System.Drawing.Size(169, 23);
             this.tbxSearchEmployee.TabIndex = 11;
@@ -621,7 +652,6 @@ namespace AdminBackups
             // 
             // WorkHours
             // 
-            this.WorkHours.Controls.Add(this.rbColor);
             this.WorkHours.Controls.Add(this.dgvAtendance);
             this.WorkHours.Controls.Add(this.btnMonthIncrease);
             this.WorkHours.Controls.Add(this.btnIncreaseYear);
@@ -653,7 +683,7 @@ namespace AdminBackups
             // 
             this.btnMonthIncrease.BackColor = System.Drawing.Color.White;
             this.btnMonthIncrease.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMonthIncrease.Location = new System.Drawing.Point(1032, 104);
+            this.btnMonthIncrease.Location = new System.Drawing.Point(1029, 63);
             this.btnMonthIncrease.Name = "btnMonthIncrease";
             this.btnMonthIncrease.Size = new System.Drawing.Size(40, 42);
             this.btnMonthIncrease.TabIndex = 7;
@@ -665,7 +695,7 @@ namespace AdminBackups
             // 
             this.btnIncreaseYear.BackColor = System.Drawing.Color.White;
             this.btnIncreaseYear.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnIncreaseYear.Location = new System.Drawing.Point(866, 104);
+            this.btnIncreaseYear.Location = new System.Drawing.Point(863, 63);
             this.btnIncreaseYear.Name = "btnIncreaseYear";
             this.btnIncreaseYear.Size = new System.Drawing.Size(40, 42);
             this.btnIncreaseYear.TabIndex = 6;
@@ -677,7 +707,7 @@ namespace AdminBackups
             // 
             this.btnMonthDecrease.BackColor = System.Drawing.Color.White;
             this.btnMonthDecrease.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMonthDecrease.Location = new System.Drawing.Point(951, 104);
+            this.btnMonthDecrease.Location = new System.Drawing.Point(948, 63);
             this.btnMonthDecrease.Name = "btnMonthDecrease";
             this.btnMonthDecrease.Size = new System.Drawing.Size(40, 42);
             this.btnMonthDecrease.TabIndex = 5;
@@ -689,7 +719,7 @@ namespace AdminBackups
             // 
             this.btnDecreaseYear.BackColor = System.Drawing.Color.White;
             this.btnDecreaseYear.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDecreaseYear.Location = new System.Drawing.Point(762, 104);
+            this.btnDecreaseYear.Location = new System.Drawing.Point(759, 63);
             this.btnDecreaseYear.Name = "btnDecreaseYear";
             this.btnDecreaseYear.Size = new System.Drawing.Size(40, 42);
             this.btnDecreaseYear.TabIndex = 4;
@@ -701,7 +731,7 @@ namespace AdminBackups
             // 
             this.labMonth.AutoSize = true;
             this.labMonth.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labMonth.Location = new System.Drawing.Point(997, 111);
+            this.labMonth.Location = new System.Drawing.Point(994, 70);
             this.labMonth.Name = "labMonth";
             this.labMonth.Size = new System.Drawing.Size(75, 30);
             this.labMonth.TabIndex = 3;
@@ -711,7 +741,7 @@ namespace AdminBackups
             // 
             this.labYear.AutoSize = true;
             this.labYear.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labYear.Location = new System.Drawing.Point(808, 111);
+            this.labYear.Location = new System.Drawing.Point(805, 70);
             this.labYear.Name = "labYear";
             this.labYear.Size = new System.Drawing.Size(52, 30);
             this.labYear.TabIndex = 2;
@@ -746,17 +776,6 @@ namespace AdminBackups
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(326, 33);
             this.textBox3.TabIndex = 6;
-            // 
-            // rbColor
-            // 
-            this.rbColor.AutoSize = true;
-            this.rbColor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbColor.Location = new System.Drawing.Point(762, 34);
-            this.rbColor.Name = "rbColor";
-            this.rbColor.Size = new System.Drawing.Size(77, 29);
-            this.rbColor.TabIndex = 9;
-            this.rbColor.Text = "Color";
-            this.rbColor.UseVisualStyleBackColor = true;
             // 
             // FormOfficeManager
             // 
@@ -856,6 +875,8 @@ namespace AdminBackups
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown udResult;
         private System.Windows.Forms.Label labDepartmentID;
-        private System.Windows.Forms.CheckBox rbColor;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cbxDepartment;
+        private System.Windows.Forms.Label label14;
     }
 }

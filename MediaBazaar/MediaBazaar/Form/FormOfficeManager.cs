@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Linq;
 
 namespace AdminBackups
 {
@@ -58,7 +59,7 @@ namespace AdminBackups
         /* Start Employee */
         private void CreateEmployee()
         {
-            FormNewEmployee formNewEmployee = new FormNewEmployee(officeManager, new Store());
+            FormNewEmployee formNewEmployee = new FormNewEmployee(officeManager, store);
             formNewEmployee.Show();
         }
         public void ReadEmployees()
@@ -162,6 +163,7 @@ namespace AdminBackups
             }
 
             dgvEmployees.Columns["Password"].Visible = false;
+            dgvEmployees.Columns["EmployeeManagerAll"].Visible = false;
         }
         private void UpdateEmployee()
         {
@@ -176,9 +178,10 @@ namespace AdminBackups
             Employee activeEmployee = officeManager.EmployeeManagerOffice.GetEmployeeByID(employeeID);
 
             // get active contract of employee
+            Contract activeContract = officeManager.ContractManager.ReadContract(activeEmployee);
 
             // open new update employee form
-            FormViewEmployee formViewEmployee = new FormViewEmployee(officeManager, activeEmployee);
+            FormViewEmployee formViewEmployee = new FormViewEmployee(officeManager, activeEmployee, activeContract);
             formViewEmployee.Show();
 
         }
@@ -189,6 +192,7 @@ namespace AdminBackups
         private void cbxEmployeeType_SelectedIndexChanged(object sender, EventArgs e)
         {
             ReadEmployees();
+            AddDepartment();
         }
         private void btnCreateEmployee_Click(object sender, EventArgs e)
         {
@@ -211,6 +215,208 @@ namespace AdminBackups
                 string employeeID = row.Cells["EmployeeID"].Value.ToString();
 
                 tbxActiveEmployeeID.Text = employeeID;
+            }
+        }
+        /* Search Bar for employees */
+        private void tbxSearchEmployee_TextChanged(object sender, EventArgs e)
+        {
+            string search = tbxSearchEmployee.Text;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                List<Employee> employees =  officeManager.EmployeeManagerOffice.SearchEmployee(search);
+                List<Employee> departmentEmployees = new List<Employee>();
+
+                if (cbxEmployeeType.SelectedIndex == 1)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is CEO)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 2)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is Admin)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 3)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is DepotManager)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 4)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is DepotEmployee)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 5)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is SalesManager)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 6)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is SalesRepresentative)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 7)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is ProductManager)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 8)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is OfficeManager)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                dgvEmployees.DataSource = departmentEmployees;
+
+                if (cbxEmployeeType.SelectedIndex == 0)
+                {
+                    dgvEmployees.DataSource = employees;
+                }
+
+                dgvEmployees.Columns["Password"].Visible = false;
+                dgvEmployees.Columns["EmployeeManagerAll"].Visible = false;
+
+            } else
+            {
+                ReadEmployees();
+            }
+        }
+        /* Departments for search */
+        private void AddDepartment()
+        {
+            cbxDepartment.Items.Clear();
+
+            // add All departments for overview of all sales or depot employees
+
+            try
+            {
+                foreach (DataRow r in officeManager.departmentManagment.ViewAllDepartments().Rows)
+                {
+                    if (Convert.ToInt16(r[0]) > 4)
+                    {
+                        if (cbxEmployeeType.Text == "Sales Representatives" || cbxEmployeeType.Text == "Sales Managers")
+                        {
+                            if (r[1].ToString() == "Sales")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                        else if (cbxEmployeeType.Text == "Depot Employees" || cbxEmployeeType.Text == "Depot Managers" || cbxEmployeeType.Text == "Product Managers")
+                        {
+                            if (r[1].ToString() == "Depot")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                        else if (cbxEmployeeType.Text == "Office Managers")
+                        {
+                            if (r[1].ToString() == "Office")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                        else if (cbxEmployeeType.Text == "CEOs" || cbxEmployeeType.Text == "Admins")
+                        {
+                            if (r[1].ToString() == "Other")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                    }
+                }
+                if (cbxEmployeeType.Text == "Sales Representatives" || cbxEmployeeType.Text == "Sales Managers")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Sales");
+                    }
+                }
+                else if (cbxEmployeeType.Text == "Depot Employees" || cbxEmployeeType.Text == "Depot Managers" || cbxEmployeeType.Text == "Product Managers")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Depot");
+                    }
+                }
+                else if (cbxEmployeeType.Text == "Office Managers")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Office");
+                    }
+                }
+                else if (cbxEmployeeType.Text == "CEOs" || cbxEmployeeType.Text == "Admins")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Other");
+                    }
+                }
+                cbxDepartment.Text = cbxDepartment.Items[0].ToString();
+            } catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
         }
         /* End Employees*/
@@ -658,6 +864,6 @@ namespace AdminBackups
             {
                 //ViewAllEmployees();
             }*/
-        }
+        }  
     }
 }
