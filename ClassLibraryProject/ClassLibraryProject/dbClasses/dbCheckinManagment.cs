@@ -68,7 +68,16 @@ namespace ClassLibraryProject.dbClasses
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = "SELECT employee.`EmployeeID`,`FirstName`,`LastName`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))), `JobTitle`,`WorkHoursPerWeek`,`SalaryPerHour`, checkdate FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '%" + year + "-" + month + "%' group by contract.EmployeeID;";
+            string sql = "";
+
+            if (month > 9)
+            {
+                sql = "SELECT employee.`EmployeeID`,`FirstName`,`LastName`, HOUR(SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`))))) AS HoursWorked, `JobTitle`,`WorkHoursPerWeek`,`SalaryPerHour`, checkdate  FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '" + year + "-" + month + "%' group by contract.EmployeeID;";
+            }
+            else
+            {
+                sql = "SELECT employee.`EmployeeID`,`FirstName`,`LastName`, HOUR(SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`))))) AS HoursWorked, `JobTitle`,`WorkHoursPerWeek`,`SalaryPerHour`, checkdate  FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '" + year + "-0" + month + "%' group by contract.EmployeeID;";
+            }
 
             try
             {
@@ -110,7 +119,16 @@ namespace ClassLibraryProject.dbClasses
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = "SELECT employee.`EmployeeID`,`FirstName`,`LastName`, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`)))) AS HoursWorked, `JobTitle`,`WorkHoursPerWeek`,`SalaryPerHour`, checkdate FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '%" + year + "-" + month + "%' group by contract.EmployeeID;";
+            string sql = "";
+
+            if (month > 9)
+            {
+                sql = "SELECT employee.`EmployeeID`,`FirstName`,`LastName`, HOUR(SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`))))) AS HoursWorked, `JobTitle`,`WorkHoursPerWeek`,`SalaryPerHour`, checkdate  FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '" + year + "-" + month + "%' group by contract.EmployeeID;";
+            }
+            else
+            {
+                sql = "SELECT employee.`EmployeeID`,`FirstName`,`LastName`, HOUR(SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`))))) AS HoursWorked, `JobTitle`,`WorkHoursPerWeek`,`SalaryPerHour`, checkdate  FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '" + year + "-0" + month + "%' group by contract.EmployeeID;";
+            }
 
             try
             {

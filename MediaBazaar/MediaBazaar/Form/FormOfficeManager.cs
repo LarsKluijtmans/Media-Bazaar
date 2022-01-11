@@ -3,10 +3,10 @@ using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
-using System.Linq;
 
 namespace AdminBackups
 {
@@ -40,14 +40,18 @@ namespace AdminBackups
 
             year = Convert.ToInt32(labYear.Text);
             month = Convert.ToInt32(labMonth.Text);
-            dgvAtendance.DataSource = store.checkinManagment.getAtendanceData(year, month);
+            dgvAtendance.DataSource = officeManager.checkinManagment.getAtendanceData(year, month);
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
+            logout.Show();
         }
 
         //Logout
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
-            logout.Show();
             Close();
         }
 
@@ -72,7 +76,8 @@ namespace AdminBackups
                         departmentEmployees.Add(e);
                     }
                 }
-            } else if (cbxEmployeeType.SelectedIndex == 2)
+            }
+            else if (cbxEmployeeType.SelectedIndex == 2)
             {
                 departmentEmployees.Clear();
                 foreach (Employee e in employees)
@@ -82,7 +87,8 @@ namespace AdminBackups
                         departmentEmployees.Add(e);
                     }
                 }
-            } else if (cbxEmployeeType.SelectedIndex == 3)
+            }
+            else if (cbxEmployeeType.SelectedIndex == 3)
             {
                 departmentEmployees.Clear();
                 foreach (Employee e in employees)
@@ -282,37 +288,66 @@ namespace AdminBackups
             oSheet.Cells[1, 4] = " Work hours per week ";
             oSheet.Cells[1, 5] = " Salary per hour ";
             oSheet.Cells[1, 6] = " Job ";
+            oSheet.Cells[1, 7] = " Salary this Month ";
 
             //Format A1:D1 as bold, vertical alignment = center.
-
-            oSheet.get_Range("A1", "F1").Font.Bold = true;
-            oSheet.get_Range("A1", "F1").VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-
+            oSheet.get_Range("A1", "G1").Font.Bold = true;
+            oSheet.get_Range("A1", "G1").VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            oSheet.get_Range("A1", "G1").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            oSheet.get_Range("A1", "G1").Font.Size = 16;
             //AutoFit columns A:D.
-            oRng = oSheet.get_Range("A1", "F1");
+            oRng = oSheet.get_Range("A1", "G1");
             oRng.EntireColumn.AutoFit();
 
-            int year, month;
+            List<TimeWorked> c = officeManager.checkinManagment.getAllAtendanceTime(Convert.ToInt32(labYear.Text), Convert.ToInt32(labMonth.Text));
 
-            year = Convert.ToInt32(labYear.Text);
-            month = Convert.ToInt32(labMonth.Text);
+            bool Errors = false;
 
-            int i = 2;
-            foreach (TimeWorked c in store.checkinManagment.getAllAtendanceTime(year, month))
+            for (int i = 0; i < c.Count; i++)
             {
-                oSheet.Cells[i, 1] = c.EmployeeID.ToString();
-                oSheet.Cells[i, 2] = c.Name.ToString(); ;
-                oSheet.Cells[i, 3] = c.TimeWork.ToString();
-                oSheet.Cells[i, 4] = c.WorkHoursPerWeek.ToString(); ;
-                oSheet.Cells[i, 5] = c.SalaryPerHour.ToString();
-                oSheet.Cells[i, 6] = c.JobTitle.ToString(); ;
+                try
+                {
+                    int index = i + 2;
 
-                //AutoFit columns A:F.
-                oRng = oSheet.get_Range("A" + i, "F" + i);
-                oRng.EntireColumn.AutoFit();
+                    oSheet.get_Range("A" + index, "G" + index).HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
+                    oSheet.get_Range("A" + index, "G" + index).Font.Size = 12;
 
-                i++;
+                    if (rbColor.Checked)
+                    {
+                        if (Convert.ToInt32(c[i].TimeWork) >= Convert.ToInt32(c[i].WorkHoursPerWeek) * 4)
+                        {
+                            oSheet.get_Range("A" + index, "G" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Green);
+                        }
+                        else
+                        {
+                            oSheet.get_Range("A" + index, "G" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                        }
+                    }
+
+                    oSheet.Cells[index, 1] = c[i].EmployeeID;
+                    oSheet.Cells[index, 2] = c[i].Name;
+                    oSheet.Cells[index, 3] = c[i].TimeWork;
+                    oSheet.Cells[index, 4] = c[i].WorkHoursPerWeek;
+                    oSheet.Cells[index, 5] = c[i].SalaryPerHour;
+                    oSheet.Cells[index, 6] = c[i].JobTitle;
+                    oSheet.Cells[index, 7] = Convert.ToInt32(c[i].SalaryPerHour) * Convert.ToInt32(c[i].TimeWork);
+
+                    //AutoFit columns A:F.
+                    oRng = oSheet.get_Range("A" + index, "F" + index);
+                    oRng.EntireColumn.AutoFit();
+
+                }
+                catch
+                {
+                    Errors = true;
+                }
             }
+
+            if (Errors)
+            {
+                MessageBox.Show("A error occurred!");
+            }
+
         }
         public void GetAtendeance()
         {
@@ -320,9 +355,9 @@ namespace AdminBackups
 
             year = Convert.ToInt32(labYear.Text);
             month = Convert.ToInt32(labMonth.Text);
-            dgvAtendance.DataSource = store.checkinManagment.getAtendanceData(year, month);
+            dgvAtendance.DataSource = officeManager.checkinManagment.getAtendanceData(year, month);
 
-            store.checkinManagment.getAllAtendanceTime(year, month);
+            officeManager.checkinManagment.getAllAtendanceTime(year, month);
         }
 
         //Departments
@@ -434,8 +469,8 @@ namespace AdminBackups
                         ((OfficeManager)officeManager).departmentManagment.DeleteDepartment(Convert.ToInt32(labDepartmentID.Text));
                     }
                     catch
-                    { 
-                        MessageBox.Show("Select a department to delete"); 
+                    {
+                        MessageBox.Show("Select a department to delete");
                     }
                 }
                 else
@@ -623,6 +658,6 @@ namespace AdminBackups
             {
                 //ViewAllEmployees();
             }*/
-        }  
+        }
     }
 }
