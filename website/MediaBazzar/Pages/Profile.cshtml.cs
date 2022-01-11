@@ -1,13 +1,10 @@
 using ClassLibraryProject.Class;
-using ClassLibraryProject.ManagmentClasses;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ClassLibraryProject.ChildClasses;
-using System;
-using ClassLibraryProject.website;
+
 namespace MediaBazzar.Pages
 {
     [Authorize]
@@ -20,7 +17,7 @@ namespace MediaBazzar.Pages
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = EmployeeManagement.GET_EMPLOYEE_BY_USERNAME;
+            string sql = "SELECT * FROM Employee WHERE UserName = @UserName;";
 
             try
             {
@@ -65,42 +62,8 @@ namespace MediaBazzar.Pages
         }
         public void OnPost()
         {
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = EmployeeManagement.EDIT_EMPLOYEE_BY_ID;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
-                cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
-                cmd.Parameters.AddWithValue("@LastName", employee.LastName);
-                cmd.Parameters.AddWithValue("@UserName", employee.Username);
-                cmd.Parameters.AddWithValue("@Password", employee.Password);
-                cmd.Parameters.AddWithValue("@BSN", employee.BSN);
-                cmd.Parameters.AddWithValue("@City", employee.City);
-                cmd.Parameters.AddWithValue("@Email", employee.Email);
-                cmd.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
-
-                conn.Open();
-
-                int numCreatedRows = cmd.ExecuteNonQuery();
-
-            }
-            catch (MySqlException)
-            {
-                ViewData["Message"] = "Error!! There is aproblem with the database. ";
-            }
-            catch
-            { 
-                ViewData["Message"] = "Error please try again later."; 
-            }
-            finally
-            {
-                conn.Close();
-            }
+            employee.EmployeeManagerAll.UpdateOwnInfo(employee);
+      
         }
-
     }
 }
