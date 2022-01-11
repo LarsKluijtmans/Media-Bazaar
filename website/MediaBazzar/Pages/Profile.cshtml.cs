@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ClassLibraryProject.ChildClasses;
 using System;
-
+using ClassLibraryProject.website;
 namespace MediaBazzar.Pages
 {
     [Authorize]

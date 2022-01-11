@@ -3,10 +3,13 @@ using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Linq;
+using System.Diagnostics;
+using System.Data;
 
 namespace AdminBackups
 {
@@ -40,21 +43,25 @@ namespace AdminBackups
 
             year = Convert.ToInt32(labYear.Text);
             month = Convert.ToInt32(labMonth.Text);
-            dgvAtendance.DataSource = store.checkinManagment.getAtendanceData(year, month);
+            dgvAtendance.DataSource = officeManager.checkinManagment.getAtendanceData(year, month);
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
+            logout.Show();
         }
 
         //Logout
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
-            logout.Show();
             Close();
         }
 
         /* Start Employee */
         private void CreateEmployee()
         {
-            FormNewEmployee formNewEmployee = new FormNewEmployee(officeManager);
+            FormNewEmployee formNewEmployee = new FormNewEmployee(officeManager, store);
             formNewEmployee.Show();
         }
         public void ReadEmployees()
@@ -72,7 +79,8 @@ namespace AdminBackups
                         departmentEmployees.Add(e);
                     }
                 }
-            } else if (cbxEmployeeType.SelectedIndex == 2)
+            }
+            else if (cbxEmployeeType.SelectedIndex == 2)
             {
                 departmentEmployees.Clear();
                 foreach (Employee e in employees)
@@ -82,7 +90,8 @@ namespace AdminBackups
                         departmentEmployees.Add(e);
                     }
                 }
-            } else if (cbxEmployeeType.SelectedIndex == 3)
+            }
+            else if (cbxEmployeeType.SelectedIndex == 3)
             {
                 departmentEmployees.Clear();
                 foreach (Employee e in employees)
@@ -156,6 +165,7 @@ namespace AdminBackups
             }
 
             dgvEmployees.Columns["Password"].Visible = false;
+            dgvEmployees.Columns["EmployeeManagerAll"].Visible = false;
         }
         private void UpdateEmployee()
         {
@@ -170,9 +180,10 @@ namespace AdminBackups
             Employee activeEmployee = officeManager.EmployeeManagerOffice.GetEmployeeByID(employeeID);
 
             // get active contract of employee
+            Contract activeContract = officeManager.ContractManager.ReadContract(activeEmployee);
 
             // open new update employee form
-            FormViewEmployee formViewEmployee = new FormViewEmployee(officeManager, activeEmployee);
+            FormViewEmployee formViewEmployee = new FormViewEmployee(officeManager, activeEmployee, activeContract);
             formViewEmployee.Show();
 
         }
@@ -183,6 +194,7 @@ namespace AdminBackups
         private void cbxEmployeeType_SelectedIndexChanged(object sender, EventArgs e)
         {
             ReadEmployees();
+            AddDepartment();
         }
         private void btnCreateEmployee_Click(object sender, EventArgs e)
         {
@@ -205,6 +217,208 @@ namespace AdminBackups
                 string employeeID = row.Cells["EmployeeID"].Value.ToString();
 
                 tbxActiveEmployeeID.Text = employeeID;
+            }
+        }
+        /* Search Bar for employees */
+        private void tbxSearchEmployee_TextChanged(object sender, EventArgs e)
+        {
+            string search = tbxSearchEmployee.Text;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                List<Employee> employees =  officeManager.EmployeeManagerOffice.SearchEmployee(search);
+                List<Employee> departmentEmployees = new List<Employee>();
+
+                if (cbxEmployeeType.SelectedIndex == 1)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is CEO)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 2)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is Admin)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 3)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is DepotManager)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 4)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is DepotEmployee)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 5)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is SalesManager)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 6)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is SalesRepresentative)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 7)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is ProductManager)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                else if (cbxEmployeeType.SelectedIndex == 8)
+                {
+                    departmentEmployees.Clear();
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is OfficeManager)
+                        {
+                            departmentEmployees.Add(employee);
+                        }
+                    }
+                }
+                dgvEmployees.DataSource = departmentEmployees;
+
+                if (cbxEmployeeType.SelectedIndex == 0)
+                {
+                    dgvEmployees.DataSource = employees;
+                }
+
+                dgvEmployees.Columns["Password"].Visible = false;
+                dgvEmployees.Columns["EmployeeManagerAll"].Visible = false;
+
+            } else
+            {
+                ReadEmployees();
+            }
+        }
+        /* Departments for search */
+        private void AddDepartment()
+        {
+            cbxDepartment.Items.Clear();
+
+            // add All departments for overview of all sales or depot employees
+
+            try
+            {
+                foreach (DataRow r in officeManager.departmentManagment.ViewAllDepartments().Rows)
+                {
+                    if (Convert.ToInt16(r[0]) > 4)
+                    {
+                        if (cbxEmployeeType.Text == "Sales Representatives" || cbxEmployeeType.Text == "Sales Managers")
+                        {
+                            if (r[1].ToString() == "Sales")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                        else if (cbxEmployeeType.Text == "Depot Employees" || cbxEmployeeType.Text == "Depot Managers" || cbxEmployeeType.Text == "Product Managers")
+                        {
+                            if (r[1].ToString() == "Depot")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                        else if (cbxEmployeeType.Text == "Office Managers")
+                        {
+                            if (r[1].ToString() == "Office")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                        else if (cbxEmployeeType.Text == "CEOs" || cbxEmployeeType.Text == "Admins")
+                        {
+                            if (r[1].ToString() == "Other")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                    }
+                }
+                if (cbxEmployeeType.Text == "Sales Representatives" || cbxEmployeeType.Text == "Sales Managers")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Sales");
+                    }
+                }
+                else if (cbxEmployeeType.Text == "Depot Employees" || cbxEmployeeType.Text == "Depot Managers" || cbxEmployeeType.Text == "Product Managers")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Depot");
+                    }
+                }
+                else if (cbxEmployeeType.Text == "Office Managers")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Office");
+                    }
+                }
+                else if (cbxEmployeeType.Text == "CEOs" || cbxEmployeeType.Text == "Admins")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Other");
+                    }
+                }
+                cbxDepartment.Text = cbxDepartment.Items[0].ToString();
+            } catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
         }
         /* End Employees*/
@@ -282,37 +496,66 @@ namespace AdminBackups
             oSheet.Cells[1, 4] = " Work hours per week ";
             oSheet.Cells[1, 5] = " Salary per hour ";
             oSheet.Cells[1, 6] = " Job ";
+            oSheet.Cells[1, 7] = " Salary this Month ";
 
             //Format A1:D1 as bold, vertical alignment = center.
-
-            oSheet.get_Range("A1", "F1").Font.Bold = true;
-            oSheet.get_Range("A1", "F1").VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-
+            oSheet.get_Range("A1", "G1").Font.Bold = true;
+            oSheet.get_Range("A1", "G1").VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            oSheet.get_Range("A1", "G1").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            oSheet.get_Range("A1", "G1").Font.Size = 16;
             //AutoFit columns A:D.
-            oRng = oSheet.get_Range("A1", "F1");
+            oRng = oSheet.get_Range("A1", "G1");
             oRng.EntireColumn.AutoFit();
 
-            int year, month;
+            List<TimeWorked> c = officeManager.checkinManagment.getAllAtendanceTime(Convert.ToInt32(labYear.Text), Convert.ToInt32(labMonth.Text));
 
-            year = Convert.ToInt32(labYear.Text);
-            month = Convert.ToInt32(labMonth.Text);
+            bool Errors = false;
 
-            int i = 2;
-            foreach (TimeWorked c in store.checkinManagment.getAllAtendanceTime(year, month))
+            for (int i = 0; i < c.Count; i++)
             {
-                oSheet.Cells[i, 1] = c.EmployeeID.ToString();
-                oSheet.Cells[i, 2] = c.Name.ToString(); ;
-                oSheet.Cells[i, 3] = c.TimeWork.ToString();
-                oSheet.Cells[i, 4] = c.WorkHoursPerWeek.ToString(); ;
-                oSheet.Cells[i, 5] = c.SalaryPerHour.ToString();
-                oSheet.Cells[i, 6] = c.JobTitle.ToString(); ;
+                try
+                {
+                    int index = i + 2;
 
-                //AutoFit columns A:F.
-                oRng = oSheet.get_Range("A" + i, "F" + i);
-                oRng.EntireColumn.AutoFit();
+                    oSheet.get_Range("A" + index, "G" + index).HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
+                    oSheet.get_Range("A" + index, "G" + index).Font.Size = 12;
 
-                i++;
+                    if (rbColor.Checked)
+                    {
+                        if (Convert.ToInt32(c[i].TimeWork) >= Convert.ToInt32(c[i].WorkHoursPerWeek) * 4)
+                        {
+                            oSheet.get_Range("A" + index, "G" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Green);
+                        }
+                        else
+                        {
+                            oSheet.get_Range("A" + index, "G" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                        }
+                    }
+
+                    oSheet.Cells[index, 1] = c[i].EmployeeID;
+                    oSheet.Cells[index, 2] = c[i].Name;
+                    oSheet.Cells[index, 3] = c[i].TimeWork;
+                    oSheet.Cells[index, 4] = c[i].WorkHoursPerWeek;
+                    oSheet.Cells[index, 5] = c[i].SalaryPerHour;
+                    oSheet.Cells[index, 6] = c[i].JobTitle;
+                    oSheet.Cells[index, 7] = Convert.ToInt32(c[i].SalaryPerHour) * Convert.ToInt32(c[i].TimeWork);
+
+                    //AutoFit columns A:F.
+                    oRng = oSheet.get_Range("A" + index, "F" + index);
+                    oRng.EntireColumn.AutoFit();
+
+                }
+                catch
+                {
+                    Errors = true;
+                }
             }
+
+            if (Errors)
+            {
+                MessageBox.Show("A error occurred!");
+            }
+
         }
         public void GetAtendeance()
         {
@@ -320,9 +563,9 @@ namespace AdminBackups
 
             year = Convert.ToInt32(labYear.Text);
             month = Convert.ToInt32(labMonth.Text);
-            dgvAtendance.DataSource = store.checkinManagment.getAtendanceData(year, month);
+            dgvAtendance.DataSource = officeManager.checkinManagment.getAtendanceData(year, month);
 
-            store.checkinManagment.getAllAtendanceTime(year, month);
+            officeManager.checkinManagment.getAllAtendanceTime(year, month);
         }
 
         //Departments
@@ -434,8 +677,8 @@ namespace AdminBackups
                         ((OfficeManager)officeManager).departmentManagment.DeleteDepartment(Convert.ToInt32(labDepartmentID.Text));
                     }
                     catch
-                    { 
-                        MessageBox.Show("Select a department to delete"); 
+                    {
+                        MessageBox.Show("Select a department to delete");
                     }
                 }
                 else
@@ -555,74 +798,6 @@ namespace AdminBackups
         }
 
 
-        //Search bar
-        private void tbxSearchEmployee_TextChanged(object sender, EventArgs e)
-        {
-            /*string nameSearched = tbxSearchEmployee.Text;
-
-            if (!String.IsNullOrEmpty(nameSearched))
-            {
-                lbxEmployees.Items.Clear();
-
-                MySqlConnection conn = Utils.GetConnection();
-
-                string sql = EmployeeManagement.GET_ALL_EMPLOYEES;
-
-                try
-                {
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    conn.Open();
-
-                    MySqlDataReader reader = cmd.ExecuteReader();
-
-                    Person employee;
-
-                    while (reader.Read())
-                    {
-                        if (reader.GetInt32("Active") == 1)
-                        {
-                            int employeeID = reader.GetInt32("EmployeeID");
-                            string firstName = reader.GetString("FirstName");
-                            string lastName = reader.GetString("LastName");
-                            string username = reader.GetString("UserName");
-                            string password = reader.GetString("Password");
-                            int bsn = reader.GetInt32("BSN");
-                            string city = reader.GetString("Address");
-                            string email = reader.GetString("Email");
-                            int phoneNumber = reader.GetInt32("PhoneNumber");
-                            string dateOfBirth = reader.GetString("DateOfBirth");
-
-                            Contract c = GetContract(employeeID.ToString());
-                            employee = new ManagerDepot(employeeID, firstName, lastName, phoneNumber, email, city, dateOfBirth, bsn, username, password);
-
-                            if (employee.FirstName.StartsWith(nameSearched) || employee.FirstName.StartsWith(nameSearched.ToUpper()))
-                            {
-                                lbxEmployees.Items.Add(employee);
-                            }
-                            else if (employee.LastName.StartsWith(nameSearched) || employee.LastName.StartsWith(nameSearched.ToUpper()))
-                            {
-                                lbxEmployees.Items.Add(employee);
-                            }
-                        }
-                    }
-                }
-                catch (MySqlException msqEx)
-                {
-                    MessageBox.Show(msqEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Something went wrong" + ex);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-            else if (tbxSearchEmployee.Text == "")
-            {
-                //ViewAllEmployees();
-            }*/
-        }  
+       
     }
 }

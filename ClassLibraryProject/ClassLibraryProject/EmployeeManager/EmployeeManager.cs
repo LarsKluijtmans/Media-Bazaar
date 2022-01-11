@@ -59,5 +59,10 @@ namespace ClassLibraryProject
         {
             return DBEmployeeManagerAll.GetEmployeeContracts(e);
         }
+
+        public List<Employee> SearchEmployee(string search)
+        {
+            return DBEmployeeManagerOffice.SearchEmployee(search);
+        }
     }
 }

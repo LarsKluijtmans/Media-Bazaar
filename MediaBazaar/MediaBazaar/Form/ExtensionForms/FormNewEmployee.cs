@@ -1,9 +1,9 @@
 ﻿using ClassLibraryProject;
 using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
-using ClassLibraryProject.ManagmentClasses;
 using System;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -14,16 +14,18 @@ namespace AdminBackups
     public partial class FormNewEmployee : Form
     {
         OfficeManager officeManager;
+        Store store;
 
-        public FormNewEmployee(OfficeManager officeManager)
+        public FormNewEmployee(OfficeManager officeManager, Store s)
         {
             InitializeComponent();
 
             this.officeManager = officeManager;
-
+            store = s;
             AddDepartment();
         }
 
+        //Create employee
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
             CreateEmployee();
@@ -146,6 +148,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -165,6 +168,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -184,6 +188,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -204,6 +209,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -224,6 +230,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -244,6 +251,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -264,6 +272,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                          if (dr == DialogResult.No)
@@ -284,6 +293,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                          if (dr == DialogResult.No)
@@ -409,92 +419,95 @@ namespace AdminBackups
             return officeManager.ContractManager.CreateContract(newContract);
         }
 
+        //Departments
         private void AddDepartment()
         {
             cbxDepartment.Items.Clear();
 
-            foreach (DataRow r in officeManager.departmentManagment.ViewAllDepartments().Rows)
-            {
-                if (Convert.ToInt16(r[0]) > 4)
-                {
-                    if (cbxJobTitle.Text == "SALES REPRESENTATIVE" || cbxJobTitle.Text == "SALES MANAGER")
-                    {
-                        if (r[1].ToString() == "Sales")
-                        {
-                            Department d = new Department(
-                            r[0].ToString(),
-                            r[1].ToString(),
-                            r[2].ToString()); cbxDepartment.Items.Add(d);
-                        }
-                    }
-                    else if (cbxJobTitle.Text == "DEPOT EMPLOYEE" || cbxJobTitle.Text == "DEPOT MANAGER" || cbxJobTitle.Text == "PRODUCT MANAGER")
-                    {
-                        if (r[1].ToString() == "Depot")
-                        {
-                            Department d = new Department(
-                            r[0].ToString(),
-                            r[1].ToString(),
-                            r[2].ToString()); cbxDepartment.Items.Add(d);
-                        }
-                    }
-                    else if (cbxJobTitle.Text == "OFFICE MANAGER")
-                    {
-                        if (r[1].ToString() == "Office")
-                        {
-                            Department d = new Department(
-                            r[0].ToString(),
-                            r[1].ToString(),
-                            r[2].ToString()); cbxDepartment.Items.Add(d);
-                        }
-                    }
-                    else if (cbxJobTitle.Text == "CEO" || cbxJobTitle.Text == "ADMIN")
-                    {
-                        if (r[1].ToString() == "Other")
-                        {
-                            Department d = new Department(
-                            r[0].ToString(),
-                            r[1].ToString(),
-                            r[2].ToString()); cbxDepartment.Items.Add(d);
-                        }
-                    }
-                }
-            }
-
-            if (cbxJobTitle.Text == "SALES REPRESENTATIVE" || cbxJobTitle.Text == "SALES MANAGER")
-            {
-                if (cbxDepartment.Items.Count == 0)
-                {
-                    cbxDepartment.Items.Add("Sales");
-                }
-            }
-            else if (cbxJobTitle.Text == "DEPOT EMPLOYEE" || cbxJobTitle.Text == "DEPOT MANAGER" || cbxJobTitle.Text == "PRODUCT MANAGER")
-            { 
-                if (cbxDepartment.Items.Count == 0)
-                {
-                    cbxDepartment.Items.Add("Depot");
-                }
-            }
-            else if (cbxJobTitle.Text == "OFFICE MANAGER")
-            {
-                if (cbxDepartment.Items.Count == 0)
-                {
-                    cbxDepartment.Items.Add("Office");
-                }
-            }
-            else if (cbxJobTitle.Text == "CEO" || cbxJobTitle.Text == "ADMIN")
-            {
-                if (cbxDepartment.Items.Count == 0)
-                {
-                    cbxDepartment.Items.Add("Other");
-                }
-            }
             try
             {
-                cbxDepartment.Text = cbxDepartment.Items[0].ToString();
-            }
-            catch { }
-        }
+                foreach (DataRow r in officeManager.departmentManagment.ViewAllDepartments().Rows)
+                {
+                    if (Convert.ToInt16(r[0]) > 4)
+                    {
+                        if (cbxJobTitle.Text == "SALES REPRESENTATIVE" || cbxJobTitle.Text == "SALES MANAGER")
+                        {
+                            if (r[1].ToString() == "Sales")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                        else if (cbxJobTitle.Text == "DEPOT EMPLOYEE" || cbxJobTitle.Text == "DEPOT MANAGER" || cbxJobTitle.Text == "PRODUCT MANAGER")
+                        {
+                            if (r[1].ToString() == "Depot")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                        else if (cbxJobTitle.Text == "OFFICE MANAGER")
+                        {
+                            if (r[1].ToString() == "Office")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                        else if (cbxJobTitle.Text == "CEO" || cbxJobTitle.Text == "ADMIN")
+                        {
+                            if (r[1].ToString() == "Other")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                    }
+                }
 
+                if (cbxJobTitle.Text == "SALES REPRESENTATIVE" || cbxJobTitle.Text == "SALES MANAGER")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Sales");
+                    }
+                }
+                else if (cbxJobTitle.Text == "DEPOT EMPLOYEE" || cbxJobTitle.Text == "DEPOT MANAGER" || cbxJobTitle.Text == "PRODUCT MANAGER")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Depot");
+                    }
+                }
+                else if (cbxJobTitle.Text == "OFFICE MANAGER")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Office");
+                    }
+                }
+                else if (cbxJobTitle.Text == "CEO" || cbxJobTitle.Text == "ADMIN")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Other");
+                    }
+                }
+                cbxDepartment.Text = cbxDepartment.Items[0].ToString();
+            } catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            
+        }
         private void cbxJobTitle_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddDepartment();

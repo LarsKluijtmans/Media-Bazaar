@@ -10,7 +10,6 @@ namespace ClassLibraryProject.Class
         public ReshelfManagment reshelfManagment;
         public ScheduleManagment scheduleManagment;
         public PlanningManagment planningManagment;
-        public CheckinManagment checkinManagment;
         public EmployeeManagement employeeManagement;
         public SupplierManagment supplierManagment;
         public OrderInfoManagment orderInfoManagment;
@@ -27,8 +26,6 @@ namespace ClassLibraryProject.Class
             employeeManagement = new EmployeeManagement();
             //supplierManagment = new SupplierManagment();
             //orderInfoManagment = new OrderInfoManagment();
-
-            checkinManagment = new CheckinManagment( new dbCheckinManagment());
 
 
             //Dont need interface

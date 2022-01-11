@@ -83,8 +83,9 @@ namespace ClassLibraryProject.dbClasses
                         IContractManager contractManager = new ContractManager();
                         IDepartment department = new DepartmentManagment( new dbDepartmentManagment());
                         ICompany company = new CompanyManagment( new dbCompanyManagment());
+                        ICheckin checkin = new CheckinManagment(new dbCheckinManagment());
 
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerOffice, department, company, contractManager);
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerOffice, department, company, contractManager, checkin);
                         return employee;
                     }
                     else if (jobTitle == "PRODUCT MANAGER")

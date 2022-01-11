@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using ClassLibraryProject;
 using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
@@ -16,25 +17,63 @@ namespace AdminBackups
         OfficeManager officeManager;
         Employee employee;
         Contract contract;
-        public FormViewEmployee(OfficeManager om, Employee e)
+        public FormViewEmployee(OfficeManager om, Employee e, Contract c)
         {
             InitializeComponent();
             this.officeManager = om;
             this.employee = e;
 
             employee.Contracts = employee.EmployeeManagerAll.GetEmployeeContracts(employee);
-            
-            foreach (Contract c in employee.Contracts)
-            {
-                if (c.IsActive)
-                {
-                    this.contract = c;
-                }
-            }
+
+
+            this.contract = c;
 
             this.Text = $"{employee.FirstName} {employee.LastName}";
+            lblEmployeeName.Text = $"{employee.FirstName} {employee.LastName}";
 
             LoadEmployeeInfo();
+        }
+        
+        private void btnEditData_Click(object sender, EventArgs e)
+        {
+            if (!UpdateEmployee())
+            {
+                return;
+            }
+
+            DialogResult dr = MessageBox.Show("Do you want to update the contract?", "Employee updated", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                return;
+            } else if (dr == DialogResult.No)
+            {
+                var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
+                formOfficeManager.ReadEmployees();
+
+                this.Close();
+            }
+        }
+        private void btnUpdateContract_Click(object sender, EventArgs e)
+        {
+            if (!CreateNewContract())
+            {
+                return;
+            }
+
+            DialogResult dr = MessageBox.Show("Do you want to update the employee info?", "Contract updated", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                return;
+            }
+            else if (dr == DialogResult.No)
+            {
+                var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
+                formOfficeManager.ReadEmployees();
+
+                this.Close();
+            }
         }
         private void LoadEmployeeInfo()
         {
@@ -55,25 +94,49 @@ namespace AdminBackups
             // contract
             if (contract != null)
             {
-                this.Text = contract.ContractID.ToString();
-                tbxJobTitle.Text = contract.JobTitle.ToLower();
+                tbxJobTitle.Text = contract.JobTitle;
                 tbxWorkHours.Text = contract.WorkHoursPerWeek.ToString();
                 tbxSalary.Text = contract.SalaryPerHour.ToString();
-                tbxStartDate.Text = contract.StartDate.ToString("dd-MM-yyyy");
-                tbxEndDate.Text = contract.EndDate.ToString("dd-MM-yyyy");
+                tbxStartDate.Text = contract.StartDate.ToString("dd/MM/yyyy");
+                tbxEndDate.Text = contract.EndDate.ToString("dd/MM/yyyy");
+                cbxDepartment.Text = contract.Department;
             }
-        }
-        private void btnEditData_Click(object sender, EventArgs e)
-        {
-            if (!UpdateEmployee())
+            else
             {
-                return;
+                if (employee is Admin)
+                {
+                    tbxJobTitle.Text = "ADMIN";
+                }
+                else if (employee is CEO)
+                {
+                    tbxJobTitle.Text = "CEO";
+                }
+                else if (employee is DepotEmployee)
+                {
+                    tbxJobTitle.Text = "DEPOT EMPLOYEE";
+                }
+                else if (employee is DepotManager)
+                {
+                    tbxJobTitle.Text = "DEPOT MANAGER";
+                }
+                else if (employee is OfficeManager)
+                {
+                    tbxJobTitle.Text = "OFFICE MANAGER";
+                }
+                else if (employee is ProductManager)
+                {
+                    tbxJobTitle.Text = "PRODUCT MANAGER";
+                }
+                else if (employee is SalesManager)
+                {
+                    tbxJobTitle.Text = "SALES MANAGER";
+                }
+                else if (employee is SalesRepresentative)
+                {
+                    tbxJobTitle.Text = "SALES REPRESENTATIVE";
+                }
             }
 
-            var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
-            formOfficeManager.ReadEmployees();
-
-            this.Close();
         }
         public bool UpdateEmployee()
         {
@@ -143,108 +206,95 @@ namespace AdminBackups
 
             return officeManager.EmployeeManagerOffice.UpdateEmployee(employee);
         }  
-        public void CreateNewContract()
+        public bool CreateNewContract() // make bool
         {
             if (contract != null)
             {
                 contract.IsActive = false;
+                contract.ReasonForTermination = "New contract created";
+                contract.EndDate = DateTime.Now;
 
                 officeManager.ContractManager.UpdateContract(contract);
-            }
+            } 
 
             // get input for new contract
             string jobTitle = tbxJobTitle.Text;
             if (string.IsNullOrEmpty(jobTitle))
             {
                 MessageBox.Show("Please enter a jobtitle");
-                return;
+                return false;
             }
 
             if (string.IsNullOrEmpty(tbxWorkHours.Text))
             {
                 MessageBox.Show("Please enter work hours per week");
-                return;
+                return false;
             }
             int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
             if (workHoursPerWeek % 4 != 0)
             {
                 MessageBox.Show("Work hours has to be a multiple of 4");
-                return;
+                return false;
             }
             if (workHoursPerWeek == 0)
             {
                 MessageBox.Show("Work hours must be at least 4 hours per week");
-                return;
+                return false;
             }
 
             if (string.IsNullOrEmpty(tbxSalary.Text))
             {
                 MessageBox.Show("Please enter salary per hour");
-                return;
+                return false;
             }
             double salaryPerHour = Convert.ToDouble(tbxSalary.Text);
 
             if (string.IsNullOrEmpty(tbxStartDate.Text))
             {
                 MessageBox.Show("Please enter a start date");
-                return;
+                return false;
             }
             if (!Regex.IsMatch(tbxStartDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
             {
                 MessageBox.Show("Please enter a valid start date");
-                return;
+                return false;
             }
             DateTime startDate = DateTime.ParseExact(tbxStartDate.Text, "dd/MM/yyyy", null);
             if (startDate < DateTime.Now)
             {
                 MessageBox.Show("Start date must be in the future");
-                return;
+                return false;
             }
 
             if (string.IsNullOrEmpty(tbxEndDate.Text))
             {
                 MessageBox.Show("Please enter an end date");
-                return;
+                return false;
             }
             if (!Regex.IsMatch(tbxEndDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
             {
                 MessageBox.Show("Please enter a valid end date");
-                return;
+                return false;
             }
             DateTime endDate = DateTime.ParseExact(tbxEndDate.Text, "dd/MM/yyyy", null);
             if (endDate < DateTime.Now)
             {
                 MessageBox.Show("End date must be in the future");
-                return;
+                return false;
             }
 
             if (startDate > endDate)
             {
                 MessageBox.Show("End date must be after start date");
-                return;
+                return false;
             }
 
             var contractDays = (endDate - startDate).TotalDays;
             if (contractDays > 365)
             {
                 MessageBox.Show("Contract length can be max 1 year");
-                return;
+                return false;
             }
-
-            string department = cbxDepartment.Text;
-            if (string.IsNullOrEmpty(department))
-            {
-                MessageBox.Show("Please enter a department");
-                return;
-            }
-
-            Contract newContract = new Contract(employee, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
-            officeManager.ContractManager.CreateContract(newContract);
-        }
-
-        /*private bool CreateContract()
-        {
-
 
             string department = cbxDepartment.Text;
             if (string.IsNullOrEmpty(department))
@@ -253,9 +303,8 @@ namespace AdminBackups
                 return false;
             }
 
-            Contract newContract = new Contract(newEmployee, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
-
+            Contract newContract = new Contract(employee, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
             return officeManager.ContractManager.CreateContract(newContract);
-        }*/
+        }
     }
 }
