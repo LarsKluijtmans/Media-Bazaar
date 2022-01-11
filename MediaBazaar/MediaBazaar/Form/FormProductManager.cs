@@ -38,6 +38,10 @@ namespace AdminBackups
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvProducts.Rows[e.RowIndex];
+
+                string productID = row.Cells["ProductID"].Value.ToString();
+
+                tbxSelectedProduct.Text = productID;
             }
         }
         private void CreateProduct()
@@ -50,6 +54,26 @@ namespace AdminBackups
             List<Product> products = productManager.ProductManagerPM.ReadProductsPM();
 
             dgvProducts.DataSource = products;
+        }
+        private void UpdateProduct()
+        {
+            // get selected product
+            int productID = Convert.ToInt32(tbxSelectedProduct.Text);
+            if (string.IsNullOrEmpty(tbxSelectedProduct.Text))
+            {
+                MessageBox.Show("Please select a product");
+                return;
+            }
+
+            Product selectedProduct = productManager.ProductManagerPM.GetProductByID(productID);
+
+
+            // open new form
+            if (selectedProduct != null)
+            {
+                FormViewProduct formViewProduct = new FormViewProduct(productManager, selectedProduct);
+                formViewProduct.Show();
+            }
         }
 
         private void tbProductSearch_TextChanged(object sender, EventArgs e)
@@ -70,6 +94,11 @@ namespace AdminBackups
         private void btnCreateProduct_Click(object sender, EventArgs e)
         {
             CreateProduct();
+        }
+
+        private void bntUpdateProduct_Click(object sender, EventArgs e)
+        {
+            UpdateProduct();
         }
     }
 }

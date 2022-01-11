@@ -41,7 +41,7 @@ namespace AdminBackups
             this.bntUpdateProduct = new System.Windows.Forms.Button();
             this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.btnCreateProduct = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxSelectedProduct = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
@@ -60,7 +60,7 @@ namespace AdminBackups
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.tbxSelectedProduct);
             this.tabPage3.Controls.Add(this.groupBox4);
             this.tabPage3.Controls.Add(this.labProductSearch);
             this.tabPage3.Controls.Add(this.tbProductSearch);
@@ -150,6 +150,7 @@ namespace AdminBackups
             this.bntUpdateProduct.TabIndex = 9;
             this.bntUpdateProduct.Text = "Update Product";
             this.bntUpdateProduct.UseVisualStyleBackColor = true;
+            this.bntUpdateProduct.Click += new System.EventHandler(this.bntUpdateProduct_Click);
             // 
             // btnDeleteProduct
             // 
@@ -172,14 +173,14 @@ namespace AdminBackups
             this.btnCreateProduct.UseVisualStyleBackColor = true;
             this.btnCreateProduct.Click += new System.EventHandler(this.btnCreateProduct_Click);
             // 
-            // textBox1
+            // tbxSelectedProduct
             // 
-            this.textBox1.Location = new System.Drawing.Point(904, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Selected Product";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(169, 29);
-            this.textBox1.TabIndex = 103;
+            this.tbxSelectedProduct.Location = new System.Drawing.Point(904, 21);
+            this.tbxSelectedProduct.Name = "tbxSelectedProduct";
+            this.tbxSelectedProduct.PlaceholderText = "Selected Product";
+            this.tbxSelectedProduct.ReadOnly = true;
+            this.tbxSelectedProduct.Size = new System.Drawing.Size(169, 29);
+            this.tbxSelectedProduct.TabIndex = 103;
             // 
             // FormProductManager
             // 
@@ -217,6 +218,6 @@ namespace AdminBackups
         private System.Windows.Forms.Button bntUpdateProduct;
         private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.Button btnCreateProduct;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxSelectedProduct;
     }
 }

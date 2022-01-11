@@ -52,5 +52,10 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             throw new NotImplementedException();
         }
+
+        public Product GetProductByID(int productID)
+        {
+            return DBProductManagerPM.GetProductByID(productID);
+        }
     }
 }

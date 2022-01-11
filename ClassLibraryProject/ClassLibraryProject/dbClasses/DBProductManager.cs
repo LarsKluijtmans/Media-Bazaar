@@ -14,7 +14,8 @@ namespace ClassLibraryProject.dbClasses
         public string CREATE_PRODUCT = "INSERT INTO Product (Name, Barcode, Type, SellingPrice, AmountInDepot, AmountInStore, Discontinued) VALUES (@Name, @Barcode, @Type, @SellingPrice, @AmountInDepot, @AmountInStore, @IsDiscontinued);";
         public string READ_PRODUCTS_PM = "SELECT * FROM Product LIMIT 50;";
         public string SEARCH_PRODUCT_PM = "SELECT * FROM Product WHERE Name LIKE @Search OR Barcode LIKE @Search;";
-
+        public string GET_PRODUCT_BY_ID = "SELECT * FROM Product WHERE ProductID = @ProductID;";
+        
 
 
         public static string GET_ALL_PRODUCT = "SELECT ProductID, Name, Barcode, Type, price, AmountInDepot, SellingPrice FROM Product WHERE Name LIKE '@value%' ORDER BY ProductID;";
@@ -180,6 +181,54 @@ namespace ClassLibraryProject.dbClasses
             }
 
             return products;
+        }
+        public Product GetProductByID(int productID)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = GET_PRODUCT_BY_ID;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@ProductID", productID);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Product product;
+
+                while (reader.Read())
+                {
+                    string productName = reader.GetString(1);
+                    string barcode = reader.GetString(2);
+                    string type = reader.GetString(3);
+                    double sellingPrice = reader.GetDouble(4);
+                    int amountInDepot = reader.GetInt32(5);
+                    int amountInStore = reader.GetInt32(6);
+                    bool isDiscontinued = reader.GetBoolean(7);
+
+                    product = new Product(productID, productName, barcode, type, sellingPrice, amountInDepot, amountInStore, isDiscontinued);
+                    return product;
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return null;
         }
         /* Sales Manager */
 
