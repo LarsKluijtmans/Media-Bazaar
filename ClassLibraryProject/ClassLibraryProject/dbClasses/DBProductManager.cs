@@ -13,13 +13,13 @@ namespace ClassLibraryProject.dbClasses
     {
         public string CREATE_PRODUCT = "INSERT INTO Product (Name, Barcode, Type, SellingPrice, AmountInDepot, AmountInStore, Discontinued) VALUES (@Name, @Barcode, @Type, @SellingPrice, @AmountInDepot, @AmountInStore, @IsDiscontinued);";
         public string READ_PRODUCTS_PM = "SELECT * FROM Product LIMIT 50;";
+        public string UPDATE_PRODUCT_PM = "UPDATE Product SET Name = @Name, Barcode = @Barcode, Type = @Type WHERE ProductID = @ProductID;";
         public string SEARCH_PRODUCT_PM = "SELECT * FROM Product WHERE Name LIKE @Search OR Barcode LIKE @Search;";
         public string GET_PRODUCT_BY_ID = "SELECT * FROM Product WHERE ProductID = @ProductID;";
         
 
 
         public static string GET_ALL_PRODUCT = "SELECT ProductID, Name, Barcode, Type, price, AmountInDepot, SellingPrice FROM Product WHERE Name LIKE '@value%' ORDER BY ProductID;";
-        public static string UPDATE_PRODUCT = "UPDATE PRODUCT SET Name = @Name, Barcode = @Barcode, Type = @Type, AmountInStore = @AmountInStore, AmountInDepot = @AmountInDepot, SellingPrice = @SellingPrice WHERE ProductID = @ProductID;";
         public static string DELETE_PRODUCT_BY_ID = "DELETE FROM PRODUCT WHERE ProductID = @ProductID;";
 
         public static string DISCONTINUE_PRODUCT_BY_ID = "UPDATE Product SET IsDiscontinued = @IsDiscontinued  WHERE ProductID = @ProductID";
@@ -121,9 +121,46 @@ namespace ClassLibraryProject.dbClasses
             return products;
         }
 
-        public bool UpdateProduct(Product p)
+        public bool UpdateProductPM(Product p)
         {
-            return true;
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = UPDATE_PRODUCT_PM;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@ProductID", p.ProductID);
+
+                cmd.Parameters.AddWithValue("@Name", p.ProductName);
+                cmd.Parameters.AddWithValue("@Barcode", p.Barcode);
+                cmd.Parameters.AddWithValue("@Type", p.ProductType);
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+
+                if(numCreatedRows == 1)
+                {
+                    return true;
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
         }
 
         public bool DeleteProduct(Product p)
@@ -143,7 +180,7 @@ namespace ClassLibraryProject.dbClasses
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 conn.Open();
 
-                cmd.Parameters.AddWithValue("@Search", search + "%");
+                cmd.Parameters.AddWithValue("@Search", "%" + search + "%");
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 

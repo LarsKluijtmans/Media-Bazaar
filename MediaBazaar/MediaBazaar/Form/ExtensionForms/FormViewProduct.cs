@@ -1,10 +1,12 @@
-﻿using ClassLibraryProject.ChildClasses;
+﻿using AdminBackups;
+using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -36,6 +38,7 @@ namespace MediaBazaar
                 tbxBarcode.ReadOnly = true;
                 tbxType.ReadOnly = true;
                 cbxProductType.Visible = false;
+                btnCreateOrderInfo.Visible = false;
             }
 
             LoadProductInfo();
@@ -54,12 +57,66 @@ namespace MediaBazaar
             if (product.IsDiscontinued)
             {
                 tbxStatus.Text = "Discontinued";
-                cbxProductType.Text = "Discontinued";
+                cbxStatus.Text = "Discontinued";
             } else
             {
                 tbxStatus.Text = "Available";
                 cbxStatus.Text = "Available";
             }
+        }
+        private void GetSuppliersForProduct()
+        {
+
+        }
+        private bool UpdateProduct()
+        {
+            if (employee is ProductManager)
+            {
+                if (string.IsNullOrEmpty(tbxProductName.Text))
+                {
+                    MessageBox.Show("Product Name cannot be empty");
+                    return false;
+                }
+                product.ProductName = tbxProductName.Text;
+
+                if (string.IsNullOrEmpty(tbxBarcode.Text))
+                {
+                    MessageBox.Show("Barcode cannot be empty");
+                    return false;
+                }
+                product.Barcode = tbxBarcode.Text;
+
+                if (string.IsNullOrEmpty(cbxProductType.Text))
+                {
+                    MessageBox.Show("Product Type cannot be empty");
+                    return false;
+                }
+                product.ProductType = cbxProductType.Text;
+
+                return ((ProductManager)employee).ProductManagerPM.UpdateProductPM(product);
+            }
+
+
+            return false;
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            if (!UpdateProduct())
+            {
+                return;
+            }
+
+            var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
+            formProductManager.ReadProducts();
+
+            this.Close();
+        }
+
+        private void btnCreateOrderInfo_Click(object sender, EventArgs e)
+        {
+            FormOrderInfo formOrderInfo = new FormOrderInfo((ProductManager)employee, product);
+            formOrderInfo.Show();
         }
     }
 }

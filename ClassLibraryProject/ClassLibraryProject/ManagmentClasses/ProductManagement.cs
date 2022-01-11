@@ -41,9 +41,9 @@ namespace ClassLibraryProject.ManagmentClasses
             return DBProductManagerPM.SearchProductsPM(search);
         }
 
-        public bool UpdateProduct(Product p)
+        public bool UpdateProductPM(Product p)
         {
-            return DBProductManagerPM.UpdateProduct(p);
+            return DBProductManagerPM.UpdateProductPM(p);
         }
         /* Esther End */
 

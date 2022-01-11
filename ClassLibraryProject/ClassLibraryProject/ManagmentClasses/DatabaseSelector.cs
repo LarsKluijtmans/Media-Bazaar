@@ -14,7 +14,7 @@ namespace ClassLibraryProject.ManagmentClasses
         private IDBRestock dbRestock;
         private IDBReshelf dbReshelf;
         private IDBOrderInfo dbOrderInfo;
-        private IDBSupplier dbSupplier;
+        private IDBSupplierManager dbSupplier;
         private IDBSchedule dbSchedule;
         private IDBProduct dbProduct;
 
@@ -46,7 +46,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
         public DatabaseSelector()
         {
-            dbSupplier = new DBSupplier();
+            dbSupplier = new DBSupplierManager();
             lgSupplier = new SupplierManagment(dbSupplier);
 
             dbProduct = new DBProductManager();
