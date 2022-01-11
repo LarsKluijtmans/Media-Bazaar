@@ -90,7 +90,10 @@ namespace ClassLibraryProject.dbClasses
                     }
                     else if (jobTitle == "PRODUCT MANAGER")
                     {
-                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
+                        IProductManagerPM productManagerPM = new ProductManagement();
+
+                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll, productManagerPM);
                         return employee;
                     }
                     else if (jobTitle == "SALES MANAGER")

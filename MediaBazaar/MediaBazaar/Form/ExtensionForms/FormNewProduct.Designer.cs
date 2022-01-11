@@ -51,7 +51,7 @@ namespace MediaBazaar
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(302, 144);
+            this.groupBox1.Size = new System.Drawing.Size(347, 144);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Info:";
@@ -87,38 +87,44 @@ namespace MediaBazaar
             // 
             this.tbxProductName.Location = new System.Drawing.Point(127, 23);
             this.tbxProductName.Name = "tbxProductName";
-            this.tbxProductName.Size = new System.Drawing.Size(147, 23);
+            this.tbxProductName.Size = new System.Drawing.Size(202, 23);
             this.tbxProductName.TabIndex = 3;
             // 
             // tbxBarcode
             // 
             this.tbxBarcode.Location = new System.Drawing.Point(127, 53);
             this.tbxBarcode.Name = "tbxBarcode";
-            this.tbxBarcode.Size = new System.Drawing.Size(147, 23);
+            this.tbxBarcode.Size = new System.Drawing.Size(202, 23);
             this.tbxBarcode.TabIndex = 4;
             // 
             // cbxProductType
             // 
             this.cbxProductType.FormattingEnabled = true;
+            this.cbxProductType.Items.AddRange(new object[] {
+            "KITCHEN_HOME",
+            "PHOTO_VIDEO_NAVIGATION",
+            "SMARTHOME_APPLIANCES",
+            "GAMING_MUSIC_COMPUTERS"});
             this.cbxProductType.Location = new System.Drawing.Point(127, 83);
             this.cbxProductType.Name = "cbxProductType";
-            this.cbxProductType.Size = new System.Drawing.Size(147, 23);
+            this.cbxProductType.Size = new System.Drawing.Size(202, 23);
             this.cbxProductType.TabIndex = 5;
             // 
             // btnCreateProduct
             // 
-            this.btnCreateProduct.Location = new System.Drawing.Point(179, 112);
+            this.btnCreateProduct.Location = new System.Drawing.Point(234, 112);
             this.btnCreateProduct.Name = "btnCreateProduct";
             this.btnCreateProduct.Size = new System.Drawing.Size(95, 23);
             this.btnCreateProduct.TabIndex = 6;
             this.btnCreateProduct.Text = "Add Product";
             this.btnCreateProduct.UseVisualStyleBackColor = true;
+            this.btnCreateProduct.Click += new System.EventHandler(this.btnCreateProduct_Click);
             // 
             // FormNewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 166);
+            this.ClientSize = new System.Drawing.Size(371, 166);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormNewProduct";
             this.Text = "Add new product";

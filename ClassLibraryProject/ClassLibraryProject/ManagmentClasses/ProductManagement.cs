@@ -9,12 +9,12 @@ using System.Diagnostics;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class ProductManagment : IGetProduct, IProductManagerPM, IProductManagerSM
+    public class ProductManagement : IGetProduct, IProductManagerPM, IProductManagerSM
     {
         public IDBProductManagerPM DBProductManagerPM { get; set; }
         public IDBProductManagerSM DBProductManagerSM { get; set; }
 
-        public ProductManagment()
+        public ProductManagement()
         {
             this.DBProductManagerPM = new DBProductManager();
             this.DBProductManagerSM = new DBProductManager();

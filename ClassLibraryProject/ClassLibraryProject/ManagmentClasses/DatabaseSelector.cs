@@ -18,7 +18,7 @@ namespace ClassLibraryProject.ManagmentClasses
         private IDBSchedule dbSchedule;
         private IDBProduct dbProduct;
 
-        private ProductManagment lgProduct;
+        private ProductManagement lgProduct;
         private OrderInfoManagment lgOrderInfo;
         private SupplierManagment lgSupplier;
         private ReshelfManagment lgReshelf;
@@ -50,7 +50,7 @@ namespace ClassLibraryProject.ManagmentClasses
             lgSupplier = new SupplierManagment(dbSupplier);
 
             dbProduct = new DBProductManager();
-            lgProduct = new ProductManagment();
+            lgProduct = new ProductManagement();
 
             dbOrderInfo = new DBOrderInfo(lgProduct, lgSupplier);
             lgOrderInfo = new OrderInfoManagment(dbOrderInfo);

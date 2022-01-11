@@ -11,7 +11,7 @@ namespace ClassLibraryProject.dbClasses
 {
     public class DBProductManager: IDBProduct, IDBProductManagerPM, IDBProductManagerSM
     {
-        public string CREATE_PRODUCT = "INSERT INTO Product (Name, Barcode, Type, SellingPrice, AmountInDepot, AmountInStore, IsDiscontinued) VALUES (@Name, @Barcode, @Type, @SellingPrice, @AmountInDepot, @AmountInStore, @IsDiscontinued);";
+        public string CREATE_PRODUCT = "INSERT INTO Product (Name, Barcode, Type, SellingPrice, AmountInDepot, AmountInStore, Discontinued) VALUES (@Name, @Barcode, @Type, @SellingPrice, @AmountInDepot, @AmountInStore, @IsDiscontinued);";
         public string READ_PRODUCTS_PM = "SELECT * FROM Product LIMIT 50;";
         public string SEARCH_PRODUCT_PM = "SELECT * FROM Product WHERE Name LIKE @Search OR Barcode LIKE @Search;";
 
@@ -45,6 +45,11 @@ namespace ClassLibraryProject.dbClasses
                 cmd.Parameters.AddWithValue("@IsDiscontinued", p.IsDiscontinued);
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
+
+                if (numCreatedRows == 1)
+                {
+                    return true;
+                }
             }
             catch (MySqlException msqEx)
             {
@@ -62,7 +67,7 @@ namespace ClassLibraryProject.dbClasses
                 }
             }
 
-            return true;
+            return false;
         }
 
         public List<Product> ReadProductsPM()
@@ -269,112 +274,5 @@ namespace ClassLibraryProject.dbClasses
             }
         }
 
-        // esther start
-
-        // sql 
-        public static string UPDATE_PRODUCTS = "UPDATE Product SET Name = @Name, Barcode = @Barcode, Type = @Type WHERE ProductID = @ProductID;";
-        public static string DELETE_PRODUCTS = "DELETE FROM Product WHERE ProductID = @ProductID;";
-        public static string UPDATE_PRICE = "UPDATE Product SET Price = @Price WHERE ProductID = @ProductID;";
-        public static string DISCONTINUE_PRODUCT = "UPDATE Product SET Discontinued = @Discontinued WHERE ProductID = @ProductID;";
-        
-        public void EditProduct(int id, string name, string barcode, string type, double price)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = UPDATE_PRODUCTS;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@ProductID", id);
-                cmd.Parameters.AddWithValue("@Name", name);
-                cmd.Parameters.AddWithValue("@Barcode", barcode);
-                cmd.Parameters.AddWithValue("@Type", type);
-                cmd.Parameters.AddWithValue("@Price", price);
-
-                conn.Open();
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
-        public void DeleteProduct(int productID)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = DELETE_PRODUCTS;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", productID);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
-        public void EditPrice(int id, double price)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = UPDATE_PRICE;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@ProductID", id);
-                cmd.Parameters.AddWithValue("@Price", price);
-
-                conn.Open();
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
-        public void DiscontinueProduct(int id)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = DISCONTINUE_PRODUCT;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@ProductID", id);
-                cmd.Parameters.AddWithValue("@Discontinued", 1);
-
-                conn.Open();
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException)
-            { }
-            catch (Exception)
-            { }
-            finally
-            {
-                conn.Close();
-            }
-        }
     }
 }

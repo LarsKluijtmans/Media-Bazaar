@@ -42,14 +42,14 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             if (RestockByIDExist(id))
             {
-                if(IsDivisible(orderInfo, amount) == true)
-                {
-                    if (db.OrderRestock(id, orderInfo, amount) == true)
-                    {
-                        return true;
-                    }
-                    return false;
-                }
+                //if(IsDivisible(orderInfo, amount) == true)
+                //{
+                //    if (db.OrderRestock(id, orderInfo, amount) == true)
+                //    {
+                //        return true;
+                //    }
+                //    return false;
+                //}
                 return false;
             }
             return false;
