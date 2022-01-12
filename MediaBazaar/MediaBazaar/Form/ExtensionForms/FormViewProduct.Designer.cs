@@ -338,6 +338,7 @@ namespace MediaBazaar
             this.cbxSupplier.Name = "cbxSupplier";
             this.cbxSupplier.Size = new System.Drawing.Size(146, 23);
             this.cbxSupplier.TabIndex = 5;
+            this.cbxSupplier.SelectedIndexChanged += new System.EventHandler(this.cbxSupplier_SelectedIndexChanged);
             // 
             // label13
             // 

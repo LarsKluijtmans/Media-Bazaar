@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj": {}
+    "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+    "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "projectUniqueName": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
         "projectName": "ClassLibraryProject",
-        "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
         "packagesPath": "C:\\Users\\esthe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
+        "outputPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj": {
+    "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
+        "projectUniqueName": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
         "projectName": "MediaBazaarWebsite",
-        "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
+        "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
         "packagesPath": "C:\\Users\\esthe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\obj\\",
+        "outputPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\website\\MediaBazzar\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -104,8 +104,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
-                "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+              "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+                "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
               }
             }
           }

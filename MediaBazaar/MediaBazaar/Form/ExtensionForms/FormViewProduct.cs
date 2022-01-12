@@ -84,6 +84,33 @@ namespace MediaBazaar
             // if another supplier is selected in cbx
             // get new order info of this supplier
         }
+        private void cbxSupplier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxSupplier.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            Object supplierObject = cbxSupplier.SelectedItem;
+            if (!(supplierObject is Supplier))
+            {
+                return;
+            }
+
+            Supplier supplier = (Supplier)supplierObject;
+
+            product.OrderInfos = ((ProductManager)employee).OrderInfoManagerPM.GetOrderInfosForProduct(product);
+
+            foreach (OrderInfo oi in product.OrderInfos)
+            {
+                if (oi.Supplier == supplier)
+                {
+                    textBox1.Text = oi.MinAmount.ToString();
+                    textBox2.Text = oi.MaxAmount.ToString();
+                    textBox3.Text = oi.Multiples.ToString();
+                }
+            }
+        }
         private bool UpdateProduct()
         {
             if (employee is ProductManager)
@@ -134,6 +161,7 @@ namespace MediaBazaar
             FormOrderInfo formOrderInfo = new FormOrderInfo((ProductManager)employee, product);
             formOrderInfo.Show();
         }
+
         
     }
 }

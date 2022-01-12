@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pC84qA6/hraVkjBZ4FWN1hRQWiMWkMcJW695quCEHTu7oFcVyvPAIE1JcMZmROIkiSBQ3ejNnMXFyNljDnULNw==",
+  "dgSpecHash": "PpYaUFnpRNZ/vBiGiESjz0TujqJlUAk0b5zZYTK92n0f2+zLPplW9ixy3q30Z+k1fgfXuHG9IHBCUeh4rZRm3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+  "projectFilePath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\esthe\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\esthe\\.nuget\\packages\\dotconnect.express.for.mysql\\8.19.1985\\dotconnect.express.for.mysql.8.19.1985.nupkg.sha512",
