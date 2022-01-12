@@ -17,7 +17,7 @@ namespace ClassLibraryProject.dbClasses
 
         private string GET_SUPPLIERS_FOR_PRODUCT = "SELECT * FROM Supplier WHERE ProductType = @ProductType;";
 
-        public bool AddSupplier(Supplier s)
+        public bool CreateSupplier(Supplier s)
         {
             throw new NotImplementedException();
         }
@@ -27,7 +27,7 @@ namespace ClassLibraryProject.dbClasses
             throw new NotImplementedException();
         }
 
-        public List<Supplier> GetSuppliers()
+        public List<Supplier> ReadSuppliers()
         {
             throw new NotImplementedException();
         }

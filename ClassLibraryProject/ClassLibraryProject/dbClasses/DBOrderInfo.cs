@@ -61,7 +61,7 @@ namespace ClassLibraryProject.dbClasses
                     int multiples = reader.GetInt32("Multiples");
                     double purchasePrice = reader.GetDouble(7);
 
-                    orderinfo = new OrderInfo(orderInfoID, s.GetSupplier(supplierID), p.GetProduct(barcode), minAmount, maxAmount, multiples, purchasePrice);
+                    orderinfo = new OrderInfo(orderInfoID, s.GetSupplierByID(supplierID), p.GetProduct(barcode), minAmount, maxAmount, multiples, purchasePrice);
                     orderInfos.Add(orderinfo);
                 }
             }

@@ -7,8 +7,8 @@ namespace ClassLibraryProject.ManagmentClasses.IProductManager
 {
     public interface ISupplierManagerPM
     {
-        List<Supplier> GetSuppliers();
-        bool AddSupplier(Supplier s);
+        List<Supplier> ReadSuppliers();
+        bool CreateSupplier(Supplier s);
         bool UpdateSupplier(Supplier s);
         bool DeleteSupplier(Supplier s);
         List<Supplier> GetSuppliersForProduct(Product p);
