@@ -12,5 +12,6 @@ namespace ClassLibraryProject.dbClasses.IDB
         bool UpdateSupplier(Supplier s);
         bool DeleteSupplier(Supplier s);
         List<Supplier> GetSuppliersForProduct(Product p);
+        public Supplier GetSupplierByID(int supplierID);
     }
 }
