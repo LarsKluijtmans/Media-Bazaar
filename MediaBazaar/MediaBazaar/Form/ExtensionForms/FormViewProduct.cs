@@ -42,7 +42,7 @@ namespace MediaBazaar
             }
 
             LoadProductInfo();
-            GetSuppliersForProduct();
+            LoadSuppliersForProduct();
             GetOrderInfoForSupplier();
         }
         private void LoadProductInfo()
@@ -66,7 +66,7 @@ namespace MediaBazaar
                 cbxStatus.Text = "Available";
             }
         }
-        private void GetSuppliersForProduct()
+        private void LoadSuppliersForProduct()
         {
             List<Supplier> productSuppliers = ((ProductManager)employee).SupplierManagerPM.GetSuppliersForProduct(product);
 
