@@ -33,23 +33,5 @@ namespace ClassLibraryProject.ManagmentClasses.IProductManager
         {
             return orderInfo.DeleteOrderInfo(id);
         }
-
-        //supplier
-        public List<Supplier> GetSuppliers()
-        {
-            return supplier.GetSuppliers();
-        }
-        public bool AddSupplier(string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
-        {
-            return supplier.AddSupplier(name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber);
-        }
-        public bool UpdateSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
-        {
-            return supplier.UpdateSupplier(id, name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber);
-        }
-        public bool DeleteSupplier(int id)
-        {
-            return supplier.DeleteSupplier(id);
-        }
     }
 }

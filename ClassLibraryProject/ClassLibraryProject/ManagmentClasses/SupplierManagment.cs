@@ -32,9 +32,9 @@ namespace ClassLibraryProject.ManagmentClasses
             return n;
         }
 
-        private IDBSupplier db;
+        private IDBSupplierManager db;
 
-        public SupplierManagment(IDBSupplier dbSupplier)
+        public SupplierManagment(IDBSupplierManager dbSupplier)
         {
             db = dbSupplier;
         }
@@ -43,40 +43,17 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             return db.GetSuppliers();
         }
-        public bool AddSupplier(string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
+        public bool AddSupplier(Supplier s)
         {
-            if (SupplierExist(name) == false)
-            {
-                if(db.AddSupplier(id(), name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber) == true)
-                {
-                    return true;
-                }
-                return false;
-            }
             return false;
         }
-        public bool DeleteSupplier(int id)
+        public bool DeleteSupplier(Supplier s)
         {
-            if (SupplierExistByID(id) == true)
-            {
-                if (db.DeleteSupplier(id) == true)
-                {
-                    return true;
-                }
-                return false;
-            }
             return false;
         }
-        public bool UpdateSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
+        public bool UpdateSupplier(Supplier s)
         {
-            if (SupplierExistByID(id) == true)
-            {
-                if (db.UpdateSupplier(id, name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber) == true)
-                {
-                    return true;
-                }
-                return false;
-            }
+            
             return false;
         }
 
@@ -117,6 +94,11 @@ namespace ClassLibraryProject.ManagmentClasses
                 return true;
             }
             return false;
+        }
+
+        public List<Supplier> GetSuppliersForProduct(Product p)
+        {
+            throw new NotImplementedException();
         }
     }
 }

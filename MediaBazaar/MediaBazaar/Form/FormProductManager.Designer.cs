@@ -32,58 +32,43 @@ namespace AdminBackups
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductManager));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tbxSelectedProduct = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.bntUpdateProduct = new System.Windows.Forms.Button();
+            this.btnDeleteProduct = new System.Windows.Forms.Button();
+            this.btnCreateProduct = new System.Windows.Forms.Button();
             this.labProductSearch = new System.Windows.Forms.Label();
             this.tbProductSearch = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbxPrice = new System.Windows.Forms.TextBox();
-            this.cbxProductType = new System.Windows.Forms.ComboBox();
-            this.dgProducts = new System.Windows.Forms.DataGridView();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.tbBarcode = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.btnAddPorduct = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.lblId = new System.Windows.Forms.Label();
-            this.tbID = new System.Windows.Forms.TextBox();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.Location = new System.Drawing.Point(12, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1138, 529);
             this.tabControl1.TabIndex = 2;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.tbxSelectedProduct);
+            this.tabPage3.Controls.Add(this.groupBox4);
             this.tabPage3.Controls.Add(this.labProductSearch);
             this.tabPage3.Controls.Add(this.tbProductSearch);
-            this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.tbxPrice);
-            this.tabPage3.Controls.Add(this.cbxProductType);
-            this.tabPage3.Controls.Add(this.dgProducts);
-            this.tabPage3.Controls.Add(this.tbName);
-            this.tabPage3.Controls.Add(this.label4);
-            this.tabPage3.Controls.Add(this.lblName);
-            this.tabPage3.Controls.Add(this.tbBarcode);
-            this.tabPage3.Controls.Add(this.lblEmail);
-            this.tabPage3.Controls.Add(this.btnAddPorduct);
-            this.tabPage3.Controls.Add(this.btnDelete);
-            this.tabPage3.Controls.Add(this.btnEdit);
-            this.tabPage3.Controls.Add(this.lblId);
-            this.tabPage3.Controls.Add(this.tbID);
+            this.tabPage3.Controls.Add(this.dgvProducts);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage3.Location = new System.Drawing.Point(4, 26);
@@ -91,167 +76,93 @@ namespace AdminBackups
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1130, 499);
             this.tabPage3.TabIndex = 10;
-            this.tabPage3.Text = "Product";
+            this.tabPage3.Text = "Products";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tbxSelectedProduct
+            // 
+            this.tbxSelectedProduct.Location = new System.Drawing.Point(904, 21);
+            this.tbxSelectedProduct.Name = "tbxSelectedProduct";
+            this.tbxSelectedProduct.PlaceholderText = "Selected Product";
+            this.tbxSelectedProduct.ReadOnly = true;
+            this.tbxSelectedProduct.Size = new System.Drawing.Size(169, 29);
+            this.tbxSelectedProduct.TabIndex = 103;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.bntUpdateProduct);
+            this.groupBox4.Controls.Add(this.btnDeleteProduct);
+            this.groupBox4.Controls.Add(this.btnCreateProduct);
+            this.groupBox4.Location = new System.Drawing.Point(899, 57);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Size = new System.Drawing.Size(182, 133);
+            this.groupBox4.TabIndex = 102;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Manage Products";
+            // 
+            // bntUpdateProduct
+            // 
+            this.bntUpdateProduct.Location = new System.Drawing.Point(6, 56);
+            this.bntUpdateProduct.Name = "bntUpdateProduct";
+            this.bntUpdateProduct.Size = new System.Drawing.Size(167, 31);
+            this.bntUpdateProduct.TabIndex = 9;
+            this.bntUpdateProduct.Text = "Update Product";
+            this.bntUpdateProduct.UseVisualStyleBackColor = true;
+            this.bntUpdateProduct.Click += new System.EventHandler(this.bntUpdateProduct_Click);
+            // 
+            // btnDeleteProduct
+            // 
+            this.btnDeleteProduct.Location = new System.Drawing.Point(5, 92);
+            this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(168, 31);
+            this.btnDeleteProduct.TabIndex = 7;
+            this.btnDeleteProduct.Text = "Delete Product";
+            this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateProduct
+            // 
+            this.btnCreateProduct.Location = new System.Drawing.Point(6, 20);
+            this.btnCreateProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCreateProduct.Name = "btnCreateProduct";
+            this.btnCreateProduct.Size = new System.Drawing.Size(168, 31);
+            this.btnCreateProduct.TabIndex = 1;
+            this.btnCreateProduct.Text = "Add New Product";
+            this.btnCreateProduct.UseVisualStyleBackColor = true;
+            this.btnCreateProduct.Click += new System.EventHandler(this.btnCreateProduct_Click);
             // 
             // labProductSearch
             // 
             this.labProductSearch.AutoSize = true;
-            this.labProductSearch.Location = new System.Drawing.Point(440, 21);
+            this.labProductSearch.Location = new System.Drawing.Point(394, 21);
             this.labProductSearch.Name = "labProductSearch";
-            this.labProductSearch.Size = new System.Drawing.Size(60, 21);
+            this.labProductSearch.Size = new System.Drawing.Size(118, 21);
             this.labProductSearch.TabIndex = 101;
-            this.labProductSearch.Text = "Search:";
+            this.labProductSearch.Text = "Search Product:";
             // 
             // tbProductSearch
             // 
             this.tbProductSearch.Location = new System.Drawing.Point(518, 18);
             this.tbProductSearch.Name = "tbProductSearch";
+            this.tbProductSearch.PlaceholderText = "Product Name or Barcode";
             this.tbProductSearch.Size = new System.Drawing.Size(268, 29);
             this.tbProductSearch.TabIndex = 100;
             this.tbProductSearch.TextChanged += new System.EventHandler(this.tbProductSearch_TextChanged);
             // 
-            // label1
+            // dgvProducts
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(801, 231);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 21);
-            this.label1.TabIndex = 47;
-            this.label1.Text = "Price (advice):";
-            // 
-            // tbxPrice
-            // 
-            this.tbxPrice.Location = new System.Drawing.Point(920, 226);
-            this.tbxPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxPrice.Name = "tbxPrice";
-            this.tbxPrice.Size = new System.Drawing.Size(161, 29);
-            this.tbxPrice.TabIndex = 46;
-            // 
-            // cbxProductType
-            // 
-            this.cbxProductType.FormattingEnabled = true;
-            this.cbxProductType.Items.AddRange(new object[] {
-            "KITCHEN_HOME",
-            "PHOTO_VIDEO_NAVIGATION",
-            "SMART_HOME_APPLIANCES",
-            "GAMING_MUSIC_COMPUTERS"});
-            this.cbxProductType.Location = new System.Drawing.Point(920, 185);
-            this.cbxProductType.Name = "cbxProductType";
-            this.cbxProductType.Size = new System.Drawing.Size(161, 29);
-            this.cbxProductType.TabIndex = 45;
-            // 
-            // dgProducts
-            // 
-            this.dgProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgProducts.Location = new System.Drawing.Point(31, 57);
-            this.dgProducts.Name = "dgProducts";
-            this.dgProducts.RowHeadersWidth = 51;
-            this.dgProducts.RowTemplate.Height = 25;
-            this.dgProducts.Size = new System.Drawing.Size(755, 392);
-            this.dgProducts.TabIndex = 44;
-            this.dgProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProducts_CellClick);
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(920, 97);
-            this.tbName.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(162, 29);
-            this.tbName.TabIndex = 29;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(808, 191);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 21);
-            this.label4.TabIndex = 43;
-            this.label4.Text = "Product type:";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(853, 106);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(55, 21);
-            this.lblName.TabIndex = 30;
-            this.lblName.Text = "Name:";
-            // 
-            // tbBarcode
-            // 
-            this.tbBarcode.Location = new System.Drawing.Point(920, 140);
-            this.tbBarcode.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tbBarcode.Name = "tbBarcode";
-            this.tbBarcode.Size = new System.Drawing.Size(162, 29);
-            this.tbBarcode.TabIndex = 31;
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(839, 149);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(69, 21);
-            this.lblEmail.TabIndex = 32;
-            this.lblEmail.Text = "Barcode:";
-            // 
-            // btnAddPorduct
-            // 
-            this.btnAddPorduct.Location = new System.Drawing.Point(833, 355);
-            this.btnAddPorduct.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnAddPorduct.Name = "btnAddPorduct";
-            this.btnAddPorduct.Size = new System.Drawing.Size(236, 30);
-            this.btnAddPorduct.TabIndex = 33;
-            this.btnAddPorduct.Text = "Add Product";
-            this.btnAddPorduct.UseVisualStyleBackColor = true;
-            this.btnAddPorduct.Click += new System.EventHandler(this.btnAddPorduct_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(832, 419);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(236, 30);
-            this.btnDelete.TabIndex = 34;
-            this.btnDelete.Text = "Remove Product";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(832, 387);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(236, 30);
-            this.btnEdit.TabIndex = 35;
-            this.btnEdit.Text = "Edit Product";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(880, 66);
-            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(28, 21);
-            this.lblId.TabIndex = 37;
-            this.lblId.Text = "ID:";
-            // 
-            // tbID
-            // 
-            this.tbID.Enabled = false;
-            this.tbID.Location = new System.Drawing.Point(920, 57);
-            this.tbID.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tbID.Name = "tbID";
-            this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(162, 29);
-            this.tbID.TabIndex = 36;
+            this.dgvProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducts.Location = new System.Drawing.Point(31, 57);
+            this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.RowHeadersWidth = 51;
+            this.dgvProducts.RowTemplate.Height = 25;
+            this.dgvProducts.Size = new System.Drawing.Size(862, 392);
+            this.dgvProducts.TabIndex = 44;
+            this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProducts_CellClick);
             // 
             // label2
             // 
@@ -275,7 +186,25 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // FromProductManager
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1130, 499);
+            this.tabPage1.TabIndex = 11;
+            this.tabPage1.Text = "Supplier";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(1130, 499);
+            this.tabPage2.TabIndex = 12;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // FormProductManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -284,12 +213,13 @@ namespace AdminBackups
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FromProductManager";
+            this.Name = "FormProductManager";
             this.Text = "ProductManager";
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -302,22 +232,16 @@ namespace AdminBackups
         private System.Windows.Forms.ListBox lbProduct;
         private System.Windows.Forms.TextBox cbProductType;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox tbBarcode;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Button btnAddPorduct;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgProducts;
-        private System.Windows.Forms.ComboBox cbxProductType;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbxPrice;
+        private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.Label labProductSearch;
         private System.Windows.Forms.TextBox tbProductSearch;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button bntUpdateProduct;
+        private System.Windows.Forms.Button btnDeleteProduct;
+        private System.Windows.Forms.Button btnCreateProduct;
+        private System.Windows.Forms.TextBox tbxSelectedProduct;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
