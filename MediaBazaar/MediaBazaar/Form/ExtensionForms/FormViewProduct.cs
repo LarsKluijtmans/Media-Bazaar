@@ -43,7 +43,6 @@ namespace MediaBazaar
 
             LoadProductInfo();
             LoadSuppliersForProduct();
-            GetOrderInfoForSupplier();
         }
         private void LoadProductInfo()
         {
@@ -74,8 +73,6 @@ namespace MediaBazaar
         }
         private void GetOrderInfoForSupplier()
         {
-            product.OrderInfos = ((ProductManager)employee).OrderInfoManagerPM.GetOrderInfosForProduct(product);
-
             // get supplier from combobox
             if (cbxSupplier.SelectedIndex < 0)
             {
@@ -90,8 +87,21 @@ namespace MediaBazaar
 
             Supplier supplier = (Supplier)supplierObject;
 
-            MessageBox.Show(supplier.Name);
-            
+            // check order infos of product
+            product.OrderInfos = ((ProductManager)employee).OrderInfoManagerPM.GetOrderInfosForProduct(product);
+            foreach (OrderInfo oi in product.OrderInfos)
+            {
+                // get order info of selected supplier
+                if (oi.Supplier.ID == supplier.ID)
+                {
+                    tbxMinAmount.Text = oi.MinAmount.ToString();
+                    tbxMaxAmount.Text = oi.MaxAmount.ToString();
+                    tbxMultiples.Text = oi.Multiples.ToString();
+                } 
+
+                // if there is no order info for selected supplier make tbx empty to add order info
+                // ???? if I clear the tbx it doesn't update the tbx when selecting a new supplier ????
+            }
         }
         private void cbxSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -147,7 +157,5 @@ namespace MediaBazaar
             FormOrderInfo formOrderInfo = new FormOrderInfo((ProductManager)employee, product);
             formOrderInfo.Show();
         }
-
-        
     }
 }
