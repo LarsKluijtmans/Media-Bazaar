@@ -7,6 +7,6 @@ namespace ClassLibraryProject.dbClasses.IGetObject
 {
     public interface IGetSupplier
     {
-        Supplier GetSupplier(int id);
+        Supplier GetSupplierByID(int id);
     }
 }

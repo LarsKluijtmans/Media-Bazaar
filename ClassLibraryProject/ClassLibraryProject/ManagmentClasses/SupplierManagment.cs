@@ -19,13 +19,13 @@ namespace ClassLibraryProject.ManagmentClasses
             this.DBSupplierManagerPM = new DBSupplierManager();
         }
 
-        public List<Supplier> GetSuppliers()
+        public List<Supplier> ReadSuppliers()
         {
-            return null;
+            return DBSupplierManagerPM.ReadSuppliers();
         }
-        public bool AddSupplier(Supplier s)
+        public bool CreateSupplier(Supplier s)
         {
-            return false;
+            return DBSupplierManagerPM.CreateSupplier(s);
         }
         public bool DeleteSupplier(Supplier s)
         {
@@ -37,7 +37,7 @@ namespace ClassLibraryProject.ManagmentClasses
             return false;
         }
 
-        public Supplier GetSupplier(int id)
+        public Supplier GetSupplierByID(int id)
         {
             return null;
         }

@@ -32,7 +32,7 @@ namespace AdminBackups
             Close();
         }
 
-        /* Products start */
+        /* Products Start */
         private void dgProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -100,5 +100,10 @@ namespace AdminBackups
         {
             UpdateProduct();
         }
+        /* Products End */
+
+        /* Supplier Start */
+
+        /* Supplier End */
     }
 }
