@@ -64,7 +64,7 @@ namespace ClassLibraryProject.ManagmentClasses
             dbSchedule = new DBSchedule();
 
             DEControl = new DepotEmployeeControl(lgReshelf, lgRestock);
-            DMControl = new DepotManagerControl(lgRestock);
+            //DMControl = new DepotManagerControl(lgRestock);
             SEControl = new SalesEmployeeControl(lgReshelf);
         }
     }

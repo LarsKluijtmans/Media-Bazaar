@@ -69,7 +69,7 @@ namespace MediaBazaar
         {
             List<Supplier> productSuppliers = ((ProductManager)employee).SupplierManagerPM.GetSuppliersForProduct(product);
 
-            MessageBox.Show(productSuppliers.Count.ToString());
+            cbxSupplier.DataSource = productSuppliers;
         }
         private bool UpdateProduct()
         {
@@ -120,6 +120,10 @@ namespace MediaBazaar
         {
             FormOrderInfo formOrderInfo = new FormOrderInfo((ProductManager)employee, product);
             formOrderInfo.Show();
+        }
+        private void GetOrderInfoForSupplier()
+        {
+
         }
     }
 }
