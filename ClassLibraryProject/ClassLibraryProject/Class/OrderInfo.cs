@@ -9,6 +9,7 @@
         private int minAmount;
         private int maxAmount;
         private int multiples;
+        private double purchasePrice;
 
         //properties
         public int ID
@@ -41,9 +42,19 @@
             get { return multiples; }
             set { multiples = value; }
         }
+        public double PurchasePrice { get; set; }
 
         //constructor
-        public OrderInfo(int id, Supplier supplier, Product product, int minAmount, int maxAmount, int multiples)
+        public OrderInfo(Supplier supplier, Product product, int minAmount, int maxAmount, int multiples, double purchasePrice)
+        {
+            Supplier = supplier;
+            Product = product;
+            MinAmount = minAmount;
+            MaxAmount = maxAmount;
+            Multiples = multiples;
+            this.PurchasePrice = purchasePrice;
+        }
+        public OrderInfo(int id, Supplier supplier, Product product, int minAmount, int maxAmount, int multiples, double purchasePrice)
         {
             ID = id;
             Supplier = supplier;
@@ -51,6 +62,7 @@
             MinAmount = minAmount;
             MaxAmount = maxAmount;
             Multiples = multiples;
+            this.PurchasePrice = purchasePrice;
         }
     }
 }

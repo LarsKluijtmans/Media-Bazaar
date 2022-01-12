@@ -30,7 +30,6 @@ namespace MediaBazaar
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.btnProduct = new System.Windows.Forms.Button();
             this.tbxType = new System.Windows.Forms.TextBox();
             this.tbxStatus = new System.Windows.Forms.TextBox();
@@ -51,7 +50,6 @@ namespace MediaBazaar
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnCreateOrderInfo = new System.Windows.Forms.Button();
             this.tbxMultiples = new System.Windows.Forms.TextBox();
             this.tbxMaxAmount = new System.Windows.Forms.TextBox();
             this.tbxMinAmount = new System.Windows.Forms.TextBox();
@@ -62,13 +60,13 @@ namespace MediaBazaar
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnCreateOrderInfo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.btnProduct);
             this.groupBox1.Controls.Add(this.tbxType);
             this.groupBox1.Controls.Add(this.tbxStatus);
@@ -94,15 +92,6 @@ namespace MediaBazaar
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Info:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(13, 153);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(100, 15);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Prefered Supplier:";
             // 
             // btnProduct
             // 
@@ -284,20 +273,10 @@ namespace MediaBazaar
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Location = new System.Drawing.Point(13, 201);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(547, 127);
+            this.groupBox2.Size = new System.Drawing.Size(547, 131);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Order Info:";
-            // 
-            // btnCreateOrderInfo
-            // 
-            this.btnCreateOrderInfo.Location = new System.Drawing.Point(388, 95);
-            this.btnCreateOrderInfo.Name = "btnCreateOrderInfo";
-            this.btnCreateOrderInfo.Size = new System.Drawing.Size(146, 23);
-            this.btnCreateOrderInfo.TabIndex = 13;
-            this.btnCreateOrderInfo.Text = "Add New Order Info";
-            this.btnCreateOrderInfo.UseVisualStyleBackColor = true;
-            this.btnCreateOrderInfo.Click += new System.EventHandler(this.btnCreateOrderInfo_Click);
             // 
             // tbxMultiples
             // 
@@ -385,11 +364,21 @@ namespace MediaBazaar
             this.label9.TabIndex = 0;
             this.label9.Text = "Supplier:";
             // 
+            // btnCreateOrderInfo
+            // 
+            this.btnCreateOrderInfo.Location = new System.Drawing.Point(388, 95);
+            this.btnCreateOrderInfo.Name = "btnCreateOrderInfo";
+            this.btnCreateOrderInfo.Size = new System.Drawing.Size(146, 23);
+            this.btnCreateOrderInfo.TabIndex = 13;
+            this.btnCreateOrderInfo.Text = "Add New Order Info";
+            this.btnCreateOrderInfo.UseVisualStyleBackColor = true;
+            this.btnCreateOrderInfo.Click += new System.EventHandler(this.btnCreateOrderInfo_Click);
+            // 
             // FormViewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 340);
+            this.ClientSize = new System.Drawing.Size(578, 339);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormViewProduct";
@@ -425,7 +414,6 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox tbxStatus;
         private System.Windows.Forms.TextBox tbxType;
         private System.Windows.Forms.Button btnProduct;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox tbxPurchasePrice;
         private System.Windows.Forms.ComboBox cbxSupplier;
         private System.Windows.Forms.Label label13;
@@ -433,9 +421,9 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnCreateOrderInfo;
         private System.Windows.Forms.TextBox tbxMultiples;
         private System.Windows.Forms.TextBox tbxMaxAmount;
         private System.Windows.Forms.TextBox tbxMinAmount;
+        private System.Windows.Forms.Button btnCreateOrderInfo;
     }
 }
