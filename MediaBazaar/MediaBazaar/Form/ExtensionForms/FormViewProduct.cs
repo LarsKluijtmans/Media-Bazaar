@@ -87,6 +87,8 @@ namespace MediaBazaar
 
             Supplier supplier = (Supplier)supplierObject;
 
+            bool OrderInfound = false;
+
             // check order infos of product
             product.OrderInfos = ((ProductManager)employee).OrderInfoManagerPM.GetOrderInfosForProduct(product);
             foreach (OrderInfo oi in product.OrderInfos)
@@ -97,8 +99,15 @@ namespace MediaBazaar
                     tbxMinAmount.Text = oi.MinAmount.ToString();
                     tbxMaxAmount.Text = oi.MaxAmount.ToString();
                     tbxMultiples.Text = oi.Multiples.ToString();
-                } 
+                    OrderInfound = true;
+                }
 
+                if (!OrderInfound)
+                {
+                    tbxMinAmount.Text = "";
+                    tbxMaxAmount.Text = "";
+                    tbxMultiples.Text = "";
+                }
                 // if there is no order info for selected supplier make tbx empty to add order info
                 // ???? if I clear the tbx it doesn't update the tbx when selecting a new supplier ????
             }

@@ -457,3 +457,5 @@ C:\Users\esthe\OneDrive\Bureaublad\GIT\cbo3-1-soleil-lars-esther-mohammad\MediaB
 C:\Users\esthe\OneDrive\Bureaublad\GIT\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormProductManager.resources
 C:\Users\esthe\OneDrive\Bureaublad\GIT\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormSalesManager.resources
 C:\Users\esthe\OneDrive\Bureaublad\GIT\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.Properties.Resources.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormNewProduct.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormViewProduct.resources
