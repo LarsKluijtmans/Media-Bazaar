@@ -73,6 +73,12 @@ namespace ClassLibraryProject.dbClasses
         //MohammadEnd
         public List<Product> Products { get; set; }
 
+        public DBProduct()
+        {
+            Products = new List<Product>();
+            RemoteProducts = new List<Product>();
+        }
+
         public void DiscontinueProduct(string ID)
         {
             MySqlConnection conn = Utils.GetConnection();

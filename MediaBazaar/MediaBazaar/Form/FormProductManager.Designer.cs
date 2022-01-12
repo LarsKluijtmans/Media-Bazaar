@@ -91,17 +91,17 @@ namespace AdminBackups
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1130, 499);
             this.tabPage3.TabIndex = 10;
-            this.tabPage3.Text = "Product";
+            this.tabPage3.Text = "Products";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // labProductSearch
             // 
             this.labProductSearch.AutoSize = true;
-            this.labProductSearch.Location = new System.Drawing.Point(440, 21);
+            this.labProductSearch.Location = new System.Drawing.Point(394, 21);
             this.labProductSearch.Name = "labProductSearch";
-            this.labProductSearch.Size = new System.Drawing.Size(60, 21);
+            this.labProductSearch.Size = new System.Drawing.Size(118, 21);
             this.labProductSearch.TabIndex = 101;
-            this.labProductSearch.Text = "Search:";
+            this.labProductSearch.Text = "Search Product:";
             // 
             // tbProductSearch
             // 
@@ -116,9 +116,9 @@ namespace AdminBackups
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(801, 231);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 21);
+            this.label1.Size = new System.Drawing.Size(114, 21);
             this.label1.TabIndex = 47;
-            this.label1.Text = "Price (advice):";
+            this.label1.Text = "Purchase Price:";
             // 
             // tbxPrice
             // 
@@ -275,7 +275,7 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // FromProductManager
+            // FormProductManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -284,7 +284,7 @@ namespace AdminBackups
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FromProductManager";
+            this.Name = "FormProductManager";
             this.Text = "ProductManager";
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
