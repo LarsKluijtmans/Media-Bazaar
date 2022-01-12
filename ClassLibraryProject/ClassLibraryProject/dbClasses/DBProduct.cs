@@ -1,4 +1,5 @@
-﻿using ClassLibraryProject.dbClasses.IDB;
+﻿using ClassLibraryProject.Class;
+using ClassLibraryProject.dbClasses.IDB;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;

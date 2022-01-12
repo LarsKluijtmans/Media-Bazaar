@@ -57,7 +57,7 @@ namespace ClassLibraryProject.ManagmentClasses
         }
         public bool DeleteSupplier(int id)
         {
-            if (SupplierExistByID(id) == false)
+            if (SupplierExistByID(id) == true)
             {
                 if (db.DeleteSupplier(id) == true)
                 {
@@ -69,7 +69,7 @@ namespace ClassLibraryProject.ManagmentClasses
         }
         public bool UpdateSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
         {
-            if (SupplierExistByID(id) == false)
+            if (SupplierExistByID(id) == true)
             {
                 if (db.UpdateSupplier(id, name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber) == true)
                 {
