@@ -77,15 +77,6 @@ namespace MediaBazaar
             product.OrderInfos = ((ProductManager)employee).OrderInfoManagerPM.GetOrderInfosForProduct(product);
 
             // get supplier from combobox
-
-            // if supplier == orderinfo.Supplier
-            // display orderinfo in tbx
-
-            // if another supplier is selected in cbx
-            // get new order info of this supplier
-        }
-        private void cbxSupplier_SelectedIndexChanged(object sender, EventArgs e)
-        {
             if (cbxSupplier.SelectedIndex < 0)
             {
                 return;
@@ -99,17 +90,12 @@ namespace MediaBazaar
 
             Supplier supplier = (Supplier)supplierObject;
 
-            product.OrderInfos = ((ProductManager)employee).OrderInfoManagerPM.GetOrderInfosForProduct(product);
-
-            foreach (OrderInfo oi in product.OrderInfos)
-            {
-                if (oi.Supplier == supplier)
-                {
-                    textBox1.Text = oi.MinAmount.ToString();
-                    textBox2.Text = oi.MaxAmount.ToString();
-                    textBox3.Text = oi.Multiples.ToString();
-                }
-            }
+            MessageBox.Show(supplier.Name);
+            
+        }
+        private void cbxSupplier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetOrderInfoForSupplier();
         }
         private bool UpdateProduct()
         {

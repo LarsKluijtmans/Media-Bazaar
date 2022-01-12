@@ -52,9 +52,9 @@ namespace MediaBazaar
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCreateOrderInfo = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxMultiples = new System.Windows.Forms.TextBox();
+            this.tbxMaxAmount = new System.Windows.Forms.TextBox();
+            this.tbxMinAmount = new System.Windows.Forms.TextBox();
             this.tbxPurchasePrice = new System.Windows.Forms.TextBox();
             this.cbxSupplier = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -272,9 +272,9 @@ namespace MediaBazaar
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnCreateOrderInfo);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.tbxMultiples);
+            this.groupBox2.Controls.Add(this.tbxMaxAmount);
+            this.groupBox2.Controls.Add(this.tbxMinAmount);
             this.groupBox2.Controls.Add(this.tbxPurchasePrice);
             this.groupBox2.Controls.Add(this.cbxSupplier);
             this.groupBox2.Controls.Add(this.label13);
@@ -299,29 +299,29 @@ namespace MediaBazaar
             this.btnCreateOrderInfo.UseVisualStyleBackColor = true;
             this.btnCreateOrderInfo.Click += new System.EventHandler(this.btnCreateOrderInfo_Click);
             // 
-            // textBox3
+            // tbxMultiples
             // 
-            this.textBox3.Location = new System.Drawing.Point(388, 62);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(146, 23);
-            this.textBox3.TabIndex = 12;
+            this.tbxMultiples.Location = new System.Drawing.Point(388, 62);
+            this.tbxMultiples.Name = "tbxMultiples";
+            this.tbxMultiples.ReadOnly = true;
+            this.tbxMultiples.Size = new System.Drawing.Size(146, 23);
+            this.tbxMultiples.TabIndex = 12;
             // 
-            // textBox2
+            // tbxMaxAmount
             // 
-            this.textBox2.Location = new System.Drawing.Point(131, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(133, 23);
-            this.textBox2.TabIndex = 11;
+            this.tbxMaxAmount.Location = new System.Drawing.Point(131, 92);
+            this.tbxMaxAmount.Name = "tbxMaxAmount";
+            this.tbxMaxAmount.ReadOnly = true;
+            this.tbxMaxAmount.Size = new System.Drawing.Size(133, 23);
+            this.tbxMaxAmount.TabIndex = 11;
             // 
-            // textBox1
+            // tbxMinAmount
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(133, 23);
-            this.textBox1.TabIndex = 10;
+            this.tbxMinAmount.Location = new System.Drawing.Point(131, 63);
+            this.tbxMinAmount.Name = "tbxMinAmount";
+            this.tbxMinAmount.ReadOnly = true;
+            this.tbxMinAmount.Size = new System.Drawing.Size(133, 23);
+            this.tbxMinAmount.TabIndex = 10;
             // 
             // tbxPurchasePrice
             // 
@@ -434,8 +434,8 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnCreateOrderInfo;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxMultiples;
+        private System.Windows.Forms.TextBox tbxMaxAmount;
+        private System.Windows.Forms.TextBox tbxMinAmount;
     }
 }
