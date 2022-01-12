@@ -94,8 +94,9 @@ namespace ClassLibraryProject.dbClasses
                         IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
                         IProductManagerPM productManagerPM = new ProductManagement();
                         ISupplierManagerPM supplierManagerPM = new SupplierManagment();
+                        IOrderInfoManagerPM orderInfoManagerPM = new OrderInfoManager();
 
-                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll, productManagerPM, supplierManagerPM);
+                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll, productManagerPM, supplierManagerPM, orderInfoManagerPM);
                         return employee;
                     }
                     else if (jobTitle == "SALES MANAGER")

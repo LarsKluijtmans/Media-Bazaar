@@ -43,6 +43,7 @@ namespace MediaBazaar
 
             LoadProductInfo();
             GetSuppliersForProduct();
+            GetOrderInfoForSupplier();
         }
         private void LoadProductInfo()
         {
@@ -70,6 +71,18 @@ namespace MediaBazaar
             List<Supplier> productSuppliers = ((ProductManager)employee).SupplierManagerPM.GetSuppliersForProduct(product);
 
             cbxSupplier.DataSource = productSuppliers;
+        }
+        private void GetOrderInfoForSupplier()
+        {
+            product.OrderInfos = ((ProductManager)employee).OrderInfoManagerPM.GetOrderInfosForProduct(product);
+
+            // get supplier from combobox
+
+            // if supplier == orderinfo.Supplier
+            // display orderinfo in tbx
+
+            // if another supplier is selected in cbx
+            // get new order info of this supplier
         }
         private bool UpdateProduct()
         {
@@ -121,9 +134,6 @@ namespace MediaBazaar
             FormOrderInfo formOrderInfo = new FormOrderInfo((ProductManager)employee, product);
             formOrderInfo.Show();
         }
-        private void GetOrderInfoForSupplier()
-        {
-
-        }
+        
     }
 }
