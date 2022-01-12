@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ClassLibraryProject.dbClasses
 {
-    public class DBSupplierManager: IDBSupplierManager
+    public class DBSupplierManager: IDBSupplierManagerPM
     {
         private string GET_ALL_SUPPLIERS = "SELECT * FROM supplier;";
         private string ADD_SUPPLIER = "INSERT INTO supplier (ID, Name, Country, BuildingNumber, PostalCode, Email, PhoneNumber, BankNumber) VALUES (@ID, @Name, @Country, @BuildingNumber, @PostalCode, @Email, @PhoneNumber, @BankNumber);";

@@ -42,6 +42,7 @@ namespace MediaBazaar
             }
 
             LoadProductInfo();
+            GetSuppliersForProduct();
         }
         private void LoadProductInfo()
         {
@@ -66,7 +67,9 @@ namespace MediaBazaar
         }
         private void GetSuppliersForProduct()
         {
+            List<Supplier> productSuppliers = ((ProductManager)employee).SupplierManagerPM.GetSuppliersForProduct(product);
 
+            MessageBox.Show(productSuppliers.Count.ToString());
         }
         private bool UpdateProduct()
         {

@@ -1,4 +1,5 @@
 ﻿using ClassLibraryProject.Class;
+using ClassLibraryProject.ManagmentClasses.IProductManager;
 using System;
 
 namespace ClassLibraryProject.ChildClasses
@@ -6,6 +7,7 @@ namespace ClassLibraryProject.ChildClasses
   public class ProductManager : Employee
     {
         public IProductManagerPM ProductManagerPM { get; set; }
+        public ISupplierManagerPM SupplierManagerPM { get; set; }
 
         // empty for website
         public ProductManager() : base()
@@ -33,10 +35,11 @@ namespace ClassLibraryProject.ChildClasses
         }
 
         // for login
-        public ProductManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerAll employeeManagerAll, IProductManagerPM productManagerPM)
+        public ProductManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerAll employeeManagerAll, IProductManagerPM productManagerPM, ISupplierManagerPM supplierManagerPM)
        : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll)
         {
             this.ProductManagerPM = productManagerPM;
+            this.SupplierManagerPM = supplierManagerPM;
         }
     }
 }

@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClassLibraryProject.dbClasses.IDB
+namespace ClassLibraryProject.ManagmentClasses.IProductManager
 {
-    public interface IDBSupplierManager
+    public interface ISupplierManagerPM
     {
         List<Supplier> GetSuppliers();
         bool AddSupplier(Supplier s);
