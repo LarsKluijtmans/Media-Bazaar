@@ -5,7 +5,7 @@ namespace ClassLibraryProject.Class
 {
     public class Store
     {
-        public ProductManagment productManagment;
+        public ProductManagement productManagment;
         public RestockManagment restockManagment;
         public ReshelfManagment reshelfManagment;
         public ScheduleManagment scheduleManagment;
@@ -18,7 +18,7 @@ namespace ClassLibraryProject.Class
 
         public Store()
         {
-            productManagment = new ProductManagment();
+            productManagment = new ProductManagement();
             //restockManagment = new RestockManagment();
             //reshelfManagment = new ReshelfManagment();
             //scheduleManagment = new ScheduleManagment();

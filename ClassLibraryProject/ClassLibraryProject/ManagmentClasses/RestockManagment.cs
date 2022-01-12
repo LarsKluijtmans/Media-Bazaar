@@ -42,7 +42,7 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             if (RestockByIDExist(id))
             {
-                if(IsDivisible(orderInfo, amount) == true)
+                if(IsValid(orderInfo, amount) == true)
                 {
                     if (db.OrderRestock(id, orderInfo, amount) == true)
                     {
@@ -93,7 +93,7 @@ namespace ClassLibraryProject.ManagmentClasses
         }    
         public bool RequestRestock(Product product)
         {
-            if (RestockExist(product))
+            if (!RestockExist(product))
             {
                 if (db.RequestRestock(id(), product) == true)
                 {
@@ -121,7 +121,7 @@ namespace ClassLibraryProject.ManagmentClasses
         //check
         public bool IsValid(OrderInfo orderInfo, int amount)
         {
-            if(amount % orderInfo.Multiples == 0)
+            if(amount % orderInfo.Multiples == 0 && amount <= orderInfo.MaxAmount && amount >= orderInfo.MinAmount)
             {
                 return true;
             }

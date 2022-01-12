@@ -39,23 +39,6 @@ namespace AdminBackups
             this.label14 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
             this.txtProductID = new System.Windows.Forms.TabPage();
-            this.labProductSearch = new System.Windows.Forms.Label();
-            this.tbProductSearch = new System.Windows.Forms.TextBox();
-            this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbxProductType = new System.Windows.Forms.TextBox();
-            this.tbxPrice = new System.Windows.Forms.TextBox();
-            this.tbxBarcode = new System.Windows.Forms.TextBox();
-            this.tbxProductName = new System.Windows.Forms.TextBox();
-            this.tbxProductID = new System.Windows.Forms.TextBox();
-            this.btnDiscontinue = new System.Windows.Forms.Button();
-            this.btnEditProduct = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
             this.tabSchedule = new System.Windows.Forms.TabPage();
             this.cbSchebuleByDepartment = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -100,9 +83,6 @@ namespace AdminBackups
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).BeginInit();
-            this.txtProductID.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.tabSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -203,11 +183,6 @@ namespace AdminBackups
             // 
             // txtProductID
             // 
-            this.txtProductID.Controls.Add(this.labProductSearch);
-            this.txtProductID.Controls.Add(this.tbProductSearch);
-            this.txtProductID.Controls.Add(this.dgvProducts);
-            this.txtProductID.Controls.Add(this.label3);
-            this.txtProductID.Controls.Add(this.groupBox1);
             this.txtProductID.Location = new System.Drawing.Point(4, 30);
             this.txtProductID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtProductID.Name = "txtProductID";
@@ -216,189 +191,6 @@ namespace AdminBackups
             this.txtProductID.TabIndex = 3;
             this.txtProductID.Text = "Products ";
             this.txtProductID.UseVisualStyleBackColor = true;
-            // 
-            // labProductSearch
-            // 
-            this.labProductSearch.AutoSize = true;
-            this.labProductSearch.Location = new System.Drawing.Point(288, 23);
-            this.labProductSearch.Name = "labProductSearch";
-            this.labProductSearch.Size = new System.Drawing.Size(60, 21);
-            this.labProductSearch.TabIndex = 99;
-            this.labProductSearch.Text = "Search:";
-            // 
-            // tbProductSearch
-            // 
-            this.tbProductSearch.Location = new System.Drawing.Point(366, 20);
-            this.tbProductSearch.Name = "tbProductSearch";
-            this.tbProductSearch.Size = new System.Drawing.Size(268, 29);
-            this.tbProductSearch.TabIndex = 98;
-            this.tbProductSearch.TextChanged += new System.EventHandler(this.tbProductSearch_TextChanged);
-            // 
-            // dgvProducts
-            // 
-            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Location = new System.Drawing.Point(25, 61);
-            this.dgvProducts.Name = "dgvProducts";
-            this.dgvProducts.RowHeadersWidth = 51;
-            this.dgvProducts.RowTemplate.Height = 25;
-            this.dgvProducts.Size = new System.Drawing.Size(622, 448);
-            this.dgvProducts.TabIndex = 97;
-            this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick_1);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(25, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 21);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Product List:";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.tbxProductType);
-            this.groupBox1.Controls.Add(this.tbxPrice);
-            this.groupBox1.Controls.Add(this.tbxBarcode);
-            this.groupBox1.Controls.Add(this.tbxProductName);
-            this.groupBox1.Controls.Add(this.tbxProductID);
-            this.groupBox1.Controls.Add(this.btnDiscontinue);
-            this.groupBox1.Controls.Add(this.btnEditProduct);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.lblName);
-            this.groupBox1.Controls.Add(this.lblEmail);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.lblId);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(653, 104);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(314, 334);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Product Management";
-            // 
-            // tbxProductType
-            // 
-            this.tbxProductType.Location = new System.Drawing.Point(122, 125);
-            this.tbxProductType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxProductType.Name = "tbxProductType";
-            this.tbxProductType.ReadOnly = true;
-            this.tbxProductType.Size = new System.Drawing.Size(179, 29);
-            this.tbxProductType.TabIndex = 63;
-            // 
-            // tbxPrice
-            // 
-            this.tbxPrice.Location = new System.Drawing.Point(122, 163);
-            this.tbxPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxPrice.Name = "tbxPrice";
-            this.tbxPrice.Size = new System.Drawing.Size(179, 29);
-            this.tbxPrice.TabIndex = 62;
-            // 
-            // tbxBarcode
-            // 
-            this.tbxBarcode.Location = new System.Drawing.Point(122, 94);
-            this.tbxBarcode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxBarcode.Name = "tbxBarcode";
-            this.tbxBarcode.ReadOnly = true;
-            this.tbxBarcode.Size = new System.Drawing.Size(179, 29);
-            this.tbxBarcode.TabIndex = 61;
-            // 
-            // tbxProductName
-            // 
-            this.tbxProductName.Location = new System.Drawing.Point(122, 64);
-            this.tbxProductName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxProductName.Name = "tbxProductName";
-            this.tbxProductName.ReadOnly = true;
-            this.tbxProductName.Size = new System.Drawing.Size(179, 29);
-            this.tbxProductName.TabIndex = 60;
-            // 
-            // tbxProductID
-            // 
-            this.tbxProductID.Location = new System.Drawing.Point(122, 32);
-            this.tbxProductID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbxProductID.Name = "tbxProductID";
-            this.tbxProductID.ReadOnly = true;
-            this.tbxProductID.Size = new System.Drawing.Size(179, 29);
-            this.tbxProductID.TabIndex = 59;
-            // 
-            // btnDiscontinue
-            // 
-            this.btnDiscontinue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDiscontinue.Location = new System.Drawing.Point(71, 260);
-            this.btnDiscontinue.Name = "btnDiscontinue";
-            this.btnDiscontinue.Size = new System.Drawing.Size(185, 43);
-            this.btnDiscontinue.TabIndex = 58;
-            this.btnDiscontinue.Text = "Discontinue Product";
-            this.btnDiscontinue.UseVisualStyleBackColor = true;
-            this.btnDiscontinue.Click += new System.EventHandler(this.btnDiscontinue_Click);
-            // 
-            // btnEditProduct
-            // 
-            this.btnEditProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditProduct.Location = new System.Drawing.Point(71, 218);
-            this.btnEditProduct.Name = "btnEditProduct";
-            this.btnEditProduct.Size = new System.Drawing.Size(185, 36);
-            this.btnEditProduct.TabIndex = 57;
-            this.btnEditProduct.Text = "Update Product";
-            this.btnEditProduct.UseVisualStyleBackColor = true;
-            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(7, 133);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 16);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "Product Type:";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(56, 71);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(47, 16);
-            this.lblName.TabIndex = 46;
-            this.lblName.Text = "Name:";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEmail.Location = new System.Drawing.Point(38, 101);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(62, 16);
-            this.lblEmail.TabIndex = 48;
-            this.lblEmail.Text = "Barcode:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(60, 163);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 16);
-            this.label5.TabIndex = 52;
-            this.label5.Text = "Price:";
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblId.Location = new System.Drawing.Point(80, 40);
-            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(23, 16);
-            this.lblId.TabIndex = 50;
-            this.lblId.Text = "ID:";
             // 
             // tabSchedule
             // 
@@ -834,11 +626,6 @@ namespace AdminBackups
             this.tabOverview.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).EndInit();
-            this.txtProductID.ResumeLayout(false);
-            this.txtProductID.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.tabSchedule.ResumeLayout(false);
             this.tabSchedule.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).EndInit();
@@ -856,16 +643,8 @@ namespace AdminBackups
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.TabPage txtProductID;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TabPage tabSchedule;
         private System.Windows.Forms.TabPage tabPlanning;
-        private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label txtMonth;
         private System.Windows.Forms.Label lbScheduleDay;
@@ -894,8 +673,6 @@ namespace AdminBackups
         private System.Windows.Forms.DataGridView dgOverviewSchedule;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView dgProduct;
-        private System.Windows.Forms.Button btnDiscontinue;
-        private System.Windows.Forms.Button btnEditProduct;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtYear;
@@ -908,13 +685,6 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnDecreasePlanningWeek;
         private System.Windows.Forms.Button btnIncreasePlanningWeek;
         private System.Windows.Forms.Label lblPlanningWeek;
-        private System.Windows.Forms.TextBox tbxProductType;
-        private System.Windows.Forms.TextBox tbxPrice;
-        private System.Windows.Forms.TextBox tbxBarcode;
-        private System.Windows.Forms.TextBox tbxProductName;
-        private System.Windows.Forms.TextBox tbxProductID;
-        private System.Windows.Forms.TextBox tbProductSearch;
-        private System.Windows.Forms.Label labProductSearch;
         private System.Windows.Forms.ComboBox cbDepartments;
         private System.Windows.Forms.Button btnAutoSchedule;
         private System.Windows.Forms.ComboBox cbSchebuleByDepartment;

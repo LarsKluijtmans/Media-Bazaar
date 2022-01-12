@@ -10,7 +10,7 @@ namespace ClassLibraryProject.Class
         private string productName;
         private string barcode;
         private string productType;
-        private int sellingPrice;
+        private double sellingPrice;
         private int amountInDepot;
         private int amountInStore;
         private bool isDiscontinued;
@@ -22,7 +22,7 @@ namespace ClassLibraryProject.Class
         public string ProductName { get; set; }
         public string Barcode { get; set; }
         public string ProductType { get; set; }
-        public int SellingPrice { get; set; }
+        public double SellingPrice { get; set; }
         public int AmountInDepot { get; set; }
         public int AmountInStore { get; set; }
         public bool IsDiscontinued { get; set; }
@@ -44,7 +44,7 @@ namespace ClassLibraryProject.Class
             OrderInfos = new List<OrderInfo>();
         }
         // for reading the product
-        public Product(int id, string name, string type, string barcode, int sellingPrice, int amountInDepot, int amountInStore, bool isDiscontinued) 
+        public Product(int id, string name, string barcode, string type, double sellingPrice, int amountInDepot, int amountInStore, bool isDiscontinued) 
         {
             ProductID = id;
             Barcode = barcode;

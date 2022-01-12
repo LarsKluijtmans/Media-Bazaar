@@ -5,6 +5,7 @@ using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses.AutoSchedule;
 using ClassLibraryProject.Interfaces;
 using ClassLibraryProject.ManagmentClasses;
+using ClassLibraryProject.ManagmentClasses.IProductManager;
 using MySql.Data.MySqlClient;
 
 namespace ClassLibraryProject.dbClasses
@@ -90,7 +91,11 @@ namespace ClassLibraryProject.dbClasses
                     }
                     else if (jobTitle == "PRODUCT MANAGER")
                     {
-                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
+                        IProductManagerPM productManagerPM = new ProductManagement();
+                        ISupplierManagerPM supplierManagerPM = new SupplierManagment();
+
+                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll, productManagerPM, supplierManagerPM);
                         return employee;
                     }
                     else if (jobTitle == "SALES MANAGER")

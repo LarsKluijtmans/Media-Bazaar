@@ -11,6 +11,7 @@ namespace ClassLibraryProject.ChildClasses
         public IDepartment departmentManagment;
         public ICompany companyManagment;
         public ICheckin checkinManagment;
+
         public IEmployeeManagerOffice EmployeeManagerOffice { get; set; }
         public IContractManager ContractManager { get; set; }
 
