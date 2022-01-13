@@ -83,3 +83,10 @@ F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\ne
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\bin\Debug\netcoreapp3.1\Devart.Data.MySql.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\bin\Debug\netcoreapp3.1\Devart.Data.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForSalesRepresentative\bin\Debug\netcoreapp3.1\MySqlBackupNet.DevartExpress.dll
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.csproj.AssemblyReference.cache
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.Scanner.resources
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.csproj.GenerateResource.cache
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.AssemblyInfoInputs.cache
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.AssemblyInfo.cs
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.csproj.CoreCompileInputs.cache

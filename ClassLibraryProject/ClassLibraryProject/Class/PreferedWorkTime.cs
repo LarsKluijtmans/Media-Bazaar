@@ -7,7 +7,7 @@
         private int employeeID;
         private bool prefered;
         private string day;
-        private string time;
+        private string shift;
 
 
 
@@ -30,10 +30,10 @@
             set { prefered = value; }
         }
 
-        public string Time
+        public string Shift
         {
-            get { return time; }
-            set { time = value; }
+            get { return shift; }
+            set { shift = value; }
         }
 
         public string Day
@@ -44,19 +44,30 @@
 
 
         //constructor
-        public PreferedWorkTime(int employeeId, string time, string day)
+        public PreferedWorkTime(bool prefered, string time, string day)
         {
-            this.EmployeeID = employeeId;
-            this.Time = time;
+            this.Prefered = prefered;
+            this.Shift = shift;
             this.Day = day;
             this.Prefered = true;
+        }
+
+        public PreferedWorkTime(string shift, string day)
+        {
+            this.Shift = shift;
+            this.Day = day;
+        }
+
+
+            public PreferedWorkTime()
+        {
         }
 
 
         //methods
         public override string ToString()
         {
-            return "  ID: " + PreferedID + "   EmployeeID: " + employeeID + "   prefered: " + prefered + "   day: " + day + "   time: " + time;
+            return "  ID: " + PreferedID + "   EmployeeID: " + employeeID + "   prefered: " + prefered + "   day: " + day + "   time: " + Shift;
         }
     }
 }

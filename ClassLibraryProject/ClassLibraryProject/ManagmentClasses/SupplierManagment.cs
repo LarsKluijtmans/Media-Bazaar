@@ -37,11 +37,12 @@ namespace ClassLibraryProject.ManagmentClasses
             return false;
         }
 
-        public Supplier GetSupplierByID(int id)
+        public Supplier GetSupplierByID(int supplierID)
         {
-            return null;
+            return DBSupplierManagerPM.GetSupplierByID(supplierID);
         }
-        
+
+
 
         public List<Supplier> GetSuppliersForProduct(Product p)
         {

@@ -83,3 +83,10 @@ F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcorea
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\Devart.Data.MySql.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\Devart.Data.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\bin\Debug\netcoreapp3.1\MySqlBackupNet.DevartExpress.dll
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.csproj.AssemblyReference.cache
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.BarcodeScannerDepot.resources
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.csproj.GenerateResource.cache
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.AssemblyInfoInputs.cache
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.AssemblyInfo.cs
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForDepotEmployee\obj\Debug\netcoreapp3.1\RemoteAppForDepotEmployee.csproj.CoreCompileInputs.cache

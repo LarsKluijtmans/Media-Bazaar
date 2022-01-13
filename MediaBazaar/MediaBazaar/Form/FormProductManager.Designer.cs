@@ -42,13 +42,11 @@ namespace AdminBackups
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.dgvSuppliers = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbxSupplierSearch = new System.Windows.Forms.TextBox();
-            this.cbxSupplierType = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbxProductType = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbxSupplierID = new System.Windows.Forms.TextBox();
             this.btnAddNewOrder = new System.Windows.Forms.Button();
             this.btnOrderInfo = new System.Windows.Forms.Button();
             this.btnAddSupplier = new System.Windows.Forms.Button();
@@ -68,13 +66,19 @@ namespace AdminBackups
             this.btnEditSupplier = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.btnRemoveSupplier = new System.Windows.Forms.Button();
+            this.cbxSupplierType = new System.Windows.Forms.ComboBox();
+            this.tbxSupplierSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvSuppliers = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -215,70 +219,12 @@ namespace AdminBackups
             this.tabPage1.Text = "Supplier";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1130, 499);
-            this.tabPage2.TabIndex = 12;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogout.Location = new System.Drawing.Point(1064, 11);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(82, 33);
-            this.btnLogout.TabIndex = 22;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // dgvSuppliers
-            // 
-            this.dgvSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSuppliers.Location = new System.Drawing.Point(16, 49);
-            this.dgvSuppliers.Name = "dgvSuppliers";
-            this.dgvSuppliers.RowTemplate.Height = 25;
-            this.dgvSuppliers.Size = new System.Drawing.Size(721, 388);
-            this.dgvSuppliers.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(16, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Suppliers:";
-            // 
-            // tbxSupplierSearch
-            // 
-            this.tbxSupplierSearch.Location = new System.Drawing.Point(555, 19);
-            this.tbxSupplierSearch.Name = "tbxSupplierSearch";
-            this.tbxSupplierSearch.PlaceholderText = "Search supplier name";
-            this.tbxSupplierSearch.Size = new System.Drawing.Size(182, 25);
-            this.tbxSupplierSearch.TabIndex = 2;
-            // 
-            // cbxSupplierType
-            // 
-            this.cbxSupplierType.FormattingEnabled = true;
-            this.cbxSupplierType.Items.AddRange(new object[] {
-            "All suppliers",
-            "KITCHEN_HOME",
-            "PHOTO_VIDEO_NAVIGATION",
-            "SMART_HOME_APPLIANCES",
-            "GAMING_MUSIC_COMPUTERS"});
-            this.cbxSupplierType.Location = new System.Drawing.Point(117, 19);
-            this.cbxSupplierType.Name = "cbxSupplierType";
-            this.cbxSupplierType.Size = new System.Drawing.Size(163, 25);
-            this.cbxSupplierType.TabIndex = 3;
-            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.cbxProductType);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.tbxSupplierID);
             this.groupBox3.Controls.Add(this.btnAddNewOrder);
             this.groupBox3.Controls.Add(this.btnOrderInfo);
             this.groupBox3.Controls.Add(this.btnAddSupplier);
@@ -306,10 +252,51 @@ namespace AdminBackups
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Supplier Management";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(52, 255);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 15);
+            this.label4.TabIndex = 114;
+            this.label4.Text = "Product Type:";
+            // 
+            // cbxProductType
+            // 
+            this.cbxProductType.FormattingEnabled = true;
+            this.cbxProductType.Items.AddRange(new object[] {
+            "KITCHEN_HOME",
+            "PHOTO_VIDEO_NAVIGATION",
+            "SMART_HOME_APPLIANCES",
+            "GAMING_MUSIC_COMPUTERS"});
+            this.cbxProductType.Location = new System.Drawing.Point(137, 247);
+            this.cbxProductType.Name = "cbxProductType";
+            this.cbxProductType.Size = new System.Drawing.Size(198, 29);
+            this.cbxProductType.TabIndex = 113;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(103, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 21);
+            this.label3.TabIndex = 112;
+            this.label3.Text = "ID:";
+            // 
+            // tbxSupplierID
+            // 
+            this.tbxSupplierID.Location = new System.Drawing.Point(137, 24);
+            this.tbxSupplierID.Name = "tbxSupplierID";
+            this.tbxSupplierID.PlaceholderText = "Selected Supplier";
+            this.tbxSupplierID.ReadOnly = true;
+            this.tbxSupplierID.Size = new System.Drawing.Size(198, 29);
+            this.tbxSupplierID.TabIndex = 111;
+            // 
             // btnAddNewOrder
             // 
             this.btnAddNewOrder.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddNewOrder.Location = new System.Drawing.Point(220, 337);
+            this.btnAddNewOrder.Location = new System.Drawing.Point(137, 349);
             this.btnAddNewOrder.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnAddNewOrder.Name = "btnAddNewOrder";
             this.btnAddNewOrder.Size = new System.Drawing.Size(126, 30);
@@ -320,7 +307,7 @@ namespace AdminBackups
             // btnOrderInfo
             // 
             this.btnOrderInfo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnOrderInfo.Location = new System.Drawing.Point(90, 337);
+            this.btnOrderInfo.Location = new System.Drawing.Point(5, 349);
             this.btnOrderInfo.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnOrderInfo.Name = "btnOrderInfo";
             this.btnOrderInfo.Size = new System.Drawing.Size(126, 30);
@@ -331,18 +318,19 @@ namespace AdminBackups
             // btnAddSupplier
             // 
             this.btnAddSupplier.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddSupplier.Location = new System.Drawing.Point(208, 228);
+            this.btnAddSupplier.Location = new System.Drawing.Point(208, 287);
             this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnAddSupplier.Name = "btnAddSupplier";
             this.btnAddSupplier.Size = new System.Drawing.Size(127, 30);
             this.btnAddSupplier.TabIndex = 108;
             this.btnAddSupplier.Text = "Add Supplier";
             this.btnAddSupplier.UseVisualStyleBackColor = true;
+            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
             // 
             // tbxPostalCode
             // 
             this.tbxPostalCode.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxPostalCode.Location = new System.Drawing.Point(264, 126);
+            this.tbxPostalCode.Location = new System.Drawing.Point(264, 152);
             this.tbxPostalCode.Name = "tbxPostalCode";
             this.tbxPostalCode.Size = new System.Drawing.Size(71, 25);
             this.tbxPostalCode.TabIndex = 107;
@@ -351,7 +339,7 @@ namespace AdminBackups
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(195, 129);
+            this.label17.Location = new System.Drawing.Point(195, 155);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(64, 17);
@@ -361,7 +349,7 @@ namespace AdminBackups
             // tbxCountry
             // 
             this.tbxCountry.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxCountry.Location = new System.Drawing.Point(137, 95);
+            this.tbxCountry.Location = new System.Drawing.Point(137, 121);
             this.tbxCountry.Name = "tbxCountry";
             this.tbxCountry.Size = new System.Drawing.Size(198, 25);
             this.tbxCountry.TabIndex = 105;
@@ -370,7 +358,7 @@ namespace AdminBackups
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(76, 98);
+            this.label16.Location = new System.Drawing.Point(76, 124);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(56, 17);
@@ -380,7 +368,7 @@ namespace AdminBackups
             // tbxPhoneNumber
             // 
             this.tbxPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxPhoneNumber.Location = new System.Drawing.Point(137, 189);
+            this.tbxPhoneNumber.Location = new System.Drawing.Point(137, 215);
             this.tbxPhoneNumber.Name = "tbxPhoneNumber";
             this.tbxPhoneNumber.Size = new System.Drawing.Size(198, 25);
             this.tbxPhoneNumber.TabIndex = 102;
@@ -388,7 +376,7 @@ namespace AdminBackups
             // tbxEmail
             // 
             this.tbxEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxEmail.Location = new System.Drawing.Point(137, 158);
+            this.tbxEmail.Location = new System.Drawing.Point(137, 184);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(198, 25);
             this.tbxEmail.TabIndex = 101;
@@ -396,7 +384,7 @@ namespace AdminBackups
             // tbxBuildingNumber
             // 
             this.tbxBuildingNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxBuildingNumber.Location = new System.Drawing.Point(137, 126);
+            this.tbxBuildingNumber.Location = new System.Drawing.Point(137, 152);
             this.tbxBuildingNumber.Name = "tbxBuildingNumber";
             this.tbxBuildingNumber.Size = new System.Drawing.Size(53, 25);
             this.tbxBuildingNumber.TabIndex = 100;
@@ -404,7 +392,7 @@ namespace AdminBackups
             // tbxBankNumber
             // 
             this.tbxBankNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxBankNumber.Location = new System.Drawing.Point(137, 64);
+            this.tbxBankNumber.Location = new System.Drawing.Point(137, 90);
             this.tbxBankNumber.Name = "tbxBankNumber";
             this.tbxBankNumber.Size = new System.Drawing.Size(198, 25);
             this.tbxBankNumber.TabIndex = 99;
@@ -412,7 +400,7 @@ namespace AdminBackups
             // tbxSupplierName
             // 
             this.tbxSupplierName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxSupplierName.Location = new System.Drawing.Point(137, 33);
+            this.tbxSupplierName.Location = new System.Drawing.Point(137, 59);
             this.tbxSupplierName.Name = "tbxSupplierName";
             this.tbxSupplierName.Size = new System.Drawing.Size(198, 25);
             this.tbxSupplierName.TabIndex = 98;
@@ -421,7 +409,7 @@ namespace AdminBackups
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label31.Location = new System.Drawing.Point(33, 192);
+            this.label31.Location = new System.Drawing.Point(33, 218);
             this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(99, 17);
@@ -432,7 +420,7 @@ namespace AdminBackups
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label29.Location = new System.Drawing.Point(90, 161);
+            this.label29.Location = new System.Drawing.Point(90, 187);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(42, 17);
@@ -443,7 +431,7 @@ namespace AdminBackups
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(86, 36);
+            this.label20.Location = new System.Drawing.Point(86, 62);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(46, 17);
@@ -454,7 +442,7 @@ namespace AdminBackups
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label25.Location = new System.Drawing.Point(42, 67);
+            this.label25.Location = new System.Drawing.Point(42, 93);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(90, 17);
@@ -464,19 +452,20 @@ namespace AdminBackups
             // btnEditSupplier
             // 
             this.btnEditSupplier.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditSupplier.Location = new System.Drawing.Point(220, 273);
+            this.btnEditSupplier.Location = new System.Drawing.Point(77, 287);
             this.btnEditSupplier.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnEditSupplier.Name = "btnEditSupplier";
             this.btnEditSupplier.Size = new System.Drawing.Size(127, 30);
             this.btnEditSupplier.TabIndex = 70;
             this.btnEditSupplier.Text = "Update Supplier";
             this.btnEditSupplier.UseVisualStyleBackColor = true;
+            this.btnEditSupplier.Click += new System.EventHandler(this.btnEditSupplier_Click);
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label26.Location = new System.Drawing.Point(23, 129);
+            this.label26.Location = new System.Drawing.Point(23, 155);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(109, 17);
@@ -487,13 +476,77 @@ namespace AdminBackups
             // 
             this.btnRemoveSupplier.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnRemoveSupplier.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemoveSupplier.Location = new System.Drawing.Point(158, 305);
+            this.btnRemoveSupplier.Location = new System.Drawing.Point(208, 321);
             this.btnRemoveSupplier.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnRemoveSupplier.Name = "btnRemoveSupplier";
             this.btnRemoveSupplier.Size = new System.Drawing.Size(127, 30);
             this.btnRemoveSupplier.TabIndex = 84;
             this.btnRemoveSupplier.Text = "Remove Supplier";
             this.btnRemoveSupplier.UseVisualStyleBackColor = true;
+            this.btnRemoveSupplier.Click += new System.EventHandler(this.btnRemoveSupplier_Click);
+            // 
+            // cbxSupplierType
+            // 
+            this.cbxSupplierType.FormattingEnabled = true;
+            this.cbxSupplierType.Items.AddRange(new object[] {
+            "All suppliers",
+            "KITCHEN_HOME",
+            "PHOTO_VIDEO_NAVIGATION",
+            "SMART_HOME_APPLIANCES",
+            "GAMING_MUSIC_COMPUTERS"});
+            this.cbxSupplierType.Location = new System.Drawing.Point(117, 19);
+            this.cbxSupplierType.Name = "cbxSupplierType";
+            this.cbxSupplierType.Size = new System.Drawing.Size(163, 25);
+            this.cbxSupplierType.TabIndex = 3;
+            // 
+            // tbxSupplierSearch
+            // 
+            this.tbxSupplierSearch.Location = new System.Drawing.Point(555, 19);
+            this.tbxSupplierSearch.Name = "tbxSupplierSearch";
+            this.tbxSupplierSearch.PlaceholderText = "Search supplier name";
+            this.tbxSupplierSearch.Size = new System.Drawing.Size(182, 25);
+            this.tbxSupplierSearch.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(16, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Suppliers:";
+            // 
+            // dgvSuppliers
+            // 
+            this.dgvSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSuppliers.Location = new System.Drawing.Point(16, 49);
+            this.dgvSuppliers.Name = "dgvSuppliers";
+            this.dgvSuppliers.RowTemplate.Height = 25;
+            this.dgvSuppliers.Size = new System.Drawing.Size(721, 388);
+            this.dgvSuppliers.TabIndex = 0;
+            this.dgvSuppliers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSuppliers_CellClick);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(1130, 499);
+            this.tabPage2.TabIndex = 12;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogout.Location = new System.Drawing.Point(1064, 11);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(82, 33);
+            this.btnLogout.TabIndex = 22;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // FormProductManager
             // 
@@ -513,9 +566,9 @@ namespace AdminBackups
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -563,5 +616,9 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnEditSupplier;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button btnRemoveSupplier;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbxSupplierID;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbxProductType;
     }
 }
