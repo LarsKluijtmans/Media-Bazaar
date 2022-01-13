@@ -45,6 +45,7 @@ namespace AdminBackups
             Initialize();
             UpdateSchedule();
             UpdatePlanningSchedule();
+            UpdateProducts(tbProductSearch.Text);
             UpdateEmployeesWorkingToday();
         }
 
@@ -78,7 +79,11 @@ namespace AdminBackups
             txtPlanningYear.Text = date.Year.ToString();
         }
 
-        
+        //Timer
+        private void tbProductSearch_TextChanged(object sender, EventArgs e)
+        {
+            UpdateProducts(tbProductSearch.Text);
+        }
 
         //Overview
         private void dgOverviewSchedule_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -97,6 +102,44 @@ namespace AdminBackups
 
         //Products
         //Esther//Esther
+        public void UpdateProducts(string search)
+        {
+            dgvProducts.DataSource = store.productManagment.ViewAllProducts(search);
+            dgProduct.DataSource = store.productManagment.ViewAllProducts(search);
+        }
+        private void dgvProducts_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvProducts.Rows[e.RowIndex];
+
+                tbxProductID.Text = row.Cells["ProductID"].Value.ToString();
+                tbxProductName.Text = row.Cells["Name"].Value.ToString();
+                tbxBarcode.Text = row.Cells["Barcode"].Value.ToString();
+                tbxPrice.Text = row.Cells["Price"].Value.ToString();
+                tbxProductType.Text = row.Cells["Type"].Value.ToString();
+            }
+        }
+        private void btnEditProduct_Click(object sender, EventArgs e)
+        {
+            int productID = Convert.ToInt32(tbxProductID.Text);
+            double price = Convert.ToDouble(tbxPrice.Text);
+            if (price == 0)
+            {
+                MessageBox.Show("Please enter a price");
+            }
+
+            store.productManagment.EditPrice(productID, price);
+
+            UpdateProducts(tbProductSearch.Text);
+        }
+        private void btnDiscontinue_Click(object sender, EventArgs e)
+        {
+            int productID = Convert.ToInt32(tbxProductID.Text);
+            store.productManagment.DiscontinueProduct(productID);
+
+            UpdateProducts(tbProductSearch.Text);
+        }
 
         //Schedule
         public static int GetCurrentWeekOfYear(DateTime time)

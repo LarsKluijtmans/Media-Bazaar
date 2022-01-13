@@ -14,11 +14,11 @@ namespace ClassLibraryProject.ManagmentClasses
         private IDBRestock dbRestock;
         private IDBReshelf dbReshelf;
         private IDBOrderInfo dbOrderInfo;
-        private IDBSupplierManagerPM dbSupplier;
+        private IDBSupplier dbSupplier;
         private IDBSchedule dbSchedule;
         private IDBProduct dbProduct;
 
-        private ProductManagement lgProduct;
+        private ProductManagment lgProduct;
         private OrderInfoManagment lgOrderInfo;
         private SupplierManagment lgSupplier;
         private ReshelfManagment lgReshelf;
@@ -46,11 +46,11 @@ namespace ClassLibraryProject.ManagmentClasses
 
         public DatabaseSelector()
         {
-            dbSupplier = new DBSupplierManager();
-            lgSupplier = new SupplierManagment();
+            dbSupplier = new DBSupplier();
+            lgSupplier = new SupplierManagment(dbSupplier);
 
-            dbProduct = new DBProductManager();
-            lgProduct = new ProductManagement();
+            dbProduct = new DBProduct();
+            lgProduct = new ProductManagment();
 
             dbOrderInfo = new DBOrderInfo(lgProduct, lgSupplier);
             lgOrderInfo = new OrderInfoManagment(dbOrderInfo);
@@ -64,7 +64,7 @@ namespace ClassLibraryProject.ManagmentClasses
             dbSchedule = new DBSchedule();
 
             DEControl = new DepotEmployeeControl(lgReshelf, lgRestock);
-            //DMControl = new DepotManagerControl(lgRestock);
+            DMControl = new DepotManagerControl(lgRestock);
             SEControl = new SalesEmployeeControl(lgReshelf);
         }
     }

@@ -8,7 +8,7 @@ namespace ClassLibraryProject.dbClasses.IDB
     public interface IDBOrderInfo
     {
         List<OrderInfo> GetOrderInfos();
-        bool AddOrderInfo(OrderInfo oi);
+        bool AddOrderInfo(int id, Supplier supplier, Product product, int minAmount, int maxAmount, int multiples);
         bool UpdateOrderInfo(int id, int minAmount, int maxAmount, int multiples);
         bool DeleteOrderInfo(int id);
     }

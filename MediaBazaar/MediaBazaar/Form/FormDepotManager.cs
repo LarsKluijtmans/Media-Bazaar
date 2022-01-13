@@ -409,23 +409,114 @@ namespace AdminBackups
         }
         private void btnAddSupplier_Click(object sender, EventArgs e)
         {
-            
+            string name = txtSupplierName.Text;
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("'Name' is required.");
+                return;
+            }
+            string country = txtCountry.Text;
+            if (string.IsNullOrEmpty(country))
+            {
+                MessageBox.Show("'Country' is required.");
+                return;
+            }
+            string buildingNumber = txtBuildingNumber.Text;
+            string postalCode = txtPostalCode.Text;
+            if (string.IsNullOrEmpty(postalCode))
+            {
+                MessageBox.Show("'Postal Code' is required.");
+                return;
+            }
+            string email = txtEmail.Text;
+            if (string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("'Email' is required.");
+                return;
+            }
+            string phoneNumber = txtPhoneNumber.Text;
+            string bankNumber = txtBankNumber.Text;
+            if (string.IsNullOrEmpty(bankNumber))
+            {
+                MessageBox.Show("'Bank Number' is required.");
+                return;
+            }
+            try
+            {
+                store.supplierManagment.AddSupplier(name, country, Convert.ToInt32(buildingNumber), postalCode, email, Convert.ToInt32(phoneNumber), bankNumber);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select a supplier you want to edit");
+            }
+            UpdateSupplier();
         }
         private void btnEditSupplier_Click(object sender, EventArgs e)
         {
-            
+            string id = txtSupplierID.Text;
+            string name = txtSupplierName.Text;
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("'Name' is required.");
+                return;
+            }
+            string country = txtCountry.Text;
+            if (string.IsNullOrEmpty(country))
+            {
+                MessageBox.Show("'Country' is required.");
+                return;
+            }
+            string buildingNumber = txtBuildingNumber.Text;
+            string postalCode = txtPostalCode.Text;
+            if (string.IsNullOrEmpty(postalCode))
+            {
+                MessageBox.Show("'Postal Code' is required.");
+                return;
+            }
+            string email = txtEmail.Text;
+            if (string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("'Email' is required.");
+                return;
+            }
+            string phoneNumber = txtPhoneNumber.Text;
+            string bankNumber = txtBankNumber.Text;
+            if (string.IsNullOrEmpty(bankNumber))
+            {
+                MessageBox.Show("'Bank Number' is required.");
+                return;
+            }
+            try
+            {
+                //store.supplierManagment.EditSupplier(Convert.ToInt32(id), name, country, Convert.ToInt32(buildingNumber), postalCode, email, Convert.ToInt32(phoneNumber), bankNumber);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select a supplier you want to edit");
+            }
+            UpdateSupplier();
         }
         private void btnRemoveSupplier_Click(object sender, EventArgs e)
         {
-            
+            string supplierID = txtSupplierID.Text;
+            try
+            {
+                store.supplierManagment.DeleteSupplier(Convert.ToInt32(supplierID));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select supplier you want to delete");
+            }
+
+            UpdateSupplier();
         }
         private void btnOrderInfo_Click(object sender, EventArgs e)
         {
             string supplierID = txtSupplierID.Text;
             try
             {
-                //FormOrderInfo formOrderInfo = new FormOrderInfo(Convert.ToInt32(supplierID));
-                //formOrderInfo.Show();
+                FormOrderInfo formOrderInfo = new FormOrderInfo(Convert.ToInt32(supplierID));
+                formOrderInfo.Show();
             }
             catch (Exception)
             {

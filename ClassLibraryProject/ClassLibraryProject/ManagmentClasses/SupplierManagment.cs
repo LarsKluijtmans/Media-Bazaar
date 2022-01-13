@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using ClassLibraryProject.Class;
-using ClassLibraryProject.dbClasses;
 using ClassLibraryProject.dbClasses.IDB;
 using ClassLibraryProject.dbClasses.IGetObject;
 using ClassLibraryProject.ManagmentClasses.IProductManager;
@@ -10,43 +9,114 @@ using MySql.Data.MySqlClient;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class SupplierManagment: ISupplierManagerPM, IGetSupplier
+    public class SupplierManagment: ISupplierProductManager, IGetSupplier
     {
-        IDBSupplierManagerPM DBSupplierManagerPM { get; set; }
-
-        public SupplierManagment()
+        private List<int> numbers = new List<int>();
+        public int id()
         {
-            this.DBSupplierManagerPM = new DBSupplierManager();
+            int n = 1;
+            Random random = new Random();
+            for (int i = 1000; i < 9999; i++)
+            {
+                numbers.Add(i);
+            }
+            foreach (int i in numbers)
+            {
+                n = random.Next(numbers.Count);
+                if (i == numbers[n])
+                {
+                    numbers.Remove(i);
+                    return i;
+                }
+            }
+            return n;
         }
 
-        public List<Supplier> ReadSuppliers()
+        private IDBSupplier db;
+
+        public SupplierManagment(IDBSupplier dbSupplier)
         {
-            return DBSupplierManagerPM.ReadSuppliers();
+            db = dbSupplier;
         }
-        public bool CreateSupplier(Supplier s)
+
+        public List<Supplier> GetSuppliers()
         {
-            return DBSupplierManagerPM.CreateSupplier(s);
+            return db.GetSuppliers();
         }
-        public bool DeleteSupplier(Supplier s)
+        public bool AddSupplier(string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
         {
+            if (SupplierExist(name) == false)
+            {
+                if(db.AddSupplier(id(), name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber) == true)
+                {
+                    return true;
+                }
+                return false;
+            }
             return false;
         }
-        public bool UpdateSupplier(Supplier s)
+        public bool DeleteSupplier(int id)
         {
-            
+            if (SupplierExistByID(id) == false)
+            {
+                if (db.DeleteSupplier(id) == true)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        public bool UpdateSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
+        {
+            if (SupplierExistByID(id) == false)
+            {
+                if (db.UpdateSupplier(id, name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber) == true)
+                {
+                    return true;
+                }
+                return false;
+            }
             return false;
         }
 
-        public Supplier GetSupplierByID(int supplierID)
+        private Supplier GetSupplierByName(string name)
         {
-            return DBSupplierManagerPM.GetSupplierByID(supplierID);
+            foreach(Supplier supplier in db.GetSuppliers())
+            {
+                if(supplier.Name == name)
+                {
+                    return supplier;
+                }
+            }
+            return null;
         }
-
-
-
-        public List<Supplier> GetSuppliersForProduct(Product p)
+        public Supplier GetSupplier(int id)
         {
-            return DBSupplierManagerPM.GetSuppliersForProduct(p);
+            foreach (Supplier supplier in db.GetSuppliers())
+            {
+                if (supplier.ID == id)
+                {
+                    return supplier;
+                }
+            }
+            return null;
+        }
+        private bool SupplierExist(string name)
+        {
+            if (GetSupplierByName(name) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+        private bool SupplierExistByID(int id)
+        {
+            if (GetSupplier(id) != null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

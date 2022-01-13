@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ClassLibraryProject.ManagmentClasses.IAllManager
 {
-    public interface IScheduleAllManager
+    interface IScheduleAllManager
     {
         List<Schedule> GetSchedules(string department, int year, int week);
         bool CreateWeek(string department, int year, int week);

@@ -6,8 +6,8 @@ namespace Statistics.ProductData
 {
     class ReshelfData
     {
-        private static string RESHELF_AMOUNT = "SELECT Name, COUNT(product.barcode) FROM `product` INNER JOIN reshelf ON product.barcode = reshelf.ProductBarcode GROUP BY product.barcode;";
-        private static string RESHELF_PRODUCT_AMOUNT = "SELECT Name, sum(reshelf.amount) FROM `product` INNER JOIN reshelf ON product.barcode = reshelf.ProductBarcode GROUP BY product.barcode  HAVING sum(reshelf.Amount) > 1;";
+        private static string RESHELF_AMOUNT = "SELECT Name, COUNT(product.ProductID) FROM `product` INNER JOIN shelfreplenishment ON product.ProductID = shelfreplenishment.ProductID GROUP BY product.ProductID;";
+        private static string RESHELF_PRODUCT_AMOUNT = "SELECT Name, sum(shelfreplenishment.AmountRequested) FROM `product` INNER JOIN shelfreplenishment ON product.ProductID = shelfreplenishment.ProductID GROUP BY product.ProductID  HAVING sum(shelfreplenishment.AmountRequested) > 1;";
        
         public ProductsData[] ReshelfAmount()
         {

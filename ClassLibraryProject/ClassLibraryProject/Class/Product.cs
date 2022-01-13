@@ -7,55 +7,86 @@ namespace ClassLibraryProject.Class
     {
         //fields
         private int productID;
-        private string productName;
         private string barcode;
+        private string name;
         private string productType;
-        private double sellingPrice;
-        private int amountInDepot;
         private int amountInStore;
-        private bool isDiscontinued;
+        private int amountInDepot;
 
         private List<OrderInfo> orderInfos;
 
+        private int sellingPrice;
+        private bool isDiscontinued;
+
+
         //properties
-        public int ProductID { get; set; }
-        public string ProductName { get; set; }
-        public string Barcode { get; set; }
-        public string ProductType { get; set; }
-        public double SellingPrice { get; set; }
-        public int AmountInDepot { get; set; }
-        public int AmountInStore { get; set; }
-        public bool IsDiscontinued { get; set; }
-
-        public List<OrderInfo> OrderInfos { get; set; }
-
-        //constructor
-        // for creating the product
-        public Product(string name, string type, string barcode)
+        public int ProductID
         {
-            Barcode = barcode;
-            ProductName = name;
-            ProductType = type;
-            AmountInDepot = 0;
-            AmountInStore = 0;
-            sellingPrice = 0;
-            IsDiscontinued = false;
-
-            OrderInfos = new List<OrderInfo>();
+            get { return productID; }
+            set { productID = value; }
         }
-        // for reading the product
-        public Product(int id, string name, string barcode, string type, double sellingPrice, int amountInDepot, int amountInStore, bool isDiscontinued) 
+        public string Barcode
+        {
+            get { return barcode; }
+            set { barcode = value; }
+        }
+        public string ProductType
+        {
+            get { return productType; }
+            set { productType = value; }
+        }
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public int AmountInStore
+        {
+            get { return amountInStore; }
+            set { amountInStore = value; }
+        }
+        public int AmountInDepot
+        {
+            get { return amountInDepot; }
+            set { amountInDepot = value; }
+        }
+        public List<OrderInfo> OrderInfos
+        {
+            get { return orderInfos; }
+            set { orderInfos = value; }
+        }
+        public int SellingPrice { get; set; }
+        public bool IsDiscontinued { get; set; }
+        //constructor
+        public Product(int id, string name, string type, string barcode, int sellingPrice)
         {
             ProductID = id;
             Barcode = barcode;
-            ProductName = name;
+            Name = name;
+            ProductType = type;
+            AmountInDepot = 0;
+            AmountInStore = 0;
+            SellingPrice = sellingPrice;
+            IsDiscontinued = false;
+            OrderInfos = new List<OrderInfo>();
+        }
+        public Product(int id, string name, string type, string barcode, int sellingPrice, int amountInDepot, int amountInStore)
+        {
+            ProductID = id;
+            Barcode = barcode;
+            Name = name;
             ProductType = type;
             AmountInDepot = amountInDepot;
             AmountInStore = amountInStore;
             SellingPrice = sellingPrice;
-            IsDiscontinued = isDiscontinued;
-
+            IsDiscontinued = false;
             OrderInfos = new List<OrderInfo>();
+        }
+        // methods
+        public override string ToString()
+        {
+            return $"ID: {ProductID} - name:{Name}";
         }
     }
 }

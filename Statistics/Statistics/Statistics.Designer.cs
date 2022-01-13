@@ -88,44 +88,44 @@ namespace Statistics
             // btnIncreaseMonth
             // 
             this.btnIncreaseMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncreaseMonth.Location = new System.Drawing.Point(339, 26);
+            this.btnIncreaseMonth.Location = new System.Drawing.Point(212, 26);
             this.btnIncreaseMonth.Name = "btnIncreaseMonth";
             this.btnIncreaseMonth.Size = new System.Drawing.Size(52, 33);
             this.btnIncreaseMonth.TabIndex = 15;
-            this.btnIncreaseMonth.Text = "+";
+            this.btnIncreaseMonth.Text = "<";
             this.btnIncreaseMonth.UseVisualStyleBackColor = true;
             this.btnIncreaseMonth.Click += new System.EventHandler(this.btnIncreaseMonth_Click);
             // 
             // btnIncreaseYear
             // 
             this.btnIncreaseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncreaseYear.Location = new System.Drawing.Point(141, 26);
+            this.btnIncreaseYear.Location = new System.Drawing.Point(28, 26);
             this.btnIncreaseYear.Name = "btnIncreaseYear";
             this.btnIncreaseYear.Size = new System.Drawing.Size(52, 33);
             this.btnIncreaseYear.TabIndex = 14;
-            this.btnIncreaseYear.Text = "+";
+            this.btnIncreaseYear.Text = "<";
             this.btnIncreaseYear.UseVisualStyleBackColor = true;
             this.btnIncreaseYear.Click += new System.EventHandler(this.btnIncreaseYear_Click);
             // 
             // btnDecreaseMonth
             // 
             this.btnDecreaseMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDecreaseMonth.Location = new System.Drawing.Point(212, 26);
+            this.btnDecreaseMonth.Location = new System.Drawing.Point(339, 26);
             this.btnDecreaseMonth.Name = "btnDecreaseMonth";
             this.btnDecreaseMonth.Size = new System.Drawing.Size(52, 33);
             this.btnDecreaseMonth.TabIndex = 13;
-            this.btnDecreaseMonth.Text = "-";
+            this.btnDecreaseMonth.Text = ">";
             this.btnDecreaseMonth.UseVisualStyleBackColor = true;
             this.btnDecreaseMonth.Click += new System.EventHandler(this.btnDecreaseMonth_Click);
             // 
             // btnDecreaseYear
             // 
             this.btnDecreaseYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDecreaseYear.Location = new System.Drawing.Point(28, 26);
+            this.btnDecreaseYear.Location = new System.Drawing.Point(141, 26);
             this.btnDecreaseYear.Name = "btnDecreaseYear";
             this.btnDecreaseYear.Size = new System.Drawing.Size(52, 33);
             this.btnDecreaseYear.TabIndex = 12;
-            this.btnDecreaseYear.Text = "-";
+            this.btnDecreaseYear.Text = ">";
             this.btnDecreaseYear.UseVisualStyleBackColor = true;
             this.btnDecreaseYear.Click += new System.EventHandler(this.btnDecreaseYear_Click);
             // 
@@ -157,7 +157,7 @@ namespace Statistics
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(3, 68);
+            this.chart1.Location = new System.Drawing.Point(8, 65);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.CustomProperties = "EmptyPointValue=Zero";
@@ -198,7 +198,7 @@ namespace Statistics
             this.tbPorductsRestock.Controls.Add(this.tbRestockRequests);
             this.tbPorductsRestock.Location = new System.Drawing.Point(4, 22);
             this.tbPorductsRestock.Name = "tbPorductsRestock";
-            this.tbPorductsRestock.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPorductsRestock.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tbPorductsRestock.Size = new System.Drawing.Size(1176, 621);
             this.tbPorductsRestock.TabIndex = 1;
             this.tbPorductsRestock.Text = "Products restock";
@@ -221,7 +221,7 @@ namespace Statistics
             this.tbRestockAmount.Controls.Add(this.CRestockAmount);
             this.tbRestockAmount.Location = new System.Drawing.Point(4, 22);
             this.tbRestockAmount.Name = "tbRestockAmount";
-            this.tbRestockAmount.Padding = new System.Windows.Forms.Padding(3);
+            this.tbRestockAmount.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tbRestockAmount.Size = new System.Drawing.Size(1171, 585);
             this.tbRestockAmount.TabIndex = 0;
             this.tbRestockAmount.Text = "Restock amount";
@@ -257,7 +257,7 @@ namespace Statistics
             this.tbResctockRequests.Controls.Add(this.CRestockRequest);
             this.tbResctockRequests.Location = new System.Drawing.Point(4, 22);
             this.tbResctockRequests.Name = "tbResctockRequests";
-            this.tbResctockRequests.Padding = new System.Windows.Forms.Padding(3);
+            this.tbResctockRequests.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tbResctockRequests.Size = new System.Drawing.Size(1171, 585);
             this.tbResctockRequests.TabIndex = 1;
             this.tbResctockRequests.Text = "Restock requests";
@@ -379,7 +379,7 @@ namespace Statistics
             this.tbEmployeeWorkHours.Controls.Add(this.labMonth);
             this.tbEmployeeWorkHours.Location = new System.Drawing.Point(4, 22);
             this.tbEmployeeWorkHours.Name = "tbEmployeeWorkHours";
-            this.tbEmployeeWorkHours.Padding = new System.Windows.Forms.Padding(3);
+            this.tbEmployeeWorkHours.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tbEmployeeWorkHours.Size = new System.Drawing.Size(1176, 621);
             this.tbEmployeeWorkHours.TabIndex = 0;
             this.tbEmployeeWorkHours.Text = "Employee work hours";

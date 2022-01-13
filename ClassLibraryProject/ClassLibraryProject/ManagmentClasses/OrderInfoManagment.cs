@@ -44,6 +44,10 @@ namespace ClassLibraryProject.ManagmentClasses
         }
         public bool AddOrderInfo(Supplier supplier, Product product, int minAmount, int maxAmount, int multiples)
         {
+            if(db.AddOrderInfo(id(), supplier, product, minAmount, maxAmount, multiples) == true)
+            {
+                return true;
+            }
             return false;
         }
         public bool DeleteOrderInfo(int id)

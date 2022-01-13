@@ -76,7 +76,7 @@ namespace ClassLibraryProject.ManagmentClasses
         //sales employee
         public bool RequestReshelf(Product product, int amount)
         {
-            if (!ReshelfExist(product))
+            if (ReshelfExist(product))
             {
                 if (db.RequestReshelf(id(), product, amount))
                 {

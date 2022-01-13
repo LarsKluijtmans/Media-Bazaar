@@ -5,7 +5,6 @@ using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses.AutoSchedule;
 using ClassLibraryProject.Interfaces;
 using ClassLibraryProject.ManagmentClasses;
-using ClassLibraryProject.ManagmentClasses.IProductManager;
 using MySql.Data.MySqlClient;
 
 namespace ClassLibraryProject.dbClasses
@@ -84,19 +83,13 @@ namespace ClassLibraryProject.dbClasses
                         IContractManager contractManager = new ContractManager();
                         IDepartment department = new DepartmentManagment( new dbDepartmentManagment());
                         ICompany company = new CompanyManagment( new dbCompanyManagment());
-                        ICheckin checkin = new CheckinManagment(new dbCheckinManagment());
 
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerOffice, department, company, contractManager, checkin);
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerOffice, department, company, contractManager);
                         return employee;
                     }
                     else if (jobTitle == "PRODUCT MANAGER")
                     {
-                        IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
-                        IProductManagerPM productManagerPM = new ProductManagement();
-                        ISupplierManagerPM supplierManagerPM = new SupplierManagment();
-                        IOrderInfoManagerPM orderInfoManagerPM = new OrderInfoManager();
-
-                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll, productManagerPM, supplierManagerPM, orderInfoManagerPM);
+                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "SALES MANAGER")

@@ -10,8 +10,7 @@ namespace ClassLibraryProject.ChildClasses
     {
         public IDepartment departmentManagment;
         public ICompany companyManagment;
-        public ICheckin checkinManagment;
-
+        public CheckinManagment checkinManagment;
         public IEmployeeManagerOffice EmployeeManagerOffice { get; set; }
         public IContractManager ContractManager { get; set; }
 
@@ -31,7 +30,7 @@ namespace ClassLibraryProject.ChildClasses
          : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll)
         {
         }
-        public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment,  IContractManager contractManager, ICheckin checkinManagment)
+        public OfficeManager(string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment,  IContractManager contractManager)
        : base(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
         {
             this.EmployeeManagerOffice = employeeManagerOffice;
@@ -39,9 +38,9 @@ namespace ClassLibraryProject.ChildClasses
 
             this.departmentManagment = departmentManagment;
             this.companyManagment = companyManagment;
-            this.checkinManagment = checkinManagment;
+            checkinManagment = new CheckinManagment(new dbCheckinManagment());
         }
-        public OfficeManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment,  IContractManager contractManager, ICheckin checkinManagment)
+        public OfficeManager(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string streetName, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail, IEmployeeManagerOffice employeeManagerOffice, IDepartment departmentManagment, ICompany companyManagment,  IContractManager contractManager)
        : base(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail)
         {
             this.EmployeeManagerOffice = employeeManagerOffice;
@@ -49,7 +48,7 @@ namespace ClassLibraryProject.ChildClasses
 
             this.departmentManagment = departmentManagment;
             this.companyManagment = companyManagment;
-            this.checkinManagment = checkinManagment;
+            checkinManagment = new CheckinManagment(new dbCheckinManagment());
         }
     }
 }
