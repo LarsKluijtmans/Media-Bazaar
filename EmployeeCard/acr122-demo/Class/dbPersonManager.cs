@@ -10,8 +10,8 @@ namespace acr122_demo.Class
     {
         private string CHANGE_CARD_INFO = "UPDATE Employee SET CardNumber = @CardNumber WHERE EmployeeID = @EmployeeID;";
         private string GET_EMPLOYEE_BY_CARDNUMBER = "SELECT `EmployeeID` FROM `employee` WHERE `CardNumber`= @CardNumber;";
-        private string GET_EMPLOYEES  = "SELECT * FROM Employee WHERE Active = 1 AND FirstName LIKE ' @Search %' OR Active = 1 AND LastName LIKE ' @Search %' ORDER BY Employee.EmployeeID;";
-      
+        private string GET_EMPLOYEES = "SELECT * FROM Employee WHERE Active = 1 AND FirstName LIKE ' @Search %' OR Active = 1 AND LastName LIKE ' @Search %' ORDER BY Employee.EmployeeID;";
+
         public void changeID(string employeeID, string CardNumber)
         {
             MySqlConnection conn = Connection.GetConnection();
@@ -30,9 +30,9 @@ namespace acr122_demo.Class
                 {
                     MessageBox.Show("Done");
                 }
-                else 
-                { 
-                    MessageBox.Show("Something went wrong"); 
+                else
+                {
+                    MessageBox.Show("Something went wrong");
                 }
 
             }
@@ -102,7 +102,7 @@ namespace acr122_demo.Class
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                
+
                 conn.Open();
 
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -111,25 +111,45 @@ namespace acr122_demo.Class
 
                 while (reader.Read())
                 {
-                    employee = new Person(
-                        reader.GetInt32("EmployeeID"),
-                        reader.GetString("FirstName"),
-                        reader.GetString("LastName"),
-                        reader.GetInt32("PhoneNumber"),
-                        reader.GetString("Email"),
-                        reader.GetString("Address"),
-                        reader.GetString("DateOfBirth"),
-                        reader.GetInt32("BSN"),
-                        reader.GetString("UserName"),
-                        reader.GetString("Password"),
-                        reader.GetString("CardNumber"));
-
-                    if (reader.GetString("CardNumber") != null)
+                    try
                     {
-                        employee.CardNumber = reader.GetString("CardNumber");
-                    }
+                        employee = new Person(
+                            reader.GetInt32("EmployeeID"),
+                            reader.GetString("FirstName"),
+                            reader.GetString("LastName"),
+                            reader.GetInt32("PhoneNumber"),
+                            reader.GetString("Email"),
+                            reader.GetString("city"),
+                            reader.GetString("DateOfBirth"),
+                            reader.GetInt32("BSN"),
+                            reader.GetString("UserName"),
+                            reader.GetString("Password"),
+                            reader.GetString("CardNumber"));
 
-                    people.Add(employee);
+                        people.Add(employee);
+                    }
+                    catch
+                    {
+                        employee = new Person(
+                              reader.GetInt32("EmployeeID"),
+                              reader.GetString("FirstName"),
+                              reader.GetString("LastName"),
+                              0,
+                              reader.GetString("Email"),
+                              reader.GetString("city"),
+                              reader.GetString("DateOfBirth"),
+                              reader.GetInt32("BSN"),
+                              reader.GetString("UserName"),
+                              reader.GetString("Password"),
+                              "");
+
+                        if (reader.GetString("CardNumber") != null)
+                        {
+                            employee.CardNumber = reader.GetString("CardNumber");
+                        }
+
+                        people.Add(employee);
+                    }
                 }
             }
             catch (MySqlException msqEx)
