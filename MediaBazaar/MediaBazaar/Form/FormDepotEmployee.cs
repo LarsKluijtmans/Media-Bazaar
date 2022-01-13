@@ -1,29 +1,22 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
-using ClassLibraryProject.ManagmentClasses.IDepotEmployee;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Windows.Forms;
 
 namespace AdminBackups
 {
     public partial class FormDepotEmployee : Form
     {
-        DepotEmployee e;
-        Store s;
-        IDepotEmployeeControl c;
-        List<Reshelf> reshelves;
-
-        public FormDepotEmployee(DepotEmployee employee, Store store)
+        DepotEmployee depotEmployee;
+        Store store;
+        public FormDepotEmployee(DepotEmployee e, Store s)
         {
             InitializeComponent();
 
-            e = employee;
-            s = store;
-            c = e.Control;
-            PendingReshelfRequests();
-            dgReshelve.DataSource = reshelves;
+            this.depotEmployee = e;
+            this.store = s;
+
+            UpdateReshelveRequests();
             UpdateOrders();
         }
 
@@ -34,100 +27,57 @@ namespace AdminBackups
         }
 
         //Reshelves
-        public void PendingReshelfRequests()
+        public void UpdateReshelveRequests()
         {
-            reshelves = new List<Reshelf>();
-            foreach(Reshelf reshelf in c.GetReshelfRequest())
-            {
-                if(reshelf.Status == "Pending")
-                {
-                    reshelves.Add(reshelf);
-                }
-            }
-
-            DataTable table = new DataTable();
-
-            table.Columns.Add("ID", typeof(int));
-            table.Columns.Add("Barcode", typeof(string));
-            table.Columns.Add("Amount", typeof(int));
-            table.Columns.Add("Status", typeof(string));
-
-            foreach(Reshelf r in reshelves)
-            {
-                table.Rows.Add(r.ID, r.Product.Barcode, r.AmountRequested, r.Status);
-            }
-            dgReshelve.DataSource = table;
-        }
-        public void FulfilledReshelfRequests()
-        {
-            reshelves = new List<Reshelf>();
-            foreach (Reshelf reshelf in c.GetReshelfRequest())
-            {
-                if (reshelf.Status == "Fulfilled")
-                {
-                    reshelves.Add(reshelf);
-                }
-            }
-
-            DataTable table = new DataTable();
-
-            table.Columns.Add("ID", typeof(int));
-            table.Columns.Add("Barcode", typeof(string));
-            table.Columns.Add("Amount", typeof(int));
-            table.Columns.Add("Status", typeof(string));
-
-            foreach (Reshelf r in reshelves)
-            {
-                table.Rows.Add(r.ID, r.Product.Barcode, r.AmountRequested, r.Status);
-            }
-            dgReshelve.DataSource = table;
+            //dgReshelve.DataSource = store.reshelfManagment.ViewPendingReshelfRequests();
         }
         private void rbPending_Click(object sender, EventArgs e)
         {
-            PendingReshelfRequests();
-            dgReshelve.DataSource = reshelves;
+            //dgReshelve.DataSource = store.reshelfManagment.ViewPendingReshelfRequests();
         }
 
         private void rbHistory_Click(object sender, EventArgs e)
         {
-            FulfilledReshelfRequests();
-            dgReshelve.DataSource = reshelves;
+            //dgReshelve.DataSource = store.reshelfManagment.ViewHistoryReshelfRequests();
+        }
+        public void DeleteReshelveRequest()
+        {
+            string reshelveID = txtReshelfID.Text;
+            try
+            {
+                //store.reshelfManagment.DeleteReshelfRequest(Convert.ToInt32(reshelveID));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please select a reshelf request you want to reject");
+            }
+            UpdateReshelveRequests();
         }
         private void btnFufillReshelveRequest_Click(object sender, EventArgs e)
         {
-            
+            string id = txtReshelfID.Text;
             try
             {
-                int reshelfID = Convert.ToInt32(txtReshelfID.Text);
-                string barcode = txtBarcode.Text;
-                c.CompleteReshelf(reshelfID);
+                //store.reshelfManagment.ShelfReplenishment(Convert.ToInt32(id));
             }
             catch (Exception)
             {
                 MessageBox.Show("Please select a reshelf request you want to fulfill");
             }
 
-            PendingReshelfRequests();
+            UpdateReshelveRequests();
         }
         private void btnDeleteReshelveRequest_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int reshelfID = Convert.ToInt32(txtReshelfID.Text);
-                c.DeleteReshelf(reshelfID);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Please select a reshelf request you want to reject");
-            }
-            PendingReshelfRequests();
+            DeleteReshelveRequest();
         }
         private void dgReshelve_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgReshelve.Rows[e.RowIndex];
-                txtReshelfID.Text = row.Cells["ID"].Value.ToString();
+                txtReshelfID.Text = row.Cells["ShelfReplenishmentID"].Value.ToString();
+                txtProductID.Text = row.Cells["ProductID"].Value.ToString();
                 txtBarcode.Text = row.Cells["Barcode"].Value.ToString();
                 txtAmountRequested.Text = row.Cells["AmountRequested"].Value.ToString();
             }
