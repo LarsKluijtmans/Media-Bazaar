@@ -59,9 +59,9 @@ namespace ClassLibraryProject.dbClasses
                     int minAmount = reader.GetInt32("MinAmountOrdered");
                     int maxAmount = reader.GetInt32("MaxAmountOrdered"); 
                     int multiples = reader.GetInt32("Multiples");
+                    double purchasePrice = reader.GetDouble(7);
 
-
-                    orderinfo = new OrderInfo(orderInfoID, s.GetSupplier(supplierID), p.GetProduct(barcode), minAmount, maxAmount, multiples);
+                    orderinfo = new OrderInfo(orderInfoID, s.GetSupplierByID(supplierID), p.GetProduct(barcode), minAmount, maxAmount, multiples, purchasePrice);
                     orderInfos.Add(orderinfo);
                 }
             }
@@ -77,7 +77,7 @@ namespace ClassLibraryProject.dbClasses
                 conn.Close();
             }
         }
-        public bool AddOrderInfo(int id, Supplier supplier, Product product, int minAmount, int maxAmount, int multiples)
+        public bool AddOrderInfo(OrderInfo oi)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -86,25 +86,12 @@ namespace ClassLibraryProject.dbClasses
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@ID", id);
-                cmd.Parameters.AddWithValue("@Barcode", product.Barcode);
-                cmd.Parameters.AddWithValue("@SupplierID", supplier.ID);
-                cmd.Parameters.AddWithValue("@MinAmount", minAmount);
-                cmd.Parameters.AddWithValue("@MaxAmount", maxAmount);
-                cmd.Parameters.AddWithValue("@Multiples", multiples);
-
                 conn.Open();
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
 
                 if (numCreatedRows > 0)
                 {
-                    OrderInfo orderInfo = new OrderInfo(id, supplier, product, minAmount, maxAmount, multiples);
-                    orderInfos.Add(orderInfo);
-                    supplier.OrderInfos.Add(orderInfo);
-                    product.OrderInfos.Add(orderInfo);
-
                     return true;
                 }
                 return false;

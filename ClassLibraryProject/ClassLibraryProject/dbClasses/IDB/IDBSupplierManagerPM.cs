@@ -5,12 +5,13 @@ using System.Text;
 
 namespace ClassLibraryProject.dbClasses.IDB
 {
-    public interface IDBSupplierManager
+    public interface IDBSupplierManagerPM
     {
-        List<Supplier> GetSuppliers();
-        bool AddSupplier(Supplier s);
+        List<Supplier> ReadSuppliers();
+        bool CreateSupplier(Supplier s);
         bool UpdateSupplier(Supplier s);
         bool DeleteSupplier(Supplier s);
         List<Supplier> GetSuppliersForProduct(Product p);
+        public Supplier GetSupplierByID(int supplierID);
     }
 }

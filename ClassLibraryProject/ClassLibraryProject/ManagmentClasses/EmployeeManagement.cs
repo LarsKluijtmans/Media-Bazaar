@@ -21,8 +21,8 @@ namespace ClassLibraryProject.ManagmentClasses
         public string REMOVE_EMPLOYEE_BY_ID = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
        
         //Used in website
-        public string GET_EMPLOYEE_BY_USERNAME = "SELECT * FROM Employee WHERE UserName = @UserName;";
-        public string EDIT_EMPLOYEE_BY_ID = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Password = @Password, UserName = @UserName,  BSN = @BSN, City = @City, PhoneNumber = @PhoneNumber, Email = @Email WHERE EmployeeID = @EmployeeID;";
+        public static string GET_EMPLOYEE_BY_USERNAME = "SELECT * FROM Employee WHERE UserName = @UserName;";
+        public static string EDIT_EMPLOYEE_BY_ID = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Password = @Password, UserName = @UserName,  BSN = @BSN, City = @City, PhoneNumber = @PhoneNumber, Email = @Email WHERE EmployeeID = @EmployeeID;";
 
         //MohammadStart
         private string GET_AVAILABLE_EMPLOYEE = "SELECT * FROM availability INNER JOIN employee ON availability.EmployeeID = employee.EmployeeID WHERE Week = @Week AND Day = @Day AND Shift = @Shift;";

@@ -8,9 +8,9 @@ namespace ClassLibraryProject.ManagmentClasses.IProductManager
     public class ProductManagerControl
     {
         private IOrderInfoProductManager orderInfo;
-        private ISupplierProductManager supplier;
+        private ISupplierManagerPM supplier;
 
-        public ProductManagerControl(IOrderInfoProductManager orderInfo, ISupplierProductManager supplier)
+        public ProductManagerControl(IOrderInfoProductManager orderInfo, ISupplierManagerPM supplier)
         {
             this.orderInfo = orderInfo;
             this.supplier = supplier;

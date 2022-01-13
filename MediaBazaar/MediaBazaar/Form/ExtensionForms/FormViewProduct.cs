@@ -42,6 +42,7 @@ namespace MediaBazaar
             }
 
             LoadProductInfo();
+            LoadSuppliersForProduct();
         }
         private void LoadProductInfo()
         {
@@ -64,9 +65,56 @@ namespace MediaBazaar
                 cbxStatus.Text = "Available";
             }
         }
-        private void GetSuppliersForProduct()
+        private void LoadSuppliersForProduct()
         {
+            List<Supplier> productSuppliers = ((ProductManager)employee).SupplierManagerPM.GetSuppliersForProduct(product);
 
+            cbxSupplier.DataSource = productSuppliers;
+        }
+        private void GetOrderInfoForSupplier()
+        {
+            // get supplier from combobox
+            if (cbxSupplier.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            Object supplierObject = cbxSupplier.SelectedItem;
+            if (!(supplierObject is Supplier))
+            {
+                return;
+            }
+
+            Supplier supplier = (Supplier)supplierObject;
+
+            bool OrderInfound = false;
+
+            // check order infos of product
+            product.OrderInfos = ((ProductManager)employee).OrderInfoManagerPM.GetOrderInfosForProduct(product);
+            foreach (OrderInfo oi in product.OrderInfos)
+            {
+                // get order info of selected supplier
+                if (oi.Supplier.ID == supplier.ID)
+                {
+                    tbxMinAmount.Text = oi.MinAmount.ToString();
+                    tbxMaxAmount.Text = oi.MaxAmount.ToString();
+                    tbxMultiples.Text = oi.Multiples.ToString();
+                    OrderInfound = true;
+                }
+
+                if (!OrderInfound)
+                {
+                    tbxMinAmount.Text = "";
+                    tbxMaxAmount.Text = "";
+                    tbxMultiples.Text = "";
+                }
+                // if there is no order info for selected supplier make tbx empty to add order info
+                // ???? if I clear the tbx it doesn't update the tbx when selecting a new supplier ????
+            }
+        }
+        private void cbxSupplier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetOrderInfoForSupplier();
         }
         private bool UpdateProduct()
         {

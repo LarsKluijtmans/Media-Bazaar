@@ -55,21 +55,6 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\ClassLibrary1\obj\Debug\n
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\ClassLibrary1\obj\Debug\net5.0\ref\ClassLibrary1.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.pdb
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.deps.json
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.dll
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ref\ClassLibrary1.dll
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.pdb
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibraryProject.dll
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibraryProject.pdb
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.AssemblyReference.cache
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.AssemblyInfoInputs.cache
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.AssemblyInfo.cs
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.CoreCompileInputs.cache
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.CopyComplete
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.dll
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ref\ClassLibrary1.dll
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.pdb
 F:\Study\Semester 2\PRJ\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.deps.json
 F:\Study\Semester 2\PRJ\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.dll
 F:\Study\Semester 2\PRJ\website\ClassLibrary1\bin\Debug\net5.0\ref\ClassLibrary1.dll
@@ -85,3 +70,18 @@ F:\Study\Semester 2\PRJ\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csp
 F:\Study\Semester 2\PRJ\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.dll
 F:\Study\Semester 2\PRJ\website\ClassLibrary1\obj\Debug\net5.0\ref\ClassLibrary1.dll
 F:\Study\Semester 2\PRJ\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.pdb
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.deps.json
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.dll
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ref\ClassLibrary1.dll
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.pdb
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibraryProject.dll
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibraryProject.pdb
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.AssemblyReference.cache
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.AssemblyInfoInputs.cache
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.AssemblyInfo.cs
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.CoreCompileInputs.cache
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.CopyComplete
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.dll
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ref\ClassLibrary1.dll
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.pdb

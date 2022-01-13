@@ -91,6 +91,10 @@ namespace ClassLibraryProject.Class
             this.ProductType = productType;
             OrderInfos = new List<OrderInfo>();
         }
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }
 

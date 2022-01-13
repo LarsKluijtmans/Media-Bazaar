@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using ClassLibraryProject.Class;
+using ClassLibraryProject.dbClasses;
 using ClassLibraryProject.dbClasses.IDB;
 using ClassLibraryProject.dbClasses.IGetObject;
 using ClassLibraryProject.ManagmentClasses.IProductManager;
@@ -9,43 +10,22 @@ using MySql.Data.MySqlClient;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class SupplierManagment: ISupplierProductManager, IGetSupplier
+    public class SupplierManagment: ISupplierManagerPM, IGetSupplier
     {
-        private List<int> numbers = new List<int>();
-        public int id()
+        IDBSupplierManagerPM DBSupplierManagerPM { get; set; }
+
+        public SupplierManagment()
         {
-            int n = 1;
-            Random random = new Random();
-            for (int i = 1000; i < 9999; i++)
-            {
-                numbers.Add(i);
-            }
-            foreach (int i in numbers)
-            {
-                n = random.Next(numbers.Count);
-                if (i == numbers[n])
-                {
-                    numbers.Remove(i);
-                    return i;
-                }
-            }
-            return n;
+            this.DBSupplierManagerPM = new DBSupplierManager();
         }
 
-        private IDBSupplierManager db;
-
-        public SupplierManagment(IDBSupplierManager dbSupplier)
+        public List<Supplier> ReadSuppliers()
         {
-            db = dbSupplier;
+            return DBSupplierManagerPM.ReadSuppliers();
         }
-
-        public List<Supplier> GetSuppliers()
+        public bool CreateSupplier(Supplier s)
         {
-            return db.GetSuppliers();
-        }
-        public bool AddSupplier(Supplier s)
-        {
-            return false;
+            return DBSupplierManagerPM.CreateSupplier(s);
         }
         public bool DeleteSupplier(Supplier s)
         {
@@ -57,48 +37,16 @@ namespace ClassLibraryProject.ManagmentClasses
             return false;
         }
 
-        private Supplier GetSupplierByName(string name)
+        public Supplier GetSupplierByID(int supplierID)
         {
-            foreach(Supplier supplier in db.GetSuppliers())
-            {
-                if(supplier.Name == name)
-                {
-                    return supplier;
-                }
-            }
-            return null;
+            return DBSupplierManagerPM.GetSupplierByID(supplierID);
         }
-        public Supplier GetSupplier(int id)
-        {
-            foreach (Supplier supplier in db.GetSuppliers())
-            {
-                if (supplier.ID == id)
-                {
-                    return supplier;
-                }
-            }
-            return null;
-        }
-        private bool SupplierExist(string name)
-        {
-            if (GetSupplierByName(name) != null)
-            {
-                return true;
-            }
-            return false;
-        }
-        private bool SupplierExistByID(int id)
-        {
-            if (GetSupplier(id) != null)
-            {
-                return true;
-            }
-            return false;
-        }
+
+
 
         public List<Supplier> GetSuppliersForProduct(Product p)
         {
-            throw new NotImplementedException();
+            return DBSupplierManagerPM.GetSuppliersForProduct(p);
         }
     }
 }
