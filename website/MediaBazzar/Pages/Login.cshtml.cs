@@ -18,6 +18,8 @@ namespace MediaBazzar.Pages
         public ClassLibrary1.Login Login { get; set; }
         private DBLogin dbLogin = new DBLogin();
 
+        public static string EmployeeID;
+
         public void OnGet(string returnUrl)
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -30,7 +32,7 @@ namespace MediaBazzar.Pages
             if (ModelState.IsValid)
             {
                 var user = dbLogin.CheckLogin(Login.Username , Login.Password);
-
+                EmployeeID = user.EmployeeID.ToString();
                 if (user != null)
                 {
                     var claims = new List<Claim>();
@@ -43,6 +45,7 @@ namespace MediaBazzar.Pages
 
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+                    
                     await HttpContext.SignInAsync(claimsPrincipal);
 
                     return Redirect(returnUrl);

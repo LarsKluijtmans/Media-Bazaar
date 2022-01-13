@@ -24,6 +24,7 @@
                     {
                         <li><a asp-area="" asp-page="/Profile">PROFILE</a></li>
                         <li><a asp-area="" asp-page="/Schedule">SCHEDULE</a></li>
+                        <li><a asp-area="" asp-page="/Preferedtime">PREFERED TIME</a></li>
                         <li><a asp-area="" asp-page="/Logout" asp-page-handler="Logout">LOGOUT</a></li>
                     }
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
@@ -42,11 +43,6 @@
         @RenderBody()
     </div>
 
-    <!-- footer -->
-    <section class="footer">
-        <h4><a asp-area="" asp-page="/Contact">Contact us</a></h4>
-        <p>&copy; Media Bazaar - Group One, 2021</p>
-    </section>
 
     <!-- JavaScript for toggle menu -->
     <script>
