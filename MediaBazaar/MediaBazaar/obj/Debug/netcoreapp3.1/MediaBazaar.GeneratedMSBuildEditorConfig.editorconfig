@@ -1,3 +1,7 @@
 is_global = true
 build_property.RootNamespace = MediaBazaar
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\
+=======
+build_property.ProjectDir = C:\Users\esthe\OneDrive\Bureaublad\GIT\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\
+>>>>>>> 62a9bbbc908f4ed87955a1dd32e4a15b1a31086f

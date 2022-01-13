@@ -997,11 +997,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
       "projectName": "MediaBazaar",
       "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
       "packagesPath": "C:\\Users\\csten\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+      "projectName": "MediaBazaar",
+      "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+      "packagesPath": "C:\\Users\\esthe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\obj\\",
+>>>>>>> 62a9bbbc908f4ed87955a1dd32e4a15b1a31086f
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\csten\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1018,8 +1026,13 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
               "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+=======
+            "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+              "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+>>>>>>> 62a9bbbc908f4ed87955a1dd32e4a15b1a31086f
             }
           }
         }

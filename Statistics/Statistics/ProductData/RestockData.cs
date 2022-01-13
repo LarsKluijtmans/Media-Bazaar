@@ -6,8 +6,8 @@ namespace Statistics.ProductData
 {
     class RestockData
     {
-        private static string RESTOCK_AMOUNT = "SELECT Name, COUNT(product.ProductID) FROM `product` INNER JOIN restockreplenishment ON product.ProductID = restockreplenishment.ProductID GROUP BY product.ProductID;";
-        private static string RESTOCK_PRODUCT_AMOUNT = "SELECT Name, sum(restockreplenishment.ReceivedAmount) FROM `product` INNER JOIN restockreplenishment ON product.ProductID = restockreplenishment.ProductID GROUP BY product.ProductID  HAVING sum(restockreplenishment.ReceivedAmount) > 1;";
+        private static string RESTOCK_AMOUNT = "SELECT Name, COUNT(product.ProductID) FROM `product` INNER JOIN restock ON product.barcode = restock.ProductBarcode GROUP BY product.barcode;";
+        private static string RESTOCK_PRODUCT_AMOUNT = "SELECT Name, sum(restock.Amount) FROM `product` INNER JOIN restock ON product.barcode = restock.ProductBarcode GROUP BY product.barcode  HAVING sum(restock.Amount) > 1;";
        
         public ProductsData[] RestockAmount()
         {

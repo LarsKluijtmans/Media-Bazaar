@@ -1,12 +1,11 @@
 using ClassLibraryProject.Class;
-using ClassLibraryProject.ManagmentClasses;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ClassLibraryProject.ChildClasses;
-using System;
+using System.Security.Claims;
+using ClassLibraryProject.dbClasses;
 
 namespace MediaBazzar.Pages
 {
@@ -14,93 +13,40 @@ namespace MediaBazzar.Pages
     public class ProfileModel : PageModel
     {
         [BindProperty]
-        public Admin employee { get; set; }
+        public Employee CurrentEmployee { get; set; }
 
-        public void OnGet()
+        public dbLoginManager dbLogin = new dbLoginManager();
+
+        [BindProperty]
+        public string FirstName { get; set; }
+        [BindProperty]
+        public string LastName { get; set; }
+        [BindProperty]
+        public string City { get; set; }
+        [BindProperty]
+        public string Address { get; set; }
+        [BindProperty]
+        public string ZipCode { get; set; }
+        [BindProperty]
+        public string PhoneNumber { get; set; }
+        [BindProperty]
+        public string PersonalEmail { get; set; }
+        [BindProperty]
+        public string Password { get; set; }
+
+        public IActionResult OnGet()
         {
-            MySqlConnection conn = Utils.GetConnection();
+            // get current employee
+            var employeeID = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            string sql = EmployeeManagement.GET_EMPLOYEE_BY_USERNAME;
+            //CurrentEmployee = dbLogin.checkLogin()
 
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
+            return Page();
 
-                cmd.Parameters.AddWithValue("@UserName", User.Identity.Name.ToString());
-
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    if (reader.GetInt32("Active") == 1)
-                    {
-                        employee = new Admin();
-
-                        employee.EmployeeID = reader.GetInt32("EmployeeID");
-                        employee.FirstName = reader.GetString("FirstName");
-                        employee.LastName = reader.GetString("LastName");
-                        employee.Username = reader.GetString("UserName");
-                        employee.Password = reader.GetString("Password");
-                        employee.BSN = reader.GetInt32("BSN");
-                        employee.City = reader.GetString("City");
-                        employee.Email = reader.GetString("Email");
-                        employee.PhoneNumber = reader.GetString("PhoneNumber");
-                    }
-                    else
-                    {
-                        ViewData["Message"] = "Whats worng whight you, get out of here!!!";
-                    }
-                }
-            }
-            catch (MySqlException)
-            {
-                ViewData["Message"] = "Error please try again later.";
-            }
-            finally
-            {
-                conn.Close();
-            }
         }
         public void OnPost()
         {
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = EmployeeManagement.EDIT_EMPLOYEE_BY_ID;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
-                cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
-                cmd.Parameters.AddWithValue("@LastName", employee.LastName);
-                cmd.Parameters.AddWithValue("@UserName", employee.Username);
-                cmd.Parameters.AddWithValue("@Password", employee.Password);
-                cmd.Parameters.AddWithValue("@BSN", employee.BSN);
-                cmd.Parameters.AddWithValue("@City", employee.City);
-                cmd.Parameters.AddWithValue("@Email", employee.Email);
-                cmd.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
-
-                conn.Open();
-
-                int numCreatedRows = cmd.ExecuteNonQuery();
-
-            }
-            catch (MySqlException)
-            {
-                ViewData["Message"] = "Error!! There is aproblem with the database. ";
-            }
-            catch
-            { 
-                ViewData["Message"] = "Error please try again later."; 
-            }
-            finally
-            {
-                conn.Close();
-            }
+            
         }
-
     }
 }

@@ -936,11 +936,16 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\csten\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\nazib\\.nuget\\packages\\": {}
+>>>>>>> 62a9bbbc908f4ed87955a1dd32e4a15b1a31086f
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\ClassLibrary1.csproj",
       "projectName": "ClassLibrary1",
       "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\ClassLibrary1.csproj",
@@ -949,6 +954,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\csten\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "F:\\Study\\Semester 2\\PRJ\\website\\ClassLibrary1\\ClassLibrary1.csproj",
+      "projectName": "ClassLibrary1",
+      "projectPath": "F:\\Study\\Semester 2\\PRJ\\website\\ClassLibrary1\\ClassLibrary1.csproj",
+      "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
+      "outputPath": "F:\\Study\\Semester 2\\PRJ\\website\\ClassLibrary1\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 62a9bbbc908f4ed87955a1dd32e4a15b1a31086f
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -962,8 +977,13 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
               "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+=======
+            "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+              "projectPath": "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+>>>>>>> 62a9bbbc908f4ed87955a1dd32e4a15b1a31086f
             }
           }
         }
@@ -992,7 +1012,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+>>>>>>> 62a9bbbc908f4ed87955a1dd32e4a15b1a31086f
       }
     }
   },
