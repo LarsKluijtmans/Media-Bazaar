@@ -30,6 +30,7 @@ namespace ClassLibraryProject
         public string GET_EMPLOYEE_CONTRACTS = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID";
         public string SEARCH_EMPLOYEE = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.FirstName LIKE @Search OR e.LastName LIKE @Search AND e.Active = @Active GROUP BY e.FirstName, e.LastName;";
 
+        public string UPDATE_OWN_INFO = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode, PersonalEmail = @PersonalEmail, Password = @Password WHERE EmployeeID = @EmployeeID;";
         public int AmountOfOfficeManagers()
         {
             MySqlConnection conn = Utils.GetConnection();
@@ -240,24 +241,10 @@ namespace ClassLibraryProject
             {
                 return false;
             }
-            //if (!Regex.IsMatch(e.Email, @"[a-z]@mb.com"))
-            //{
-            //    return false;
-            //}
-            //if (!Regex.IsMatch(e.BSN.ToString(), @"\b[0-9]{8,9}\b"))
-            //{
-            //    return false;
-            //}
             if (!Regex.IsMatch(e.PhoneNumber, @"^(\+)316[0-9]{8}$"))
             {
                 return false;
             }
-            //if (!Regex.IsMatch(e.DateOfBirth.ToString("dd/MM/yyyy"), @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
-            //{
-            //    return false;
-            //}
-            
-            // regex for personal email
 
             MySqlConnection conn = Utils.GetConnection();
             string sql = UPDATE_EMPLOYEE;
@@ -527,7 +514,55 @@ namespace ClassLibraryProject
 
         public bool UpdateOwnInfo(Employee e)
         {
-            throw new NotImplementedException();
+            if (!Regex.IsMatch(e.ZipCode, @"^[0-9]{4}[A-Z]{2}$"))
+            {
+                return false;
+            }
+            if (!Regex.IsMatch(e.PhoneNumber, @"^(\+)316[0-9]{8}$"))
+            {
+                return false;
+            }
+
+            // regex for personal email
+
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = UPDATE_OWN_INFO;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@EmployeeID", e.EmployeeID);
+
+                cmd.Parameters.AddWithValue("@FirstName", e.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", e.LastName);
+                cmd.Parameters.AddWithValue("@City", e.City);
+                cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
+                cmd.Parameters.AddWithValue("@StreetName", e.Address);
+                cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
+                cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
+                cmd.Parameters.AddWithValue("@Password", e.Password);
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return true;
         }
 
         public List<Contract> GetEmployeeContracts(Employee e)

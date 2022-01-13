@@ -5,6 +5,7 @@ using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses.AutoSchedule;
 using ClassLibraryProject.Interfaces;
 using ClassLibraryProject.ManagmentClasses;
+using ClassLibraryProject.ManagmentClasses.IProductManager;
 using MySql.Data.MySqlClient;
 
 namespace ClassLibraryProject.dbClasses
@@ -83,13 +84,19 @@ namespace ClassLibraryProject.dbClasses
                         IContractManager contractManager = new ContractManager();
                         IDepartment department = new DepartmentManagment( new dbDepartmentManagment());
                         ICompany company = new CompanyManagment( new dbCompanyManagment());
+                        ICheckin checkin = new CheckinManagment(new dbCheckinManagment());
 
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerOffice, department, company, contractManager);
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerOffice, department, company, contractManager, checkin);
                         return employee;
                     }
                     else if (jobTitle == "PRODUCT MANAGER")
                     {
-                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
+                        IProductManagerPM productManagerPM = new ProductManagement();
+                        ISupplierManagerPM supplierManagerPM = new SupplierManagment();
+                        IOrderInfoManagerPM orderInfoManagerPM = new OrderInfoManager();
+
+                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll, productManagerPM, supplierManagerPM, orderInfoManagerPM);
                         return employee;
                     }
                     else if (jobTitle == "SALES MANAGER")

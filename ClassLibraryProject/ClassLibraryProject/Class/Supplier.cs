@@ -11,8 +11,9 @@ namespace ClassLibraryProject.Class
         private int buildingNumber;
         private string postalCode;
         private string email;
-        private int phoneNumber;
+        private string phoneNumber;
         private string bankNumber;
+        private string productType;
         private List<OrderInfo> orderInfos;
 
         //properties
@@ -46,7 +47,7 @@ namespace ClassLibraryProject.Class
             get { return email; }
             set { email = value; }
         }
-        public int PhoneNumber
+        public string PhoneNumber
         {
             get { return phoneNumber; }
             set { phoneNumber = value; }
@@ -61,9 +62,23 @@ namespace ClassLibraryProject.Class
             get { return orderInfos; }
             set { orderInfos = value; }
         }
+        public string ProductType { get; set; }
 
         //constructor
-        public Supplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
+        public Supplier(string name, string country, int buildingNumber, string postalCode, string email, string phoneNumber, string bankNumber, string productType)
+        {
+            Name = name;
+            Country = country;
+            BuildingNumber = buildingNumber;
+            PostalCode = postalCode;
+            Email = email;
+            PhoneNumber = phoneNumber;
+            BankNumber = bankNumber;
+            this.ProductType = productType;
+
+            OrderInfos = new List<OrderInfo>();
+        }
+        public Supplier(int id, string name, string country, int buildingNumber, string postalCode, string email, string phoneNumber, string bankNumber, string productType)
         {
             ID = id;
             Name = name;
@@ -73,7 +88,12 @@ namespace ClassLibraryProject.Class
             Email = email;
             PhoneNumber = phoneNumber;
             BankNumber = bankNumber;
+            this.ProductType = productType;
             OrderInfos = new List<OrderInfo>();
+        }
+        public override string ToString()
+        {
+            return this.Name;
         }
     }
 }
