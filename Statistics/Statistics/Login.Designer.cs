@@ -35,15 +35,16 @@ namespace Statistics
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.labPassword = new System.Windows.Forms.Label();
             this.labUsername = new System.Windows.Forms.Label();
-            this.labLogin = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(131, 307);
+            this.btnLogin.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(217, 373);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(279, 59);
+            this.btnLogin.Size = new System.Drawing.Size(148, 30);
             this.btnLogin.TabIndex = 11;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -51,65 +52,66 @@ namespace Statistics
             // 
             // tbPassword
             // 
-            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.Location = new System.Drawing.Point(248, 220);
+            this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.tbPassword.Location = new System.Drawing.Point(217, 330);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '⬤';
-            this.tbPassword.Size = new System.Drawing.Size(212, 40);
+            this.tbPassword.Size = new System.Drawing.Size(148, 33);
             this.tbPassword.TabIndex = 10;
             // 
             // tbUsername
             // 
-            this.tbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUsername.Location = new System.Drawing.Point(248, 131);
+            this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsername.Location = new System.Drawing.Point(217, 296);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(212, 40);
+            this.tbUsername.Size = new System.Drawing.Size(148, 33);
             this.tbUsername.TabIndex = 9;
             // 
             // labPassword
             // 
             this.labPassword.AutoSize = true;
-            this.labPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labPassword.Location = new System.Drawing.Point(80, 223);
+            this.labPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.labPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(127)))), ((int)(((byte)(39)))));
+            this.labPassword.Location = new System.Drawing.Point(110, 333);
             this.labPassword.Name = "labPassword";
-            this.labPassword.Size = new System.Drawing.Size(151, 33);
+            this.labPassword.Size = new System.Drawing.Size(95, 25);
             this.labPassword.TabIndex = 8;
             this.labPassword.Text = "Password:";
             // 
             // labUsername
             // 
             this.labUsername.AutoSize = true;
-            this.labUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labUsername.Location = new System.Drawing.Point(73, 134);
+            this.labUsername.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.labUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(162)))), ((int)(((byte)(232)))));
+            this.labUsername.Location = new System.Drawing.Point(104, 299);
             this.labUsername.Name = "labUsername";
-            this.labUsername.Size = new System.Drawing.Size(158, 33);
+            this.labUsername.Size = new System.Drawing.Size(101, 25);
             this.labUsername.TabIndex = 7;
             this.labUsername.Text = "Username:";
             // 
-            // labLogin
+            // pictureBox1
             // 
-            this.labLogin.AutoSize = true;
-            this.labLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labLogin.Location = new System.Drawing.Point(204, 50);
-            this.labLogin.Name = "labLogin";
-            this.labLogin.Size = new System.Drawing.Size(101, 39);
-            this.labLogin.TabIndex = 6;
-            this.labLogin.Text = "Login";
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(451, 278);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 449);
+            this.ClientSize = new System.Drawing.Size(475, 421);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.labPassword);
             this.Controls.Add(this.labUsername);
-            this.Controls.Add(this.labLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
-            this.Text = "Form1";
+            this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,7 +124,7 @@ namespace Statistics
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label labPassword;
         private System.Windows.Forms.Label labUsername;
-        private System.Windows.Forms.Label labLogin;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

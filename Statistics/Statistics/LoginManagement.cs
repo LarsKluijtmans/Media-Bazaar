@@ -5,8 +5,8 @@ namespace Statistics
 {
     class LoginManagement
     {
-        public static string LOGIN_BY_EMPLOYEEID = " SELECT employee.userName, password, contract.JobTitle FROM employee INNER JOIN contract ON contract.employeeID = employee.Employeeid where employee.UserName = @UserName order by startdate;";
-        public static string GET_EMPLOYEEID = " SELECT employeeID, password, userName FROM employee where UserName = @UserName";
+        public string LOGIN_BY_EMPLOYEEID = " SELECT employee.userName, password, contract.JobTitle FROM employee INNER JOIN contract ON contract.employeeID = employee.Employeeid where employee.UserName = @UserName order by startdate;";
+        public string GET_EMPLOYEEID = " SELECT employeeID, password, userName FROM employee where UserName = @UserName";
 
 
         public string checkLogin(string UserName, string Password)
@@ -28,7 +28,10 @@ namespace Statistics
                 {
                     if (reader[0].ToString() == (UserName).ToString() && reader[1].ToString() == Password)
                     {
-                        return reader[2].ToString();
+                        if (reader[2].ToString() == "CEO")
+                        {
+                            return reader[2].ToString();
+                        }
                     }
                 }
                 return "Wrong info!";

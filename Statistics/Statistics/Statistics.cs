@@ -95,7 +95,6 @@ namespace Statistics
             labYear.Text = year.ToString();
             ShowData();
         }
-
         private void btnDecreaseYear_Click(object sender, EventArgs e)
         {
             int year = Convert.ToInt16(labYear.Text);
@@ -104,7 +103,6 @@ namespace Statistics
             labYear.Text = year.ToString();
             ShowData();
         }
-
         private void btnIncreaseMonth_Click(object sender, EventArgs e)
         {
             int month = Convert.ToInt16(labMonth.Text);
@@ -121,7 +119,6 @@ namespace Statistics
             }
             ShowData();
         }
-
         private void btnDecreaseMonth_Click(object sender, EventArgs e)
         {
             int month = Convert.ToInt16(labMonth.Text);
@@ -140,7 +137,6 @@ namespace Statistics
         }
 
         // show data
-
         public void ShowData()
         {
             GetAtendeance();
@@ -154,7 +150,6 @@ namespace Statistics
                 this.chart1.Series["WorkHours"].Points.AddXY(ee.EmployeeName, ee.WorkHours * 4);
             }
         }
-
         public void ShowRestockAmountData()
         {
             RestockData rd = new RestockData();
@@ -166,7 +161,6 @@ namespace Statistics
                 this.CRestockAmount.Series["Amount"].Points.AddXY(ee.ProductName, ee.Amount);
             }
         }
-
         public void ShowRestockRequestData()
         {
             RestockData rd = new RestockData();
@@ -178,7 +172,6 @@ namespace Statistics
                 this.CRestockRequest.Series["Amount"].Points.AddXY(ee.ProductName, ee.Amount);
             }
         }
-
         public void ShowReshelfAmountData()
         {
             ReshelfData rd = new ReshelfData();
@@ -190,7 +183,6 @@ namespace Statistics
                 this.CReshelfAmount.Series["Amount"].Points.AddXY(ee.ProductName, ee.Amount);
             }
         }
-
         public void ShowReshelfRequestData()
         {
             ReshelfData rd = new ReshelfData();

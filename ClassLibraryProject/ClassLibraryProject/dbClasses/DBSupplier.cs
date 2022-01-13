@@ -56,7 +56,7 @@ namespace ClassLibraryProject.dbClasses
                     int phoneNumber = reader.GetInt32("PhoneNumber");
                     string bankNumber = reader.GetString("BankNumber");
 
-                    supplier = new Supplier(id, name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber);
+                    supplier = new Supplier( name, country, buildingNumber, postalCode, email, phoneNumber.ToString(), bankNumber, "");
                     suppliers.Add(supplier);
                 }
             }
@@ -93,7 +93,7 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    Supplier supplier = new Supplier(id, name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber);
+                    Supplier supplier = new Supplier( name, country, buildingNumber, postalCode, email, phoneNumber.ToString(), bankNumber, "");
                     suppliers.Add(supplier);
 
                     return true;

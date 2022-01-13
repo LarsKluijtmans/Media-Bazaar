@@ -19,17 +19,13 @@ namespace Statistics
             emp.Clear();
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = "";
+            string sql = "SELECT employee.`EmployeeID`, HOUR(SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`))))), `WorkHoursPerWeek`, `FirstName`,`LastName` FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '" + year + "-0" + month + "%' group by contract.EmployeeID;";
 
             if (month > 9)
             {
                 sql = "SELECT employee.`EmployeeID`, HOUR(SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`))))), `WorkHoursPerWeek`, `FirstName`,`LastName` FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '" + year + "-" + month + "%' group by contract.EmployeeID;";
             }
-            else
-            {
-                sql = "SELECT employee.`EmployeeID`, HOUR(SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(`CheckOutTime`,`CheckInTime`))))), `WorkHoursPerWeek`, `FirstName`,`LastName` FROM `attendance` INNER JOIN employee ON attendance.EmployeeID = employee.EmployeeID INNER JOIN contract ON contract.EmployeeID = employee.EmployeeID WHERE checkdate LIKE '" + year + "-0" + month + "%' group by contract.EmployeeID;";
-            }
-
+  
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
