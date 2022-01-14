@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ClassLibraryProject.ManagmentClasses.IDepotEmployee
 {
-    public class DepotEmployeeControl
+    public class DepotEmployeeControl: IDepotEmployeeControl
     {
         private IReshelfDepotEmployee reshelf;
         private IRestockDepotEmployee restock;
@@ -31,6 +31,10 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotEmployee
         }
 
         //restock
+        public Product GetProduct(string barcode)
+        {
+            return reshelf.GetProduct(barcode);
+        }
         public List<Restock> GetOrderedRestockRequests()
         {
             return restock.GetOrderedRestockRequests();
@@ -42,6 +46,10 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotEmployee
         public bool ReceiveRestock(int id, Product product)
         {
             return restock.ReceiveRestock(id, product);
+        }
+        public bool RestockExist(Product product)
+        {
+            return restock.RestockExist(product);
         }
     }
 }

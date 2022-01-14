@@ -1,5 +1,6 @@
 ﻿using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses.IDB;
+using ClassLibraryProject.dbClasses.IGetObject;
 using ClassLibraryProject.ManagmentClasses.IAllManager;
 using MySql.Data.MySqlClient;
 using System;
@@ -8,7 +9,7 @@ using System.Data;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class ScheduleManagment: IScheduleAllManager
+    public class ScheduleManagment: IScheduleAllManager, IGetSchedule
     {
         private IDBSchedule dbSchedule;
 
@@ -70,7 +71,7 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         //check
-        private bool WeekExist(string department, int year, int week)
+        public bool WeekExist(string department, int year, int week)
         {
             if (GetSchedule(department, year, week) != null)
             {

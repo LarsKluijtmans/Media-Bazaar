@@ -10,5 +10,6 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         List<Restock> GetRestockRequests();
         bool OrderRestock(int id, OrderInfo orderInfo, int amount);
         bool DeleteRestock(int id);
+        bool IsValid(OrderInfo orderInfo, int amount);
     }
 }

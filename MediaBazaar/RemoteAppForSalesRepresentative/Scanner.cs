@@ -1,4 +1,8 @@
 ﻿using ClassLibraryProject.Class;
+using ClassLibraryProject.dbClasses;
+using ClassLibraryProject.dbClasses.IDB;
+using ClassLibraryProject.ManagmentClasses;
+using ClassLibraryProject.ManagmentClasses.ISalesEmployee;
 using System;
 using System.Windows.Forms;
 
@@ -6,48 +10,55 @@ namespace RemoteAppForSalesRepresentative
 {
     public partial class Scanner : Form
     {
-        Store store;
+        IDBReshelf dbReshelf;
+        IReshelfSalesEmployee reshelf;
+
+        ISalesEmployeeControl control;
+
         public Scanner()
         {
             InitializeComponent();
-            store = new Store();
-            timerUpdate.Start();
-            store.productManagment.GetProduct();
+
+            dbReshelf = new DBReshelf();
+            reshelf = new ReshelfManagment(dbReshelf);
+
+            control = new SalesEmployeeControl(reshelf);
         }
 
         private bool UpdateProduct()
         {
-            foreach (Product p in store.productManagment.RemoteProducts)
+            Product p = control.GetProduct(txtBarcode.Text);
+
+            if (p != null)
             {
-                if (p.Barcode == txtBarcode.Text)
-                {
-                    lbName.Text = p.Name;
-                    lbAmount.Text = Convert.ToString(p.AmountInStore);
-                    return true;
-                }
-                else
-                {
-                    lbName.Text = "";
-                    lbAmount.Text = "";
-                }
+                lbName.Text = p.ProductName;
+                lbAmount.Text = Convert.ToString(p.AmountInDepot);
+
+                return true;
             }
-            return false;
+            else
+            {
+                lbName.Text = "";
+                lbAmount.Text = "";
+
+                return false;
+            }
         }
         private void btnRequest_Click(object sender, EventArgs e)
         {
-            try
+            int amount = Convert.ToInt32(txtAmount.Text);
+            Product p = control.GetProduct(txtBarcode.Text);
+
+            if (p != null)
             {
-                foreach (Product product in store.productManagment.RemoteProducts)
+                if (control.RequestReshelf(p, amount))
                 {
-                    if (product.Barcode == txtBarcode.Text)
-                    {
-                        store.reshelfManagment.RequestReshelf(product.Barcode, product.ID, Convert.ToInt32(txtRequest.Text));
-                    }
+                    txtBarcode.Clear();
                 }
             }
-            catch(Exception)
+            else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Product with this barcode does not exist!");
             }
         }
 
