@@ -590,7 +590,16 @@ namespace ClassLibraryProject
                     int workHoursPerWeek = reader.GetInt32(3);
                     double salaryPerHour = reader.GetDouble(4);
                     DateTime startDate = reader.GetDateTime(5);
-                    DateTime endDate = reader.GetDateTime(6);
+                    DateTime endDate;
+                    try
+                    {
+                        endDate = reader.GetDateTime(6);
+                    }
+                    catch
+                    { 
+                        endDate = new DateTime(1000,1,1); 
+                    }
+                    
                     string department = reader.GetString(8);
                     bool isActive = reader.GetBoolean(9);
 
