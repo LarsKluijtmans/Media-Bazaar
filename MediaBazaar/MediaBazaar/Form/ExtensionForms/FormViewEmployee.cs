@@ -1,14 +1,12 @@
-﻿using System;
+﻿using ClassLibraryProject;
+using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.Class;
+using System;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using ClassLibraryProject;
-using ClassLibraryProject.ChildClasses;
-using ClassLibraryProject.Class;
-using ClassLibraryProject.ManagmentClasses;
-using MySql.Data.MySqlClient;
 
 
 namespace AdminBackups
@@ -35,7 +33,7 @@ namespace AdminBackups
             LoadEmployeeInfo();
             AddDepartment();
         }
-        
+
         private void btnEditData_Click(object sender, EventArgs e)
         {
             if (!UpdateEmployee())
@@ -48,7 +46,8 @@ namespace AdminBackups
             if (dr == DialogResult.Yes)
             {
                 return;
-            } else if (dr == DialogResult.No)
+            }
+            else if (dr == DialogResult.No)
             {
                 var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
                 formOfficeManager.ReadEmployees();
@@ -113,7 +112,7 @@ namespace AdminBackups
                     }
                 }
 
-                
+
                 cbxDepartment.Text = employee.Contracts[0].Department;
             }
             else
@@ -210,7 +209,7 @@ namespace AdminBackups
             if (string.IsNullOrEmpty(tbxZipCode.Text))
             {
                 MessageBox.Show("Zip Code cannot be empty");
-                return false; 
+                return false;
             }
             if (!Regex.IsMatch(tbxZipCode.Text, @"^[0-9]{4}[A-Z]{2}$"))
             {
@@ -220,7 +219,7 @@ namespace AdminBackups
             employee.ZipCode = tbxZipCode.Text;
 
             return officeManager.EmployeeManagerOffice.UpdateEmployee(employee);
-        }  
+        }
         public bool CreateNewContract() // make bool
         {
             if (contract != null)
@@ -230,7 +229,7 @@ namespace AdminBackups
                 contract.EndDate = DateTime.Now;
 
                 officeManager.ContractManager.UpdateContract(contract);
-            } 
+            }
 
             // get input for new contract
             string jobTitle = tbxJobTitle.Text;
@@ -273,7 +272,7 @@ namespace AdminBackups
                 return false;
             }
             double salaryPerHour = Convert.ToDouble(tbxSalary.Text);
-            if (salaryPerHour > 5)
+            if (salaryPerHour < 5)
             {
                 MessageBox.Show("Min salary is 5");
                 return false;
@@ -290,12 +289,6 @@ namespace AdminBackups
                 DateTime MakeDate = Convert.ToDateTime(tbxStartDate.Value.ToString());
 
                 startDate = Convert.ToDateTime(MakeDate.ToString("yyyy/MM/dd"));
-
-                if (startDate < DateTime.Now)
-                {
-                    MessageBox.Show("Start date must be in the future");
-                    return false;
-                }
             }
             catch
             {

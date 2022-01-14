@@ -41,7 +41,6 @@ namespace AdminBackups
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.bntUpdateEmployee = new System.Windows.Forms.Button();
-            this.btnReadEmployees = new System.Windows.Forms.Button();
             this.btnDeleteEmployee = new System.Windows.Forms.Button();
             this.btnCreateEmployee = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -160,6 +159,7 @@ namespace AdminBackups
             this.cbxDepartment.Name = "cbxDepartment";
             this.cbxDepartment.Size = new System.Drawing.Size(154, 23);
             this.cbxDepartment.TabIndex = 21;
+            this.cbxDepartment.SelectedIndexChanged += new System.EventHandler(this.cbxDepartment_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -173,7 +173,7 @@ namespace AdminBackups
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(894, 20);
+            this.label13.Location = new System.Drawing.Point(868, 126);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(109, 15);
             this.label13.TabIndex = 19;
@@ -181,10 +181,10 @@ namespace AdminBackups
             // 
             // tbxActiveEmployeeID
             // 
-            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(894, 44);
+            this.tbxActiveEmployeeID.Location = new System.Drawing.Point(868, 150);
             this.tbxActiveEmployeeID.Name = "tbxActiveEmployeeID";
             this.tbxActiveEmployeeID.ReadOnly = true;
-            this.tbxActiveEmployeeID.Size = new System.Drawing.Size(186, 23);
+            this.tbxActiveEmployeeID.Size = new System.Drawing.Size(225, 23);
             this.tbxActiveEmployeeID.TabIndex = 18;
             // 
             // label10
@@ -223,51 +223,40 @@ namespace AdminBackups
             this.dgvEmployees.Location = new System.Drawing.Point(16, 70);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.RowTemplate.Height = 25;
-            this.dgvEmployees.Size = new System.Drawing.Size(868, 401);
+            this.dgvEmployees.Size = new System.Drawing.Size(835, 401);
             this.dgvEmployees.TabIndex = 15;
             this.dgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellClick);
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.bntUpdateEmployee);
-            this.groupBox4.Controls.Add(this.btnReadEmployees);
             this.groupBox4.Controls.Add(this.btnDeleteEmployee);
             this.groupBox4.Controls.Add(this.btnCreateEmployee);
-            this.groupBox4.Location = new System.Drawing.Point(894, 72);
+            this.groupBox4.Location = new System.Drawing.Point(868, 197);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(202, 168);
+            this.groupBox4.Size = new System.Drawing.Size(241, 153);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Manage Employees";
             // 
             // bntUpdateEmployee
             // 
-            this.bntUpdateEmployee.Location = new System.Drawing.Point(6, 93);
+            this.bntUpdateEmployee.Location = new System.Drawing.Point(6, 63);
             this.bntUpdateEmployee.Name = "bntUpdateEmployee";
-            this.bntUpdateEmployee.Size = new System.Drawing.Size(167, 31);
+            this.bntUpdateEmployee.Size = new System.Drawing.Size(219, 38);
             this.bntUpdateEmployee.TabIndex = 9;
             this.bntUpdateEmployee.Text = "Update Employee";
             this.bntUpdateEmployee.UseVisualStyleBackColor = true;
             this.bntUpdateEmployee.Click += new System.EventHandler(this.bntUpdateEmployee_Click);
             // 
-            // btnReadEmployees
-            // 
-            this.btnReadEmployees.Location = new System.Drawing.Point(6, 56);
-            this.btnReadEmployees.Name = "btnReadEmployees";
-            this.btnReadEmployees.Size = new System.Drawing.Size(168, 31);
-            this.btnReadEmployees.TabIndex = 8;
-            this.btnReadEmployees.Text = "View Employees";
-            this.btnReadEmployees.UseVisualStyleBackColor = true;
-            this.btnReadEmployees.Click += new System.EventHandler(this.btnReadEmployees_Click);
-            // 
             // btnDeleteEmployee
             // 
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(6, 129);
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(6, 106);
             this.btnDeleteEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteEmployee.Name = "btnDeleteEmployee";
-            this.btnDeleteEmployee.Size = new System.Drawing.Size(168, 31);
+            this.btnDeleteEmployee.Size = new System.Drawing.Size(220, 38);
             this.btnDeleteEmployee.TabIndex = 7;
             this.btnDeleteEmployee.Text = "Delete Employee";
             this.btnDeleteEmployee.UseVisualStyleBackColor = true;
@@ -277,7 +266,7 @@ namespace AdminBackups
             this.btnCreateEmployee.Location = new System.Drawing.Point(6, 20);
             this.btnCreateEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreateEmployee.Name = "btnCreateEmployee";
-            this.btnCreateEmployee.Size = new System.Drawing.Size(168, 31);
+            this.btnCreateEmployee.Size = new System.Drawing.Size(220, 38);
             this.btnCreateEmployee.TabIndex = 1;
             this.btnCreateEmployee.Text = "Add New Employee";
             this.btnCreateEmployee.UseVisualStyleBackColor = true;
@@ -287,11 +276,11 @@ namespace AdminBackups
             // 
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.tbxSearchEmployee);
-            this.groupBox5.Location = new System.Drawing.Point(894, 244);
+            this.groupBox5.Location = new System.Drawing.Point(868, 20);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(202, 80);
+            this.groupBox5.Size = new System.Drawing.Size(238, 80);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Search:";
@@ -309,7 +298,7 @@ namespace AdminBackups
             // 
             this.tbxSearchEmployee.Location = new System.Drawing.Point(6, 42);
             this.tbxSearchEmployee.Name = "tbxSearchEmployee";
-            this.tbxSearchEmployee.Size = new System.Drawing.Size(169, 23);
+            this.tbxSearchEmployee.Size = new System.Drawing.Size(219, 23);
             this.tbxSearchEmployee.TabIndex = 11;
             this.tbxSearchEmployee.TextChanged += new System.EventHandler(this.tbxSearchEmployee_TextChanged);
             // 
@@ -883,7 +872,6 @@ namespace AdminBackups
         private System.Windows.Forms.ComboBox cbxEmployeeType;
         private System.Windows.Forms.DataGridView dgvEmployees;
         private System.Windows.Forms.Button bntUpdateEmployee;
-        private System.Windows.Forms.Button btnReadEmployees;
         private System.Windows.Forms.TextBox tbxActiveEmployeeID;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown udResult;

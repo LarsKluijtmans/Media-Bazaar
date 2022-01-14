@@ -38,6 +38,8 @@ namespace AdminBackups
             GetAtendeance();
             ViewAllDepartments();
 
+            AddDepartment();
+
             int year, month;
 
             year = Convert.ToInt32(labYear.Text);
@@ -208,10 +210,6 @@ namespace AdminBackups
         private void btnCreateEmployee_Click(object sender, EventArgs e)
         {
             CreateEmployee();
-        }
-        private void btnReadEmployees_Click(object sender, EventArgs e)
-        {
-            ReadEmployees();
         }
         private void bntUpdateEmployee_Click(object sender, EventArgs e)
         {
@@ -394,6 +392,13 @@ namespace AdminBackups
                                 r[1].ToString(),
                                 r[2].ToString()); cbxDepartment.Items.Add(d);
                             }
+                        }
+                        else
+                        {
+                            Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
                         }
                     }
                 }
@@ -806,6 +811,11 @@ namespace AdminBackups
             }
             else
             { MessageBox.Show("type casting failed."); }
+        }
+
+        private void cbxDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

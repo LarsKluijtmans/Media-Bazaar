@@ -58,6 +58,8 @@ namespace AdminBackups
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbxEndDate = new System.Windows.Forms.DateTimePicker();
+            this.tbxStartDate = new System.Windows.Forms.DateTimePicker();
             this.btnUpdateContract = new System.Windows.Forms.Button();
             this.tbxJobTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,8 +71,6 @@ namespace AdminBackups
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.tbxStartDate = new System.Windows.Forms.DateTimePicker();
-            this.tbxEndDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -363,6 +363,20 @@ namespace AdminBackups
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contract Info:";
             // 
+            // tbxEndDate
+            // 
+            this.tbxEndDate.Location = new System.Drawing.Point(430, 55);
+            this.tbxEndDate.Name = "tbxEndDate";
+            this.tbxEndDate.Size = new System.Drawing.Size(200, 23);
+            this.tbxEndDate.TabIndex = 84;
+            // 
+            // tbxStartDate
+            // 
+            this.tbxStartDate.Location = new System.Drawing.Point(430, 25);
+            this.tbxStartDate.Name = "tbxStartDate";
+            this.tbxStartDate.Size = new System.Drawing.Size(200, 23);
+            this.tbxStartDate.TabIndex = 83;
+            // 
             // btnUpdateContract
             // 
             this.btnUpdateContract.Location = new System.Drawing.Point(511, 117);
@@ -456,20 +470,6 @@ namespace AdminBackups
             this.label14.Size = new System.Drawing.Size(41, 15);
             this.label14.TabIndex = 20;
             this.label14.Text = "Salary:";
-            // 
-            // tbxStartDate
-            // 
-            this.tbxStartDate.Location = new System.Drawing.Point(430, 25);
-            this.tbxStartDate.Name = "tbxStartDate";
-            this.tbxStartDate.Size = new System.Drawing.Size(200, 23);
-            this.tbxStartDate.TabIndex = 83;
-            // 
-            // tbxEndDate
-            // 
-            this.tbxEndDate.Location = new System.Drawing.Point(430, 55);
-            this.tbxEndDate.Name = "tbxEndDate";
-            this.tbxEndDate.Size = new System.Drawing.Size(200, 23);
-            this.tbxEndDate.TabIndex = 84;
             // 
             // FormViewEmployee
             // 
