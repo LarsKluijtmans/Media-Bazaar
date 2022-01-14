@@ -46,5 +46,10 @@ namespace ClassLibraryProject.Class
             AmountRequested = amountRequested;
             Status = "Pending";
         }
+
+        public override string ToString()
+        {
+            return Status;
+        }
     }
 }

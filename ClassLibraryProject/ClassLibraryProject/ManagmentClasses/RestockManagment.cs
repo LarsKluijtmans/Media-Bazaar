@@ -23,7 +23,6 @@ namespace ClassLibraryProject.ManagmentClasses
                 n = random.Next(numbers.Count);
                 if (i == numbers[n])
                 {
-                    numbers.Remove(i);
                     return i;
                 }
             }
@@ -129,7 +128,7 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             foreach(Restock restock in db.GetRestockRequests())
             {
-                if(restock.Product == product && restock.Status == "Pending" || restock.Status == "Ordered")
+                if(restock.Product == product && (restock.Status == "Pending" || restock.Status == "Ordered"))
                 {
                     return restock;
                 }

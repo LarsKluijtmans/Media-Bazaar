@@ -25,7 +25,6 @@ namespace ClassLibraryProject.ManagmentClasses
                 n = random.Next(numbers.Count);
                 if (i == numbers[n])
                 {
-                    numbers.Remove(i);
                     return i;
                 }
             }
