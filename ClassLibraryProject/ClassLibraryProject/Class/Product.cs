@@ -57,5 +57,9 @@ namespace ClassLibraryProject.Class
 
             OrderInfos = new List<OrderInfo>();
         }
+        public override string ToString()
+        {
+            return Barcode;
+        }
     }
 }
