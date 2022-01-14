@@ -99,6 +99,12 @@ namespace AdminBackups
         {
             List<Product> newProducts = salesManager.ProductManagerSM.ReadNewProductsSM();
             dgvNewProducts.DataSource = newProducts;
+
+            dgvNewProducts.Columns["ProductID"].Visible = false;
+            dgvNewProducts.Columns["ProductType"].Visible = false;
+            dgvNewProducts.Columns["AmountInDepot"].Visible = false;
+            dgvNewProducts.Columns["AmountInStore"].Visible = false;
+            dgvNewProducts.Columns["IsDiscontinued"].Visible = false;
         }
 
         private void lstEmployeesWorkingToday_MouseDoubleClick(object sender, MouseEventArgs e)

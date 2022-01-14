@@ -39,6 +39,10 @@ namespace AdminBackups
             this.label14 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
             this.txtProductID = new System.Windows.Forms.TabPage();
+            this.tbxSelectedProduct = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.bntUpdateProduct = new System.Windows.Forms.Button();
+            this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.labProductSearch = new System.Windows.Forms.Label();
             this.tbProductSearch = new System.Windows.Forms.TextBox();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
@@ -83,22 +87,18 @@ namespace AdminBackups
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.tbxSelectedProduct = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.bntUpdateProduct = new System.Windows.Forms.Button();
-            this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNewProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).BeginInit();
             this.txtProductID.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.tabSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -126,7 +126,7 @@ namespace AdminBackups
             this.tabOverview.Location = new System.Drawing.Point(4, 30);
             this.tabOverview.Name = "tabOverview";
             this.tabOverview.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOverview.Size = new System.Drawing.Size(981, 529);
+            this.tabOverview.Size = new System.Drawing.Size(997, 529);
             this.tabOverview.TabIndex = 12;
             this.tabOverview.Text = "Overview";
             this.tabOverview.UseVisualStyleBackColor = true;
@@ -143,6 +143,7 @@ namespace AdminBackups
             // 
             // dgvNewProducts
             // 
+            this.dgvNewProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvNewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNewProducts.Location = new System.Drawing.Point(21, 326);
             this.dgvNewProducts.Name = "dgvNewProducts";
@@ -209,6 +210,48 @@ namespace AdminBackups
             this.txtProductID.Text = "Products ";
             this.txtProductID.UseVisualStyleBackColor = true;
             // 
+            // tbxSelectedProduct
+            // 
+            this.tbxSelectedProduct.Location = new System.Drawing.Point(796, 62);
+            this.tbxSelectedProduct.Name = "tbxSelectedProduct";
+            this.tbxSelectedProduct.PlaceholderText = "Selected Product";
+            this.tbxSelectedProduct.ReadOnly = true;
+            this.tbxSelectedProduct.Size = new System.Drawing.Size(169, 29);
+            this.tbxSelectedProduct.TabIndex = 107;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.bntUpdateProduct);
+            this.groupBox4.Controls.Add(this.btnDeleteProduct);
+            this.groupBox4.Location = new System.Drawing.Point(791, 98);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Size = new System.Drawing.Size(182, 102);
+            this.groupBox4.TabIndex = 106;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Manage Products";
+            // 
+            // bntUpdateProduct
+            // 
+            this.bntUpdateProduct.Location = new System.Drawing.Point(5, 27);
+            this.bntUpdateProduct.Name = "bntUpdateProduct";
+            this.bntUpdateProduct.Size = new System.Drawing.Size(167, 31);
+            this.bntUpdateProduct.TabIndex = 9;
+            this.bntUpdateProduct.Text = "Update Product";
+            this.bntUpdateProduct.UseVisualStyleBackColor = true;
+            this.bntUpdateProduct.Click += new System.EventHandler(this.bntUpdateProduct_Click);
+            // 
+            // btnDeleteProduct
+            // 
+            this.btnDeleteProduct.Location = new System.Drawing.Point(4, 63);
+            this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(168, 31);
+            this.btnDeleteProduct.TabIndex = 7;
+            this.btnDeleteProduct.Text = "Delete Product";
+            this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            // 
             // labProductSearch
             // 
             this.labProductSearch.AutoSize = true;
@@ -266,7 +309,7 @@ namespace AdminBackups
             this.tabSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabSchedule.Name = "tabSchedule";
             this.tabSchedule.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabSchedule.Size = new System.Drawing.Size(981, 529);
+            this.tabSchedule.Size = new System.Drawing.Size(997, 529);
             this.tabSchedule.TabIndex = 4;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
@@ -501,7 +544,7 @@ namespace AdminBackups
             this.tabPlanning.Location = new System.Drawing.Point(4, 30);
             this.tabPlanning.Name = "tabPlanning";
             this.tabPlanning.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPlanning.Size = new System.Drawing.Size(981, 529);
+            this.tabPlanning.Size = new System.Drawing.Size(997, 529);
             this.tabPlanning.TabIndex = 11;
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
@@ -668,48 +711,6 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // tbxSelectedProduct
-            // 
-            this.tbxSelectedProduct.Location = new System.Drawing.Point(796, 62);
-            this.tbxSelectedProduct.Name = "tbxSelectedProduct";
-            this.tbxSelectedProduct.PlaceholderText = "Selected Product";
-            this.tbxSelectedProduct.ReadOnly = true;
-            this.tbxSelectedProduct.Size = new System.Drawing.Size(169, 29);
-            this.tbxSelectedProduct.TabIndex = 107;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.bntUpdateProduct);
-            this.groupBox4.Controls.Add(this.btnDeleteProduct);
-            this.groupBox4.Location = new System.Drawing.Point(791, 98);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(182, 102);
-            this.groupBox4.TabIndex = 106;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Manage Products";
-            // 
-            // bntUpdateProduct
-            // 
-            this.bntUpdateProduct.Location = new System.Drawing.Point(5, 27);
-            this.bntUpdateProduct.Name = "bntUpdateProduct";
-            this.bntUpdateProduct.Size = new System.Drawing.Size(167, 31);
-            this.bntUpdateProduct.TabIndex = 9;
-            this.bntUpdateProduct.Text = "Update Product";
-            this.bntUpdateProduct.UseVisualStyleBackColor = true;
-            this.bntUpdateProduct.Click += new System.EventHandler(this.bntUpdateProduct_Click);
-            // 
-            // btnDeleteProduct
-            // 
-            this.btnDeleteProduct.Location = new System.Drawing.Point(4, 63);
-            this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(168, 31);
-            this.btnDeleteProduct.TabIndex = 7;
-            this.btnDeleteProduct.Text = "Delete Product";
-            this.btnDeleteProduct.UseVisualStyleBackColor = true;
-            // 
             // FormSalesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -728,6 +729,7 @@ namespace AdminBackups
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).EndInit();
             this.txtProductID.ResumeLayout(false);
             this.txtProductID.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.tabSchedule.ResumeLayout(false);
             this.tabSchedule.PerformLayout();
@@ -737,7 +739,6 @@ namespace AdminBackups
             this.tabPlanning.ResumeLayout(false);
             this.tabPlanning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).EndInit();
-            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
