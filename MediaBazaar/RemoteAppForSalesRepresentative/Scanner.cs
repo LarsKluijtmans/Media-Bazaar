@@ -30,44 +30,52 @@ namespace RemoteAppForSalesRepresentative
 
         private bool UpdateProduct()
         {
-            Product p = control.GetProduct(txtBarcode.Text);
-
-            if (p != null)
+            try
             {
-                lbName.Text = p.ProductName;
-                lbAmount.Text = Convert.ToString(p.AmountInDepot);
+                Product p = control.GetProduct(txtBarcode.Text);
 
-                return true;
-            }
-            else
-            {
-                lbName.Text = "";
-                lbAmount.Text = "";
-                txtAmount.Text = "";
-
-                return false;
-            }
-        }
-        private void btnRequest_Click(object sender, EventArgs e)
-        {
-            int amount = Convert.ToInt32(txtAmount.Text);
-            Product p = control.GetProduct(txtBarcode.Text);
-
-            if (p != null)
-            {
-                if (control.RequestReshelf(p, amount))
+                if (p != null)
                 {
-                    txtBarcode.Clear();
+                    lbName.Text = p.ProductName;
+                    lbAmount.Text = Convert.ToString(p.AmountInDepot);
+
+                    return true;
                 }
                 else
                 {
-                    MessageBox.Show("Already requested!");
+                    lbName.Text = "";
+                    lbAmount.Text = "";
+                    txtAmount.Text = "";
+
+                    return false;
                 }
             }
-            else
+            catch { return false; }
+        }
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            try
             {
-                MessageBox.Show("Product with this barcode does not exist!");
+                int amount = Convert.ToInt32(txtAmount.Text);
+                Product p = control.GetProduct(txtBarcode.Text);
+
+                if (p != null)
+                {
+                    if (control.RequestReshelf(p, amount))
+                    {
+                        txtBarcode.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Already requested!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Product with this barcode does not exist!");
+                }
             }
+            catch { }
         }
 
         private void timerUpdate_Tick(object sender, EventArgs e)

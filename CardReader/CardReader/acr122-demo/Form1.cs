@@ -50,7 +50,11 @@ namespace acr122_demo
         // Card reader
         private static void Acr122u_CardInserted(PCSC.ICardReader reader)
         {
-            acr122u.ReadId = BitConverter.ToString(acr122u.GetUID(reader)).Replace("-", "");
+            try
+            {
+                acr122u.ReadId = BitConverter.ToString(acr122u.GetUID(reader)).Replace("-", "");
+            }
+            catch { }
         }
         private static void Acr122u_CardRemoved()
         { }

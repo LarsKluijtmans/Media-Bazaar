@@ -53,9 +53,19 @@ namespace AdminBackups
         }
         public void ReadProducts()
         {
-            List<Product> products = productManager.ProductManagerPM.ReadProductsPM();
+            string search = tbProductSearch.Text;
 
-            dgvProducts.DataSource = products;
+            if (!string.IsNullOrEmpty(search))
+            {
+                List<Product> products = productManager.ProductManagerPM.SearchProductsPM(search);
+                dgvProducts.DataSource = products;
+            }
+            else
+            {
+                List<Product> products = productManager.ProductManagerPM.ReadProductsPM();
+
+                dgvProducts.DataSource = products;
+            }
         }
         private void UpdateProduct()
         {

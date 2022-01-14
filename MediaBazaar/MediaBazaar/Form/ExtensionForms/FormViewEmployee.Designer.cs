@@ -58,10 +58,10 @@ namespace AdminBackups
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbxJobTitle = new System.Windows.Forms.ComboBox();
             this.tbxEndDate = new System.Windows.Forms.DateTimePicker();
             this.tbxStartDate = new System.Windows.Forms.DateTimePicker();
             this.btnUpdateContract = new System.Windows.Forms.Button();
-            this.tbxJobTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cbxDepartment = new System.Windows.Forms.ComboBox();
@@ -341,10 +341,10 @@ namespace AdminBackups
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbxJobTitle);
             this.groupBox1.Controls.Add(this.tbxEndDate);
             this.groupBox1.Controls.Add(this.tbxStartDate);
             this.groupBox1.Controls.Add(this.btnUpdateContract);
-            this.groupBox1.Controls.Add(this.tbxJobTitle);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.cbxDepartment);
@@ -362,6 +362,25 @@ namespace AdminBackups
             this.groupBox1.TabIndex = 80;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contract Info:";
+            // 
+            // tbxJobTitle
+            // 
+            this.tbxJobTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tbxJobTitle.FormattingEnabled = true;
+            this.tbxJobTitle.Items.AddRange(new object[] {
+            "ADMIN",
+            "CEO",
+            "SALES REPRESENTATIVE",
+            "SALES MANAGER",
+            "DEPOT EMPLOYEE",
+            "DEPOT MANAGER",
+            "OFFICE MANAGER",
+            "PRODUCT MANAGER"});
+            this.tbxJobTitle.Location = new System.Drawing.Point(113, 31);
+            this.tbxJobTitle.Name = "tbxJobTitle";
+            this.tbxJobTitle.Size = new System.Drawing.Size(209, 23);
+            this.tbxJobTitle.TabIndex = 86;
+            this.tbxJobTitle.SelectedIndexChanged += new System.EventHandler(this.tbxJobTitle_SelectedIndexChanged);
             // 
             // tbxEndDate
             // 
@@ -387,14 +406,6 @@ namespace AdminBackups
             this.btnUpdateContract.UseVisualStyleBackColor = true;
             this.btnUpdateContract.Click += new System.EventHandler(this.btnUpdateContract_Click);
             // 
-            // tbxJobTitle
-            // 
-            this.tbxJobTitle.Location = new System.Drawing.Point(112, 28);
-            this.tbxJobTitle.Name = "tbxJobTitle";
-            this.tbxJobTitle.ReadOnly = true;
-            this.tbxJobTitle.Size = new System.Drawing.Size(210, 23);
-            this.tbxJobTitle.TabIndex = 81;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -415,7 +426,9 @@ namespace AdminBackups
             // 
             // cbxDepartment
             // 
+            this.cbxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDepartment.FormattingEnabled = true;
+            this.cbxDepartment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cbxDepartment.Location = new System.Drawing.Point(430, 88);
             this.cbxDepartment.Name = "cbxDepartment";
             this.cbxDepartment.Size = new System.Drawing.Size(200, 23);
@@ -475,7 +488,7 @@ namespace AdminBackups
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 475);
+            this.ClientSize = new System.Drawing.Size(688, 438);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.lblEmployeeName);
@@ -521,7 +534,6 @@ namespace AdminBackups
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox tbxJobTitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbxDepartment;
@@ -534,5 +546,6 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnUpdateContract;
         private System.Windows.Forms.DateTimePicker tbxEndDate;
         private System.Windows.Forms.DateTimePicker tbxStartDate;
+        private System.Windows.Forms.ComboBox tbxJobTitle;
     }
 }

@@ -18,11 +18,11 @@ namespace ClassLibraryProject.dbClasses
 
         /* Sales Manager */
         public string READ_PRODUCTS_SM = "SELECT * FROM Product WHERE Discontinued = @Discontinued LIMIT 50;";
-        public string READ_NEW_PRODUCTS_SM = "SELECT * FROM Product WHERE SellingPrice = @SellingPrice AND Discontinued = @Discontinued;";
+        public string READ_NEW_PRODUCTS_SM = "SELECT * FROM Product WHERE SellingPrice = @SellingPrice AND Discontinued = @Discontinued LIMIT 50;";
         public string UPDATE_PRODUCT_SM = "UPDATE Product SET SellingPrice = @SellingPrice, Discontinued = @Discontinued WHERE ProductID = @ProductID;";
 
         /* All */
-        public string SEARCH_PRODUCT_PM = "SELECT * FROM Product WHERE Name LIKE @Search OR Barcode LIKE @Search;";
+        public string SEARCH_PRODUCT_PM = "SELECT * FROM Product WHERE Name LIKE @Search OR Barcode LIKE @Search LIMIT 50;";
         public string GET_PRODUCT_BY_ID = "SELECT * FROM Product WHERE ProductID = @ProductID;";
 
         public static string GET_ALL_PRODUCT = "SELECT ProductID, Name, Barcode, Type, price, AmountInDepot, SellingPrice FROM Product WHERE Name LIKE '@value%' ORDER BY ProductID;";
