@@ -23,6 +23,9 @@ namespace RemoteAppForSalesRepresentative
             reshelf = new ReshelfManagment(dbReshelf);
 
             control = new SalesEmployeeControl(reshelf);
+
+            timerUpdate.Start();
+            timerRevival.Start();
         }
 
         private bool UpdateProduct()
@@ -40,6 +43,7 @@ namespace RemoteAppForSalesRepresentative
             {
                 lbName.Text = "";
                 lbAmount.Text = "";
+                txtAmount.Text = "";
 
                 return false;
             }
@@ -54,6 +58,10 @@ namespace RemoteAppForSalesRepresentative
                 if (control.RequestReshelf(p, amount))
                 {
                     txtBarcode.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Already requested!");
                 }
             }
             else

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ClassLibraryProject
 {
-    public interface IDBProductManagerSM
+    public interface IProductManagerSM
     {
         public List<Product> ReadProductsSM();
         public List<Product> ReadNewProductsSM();

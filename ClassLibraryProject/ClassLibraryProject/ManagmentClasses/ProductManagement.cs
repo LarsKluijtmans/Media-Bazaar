@@ -45,6 +45,19 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             return DBProductManagerPM.UpdateProductPM(p);
         }
+        /* Sales Manager */
+        public List<Product> ReadProductsSM()
+        {
+            return DBProductManagerSM.ReadProductsSM();
+        }
+        public List<Product> ReadNewProductsSM()
+        {
+            return DBProductManagerSM.ReadNewProductsSM();
+        }
+        public bool UpdateProductSM(Product p)
+        {
+            return DBProductManagerSM.UpdateProductSM(p);
+        }
         /* Esther End */
 
 

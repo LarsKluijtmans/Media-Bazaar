@@ -52,5 +52,10 @@ namespace ClassLibraryProject.Class
             Product = product;
             Status = "Pending";
         }
+
+        public override string ToString()
+        {
+            return Status;
+        }
     }
 }

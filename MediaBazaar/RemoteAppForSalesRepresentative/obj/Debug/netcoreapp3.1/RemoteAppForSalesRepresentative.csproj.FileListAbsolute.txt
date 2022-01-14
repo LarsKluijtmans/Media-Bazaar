@@ -90,3 +90,6 @@ C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesR
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.AssemblyInfoInputs.cache
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.AssemblyInfo.cs
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForSalesRepresentative\obj\Debug\netcoreapp3.1\RemoteAppForSalesRepresentative.csproj.CoreCompileInputs.cache
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForSalesRepresentative\bin\Debug\netcoreapp3.1\Devart.Data.MySql.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForSalesRepresentative\bin\Debug\netcoreapp3.1\Devart.Data.dll
+F:\Study\Semester 2\PRJ\MediaBazaar\RemoteAppForSalesRepresentative\bin\Debug\netcoreapp3.1\MySqlBackupNet.DevartExpress.dll

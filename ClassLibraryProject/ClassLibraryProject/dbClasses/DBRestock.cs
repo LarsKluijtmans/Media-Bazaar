@@ -1,22 +1,21 @@
 ﻿using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses.IDB;
-using ClassLibraryProject.dbClasses.IGetObject;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 
 namespace ClassLibraryProject.dbClasses
 {
-    public class DBRestock: IDBRestock
+    public class DBRestock : IDBRestock
     {
-        private string GET_ALL_SUPPLIERS = "SELECT * FROM supplier WHERE ID = @ID;";
+        private string GET_ALL_SUPPLIERS = "SELECT * FROM supplier;";
         private string GET_ALL_PRODUCTS = "SELECT * FROM product WHERE Discontinued = 0;";
-        private string GET_ALL_ORDER_INFOS = "SELECT * FROM orderinfo WHERE ID = @ID;";
+        private string GET_ALL_ORDER_INFOS = "SELECT * FROM orderinfo;";
 
         private string GET_ALL_RESTOCKS = "SELECT * FROM restock;";
 
         //employee
-        private string ADD_RESTOCK_REQUEST = "INSERT INTO restock (ID, ProductBarcode, Amount, Status) VALUES (@ID, @Barcode, null, 'Pending');";
+        private string ADD_RESTOCK_REQUEST = "INSERT INTO restock (ID, ProductBarcode, Amount, Status, OrderInfoID) VALUES (@ID, @Barcode, 0, 'Pending', 0);";
         private string RECEIVE_RESTOCK = "UPDATE restock SET Status = 'Fulfilled' WHERE ID = @ID;";
         private string CHANGE_AMOUNT = "UPDATE product SET AmountInDepot = @Amount WHERE Barcode = @Barcode;";
 
@@ -102,9 +101,9 @@ namespace ClassLibraryProject.dbClasses
         //supplier
         private Supplier GetSupplier(int id)
         {
-            foreach(Supplier supplier in suppliers)
+            foreach (Supplier supplier in suppliers)
             {
-                if(supplier.ID == id)
+                if (supplier.ID == id)
                 {
                     return supplier;
                 }
@@ -156,7 +155,7 @@ namespace ClassLibraryProject.dbClasses
         //order info
         private OrderInfo GetOrderInfo(int id)
         {
-            foreach(OrderInfo orderInfo in orderInfos)
+            foreach (OrderInfo orderInfo in orderInfos)
             {
                 if (orderInfo.ID == id)
                 {
@@ -235,10 +234,19 @@ namespace ClassLibraryProject.dbClasses
                     string status = reader.GetString("Status");
                     int orderID = reader.GetInt32("OrderInfoID");
 
-                    if(GetProduct(barcode)!=null && GetOrderInfo(orderID) != null)
+
+                    if (GetProduct(barcode) != null)
                     {
-                        restock = new Restock(id, GetProduct(barcode), GetOrderInfo(orderID), amount, status);
-                        restocks.Add(restock);
+                        if (GetOrderInfo(orderID) == null)
+                        {
+                            restock = new Restock(id, GetProduct(barcode));
+                            restocks.Add(restock);
+                        }
+                        else
+                        {
+                            restock = new Restock(id, GetProduct(barcode), GetOrderInfo(orderID), amount, status);
+                            restocks.Add(restock);
+                        }
                     }
                 }
             }
@@ -270,9 +278,9 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    foreach(Restock restock in restocks)
+                    foreach (Restock restock in restocks)
                     {
-                        if(restock.ID == id)
+                        if (restock.ID == id)
                         {
                             restocks.Remove(restock);
                         }
@@ -354,6 +362,7 @@ namespace ClassLibraryProject.dbClasses
                 if (numCreatedRows > 0)
                 {
                     Restock restock = new Restock(id, product);
+                    restocks.Add(restock);
                     return true;
                 }
                 return false;

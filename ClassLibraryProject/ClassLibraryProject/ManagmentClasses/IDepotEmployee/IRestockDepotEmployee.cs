@@ -7,6 +7,7 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotEmployee
 {
     public interface IRestockDepotEmployee
     {
+        Product GetProduct(string barcode);
         List<Restock> GetOrderedRestockRequests();
         bool RequestRestock(Product product);
         bool RestockExist(Product product);
