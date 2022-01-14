@@ -466,3 +466,27 @@ C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\De
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CoreCompileInputs.cache
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormNewProduct.resources
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormViewProduct.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.AssemblyReference.cache
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Core.dll
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.ResolveComReference.cache
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormLogin.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormNewEmployee.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormNewProduct.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormOrderInfo.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormRemoveEmployee.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormViewEmployee.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.FormViewProduct.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormAdmin.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormDepotEmployee.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormDepotManager.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormOfficeManager.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormProductManager.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormSalesManager.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.Properties.Resources.resources
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.GenerateResource.cache
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfoInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.AssemblyInfo.cs
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.CoreCompileInputs.cache

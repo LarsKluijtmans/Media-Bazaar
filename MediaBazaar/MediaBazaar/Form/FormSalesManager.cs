@@ -113,12 +113,12 @@ namespace AdminBackups
         {
             try
             {
-                if (salesManager.scheduleManagment.GetSalesCount(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text) == true)
-                {
-                    salesManager.scheduleManagment.CreateSalesWeek(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text);
-                }
-                dgSchedule.DataSource = salesManager.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
-                dgOverviewSchedule.DataSource = salesManager.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+                //if (salesManager.scheduleManagment.GetSalesCount(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text) == true)
+                //{
+                //    salesManager.scheduleManagment.CreateSalesWeek(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text);
+                //}
+                //dgSchedule.DataSource = salesManager.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+                //dgOverviewSchedule.DataSource = salesManager.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
             }
             catch (Exception)
             {

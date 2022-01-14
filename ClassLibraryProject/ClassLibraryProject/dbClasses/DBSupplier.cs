@@ -68,7 +68,7 @@ namespace ClassLibraryProject.dbClasses
                 conn.Close();
             }
         }
-        public bool AddSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
+        public bool AddSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, string phoneNumber, string bankNumber)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -109,7 +109,7 @@ namespace ClassLibraryProject.dbClasses
                 conn.Close();
             }
         }
-        public bool UpdateSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, int phoneNumber, string bankNumber)
+        public bool UpdateSupplier(int id, string name, string country, int buildingNumber, string postalCode, string email, string phoneNumber, string bankNumber)
         {
             MySqlConnection conn = Utils.GetConnection();
 
