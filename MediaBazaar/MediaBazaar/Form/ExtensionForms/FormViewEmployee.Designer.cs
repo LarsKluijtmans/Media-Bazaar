@@ -63,14 +63,14 @@ namespace AdminBackups
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cbxDepartment = new System.Windows.Forms.ComboBox();
-            this.tbxEndDate = new System.Windows.Forms.TextBox();
-            this.tbxStartDate = new System.Windows.Forms.TextBox();
             this.tbxSalary = new System.Windows.Forms.TextBox();
             this.tbxWorkHours = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.tbxStartDate = new System.Windows.Forms.DateTimePicker();
+            this.tbxEndDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -341,13 +341,13 @@ namespace AdminBackups
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbxEndDate);
+            this.groupBox1.Controls.Add(this.tbxStartDate);
             this.groupBox1.Controls.Add(this.btnUpdateContract);
             this.groupBox1.Controls.Add(this.tbxJobTitle);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.cbxDepartment);
-            this.groupBox1.Controls.Add(this.tbxEndDate);
-            this.groupBox1.Controls.Add(this.tbxStartDate);
             this.groupBox1.Controls.Add(this.tbxSalary);
             this.groupBox1.Controls.Add(this.tbxWorkHours);
             this.groupBox1.Controls.Add(this.label11);
@@ -407,22 +407,6 @@ namespace AdminBackups
             this.cbxDepartment.Size = new System.Drawing.Size(200, 23);
             this.cbxDepartment.TabIndex = 44;
             // 
-            // tbxEndDate
-            // 
-            this.tbxEndDate.Location = new System.Drawing.Point(430, 57);
-            this.tbxEndDate.Name = "tbxEndDate";
-            this.tbxEndDate.PlaceholderText = "dd/mm/yyyy";
-            this.tbxEndDate.Size = new System.Drawing.Size(200, 23);
-            this.tbxEndDate.TabIndex = 43;
-            // 
-            // tbxStartDate
-            // 
-            this.tbxStartDate.Location = new System.Drawing.Point(430, 29);
-            this.tbxStartDate.Name = "tbxStartDate";
-            this.tbxStartDate.PlaceholderText = "dd/mm/yyyy";
-            this.tbxStartDate.Size = new System.Drawing.Size(200, 23);
-            this.tbxStartDate.TabIndex = 42;
-            // 
             // tbxSalary
             // 
             this.tbxSalary.Location = new System.Drawing.Point(113, 85);
@@ -472,6 +456,20 @@ namespace AdminBackups
             this.label14.Size = new System.Drawing.Size(41, 15);
             this.label14.TabIndex = 20;
             this.label14.Text = "Salary:";
+            // 
+            // tbxStartDate
+            // 
+            this.tbxStartDate.Location = new System.Drawing.Point(430, 25);
+            this.tbxStartDate.Name = "tbxStartDate";
+            this.tbxStartDate.Size = new System.Drawing.Size(200, 23);
+            this.tbxStartDate.TabIndex = 83;
+            // 
+            // tbxEndDate
+            // 
+            this.tbxEndDate.Location = new System.Drawing.Point(430, 55);
+            this.tbxEndDate.Name = "tbxEndDate";
+            this.tbxEndDate.Size = new System.Drawing.Size(200, 23);
+            this.tbxEndDate.TabIndex = 84;
             // 
             // FormViewEmployee
             // 
@@ -527,8 +525,6 @@ namespace AdminBackups
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbxDepartment;
-        private System.Windows.Forms.TextBox tbxEndDate;
-        private System.Windows.Forms.TextBox tbxStartDate;
         private System.Windows.Forms.TextBox tbxSalary;
         private System.Windows.Forms.TextBox tbxWorkHours;
         private System.Windows.Forms.Label label11;
@@ -536,5 +532,7 @@ namespace AdminBackups
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnUpdateContract;
+        private System.Windows.Forms.DateTimePicker tbxEndDate;
+        private System.Windows.Forms.DateTimePicker tbxStartDate;
     }
 }
