@@ -33,7 +33,7 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotEmployee
         //restock
         public Product GetProduct(string barcode)
         {
-            return reshelf.GetProduct(barcode);
+            return restock.GetProduct(barcode);
         }
         public List<Restock> GetOrderedRestockRequests()
         {

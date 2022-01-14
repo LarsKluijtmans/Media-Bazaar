@@ -77,6 +77,10 @@ namespace RemoteAppForDepotEmployee
                 {
                     txtBarcode.Clear();
                 }
+                else
+                {
+                    MessageBox.Show("Already requested!");
+                }
             }
             else
             {
