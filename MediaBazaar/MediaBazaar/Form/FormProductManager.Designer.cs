@@ -506,6 +506,7 @@ namespace AdminBackups
             this.tbxSupplierSearch.PlaceholderText = "Search supplier name";
             this.tbxSupplierSearch.Size = new System.Drawing.Size(182, 25);
             this.tbxSupplierSearch.TabIndex = 2;
+            this.tbxSupplierSearch.TextChanged += new System.EventHandler(this.tbxSupplierSearch_TextChanged);
             // 
             // label1
             // 

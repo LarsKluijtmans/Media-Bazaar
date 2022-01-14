@@ -18,7 +18,8 @@ namespace ClassLibraryProject.dbClasses
 
         private string GET_SUPPLIERS_FOR_PRODUCT = "SELECT * FROM Supplier WHERE ProductType = @ProductType;";
         private string GET_SUPPLIER_BY_ID = "SELECT * FROM Supplier WHERE ID = @ID;";
-
+        public string SEARCH_SUPPLIER = "SELECT * FROM Supplier WHERE Name LIKE @Search;";
+        
         public bool CreateSupplier(Supplier s)
         {
             /*if (!Regex.IsMatch(s.Email, @"[a-z0-9]+(?:\.[a-z0-9]+)*@(?:[a-z](?:[a-z]*[a-z])?\.)nl|com"))
@@ -26,7 +27,7 @@ namespace ClassLibraryProject.dbClasses
                 return false;
             }*/
 
-            MySqlConnection conn = Utils.GetConnection();
+        MySqlConnection conn = Utils.GetConnection();
             string sql = CREATE_SUPPLIER;
 
             try
@@ -273,6 +274,58 @@ namespace ClassLibraryProject.dbClasses
             }
 
             return null;
+        }
+        public List<Supplier> SearchSuppliers(string search)
+        {
+            List<Supplier> suppliers = new List<Supplier>();
+
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = SEARCH_SUPPLIER;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@Search", "%" + search + "%");
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Supplier supplier; 
+                
+                while (reader.Read())
+                {
+                    int supplierID = reader.GetInt32(0);
+                    string supplierName = reader.GetString(1);
+                    string country = reader.GetString(2);
+                    int buildingNr = reader.GetInt32(3);
+                    string postalCode = reader.GetString(4);
+                    string email = reader.GetString(5);
+                    string phoneNumber = reader.GetString(6);
+                    string bankNumber = reader.GetString(7);
+                    string productType = reader.GetString(8);
+
+                    supplier = new Supplier(supplierID, supplierName, country, buildingNr, postalCode, email, phoneNumber, bankNumber, productType);
+                    suppliers.Add(supplier);
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return suppliers;
         }
     }
 }

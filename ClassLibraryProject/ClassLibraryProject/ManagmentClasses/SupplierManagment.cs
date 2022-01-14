@@ -42,7 +42,10 @@ namespace ClassLibraryProject.ManagmentClasses
             return DBSupplierManagerPM.GetSupplierByID(supplierID);
         }
 
-
+        public List<Supplier> SearchSuppliers(string search)
+        {
+            return DBSupplierManagerPM.SearchSuppliers(search);
+        }
 
         public List<Supplier> GetSuppliersForProduct(Product p)
         {
