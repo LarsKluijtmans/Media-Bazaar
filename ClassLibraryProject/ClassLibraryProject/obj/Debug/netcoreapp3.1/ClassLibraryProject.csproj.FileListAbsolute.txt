@@ -136,3 +136,33 @@ C:\Users\esthe\OneDrive\Bureaublad\GIT\cbo3-1-soleil-lars-esther-mohammad\ClassL
 C:\Users\esthe\OneDrive\Bureaublad\GIT\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Core.dll
 C:\Users\esthe\OneDrive\Bureaublad\GIT\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
 C:\Users\esthe\OneDrive\Bureaublad\GIT\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.ResolveComReference.cache
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.AssemblyReference.cache
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Core.dll
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.ResolveComReference.cache
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfoInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfo.cs
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.CoreCompileInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.dll
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.pdb
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.deps.json
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.dll
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.pdb
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Core.dll
+C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.deps.json
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.dll
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\ClassLibraryProject.pdb
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Core.dll
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.AssemblyReference.cache
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Core.dll
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.ResolveComReference.cache
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfoInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.AssemblyInfo.cs
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.csproj.CoreCompileInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.dll
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\obj\Debug\netcoreapp3.1\ClassLibraryProject.pdb

@@ -37,15 +37,11 @@ namespace ClassLibraryProject.ManagmentClasses
                 Product product;
                 while (reader.Read())
                 {
-                    int productID = reader.GetInt32("ProductID");
                     string barcode = reader.GetString("Barcode");
                     string name = reader.GetString("Name");
                     string productType = reader.GetString("Type");
-                    int amountInStore = reader.GetInt32("AmountInStore");
-                    int amountInDepot = reader.GetInt32("AmountInDepot");
-                    int sellingPrice = reader.GetInt32("Price");
 
-                    product = new Product(productID, name, productType, barcode, sellingPrice, amountInDepot, amountInStore);
+                    product = new Product( name, productType, barcode);
                     if (!product.IsDiscontinued)
                     {
                         RemoteProducts.Add(product);

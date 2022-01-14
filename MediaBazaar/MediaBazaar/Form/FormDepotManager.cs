@@ -30,6 +30,8 @@ namespace AdminBackups
                     cbDepartments.Items.Add(d);
                 }
             }
+            cbSchebuleByDepartment.Text = cbSchebuleByDepartment.Items[0].ToString();
+            cbDepartments.Text = cbDepartments.Items[0].ToString();
 
             Initialize();
             UpdateRestockRequests();
@@ -167,14 +169,14 @@ namespace AdminBackups
         {
             try
             {
-                //if (store.scheduleManagment.GetDepotCount(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text) == true)
-                //{
-                //    store.scheduleManagment.CreateDepotWeek(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text);
-                //}
-                //dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
-                //dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+            //    if (store.scheduleManagment.GetDepotCount(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text) == true)
+            //    {
+            //        store.scheduleManagment.CreateDepotWeek(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text);
+            //    }
+            //    dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+            //    dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
             }
-            catch (Exception)
+            catch 
             {
                 MessageBox.Show("Please insert year!");
             }         

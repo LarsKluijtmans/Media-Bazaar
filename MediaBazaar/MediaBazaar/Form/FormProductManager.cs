@@ -225,12 +225,9 @@ namespace AdminBackups
                     tbxBankNumber.Clear();
 
                     MessageBox.Show("Supplier updated");
+                    ReadSuppliers();
                 }
-            } else
-            {
-                MessageBox.Show("No supplier");
             }
-
         }
         private void DeleteSupplier()
         {
@@ -276,6 +273,20 @@ namespace AdminBackups
             tbxPhoneNumber.Clear();
             tbxBankNumber.Clear();
         }
-        /* Supplier End */
+        /* Search Bar*/
+        private void tbxSupplierSearch_TextChanged(object sender, EventArgs e)
+        {
+            string search = tbxSupplierSearch.Text;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                List<Supplier> suppliers = productManager.SupplierManagerPM.SearchSuppliers(search);
+                dgvSuppliers.DataSource = suppliers;
+            } else
+            {
+                ReadSuppliers();
+            }
         }
-    }
+        /* Supplier End */
+     }
+}

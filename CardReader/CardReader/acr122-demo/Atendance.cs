@@ -13,7 +13,7 @@ namespace CardReader
         public string IS_CHECKED_IN = "SELECT employeeID FROM `attendance` WHERE EmployeeID = @EmployeeID AND CheckDate = @CheckDate AND `CheckOutTime` IS NULL;";
         public string CREATE_CHECKIN = "INSERT INTO ATtENDANCE(EmployeeID, CheckInTime, CheckOutTime, CheckDate) VALUES(@EmployeeID, @CheckInTime, @CheckOutTime, @CheckDate)";
         public string UPDATE_CHECKOUT = "UPDATE ATtENDANCE SET CheckOutTime = @CheckOutTime WHERE CheckDate = @CheckDate AND EmployeeID = @EmployeeID AND `CheckOutTime` IS NULL ;";
-        public string GET_ALL_ATENDANCE_CHECKIN = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `attendance` WHERE CheckDate = @CheckDate ORDER BY CheckOutTime DESC;";
+        public string GET_ALL_ATENDANCE_CHECKIN = "SELECT `EmployeeID`,`CheckInTime`,`CheckOutTime`,`CheckDate` FROM `attendance` WHERE CheckDate = @CheckDate order by `Check` desc LIMIT 25;";
 
         public Atendance()
         {
@@ -23,7 +23,7 @@ namespace CardReader
         public void getAllAtendanceOnCheckIn()
         {
             check.Clear();
-            var date = DateTime.Now;
+            DateTime date = DateTime.Now;
             MySqlConnection conn = Connection.GetConnection();
 
             string sql = GET_ALL_ATENDANCE_CHECKIN;
@@ -42,11 +42,19 @@ namespace CardReader
 
                 while (reader.Read())
                 {
-                    a = new Ckecks(Convert.ToInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString());
-                    check.Add(a);
+                    if (reader[2].ToString() == "")
+                    {
+                        a = new Ckecks(Convert.ToInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), "");
+                        check.Add(a);
+                    }
+                    else
+                    {
+                        a = new Ckecks(Convert.ToInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), Convert.ToDateTime(reader[2].ToString()).Subtract(Convert.ToDateTime(reader[1].ToString())).ToString());
+                        check.Add(a);
+                    }
                 }
             }
-            catch (MySqlException msqEx)
+            catch (MySqlException)
             {
                 MessageBox.Show("Make sure to Use the provided vpn");
             }

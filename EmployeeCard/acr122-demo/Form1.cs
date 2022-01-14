@@ -22,7 +22,8 @@ namespace acr122_demo
         }
 
         //Login
-        private void btnLogin_Click(object sender, EventArgs e)
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
         {
             string UserName = tbUsername.Text;
             string Password = tbPassword.Text;
@@ -37,7 +38,7 @@ namespace acr122_demo
             }
         }
 
-        private void btnLogin_Enter(object sender, EventArgs e)
+        private void btnLogin_Enter_1(object sender, EventArgs e)
         {
             string UserName = tbUsername.Text;
             string Password = tbPassword.Text;
@@ -78,6 +79,6 @@ namespace acr122_demo
                 }
             }
             return false;
-        } 
+        }
     }
 }

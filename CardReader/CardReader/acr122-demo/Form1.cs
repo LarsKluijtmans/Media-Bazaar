@@ -12,6 +12,7 @@ namespace acr122_demo
         DateTime date;
         private static MyACR122U acr122u = new MyACR122U();
         Atendance at;
+        bool check = false;
 
         public Checks()
         {
@@ -45,7 +46,7 @@ namespace acr122_demo
         {
             Application.Exit();
         }
-   
+
         // Card reader
         private static void Acr122u_CardInserted(PCSC.ICardReader reader)
         {
@@ -53,11 +54,13 @@ namespace acr122_demo
         }
         private static void Acr122u_CardRemoved()
         { }
-     
+
         public void GetAtendanceIn()
         {
             lbCheck.Items.Clear();
+           
             at.getAllAtendanceOnCheckIn();
+           
             foreach (Ckecks k in at.check)
             {
                 lbCheck.Items.Add(k);
@@ -66,33 +69,54 @@ namespace acr122_demo
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if ((acr122u.ReadId != null && last != acr122u.ReadId && at.GetEmployeeID(acr122u.ReadId.ToString()) != 0) || (acr122u.ReadId != null && date.AddSeconds(5) < DateTime.Now && at.GetEmployeeID(acr122u.ReadId.ToString()) != 0))
+            try
             {
-                if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == false)
+                if (check && date.AddSeconds(5) < DateTime.Now)
                 {
-                    at.AddCheckIn(at.GetEmployeeID(acr122u.ReadId.ToString()));
-
-                    last = acr122u.ReadId;
-                    date = DateTime.Now;
-                    acr122u.ReadId = null;
-
-                    GetAtendanceIn();
-
-                    return;
+                    labChekced.Text = "Please hold your card against the scaner.";
+                    labChekced.ForeColor = System.Drawing.Color.Black;
+                    check = false;
                 }
-                else if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == true)
+
+                if ((acr122u.ReadId != null && last != acr122u.ReadId && at.GetEmployeeID(acr122u.ReadId.ToString()) != 0) || (acr122u.ReadId != null && date.AddSeconds(5) < DateTime.Now && at.GetEmployeeID(acr122u.ReadId.ToString()) != 0))
                 {
-                    at.EditCheckOutTime(at.GetEmployeeID(acr122u.ReadId.ToString()));
+                    if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == false)
+                    {
+                        at.AddCheckIn(at.GetEmployeeID(acr122u.ReadId.ToString()));
 
-                    last = acr122u.ReadId;
-                    date = DateTime.Now;
-                    acr122u.ReadId = null;
+                        last = acr122u.ReadId;
+                        date = DateTime.Now;
+                        acr122u.ReadId = null;
 
-                    GetAtendanceIn();
+                        labChekced.Text = "You have ckeckedout.";
+                        labChekced.ForeColor = System.Drawing.Color.Yellow;
 
-                    return;
+                        check = true;
+
+                        GetAtendanceIn();
+
+                        return;
+                    }
+                    else if (at.IsAlreadyCheckedIn(at.GetEmployeeID(acr122u.ReadId.ToString())) == true)
+                    {
+                        at.EditCheckOutTime(at.GetEmployeeID(acr122u.ReadId.ToString()));
+
+                        last = acr122u.ReadId;
+                        date = DateTime.Now;
+                        acr122u.ReadId = null;
+
+                        labChekced.Text = "You have checkedin!";
+                        labChekced.ForeColor = System.Drawing.Color.Green;
+
+                        check = true;
+
+                        GetAtendanceIn();
+
+                        return;
+                    }
                 }
             }
+            catch { }
         }
     }
 

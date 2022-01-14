@@ -38,6 +38,7 @@ namespace AdminBackups
                     cbDepartments.Items.Add(d);
                 }
             }
+
             cbSchebuleByDepartment.Text = cbSchebuleByDepartment.Items[0].ToString();
             cbDepartments.Text = cbDepartments.Items[0].ToString();
 
@@ -113,12 +114,12 @@ namespace AdminBackups
         {
             try
             {
-                //if (store.scheduleManagment.GetSalesCount(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text) == true)
+                //if (salesManager.scheduleManagment.GetSalesCount(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text) == true)
                 //{
-                //    store.scheduleManagment.CreateSalesWeek(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text);
+                //    salesManager.scheduleManagment.CreateSalesWeek(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text);
                 //}
-                //dgSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
-                //dgOverviewSchedule.DataSource = store.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+                //dgSchedule.DataSource = salesManager.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+                //dgOverviewSchedule.DataSource = salesManager.scheduleManagment.ViewSalesSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
             }
             catch (Exception)
             {
@@ -390,6 +391,11 @@ namespace AdminBackups
             }
 
             progressBar1.Value = 0;
+        }
+
+        private void dgSchedule_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
