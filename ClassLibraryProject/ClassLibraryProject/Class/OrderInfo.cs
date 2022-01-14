@@ -64,5 +64,9 @@
             Multiples = multiples;
             this.PurchasePrice = purchasePrice;
         }
+        public override string ToString()
+        {
+            return ID.ToString();
+        }
     }
 }
