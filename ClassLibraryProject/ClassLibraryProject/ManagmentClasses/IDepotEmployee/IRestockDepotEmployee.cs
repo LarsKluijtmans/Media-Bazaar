@@ -9,6 +9,7 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotEmployee
     {
         List<Restock> GetOrderedRestockRequests();
         bool RequestRestock(Product product);
+        bool RestockExist(Product product);
         bool ReceiveRestock(int id, Product product);
     }
 }

@@ -330,11 +330,6 @@ namespace AdminBackups
             // 
             this.cbxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDepartment.FormattingEnabled = true;
-            this.cbxDepartment.Items.AddRange(new object[] {
-            "Kitchen/Home",
-            "Smart Home Appliances",
-            "Gaming/Music/Computer",
-            "Photo/Video/Navigation"});
             this.cbxDepartment.Location = new System.Drawing.Point(430, 88);
             this.cbxDepartment.Name = "cbxDepartment";
             this.cbxDepartment.Size = new System.Drawing.Size(200, 23);

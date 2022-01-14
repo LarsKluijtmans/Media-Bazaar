@@ -7,8 +7,8 @@ namespace ClassLibraryProject.dbClasses.IDB
 {
     public interface IDBRegisteredShift
     {
-        bool RegisterEmployee(string department, int year, int week, string day, string shift, Employee employee);
-        bool DeRegisterEmployee(string department, int year, int week, string day, string shift, Employee employee);
-        RegisteredShift GetRegisteredShift(string department, int year, int week, string day, string shift);
+        bool RegisterEmployee(int year, int week, string day, string shift, Employee employee);
+        bool DeRegisterEmployee(int year, int week, string day, string shift, Employee employee);
+        RegisteredShift GetRegisteredShift(int year, int week, string day, string shift);
     }
 }

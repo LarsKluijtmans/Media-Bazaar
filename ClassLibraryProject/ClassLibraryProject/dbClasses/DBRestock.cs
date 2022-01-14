@@ -9,6 +9,10 @@ namespace ClassLibraryProject.dbClasses
 {
     public class DBRestock: IDBRestock
     {
+        private string GET_ALL_SUPPLIERS = "SELECT * FROM supplier WHERE ID = @ID;";
+        private string GET_ALL_PRODUCTS = "SELECT * FROM product WHERE Discontinued = 0;";
+        private string GET_ALL_ORDER_INFOS = "SELECT * FROM orderinfo WHERE ID = @ID;";
+
         private string GET_ALL_RESTOCKS = "SELECT * FROM restock;";
 
         //employee
@@ -21,23 +25,190 @@ namespace ClassLibraryProject.dbClasses
         private string DELETE_RESTOCK_BY_ID = "DELETE FROM restock WHERE ID = @ID;";
 
         private List<Restock> restocks;
-        private IGetProduct p;
-        private IGetOrderInfo o;
+        private List<Product> products;
+        private List<OrderInfo> orderInfos;
+        private List<Supplier> suppliers;
 
         public List<Restock> GetRestockRequests()
         {
             return restocks;
         }
 
-        public DBRestock(IGetProduct product, IGetOrderInfo orderInfo)
+        public DBRestock()
         {
             restocks = new List<Restock>();
-            p = product;
-            o = orderInfo;
+            products = new List<Product>();
+            orderInfos = new List<OrderInfo>();
+            suppliers = new List<Supplier>();
 
+            GetAllProducts();
+            GetAllSuppliers();
+            GetAllOrderInfos();
             GetAllRestocks();
         }
 
+        //product
+        public Product GetProduct(string barcode)
+        {
+            foreach (Product product in products)
+            {
+                if (product.Barcode == barcode)
+                {
+                    return product;
+                }
+            }
+            return null;
+        }
+        private void GetAllProducts()
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = GET_ALL_PRODUCTS;
+
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Product product;
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32("ProductID");
+                    string barcode = reader.GetString("Barcode");
+                    string name = reader.GetString("Name");
+                    string type = reader.GetString("Type");
+                    double sellingPrice = reader.GetDouble("SellingPrice");
+                    int amountDepot = reader.GetInt32("AmountInDepot");
+                    int amountStore = reader.GetInt32("AmountInStore");
+
+                    product = new Product(id, name, barcode, type, sellingPrice, amountDepot, amountStore, false);
+                    products.Add(product);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //supplier
+        private Supplier GetSupplier(int id)
+        {
+            foreach(Supplier supplier in suppliers)
+            {
+                if(supplier.ID == id)
+                {
+                    return supplier;
+                }
+            }
+            return null;
+        }
+        private void GetAllSuppliers()
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = GET_ALL_SUPPLIERS;
+
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Supplier supplier;
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32("ID");
+                    string name = reader.GetString("Name");
+                    string country = reader.GetString("Country");
+                    int buildingNumber = reader.GetInt32("BuildingNumber");
+                    string postalCode = reader.GetString("PostalCode");
+                    string email = reader.GetString("Email");
+                    string phoneNumber = reader.GetString("PhoneNumber");
+                    string bankNumber = reader.GetString("BankNumber");
+                    string productType = reader.GetString("ProductType");
+
+                    supplier = new Supplier(id, name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber, productType);
+                    suppliers.Add(supplier);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //order info
+        private OrderInfo GetOrderInfo(int id)
+        {
+            foreach(OrderInfo orderInfo in orderInfos)
+            {
+                if (orderInfo.ID == id)
+                {
+                    return orderInfo;
+                }
+            }
+            return null;
+        }
+        private void GetAllOrderInfos()
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = GET_ALL_ORDER_INFOS;
+
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                OrderInfo orderinfo;
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32("ID");
+                    int supplierID = reader.GetInt32("SupplierID");
+                    string barcode = reader.GetString("ProductBarcode");
+                    int minAmount = reader.GetInt32("MinAmount");
+                    int maxAmount = reader.GetInt32("MaxAmount");
+                    int multiples = reader.GetInt32("Multiples");
+                    double purchasePrice = reader.GetDouble("PurchasePrice");
+
+                    if (GetSupplier(supplierID) != null && GetProduct(barcode) != null)
+                    {
+                        orderinfo = new OrderInfo(id, GetSupplier(supplierID), GetProduct(barcode), minAmount, maxAmount, multiples, purchasePrice);
+                        orderInfos.Add(orderinfo);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //restock
         private void GetAllRestocks()
         {
             restocks.Clear();
@@ -64,8 +235,11 @@ namespace ClassLibraryProject.dbClasses
                     string status = reader.GetString("Status");
                     int orderID = reader.GetInt32("OrderInfoID");
 
-                    restock = new Restock(id, p.GetProduct(barcode), o.GetOrderInfo(orderID), amount, status);
-                    restocks.Add(restock);
+                    if(GetProduct(barcode)!=null && GetOrderInfo(orderID) != null)
+                    {
+                        restock = new Restock(id, GetProduct(barcode), GetOrderInfo(orderID), amount, status);
+                        restocks.Add(restock);
+                    }
                 }
             }
             catch (Exception)

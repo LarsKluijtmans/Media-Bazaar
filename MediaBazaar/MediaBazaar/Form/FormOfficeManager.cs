@@ -3,13 +3,12 @@ using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
-using System.Linq;
-using System.Diagnostics;
-using System.Data;
 
 namespace AdminBackups
 {
@@ -169,13 +168,23 @@ namespace AdminBackups
         }
         private void UpdateEmployee()
         {
-            // get selected employee
-            int employeeID = Convert.ToInt32(tbxActiveEmployeeID.Text);
+            int employeeID = 0;
             if (string.IsNullOrEmpty(tbxActiveEmployeeID.Text))
             {
                 MessageBox.Show("Please select an employee");
                 return;
             }
+            try
+            {
+                // get selected employee
+                employeeID = Convert.ToInt32(tbxActiveEmployeeID.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please select an employee");
+                return;
+            }
+
 
             Employee activeEmployee = officeManager.EmployeeManagerOffice.GetEmployeeByID(employeeID);
 
@@ -226,7 +235,7 @@ namespace AdminBackups
 
             if (!string.IsNullOrEmpty(search))
             {
-                List<Employee> employees =  officeManager.EmployeeManagerOffice.SearchEmployee(search);
+                List<Employee> employees = officeManager.EmployeeManagerOffice.SearchEmployee(search);
                 List<Employee> departmentEmployees = new List<Employee>();
 
                 if (cbxEmployeeType.SelectedIndex == 1)
@@ -327,7 +336,8 @@ namespace AdminBackups
                 dgvEmployees.Columns["Password"].Visible = false;
                 dgvEmployees.Columns["EmployeeManagerAll"].Visible = false;
 
-            } else
+            }
+            else
             {
                 ReadEmployees();
             }
@@ -416,7 +426,8 @@ namespace AdminBackups
                     }
                 }
                 cbxDepartment.Text = cbxDepartment.Items[0].ToString();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
@@ -524,11 +535,11 @@ namespace AdminBackups
                     {
                         if (Convert.ToInt32(c[i].TimeWork) >= Convert.ToInt32(c[i].WorkHoursPerWeek) * 4)
                         {
-                            oSheet.get_Range("A" + index, "G" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Green);
+                            oSheet.get_Range("H" + index, "H" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
                         }
                         else
                         {
-                            oSheet.get_Range("A" + index, "G" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                            oSheet.get_Range("H" + index, "H" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
                         }
                     }
 

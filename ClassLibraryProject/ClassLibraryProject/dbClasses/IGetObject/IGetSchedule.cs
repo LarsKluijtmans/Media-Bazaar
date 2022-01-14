@@ -5,8 +5,8 @@ using System.Text;
 
 namespace ClassLibraryProject.dbClasses.IGetObject
 {
-    public interface IGetRegisteredShift
+    public interface IGetSchedule
     {
-        bool RegisteredShiftExist(string department, int year, string month, string day, string shift);
+        Schedule GetSchedule(string department, int year, int week);
     }
 }

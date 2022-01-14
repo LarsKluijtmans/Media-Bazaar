@@ -54,12 +54,6 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return false;
         }
-
-        private bool IsDivisible(OrderInfo orderInfo, int amount)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Restock> GetRestockRequests()
         {
             return db.GetRestockRequests();
@@ -78,6 +72,10 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         //employee
+        public Product GetProduct(string barcode)
+        {
+            return db.GetProduct(barcode);
+        }
         public List<Restock> GetOrderedRestockRequests()
         {
             List<Restock> restocks = new List<Restock>();
@@ -149,7 +147,7 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return null;
         }
-        private bool RestockExist(Product product)
+        public bool RestockExist(Product product)
         {
             if (GetRestock(product) != null)
             {

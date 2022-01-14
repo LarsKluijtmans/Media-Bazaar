@@ -74,6 +74,10 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         //sales employee
+        public Product GetProduct(string barcode)
+        {
+            return db.GetProduct(barcode);
+        }
         public bool RequestReshelf(Product product, int amount)
         {
             if (!ReshelfExist(product))
@@ -92,7 +96,7 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             foreach (Reshelf reshelf in db.GetReshelfRequests())
             {
-                if (reshelf.Product == product && reshelf.Status == "Pending" || reshelf.Status == "Ordered")
+                if (reshelf.Product == product && reshelf.Status == "Pending")
                 {
                     return reshelf;
                 }
@@ -110,7 +114,7 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return null;
         }
-        private bool ReshelfExist(Product product)
+        public bool ReshelfExist(Product product)
         {
             if (GetReshelf(product) != null)
             {
