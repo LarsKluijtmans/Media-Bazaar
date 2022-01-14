@@ -796,8 +796,5 @@ namespace AdminBackups
             else
             { MessageBox.Show("type casting failed."); }
         }
-
-
-       
     }
 }

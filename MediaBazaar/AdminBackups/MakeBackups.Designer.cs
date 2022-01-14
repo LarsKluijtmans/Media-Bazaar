@@ -36,7 +36,6 @@ namespace AdminBackups
             this.tbAmount = new System.Windows.Forms.TextBox();
             this.btnFolder = new System.Windows.Forms.Button();
             this.tbFolder = new System.Windows.Forms.TextBox();
-            this.labFolder = new System.Windows.Forms.Label();
             this.btnStartMakingBackups = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -45,6 +44,8 @@ namespace AdminBackups
             this.rbMinutes = new System.Windows.Forms.RadioButton();
             this.rbHours = new System.Windows.Forms.RadioButton();
             this.rbDays = new System.Windows.Forms.RadioButton();
+            this.labTimeTillBackup = new System.Windows.Forms.Label();
+            this.labFolder = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // niMakingBackups
@@ -58,25 +59,26 @@ namespace AdminBackups
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(28, 21);
+            this.progressBar1.Location = new System.Drawing.Point(38, 52);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1012, 23);
+            this.progressBar1.Size = new System.Drawing.Size(590, 30);
             this.progressBar1.TabIndex = 10;
             // 
             // tbAmount
             // 
             this.tbAmount.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbAmount.Location = new System.Drawing.Point(754, 243);
+            this.tbAmount.Location = new System.Drawing.Point(497, 242);
             this.tbAmount.Name = "tbAmount";
             this.tbAmount.Size = new System.Drawing.Size(108, 33);
             this.tbAmount.TabIndex = 9;
             // 
             // btnFolder
             // 
-            this.btnFolder.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnFolder.Location = new System.Drawing.Point(44, 150);
+            this.btnFolder.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnFolder.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnFolder.Location = new System.Drawing.Point(38, 181);
             this.btnFolder.Name = "btnFolder";
-            this.btnFolder.Size = new System.Drawing.Size(429, 49);
+            this.btnFolder.Size = new System.Drawing.Size(191, 33);
             this.btnFolder.TabIndex = 8;
             this.btnFolder.Text = "Select folder";
             this.btnFolder.UseVisualStyleBackColor = true;
@@ -85,26 +87,17 @@ namespace AdminBackups
             // tbFolder
             // 
             this.tbFolder.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbFolder.Location = new System.Drawing.Point(155, 93);
+            this.tbFolder.Location = new System.Drawing.Point(38, 140);
             this.tbFolder.Name = "tbFolder";
             this.tbFolder.ReadOnly = true;
-            this.tbFolder.Size = new System.Drawing.Size(871, 35);
+            this.tbFolder.Size = new System.Drawing.Size(590, 35);
             this.tbFolder.TabIndex = 7;
-            // 
-            // labFolder
-            // 
-            this.labFolder.AutoSize = true;
-            this.labFolder.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labFolder.Location = new System.Drawing.Point(44, 96);
-            this.labFolder.Name = "labFolder";
-            this.labFolder.Size = new System.Drawing.Size(75, 30);
-            this.labFolder.TabIndex = 6;
-            this.labFolder.Text = "Folder:";
             // 
             // btnStartMakingBackups
             // 
-            this.btnStartMakingBackups.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnStartMakingBackups.Location = new System.Drawing.Point(44, 276);
+            this.btnStartMakingBackups.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnStartMakingBackups.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.btnStartMakingBackups.Location = new System.Drawing.Point(97, 319);
             this.btnStartMakingBackups.Name = "btnStartMakingBackups";
             this.btnStartMakingBackups.Size = new System.Drawing.Size(429, 62);
             this.btnStartMakingBackups.TabIndex = 0;
@@ -125,7 +118,7 @@ namespace AdminBackups
             // 
             this.labAmount.AutoSize = true;
             this.labAmount.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labAmount.Location = new System.Drawing.Point(664, 246);
+            this.labAmount.Location = new System.Drawing.Point(407, 245);
             this.labAmount.Name = "labAmount";
             this.labAmount.Size = new System.Drawing.Size(84, 25);
             this.labAmount.TabIndex = 11;
@@ -136,7 +129,7 @@ namespace AdminBackups
             this.rbMinutes.AutoSize = true;
             this.rbMinutes.Checked = true;
             this.rbMinutes.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbMinutes.Location = new System.Drawing.Point(530, 180);
+            this.rbMinutes.Location = new System.Drawing.Point(51, 243);
             this.rbMinutes.Name = "rbMinutes";
             this.rbMinutes.Size = new System.Drawing.Size(98, 29);
             this.rbMinutes.TabIndex = 12;
@@ -148,7 +141,7 @@ namespace AdminBackups
             // 
             this.rbHours.AutoSize = true;
             this.rbHours.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbHours.Location = new System.Drawing.Point(707, 180);
+            this.rbHours.Location = new System.Drawing.Point(176, 243);
             this.rbHours.Name = "rbHours";
             this.rbHours.Size = new System.Drawing.Size(80, 29);
             this.rbHours.TabIndex = 13;
@@ -159,18 +152,40 @@ namespace AdminBackups
             // 
             this.rbDays.AutoSize = true;
             this.rbDays.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbDays.Location = new System.Drawing.Point(886, 180);
+            this.rbDays.Location = new System.Drawing.Point(282, 243);
             this.rbDays.Name = "rbDays";
             this.rbDays.Size = new System.Drawing.Size(70, 29);
             this.rbDays.TabIndex = 14;
             this.rbDays.Text = "Days";
             this.rbDays.UseVisualStyleBackColor = true;
             // 
+            // labTimeTillBackup
+            // 
+            this.labTimeTillBackup.AutoSize = true;
+            this.labTimeTillBackup.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labTimeTillBackup.Location = new System.Drawing.Point(38, 27);
+            this.labTimeTillBackup.Name = "labTimeTillBackup";
+            this.labTimeTillBackup.Size = new System.Drawing.Size(268, 22);
+            this.labTimeTillBackup.TabIndex = 15;
+            this.labTimeTillBackup.Text = "Time left untill backup is made:\r\n";
+            // 
+            // labFolder
+            // 
+            this.labFolder.AutoSize = true;
+            this.labFolder.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labFolder.Location = new System.Drawing.Point(38, 115);
+            this.labFolder.Name = "labFolder";
+            this.labFolder.Size = new System.Drawing.Size(140, 22);
+            this.labFolder.TabIndex = 16;
+            this.labFolder.Text = "Folder location:";
+            // 
             // MakeBackups
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 374);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(653, 415);
+            this.Controls.Add(this.labFolder);
+            this.Controls.Add(this.labTimeTillBackup);
             this.Controls.Add(this.rbDays);
             this.Controls.Add(this.rbHours);
             this.Controls.Add(this.rbMinutes);
@@ -179,8 +194,9 @@ namespace AdminBackups
             this.Controls.Add(this.tbAmount);
             this.Controls.Add(this.btnStartMakingBackups);
             this.Controls.Add(this.btnFolder);
-            this.Controls.Add(this.labFolder);
             this.Controls.Add(this.tbFolder);
+            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MakeBackups";
             this.Text = "MakeBackups";
             this.Resize += new System.EventHandler(this.MakeBackups_Resize);
@@ -193,7 +209,6 @@ namespace AdminBackups
 
         private System.Windows.Forms.NotifyIcon niMakingBackups;
         private System.Windows.Forms.TextBox tbFolder;
-        private System.Windows.Forms.Label labFolder;
         private System.Windows.Forms.Button btnStartMakingBackups;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button btnFolder;
@@ -205,5 +220,7 @@ namespace AdminBackups
         private System.Windows.Forms.RadioButton rbMinutes;
         private System.Windows.Forms.RadioButton rbHours;
         private System.Windows.Forms.RadioButton rbDays;
+        private System.Windows.Forms.Label labTimeTillBackup;
+        private System.Windows.Forms.Label labFolder;
     }
 }

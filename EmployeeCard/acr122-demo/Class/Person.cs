@@ -34,8 +34,12 @@ namespace acr122_demo
 			CardNumber = cardNum;
 		}
 
-		// methodes
-		public override string ToString()
+        public Person(long v1, string v2, string v3, long v4, string v5, string v6, string v7, long v8, string v9, string v10, string v11)
+        {
+        }
+
+        // methodes
+        public override string ToString()
 		{
 			return $"ID: {EmployeeID} - {FirstName} {LastName}";
 		}

@@ -43,7 +43,11 @@ namespace CardReader
         // CardReader
         private void Acr122u_CardInserted(PCSC.ICardReader reader)
         {
-            acr122u.ReadId = BitConverter.ToString(acr122u.GetUID(reader)).Replace("-", "");
+            try
+            {
+                acr122u.ReadId = BitConverter.ToString(acr122u.GetUID(reader)).Replace("-", "");
+            }
+            catch { }
         }
         private static void Acr122u_CardRemoved()
         { }
@@ -103,16 +107,21 @@ namespace CardReader
         //timer
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (acr122u.ReadId != null && personManager.GetEmployeeID(acr122u.ReadId.ToString()) != 0)
+            try
             {
-                ViewAllEmployees(tbSearch.Text);
-                acr122u.ReadId = null;
+                if (acr122u.ReadId != null && personManager.GetEmployeeID(acr122u.ReadId.ToString()) != 0)
+                {
+                    ViewAllEmployees(tbSearch.Text);
+                    acr122u.ReadId = null;
+                }
+                else if (acr122u.ReadId != null)
+                {
+                    tbCardNumber.Text = acr122u.ReadId.ToString();
+                    acr122u.ReadId = null;
+                }
             }
-            else if (acr122u.ReadId != null)
-            {
-                tbCardNumber.Text = acr122u.ReadId.ToString();
-                acr122u.ReadId = null;
-            }
+            catch 
+            { }
         }
 
 

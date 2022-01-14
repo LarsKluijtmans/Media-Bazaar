@@ -80,6 +80,7 @@ namespace AdminBackups
             this.label4 = new System.Windows.Forms.Label();
             this.cbHeadDepartments = new System.Windows.Forms.ComboBox();
             this.WorkHours = new System.Windows.Forms.TabPage();
+            this.rbColor = new System.Windows.Forms.CheckBox();
             this.dgvAtendance = new System.Windows.Forms.DataGridView();
             this.btnMonthIncrease = new System.Windows.Forms.Button();
             this.btnIncreaseYear = new System.Windows.Forms.Button();
@@ -90,7 +91,6 @@ namespace AdminBackups
             this.btnMakeExcelSheet = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.rbColor = new System.Windows.Forms.CheckBox();
             this.Comapny.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -337,9 +337,9 @@ namespace AdminBackups
             // btnEditCompany
             // 
             this.btnEditCompany.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditCompany.Location = new System.Drawing.Point(707, 363);
+            this.btnEditCompany.Location = new System.Drawing.Point(709, 405);
             this.btnEditCompany.Name = "btnEditCompany";
-            this.btnEditCompany.Size = new System.Drawing.Size(308, 89);
+            this.btnEditCompany.Size = new System.Drawing.Size(222, 58);
             this.btnEditCompany.TabIndex = 3;
             this.btnEditCompany.Text = "Save Changes";
             this.btnEditCompany.UseVisualStyleBackColor = true;
@@ -363,7 +363,7 @@ namespace AdminBackups
             this.gbCompanyInfo.Controls.Add(this.tbCompanyName);
             this.gbCompanyInfo.Location = new System.Drawing.Point(23, 17);
             this.gbCompanyInfo.Name = "gbCompanyInfo";
-            this.gbCompanyInfo.Size = new System.Drawing.Size(629, 462);
+            this.gbCompanyInfo.Size = new System.Drawing.Size(628, 475);
             this.gbCompanyInfo.TabIndex = 2;
             this.gbCompanyInfo.TabStop = false;
             this.gbCompanyInfo.Text = "Company info";
@@ -371,17 +371,17 @@ namespace AdminBackups
             // tbID
             // 
             this.tbID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbID.Location = new System.Drawing.Point(225, 32);
+            this.tbID.Location = new System.Drawing.Point(204, 40);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(326, 33);
+            this.tbID.Size = new System.Drawing.Size(399, 33);
             this.tbID.TabIndex = 14;
             // 
             // labCompanyID
             // 
             this.labCompanyID.AutoSize = true;
             this.labCompanyID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labCompanyID.Location = new System.Drawing.Point(85, 35);
+            this.labCompanyID.Location = new System.Drawing.Point(64, 40);
             this.labCompanyID.Name = "labCompanyID";
             this.labCompanyID.Size = new System.Drawing.Size(119, 25);
             this.labCompanyID.TabIndex = 13;
@@ -391,7 +391,7 @@ namespace AdminBackups
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(150, 401);
+            this.label8.Location = new System.Drawing.Point(129, 421);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 25);
             this.label8.TabIndex = 11;
@@ -400,16 +400,16 @@ namespace AdminBackups
             // tbBTW
             // 
             this.tbBTW.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBTW.Location = new System.Drawing.Point(225, 398);
+            this.tbBTW.Location = new System.Drawing.Point(204, 418);
             this.tbBTW.Name = "tbBTW";
-            this.tbBTW.Size = new System.Drawing.Size(326, 33);
+            this.tbBTW.Size = new System.Drawing.Size(399, 33);
             this.tbBTW.TabIndex = 10;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(132, 148);
+            this.label7.Location = new System.Drawing.Point(111, 168);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 25);
             this.label7.TabIndex = 9;
@@ -418,16 +418,16 @@ namespace AdminBackups
             // tbKVK
             // 
             this.tbKVK.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbKVK.Location = new System.Drawing.Point(225, 336);
+            this.tbKVK.Location = new System.Drawing.Point(204, 356);
             this.tbKVK.Name = "tbKVK";
-            this.tbKVK.Size = new System.Drawing.Size(326, 33);
+            this.tbKVK.Size = new System.Drawing.Size(399, 33);
             this.tbKVK.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(65, 273);
+            this.label6.Location = new System.Drawing.Point(44, 293);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(139, 25);
             this.label6.TabIndex = 7;
@@ -436,16 +436,16 @@ namespace AdminBackups
             // tbPhoneNumber
             // 
             this.tbPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbPhoneNumber.Location = new System.Drawing.Point(225, 270);
+            this.tbPhoneNumber.Location = new System.Drawing.Point(204, 290);
             this.tbPhoneNumber.Name = "tbPhoneNumber";
-            this.tbPhoneNumber.Size = new System.Drawing.Size(326, 33);
+            this.tbPhoneNumber.Size = new System.Drawing.Size(399, 33);
             this.tbPhoneNumber.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(154, 339);
+            this.label3.Location = new System.Drawing.Point(133, 359);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 25);
             this.label3.TabIndex = 5;
@@ -454,16 +454,16 @@ namespace AdminBackups
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbEmail.Location = new System.Drawing.Point(225, 209);
+            this.tbEmail.Location = new System.Drawing.Point(204, 229);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(326, 33);
+            this.tbEmail.Size = new System.Drawing.Size(399, 33);
             this.tbEmail.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(142, 212);
+            this.label2.Location = new System.Drawing.Point(121, 232);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 25);
             this.label2.TabIndex = 3;
@@ -472,16 +472,16 @@ namespace AdminBackups
             // tbAdress
             // 
             this.tbAdress.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbAdress.Location = new System.Drawing.Point(225, 145);
+            this.tbAdress.Location = new System.Drawing.Point(204, 165);
             this.tbAdress.Name = "tbAdress";
-            this.tbAdress.Size = new System.Drawing.Size(326, 33);
+            this.tbAdress.Size = new System.Drawing.Size(399, 33);
             this.tbAdress.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(53, 85);
+            this.label1.Location = new System.Drawing.Point(32, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(151, 25);
             this.label1.TabIndex = 1;
@@ -490,9 +490,9 @@ namespace AdminBackups
             // tbCompanyName
             // 
             this.tbCompanyName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbCompanyName.Location = new System.Drawing.Point(225, 82);
+            this.tbCompanyName.Location = new System.Drawing.Point(204, 102);
             this.tbCompanyName.Name = "tbCompanyName";
-            this.tbCompanyName.Size = new System.Drawing.Size(326, 33);
+            this.tbCompanyName.Size = new System.Drawing.Size(399, 33);
             this.tbCompanyName.TabIndex = 0;
             // 
             // tabPage3
@@ -670,6 +670,17 @@ namespace AdminBackups
             this.WorkHours.Text = "WorkHours";
             this.WorkHours.UseVisualStyleBackColor = true;
             // 
+            // rbColor
+            // 
+            this.rbColor.AutoSize = true;
+            this.rbColor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbColor.Location = new System.Drawing.Point(758, 34);
+            this.rbColor.Name = "rbColor";
+            this.rbColor.Size = new System.Drawing.Size(77, 29);
+            this.rbColor.TabIndex = 9;
+            this.rbColor.Text = "Color";
+            this.rbColor.UseVisualStyleBackColor = true;
+            // 
             // dgvAtendance
             // 
             this.dgvAtendance.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -752,7 +763,7 @@ namespace AdminBackups
             // btnMakeExcelSheet
             // 
             this.btnMakeExcelSheet.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMakeExcelSheet.Location = new System.Drawing.Point(736, 261);
+            this.btnMakeExcelSheet.Location = new System.Drawing.Point(739, 367);
             this.btnMakeExcelSheet.Name = "btnMakeExcelSheet";
             this.btnMakeExcelSheet.Size = new System.Drawing.Size(358, 110);
             this.btnMakeExcelSheet.TabIndex = 1;
@@ -778,17 +789,6 @@ namespace AdminBackups
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(326, 33);
             this.textBox3.TabIndex = 6;
-            // 
-            // rbColor
-            // 
-            this.rbColor.AutoSize = true;
-            this.rbColor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbColor.Location = new System.Drawing.Point(758, 42);
-            this.rbColor.Name = "rbColor";
-            this.rbColor.Size = new System.Drawing.Size(77, 29);
-            this.rbColor.TabIndex = 9;
-            this.rbColor.Text = "Color";
-            this.rbColor.UseVisualStyleBackColor = true;
             // 
             // FormOfficeManager
             // 
