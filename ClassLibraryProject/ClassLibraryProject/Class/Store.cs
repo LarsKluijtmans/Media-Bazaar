@@ -1,4 +1,5 @@
 ﻿using ClassLibraryProject.dbClasses;
+using ClassLibraryProject.dbClasses.IDB;
 using ClassLibraryProject.ManagmentClasses;
 
 namespace ClassLibraryProject.Class
@@ -21,7 +22,7 @@ namespace ClassLibraryProject.Class
             productManagment = new ProductManagement();
             //restockManagment = new RestockManagment();
             //reshelfManagment = new ReshelfManagment();
-            //scheduleManagment = new ScheduleManagment();
+           // scheduleManagment = new ScheduleManagment();
             //planningManagment = new PlanningManagment();
             employeeManagement = new EmployeeManagement();
             //supplierManagment = new SupplierManagment();

@@ -38,6 +38,7 @@ namespace AdminBackups
                     cbDepartments.Items.Add(d);
                 }
             }
+
             cbSchebuleByDepartment.Text = cbSchebuleByDepartment.Items[0].ToString();
             cbDepartments.Text = cbDepartments.Items[0].ToString();
 
