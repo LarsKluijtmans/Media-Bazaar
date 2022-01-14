@@ -1,6 +1,7 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.Enum;
+using MediaBazaar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,6 +48,9 @@ namespace AdminBackups
             UpdateSchedule();
             UpdatePlanningSchedule();
             UpdateEmployeesWorkingToday();
+
+            ReadNewProducts();
+            ReadProducts();
         }
 
 
@@ -86,9 +90,15 @@ namespace AdminBackups
         {
             tabControl1.SelectTab(2);
         }
+        /* Products */
         private void dgProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             tabControl1.SelectTab(1);
+        }
+        public void ReadNewProducts()
+        {
+            List<Product> newProducts = salesManager.ProductManagerSM.ReadNewProductsSM();
+            dgvNewProducts.DataSource = newProducts;
         }
 
         private void lstEmployeesWorkingToday_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -96,8 +106,63 @@ namespace AdminBackups
             tabControl1.SelectTab(3);
         }
 
-        //Products
-        //Esther//Esther
+        /* Esther Start*/
+
+        /* Products Start */
+        public void ReadProducts()
+        {
+            List<Product> products = salesManager.ProductManagerSM.ReadProductsSM();
+            dgvProducts.DataSource = products;
+        }
+        private void UpdateProduct()
+        {
+            int productID = Convert.ToInt32(tbxSelectedProduct.Text);
+            if (string.IsNullOrEmpty(tbxSelectedProduct.Text))
+            {
+                MessageBox.Show("Please select a product");
+                return;
+            }
+
+            Product selectedProduct = salesManager.ProductManagerSM.GetProductByID(productID);
+
+            if (selectedProduct != null)
+            {
+                FormViewProduct formViewProduct = new FormViewProduct(salesManager, selectedProduct);
+                formViewProduct.Show();
+            }
+        }
+        private void tbProductSearch_TextChanged(object sender, EventArgs e)
+        {
+            string search = tbProductSearch.Text;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                List<Product> products = salesManager.ProductManagerSM.SearchProductsPM(search);
+                dgvProducts.DataSource = products;
+            }
+            else
+            {
+                ReadProducts();
+            }
+        }
+        private void bntUpdateProduct_Click(object sender, EventArgs e)
+        {
+            UpdateProduct();
+        }
+        private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvProducts.Rows[e.RowIndex];
+
+                string productID = row.Cells["ProductID"].Value.ToString();
+
+                tbxSelectedProduct.Text = productID;
+            }
+        }
+        /* Products End */
+
+        /* Esther End*/
 
         //Schedule
         public static int GetCurrentWeekOfYear(DateTime time)
@@ -397,5 +462,7 @@ namespace AdminBackups
         {
 
         }
+
+        
     }
 }

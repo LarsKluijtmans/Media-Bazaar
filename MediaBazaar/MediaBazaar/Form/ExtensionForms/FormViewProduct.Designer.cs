@@ -50,6 +50,7 @@ namespace MediaBazaar
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnCreateOrderInfo = new System.Windows.Forms.Button();
             this.tbxMultiples = new System.Windows.Forms.TextBox();
             this.tbxMaxAmount = new System.Windows.Forms.TextBox();
             this.tbxMinAmount = new System.Windows.Forms.TextBox();
@@ -60,7 +61,6 @@ namespace MediaBazaar
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnCreateOrderInfo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -278,6 +278,16 @@ namespace MediaBazaar
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Order Info:";
             // 
+            // btnCreateOrderInfo
+            // 
+            this.btnCreateOrderInfo.Location = new System.Drawing.Point(388, 95);
+            this.btnCreateOrderInfo.Name = "btnCreateOrderInfo";
+            this.btnCreateOrderInfo.Size = new System.Drawing.Size(146, 23);
+            this.btnCreateOrderInfo.TabIndex = 13;
+            this.btnCreateOrderInfo.Text = "Add New Order Info";
+            this.btnCreateOrderInfo.UseVisualStyleBackColor = true;
+            this.btnCreateOrderInfo.Click += new System.EventHandler(this.btnCreateOrderInfo_Click);
+            // 
             // tbxMultiples
             // 
             this.tbxMultiples.Location = new System.Drawing.Point(388, 62);
@@ -363,16 +373,6 @@ namespace MediaBazaar
             this.label9.Size = new System.Drawing.Size(53, 15);
             this.label9.TabIndex = 0;
             this.label9.Text = "Supplier:";
-            // 
-            // btnCreateOrderInfo
-            // 
-            this.btnCreateOrderInfo.Location = new System.Drawing.Point(388, 95);
-            this.btnCreateOrderInfo.Name = "btnCreateOrderInfo";
-            this.btnCreateOrderInfo.Size = new System.Drawing.Size(146, 23);
-            this.btnCreateOrderInfo.TabIndex = 13;
-            this.btnCreateOrderInfo.Text = "Add New Order Info";
-            this.btnCreateOrderInfo.UseVisualStyleBackColor = true;
-            this.btnCreateOrderInfo.Click += new System.EventHandler(this.btnCreateOrderInfo_Click);
             // 
             // FormViewProduct
             // 

@@ -42,7 +42,10 @@ namespace MediaBazaar
             }
 
             LoadProductInfo();
-            LoadSuppliersForProduct();
+            if (employee is ProductManager)
+            {
+                LoadSuppliersForProduct();
+            }
         }
         private void LoadProductInfo()
         {
@@ -116,49 +119,83 @@ namespace MediaBazaar
         {
             GetOrderInfoForSupplier();
         }
-        private bool UpdateProduct()
+        private bool UpdateProductPM()
         {
-            if (employee is ProductManager)
+            if (string.IsNullOrEmpty(tbxProductName.Text))
             {
-                if (string.IsNullOrEmpty(tbxProductName.Text))
-                {
-                    MessageBox.Show("Product Name cannot be empty");
-                    return false;
-                }
-                product.ProductName = tbxProductName.Text;
+                MessageBox.Show("Product Name cannot be empty");
+                return false;
+            }
+            product.ProductName = tbxProductName.Text;
 
-                if (string.IsNullOrEmpty(tbxBarcode.Text))
-                {
-                    MessageBox.Show("Barcode cannot be empty");
-                    return false;
-                }
-                product.Barcode = tbxBarcode.Text;
+            if (string.IsNullOrEmpty(tbxBarcode.Text))
+            {
+                MessageBox.Show("Barcode cannot be empty");
+                return false;
+            }
+            product.Barcode = tbxBarcode.Text;
 
-                if (string.IsNullOrEmpty(cbxProductType.Text))
-                {
-                    MessageBox.Show("Product Type cannot be empty");
-                    return false;
-                }
-                product.ProductType = cbxProductType.Text;
+            if (string.IsNullOrEmpty(cbxProductType.Text))
+            {
+                MessageBox.Show("Product Type cannot be empty");
+                return false;
+            }
+            product.ProductType = cbxProductType.Text;
 
-                return ((ProductManager)employee).ProductManagerPM.UpdateProductPM(product);
+            return ((ProductManager)employee).ProductManagerPM.UpdateProductPM(product);
+        }
+        private bool UpdateProductSM()
+        {
+            if (string.IsNullOrEmpty(tbxSellingPrice.Text))
+            {
+                MessageBox.Show("Selling Price cannot be empty");
+                return false;
+            }
+            product.SellingPrice = Convert.ToDouble(tbxSellingPrice.Text);
+            if (product.SellingPrice == 0)
+            {
+                MessageBox.Show("Please enter a selling price");
+                return false;
             }
 
+            if (cbxStatus.Text == "Available")
+            {
+                product.IsDiscontinued = false;
+            } else if (cbxStatus.Text == "Discontinued")
+            {
+                product.IsDiscontinued = true;
+            }
 
-            return false;
+            return ((SalesManager)employee).ProductManagerSM.UpdateProductSM(product);
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
-            if (!UpdateProduct())
+            if (employee is ProductManager)
             {
-                return;
+                if (!UpdateProductPM())
+                {
+                    return;
+                }
+
+                var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
+                formProductManager.ReadProducts();
+
+                this.Close();
+            } else if (employee is SalesManager)
+            {
+                if (!UpdateProductSM())
+                {
+                    MessageBox.Show("Error");
+                    return;
+                }
+
+                var formSalesManager = Application.OpenForms.OfType<FormSalesManager>().FirstOrDefault();
+                formSalesManager.ReadProducts();
+                formSalesManager.ReadNewProducts();
+
+                this.Close();
             }
-
-            var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
-            formProductManager.ReadProducts();
-
-            this.Close();
         }
 
         private void btnCreateOrderInfo_Click(object sender, EventArgs e)

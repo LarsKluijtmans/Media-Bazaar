@@ -47,8 +47,6 @@ namespace AdminBackups
             this.cbxProductType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbxSupplierID = new System.Windows.Forms.TextBox();
-            this.btnAddNewOrder = new System.Windows.Forms.Button();
-            this.btnOrderInfo = new System.Windows.Forms.Button();
             this.btnAddSupplier = new System.Windows.Forms.Button();
             this.tbxPostalCode = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -225,8 +223,6 @@ namespace AdminBackups
             this.groupBox3.Controls.Add(this.cbxProductType);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.tbxSupplierID);
-            this.groupBox3.Controls.Add(this.btnAddNewOrder);
-            this.groupBox3.Controls.Add(this.btnOrderInfo);
             this.groupBox3.Controls.Add(this.btnAddSupplier);
             this.groupBox3.Controls.Add(this.tbxPostalCode);
             this.groupBox3.Controls.Add(this.label17);
@@ -292,28 +288,6 @@ namespace AdminBackups
             this.tbxSupplierID.ReadOnly = true;
             this.tbxSupplierID.Size = new System.Drawing.Size(198, 29);
             this.tbxSupplierID.TabIndex = 111;
-            // 
-            // btnAddNewOrder
-            // 
-            this.btnAddNewOrder.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddNewOrder.Location = new System.Drawing.Point(137, 349);
-            this.btnAddNewOrder.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnAddNewOrder.Name = "btnAddNewOrder";
-            this.btnAddNewOrder.Size = new System.Drawing.Size(126, 30);
-            this.btnAddNewOrder.TabIndex = 110;
-            this.btnAddNewOrder.Text = "Add New Order";
-            this.btnAddNewOrder.UseVisualStyleBackColor = true;
-            // 
-            // btnOrderInfo
-            // 
-            this.btnOrderInfo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnOrderInfo.Location = new System.Drawing.Point(5, 349);
-            this.btnOrderInfo.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnOrderInfo.Name = "btnOrderInfo";
-            this.btnOrderInfo.Size = new System.Drawing.Size(126, 30);
-            this.btnOrderInfo.TabIndex = 109;
-            this.btnOrderInfo.Text = "Order Info";
-            this.btnOrderInfo.UseVisualStyleBackColor = true;
             // 
             // btnAddSupplier
             // 
@@ -498,6 +472,7 @@ namespace AdminBackups
             this.cbxSupplierType.Name = "cbxSupplierType";
             this.cbxSupplierType.Size = new System.Drawing.Size(163, 25);
             this.cbxSupplierType.TabIndex = 3;
+            this.cbxSupplierType.SelectedIndexChanged += new System.EventHandler(this.cbxSupplierType_SelectedIndexChanged);
             // 
             // tbxSupplierSearch
             // 
@@ -598,8 +573,6 @@ namespace AdminBackups
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSuppliers;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnAddNewOrder;
-        private System.Windows.Forms.Button btnOrderInfo;
         private System.Windows.Forms.Button btnAddSupplier;
         private System.Windows.Forms.TextBox tbxPostalCode;
         private System.Windows.Forms.Label label17;

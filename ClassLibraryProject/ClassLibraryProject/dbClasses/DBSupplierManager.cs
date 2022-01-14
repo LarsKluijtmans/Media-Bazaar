@@ -11,7 +11,7 @@ namespace ClassLibraryProject.dbClasses
 {
     public class DBSupplierManager: IDBSupplierManagerPM
     {
-        private string CREATE_SUPPLIER = "INSERT INTO Supplier (ID, Name, Country, BuildingNumber, PostalCode, Email, PhoneNumber, BankNumber, ProductType) VALUES (@ID, @Name, @Country, @BuildingNumber, @PostalCode, @Email, @PhoneNumber, @BankNumber, @ProductType);";
+        private string CREATE_SUPPLIER = "INSERT INTO Supplier (Name, Country, BuildingNumber, PostalCode, Email, PhoneNumber, BankNumber, ProductType) VALUES (@Name, @Country, @BuildingNumber, @PostalCode, @Email, @PhoneNumber, @BankNumber, @ProductType);";
         private string READ_SUPPLIERS = "SELECT * FROM Supplier;";
         private string UPDATE_SUPPLIER = "UPDATE supplier SET Name = @Name, Country = @Country, BuildingNumber = @BuildingNumber, PostalCode = @PostalCode, Email = @Email, PhoneNumber = @PhoneNumber, BankNumber = @BankNumber WHERE ID = @ID;";
         private string DELETE_SUPPLIER = "DELETE FROM supplier WHERE ID = @ID;";
@@ -35,7 +35,6 @@ namespace ClassLibraryProject.dbClasses
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 conn.Open();
 
-                cmd.Parameters.AddWithValue("@ID", s.ID);
                 cmd.Parameters.AddWithValue("@Name", s.Name);
                 cmd.Parameters.AddWithValue("@Country", s.Country);
                 cmd.Parameters.AddWithValue("@BuildingNumber", s.BuildingNumber);
@@ -199,7 +198,6 @@ namespace ClassLibraryProject.dbClasses
                 cmd.Parameters.AddWithValue("@Email", s.Email);
                 cmd.Parameters.AddWithValue("@PhoneNumber", s.PhoneNumber);
                 cmd.Parameters.AddWithValue("@BankNumber", s.BankNumber);
-                cmd.Parameters.AddWithValue("@ProductType", s.ProductType);
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
 
