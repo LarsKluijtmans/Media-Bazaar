@@ -925,11 +925,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT NEW\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+      "projectUniqueName": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\Media Bazaar\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
       "projectName": "ClassLibraryProject",
-      "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT NEW\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+      "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\Media Bazaar\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
       "packagesPath": "C:\\Users\\esthe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT NEW\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
+      "outputPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\Media Bazaar\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cich9u3DZ6Eoyz2SwTDCwiCXjKvrSinNJRateYsvVUMSN6SfTDI4Ha/+fbzNFiblwt+9pCf52xZDd7C3e6lI6A==",
+  "dgSpecHash": "6GVnLunf/Cjbar8wAsAO44Qe7euGCdMVfeQgDS2CiLzv4t8/49oFN40/yGNKbNB2UBtpNer/+isVAc7H0dVRKQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\GIT NEW\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForDepotEmployee\\RemoteAppForDepotEmployee.csproj",
+  "projectFilePath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\Media Bazaar\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\RemoteAppForDepotEmployee\\RemoteAppForDepotEmployee.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\esthe\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\esthe\\.nuget\\packages\\dotconnect.express.for.mysql\\8.19.1985\\dotconnect.express.for.mysql.8.19.1985.nupkg.sha512",

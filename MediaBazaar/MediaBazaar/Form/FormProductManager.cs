@@ -277,5 +277,5 @@ namespace AdminBackups
             tbxBankNumber.Clear();
         }
         /* Supplier End */
-        }
-    }
+     }
+}
