@@ -7,6 +7,7 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotEmployee
 {
     public interface IReshelfDepotEmployee
     {
+        Product GetProduct(string barcode);
         List<Reshelf> GetReshelfRequests();
         bool CompleteReshelf(int id, Product product);
         bool DeleteReshelf(int id);

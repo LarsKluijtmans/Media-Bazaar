@@ -5,10 +5,9 @@ using System.Text;
 
 namespace ClassLibraryProject.ManagmentClasses.ISalesEmployee
 {
-    public interface IReshelfSalesEmployee
+    public interface ISalesEmployeeControl
     {
         Product GetProduct(string barcode);
         bool RequestReshelf(Product product, int amount);
-        bool ReshelfExist(Product product);
     }
 }

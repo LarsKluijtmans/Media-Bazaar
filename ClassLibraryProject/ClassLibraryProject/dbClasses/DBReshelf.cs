@@ -10,6 +10,8 @@ namespace ClassLibraryProject.dbClasses
 {
     public class DBReshelf: IDBReshelf
     {
+        private string GET_ALL_PRODUCTS = "SELECT * FROM product WHERE Discontinued = 0;";
+
         private string GET_ALL_RESHELVES = "SELECT * FROM reshelf;";
 
         //depot
@@ -21,21 +23,22 @@ namespace ClassLibraryProject.dbClasses
         private string REQUEST_RESHELF = "INSERT INTO reshelf (ID, ProductBarcode, Amount, Status) VALUES (@ID, @Barcode, @Amount, 'Pending');";
 
         private List<Reshelf> reshelves;
-        private IGetProduct p;
+        private List<Product> products;
 
         public List<Reshelf> GetReshelfRequests()
         {
             return reshelves;
         }
 
-        public DBReshelf(IGetProduct product)
+        public DBReshelf()
         {
             reshelves = new List<Reshelf>();
-            p = product;
+            products = new List<Product>();
 
+            GetAllProducts();
             GetAllReshelves();
         }
-
+        
         private void GetAllReshelves()
         {
             reshelves.Clear();
@@ -61,8 +64,11 @@ namespace ClassLibraryProject.dbClasses
                     int amount = reader.GetInt32("Amount");
                     string status = reader.GetString("Status");
 
-                    reshelf = new Reshelf(id, p.GetProduct(barcode), amount, status);
-                    reshelves.Add(reshelf);
+                    if (GetProduct(barcode) != null)
+                    {
+                        reshelf = new Reshelf(id, GetProduct(barcode), amount, status);
+                        reshelves.Add(reshelf);
+                    }
                 }
             }
             catch (Exception)
@@ -75,6 +81,56 @@ namespace ClassLibraryProject.dbClasses
         }
 
         //sales
+        public Product GetProduct(string barcode)
+        {
+            foreach(Product product in products)
+            {
+                if(product.Barcode == barcode)
+                {
+                    return product;
+                }
+            }
+            return null;
+        }
+        private void GetAllProducts()
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = GET_ALL_PRODUCTS;
+
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Product product;
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32("ProductID");
+                    string barcode = reader.GetString("Barcode");
+                    string name = reader.GetString("Name");
+                    string type = reader.GetString("Type");
+                    double sellingPrice = reader.GetDouble("SellingPrice");
+                    int amountDepot = reader.GetInt32("AmountInDepot");
+                    int amountStore = reader.GetInt32("AmountInStore");
+
+                    product = new Product(id, name, barcode, type, sellingPrice, amountDepot, amountStore, false);
+                    products.Add(product);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public bool RequestReshelf(int id, Product product, int amount)
         {
             MySqlConnection conn = Utils.GetConnection();
