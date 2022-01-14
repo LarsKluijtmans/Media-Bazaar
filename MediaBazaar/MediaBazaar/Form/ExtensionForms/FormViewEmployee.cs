@@ -96,15 +96,22 @@ namespace AdminBackups
             // contract
             if (employee.Contracts.Count != 0)
             {
-                tbxJobTitle.Text = employee.Contracts[0].JobTitle;
-                tbxWorkHours.Text = employee.Contracts[0].WorkHoursPerWeek.ToString();
-                tbxSalary.Text = employee.Contracts[0].SalaryPerHour.ToString();
-                tbxStartDate.Value = employee.Contracts[0].StartDate;
-                if (employee.Contracts[0].EndDate.ToString("dd/MM/yyyy") != "01/01/1000")
+                foreach (Contract c in employee.Contracts)
                 {
-                    tbxEndDate.Value = employee.Contracts[0].EndDate;
+                    if (c.IsActive)
+                    {
+                        tbxJobTitle.Text = c.JobTitle;
+                        tbxWorkHours.Text = c.WorkHoursPerWeek.ToString();
+                        tbxSalary.Text = c.SalaryPerHour.ToString();
+                        tbxStartDate.Value = c.StartDate;
+                        if (c.EndDate.ToString("dd/MM/yyyy") != "01/01/1000")
+                        {
+                            tbxEndDate.Value = c.EndDate;
+                        }
+                        else { tbxEndDate.Value = new DateTime(2022, 1, 1); }
+                        break;
+                    }
                 }
-                else { tbxEndDate.Value = new DateTime(2022,1,1); }
 
                 
                 cbxDepartment.Text = employee.Contracts[0].Department;
