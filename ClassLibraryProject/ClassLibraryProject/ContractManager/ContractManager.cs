@@ -18,11 +18,6 @@ namespace ClassLibraryProject
             return DBContractManager.CreateContract(c);
         }
 
-        public bool DeleteContract(Contract c)
-        {
-            return DBContractManager.DeleteContract(c);
-        }
-
         public Contract ReadContract(Employee e)
         {
             return DBContractManager.ReadContract(e);

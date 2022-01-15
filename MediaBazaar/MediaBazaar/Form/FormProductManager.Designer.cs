@@ -70,6 +70,7 @@ namespace AdminBackups
             this.dgvSuppliers = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -219,6 +220,7 @@ namespace AdminBackups
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnClear);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.cbxProductType);
             this.groupBox3.Controls.Add(this.label3);
@@ -524,6 +526,17 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnClear.Location = new System.Drawing.Point(76, 321);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(127, 29);
+            this.btnClear.TabIndex = 115;
+            this.btnClear.Text = "Clear Input";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // FormProductManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -594,5 +607,6 @@ namespace AdminBackups
         private System.Windows.Forms.TextBox tbxSupplierID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbxProductType;
+        private System.Windows.Forms.Button btnClear;
     }
 }

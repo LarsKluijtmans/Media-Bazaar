@@ -10,6 +10,5 @@ namespace ClassLibraryProject
         public bool CreateContract(Contract c);
         public Contract ReadContract(Employee e);
         public bool UpdateContract(Contract c);
-        public bool DeleteContract(Contract c);
     }
 }
