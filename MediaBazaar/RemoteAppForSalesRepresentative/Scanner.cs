@@ -78,7 +78,10 @@ namespace RemoteAppForSalesRepresentative
                     MessageBox.Show("Product with this barcode does not exist!");
                 }
             }
-            catch { }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid input!");
+            }
         }
 
         private void timerUpdate_Tick(object sender, EventArgs e)
