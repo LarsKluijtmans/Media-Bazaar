@@ -1,11 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 using ClassLibraryProject.Class;
-using ClassLibraryProject.dbClasses;
-using ClassLibraryProject.dbClasses.IDB;
 using ClassLibraryProject.ManagmentClasses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -26,7 +21,7 @@ namespace MediaBazzar.Pages
 
         private CookieOptions cookieOptions = new CookieOptions
         {
-            Expires = DateTime.Now.AddMinutes(30)
+            Expires = DateTime.Now.AddMinutes(5)
         };
 
         public IActionResult OnGetLogout()

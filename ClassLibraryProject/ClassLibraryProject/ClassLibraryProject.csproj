@@ -2,7 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon>MicrosoftTeams-image (1).ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\lars\.nuget\packages\mysqlbackup.net.devartexpress\2.3.6\contentFiles\any\netcoreapp3.0\logo.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

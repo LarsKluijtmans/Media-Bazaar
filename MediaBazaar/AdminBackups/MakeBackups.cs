@@ -158,9 +158,15 @@ namespace AdminBackups
                         using (MySqlBackup mb = new MySqlBackup(cmd))
                         {
                             cmd.Connection = conn;
-                            conn.Open();
-                            mb.ExportToFile(FileLocation);
-                            conn.Close();
+                            try
+                            {
+                                conn.Open();
+                                mb.ExportToFile(FileLocation);
+                            }
+                            finally
+                            {
+                                conn.Close();
+                            }
                         }
                     }
                 }

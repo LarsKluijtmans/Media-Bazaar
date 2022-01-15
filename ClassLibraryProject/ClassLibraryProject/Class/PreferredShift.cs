@@ -7,17 +7,11 @@ namespace ClassLibraryProject.Class
     public class PreferredShift
     {
         //fields
-        private int week;
         private string day;
         private string shift;
         private List<Employee> employees;
 
         //properties
-        public int Week
-        {
-            get { return week; }
-            set { week = value; }
-        }
         public string Day
         {
             get { return day; }
@@ -35,9 +29,8 @@ namespace ClassLibraryProject.Class
         }
 
         //constructor
-        public PreferredShift(int week, string day, string shift)
+        public PreferredShift(string day, string shift)
         {
-            Week = week;
             Day = day;
             Shift = shift;
             Employees = new List<Employee>();

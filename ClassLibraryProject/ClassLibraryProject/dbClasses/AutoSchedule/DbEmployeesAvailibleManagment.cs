@@ -26,15 +26,16 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
 
                 cmd.Parameters.AddWithValue("@department", department);
                 cmd.Parameters.AddWithValue("@day", day);
                 cmd.Parameters.AddWithValue("@shift", shift);
                 cmd.Parameters.AddWithValue("@week", week);
                 cmd.Parameters.AddWithValue("@year", year);
+
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
