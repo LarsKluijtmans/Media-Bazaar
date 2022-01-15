@@ -11,7 +11,7 @@ namespace ClassLibraryProject.dbClasses
 {
     public class DBPreferredShift: IDBPreferredShift
     {
-        public string GET_ALL_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.EmployeeID = @EmployeeID AND e.Active = 1;";
+        public string GET_ALL_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = 1;";
 
         private string GET_PREFERRED_SHIFTS = "SELECT * FROM preferedtime;";
         private string PREFER_SHIFT = "INSERT INTO preferedtime (Week, Day, Shift, EmployeeID) VALUES (@Week, @Day, @Shift, @Employee);";

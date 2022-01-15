@@ -33,7 +33,6 @@ namespace AdminBackups
             UpdatePendingRequests();
             UpdateSchedule();
             UpdatePlanningSchedule();
-            UpdateEmployeesWorkingToday();
 
         }
 
@@ -88,16 +87,6 @@ namespace AdminBackups
         {
             tabControl1.SelectTab(4);
         }
-        private void UpdateEmployeesWorkingToday()
-        {
-            store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
-            lstEmployeesWorkingToday.Items.Clear();
-            foreach (Employee employee in store.employeeManagement.EmployeeWorkingToday)
-            {
-                lstEmployeesWorkingToday.Items.Add(employee);
-            }
-        }
-
         //Restock
         private void UpdatePendingRequests()
         {
@@ -444,7 +433,7 @@ namespace AdminBackups
                 string day = Convert.ToString(selectedRow.Cells["Day"].Value);
                 string shift = Convert.ToString(selectedColumn.Name);
 
-                
+                UpdateEmployeeList();
             }
             catch
             {
