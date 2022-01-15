@@ -7,6 +7,6 @@ namespace ClassLibraryProject.dbClasses.IGetObject
 {
     public interface IGetEmployee
     {
-        Employee GetEmployee(int id);
+        Employee GetEmployeeByID(int givenEmployeeID);
     }
 }

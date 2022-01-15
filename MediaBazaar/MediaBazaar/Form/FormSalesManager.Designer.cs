@@ -33,12 +33,20 @@ namespace AdminBackups
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabOverview = new System.Windows.Forms.TabPage();
             this.label13 = new System.Windows.Forms.Label();
-            this.dgProduct = new System.Windows.Forms.DataGridView();
+            this.dgvNewProducts = new System.Windows.Forms.DataGridView();
             this.lstEmployeesWorkingToday = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
             this.txtProductID = new System.Windows.Forms.TabPage();
+            this.tbxSelectedProduct = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.bntUpdateProduct = new System.Windows.Forms.Button();
+            this.btnDeleteProduct = new System.Windows.Forms.Button();
+            this.labProductSearch = new System.Windows.Forms.Label();
+            this.tbProductSearch = new System.Windows.Forms.TextBox();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabSchedule = new System.Windows.Forms.TabPage();
             this.cbSchebuleByDepartment = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -81,8 +89,11 @@ namespace AdminBackups
             this.btnLogout = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNewProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).BeginInit();
+            this.txtProductID.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.tabSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -101,13 +112,13 @@ namespace AdminBackups
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(989, 563);
+            this.tabControl1.Size = new System.Drawing.Size(1005, 563);
             this.tabControl1.TabIndex = 0;
             // 
             // tabOverview
             // 
             this.tabOverview.Controls.Add(this.label13);
-            this.tabOverview.Controls.Add(this.dgProduct);
+            this.tabOverview.Controls.Add(this.dgvNewProducts);
             this.tabOverview.Controls.Add(this.lstEmployeesWorkingToday);
             this.tabOverview.Controls.Add(this.label12);
             this.tabOverview.Controls.Add(this.label14);
@@ -115,7 +126,7 @@ namespace AdminBackups
             this.tabOverview.Location = new System.Drawing.Point(4, 30);
             this.tabOverview.Name = "tabOverview";
             this.tabOverview.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOverview.Size = new System.Drawing.Size(981, 529);
+            this.tabOverview.Size = new System.Drawing.Size(997, 529);
             this.tabOverview.TabIndex = 12;
             this.tabOverview.Text = "Overview";
             this.tabOverview.UseVisualStyleBackColor = true;
@@ -126,20 +137,21 @@ namespace AdminBackups
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label13.Location = new System.Drawing.Point(22, 303);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 21);
+            this.label13.Size = new System.Drawing.Size(110, 21);
             this.label13.TabIndex = 100;
-            this.label13.Text = "Product:";
+            this.label13.Text = "New Products:";
             // 
-            // dgProduct
+            // dgvNewProducts
             // 
-            this.dgProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgProduct.Location = new System.Drawing.Point(21, 326);
-            this.dgProduct.Name = "dgProduct";
-            this.dgProduct.RowHeadersWidth = 51;
-            this.dgProduct.RowTemplate.Height = 25;
-            this.dgProduct.Size = new System.Drawing.Size(488, 190);
-            this.dgProduct.TabIndex = 99;
-            this.dgProduct.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProduct_CellDoubleClick);
+            this.dgvNewProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvNewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNewProducts.Location = new System.Drawing.Point(21, 326);
+            this.dgvNewProducts.Name = "dgvNewProducts";
+            this.dgvNewProducts.RowHeadersWidth = 51;
+            this.dgvNewProducts.RowTemplate.Height = 25;
+            this.dgvNewProducts.Size = new System.Drawing.Size(488, 190);
+            this.dgvNewProducts.TabIndex = 99;
+            this.dgvNewProducts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProduct_CellDoubleClick);
             // 
             // lstEmployeesWorkingToday
             // 
@@ -183,14 +195,103 @@ namespace AdminBackups
             // 
             // txtProductID
             // 
+            this.txtProductID.Controls.Add(this.tbxSelectedProduct);
+            this.txtProductID.Controls.Add(this.groupBox4);
+            this.txtProductID.Controls.Add(this.labProductSearch);
+            this.txtProductID.Controls.Add(this.tbProductSearch);
+            this.txtProductID.Controls.Add(this.dgvProducts);
+            this.txtProductID.Controls.Add(this.label3);
             this.txtProductID.Location = new System.Drawing.Point(4, 30);
             this.txtProductID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtProductID.Size = new System.Drawing.Size(981, 529);
+            this.txtProductID.Size = new System.Drawing.Size(997, 529);
             this.txtProductID.TabIndex = 3;
             this.txtProductID.Text = "Products ";
             this.txtProductID.UseVisualStyleBackColor = true;
+            // 
+            // tbxSelectedProduct
+            // 
+            this.tbxSelectedProduct.Location = new System.Drawing.Point(796, 62);
+            this.tbxSelectedProduct.Name = "tbxSelectedProduct";
+            this.tbxSelectedProduct.PlaceholderText = "Selected Product";
+            this.tbxSelectedProduct.ReadOnly = true;
+            this.tbxSelectedProduct.Size = new System.Drawing.Size(169, 29);
+            this.tbxSelectedProduct.TabIndex = 107;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.bntUpdateProduct);
+            this.groupBox4.Controls.Add(this.btnDeleteProduct);
+            this.groupBox4.Location = new System.Drawing.Point(791, 98);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Size = new System.Drawing.Size(182, 102);
+            this.groupBox4.TabIndex = 106;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Manage Products";
+            // 
+            // bntUpdateProduct
+            // 
+            this.bntUpdateProduct.Location = new System.Drawing.Point(5, 27);
+            this.bntUpdateProduct.Name = "bntUpdateProduct";
+            this.bntUpdateProduct.Size = new System.Drawing.Size(167, 31);
+            this.bntUpdateProduct.TabIndex = 9;
+            this.bntUpdateProduct.Text = "Update Product";
+            this.bntUpdateProduct.UseVisualStyleBackColor = true;
+            this.bntUpdateProduct.Click += new System.EventHandler(this.bntUpdateProduct_Click);
+            // 
+            // btnDeleteProduct
+            // 
+            this.btnDeleteProduct.Location = new System.Drawing.Point(4, 63);
+            this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(168, 31);
+            this.btnDeleteProduct.TabIndex = 7;
+            this.btnDeleteProduct.Text = "Delete Product";
+            this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            // 
+            // labProductSearch
+            // 
+            this.labProductSearch.AutoSize = true;
+            this.labProductSearch.Location = new System.Drawing.Point(388, 26);
+            this.labProductSearch.Name = "labProductSearch";
+            this.labProductSearch.Size = new System.Drawing.Size(118, 21);
+            this.labProductSearch.TabIndex = 105;
+            this.labProductSearch.Text = "Search Product:";
+            // 
+            // tbProductSearch
+            // 
+            this.tbProductSearch.Location = new System.Drawing.Point(512, 23);
+            this.tbProductSearch.Name = "tbProductSearch";
+            this.tbProductSearch.PlaceholderText = "Product Name or Barcode";
+            this.tbProductSearch.Size = new System.Drawing.Size(268, 29);
+            this.tbProductSearch.TabIndex = 104;
+            this.tbProductSearch.TextChanged += new System.EventHandler(this.tbProductSearch_TextChanged);
+            // 
+            // dgvProducts
+            // 
+            this.dgvProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducts.Location = new System.Drawing.Point(16, 62);
+            this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.RowHeadersWidth = 51;
+            this.dgvProducts.RowTemplate.Height = 25;
+            this.dgvProducts.Size = new System.Drawing.Size(764, 392);
+            this.dgvProducts.TabIndex = 103;
+            this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(16, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 21);
+            this.label3.TabIndex = 102;
+            this.label3.Text = "Product List:";
             // 
             // tabSchedule
             // 
@@ -208,7 +309,7 @@ namespace AdminBackups
             this.tabSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabSchedule.Name = "tabSchedule";
             this.tabSchedule.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabSchedule.Size = new System.Drawing.Size(981, 529);
+            this.tabSchedule.Size = new System.Drawing.Size(997, 529);
             this.tabSchedule.TabIndex = 4;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
@@ -443,7 +544,7 @@ namespace AdminBackups
             this.tabPlanning.Location = new System.Drawing.Point(4, 30);
             this.tabPlanning.Name = "tabPlanning";
             this.tabPlanning.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPlanning.Size = new System.Drawing.Size(981, 529);
+            this.tabPlanning.Size = new System.Drawing.Size(997, 529);
             this.tabPlanning.TabIndex = 11;
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
@@ -624,8 +725,12 @@ namespace AdminBackups
             this.tabControl1.ResumeLayout(false);
             this.tabOverview.ResumeLayout(false);
             this.tabOverview.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNewProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).EndInit();
+            this.txtProductID.ResumeLayout(false);
+            this.txtProductID.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.tabSchedule.ResumeLayout(false);
             this.tabSchedule.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).EndInit();
@@ -672,7 +777,7 @@ namespace AdminBackups
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dgOverviewSchedule;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridView dgProduct;
+        private System.Windows.Forms.DataGridView dgvNewProducts;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtYear;
@@ -689,5 +794,13 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnAutoSchedule;
         private System.Windows.Forms.ComboBox cbSchebuleByDepartment;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label labProductSearch;
+        private System.Windows.Forms.TextBox tbProductSearch;
+        private System.Windows.Forms.DataGridView dgvProducts;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbxSelectedProduct;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button bntUpdateProduct;
+        private System.Windows.Forms.Button btnDeleteProduct;
     }
 }

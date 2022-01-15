@@ -53,9 +53,19 @@ namespace AdminBackups
         }
         public void ReadProducts()
         {
-            List<Product> products = productManager.ProductManagerPM.ReadProductsPM();
+            string search = tbProductSearch.Text;
 
-            dgvProducts.DataSource = products;
+            if (!string.IsNullOrEmpty(search))
+            {
+                List<Product> products = productManager.ProductManagerPM.SearchProductsPM(search);
+                dgvProducts.DataSource = products;
+            }
+            else
+            {
+                List<Product> products = productManager.ProductManagerPM.ReadProductsPM();
+
+                dgvProducts.DataSource = products;
+            }
         }
         private void UpdateProduct()
         {
@@ -188,8 +198,58 @@ namespace AdminBackups
         private void ReadSuppliers()
         {
             List<Supplier> suppliers = productManager.SupplierManagerPM.ReadSuppliers();
+            List<Supplier> supplierType = new List<Supplier>();
 
-            dgvSuppliers.DataSource = suppliers;
+            if (cbxSupplierType.SelectedIndex == 1)
+            {
+                supplierType.Clear();
+                foreach(Supplier s in suppliers)
+                {
+                    if (s.ProductType == "KITCHEN_HOME")
+                    {
+                        supplierType.Add(s);
+                    }
+                }
+            }
+            else if (cbxSupplierType.SelectedIndex == 2)
+            {
+                supplierType.Clear();
+                foreach (Supplier s in suppliers)
+                {
+                    if (s.ProductType == "PHOTO_VIDEO_NAVIGATION")
+                    {
+                        supplierType.Add(s);
+                    }
+                }
+            }
+            else if (cbxSupplierType.SelectedIndex == 3)
+            {
+                supplierType.Clear();
+                foreach (Supplier s in suppliers)
+                {
+                    if (s.ProductType == "SMART_HOME_APPLIANCES")
+                    {
+                        supplierType.Add(s);
+                    }
+                }
+            }
+            else if (cbxSupplierType.SelectedIndex == 4)
+            {
+                supplierType.Clear();
+                foreach (Supplier s in suppliers)
+                {
+                    if (s.ProductType == "GAMING_MUSIC_COMPUTERS")
+                    {
+                        supplierType.Add(s);
+                    }
+                }
+            }
+            dgvSuppliers.DataSource = supplierType;
+
+            if (cbxSupplierType.SelectedIndex == 0)
+            {
+                dgvSuppliers.DataSource = suppliers;
+            }
         } 
         private void UpdateSupplier()
         {
@@ -258,7 +318,7 @@ namespace AdminBackups
         private void btnEditSupplier_Click(object sender, EventArgs e)
         {
             UpdateSupplier();
-            // fix (error in sql/db ?)
+            // fixed?? cant test
         }
 
         private void btnRemoveSupplier_Click(object sender, EventArgs e)
@@ -287,6 +347,11 @@ namespace AdminBackups
                 ReadSuppliers();
             }
         }
+
+        private void cbxSupplierType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ReadSuppliers();
+        }
         /* Supplier End */
-     }
+    }
 }

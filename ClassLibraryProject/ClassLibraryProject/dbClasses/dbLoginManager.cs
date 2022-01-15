@@ -3,8 +3,13 @@ using System.Diagnostics;
 using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses.AutoSchedule;
+using ClassLibraryProject.dbClasses.IDB;
+using ClassLibraryProject.dbClasses.IGetObject;
 using ClassLibraryProject.Interfaces;
 using ClassLibraryProject.ManagmentClasses;
+using ClassLibraryProject.ManagmentClasses.IAllManager;
+using ClassLibraryProject.ManagmentClasses.IDepotEmployee;
+using ClassLibraryProject.ManagmentClasses.IDepotManager;
 using ClassLibraryProject.ManagmentClasses.IProductManager;
 using MySql.Data.MySqlClient;
 
@@ -67,15 +72,37 @@ namespace ClassLibraryProject.dbClasses
                     }
                     else if (jobTitle == "DEPOT MANAGER")
                     {
+                        IDBRestock dbRestock = new DBRestock();
+                        IRestockDepotManager restock = new RestockManagment(dbRestock);
+
+                        IDBSchedule dbSchedule = new DBSchedule();
+                        IScheduleAllManager schedule = new ScheduleManagment(dbSchedule);
+                        IGetSchedule getSchedule = new ScheduleManagment(dbSchedule);
+
+                        IDBRegisteredShift dbRegisteredShift = new DBRegisteredShift();
+                        IRegisteredShiftAllManager registeredShift = new RegisteredShiftManagment(dbRegisteredShift, getSchedule);
+
+                        IDBPreferredShift dbPreferredShift = new DBPreferredShift();
+                        IPreferredShiftAllManager preferredShift = new PreferredShiftManagment(dbPreferredShift);
+
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
                         IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
+                        IDepotManagerControl control = new DepotManagerControl(restock, schedule, registeredShift, preferredShift);
 
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule, employeeManagerAll);
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule, employeeManagerAll, control);
                         return employee;
                     }
                     else if (jobTitle == "DEPOT EMPLOYEE")
                     {
-                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        IDBRestock dbRestock = new DBRestock();
+                        IRestockDepotEmployee restock = new RestockManagment(dbRestock);
+
+                        IDBReshelf dbReshelf = new DBReshelf();
+                        IReshelfDepotEmployee reshelf = new ReshelfManagment(dbReshelf);
+
+                        IDepotEmployeeControl control = new DepotEmployeeControl(reshelf, restock);
+
+                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, control);
                         return employee;
                     }
                     else if (jobTitle == "OFFICE MANAGER")
@@ -101,8 +128,10 @@ namespace ClassLibraryProject.dbClasses
                     }
                     else if (jobTitle == "SALES MANAGER")
                     {
+                        IProductManagerSM productManagerSM = new ProductManagement();
+
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule);
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule, productManagerSM);
                         return employee;
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")

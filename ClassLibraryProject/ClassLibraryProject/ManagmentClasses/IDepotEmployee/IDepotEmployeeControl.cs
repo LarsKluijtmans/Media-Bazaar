@@ -7,11 +7,16 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotEmployee
 {
     public interface IDepotEmployeeControl
     {
+        //reshelf
         List<Reshelf> GetReshelfRequest();
         bool CompleteReshelf(int id, Product product);
         bool DeleteReshelf(int id);
+
+        //restock
         List<Restock> GetOrderedRestockRequests();
+        Product GetProduct(string barcode);
         bool RequestRestock(Product product);
         bool ReceiveRestock(int id, Product product);
+        bool RestockExist(Product product);
     }
 }

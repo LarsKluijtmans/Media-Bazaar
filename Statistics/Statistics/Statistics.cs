@@ -9,7 +9,7 @@ namespace Statistics
     public partial class Statistics : Form
     {
         Atendance a;
-        int Zoom1, Zoom2, Zoom3,  Zoom4, Zoom5;
+        int Zoom1, Zoom2, Zoom3, Zoom4, Zoom5;
         public Statistics()
         {
             InitializeComponent();
@@ -21,14 +21,14 @@ namespace Statistics
             chart1.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
             chart1.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
 
-            Zoom1 = 0; 
-            Zoom2 = 0; 
+            Zoom1 = 0;
+            Zoom2 = 0;
             Zoom3 = 0;
             Zoom4 = 0;
             Zoom5 = 0;
 
             chart1.MouseWheel += chart1_MouseWheel;
-           
+
             CRestockAmount.MouseWheel += CRestockAmount_MouseWheel;
             CRestockRequest.MouseWheel += CRestockRequest_MouseWheel;
 
@@ -47,18 +47,18 @@ namespace Statistics
         {
             var chart = (Chart)sender;
             var xAxis = chart.ChartAreas[0].AxisX;
-        
+
             var xMin = xAxis.ScaleView.ViewMinimum;
             var xMax = xAxis.ScaleView.ViewMaximum;
-           
+
             int IntervalX = 4;
             try
             {
                 if (e.Delta < 0 && Zoom1 > 0) // Scrolled down.
                 {
-                    var posXStart = xAxis.PixelPositionToValue(e.Location.X) - IntervalX *2 / Math.Pow(2, Zoom1);
-                    var posXFinish = xAxis.PixelPositionToValue(e.Location.X) + IntervalX *2/ Math.Pow(2, Zoom1);
-                  
+                    var posXStart = xAxis.PixelPositionToValue(e.Location.X) - IntervalX * 2 / Math.Pow(2, Zoom1);
+                    var posXFinish = xAxis.PixelPositionToValue(e.Location.X) + IntervalX * 2 / Math.Pow(2, Zoom1);
+
                     if (posXStart < 0) posXStart = 0;
                     xAxis.ScaleView.Zoom(posXStart, posXFinish);
                     Zoom1--;
@@ -72,7 +72,7 @@ namespace Statistics
 
                     var posXStart = xAxis.PixelPositionToValue(e.Location.X) - IntervalX / Math.Pow(2, Zoom1);
                     var posXFinish = xAxis.PixelPositionToValue(e.Location.X) + IntervalX / Math.Pow(2, Zoom1);
-                   
+
                     xAxis.ScaleView.Zoom(posXStart, posXFinish);
                     Zoom1++;
                 }
@@ -243,33 +243,42 @@ namespace Statistics
         // connect to database
         public void GetAtendeance()
         {
-            int year, month;
-
-            year = Convert.ToInt32(labYear.Text);
-            month = Convert.ToInt32(labMonth.Text);
+            int year = 0, month = 0;
+            try
+            {
+                year = Convert.ToInt32(labYear.Text);
+                month = Convert.ToInt32(labMonth.Text);
+            }
+            catch { }
             a.GetAtendanceData(year, month);
         }
 
         // chose year and month
         private void btnIncreaseYear_Click(object sender, EventArgs e)
         {
-            int year = Convert.ToInt16(labYear.Text);
-
+            int year = 0;
+            try
+            { year = Convert.ToInt16(labYear.Text); }
+            catch { }
             year++;
             labYear.Text = year.ToString();
             ShowData();
         }
         private void btnDecreaseYear_Click(object sender, EventArgs e)
         {
-            int year = Convert.ToInt16(labYear.Text);
-
+            int year = 0;
+            try
+            { year = Convert.ToInt16(labYear.Text); }
+            catch { }
             year--;
             labYear.Text = year.ToString();
             ShowData();
         }
         private void btnIncreaseMonth_Click(object sender, EventArgs e)
         {
-            int month = Convert.ToInt16(labMonth.Text);
+            int month = 0;
+            try { month = Convert.ToInt16(labMonth.Text); }
+            catch { }
 
             if (month == 12)
             {
@@ -285,7 +294,12 @@ namespace Statistics
         }
         private void btnDecreaseMonth_Click(object sender, EventArgs e)
         {
-            int month = Convert.ToInt16(labMonth.Text);
+            int month = 0;
+            try
+            {
+                month = Convert.ToInt16(labMonth.Text);
+            }
+            catch { }
 
             if (month == 1)
             {
@@ -310,8 +324,12 @@ namespace Statistics
 
             foreach (EmployeeWorkTime ee in a.emp)
             {
-                this.chart1.Series["TimeWorked"].Points.AddXY(ee.EmployeeName, Convert.ToInt32(ee.Timeworked.TotalHours));
-                this.chart1.Series["WorkHours"].Points.AddXY(ee.EmployeeName, ee.WorkHours * 4);
+                try
+                {
+                    this.chart1.Series["TimeWorked"].Points.AddXY(ee.EmployeeName, Convert.ToInt32(ee.Timeworked.TotalHours));
+                    this.chart1.Series["WorkHours"].Points.AddXY(ee.EmployeeName, ee.WorkHours * 4);
+                }
+                catch { }
             }
         }
         public void ShowRestockAmountData()

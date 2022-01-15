@@ -3,13 +3,12 @@ using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
-using System.Linq;
-using System.Diagnostics;
-using System.Data;
 
 namespace AdminBackups
 {
@@ -39,11 +38,22 @@ namespace AdminBackups
             GetAtendeance();
             ViewAllDepartments();
 
-            int year, month;
+            AddDepartment();
 
-            year = Convert.ToInt32(labYear.Text);
-            month = Convert.ToInt32(labMonth.Text);
+            int year = 0;
+            int month = 0;
+
+            try
+            {
+                year = Convert.ToInt32(labYear.Text);
+                month = Convert.ToInt32(labMonth.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid year and month");
+            }
             dgvAtendance.DataSource = officeManager.checkinManagment.getAtendanceData(year, month);
+
         }
 
         protected override void OnClosed(EventArgs e)
@@ -169,13 +179,23 @@ namespace AdminBackups
         }
         private void UpdateEmployee()
         {
-            // get selected employee
-            int employeeID = Convert.ToInt32(tbxActiveEmployeeID.Text);
+            int employeeID = 0;
             if (string.IsNullOrEmpty(tbxActiveEmployeeID.Text))
             {
                 MessageBox.Show("Please select an employee");
                 return;
             }
+            try
+            {
+                // get selected employee
+                employeeID = Convert.ToInt32(tbxActiveEmployeeID.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please select an employee");
+                return;
+            }
+
 
             Employee activeEmployee = officeManager.EmployeeManagerOffice.GetEmployeeByID(employeeID);
 
@@ -200,10 +220,6 @@ namespace AdminBackups
         {
             CreateEmployee();
         }
-        private void btnReadEmployees_Click(object sender, EventArgs e)
-        {
-            ReadEmployees();
-        }
         private void bntUpdateEmployee_Click(object sender, EventArgs e)
         {
             UpdateEmployee();
@@ -226,7 +242,7 @@ namespace AdminBackups
 
             if (!string.IsNullOrEmpty(search))
             {
-                List<Employee> employees =  officeManager.EmployeeManagerOffice.SearchEmployee(search);
+                List<Employee> employees = officeManager.EmployeeManagerOffice.SearchEmployee(search);
                 List<Employee> departmentEmployees = new List<Employee>();
 
                 if (cbxEmployeeType.SelectedIndex == 1)
@@ -327,7 +343,8 @@ namespace AdminBackups
                 dgvEmployees.Columns["Password"].Visible = false;
                 dgvEmployees.Columns["EmployeeManagerAll"].Visible = false;
 
-            } else
+            }
+            else
             {
                 ReadEmployees();
             }
@@ -385,6 +402,13 @@ namespace AdminBackups
                                 r[2].ToString()); cbxDepartment.Items.Add(d);
                             }
                         }
+                        else
+                        {
+                            Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                        }
                     }
                 }
                 if (cbxEmployeeType.Text == "Sales Representatives" || cbxEmployeeType.Text == "Sales Managers")
@@ -416,7 +440,8 @@ namespace AdminBackups
                     }
                 }
                 cbxDepartment.Text = cbxDepartment.Items[0].ToString();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
@@ -427,15 +452,32 @@ namespace AdminBackups
         //Atendance
         private void btnDecreaseYear_Click(object sender, EventArgs e)
         {
-            int year = Convert.ToInt16(labYear.Text);
-
+            int year = 2022;
+            try
+            {
+                year = Convert.ToInt16(labYear.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid year and month");
+                return;
+            }
             year--;
             labYear.Text = year.ToString();
             GetAtendeance();
         }
         private void btnIncreaseYear_Click(object sender, EventArgs e)
         {
-            int year = Convert.ToInt16(labYear.Text);
+            int year = 2022;
+            try
+            {
+                year = Convert.ToInt16(labYear.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid year and month");
+                return;
+            }
 
             year++;
             labYear.Text = year.ToString();
@@ -443,8 +485,16 @@ namespace AdminBackups
         }
         private void btnMonthDecrease_Click(object sender, EventArgs e)
         {
-            int month = Convert.ToInt16(labMonth.Text);
-
+            int month = 2001;
+            try
+            {
+                month = Convert.ToInt16(labMonth.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid year and month");
+                return;
+            }
             if (month == 1)
             {
                 month = 12;
@@ -459,7 +509,16 @@ namespace AdminBackups
         }
         private void btnMonthIncrease_Click(object sender, EventArgs e)
         {
-            int month = Convert.ToInt16(labMonth.Text);
+            int month = 2001;
+            try
+            {
+                month = Convert.ToInt16(labMonth.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid year and month");
+                return;
+            }
 
             if (month == 12)
             {
@@ -507,8 +566,16 @@ namespace AdminBackups
             oRng = oSheet.get_Range("A1", "G1");
             oRng.EntireColumn.AutoFit();
 
-            List<TimeWorked> c = officeManager.checkinManagment.getAllAtendanceTime(Convert.ToInt32(labYear.Text), Convert.ToInt32(labMonth.Text));
-
+            List<TimeWorked> c = null;
+            try
+            {
+                c = officeManager.checkinManagment.getAllAtendanceTime(Convert.ToInt32(labYear.Text), Convert.ToInt32(labMonth.Text));
+            }
+            catch
+            {
+                MessageBox.Show("A error has occurred loading the data.");
+                return;
+            }
             bool Errors = false;
 
             for (int i = 0; i < c.Count; i++)
@@ -524,11 +591,11 @@ namespace AdminBackups
                     {
                         if (Convert.ToInt32(c[i].TimeWork) >= Convert.ToInt32(c[i].WorkHoursPerWeek) * 4)
                         {
-                            oSheet.get_Range("A" + index, "G" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Green);
+                            oSheet.get_Range("H" + index, "H" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
                         }
                         else
                         {
-                            oSheet.get_Range("A" + index, "G" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                            oSheet.get_Range("H" + index, "H" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
                         }
                     }
 
@@ -560,9 +627,17 @@ namespace AdminBackups
         public void GetAtendeance()
         {
             int year, month;
+            try
+            {
+                year = Convert.ToInt32(labYear.Text);
+                month = Convert.ToInt32(labMonth.Text);
 
-            year = Convert.ToInt32(labYear.Text);
-            month = Convert.ToInt32(labMonth.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid year and month");
+                return;
+            }
             dgvAtendance.DataSource = officeManager.checkinManagment.getAtendanceData(year, month);
 
             officeManager.checkinManagment.getAllAtendanceTime(year, month);
@@ -638,21 +713,25 @@ namespace AdminBackups
                 return;
             }
 
-            if (Convert.ToInt32(DepartmentID) == 1 || Convert.ToInt32(DepartmentID) == 2 || Convert.ToInt32(DepartmentID) == 3 || Convert.ToInt32(DepartmentID) == 4)
+            try
             {
-                MessageBox.Show("You can't edit the head Departments");
-                return;
-            }
-            if (officeManager is OfficeManager)
-            {
-                udResult.Value = ((OfficeManager)officeManager).departmentManagment.EditDepartment(Name, Head, DepartmentID.ToString());
-            }
-            else
-            {
-                MessageBox.Show("type casting failed");
-            }
+                if (Convert.ToInt32(DepartmentID) == 1 || Convert.ToInt32(DepartmentID) == 2 || Convert.ToInt32(DepartmentID) == 3 || Convert.ToInt32(DepartmentID) == 4)
+                {
+                    MessageBox.Show("You can't edit the head Departments");
+                    return;
+                }
+                if (officeManager is OfficeManager)
+                {
+                    udResult.Value = ((OfficeManager)officeManager).departmentManagment.EditDepartment(Name, Head, DepartmentID.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("type casting failed");
+                }
 
-            ViewAllDepartments();
+                ViewAllDepartments();
+            }
+            catch { MessageBox.Show("Please select a department."); }  
         }
         private void dgvDepartments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -668,29 +747,33 @@ namespace AdminBackups
         }
         private void btnDeleteDepartment_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(labDepartmentID.Text) > 4)
+            try
             {
-                if (officeManager is OfficeManager)
+                if (Convert.ToInt32(labDepartmentID.Text) > 4)
                 {
-                    try
+                    if (officeManager is OfficeManager)
                     {
-                        ((OfficeManager)officeManager).departmentManagment.DeleteDepartment(Convert.ToInt32(labDepartmentID.Text));
+                        try
+                        {
+                            ((OfficeManager)officeManager).departmentManagment.DeleteDepartment(Convert.ToInt32(labDepartmentID.Text));
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Select a department to delete");
+                        }
                     }
-                    catch
+                    else
                     {
-                        MessageBox.Show("Select a department to delete");
+                        MessageBox.Show("type casting failed");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("type casting failed");
+                    MessageBox.Show("You can't delete the head departments");
                 }
+                ViewAllDepartments();
             }
-            else
-            {
-                MessageBox.Show("You can't delete the head departments");
-            }
-            ViewAllDepartments();
+            catch { }
         }
 
         //Company
@@ -795,6 +878,11 @@ namespace AdminBackups
             }
             else
             { MessageBox.Show("type casting failed."); }
+        }
+
+        private void cbxDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

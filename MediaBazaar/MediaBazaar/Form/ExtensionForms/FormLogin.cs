@@ -43,7 +43,11 @@ namespace AdminBackups
                 return;
             }
 
-            Login(username, password);
+            if (Login(username, password))
+            {
+                tbxUsername.Text = "";
+                tbxPassword.Text = "";
+            }
         }
 
         private void btnLogin_Enter(object sender, EventArgs e)
@@ -62,9 +66,13 @@ namespace AdminBackups
                 return;
             }
 
-            Login(username, password);
+            if (Login(username, password))
+            {
+                tbxUsername.Text = "";
+                tbxPassword.Text = "";
+            }
         }
-        private void Login(string username, string password)
+        private bool Login(string username, string password)
         {
             Employee employee = login.CheckLogin(username, password);
 
@@ -73,52 +81,64 @@ namespace AdminBackups
                 if (employee is CEO)
                 {
                     MessageBox.Show("Please use the CEO application");
-                    return;
+                    return false;
                 } else if (employee is Admin)
                 {
                     FormAdmin formAdmin = new FormAdmin((Admin)employee, store);
                     formAdmin.Show();
                     this.Hide();
+                    return true;
                 }
                 else if (employee is SalesManager)
                 {
                     FormSalesManager formSalesManager = new FormSalesManager((SalesManager)employee, store);
                     formSalesManager.Show();
                     this.Hide();
+                    return true;
                 }
                 else if (employee is OfficeManager)
                 {
                     FormOfficeManager formOfficeManager = new FormOfficeManager((OfficeManager)employee, store);
                     formOfficeManager.Show();
                     this.Hide();
+                    return true;
                 }
                 else if (employee is ProductManager)
                 {
                     FormProductManager formProductManager = new FormProductManager((ProductManager)employee, store);
                     formProductManager.Show();
                     this.Hide();
+                    return true;
                 }
                 else if (employee is DepotManager)
                 {
-                    FormDepotManager formDepotManager = new FormDepotManager((DepotManager)employee, store);
+                    FormDepotManager formDepotManager = new FormDepotManager((DepotManager)employee, store, this);
                     formDepotManager.Show();
-                    this.Hide();
+
+                    Hide();
+
+                    return true;
                 }
                 else if (employee is DepotEmployee)
                 {
-                    FormDepotEmployee formDepotEmployee = new FormDepotEmployee((DepotEmployee)employee, store);
+                    FormDepotEmployee formDepotEmployee = new FormDepotEmployee((DepotEmployee)employee, store, this);
                     formDepotEmployee.Show();
-                    this.Hide();
+
+                    Hide();
+
+                    return true;
                 }
                 else if (employee is SalesRepresentative)
                 {
                     MessageBox.Show("Please use the Sales Representative remote application");
-                    return;
+                    return false;
                 }
             } else
             {
                 MessageBox.Show("Wrong credentials");
+                return false;
             }
+            return false;
         }
     }
 }

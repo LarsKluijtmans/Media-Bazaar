@@ -24,33 +24,43 @@ namespace MediaBazaar
 
         private void btnCreateProduct_Click(object sender, EventArgs e)
         {
-            CreateProduct();
-
-            var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
-            formProductManager.ReadProducts();
+            if (CreateProduct())
+            {
+                var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
+                formProductManager.ReadProducts();
+            }
         }
-        private void CreateProduct()
+        private bool CreateProduct()
         {
             // get input
             string productName = tbxProductName.Text;
             if (string.IsNullOrEmpty(productName))
             {
                 MessageBox.Show("Please enter a product name");
-                return;
+                return false;
+            }
+
+            foreach(Product p in productManager.ProductManagerPM.SearchProductsPM(productName))
+            {
+                if (p.ProductName == productName)
+                {
+                    MessageBox.Show("Product name has to be unique");
+                    return false;
+                }
             }
 
             string barcode = tbxBarcode.Text;
             if (string.IsNullOrEmpty(barcode))
             {
                 MessageBox.Show("Please enter a barcode");
-                return;
+                return false;
             }
 
             string type = cbxProductType.Text;
             if (string.IsNullOrEmpty(type))
             {
                 MessageBox.Show("Please enter a product type");
-                return;
+                return false;
             }
 
             // make product object
@@ -64,14 +74,21 @@ namespace MediaBazaar
                 {
                     tbxProductName.Clear();
                     tbxBarcode.Clear();
-                } else if (dr == DialogResult.No)
+                    return true;
+                } 
+                else if (dr == DialogResult.No)
                 {
-                    this.Close();
+                    return true;
+                    Close();
                 }
-            } else
+            } 
+            else
             {
-                return;
+                MessageBox.Show("Barcode has to be unique.");
+
+                return false;
             }
+            return false;
         }
     }
 }

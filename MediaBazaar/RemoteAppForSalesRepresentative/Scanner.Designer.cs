@@ -33,7 +33,7 @@ namespace RemoteAppForSalesRepresentative
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Scanner));
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtRequest = new System.Windows.Forms.TextBox();
+            this.txtAmount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRequest = new System.Windows.Forms.Button();
             this.lbAmount = new System.Windows.Forms.Label();
@@ -55,7 +55,7 @@ namespace RemoteAppForSalesRepresentative
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtRequest);
+            this.groupBox1.Controls.Add(this.txtAmount);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnRequest);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -66,13 +66,13 @@ namespace RemoteAppForSalesRepresentative
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Reshelve Request";
             // 
-            // txtRequest
+            // txtAmount
             // 
-            this.txtRequest.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtRequest.Location = new System.Drawing.Point(153, 51);
-            this.txtRequest.Name = "txtRequest";
-            this.txtRequest.Size = new System.Drawing.Size(69, 29);
-            this.txtRequest.TabIndex = 3;
+            this.txtAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtAmount.Location = new System.Drawing.Point(153, 51);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(69, 29);
+            this.txtAmount.TabIndex = 3;
             // 
             // label3
             // 
@@ -169,7 +169,7 @@ namespace RemoteAppForSalesRepresentative
 
         private System.Windows.Forms.TextBox txtBarcode;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtRequest;
+        private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.Label lbAmount;

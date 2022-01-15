@@ -49,15 +49,12 @@ namespace AdminBackups
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbxDateOfBirth = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbxPersonalEmail = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cbxDepartment = new System.Windows.Forms.ComboBox();
-            this.tbxEndDate = new System.Windows.Forms.TextBox();
-            this.tbxStartDate = new System.Windows.Forms.TextBox();
             this.tbxSalary = new System.Windows.Forms.TextBox();
             this.tbxWorkHours = new System.Windows.Forms.TextBox();
             this.cbxJobTitle = new System.Windows.Forms.ComboBox();
@@ -65,6 +62,9 @@ namespace AdminBackups
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tbxStartDate = new System.Windows.Forms.DateTimePicker();
+            this.tbxEndDate = new System.Windows.Forms.DateTimePicker();
+            this.tbxDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -260,14 +260,6 @@ namespace AdminBackups
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Employee Info:";
             // 
-            // tbxDateOfBirth
-            // 
-            this.tbxDateOfBirth.Location = new System.Drawing.Point(430, 24);
-            this.tbxDateOfBirth.Name = "tbxDateOfBirth";
-            this.tbxDateOfBirth.PlaceholderText = "dd/mm/yyyy";
-            this.tbxDateOfBirth.Size = new System.Drawing.Size(200, 23);
-            this.tbxDateOfBirth.TabIndex = 80;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -286,12 +278,12 @@ namespace AdminBackups
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tbxEndDate);
+            this.groupBox2.Controls.Add(this.tbxStartDate);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.BtnNewEmployee);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.cbxDepartment);
-            this.groupBox2.Controls.Add(this.tbxEndDate);
-            this.groupBox2.Controls.Add(this.tbxStartDate);
             this.groupBox2.Controls.Add(this.tbxSalary);
             this.groupBox2.Controls.Add(this.tbxWorkHours);
             this.groupBox2.Controls.Add(this.cbxJobTitle);
@@ -330,31 +322,10 @@ namespace AdminBackups
             // 
             this.cbxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDepartment.FormattingEnabled = true;
-            this.cbxDepartment.Items.AddRange(new object[] {
-            "Kitchen/Home",
-            "Smart Home Appliances",
-            "Gaming/Music/Computer",
-            "Photo/Video/Navigation"});
             this.cbxDepartment.Location = new System.Drawing.Point(430, 88);
             this.cbxDepartment.Name = "cbxDepartment";
             this.cbxDepartment.Size = new System.Drawing.Size(200, 23);
             this.cbxDepartment.TabIndex = 44;
-            // 
-            // tbxEndDate
-            // 
-            this.tbxEndDate.Location = new System.Drawing.Point(430, 57);
-            this.tbxEndDate.Name = "tbxEndDate";
-            this.tbxEndDate.PlaceholderText = "dd/mm/yyyy";
-            this.tbxEndDate.Size = new System.Drawing.Size(200, 23);
-            this.tbxEndDate.TabIndex = 43;
-            // 
-            // tbxStartDate
-            // 
-            this.tbxStartDate.Location = new System.Drawing.Point(430, 29);
-            this.tbxStartDate.Name = "tbxStartDate";
-            this.tbxStartDate.PlaceholderText = "dd/mm/yyyy";
-            this.tbxStartDate.Size = new System.Drawing.Size(200, 23);
-            this.tbxStartDate.TabIndex = 42;
             // 
             // tbxSalary
             // 
@@ -425,6 +396,27 @@ namespace AdminBackups
             this.label3.TabIndex = 20;
             this.label3.Text = "Salary:";
             // 
+            // tbxStartDate
+            // 
+            this.tbxStartDate.Location = new System.Drawing.Point(430, 29);
+            this.tbxStartDate.Name = "tbxStartDate";
+            this.tbxStartDate.Size = new System.Drawing.Size(200, 23);
+            this.tbxStartDate.TabIndex = 47;
+            // 
+            // tbxEndDate
+            // 
+            this.tbxEndDate.Location = new System.Drawing.Point(430, 58);
+            this.tbxEndDate.Name = "tbxEndDate";
+            this.tbxEndDate.Size = new System.Drawing.Size(200, 23);
+            this.tbxEndDate.TabIndex = 48;
+            // 
+            // tbxDateOfBirth
+            // 
+            this.tbxDateOfBirth.Location = new System.Drawing.Point(430, 21);
+            this.tbxDateOfBirth.Name = "tbxDateOfBirth";
+            this.tbxDateOfBirth.Size = new System.Drawing.Size(200, 23);
+            this.tbxDateOfBirth.TabIndex = 80;
+            // 
             // FormNewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -474,11 +466,11 @@ namespace AdminBackups
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbxPersonalEmail;
-        private System.Windows.Forms.TextBox tbxDateOfBirth;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbxDepartment;
-        private System.Windows.Forms.TextBox tbxEndDate;
-        private System.Windows.Forms.TextBox tbxStartDate;
+        private System.Windows.Forms.DateTimePicker tbxDateOfBirth;
+        private System.Windows.Forms.DateTimePicker tbxEndDate;
+        private System.Windows.Forms.DateTimePicker tbxStartDate;
     }
 }

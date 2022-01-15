@@ -97,19 +97,26 @@ namespace AdminBackups
                 MessageBox.Show("Please enter a date of birth");
                 return;
             }
-            if (!Regex.IsMatch(tbxDateOfBirth.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+            DateTime dateOfBirth = new DateTime(1000, 1, 1);
+            try
+            {
+                DateTime MakeDate = Convert.ToDateTime(tbxDateOfBirth.Value.ToString());
+
+                dateOfBirth = Convert.ToDateTime(MakeDate.ToString("yyyy/MM/dd"));
+
+                DateTime firstBirthDay = DateTime.Now.AddYears(-16);
+                if (dateOfBirth > firstBirthDay)
+                {
+                    MessageBox.Show("New employee should be at least 16 years old");
+                    return;
+                }
+            }
+            catch
             {
                 MessageBox.Show("Please enter a valid date of birth");
                 return;
             }
-            DateTime dateOfBirth = DateTime.ParseExact(tbxDateOfBirth.Text, "dd/MM/yyyy", null);
-            DateTime firstBirthDay = DateTime.Now.AddYears(-16);
-            if (dateOfBirth > firstBirthDay)
-            {
-                MessageBox.Show("New employee should be at least 16 years old");
-                return;
-            }
-            
+
             if (string.IsNullOrEmpty(tbxBSN.Text))
             {
                 MessageBox.Show("Please enter a BSN");
@@ -120,7 +127,17 @@ namespace AdminBackups
                 MessageBox.Show("Please enter a valid BSN");
                 return;
             }
-            int bsn = Convert.ToInt32(tbxBSN.Text);
+
+            int bsn = 0;
+            try
+            {
+                bsn = Convert.ToInt32(tbxBSN.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid BSN");
+                return;
+            }
 
             string username = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
             string password = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
@@ -136,6 +153,9 @@ namespace AdminBackups
                 MessageBox.Show("Please enter a valid personal email");
                 return;
             }
+
+
+
 
             // make the employee object
 
@@ -341,15 +361,31 @@ namespace AdminBackups
                 MessageBox.Show("Please enter work hours per week");
                 return false;
             }
-            int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+
+            int workHoursPerWeek = 0;
+            try
+            {
+                workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter valid work hours per week");
+                return false;
+            }
+
+            if (workHoursPerWeek < 8)
+            {
+                MessageBox.Show("Work hours has to be atleast 8");
+                return false;
+            }
+            if (workHoursPerWeek > 40)
+            {
+                MessageBox.Show("Max work hours is 40");
+                return false;
+            }
             if (workHoursPerWeek % 4 != 0)
             {
                 MessageBox.Show("Work hours has to be a multiple of 4");
-                return false;
-            }
-            if (workHoursPerWeek == 0)
-            {
-                MessageBox.Show("Work hours must be at least 4 hours per week");
                 return false;
             }
 
@@ -358,52 +394,88 @@ namespace AdminBackups
                 MessageBox.Show("Please enter salary per hour");
                 return false;
             }
-            double salaryPerHour = Convert.ToDouble(tbxSalary.Text);
+            double salaryPerHour = 0;
+            try
+            {
+                salaryPerHour = Convert.ToDouble(tbxSalary.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid salary per hour");
+                return false;
+            }
 
+            if (salaryPerHour > 5)
+            {
+                MessageBox.Show("Min salary is 5");
+                return false;
+            }
+            if (salaryPerHour > 200)
+            {
+                MessageBox.Show("Max salary is 200");
+                return false;
+            }
             if (string.IsNullOrEmpty(tbxStartDate.Text))
             {
                 MessageBox.Show("Please enter a start date");
                 return false;
             }
-            if (!Regex.IsMatch(tbxStartDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+
+            DateTime startDate = new DateTime(1000, 1, 1);
+            try
             {
-                MessageBox.Show("Please enter a valid start date");
-                return false;
+                DateTime MakeDate = Convert.ToDateTime(tbxStartDate.Value.ToString());
+
+                startDate = Convert.ToDateTime(MakeDate.ToString("yyyy/MM/dd"));
+
+                if (startDate < DateTime.Now)
+                {
+                    MessageBox.Show("Start date must be in the future");
+                    return false;
+                }
             }
-            DateTime startDate = DateTime.ParseExact(tbxStartDate.Text, "dd/MM/yyyy", null);
-            if (startDate < DateTime.Now)
+            catch
             {
-                MessageBox.Show("Start date must be in the future");
+                MessageBox.Show("Please enter a valid start birth");
                 return false;
             }
 
-            if (string.IsNullOrEmpty(tbxEndDate.Text))
+            DateTime endDate = new DateTime(1000, 1, 1);
+            try
             {
-                MessageBox.Show("Please enter an end date");
-                return false;
-            }
-            if (!Regex.IsMatch(tbxEndDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
-            {
-                MessageBox.Show("Please enter a valid end date");
-                return false;
-            }
-            DateTime endDate = DateTime.ParseExact(tbxEndDate.Text, "dd/MM/yyyy", null);
-            if (endDate < DateTime.Now)
-            {
-                MessageBox.Show("End date must be in the future");
-                return false;
-            }
+                DateTime MakeDate = Convert.ToDateTime(tbxEndDate.Value.ToString());
 
-            if (startDate > endDate)
-            {
-                MessageBox.Show("End date must be after start date");
-                return false;
-            }
+                endDate = Convert.ToDateTime(MakeDate.ToString("yyyy/MM/dd"));
 
-            var contractDays = (endDate - startDate).TotalDays;
-            if (contractDays > 365)
+                if (endDate < DateTime.Now)
+                {
+                    MessageBox.Show("End date must be in the future");
+                    return false;
+                }
+
+                if (startDate > endDate)
+                {
+                    MessageBox.Show("End date must be after start date");
+                    return false;
+                }
+
+                var contractDays = (endDate - startDate).TotalDays;
+                if (contractDays > 3650)
+                {
+                    MessageBox.Show("Contract length can be max 10 year");
+                    return false;
+                }
+
+                var contractMonth = (endDate.Month - startDate.Month);
+                if (contractDays > 3)
+                {
+                    MessageBox.Show("Contract length can be min 3 months");
+                    return false;
+                }
+            }
+            catch
             {
-                MessageBox.Show("Contract length can be max 1 year");
+                MessageBox.Show("Please enter a valid start birth");
                 return false;
             }
 

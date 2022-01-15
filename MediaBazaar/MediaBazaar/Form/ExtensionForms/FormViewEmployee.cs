@@ -1,13 +1,12 @@
-﻿using System;
+﻿using ClassLibraryProject;
+using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.Class;
+using System;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using ClassLibraryProject;
-using ClassLibraryProject.ChildClasses;
-using ClassLibraryProject.Class;
-using ClassLibraryProject.ManagmentClasses;
-using MySql.Data.MySqlClient;
 
 
 namespace AdminBackups
@@ -32,8 +31,9 @@ namespace AdminBackups
             lblEmployeeName.Text = $"{employee.FirstName} {employee.LastName}";
 
             LoadEmployeeInfo();
+            AddDepartment();
         }
-        
+
         private void btnEditData_Click(object sender, EventArgs e)
         {
             if (!UpdateEmployee())
@@ -46,7 +46,8 @@ namespace AdminBackups
             if (dr == DialogResult.Yes)
             {
                 return;
-            } else if (dr == DialogResult.No)
+            }
+            else if (dr == DialogResult.No)
             {
                 var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
                 formOfficeManager.ReadEmployees();
@@ -92,14 +93,27 @@ namespace AdminBackups
             tbxZipCode.Text = employee.ZipCode;
 
             // contract
-            if (contract != null)
+            if (employee.Contracts.Count != 0)
             {
-                tbxJobTitle.Text = contract.JobTitle;
-                tbxWorkHours.Text = contract.WorkHoursPerWeek.ToString();
-                tbxSalary.Text = contract.SalaryPerHour.ToString();
-                tbxStartDate.Text = contract.StartDate.ToString("dd/MM/yyyy");
-                tbxEndDate.Text = contract.EndDate.ToString("dd/MM/yyyy");
-                cbxDepartment.Text = contract.Department;
+                foreach (Contract c in employee.Contracts)
+                {
+                    if (c.IsActive)
+                    {
+                        tbxJobTitle.Text = c.JobTitle;
+                        tbxWorkHours.Text = c.WorkHoursPerWeek.ToString();
+                        tbxSalary.Text = c.SalaryPerHour.ToString();
+                        tbxStartDate.Value = c.StartDate;
+                        if (c.EndDate.ToString("dd/MM/yyyy") != "01/01/1000")
+                        {
+                            tbxEndDate.Value = c.EndDate;
+                        }
+                        else { tbxEndDate.Value = new DateTime(2022, 1, 1); }
+                        break;
+                    }
+                }
+
+
+                cbxDepartment.Text = employee.Contracts[0].Department;
             }
             else
             {
@@ -195,7 +209,7 @@ namespace AdminBackups
             if (string.IsNullOrEmpty(tbxZipCode.Text))
             {
                 MessageBox.Show("Zip Code cannot be empty");
-                return false; 
+                return false;
             }
             if (!Regex.IsMatch(tbxZipCode.Text, @"^[0-9]{4}[A-Z]{2}$"))
             {
@@ -205,7 +219,7 @@ namespace AdminBackups
             employee.ZipCode = tbxZipCode.Text;
 
             return officeManager.EmployeeManagerOffice.UpdateEmployee(employee);
-        }  
+        }
         public bool CreateNewContract() // make bool
         {
             if (contract != null)
@@ -215,7 +229,7 @@ namespace AdminBackups
                 contract.EndDate = DateTime.Now;
 
                 officeManager.ContractManager.UpdateContract(contract);
-            } 
+            }
 
             // get input for new contract
             string jobTitle = tbxJobTitle.Text;
@@ -230,7 +244,17 @@ namespace AdminBackups
                 MessageBox.Show("Please enter work hours per week");
                 return false;
             }
-            int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+
+            int workHoursPerWeek = 0;
+            try
+            {
+                workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter valid work hours");
+                return false;
+            }
             if (workHoursPerWeek % 4 != 0)
             {
                 MessageBox.Show("Work hours has to be a multiple of 4");
@@ -241,58 +265,93 @@ namespace AdminBackups
                 MessageBox.Show("Work hours must be at least 4 hours per week");
                 return false;
             }
+            if (workHoursPerWeek < 8)
+            {
+                MessageBox.Show("Work hours has to be atleast 8");
+                return false;
+            }
+            if (workHoursPerWeek > 40)
+            {
+                MessageBox.Show("Max work hours is 40");
+                return false;
+            }
 
             if (string.IsNullOrEmpty(tbxSalary.Text))
             {
                 MessageBox.Show("Please enter salary per hour");
                 return false;
             }
-            double salaryPerHour = Convert.ToDouble(tbxSalary.Text);
 
-            if (string.IsNullOrEmpty(tbxStartDate.Text))
+            double salaryPerHour = 0;
+            try 
+            { 
+                salaryPerHour = Convert.ToDouble(tbxSalary.Text);
+            }
+            catch
             {
-                MessageBox.Show("Please enter a start date");
+                MessageBox.Show("Please enter valid work hours");
                 return false;
             }
-            if (!Regex.IsMatch(tbxStartDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
+            if (salaryPerHour < 5)
             {
-                MessageBox.Show("Please enter a valid start date");
+                MessageBox.Show("Min salary is 5");
                 return false;
             }
-            DateTime startDate = DateTime.ParseExact(tbxStartDate.Text, "dd/MM/yyyy", null);
-            if (startDate < DateTime.Now)
+            if (salaryPerHour > 200)
             {
-                MessageBox.Show("Start date must be in the future");
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(tbxEndDate.Text))
-            {
-                MessageBox.Show("Please enter an end date");
-                return false;
-            }
-            if (!Regex.IsMatch(tbxEndDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
-            {
-                MessageBox.Show("Please enter a valid end date");
-                return false;
-            }
-            DateTime endDate = DateTime.ParseExact(tbxEndDate.Text, "dd/MM/yyyy", null);
-            if (endDate < DateTime.Now)
-            {
-                MessageBox.Show("End date must be in the future");
+                MessageBox.Show("Max salary is 200");
                 return false;
             }
 
-            if (startDate > endDate)
+            DateTime startDate = new DateTime(1000, 1, 1);
+            try
             {
-                MessageBox.Show("End date must be after start date");
+                DateTime MakeDate = Convert.ToDateTime(tbxStartDate.Value.ToString());
+
+                startDate = Convert.ToDateTime(MakeDate.ToString("yyyy/MM/dd"));
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid start birth");
                 return false;
             }
 
-            var contractDays = (endDate - startDate).TotalDays;
-            if (contractDays > 365)
+            DateTime endDate = new DateTime(1000, 1, 1);
+            try
             {
-                MessageBox.Show("Contract length can be max 1 year");
+                DateTime MakeDate = Convert.ToDateTime(tbxEndDate.Value.ToString());
+
+                endDate = Convert.ToDateTime(MakeDate.ToString("yyyy/MM/dd"));
+
+                if (endDate < DateTime.Now)
+                {
+                    MessageBox.Show("End date must be in the future");
+                    return false;
+                }
+
+                if (startDate > endDate)
+                {
+                    MessageBox.Show("End date must be after start date");
+                    return false;
+                }
+
+                var contractDays = (endDate - startDate).TotalDays;
+                if (contractDays > 3650)
+                {
+                    MessageBox.Show("Contract length can be max 10 year");
+                    return false;
+                }
+
+                var contractMonth = (endDate.Month - startDate.Month);
+                if (contractDays < 3)
+                {
+                    MessageBox.Show("Contract length can be min 3 months");
+                    return false;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid start birth");
                 return false;
             }
 
@@ -305,6 +364,101 @@ namespace AdminBackups
 
             Contract newContract = new Contract(employee, jobTitle, workHoursPerWeek, salaryPerHour, startDate, endDate, department);
             return officeManager.ContractManager.CreateContract(newContract);
+        }
+
+        private void AddDepartment()
+        {
+            cbxDepartment.Items.Clear();
+
+            try
+            {
+                foreach (DataRow r in officeManager.departmentManagment.ViewAllDepartments().Rows)
+                {
+                    if (Convert.ToInt16(r[0]) > 4)
+                    {
+                        if (tbxJobTitle.Text == "SALES REPRESENTATIVE" || tbxJobTitle.Text == "SALES MANAGER")
+                        {
+                            if (r[1].ToString() == "Sales")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                        else if (tbxJobTitle.Text == "DEPOT EMPLOYEE" || tbxJobTitle.Text == "DEPOT MANAGER" || tbxJobTitle.Text == "PRODUCT MANAGER")
+                        {
+                            if (r[1].ToString() == "Depot")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                        else if (tbxJobTitle.Text == "OFFICE MANAGER")
+                        {
+                            if (r[1].ToString() == "Office")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                        else if (tbxJobTitle.Text == "CEO" || tbxJobTitle.Text == "ADMIN")
+                        {
+                            if (r[1].ToString() == "Other")
+                            {
+                                Department d = new Department(
+                                r[0].ToString(),
+                                r[1].ToString(),
+                                r[2].ToString()); cbxDepartment.Items.Add(d);
+                            }
+                        }
+                    }
+                }
+
+                if (tbxJobTitle.Text == "SALES REPRESENTATIVE" || tbxJobTitle.Text == "SALES MANAGER")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Sales");
+                    }
+                }
+                else if (tbxJobTitle.Text == "DEPOT EMPLOYEE" || tbxJobTitle.Text == "DEPOT MANAGER" || tbxJobTitle.Text == "PRODUCT MANAGER")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Depot");
+                    }
+                }
+                else if (tbxJobTitle.Text == "OFFICE MANAGER")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Office");
+                    }
+                }
+                else if (tbxJobTitle.Text == "CEO" || tbxJobTitle.Text == "ADMIN")
+                {
+                    if (cbxDepartment.Items.Count == 0)
+                    {
+                        cbxDepartment.Items.Add("Other");
+                    }
+                }
+                cbxDepartment.Text = cbxDepartment.Items[0].ToString();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
+        }
+
+        private void tbxJobTitle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddDepartment();
         }
     }
 }

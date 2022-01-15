@@ -19,7 +19,7 @@ namespace ClassLibraryProject
     {
         // sql
         public string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, City, Email, PhoneNumber, DateOfBirth, StreetName, ZipCode, PersonalEmail) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth, @StreetName, @ZipCode, @PersonalEmail);";
-        public string READ_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = @Active GROUP BY e.FirstName, e.LastName;";
+        public string READ_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = @Active GROUP BY e.FirstName, e.LastName LIMIT 100;";
         public string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode, PersonalEmail = @PersonalEmail WHERE EmployeeID = @EmployeeID;";
         public string DELETE_EMPLOYEE = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
 
@@ -28,7 +28,7 @@ namespace ClassLibraryProject
         public string AMOUNT_OF_OFFICEMANAGERS = "SELECT COUNT(employee.EmployeeID) FROM employee INNER JOIN contract on contract.employeeID = employee.EmployeeID WHERE jobtitle = 'OFFICE MANAGER';";
 
         public string GET_EMPLOYEE_CONTRACTS = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID";
-        public string SEARCH_EMPLOYEE = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.FirstName LIKE @Search OR e.LastName LIKE @Search AND e.Active = @Active GROUP BY e.FirstName, e.LastName;";
+        public string SEARCH_EMPLOYEE = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.FirstName LIKE @Search OR e.LastName LIKE @Search AND e.Active = @Active GROUP BY e.FirstName, e.LastName LIMIT 100;";
 
         public string UPDATE_OWN_INFO = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode, PersonalEmail = @PersonalEmail, Password = @Password WHERE EmployeeID = @EmployeeID;";
         public int AmountOfOfficeManagers()
@@ -590,7 +590,16 @@ namespace ClassLibraryProject
                     int workHoursPerWeek = reader.GetInt32(3);
                     double salaryPerHour = reader.GetDouble(4);
                     DateTime startDate = reader.GetDateTime(5);
-                    DateTime endDate = reader.GetDateTime(6);
+                    DateTime endDate;
+                    try
+                    {
+                        endDate = reader.GetDateTime(6);
+                    }
+                    catch
+                    { 
+                        endDate = new DateTime(1000,1,1); 
+                    }
+                    
                     string department = reader.GetString(8);
                     bool isActive = reader.GetBoolean(9);
 

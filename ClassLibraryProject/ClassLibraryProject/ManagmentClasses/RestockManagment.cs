@@ -23,7 +23,6 @@ namespace ClassLibraryProject.ManagmentClasses
                 n = random.Next(numbers.Count);
                 if (i == numbers[n])
                 {
-                    numbers.Remove(i);
                     return i;
                 }
             }
@@ -54,12 +53,6 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return false;
         }
-
-        private bool IsDivisible(OrderInfo orderInfo, int amount)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Restock> GetRestockRequests()
         {
             return db.GetRestockRequests();
@@ -70,6 +63,7 @@ namespace ClassLibraryProject.ManagmentClasses
             {
                 if (db.DeleteRestock(id) == true)
                 {
+                    db.GetRestockRequests().Remove(GetRestockByID(id));
                     return true;
                 }
                 return false;
@@ -78,6 +72,10 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         //employee
+        public Product GetProduct(string barcode)
+        {
+            return db.GetProduct(barcode);
+        }
         public List<Restock> GetOrderedRestockRequests()
         {
             List<Restock> restocks = new List<Restock>();
@@ -131,7 +129,7 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             foreach(Restock restock in db.GetRestockRequests())
             {
-                if(restock.Product == product && restock.Status == "Pending" || restock.Status == "Ordered")
+                if(restock.Product == product && (restock.Status == "Pending" || restock.Status == "Ordered"))
                 {
                     return restock;
                 }
@@ -149,7 +147,7 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return null;
         }
-        private bool RestockExist(Product product)
+        public bool RestockExist(Product product)
         {
             if (GetRestock(product) != null)
             {

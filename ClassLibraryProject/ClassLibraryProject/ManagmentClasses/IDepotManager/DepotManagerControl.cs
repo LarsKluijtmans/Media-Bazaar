@@ -6,17 +6,19 @@ using System.Text;
 
 namespace ClassLibraryProject.ManagmentClasses.IDepotManager
 {
-    public class DepotManagerControl
+    public class DepotManagerControl: IDepotManagerControl
     {
         private IRestockDepotManager restock;
         private IScheduleAllManager schedule;
         private IRegisteredShiftAllManager registeredShift;
+        private IPreferredShiftAllManager preferredShift;
 
-        public DepotManagerControl(IRestockDepotManager restock, IScheduleAllManager schedule, IRegisteredShiftAllManager registeredShift)
+        public DepotManagerControl(IRestockDepotManager restock, IScheduleAllManager schedule, IRegisteredShiftAllManager registeredShift, IPreferredShiftAllManager preferredShift)
         {
             this.restock = restock;
             this.schedule = schedule;
             this.registeredShift = registeredShift;
+            this.preferredShift = preferredShift;
         }
 
         //restock
@@ -32,6 +34,10 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         {
             return restock.DeleteRestock(id);
         }
+        public bool IsValid(OrderInfo orderInfo, int amount)
+        {
+            return restock.IsValid(orderInfo, amount);
+        }
 
         //schedule
         public List<Schedule> GetSchedules(string department, int year, int week)
@@ -46,19 +52,33 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         {
             return schedule.UpdateSchedule(department, year, week, day, morningAmount, afternoonAmount, eveningAmount);
         }
+        public bool WeekExist(string department, int year, int week)
+        {
+            return schedule.WeekExist(department, year, week);
+        }
 
         //registered shift
         public bool RegisterEmployee(string department, int year, int week, string day, string shift, Employee employee)
         {
             return registeredShift.RegisterEmployee(department, year, week, day, shift, employee);
         }
-        public bool DeRegisterEmployee(string department, int year, int week, string day, string shift, Employee employee)
+        public bool CheckAmount(string department, int year, int week, string day, string shift)
         {
-            return registeredShift.DeRegisterEmployee(department, year, week, day, shift, employee);
+            return registeredShift.CheckAmount(department, year, week, day, shift);
         }
-        public RegisteredShift GetRegisteredShift(string department, int year, int week, string day, string shift)
+        public bool DeRegisterEmployee(int year, int week, string day, string shift, Employee employee)
         {
-            return registeredShift.GetRegisteredShift(department, year, week, day, shift);
+            return registeredShift.DeRegisterEmployee(year, week, day, shift, employee);
+        }
+        public RegisteredShift GetRegisteredShift(int year, int week, string day, string shift)
+        {
+            return registeredShift.GetRegisteredShift(year, week, day, shift);
+        }
+
+        //preferred shift
+        public PreferredShift GetPreferredShift(int week, string day, string shift)
+        {
+            return preferredShift.GetPreferredShift(week, day, shift);
         }
     }
 }
