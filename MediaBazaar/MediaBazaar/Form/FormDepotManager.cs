@@ -422,23 +422,7 @@ namespace AdminBackups
         }
         private void dgPlanningSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
-                int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
-                DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
-                DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
-                int year = Convert.ToInt32(txtPlanningYear.Value);
-                int week = Convert.ToInt32(lblPlanningWeek.Text);
-                string day = Convert.ToString(selectedRow.Cells["Day"].Value);
-                string shift = Convert.ToString(selectedColumn.Name);
 
-                UpdateEmployeeList();
-            }
-            catch
-            {
-                MessageBox.Show("Select amount");
-            }
         }
         private void lstEmpCanWork_DoubleClick(object sender, EventArgs e)
         {
@@ -605,6 +589,10 @@ namespace AdminBackups
             }
 
             progressBar1.Value = 0;
+
+            // More code
+
+            MessageBox.Show("Schedule has been completed");
         }
 
 
