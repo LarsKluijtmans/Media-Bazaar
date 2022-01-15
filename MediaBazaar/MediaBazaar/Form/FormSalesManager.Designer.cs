@@ -51,7 +51,6 @@ namespace AdminBackups
             this.cbSchebuleByDepartment = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtYear = new System.Windows.Forms.TextBox();
             this.btnDecreaseWeek = new System.Windows.Forms.Button();
             this.btnIncreaseWeek = new System.Windows.Forms.Button();
             this.lblWeek = new System.Windows.Forms.Label();
@@ -75,7 +74,6 @@ namespace AdminBackups
             this.cbDepartments = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtPlanningYear = new System.Windows.Forms.TextBox();
             this.btnDecreasePlanningWeek = new System.Windows.Forms.Button();
             this.btnIncreasePlanningWeek = new System.Windows.Forms.Button();
             this.lblPlanningWeek = new System.Windows.Forms.Label();
@@ -87,6 +85,8 @@ namespace AdminBackups
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.txtYear = new System.Windows.Forms.NumericUpDown();
+            this.txtPlanningYear = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNewProducts)).BeginInit();
@@ -99,6 +99,8 @@ namespace AdminBackups
             this.groupBox2.SuspendLayout();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanningYear)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -295,10 +297,10 @@ namespace AdminBackups
             // 
             // tabSchedule
             // 
+            this.tabSchedule.Controls.Add(this.txtYear);
             this.tabSchedule.Controls.Add(this.cbSchebuleByDepartment);
             this.tabSchedule.Controls.Add(this.label11);
             this.tabSchedule.Controls.Add(this.label6);
-            this.tabSchedule.Controls.Add(this.txtYear);
             this.tabSchedule.Controls.Add(this.btnDecreaseWeek);
             this.tabSchedule.Controls.Add(this.btnIncreaseWeek);
             this.tabSchedule.Controls.Add(this.lblWeek);
@@ -317,7 +319,7 @@ namespace AdminBackups
             // cbSchebuleByDepartment
             // 
             this.cbSchebuleByDepartment.FormattingEnabled = true;
-            this.cbSchebuleByDepartment.Location = new System.Drawing.Point(22, 36);
+            this.cbSchebuleByDepartment.Location = new System.Drawing.Point(22, 43);
             this.cbSchebuleByDepartment.Name = "cbSchebuleByDepartment";
             this.cbSchebuleByDepartment.Size = new System.Drawing.Size(289, 29);
             this.cbSchebuleByDepartment.TabIndex = 83;
@@ -339,13 +341,6 @@ namespace AdminBackups
             this.label6.Size = new System.Drawing.Size(48, 21);
             this.label6.TabIndex = 66;
             this.label6.Text = "Week";
-            // 
-            // txtYear
-            // 
-            this.txtYear.Location = new System.Drawing.Point(453, 43);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(97, 29);
-            this.txtYear.TabIndex = 65;
             // 
             // btnDecreaseWeek
             // 
@@ -525,12 +520,12 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.txtPlanningYear);
             this.tabPlanning.Controls.Add(this.progressBar1);
             this.tabPlanning.Controls.Add(this.btnAutoSchedule);
             this.tabPlanning.Controls.Add(this.cbDepartments);
             this.tabPlanning.Controls.Add(this.label15);
             this.tabPlanning.Controls.Add(this.label16);
-            this.tabPlanning.Controls.Add(this.txtPlanningYear);
             this.tabPlanning.Controls.Add(this.btnDecreasePlanningWeek);
             this.tabPlanning.Controls.Add(this.btnIncreasePlanningWeek);
             this.tabPlanning.Controls.Add(this.lblPlanningWeek);
@@ -570,7 +565,7 @@ namespace AdminBackups
             // cbDepartments
             // 
             this.cbDepartments.FormattingEnabled = true;
-            this.cbDepartments.Location = new System.Drawing.Point(20, 18);
+            this.cbDepartments.Location = new System.Drawing.Point(20, 36);
             this.cbDepartments.Name = "cbDepartments";
             this.cbDepartments.Size = new System.Drawing.Size(289, 29);
             this.cbDepartments.TabIndex = 82;
@@ -578,7 +573,7 @@ namespace AdminBackups
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(456, 14);
+            this.label15.Location = new System.Drawing.Point(456, 9);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(40, 21);
             this.label15.TabIndex = 73;
@@ -587,23 +582,16 @@ namespace AdminBackups
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(360, 14);
+            this.label16.Location = new System.Drawing.Point(360, 9);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(48, 21);
             this.label16.TabIndex = 72;
             this.label16.Text = "Week";
             // 
-            // txtPlanningYear
-            // 
-            this.txtPlanningYear.Location = new System.Drawing.Point(448, 41);
-            this.txtPlanningYear.Name = "txtPlanningYear";
-            this.txtPlanningYear.Size = new System.Drawing.Size(97, 29);
-            this.txtPlanningYear.TabIndex = 71;
-            // 
             // btnDecreasePlanningWeek
             // 
             this.btnDecreasePlanningWeek.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDecreasePlanningWeek.Location = new System.Drawing.Point(327, 38);
+            this.btnDecreasePlanningWeek.Location = new System.Drawing.Point(327, 33);
             this.btnDecreasePlanningWeek.Name = "btnDecreasePlanningWeek";
             this.btnDecreasePlanningWeek.Size = new System.Drawing.Size(27, 35);
             this.btnDecreasePlanningWeek.TabIndex = 70;
@@ -614,7 +602,7 @@ namespace AdminBackups
             // btnIncreasePlanningWeek
             // 
             this.btnIncreasePlanningWeek.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnIncreasePlanningWeek.Location = new System.Drawing.Point(400, 38);
+            this.btnIncreasePlanningWeek.Location = new System.Drawing.Point(400, 33);
             this.btnIncreasePlanningWeek.Name = "btnIncreasePlanningWeek";
             this.btnIncreasePlanningWeek.Size = new System.Drawing.Size(27, 35);
             this.btnIncreasePlanningWeek.TabIndex = 69;
@@ -625,7 +613,7 @@ namespace AdminBackups
             // lblPlanningWeek
             // 
             this.lblPlanningWeek.AutoSize = true;
-            this.lblPlanningWeek.Location = new System.Drawing.Point(360, 44);
+            this.lblPlanningWeek.Location = new System.Drawing.Point(360, 39);
             this.lblPlanningWeek.Name = "lblPlanningWeek";
             this.lblPlanningWeek.Size = new System.Drawing.Size(34, 21);
             this.lblPlanningWeek.TabIndex = 68;
@@ -634,7 +622,7 @@ namespace AdminBackups
             // dgPlanningSchedule
             // 
             this.dgPlanningSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPlanningSchedule.Location = new System.Drawing.Point(20, 76);
+            this.dgPlanningSchedule.Location = new System.Drawing.Point(20, 94);
             this.dgPlanningSchedule.Name = "dgPlanningSchedule";
             this.dgPlanningSchedule.RowHeadersWidth = 51;
             this.dgPlanningSchedule.RowTemplate.Height = 25;
@@ -645,7 +633,7 @@ namespace AdminBackups
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(20, 355);
+            this.label8.Location = new System.Drawing.Point(20, 372);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(151, 21);
             this.label8.TabIndex = 20;
@@ -663,7 +651,7 @@ namespace AdminBackups
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(20, 52);
+            this.label10.Location = new System.Drawing.Point(20, 70);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(76, 21);
             this.label10.TabIndex = 18;
@@ -694,9 +682,9 @@ namespace AdminBackups
             this.lstEmpEnlisted.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmpEnlisted.FormattingEnabled = true;
             this.lstEmpEnlisted.ItemHeight = 17;
-            this.lstEmpEnlisted.Location = new System.Drawing.Point(20, 379);
+            this.lstEmpEnlisted.Location = new System.Drawing.Point(20, 396);
             this.lstEmpEnlisted.Name = "lstEmpEnlisted";
-            this.lstEmpEnlisted.Size = new System.Drawing.Size(525, 106);
+            this.lstEmpEnlisted.Size = new System.Drawing.Size(525, 89);
             this.lstEmpEnlisted.TabIndex = 15;
             // 
             // btnLogout
@@ -710,6 +698,50 @@ namespace AdminBackups
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // txtYear
+            // 
+            this.txtYear.Location = new System.Drawing.Point(453, 44);
+            this.txtYear.Maximum = new decimal(new int[] {
+            2050,
+            0,
+            0,
+            0});
+            this.txtYear.Minimum = new decimal(new int[] {
+            2010,
+            0,
+            0,
+            0});
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(97, 29);
+            this.txtYear.TabIndex = 84;
+            this.txtYear.Value = new decimal(new int[] {
+            2022,
+            0,
+            0,
+            0});
+            // 
+            // txtPlanningYear
+            // 
+            this.txtPlanningYear.Location = new System.Drawing.Point(440, 37);
+            this.txtPlanningYear.Maximum = new decimal(new int[] {
+            2050,
+            0,
+            0,
+            0});
+            this.txtPlanningYear.Minimum = new decimal(new int[] {
+            2010,
+            0,
+            0,
+            0});
+            this.txtPlanningYear.Name = "txtPlanningYear";
+            this.txtPlanningYear.Size = new System.Drawing.Size(93, 29);
+            this.txtPlanningYear.TabIndex = 85;
+            this.txtPlanningYear.Value = new decimal(new int[] {
+            2022,
+            0,
+            0,
+            0});
             // 
             // FormSalesManager
             // 
@@ -739,6 +771,8 @@ namespace AdminBackups
             this.tabPlanning.ResumeLayout(false);
             this.tabPlanning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanningYear)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -780,13 +814,11 @@ namespace AdminBackups
         private System.Windows.Forms.DataGridView dgvNewProducts;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.Button btnDecreaseWeek;
         private System.Windows.Forms.Button btnIncreaseWeek;
         private System.Windows.Forms.Label lblWeek;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtPlanningYear;
         private System.Windows.Forms.Button btnDecreasePlanningWeek;
         private System.Windows.Forms.Button btnIncreasePlanningWeek;
         private System.Windows.Forms.Label lblPlanningWeek;
@@ -802,5 +834,7 @@ namespace AdminBackups
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button bntUpdateProduct;
         private System.Windows.Forms.Button btnDeleteProduct;
+        private System.Windows.Forms.NumericUpDown txtYear;
+        private System.Windows.Forms.NumericUpDown txtPlanningYear;
     }
 }
