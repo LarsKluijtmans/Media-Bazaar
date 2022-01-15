@@ -11,12 +11,14 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         private IRestockDepotManager restock;
         private IScheduleAllManager schedule;
         private IRegisteredShiftAllManager registeredShift;
+        private IPreferredShiftAllManager preferredShift;
 
-        public DepotManagerControl(IRestockDepotManager restock, IScheduleAllManager schedule, IRegisteredShiftAllManager registeredShift)
+        public DepotManagerControl(IRestockDepotManager restock, IScheduleAllManager schedule, IRegisteredShiftAllManager registeredShift, IPreferredShiftAllManager preferredShift)
         {
             this.restock = restock;
             this.schedule = schedule;
             this.registeredShift = registeredShift;
+            this.preferredShift = preferredShift;
         }
 
         //restock
@@ -71,6 +73,12 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         public RegisteredShift GetRegisteredShift(int year, int week, string day, string shift)
         {
             return registeredShift.GetRegisteredShift(year, week, day, shift);
+        }
+
+        //preferred shift
+        public PreferredShift GetPreferredShift(int week, string day, string shift)
+        {
+            return preferredShift.GetPreferredShift(week, day, shift);
         }
     }
 }

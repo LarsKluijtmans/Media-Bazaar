@@ -278,13 +278,6 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    foreach (Restock restock in restocks)
-                    {
-                        if (restock.ID == id)
-                        {
-                            restocks.Remove(restock);
-                        }
-                    }
                     return true;
                 }
                 return false;
