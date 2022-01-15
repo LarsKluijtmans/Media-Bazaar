@@ -29,12 +29,11 @@ namespace ClassLibraryProject.ManagmentClasses
         }
         public bool DeleteSupplier(Supplier s)
         {
-            return false;
+            return DBSupplierManagerPM.DeleteSupplier(s);
         }
         public bool UpdateSupplier(Supplier s)
         {
-            
-            return false;
+            return DBSupplierManagerPM.UpdateSupplier(s);
         }
 
         public Supplier GetSupplierByID(int supplierID)
