@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
@@ -12,28 +13,55 @@ namespace AdminBackups
 {
     public partial class FormRemoveEmployee : Form
     {
-        Person employee;
+        OfficeManager officeManager;
+        Employee selectedEmployee;
         Contract contract;
-        int saveCount;
-        public FormRemoveEmployee(Person p, Contract c)
+        public FormRemoveEmployee(OfficeManager om, Employee e, Contract c)
         {
             InitializeComponent();
-            this.employee = p;
+
+            this.officeManager = om;
+            this.selectedEmployee = e;
             this.contract = c;
-            lblEmployee.Text = $"{p.EmployeeID} - {p.FirstName} {p.LastName}";
-            saveCount = 0;
+
+            this.Text = $"Remove {e.FirstName} {e.LastName}";
+            lblEmployee.Text = $"{e.EmployeeID} - {e.FirstName} {e.LastName}";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (UpdateContract() == true)
+            if (MakeEmployeeInactive())
             {
-                Close();
+                if (officeManager.EmployeeManagerOffice.DeleteEmployee(selectedEmployee))
+                {
+                    this.Close();
+                }
             }
         }
+        public bool MakeEmployeeInactive()
+        {
+            if (contract != null)
+            {
+                if (string.IsNullOrEmpty(tbxReasonTermination.Text))
+                {
+                    MessageBox.Show("Please enter a reason for termination");
+                    return false;
+                }
+                contract.ReasonForTermination = tbxReasonTermination.Text;
+
+                contract.EndDate = tbxEndDate.Value;
+                // put some validation for the date: end date after start date, end date not in the past, end date max 1 month from DateTime.Now...
+                contract.IsActive = false;
+
+                return officeManager.ContractManager.UpdateContract(contract);
+            }
+
+            return false;
+        }
+
         public bool UpdateContract()
         {
-            string employeeID = employee.EmployeeID.ToString();
+
             string reasonForTermination = tbxReasonTermination.Text;
             if (string.IsNullOrEmpty(reasonForTermination))
             {
@@ -57,43 +85,7 @@ namespace AdminBackups
                 return false;
             }
 
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = ContractManagement.END_CONTRACT;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                cmd.Parameters.AddWithValue("@ReasonForTermination", reasonForTermination);
-                cmd.Parameters.AddWithValue("@EndDate", contractEndDate);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-                return true;
-            }
-            catch (MySqlException msqEx)
-            {
-                Debug.WriteLine(msqEx);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                if (conn != null)
-                {
-                    conn.Close();
-                }
-            }
             return false;
-        }
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            if (saveCount == 1)
-            {
-                MessageBox.Show("Make sure to save the data");
-                saveCount = 0;
-            }
         }
     }
 }

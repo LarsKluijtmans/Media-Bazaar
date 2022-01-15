@@ -15,17 +15,10 @@ namespace ClassLibraryProject
         public static string CREATE_CONTRACT = "INSERT INTO Contract (EmployeeID, JobTitle, WorkHoursPerWeek, SalaryPerHour, StartDate, EndDate, Department, Active) VALUES (@EmployeeID, @JobTitle, @WorkHoursPerWeek, @SalaryPerHour, @StartDate, @EndDate, @Department, @Active);";
         public static string READ_CONTRACT = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID AND Active = @Active;";
         public static string UPDATE_CONTRACT = "UPDATE Contract SET Active = @Active, ReasonForTermination = @ReasonForTermination, EndDate = @EndDate WHERE ContractID = @ContractID;";
-        public static string DELETE_CONTRACT = "DELETE FROM Contract WHERE EmployeeID = @EmployeeID;";
 
         public bool CreateContract(Contract c)
         {
             /* Regex */
-            /*if (!Regex.IsMatch(tbxStartDate.Text, @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
-            {
-                MessageBox.Show("Please enter a valid start date");
-                return false;
-            }*/
-
             if (c.WorkHoursPerWeek % 4 != 0)
             {
                 return false;
@@ -91,11 +84,6 @@ namespace ClassLibraryProject
             }
 
             return false;
-        }
-
-        public bool DeleteContract(Contract c)
-        {
-            throw new NotImplementedException();
         }
 
         public Contract ReadContract(Employee e)
