@@ -60,7 +60,7 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         //registered shift
         public bool RegisterEmployee(string department, int year, int week, string day, string shift, Employee employee)
         {
-            return registeredShift.RegisterEmployee(department, year, week, day, shift, employee);
+            return registeredShift.RegisterEmployee(department, year, week, day, shift, employee.EmployeeID);
         }
         public bool CheckAmount(string department, int year, int week, string day, string shift)
         {
@@ -68,7 +68,7 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         }
         public bool DeRegisterEmployee(int year, int week, string day, string shift, Employee employee)
         {
-            return registeredShift.DeRegisterEmployee(year, week, day, shift, employee);
+            return registeredShift.DeRegisterEmployee(year, week, day, shift, employee.EmployeeID);
         }
         public RegisteredShift GetRegisteredShift(int year, int week, string day, string shift)
         {
