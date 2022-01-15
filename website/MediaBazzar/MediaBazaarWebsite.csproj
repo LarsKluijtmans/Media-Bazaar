@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <ApplicationIcon>MicrosoftTeams-image (1).ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
