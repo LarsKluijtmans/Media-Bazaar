@@ -545,3 +545,4 @@ F:\Study\Semester 2\PRJ\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBac
 F:\Study\Semester 2\PRJ\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormProductManager.resources
 F:\Study\Semester 2\PRJ\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormSalesManager.resources
 F:\Study\Semester 2\PRJ\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormOrderRestock.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormOrderRestock.resources

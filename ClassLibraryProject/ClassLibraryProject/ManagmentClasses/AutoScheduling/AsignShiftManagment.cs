@@ -20,12 +20,57 @@ namespace ClassLibraryProject.ManagmentClasses
 
         public bool ScheduleAllEmployees(List<int> employees, int amountToSchedule, string shift, string day, int week, int year)
         {
-            return dbAsignShift.ScheduleAllEmployees(employees, amountToSchedule, shift, day, week, year);
+
+            StringBuilder sql = new StringBuilder();
+            if (employees.Count != 0)
+            {
+                sql.Append("Insert into`planning` (`Year`, `Week`, `Day`, `Shift`, EmployeeID ) VALUES ");
+
+                for (int i = 0; i < employees.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        sql.Append($"({year},{week},'{day}','{shift}',{employees[i]})");
+                    }
+                    else
+                    {
+                        sql.Append($",({year},{week},'{day}','{shift}',{employees[i]})");
+                    }
+
+                }
+                sql.Append(";");
+                dbAsignShift.AssignEmployeeShift(sql.ToString());
+
+                return true;
+            }
+            return true;
         }
 
         public bool ScheduleShift(List<int> employees, int amountToSchedule, string shift, string day, int week, int year)
         {
-            return dbAsignShift.ScheduleShift(employees,amountToSchedule, shift, day, week, year);
+            if (amountToSchedule != 0) 
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append("Insert into`planning` (`Year`, `Week`, `Day`, `Shift`, EmployeeID ) VALUES ");
+
+                for (int i = 0; i < amountToSchedule; i++)
+                {
+                    if (i == 0)
+                    {
+                        sql.Append($"({year},{week},'{day}','{shift}',{employees[i]})");
+                    }
+                    else
+                    {
+                        sql.Append($",({year},{week},'{day}','{shift}',{employees[i]})");
+                    }
+
+                }
+                sql.Append(";");
+                AssignEmployeeShift(sql.ToString());
+
+                return true;
+            }
+            return true;
         }
     }
 }
