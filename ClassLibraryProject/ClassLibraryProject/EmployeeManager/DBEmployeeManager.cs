@@ -118,7 +118,7 @@ namespace ClassLibraryProject
 
                 if (numCreatedRows == 1)
                 {
-                    SendEmail(e);
+                    //SendEmail(e);
                     return true;
                 }
             }

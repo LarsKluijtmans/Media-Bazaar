@@ -817,5 +817,10 @@ namespace AdminBackups
         {
 
         }
+
+        private void btnDeleteEmployee_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

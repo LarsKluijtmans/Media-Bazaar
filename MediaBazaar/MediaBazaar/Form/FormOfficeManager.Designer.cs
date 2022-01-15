@@ -260,6 +260,7 @@ namespace AdminBackups
             this.btnDeleteEmployee.TabIndex = 7;
             this.btnDeleteEmployee.Text = "Delete Employee";
             this.btnDeleteEmployee.UseVisualStyleBackColor = true;
+            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
             // 
             // btnCreateEmployee
             // 
