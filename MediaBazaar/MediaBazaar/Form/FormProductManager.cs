@@ -317,7 +317,40 @@ namespace AdminBackups
         }
         private void DeleteSupplier()
         {
+            int supplierID = 0;
+            if (string.IsNullOrEmpty(tbxSupplierID.Text))
+            {
+                MessageBox.Show("Please select a supplier");
+                return;
+            }
+            try
+            {
+                supplierID = Convert.ToInt32(tbxSupplierID.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+                return;
+            }
+            // get supplier by id
+            Supplier supplier = productManager.SupplierManagerPM.GetSupplierByID(supplierID);
 
+            if (supplier != null)
+            {
+                if (productManager.SupplierManagerPM.DeleteSupplier(supplier))
+                {
+                    tbxSupplierName.Clear();
+                    tbxCountry.Clear();
+                    tbxBuildingNumber.Clear();
+                    tbxPostalCode.Clear();
+                    tbxEmail.Clear();
+                    tbxPhoneNumber.Clear();
+                    tbxBankNumber.Clear();
+
+                    MessageBox.Show("Supplier removed");
+                    ReadSuppliers();
+                }
+            }
         }
         private void dgvSuppliers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -344,20 +377,12 @@ namespace AdminBackups
         private void btnEditSupplier_Click(object sender, EventArgs e)
         {
             UpdateSupplier();
-            // fixed?? cant test
+            // not working
         }
 
         private void btnRemoveSupplier_Click(object sender, EventArgs e)
         {
             DeleteSupplier();
-            tbxSupplierID.Clear();
-            tbxSupplierName.Clear();
-            tbxCountry.Clear();
-            tbxBuildingNumber.Clear();
-            tbxPostalCode.Clear();
-            tbxEmail.Clear();
-            tbxPhoneNumber.Clear();
-            tbxBankNumber.Clear();
         }
         /* Search Bar*/
         private void tbxSupplierSearch_TextChanged(object sender, EventArgs e)
@@ -378,6 +403,18 @@ namespace AdminBackups
         private void cbxSupplierType_SelectedIndexChanged(object sender, EventArgs e)
         {
             ReadSuppliers();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            tbxSupplierID.Clear();
+            tbxSupplierName.Clear();
+            tbxCountry.Clear();
+            tbxBuildingNumber.Clear();
+            tbxPostalCode.Clear();
+            tbxEmail.Clear();
+            tbxPhoneNumber.Clear();
+            tbxBankNumber.Clear();
         }
         /* Supplier End */
     }
