@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using ClassLibraryProject;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
+using MediaBazzar.Pages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MediaBazaarWebsite.Pages
 {
@@ -20,7 +22,7 @@ namespace MediaBazaarWebsite.Pages
 
         [BindProperty]
         [Required]
-        public int Prefered { get; set; }
+        public bool Prefered { get; set; }
         [BindProperty]
         [Required]
         public int Day { get; set; }
@@ -28,7 +30,13 @@ namespace MediaBazaarWebsite.Pages
         [Required]
         public string Shift { get; set; }
 
-        public PreferedWorkTime preferedWork;
+        public SelectList Prefereds { get; set; }
+
+        public SelectList Shifts { get; set; }
+
+        public List<PreferedWorkTime> pwt { get; set; }
+
+
 
         private CookieOptions cookieOptions = new CookieOptions
         {
@@ -41,18 +49,23 @@ namespace MediaBazaarWebsite.Pages
             return new RedirectToPageResult("Login");
         }
 
-      //  public void OnGet()
-      //  {
-      //      if (HttpContext.Session.GetString("User") == null)
-      //      {
-      //          return new RedirectToPageResult("Index");
-      //      }
+        public void OnGet()
+        {
+            PreferedWorkTimeManagement workTimeManagement = new PreferedWorkTimeManagement();
+            pwt = workTimeManagement.GetPreferedWorkTimeForEmployee(LoginModel.EmployeeID);
+            this.Prefereds = new SelectList(pwt, "Day", "Shift");
 
-      //      PreferedWorkTimeManagement workTimeManagement = new PreferedWorkTimeManagement();
-      ////      PreferedWorkTime preferedWork = workTimeManagement.GetAllPreferedWorkTime(HttpContext.Session.GetString("User"));
+        }
 
-
-      //  }
+   
+        public void OnPostSubmit()
+        {
+            PreferedWorkTimeManagement preferedWorkTime = new PreferedWorkTimeManagement();
+            foreach (PreferedWorkTime p in pwt)
+            {
+                preferedWorkTime.EditPreferedWorkTimeForEmployee(p.Day,p.Shift, p.Prefered);
+            }
+        }
 
     }
 }

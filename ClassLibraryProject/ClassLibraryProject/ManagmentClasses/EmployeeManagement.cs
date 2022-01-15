@@ -290,16 +290,9 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             EnlistedEmployee.Clear();
 
-
-
             MySqlConnection conn = Utils.GetConnection();
 
-
-
             string sql = GET_EMPLOYEE_WORKING_TODAY;
-
-
-
 
             try
             {
@@ -332,7 +325,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     string firstName = reader.GetString("FirstName");
                     int phoneNumber = reader.GetInt32("PhoneNumber");
                     string email = reader.GetString("Email");
-                    string city = reader.GetString("Address");
+                    string city = reader.GetString("City");
                     string dateOfBirth = reader.GetString("DateOfBirth");
                     int bsn = reader.GetInt32("BSN");
                     string username = reader.GetString("Username");

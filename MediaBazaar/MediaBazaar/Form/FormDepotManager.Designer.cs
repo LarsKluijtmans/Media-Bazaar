@@ -32,12 +32,12 @@ namespace AdminBackups
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
+            this.txtPlanningYear = new System.Windows.Forms.NumericUpDown();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.cbDepartments = new System.Windows.Forms.ComboBox();
             this.btnAutoSchedule = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.txtPlanningYear = new System.Windows.Forms.TextBox();
             this.btnDecreasePlanningWeek = new System.Windows.Forms.Button();
             this.btnIncreasePlanningWeek = new System.Windows.Forms.Button();
             this.lblPlanningWeek = new System.Windows.Forms.Label();
@@ -49,10 +49,10 @@ namespace AdminBackups
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.tabSchedule = new System.Windows.Forms.TabPage();
+            this.txtYear = new System.Windows.Forms.NumericUpDown();
             this.cbSchebuleByDepartment = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.txtYear = new System.Windows.Forms.TextBox();
             this.btnDecreaseWeek = new System.Windows.Forms.Button();
             this.btnIncreaseWeek = new System.Windows.Forms.Button();
             this.lblWeek = new System.Windows.Forms.Label();
@@ -91,8 +91,10 @@ namespace AdminBackups
             this.label10 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
             this.tabPlanning.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanningYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
             this.tabSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabRestock.SuspendLayout();
@@ -126,12 +128,12 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.txtPlanningYear);
             this.tabPlanning.Controls.Add(this.progressBar1);
             this.tabPlanning.Controls.Add(this.cbDepartments);
             this.tabPlanning.Controls.Add(this.btnAutoSchedule);
             this.tabPlanning.Controls.Add(this.label28);
             this.tabPlanning.Controls.Add(this.label30);
-            this.tabPlanning.Controls.Add(this.txtPlanningYear);
             this.tabPlanning.Controls.Add(this.btnDecreasePlanningWeek);
             this.tabPlanning.Controls.Add(this.btnIncreasePlanningWeek);
             this.tabPlanning.Controls.Add(this.lblPlanningWeek);
@@ -150,6 +152,29 @@ namespace AdminBackups
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
             // 
+            // txtPlanningYear
+            // 
+            this.txtPlanningYear.Location = new System.Drawing.Point(461, 34);
+            this.txtPlanningYear.Maximum = new decimal(new int[] {
+            2050,
+            0,
+            0,
+            0});
+            this.txtPlanningYear.Minimum = new decimal(new int[] {
+            2010,
+            0,
+            0,
+            0});
+            this.txtPlanningYear.Name = "txtPlanningYear";
+            this.txtPlanningYear.Size = new System.Drawing.Size(81, 29);
+            this.txtPlanningYear.TabIndex = 83;
+            this.txtPlanningYear.Value = new decimal(new int[] {
+            2022,
+            0,
+            0,
+            0});
+            this.txtPlanningYear.ValueChanged += new System.EventHandler(this.txtPlanningYear_ValueChanged);
+            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(588, 405);
@@ -164,6 +189,7 @@ namespace AdminBackups
             this.cbDepartments.Name = "cbDepartments";
             this.cbDepartments.Size = new System.Drawing.Size(289, 29);
             this.cbDepartments.TabIndex = 81;
+            this.cbDepartments.SelectedIndexChanged += new System.EventHandler(this.cbDepartments_SelectedIndexChanged);
             // 
             // btnAutoSchedule
             // 
@@ -193,13 +219,6 @@ namespace AdminBackups
             this.label30.Size = new System.Drawing.Size(48, 21);
             this.label30.TabIndex = 78;
             this.label30.Text = "Week";
-            // 
-            // txtPlanningYear
-            // 
-            this.txtPlanningYear.Location = new System.Drawing.Point(461, 36);
-            this.txtPlanningYear.Name = "txtPlanningYear";
-            this.txtPlanningYear.Size = new System.Drawing.Size(97, 29);
-            this.txtPlanningYear.TabIndex = 77;
             // 
             // btnDecreasePlanningWeek
             // 
@@ -304,10 +323,10 @@ namespace AdminBackups
             // 
             // tabSchedule
             // 
+            this.tabSchedule.Controls.Add(this.txtYear);
             this.tabSchedule.Controls.Add(this.cbSchebuleByDepartment);
             this.tabSchedule.Controls.Add(this.label18);
             this.tabSchedule.Controls.Add(this.label19);
-            this.tabSchedule.Controls.Add(this.txtYear);
             this.tabSchedule.Controls.Add(this.btnDecreaseWeek);
             this.tabSchedule.Controls.Add(this.btnIncreaseWeek);
             this.tabSchedule.Controls.Add(this.lblWeek);
@@ -323,6 +342,29 @@ namespace AdminBackups
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
             // 
+            // txtYear
+            // 
+            this.txtYear.Location = new System.Drawing.Point(464, 42);
+            this.txtYear.Maximum = new decimal(new int[] {
+            2050,
+            0,
+            0,
+            0});
+            this.txtYear.Minimum = new decimal(new int[] {
+            2010,
+            0,
+            0,
+            0});
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(77, 29);
+            this.txtYear.TabIndex = 85;
+            this.txtYear.Value = new decimal(new int[] {
+            2022,
+            0,
+            0,
+            0});
+            this.txtYear.ValueChanged += new System.EventHandler(this.txtYear_ValueChanged);
+            // 
             // cbSchebuleByDepartment
             // 
             this.cbSchebuleByDepartment.FormattingEnabled = true;
@@ -330,6 +372,7 @@ namespace AdminBackups
             this.cbSchebuleByDepartment.Name = "cbSchebuleByDepartment";
             this.cbSchebuleByDepartment.Size = new System.Drawing.Size(289, 29);
             this.cbSchebuleByDepartment.TabIndex = 84;
+            this.cbSchebuleByDepartment.SelectedIndexChanged += new System.EventHandler(this.cbSchebuleByDepartment_SelectedIndexChanged);
             // 
             // label18
             // 
@@ -348,13 +391,6 @@ namespace AdminBackups
             this.label19.Size = new System.Drawing.Size(48, 21);
             this.label19.TabIndex = 72;
             this.label19.Text = "Week";
-            // 
-            // txtYear
-            // 
-            this.txtYear.Location = new System.Drawing.Point(464, 41);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(97, 29);
-            this.txtYear.TabIndex = 71;
             // 
             // btnDecreaseWeek
             // 
@@ -532,7 +568,7 @@ namespace AdminBackups
             this.dgRestock.Name = "dgRestock";
             this.dgRestock.RowHeadersWidth = 51;
             this.dgRestock.RowTemplate.Height = 25;
-            this.dgRestock.Size = new System.Drawing.Size(603, 386);
+            this.dgRestock.Size = new System.Drawing.Size(612, 441);
             this.dgRestock.TabIndex = 91;
             this.dgRestock.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgRestock_CellClick);
             // 
@@ -785,9 +821,11 @@ namespace AdminBackups
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDepotManager_FormClosing);
             this.tabPlanning.ResumeLayout(false);
             this.tabPlanning.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanningYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).EndInit();
             this.tabSchedule.ResumeLayout(false);
             this.tabSchedule.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -853,13 +891,11 @@ namespace AdminBackups
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.Button btnDecreaseWeek;
         private System.Windows.Forms.Button btnIncreaseWeek;
         private System.Windows.Forms.Label lblWeek;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox txtPlanningYear;
         private System.Windows.Forms.Button btnDecreasePlanningWeek;
         private System.Windows.Forms.Button btnIncreasePlanningWeek;
         private System.Windows.Forms.Label lblPlanningWeek;
@@ -867,5 +903,7 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnAutoSchedule;
         private System.Windows.Forms.ComboBox cbSchebuleByDepartment;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.NumericUpDown txtYear;
+        private System.Windows.Forms.NumericUpDown txtPlanningYear;
     }
 }

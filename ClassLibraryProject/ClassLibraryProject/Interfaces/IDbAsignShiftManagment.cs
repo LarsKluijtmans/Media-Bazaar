@@ -7,7 +7,5 @@ namespace ClassLibraryProject.Interfaces
    public interface IDbAsignShiftManagment
     {
         public bool AssignEmployeeShift(string sql);
-        public bool ScheduleShift(List<int> employees, int amountToSchedule, string shift, string day, int week, int year);
-        public bool ScheduleAllEmployees(List<int> employees, int amountToSchedule, string shift, string day, int week, int year);
     }
 }
