@@ -9,7 +9,7 @@ namespace ClassLibrary1
 
         public static string GET_EMPLOYEEID = " SELECT employeeID, password, userName FROM employee where UserName = @UserName";
 
-        
+
 
         public static MySqlConnection GetConnected()
         {
@@ -19,23 +19,29 @@ namespace ClassLibrary1
         }
 
 
-        public bool IsEmployeeExist( Employee employee)
+        public bool IsEmployeeExist(Employee employee)
         {
-
-            String CheckUserEXIST = "SELECT * FROM employee WHERE Username=?user AND Password = ?pass;";
             MySqlConnection conn = GetConnected();
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand(CheckUserEXIST, conn);
+            String CheckUserEXIST = "SELECT * FROM employee WHERE Username=?user AND Password = ?pass;";
 
-            cmd.Parameters.AddWithValue("pass", employee.Password);
-            cmd.Parameters.AddWithValue("user", employee.Username);
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
+            try
             {
-                return true;
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(CheckUserEXIST, conn);
+
+                cmd.Parameters.AddWithValue("pass", employee.Password);
+                cmd.Parameters.AddWithValue("user", employee.Username);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return true;
+                }
+                return false;
             }
+            catch { }
+            finally { conn.Close(); }
             return false;
         }
     }
