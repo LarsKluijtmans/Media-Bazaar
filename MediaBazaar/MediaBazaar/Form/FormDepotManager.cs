@@ -12,26 +12,17 @@ namespace AdminBackups
     {
         DepotManager depotManager;
         Store store;
+        FormLogin login;
         int i;
         int pi;
 
-        public FormDepotManager(DepotManager depotManager, Store store)
+        public FormDepotManager(DepotManager depotManager, Store store, FormLogin login)
         {
             InitializeComponent();
 
+            this.login = login;
             this.depotManager = depotManager;
-            this.store = store;
-
-            if (depotManager is DepotManager)
-            {
-                foreach (Department d in ((DepotManager)depotManager).viewDepartments.ViewAllDepartments())
-                {
-                    cbSchebuleByDepartment.Items.Add(d);
-                    cbDepartments.Items.Add(d);
-                }
-            }
-            cbSchebuleByDepartment.Text = cbSchebuleByDepartment.Items[0].ToString();
-            cbDepartments.Text = cbDepartments.Items[0].ToString();
+            this.store = store;       
 
             Initialize();
             UpdateRestockRequests();
@@ -61,11 +52,23 @@ namespace AdminBackups
             pi = Convert.ToInt32(lblPlanningWeek.Text);
             txtYear.Text = date.Year.ToString();
             txtPlanningYear.Text = date.Year.ToString();
+
+            if (depotManager is DepotManager)
+            {
+                foreach (Department d in ((DepotManager)depotManager).viewDepartments.ViewAllDepartments())
+                {
+                    cbSchebuleByDepartment.Items.Add(d);
+                    cbDepartments.Items.Add(d);
+                }
+            }
+            cbSchebuleByDepartment.Text = cbSchebuleByDepartment.Items[0].ToString();
+            cbDepartments.Text = cbDepartments.Items[0].ToString();
         }
 
         //Overview
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            login.Show();
             Close();
         }
 

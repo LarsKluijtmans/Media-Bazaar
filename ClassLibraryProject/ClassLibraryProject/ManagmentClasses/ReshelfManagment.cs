@@ -65,6 +65,7 @@ namespace ClassLibraryProject.ManagmentClasses
             {
                 if (db.DeleteReshelf(id))
                 {
+                    db.GetReshelfRequests().Remove(GetReshelfByID(id));
                     return true;
                 }
                 return false;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibraryProject.Class
 {
-    public class RegisteredShift
+    public class PreferredShift
     {
         //fields
         private int year;
@@ -41,7 +41,7 @@ namespace ClassLibraryProject.Class
         }
 
         //constructor
-        public RegisteredShift(int year, int week, string day, string shift)
+        public PreferredShift(int year, int week, string day, string shift)
         {
             Year = year;
             Week = week;

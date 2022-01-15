@@ -5,12 +5,12 @@ using ClassLibraryProject.ManagmentClasses.IAllManager;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
-    public class RegisteredShiftManagement: IRegisteredShiftAllManager
+    public class RegisteredShiftManagment: IRegisteredShiftAllManager
     {
         private IDBRegisteredShift db;
         private IGetSchedule schedule;
 
-        public RegisteredShiftManagement(IDBRegisteredShift dbRegisteredShift, IGetSchedule schedule)
+        public RegisteredShiftManagment(IDBRegisteredShift dbRegisteredShift, IGetSchedule schedule)
         {
             db = dbRegisteredShift;
             this.schedule = schedule;

@@ -75,16 +75,19 @@ namespace ClassLibraryProject.dbClasses
                         IDBRestock dbRestock = new DBRestock();
                         IRestockDepotManager restock = new RestockManagment(dbRestock);
 
-                        IDBSchedule dBSchedule = new DBSchedule();
-                        IScheduleAllManager schedule = new ScheduleManagment(dBSchedule);
-                        IGetSchedule getSchedule = new ScheduleManagment(dBSchedule);
+                        IDBSchedule dbSchedule = new DBSchedule();
+                        IScheduleAllManager schedule = new ScheduleManagment(dbSchedule);
+                        IGetSchedule getSchedule = new ScheduleManagment(dbSchedule);
 
-                        IDBRegisteredShift dBRegisteredShift = new DBRegisteredShift();
-                        IRegisteredShiftAllManager registeredShift = new RegisteredShiftManagement(dBRegisteredShift, getSchedule);
+                        IDBRegisteredShift dbRegisteredShift = new DBRegisteredShift();
+                        IRegisteredShiftAllManager registeredShift = new RegisteredShiftManagment(dbRegisteredShift, getSchedule);
+
+                        IDBPreferredShift dbPreferredShift = new DBPreferredShift();
+                        IPreferredShiftAllManager preferredShift = new PreferredShiftManagment(dbPreferredShift);
 
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
                         IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
-                        IDepotManagerControl control = new DepotManagerControl(restock, schedule, registeredShift);
+                        IDepotManagerControl control = new DepotManagerControl(restock, schedule, registeredShift, preferredShift);
 
                         employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule, employeeManagerAll, control);
                         return employee;

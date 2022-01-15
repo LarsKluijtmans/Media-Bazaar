@@ -112,16 +112,20 @@ namespace AdminBackups
                 }
                 else if (employee is DepotManager)
                 {
-                    FormDepotManager formDepotManager = new FormDepotManager((DepotManager)employee, store);
+                    FormDepotManager formDepotManager = new FormDepotManager((DepotManager)employee, store, this);
                     formDepotManager.Show();
-                    this.Hide();
+
+                    Hide();
+
                     return true;
                 }
                 else if (employee is DepotEmployee)
                 {
-                    FormDepotEmployee formDepotEmployee = new FormDepotEmployee((DepotEmployee)employee, store);
+                    FormDepotEmployee formDepotEmployee = new FormDepotEmployee((DepotEmployee)employee, store, this);
                     formDepotEmployee.Show();
-                    this.Hide();
+
+                    Hide();
+
                     return true;
                 }
                 else if (employee is SalesRepresentative)
