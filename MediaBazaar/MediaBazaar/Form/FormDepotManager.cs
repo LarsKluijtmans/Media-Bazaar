@@ -376,9 +376,9 @@ namespace AdminBackups
             try
             {
 
-                string department = cbSchebuleByDepartment.Text;
-                int year = Convert.ToInt32(txtYear.Value);
-                int week = Convert.ToInt32(lblWeek.Text);
+                string department = cbDepartments.Text;
+                int year = Convert.ToInt32(txtPlanningYear.Value);
+                int week = Convert.ToInt32(lblPlanningWeek.Text);
 
                 if (!c.WeekExist(department, year, week))
                 {
