@@ -1,11 +1,13 @@
-using ClassLibrary1;
+
 using ClassLibraryProject.Class;
+using ClassLibraryProject.dbClasses;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -15,8 +17,15 @@ namespace MediaBazzar.Pages
     public class LoginModel : PageModel
     {
         [BindProperty]
-        public ClassLibrary1.Login Login { get; set; }
-        private DBLogin dbLogin = new DBLogin();
+        [Required]
+        public string Username { get; set; }
+        [BindProperty]
+        [Required]
+        public string Password { get; set; }
+
+
+        public Employee Login { get; set; }
+        private dbLoginManager dbLogin = new dbLoginManager();
 
         public static string EmployeeID;
 
@@ -31,10 +40,10 @@ namespace MediaBazzar.Pages
 
             if (ModelState.IsValid)
             {
-                var user = dbLogin.CheckLogin(Login.Username , Login.Password);
-                EmployeeID = user.EmployeeID.ToString();
+                var user = dbLogin.checkLogin(Username , Password);
                 if (user != null)
                 {
+                    EmployeeID = user.EmployeeID.ToString();
                     var claims = new List<Claim>();
                     claims.Add(new Claim("username", user.Username));
                     claims.Add(new Claim(ClaimTypes.NameIdentifier, user.EmployeeID.ToString()));
@@ -47,7 +56,7 @@ namespace MediaBazzar.Pages
                     var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
                     
                     await HttpContext.SignInAsync(claimsPrincipal);
-
+                   
                     return Redirect(returnUrl);
                 }
             }
