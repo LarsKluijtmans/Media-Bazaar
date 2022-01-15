@@ -7,6 +7,6 @@ namespace ClassLibraryProject.dbClasses.IGetObject
 {
     public interface IGetSchedule
     {
-        Schedule GetSchedule(string department, int year, int week);
+        Schedule GetSchedule(string department, int year, int week, string day);
     }
 }

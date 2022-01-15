@@ -17,7 +17,7 @@ namespace ClassLibraryProject.dbClasses
 
         private string GET_REGISTERED_SHIFTS = "SELECT * FROM planning;";
         private string REGISTER_EMPLOYEE = "INSERT INTO planning (Year, Week, Day, Shift, EmployeeID) VALUES (@Year, @Week, @Day, @Shift, @Employee);";
-        private string DE_REGISTER_EMPLOYEE = "DELETE FROM planning WHERE Year = @Year AND Week = @Week AND Day = @Day AND Shift = @Shift AND EmployeeID = @EmployeeID;";
+        private string DE_REGISTER_EMPLOYEE = "DELETE FROM planning WHERE Year = @Year AND Week = @Week AND Day = @Day AND Shift = @Shift AND EmployeeID = @Employee;";
 
         private List<RegisteredShift> registeredShifts;
         private List<Employee> employees;
@@ -187,7 +187,7 @@ namespace ClassLibraryProject.dbClasses
             }
         }
 
-        public bool RegisterEmployee(int year, int week, string day, string shift, Employee employee)
+        public bool RegisterEmployee(int year, int week, string day, string shift, int employeeID)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -201,7 +201,7 @@ namespace ClassLibraryProject.dbClasses
                 cmd.Parameters.AddWithValue("@Week", week);
                 cmd.Parameters.AddWithValue("@Day", day);
                 cmd.Parameters.AddWithValue("@Shift", shift);
-                cmd.Parameters.AddWithValue("@Employee", employee.EmployeeID);
+                cmd.Parameters.AddWithValue("@Employee", employeeID);
 
                 conn.Open();
 
@@ -209,8 +209,7 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    RegisteredShift registeredShift = new RegisteredShift(year, week, day, shift);
-                    registeredShift.Employees.Add(employee);
+                    GetRegisteredShift(year, week, day, shift).Employees.Add(GetEmployee(employeeID));
                     return true;
                 }
                 return false;
@@ -224,7 +223,7 @@ namespace ClassLibraryProject.dbClasses
                 conn.Close();
             }
         }
-        public bool DeRegisterEmployee(int year, int week, string day, string shift, Employee employee)
+        public bool DeRegisterEmployee(int year, int week, string day, string shift, int employeeID)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -238,7 +237,7 @@ namespace ClassLibraryProject.dbClasses
                 cmd.Parameters.AddWithValue("@Week", week);
                 cmd.Parameters.AddWithValue("@Day", day);
                 cmd.Parameters.AddWithValue("@Shift", shift);
-                cmd.Parameters.AddWithValue("@Employee", employee.EmployeeID);
+                cmd.Parameters.AddWithValue("@Employee", employeeID);
 
                 conn.Open();
 
@@ -246,8 +245,22 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    GetRegisteredShift(year, week, day, shift).Employees.Remove(employee);
-                    return true;
+                    if (RegisteredShiftExist(year, week, day, shift) == true)
+                    {
+                        if (GetEmployee(employeeID) != null)
+                        {
+                            GetRegisteredShift(year, week, day, shift).Employees.Add(GetEmployee(employeeID));
+                        }
+                    }
+                    else
+                    {
+                        if (GetEmployee(employeeID) != null)
+                        {
+                            RegisteredShift registeredShift = new RegisteredShift(year, week, day, shift);
+                            registeredShifts.Add(registeredShift);
+                            registeredShift.Employees.Add(GetEmployee(employeeID));
+                        }
+                    }
                 }
                 return false;
             }
