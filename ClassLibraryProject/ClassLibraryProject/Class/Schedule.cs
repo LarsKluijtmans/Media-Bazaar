@@ -59,6 +59,16 @@
             AfternoonAmount = afternoonAmount;
             EveningAmount = eveningAmount;
         }
+        public Schedule(string department, int year, int week, string day)
+        {
+            Department = department;
+            Year = year;
+            Week = week;
+            Day = day;
+            MorningAmount = 0;
+            AfternoonAmount = 0;
+            EveningAmount = 0;
+        }
     }
 }
 

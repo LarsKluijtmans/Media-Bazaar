@@ -76,9 +76,9 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         }
 
         //preferred shift
-        public PreferredShift GetPreferredShift(int week, string day, string shift)
+        public PreferredShift GetPreferredShift(string day, string shift)
         {
-            return preferredShift.GetPreferredShift(week, day, shift);
+            return preferredShift.GetPreferredShift(day, shift);
         }
     }
 }

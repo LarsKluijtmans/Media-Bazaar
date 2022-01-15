@@ -26,6 +26,6 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         RegisteredShift GetRegisteredShift(int year, int week, string day, string shift);
 
         //preferred shift
-        PreferredShift GetPreferredShift(int week, string day, string shift);
+        PreferredShift GetPreferredShift(string day, string shift);
     }
 }
