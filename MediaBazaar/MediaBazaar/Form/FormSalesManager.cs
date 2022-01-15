@@ -4,7 +4,6 @@ using ClassLibraryProject.Enum;
 using MediaBazaar;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -26,7 +25,7 @@ namespace AdminBackups
             InitializeComponent();
             this.salesManager = salesManager;
             store = s;
-           
+
             date = DateTime.Now;
 
             txtYear.Value = date.Year;
@@ -65,7 +64,15 @@ namespace AdminBackups
 
         private void UpdateEmployeesWorkingToday()
         {
-            store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
+            try
+            {
+                store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+                return;
+            }
             lstEmployeesWorkingToday.Items.Clear();
             foreach (Employee employee in store.employeeManagement.EmployeeWorkingToday)
             {
@@ -77,13 +84,22 @@ namespace AdminBackups
             DateTime date = DateTime.Now;
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
             lblPlanningWeek.Text = GetCurrentWeekOfYear(date).ToString();
-            i = Convert.ToInt32(lblWeek.Text);
-            pi = Convert.ToInt32(lblPlanningWeek.Text);
+
+            try
+            {
+                i = Convert.ToInt32(lblWeek.Text);
+                pi = Convert.ToInt32(lblPlanningWeek.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+                return;
+            }
             txtYear.Value = date.Year;
             txtPlanningYear.Value = date.Year;
         }
 
-        
+
 
         //Overview
         private void dgOverviewSchedule_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -122,8 +138,17 @@ namespace AdminBackups
         }
         private void UpdateProduct()
         {
-            int productID = Convert.ToInt32(tbxSelectedProduct.Text);
             if (string.IsNullOrEmpty(tbxSelectedProduct.Text))
+            {
+                MessageBox.Show("Please select a product");
+                return;
+            }
+            int productID = 0;
+            try
+            {
+                productID = Convert.ToInt32(tbxSelectedProduct.Text);
+            }
+            catch
             {
                 MessageBox.Show("Please select a product");
                 return;

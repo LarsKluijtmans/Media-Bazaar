@@ -43,8 +43,15 @@ namespace AdminBackups
         {
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
             lblPlanningWeek.Text = GetCurrentWeekOfYear(date).ToString();
-            i = Convert.ToInt32(lblWeek.Text);
-            pi = Convert.ToInt32(lblPlanningWeek.Text);
+            try
+            {
+                i = Convert.ToInt32(lblWeek.Text);
+                pi = Convert.ToInt32(lblPlanningWeek.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error"); return;
+            }
             txtYear.Value = date.Year;
             txtPlanningYear.Value = date.Year;
 
@@ -90,7 +97,11 @@ namespace AdminBackups
         }
         private void UpdateEmployeesWorkingToday()
         {
-            store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
+            try
+            {
+                store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
+            }
+            catch { MessageBox.Show("Error"); return; }
             lstEmployeesWorkingToday.Items.Clear();
             foreach (Employee employee in store.employeeManagement.EmployeeWorkingToday)
             {
@@ -343,26 +354,30 @@ namespace AdminBackups
         //Planning
         private void UpdateEmployeeList()
         {
-            int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
-            int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
-            DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
-            DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
-            int year = Convert.ToInt32( txtPlanningYear.Value);
-            int week = Convert.ToInt32(lblPlanningWeek.Text);
-            string day = Convert.ToString(selectedRow.Cells["Day"].Value);
-            string shift = Convert.ToString(selectedColumn.Name);
-
-            lstEmpCanWork.Items.Clear();
-            foreach (Employee employee in c.GetPreferredShift(week, day, shift).Employees)
+            try
             {
-                lstEmpCanWork.Items.Add(employee);
-            }
+                int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
+                int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
+                DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
+                DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
+                int year = Convert.ToInt32(txtPlanningYear.Value);
+                int week = Convert.ToInt32(lblPlanningWeek.Text);
+                string day = Convert.ToString(selectedRow.Cells["Day"].Value);
+                string shift = Convert.ToString(selectedColumn.Name);
 
-            lstEmpEnlisted.Items.Clear();
-            foreach (Employee employee in c.GetRegisteredShift(year, week, day, shift).Employees)
-            {
-                lstEmpEnlisted.Items.Add(employee);
+                lstEmpCanWork.Items.Clear();
+                foreach (Employee employee in c.GetPreferredShift(week, day, shift).Employees)
+                {
+                    lstEmpCanWork.Items.Add(employee);
+                }
+
+                lstEmpEnlisted.Items.Clear();
+                foreach (Employee employee in c.GetRegisteredShift(year, week, day, shift).Employees)
+                {
+                    lstEmpEnlisted.Items.Add(employee);
+                }
             }
+            catch { MessageBox.Show("Error"); return; }
         }
         private void UpdatePlanningSchedule()
         {
@@ -419,7 +434,7 @@ namespace AdminBackups
             UpdatePlanningSchedule();
         }
         private void btnDecreasePlanningWeek_Click(object sender, EventArgs e)
-        {            
+        {
             if (pi > 1)
             {
                 pi--;
@@ -444,7 +459,7 @@ namespace AdminBackups
                 string day = Convert.ToString(selectedRow.Cells["Day"].Value);
                 string shift = Convert.ToString(selectedColumn.Name);
 
-                
+
             }
             catch
             {
@@ -484,7 +499,7 @@ namespace AdminBackups
             {
                 MessageBox.Show("Invalid input!");
             }
-            
+
         }
         private void btnRemoveFromSchedule_Click(object sender, EventArgs e)
         {

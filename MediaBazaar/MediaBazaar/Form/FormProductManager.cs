@@ -1,12 +1,9 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
-using ClassLibraryProject.dbClasses;
 using MediaBazaar;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace AdminBackups
@@ -70,15 +67,19 @@ namespace AdminBackups
         private void UpdateProduct()
         {
             // get selected product
-            int productID = Convert.ToInt32(tbxSelectedProduct.Text);
+            int productID = 0;
             if (string.IsNullOrEmpty(tbxSelectedProduct.Text))
             {
                 MessageBox.Show("Please select a product");
                 return;
             }
+            try
+            {
+                productID = Convert.ToInt32(tbxSelectedProduct.Text);
+            }
+            catch { MessageBox.Show("Error"); return; }
 
             Product selectedProduct = productManager.ProductManagerPM.GetProductByID(productID);
-
 
             // open new form
             if (selectedProduct != null)
@@ -132,10 +133,19 @@ namespace AdminBackups
                 return;
             }
 
-            int buildingNumber = Convert.ToInt32(tbxBuildingNumber.Text);
+            int buildingNumber = 0;
             if (string.IsNullOrEmpty(tbxBuildingNumber.Text))
             {
                 MessageBox.Show("Please enter a building number");
+                return;
+            }
+            try
+            {
+                buildingNumber = Convert.ToInt32(tbxBuildingNumber.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error");
                 return;
             }
 
@@ -203,7 +213,7 @@ namespace AdminBackups
             if (cbxSupplierType.SelectedIndex == 1)
             {
                 supplierType.Clear();
-                foreach(Supplier s in suppliers)
+                foreach (Supplier s in suppliers)
                 {
                     if (s.ProductType == "KITCHEN_HOME")
                     {
@@ -250,24 +260,40 @@ namespace AdminBackups
             {
                 dgvSuppliers.DataSource = suppliers;
             }
-        } 
+        }
         private void UpdateSupplier()
         {
-            int supplierID = Convert.ToInt32(tbxSupplierID.Text);
+            int supplierID = 0;
             if (string.IsNullOrEmpty(tbxSupplierID.Text))
             {
                 MessageBox.Show("Please select a supplier");
                 return;
             }
-
+            try
+            {
+                supplierID = Convert.ToInt32(tbxSupplierID.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+                return;
+            }
             // get supplier by id
             Supplier supplier = productManager.SupplierManagerPM.GetSupplierByID(supplierID);
-            
+
             if (supplier != null)
             {
                 supplier.Name = tbxSupplierName.Text;
                 supplier.Country = tbxCountry.Text;
-                supplier.BuildingNumber = Convert.ToInt32(tbxBuildingNumber.Text);
+                try
+                {
+                    supplier.BuildingNumber = Convert.ToInt32(tbxBuildingNumber.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                    return;
+                }
                 supplier.PostalCode = tbxPostalCode.Text;
                 supplier.Email = tbxEmail.Text;
                 supplier.PhoneNumber = tbxPhoneNumber.Text;
@@ -342,7 +368,8 @@ namespace AdminBackups
             {
                 List<Supplier> suppliers = productManager.SupplierManagerPM.SearchSuppliers(search);
                 dgvSuppliers.DataSource = suppliers;
-            } else
+            }
+            else
             {
                 ReadSuppliers();
             }
