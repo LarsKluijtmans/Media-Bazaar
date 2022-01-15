@@ -1,8 +1,10 @@
 ﻿using ClassLibraryProject.ChildClasses;
-using ClassLibraryProject.Enum;
 using ClassLibraryProject.Class;
+using ClassLibraryProject.Enum;
+using ClassLibraryProject.ManagmentClasses.IDepotManager;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -12,7 +14,9 @@ namespace AdminBackups
     {
         DepotManager depotManager;
         Store store;
+        IDepotManagerControl c;
         FormLogin login;
+
         int i;
         int pi;
 
@@ -22,28 +26,19 @@ namespace AdminBackups
 
             this.login = login;
             this.depotManager = depotManager;
-            this.store = store;       
+            this.store = store;
+            c = depotManager.Control;
 
             Initialize();
-            UpdateRestockRequests();
+            UpdatePendingRequests();
             UpdateSchedule();
             UpdatePlanningSchedule();
-            UpdateSupplier();
             UpdateEmployeesWorkingToday();
 
         }
 
         //Initialize
         DateTime date = DateTime.Now;
-        //private void UpdateEmployeesWorkingToday()
-        //{
-        //    store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
-        //    lstEmployeesWorkingToday.Items.Clear();
-        //    foreach (Employee employee in store.employeeManagement.EmployeeWorkingToday)
-        //    {
-        //        lstEmployeesWorkingToday.Items.Add(employee);
-        //    }
-        //}
         public void Initialize()
         {
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
@@ -71,7 +66,10 @@ namespace AdminBackups
             login.Show();
             Close();
         }
-
+        private void FormDepotManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            login.Show();
+        }
         private void dgOverviewSchedule_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             tabControl1.SelectTab(2);
@@ -94,66 +92,128 @@ namespace AdminBackups
         {
             store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
             lstEmployeesWorkingToday.Items.Clear();
-            foreach(Employee employee in store.employeeManagement.EmployeeWorkingToday)
+            foreach (Employee employee in store.employeeManagement.EmployeeWorkingToday)
             {
                 lstEmployeesWorkingToday.Items.Add(employee);
             }
         }
+
         //Restock
-        public void UpdateRestockRequests()
+        private void UpdatePendingRequests()
         {
-            //dgOverviewRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
-            //dgRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
+            DataTable table = new DataTable();
+
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Barcode", typeof(string));
+            table.Columns.Add("Amount", typeof(int));
+            table.Columns.Add("Status", typeof(string));
+
+            foreach (Restock restock in c.GetRestockRequests())
+            {
+                if (restock.Status == "Pending")
+                {
+                    table.Rows.Add(restock.ID, restock.Product.Barcode, restock.AmountRequested, restock.Status);
+                }
+            }
+
+            dgRestock.DataSource = table;
+        }
+        private void UpdateHistory()
+        {
+            DataTable table = new DataTable();
+
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Barcode", typeof(string));
+            table.Columns.Add("Amount", typeof(int));
+            table.Columns.Add("Status", typeof(string));
+
+            foreach (Restock restock in c.GetRestockRequests())
+            {
+                if (restock.Status == "Fulfilled")
+                {
+                    table.Rows.Add(restock.ID, restock.Product.Barcode, restock.AmountRequested, restock.Status);
+                }
+            }
+
+            dgRestock.DataSource = table;
         }
         private void rbPending_Click(object sender, EventArgs e)
         {
-            //dgRestock.DataSource = store.restockManagment.ViewPendingRestockRequests();
+            UpdatePendingRequests();
+
+            txtBarcode.Text = "";
+            txtCurrentAmount.Text = "";
+            txtRestockID.Text = "";
+
+            btnOrderRestock.Show();
+            btnDeleteRestockRequest.Show();
         }
 
         private void rbHistory_CheckedChanged(object sender, EventArgs e)
         {
-            //dgRestock.DataSource = store.restockManagment.ViewHistoryRestockRequests();
-        }
-        public void DeleteRestockRequest()
-        {
-            string restockID = txtRestockID.Text;
-            try
-            {
-                //store.restockManagment.DeleteRestockRequest(Convert.ToInt32(restockID));
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Select any restock request you want to reject.");
-            }
+            UpdateHistory();
 
-            UpdateRestockRequests();
+            txtBarcode.Text = "";
+            txtCurrentAmount.Text = "";
+            txtRestockID.Text = "";
+
+            btnOrderRestock.Hide();
+            btnDeleteRestockRequest.Hide();
         }
         private void btnOrderRestock_Click(object sender, EventArgs e)
         {
-            string restockID = txtRestockID.Text;
             try
             {
-                //store.restockManagment.OrderRestock(Convert.ToInt32(restockID));
+                int id = Convert.ToInt32(txtRestockID.Text);
+                if (c.DeleteRestock(id))
+                {
+                    UpdatePendingRequests();
+
+                    txtBarcode.Text = "";
+                    txtCurrentAmount.Text = "";
+                    txtRestockID.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong!");
+                }
             }
             catch
             {
                 MessageBox.Show("Select any restock request you want to finalize.");
             }
-            UpdateRestockRequests();
         }
         private void btnDeleteRestockRequest_Click(object sender, EventArgs e)
         {
-            DeleteRestockRequest();
+            try
+            {
+                int id = Convert.ToInt32(txtRestockID.Text);
+                if (c.DeleteRestock(id))
+                {
+                    UpdatePendingRequests();
+
+                    txtBarcode.Text = "";
+                    txtCurrentAmount.Text = "";
+                    txtRestockID.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong!");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Select any restock request you want to reject.");
+            }
         }
         private void dgRestock_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgRestock.Rows[e.RowIndex];
-                txtRestockID.Text = row.Cells["RestockReplenishmentID"].Value.ToString();
-                txtProductID.Text = row.Cells["ProductID"].Value.ToString();
+                txtRestockID.Text = row.Cells["ID"].Value.ToString();
                 txtBarcode.Text = row.Cells["Barcode"].Value.ToString();
-                txtCurrentAmount.Text = row.Cells["ReceivedAmount"].Value.ToString();
+                txtCurrentAmount.Text = row.Cells["Amount"].Value.ToString();
             }
         }
 
@@ -168,21 +228,37 @@ namespace AdminBackups
 
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
-        public void UpdateSchedule()
+        private void UpdateSchedule()
         {
+            DataTable table = new DataTable();
+
+            table.Columns.Add("Day", typeof(string));
+            table.Columns.Add("Morning", typeof(int));
+            table.Columns.Add("Afternoon", typeof(int));
+            table.Columns.Add("Evening", typeof(int));
+
             try
             {
-            //    if (store.scheduleManagment.GetDepotCount(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text) == true)
-            //    {
-            //        store.scheduleManagment.CreateDepotWeek(Convert.ToInt32(txtYear.Text), Convert.ToInt32(lblWeek.Text), cbDepartments.Text);
-            //    }
-            //    dgSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
-            //    dgOverviewSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+                string department = cbSchebuleByDepartment.Text;
+                int year = Convert.ToInt32(txtYear.Text);
+                int week = Convert.ToInt32(lblWeek.Text);
+
+                if (!c.WeekExist(department, year, week))
+                {
+                    c.CreateWeek(department, year, week);
+                }
+                foreach (Schedule schedule in c.GetSchedules(department, year, week))
+                {
+                    table.Rows.Add(schedule.Day, schedule.MorningAmount, schedule.AfternoonAmount, schedule.EveningAmount);
+                }
+
+                dgSchedule.DataSource = table;
+                dgOverviewSchedule.DataSource = table;
             }
-            catch 
+            catch (Exception)
             {
-                MessageBox.Show("Please insert year!");
-            }         
+                MessageBox.Show("Invalid input!");
+            }
         }
         private void dgSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -197,40 +273,33 @@ namespace AdminBackups
         }
         private void btnEditschedule_Click(object sender, EventArgs e)
         {
-            string Morning = lbScheduleMorning.Text;
-            if (string.IsNullOrEmpty(Morning))
-            {
-                MessageBox.Show("Amount in Morning is required.");
-                return;
-            }
-
-            string Afternoon = lbScheduleAfternoon.Text;
-            if (string.IsNullOrEmpty(Afternoon))
-            {
-                MessageBox.Show("Amount in Afternoon is required.");
-                return;
-            }
-
-            string Evening = lbScheduleEvening.Text;
-            if (string.IsNullOrEmpty(Evening))
-            {
-                MessageBox.Show("Amount in Evening is required.");
-                return;
-            }
-
-            string Day = lbScheduleDay.Text;
-            if (string.IsNullOrEmpty(Day))
-            {
-                MessageBox.Show("Day is required.");
-                return;
-            }
             try
             {
-                //store.scheduleManagment.EditDepotSchedule(Day, Morning, Afternoon, Evening, Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+                string department = cbSchebuleByDepartment.Text;
+                int year = Convert.ToInt32(txtYear.Text);
+                int week = Convert.ToInt32(lblWeek.Text);
+                string day = lbScheduleDay.Text;
+                int morningAmount = Convert.ToInt32(lbScheduleMorning.Text);
+                int afternoonAmount = Convert.ToInt32(lbScheduleAfternoon.Text);
+                int eveningAmount = Convert.ToInt32(lbScheduleEvening.Text);
+
+                if (c.UpdateSchedule(department, year, week, day, morningAmount, afternoonAmount, eveningAmount))
+                {
+                    lbScheduleDay.Text = "";
+                    lbScheduleMorning.Text = "";
+                    lbScheduleAfternoon.Text = "";
+                    lbScheduleEvening.Text = "";
+
+                    UpdateSchedule();
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong!");
+                }
             }
             catch (Exception)
             {
-                MessageBox.Show("Please insert year!");
+                MessageBox.Show("Invalid input!");
             }
 
             UpdateSchedule();
@@ -270,19 +339,58 @@ namespace AdminBackups
         }
 
         //Planning
-        public void UpdatePlanningSchedule()
+        private void UpdateEmployeeList()
         {
+            int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
+            int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
+            DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
+            DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
+            int year = Convert.ToInt32(txtPlanningYear.Text);
+            int week = Convert.ToInt32(lblPlanningWeek.Text);
+            string day = Convert.ToString(selectedRow.Cells["Day"].Value);
+            string shift = Convert.ToString(selectedColumn.Name);
+
+            lstEmpCanWork.Items.Clear();
+            foreach (Employee employee in c.GetPreferredShift(week, day, shift).Employees)
+            {
+                lstEmpCanWork.Items.Add(employee);
+            }
+
+            lstEmpEnlisted.Items.Clear();
+            foreach (Employee employee in c.GetRegisteredShift(year, week, day, shift).Employees)
+            {
+                lstEmpEnlisted.Items.Add(employee);
+            }
+        }
+        private void UpdatePlanningSchedule()
+        {
+            DataTable table = new DataTable();
+
+            table.Columns.Add("Day", typeof(string));
+            table.Columns.Add("Morning", typeof(int));
+            table.Columns.Add("Afternoon", typeof(int));
+            table.Columns.Add("Evening", typeof(int));
+
             try
             {
-                //if (store.scheduleManagment.GetDepotCount(Convert.ToInt32(txtPlanningYear.Text), Convert.ToInt32(lblPlanningWeek.Text), cbDepartments.Text) == true)
-                //{
-                //    store.scheduleManagment.CreateDepotWeek(Convert.ToInt32(txtPlanningYear.Text), Convert.ToInt32(lblPlanningWeek.Text), cbDepartments.Text);
-                //}
-                //dgPlanningSchedule.DataSource = store.scheduleManagment.ViewDepotSchedule(Convert.ToInt32(lblPlanningWeek.Text), Convert.ToInt32(txtYear.Text), cbDepartments.Text);
+                string department = cbSchebuleByDepartment.Text;
+                int year = Convert.ToInt32(txtYear.Text);
+                int week = Convert.ToInt32(lblWeek.Text);
+
+                if (!c.WeekExist(department, year, week))
+                {
+                    c.CreateWeek(department, year, week);
+                }
+                foreach (Schedule schedule in c.GetSchedules(department, year, week))
+                {
+                    table.Rows.Add(schedule.Day, schedule.MorningAmount, schedule.AfternoonAmount, schedule.EveningAmount);
+                }
+
+                dgPlanningSchedule.DataSource = table;
             }
             catch (Exception)
             {
-                MessageBox.Show("Please insert year!");
+                MessageBox.Show("Invalid input!");
             }
         }
         private void btnIncreasePlanningWeek_Click(object sender, EventArgs e)
@@ -332,19 +440,7 @@ namespace AdminBackups
                 string day = Convert.ToString(selectedRow.Cells["Day"].Value);
                 string shift = Convert.ToString(selectedColumn.Name);
 
-                lstEmpCanWork.Items.Clear();
-                store.employeeManagement.GetAvailableEmployees(week, day, shift);
-                foreach (Employee employee in store.employeeManagement.AvailableEmployee)
-                {
-                    lstEmpCanWork.Items.Add(employee);
-                }
-
-                lstEmpEnlisted.Items.Clear();
-                store.employeeManagement.GetEnlistedEmployees(year, week, day, shift);
-                foreach (Employee employee in store.employeeManagement.EnlistedEmployee)
-                {
-                    lstEmpEnlisted.Items.Add(employee);
-                }
+                
             }
             catch
             {
@@ -358,85 +454,70 @@ namespace AdminBackups
             {
                 return;
             }
-            Employee employee = (Employee)EmployeeObject;
-            int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
-            int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
-            DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
-            DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
-            int year = Convert.ToInt32(txtPlanningYear.Text);
-            int week = Convert.ToInt32(lblPlanningWeek.Text);
-            string day = Convert.ToString(selectedRow.Cells["Day"].Value);
-            string shift = Convert.ToString(selectedColumn.Name);
-
-            store.planningManagment.AddPlanning(year, week, day, shift, employee.EmployeeID);
-
-            lstEmpCanWork.Items.Clear();
-            store.employeeManagement.GetAvailableEmployees(week, day, shift);
-            foreach (Employee emp in store.employeeManagement.AvailableEmployee)
+            try
             {
-                lstEmpCanWork.Items.Add(emp);
-            }
+                string department = cbDepartments.Text;
+                Employee employee = (Employee)EmployeeObject;
+                int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
+                int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
+                DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
+                DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
+                int year = Convert.ToInt32(txtPlanningYear.Text);
+                int week = Convert.ToInt32(lblPlanningWeek.Text);
+                string day = Convert.ToString(selectedRow.Cells["Day"].Value);
+                string shift = Convert.ToString(selectedColumn.Name);
 
-            lstEmpEnlisted.Items.Clear();
-            store.employeeManagement.GetEnlistedEmployees(year, week, day, shift);
-            foreach (Employee emp in store.employeeManagement.EnlistedEmployee)
+                if (c.RegisterEmployee(department, year, week, day, shift, employee))
+                {
+                    UpdateEmployeeList();
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong!");
+                }
+            }
+            catch (Exception)
             {
-                lstEmpEnlisted.Items.Add(emp);
+                MessageBox.Show("Invalid input!");
             }
-
+            
         }
 
         private void btnRemoveFromSchedule_Click(object sender, EventArgs e)
         {
-
-        }
-
-        //Supplier
-        private void UpdateSupplier()
-        {
-            //dgOverviewSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
-            //dgSupplier.DataSource = store.supplierManagment.ViewAllSuppliers();
-        }
-        private void dgSupplier_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
+            Object EmployeeObject = lstEmpEnlisted.SelectedItem;
+            if (!(EmployeeObject is Employee))
             {
-                DataGridViewRow row = dgSupplier.Rows[e.RowIndex];
-                txtSupplierID.Text = row.Cells["SupplierID"].Value.ToString();
-                txtSupplierName.Text = row.Cells["SupplierName"].Value.ToString();
-                txtCountry.Text = row.Cells["Country"].Value.ToString();
-                txtBuildingNumber.Text = row.Cells["BuildingNumber"].Value.ToString();
-                txtPostalCode.Text = row.Cells["PostalCode"].Value.ToString();
-                txtEmail.Text = row.Cells["Email"].Value.ToString();
-                txtPhoneNumber.Text = row.Cells["PhoneNumber"].Value.ToString();
-                txtBankNumber.Text = row.Cells["BankNumber"].Value.ToString();
+                return;
             }
-        }
-        private void btnAddSupplier_Click(object sender, EventArgs e)
-        {
-            
-        }
-        private void btnEditSupplier_Click(object sender, EventArgs e)
-        {
-            
-        }
-        private void btnRemoveSupplier_Click(object sender, EventArgs e)
-        {
-            
-        }
-        private void btnOrderInfo_Click(object sender, EventArgs e)
-        {
-            string supplierID = txtSupplierID.Text;
             try
             {
-                //FormOrderInfo formOrderInfo = new FormOrderInfo(Convert.ToInt32(supplierID));
-                //formOrderInfo.Show();
+                string department = cbDepartments.Text;
+                Employee employee = (Employee)EmployeeObject;
+                int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
+                int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
+                DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
+                DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
+                int year = Convert.ToInt32(txtPlanningYear.Text);
+                int week = Convert.ToInt32(lblPlanningWeek.Text);
+                string day = Convert.ToString(selectedRow.Cells["Day"].Value);
+                string shift = Convert.ToString(selectedColumn.Name);
+
+                if (c.DeRegisterEmployee(year, week, day, shift, employee))
+                {
+                    UpdateEmployeeList();
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong!");
+                }
             }
             catch (Exception)
             {
-                MessageBox.Show("Select supplier");
+                MessageBox.Show("Invalid input!");
             }
         }
+
 
         private void btnAutoSchedule_Click(object sender, EventArgs e)
         {
@@ -453,11 +534,11 @@ namespace AdminBackups
             {
                 week = Convert.ToInt32(lblPlanningWeek.Text);
                 year = Convert.ToInt32(txtPlanningYear.Text);
-            } 
-            catch 
+            }
+            catch
             { }
 
-            depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week,year, department);
+            depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
 
             progressBar1.Maximum = 59;
 

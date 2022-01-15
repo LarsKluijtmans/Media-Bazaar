@@ -11,11 +11,11 @@ namespace ClassLibraryProject.ManagmentClasses
 {
     public class ScheduleManagment: IScheduleAllManager, IGetSchedule
     {
-        private IDBSchedule dbSchedule;
+        private IDBSchedule db;
 
-        public ScheduleManagment(IDBSchedule db)
+        public ScheduleManagment(IDBSchedule dbSchedule)
         {
-            dbSchedule = db;
+            db = dbSchedule;
         }
 
         //read
@@ -23,15 +23,18 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             List<Schedule> schedules = new List<Schedule>();
 
-            if(GetSchedule(department, year, week) != null)
+            foreach (Schedule schedule in db.GetSchedules())
             {
-                schedules.Add(GetSchedule(department, year, week));
+                if (schedule.Department == department && schedule.Year == year && schedule.Week == week)
+                {
+                    schedules.Add(schedule);
+                }
             }
             return schedules;
         }
         public Schedule GetSchedule(string department, int year, int week)
         {
-            foreach (Schedule schedule in dbSchedule.GetSchedules())
+            foreach (Schedule schedule in db.GetSchedules())
             {
                 if (schedule.Department == department && schedule.Year == year && schedule.Week == week)
                 {
@@ -46,7 +49,7 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             if (!WeekExist(department, year, week))
             {
-                if(dbSchedule.CreateWeek(department, year, week) == true)
+                if(db.CreateWeek(department, year, week) == true)
                 {
                     return true; 
                 }
@@ -61,7 +64,7 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             if(WeekExist(department, year, week))
             {
-                if(dbSchedule.UpdateSchedule(department, year, week, day, morningAmount, afternoonAmount, eveningAmount) == true)
+                if(db.UpdateSchedule(department, year, week, day, morningAmount, afternoonAmount, eveningAmount) == true)
                 {
                     return true;
                 }

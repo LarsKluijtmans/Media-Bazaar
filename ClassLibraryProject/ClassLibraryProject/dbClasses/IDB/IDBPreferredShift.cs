@@ -7,8 +7,8 @@ namespace ClassLibraryProject.dbClasses.IDB
 {
     public interface IDBPreferredShift
     {
-        bool PreferAShift(int year, int week, string day, string shift, Employee employee);
-        bool DeletePreferredShift(int year, int week, string day, string shift, Employee employee);
-        PreferredShift GetPreferredShift(int year, int week, string day, string shift);
+        bool PreferAShift(int week, string day, string shift, Employee employee);
+        bool DeletePreferredShift(int week, string day, string shift, Employee employee);
+        PreferredShift GetPreferredShift(int week, string day, string shift);
     }
 }

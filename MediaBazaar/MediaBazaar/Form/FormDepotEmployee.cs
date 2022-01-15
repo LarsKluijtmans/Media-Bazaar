@@ -39,7 +39,7 @@ namespace AdminBackups
         }
 
         //Reshelf
-        public void UpdatePendingRequests()
+        private void UpdatePendingRequests()
         {
             DataTable table = new DataTable();
 
@@ -81,6 +81,10 @@ namespace AdminBackups
         {
             UpdatePendingRequests();
 
+            txtAmountRequested.Text = "";
+            txtBarcode.Text = "";
+            txtReshelfID.Text = "";
+
             btnFufillReshelveRequest.Show();
             btnDeleteReshelveRequest.Show();
         }
@@ -88,6 +92,10 @@ namespace AdminBackups
         private void rbHistory_Click(object sender, EventArgs e)
         {
             UpdateHistory();
+
+            txtAmountRequested.Text = "";
+            txtBarcode.Text = "";
+            txtReshelfID.Text = "";
 
             btnDeleteReshelveRequest.Hide();
             btnFufillReshelveRequest.Hide();

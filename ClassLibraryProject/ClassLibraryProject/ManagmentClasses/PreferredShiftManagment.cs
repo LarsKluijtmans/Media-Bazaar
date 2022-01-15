@@ -13,11 +13,11 @@ namespace ClassLibraryProject.ManagmentClasses
             db = dbPreferredShift;
         }
 
-        public bool PreferAShift(int year, int week, string day, string shift, Employee employee)
+        public bool PreferAShift(int week, string day, string shift, Employee employee)
         {
-            if (!EmployeeWantsToWorkExist(year, week, day, shift, employee))
+            if (!EmployeeWantsToWorkExist(week, day, shift, employee))
             {
-                if (db.PreferAShift(year, week, day, shift, employee) == true)
+                if (db.PreferAShift(week, day, shift, employee) == true)
                 {
                     return true;
                 }
@@ -25,11 +25,11 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return false;
         }
-        public bool DeRegisterEmployee(int year, int week, string day, string shift, Employee employee)
+        public bool DeRegisterEmployee(int week, string day, string shift, Employee employee)
         {
-            if (EmployeeWantsToWorkExist(year, week, day, shift, employee))
+            if (EmployeeWantsToWorkExist(week, day, shift, employee))
             {
-                if (db.DeletePreferredShift(year, week, day, shift, employee))
+                if (db.DeletePreferredShift(week, day, shift, employee))
                 {
                     return true;
                 }
@@ -38,13 +38,13 @@ namespace ClassLibraryProject.ManagmentClasses
             return false;
         }
 
-        public PreferredShift GetPreferredShift(int year, int week, string day, string shift)
+        public PreferredShift GetPreferredShift(int week, string day, string shift)
         {
-            return db.GetPreferredShift(year, week, day, shift);
+            return db.GetPreferredShift(week, day, shift);
         }
-        private Employee EmployeeWantsToWork(int year, int week, string day, string shift, Employee employee)
+        private Employee EmployeeWantsToWork(int week, string day, string shift, Employee employee)
         {
-            PreferredShift rs = GetPreferredShift(year, week, day, shift);
+            PreferredShift rs = GetPreferredShift(week, day, shift);
             foreach (Employee e in rs.Employees)
             {
                 if (e == employee)
@@ -54,9 +54,9 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return null;
         }
-        private bool EmployeeWantsToWorkExist(int year, int week, string day, string shift, Employee employee)
+        private bool EmployeeWantsToWorkExist(int week, string day, string shift, Employee employee)
         {
-            if (EmployeeWantsToWork(year, week, day, shift, employee) != null)
+            if (EmployeeWantsToWork(week, day, shift, employee) != null)
             {
                 return true;
             }

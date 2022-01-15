@@ -32,6 +32,7 @@ namespace AdminBackups
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.cbDepartments = new System.Windows.Forms.ComboBox();
             this.btnAutoSchedule = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
@@ -74,9 +75,7 @@ namespace AdminBackups
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCurrentAmount = new System.Windows.Forms.Label();
             this.txtBarcode = new System.Windows.Forms.Label();
-            this.txtProductID = new System.Windows.Forms.Label();
             this.txtRestockID = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOrderRestock = new System.Windows.Forms.Button();
@@ -85,40 +84,12 @@ namespace AdminBackups
             this.label15 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabOverview = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
-            this.dgOverviewSupplier = new System.Windows.Forms.DataGridView();
             this.dgOverviewRestock = new System.Windows.Forms.DataGridView();
             this.lstEmployeesWorkingToday = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
-            this.tabSupplier = new System.Windows.Forms.TabPage();
-            this.dgSupplier = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnAddNewOrder = new System.Windows.Forms.Button();
-            this.btnOrderInfo = new System.Windows.Forms.Button();
-            this.btnAddSupplier = new System.Windows.Forms.Button();
-            this.txtPostalCode = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtCountry = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtSupplierID = new System.Windows.Forms.Label();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtBuildingNumber = new System.Windows.Forms.TextBox();
-            this.txtBankNumber = new System.Windows.Forms.TextBox();
-            this.txtSupplierName = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.btnEditSupplier = new System.Windows.Forms.Button();
-            this.label26 = new System.Windows.Forms.Label();
-            this.btnRemoveSupplier = new System.Windows.Forms.Button();
-            this.label27 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
             this.tabSchedule.SuspendLayout();
@@ -129,12 +100,8 @@ namespace AdminBackups
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewRestock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).BeginInit();
-            this.tabSupplier.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSupplier)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -182,6 +149,13 @@ namespace AdminBackups
             this.tabPlanning.TabIndex = 11;
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(588, 405);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(436, 23);
+            this.progressBar1.TabIndex = 82;
             // 
             // cbDepartments
             // 
@@ -592,9 +566,7 @@ namespace AdminBackups
             // 
             this.groupBox1.Controls.Add(this.txtCurrentAmount);
             this.groupBox1.Controls.Add(this.txtBarcode);
-            this.groupBox1.Controls.Add(this.txtProductID);
             this.groupBox1.Controls.Add(this.txtRestockID);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnOrderRestock);
@@ -612,7 +584,7 @@ namespace AdminBackups
             // 
             this.txtCurrentAmount.AutoSize = true;
             this.txtCurrentAmount.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCurrentAmount.Location = new System.Drawing.Point(136, 135);
+            this.txtCurrentAmount.Location = new System.Drawing.Point(136, 104);
             this.txtCurrentAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtCurrentAmount.Name = "txtCurrentAmount";
             this.txtCurrentAmount.Size = new System.Drawing.Size(53, 17);
@@ -623,23 +595,12 @@ namespace AdminBackups
             // 
             this.txtBarcode.AutoSize = true;
             this.txtBarcode.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBarcode.Location = new System.Drawing.Point(136, 106);
+            this.txtBarcode.Location = new System.Drawing.Point(136, 75);
             this.txtBarcode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(56, 17);
             this.txtBarcode.TabIndex = 92;
             this.txtBarcode.Text = "Barcode";
-            // 
-            // txtProductID
-            // 
-            this.txtProductID.AutoSize = true;
-            this.txtProductID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProductID.Location = new System.Drawing.Point(136, 79);
-            this.txtProductID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(65, 17);
-            this.txtProductID.TabIndex = 91;
-            this.txtProductID.Text = "ProductID";
             // 
             // txtRestockID
             // 
@@ -651,17 +612,6 @@ namespace AdminBackups
             this.txtRestockID.Size = new System.Drawing.Size(65, 17);
             this.txtRestockID.TabIndex = 90;
             this.txtRestockID.Text = "RestockID";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(60, 79);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 17);
-            this.label8.TabIndex = 89;
-            this.label8.Text = "Product ID:";
             // 
             // label14
             // 
@@ -678,7 +628,7 @@ namespace AdminBackups
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(73, 106);
+            this.label1.Location = new System.Drawing.Point(73, 75);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 17);
@@ -688,7 +638,7 @@ namespace AdminBackups
             // btnOrderRestock
             // 
             this.btnOrderRestock.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnOrderRestock.Location = new System.Drawing.Point(32, 178);
+            this.btnOrderRestock.Location = new System.Drawing.Point(32, 147);
             this.btnOrderRestock.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnOrderRestock.Name = "btnOrderRestock";
             this.btnOrderRestock.Size = new System.Drawing.Size(176, 30);
@@ -701,7 +651,7 @@ namespace AdminBackups
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(29, 135);
+            this.label9.Location = new System.Drawing.Point(29, 104);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(103, 17);
@@ -712,7 +662,7 @@ namespace AdminBackups
             // 
             this.btnDeleteRestockRequest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnDeleteRestockRequest.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDeleteRestockRequest.Location = new System.Drawing.Point(32, 210);
+            this.btnDeleteRestockRequest.Location = new System.Drawing.Point(32, 179);
             this.btnDeleteRestockRequest.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnDeleteRestockRequest.Name = "btnDeleteRestockRequest";
             this.btnDeleteRestockRequest.Size = new System.Drawing.Size(176, 30);
@@ -737,7 +687,6 @@ namespace AdminBackups
             this.tabControl1.Controls.Add(this.tabRestock);
             this.tabControl1.Controls.Add(this.tabSchedule);
             this.tabControl1.Controls.Add(this.tabPlanning);
-            this.tabControl1.Controls.Add(this.tabSupplier);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.Location = new System.Drawing.Point(33, 30);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -748,8 +697,6 @@ namespace AdminBackups
             // 
             // tabOverview
             // 
-            this.tabOverview.Controls.Add(this.label13);
-            this.tabOverview.Controls.Add(this.dgOverviewSupplier);
             this.tabOverview.Controls.Add(this.dgOverviewRestock);
             this.tabOverview.Controls.Add(this.lstEmployeesWorkingToday);
             this.tabOverview.Controls.Add(this.label12);
@@ -763,27 +710,6 @@ namespace AdminBackups
             this.tabOverview.TabIndex = 12;
             this.tabOverview.Text = "Overview";
             this.tabOverview.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(520, 290);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(71, 21);
-            this.label13.TabIndex = 92;
-            this.label13.Text = "Supplier:";
-            // 
-            // dgOverviewSupplier
-            // 
-            this.dgOverviewSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgOverviewSupplier.Location = new System.Drawing.Point(520, 314);
-            this.dgOverviewSupplier.Name = "dgOverviewSupplier";
-            this.dgOverviewSupplier.RowHeadersWidth = 51;
-            this.dgOverviewSupplier.RowTemplate.Height = 25;
-            this.dgOverviewSupplier.Size = new System.Drawing.Size(410, 190);
-            this.dgOverviewSupplier.TabIndex = 91;
-            this.dgOverviewSupplier.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // dgOverviewRestock
             // 
@@ -803,7 +729,7 @@ namespace AdminBackups
             this.lstEmployeesWorkingToday.ItemHeight = 17;
             this.lstEmployeesWorkingToday.Location = new System.Drawing.Point(528, 27);
             this.lstEmployeesWorkingToday.Name = "lstEmployeesWorkingToday";
-            this.lstEmployeesWorkingToday.Size = new System.Drawing.Size(402, 242);
+            this.lstEmployeesWorkingToday.Size = new System.Drawing.Size(402, 463);
             this.lstEmployeesWorkingToday.TabIndex = 89;
             this.lstEmployeesWorkingToday.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstEmployeesWorkingToday_MouseDoubleClick);
             // 
@@ -846,293 +772,6 @@ namespace AdminBackups
             this.dgOverviewSchedule.TabIndex = 13;
             this.dgOverviewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewSchedule_CellDoubleClick);
             // 
-            // tabSupplier
-            // 
-            this.tabSupplier.Controls.Add(this.dgSupplier);
-            this.tabSupplier.Controls.Add(this.groupBox3);
-            this.tabSupplier.Controls.Add(this.label27);
-            this.tabSupplier.Location = new System.Drawing.Point(4, 30);
-            this.tabSupplier.Name = "tabSupplier";
-            this.tabSupplier.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSupplier.Size = new System.Drawing.Size(1051, 529);
-            this.tabSupplier.TabIndex = 13;
-            this.tabSupplier.Text = "Supplier";
-            this.tabSupplier.UseVisualStyleBackColor = true;
-            // 
-            // dgSupplier
-            // 
-            this.dgSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSupplier.Location = new System.Drawing.Point(26, 48);
-            this.dgSupplier.Name = "dgSupplier";
-            this.dgSupplier.RowHeadersWidth = 51;
-            this.dgSupplier.RowTemplate.Height = 25;
-            this.dgSupplier.Size = new System.Drawing.Size(603, 386);
-            this.dgSupplier.TabIndex = 96;
-            this.dgSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSupplier_CellClick);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnAddNewOrder);
-            this.groupBox3.Controls.Add(this.btnOrderInfo);
-            this.groupBox3.Controls.Add(this.btnAddSupplier);
-            this.groupBox3.Controls.Add(this.txtPostalCode);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.txtCountry);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.txtSupplierID);
-            this.groupBox3.Controls.Add(this.txtPhoneNumber);
-            this.groupBox3.Controls.Add(this.txtEmail);
-            this.groupBox3.Controls.Add(this.txtBuildingNumber);
-            this.groupBox3.Controls.Add(this.txtBankNumber);
-            this.groupBox3.Controls.Add(this.txtSupplierName);
-            this.groupBox3.Controls.Add(this.label31);
-            this.groupBox3.Controls.Add(this.label29);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.label21);
-            this.groupBox3.Controls.Add(this.label25);
-            this.groupBox3.Controls.Add(this.btnEditSupplier);
-            this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Controls.Add(this.btnRemoveSupplier);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(664, 23);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(352, 383);
-            this.groupBox3.TabIndex = 93;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Supplier Management";
-            // 
-            // btnAddNewOrder
-            // 
-            this.btnAddNewOrder.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddNewOrder.Location = new System.Drawing.Point(220, 337);
-            this.btnAddNewOrder.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnAddNewOrder.Name = "btnAddNewOrder";
-            this.btnAddNewOrder.Size = new System.Drawing.Size(126, 30);
-            this.btnAddNewOrder.TabIndex = 110;
-            this.btnAddNewOrder.Text = "Add New Order";
-            this.btnAddNewOrder.UseVisualStyleBackColor = true;
-            // 
-            // btnOrderInfo
-            // 
-            this.btnOrderInfo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnOrderInfo.Location = new System.Drawing.Point(90, 337);
-            this.btnOrderInfo.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnOrderInfo.Name = "btnOrderInfo";
-            this.btnOrderInfo.Size = new System.Drawing.Size(126, 30);
-            this.btnOrderInfo.TabIndex = 109;
-            this.btnOrderInfo.Text = "Order Info";
-            this.btnOrderInfo.UseVisualStyleBackColor = true;
-            this.btnOrderInfo.Click += new System.EventHandler(this.btnOrderInfo_Click);
-            // 
-            // btnAddSupplier
-            // 
-            this.btnAddSupplier.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddSupplier.Location = new System.Drawing.Point(89, 273);
-            this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(127, 30);
-            this.btnAddSupplier.TabIndex = 108;
-            this.btnAddSupplier.Text = "Add Supplier";
-            this.btnAddSupplier.UseVisualStyleBackColor = true;
-            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
-            // 
-            // txtPostalCode
-            // 
-            this.txtPostalCode.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPostalCode.Location = new System.Drawing.Point(281, 169);
-            this.txtPostalCode.Name = "txtPostalCode";
-            this.txtPostalCode.Size = new System.Drawing.Size(54, 25);
-            this.txtPostalCode.TabIndex = 107;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(195, 172);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(81, 17);
-            this.label17.TabIndex = 106;
-            this.label17.Text = "Postal Code:";
-            // 
-            // txtCountry
-            // 
-            this.txtCountry.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCountry.Location = new System.Drawing.Point(137, 138);
-            this.txtCountry.Name = "txtCountry";
-            this.txtCountry.Size = new System.Drawing.Size(198, 25);
-            this.txtCountry.TabIndex = 105;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(76, 141);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(56, 17);
-            this.label16.TabIndex = 104;
-            this.label16.Text = "Country:";
-            // 
-            // txtSupplierID
-            // 
-            this.txtSupplierID.AutoSize = true;
-            this.txtSupplierID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSupplierID.Location = new System.Drawing.Point(137, 47);
-            this.txtSupplierID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtSupplierID.Name = "txtSupplierID";
-            this.txtSupplierID.Size = new System.Drawing.Size(20, 17);
-            this.txtSupplierID.TabIndex = 103;
-            this.txtSupplierID.Text = "ID";
-            // 
-            // txtPhoneNumber
-            // 
-            this.txtPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPhoneNumber.Location = new System.Drawing.Point(137, 232);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(198, 25);
-            this.txtPhoneNumber.TabIndex = 102;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEmail.Location = new System.Drawing.Point(137, 201);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(198, 25);
-            this.txtEmail.TabIndex = 101;
-            // 
-            // txtBuildingNumber
-            // 
-            this.txtBuildingNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBuildingNumber.Location = new System.Drawing.Point(137, 169);
-            this.txtBuildingNumber.Name = "txtBuildingNumber";
-            this.txtBuildingNumber.Size = new System.Drawing.Size(53, 25);
-            this.txtBuildingNumber.TabIndex = 100;
-            // 
-            // txtBankNumber
-            // 
-            this.txtBankNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBankNumber.Location = new System.Drawing.Point(137, 107);
-            this.txtBankNumber.Name = "txtBankNumber";
-            this.txtBankNumber.Size = new System.Drawing.Size(198, 25);
-            this.txtBankNumber.TabIndex = 99;
-            // 
-            // txtSupplierName
-            // 
-            this.txtSupplierName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSupplierName.Location = new System.Drawing.Point(137, 76);
-            this.txtSupplierName.Name = "txtSupplierName";
-            this.txtSupplierName.Size = new System.Drawing.Size(198, 25);
-            this.txtSupplierName.TabIndex = 98;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label31.Location = new System.Drawing.Point(33, 235);
-            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(99, 17);
-            this.label31.TabIndex = 96;
-            this.label31.Text = "Phone Number:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label29.Location = new System.Drawing.Point(90, 204);
-            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(42, 17);
-            this.label29.TabIndex = 94;
-            this.label29.Text = "Email:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(86, 79);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(46, 17);
-            this.label20.TabIndex = 89;
-            this.label20.Text = "Name:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label21.Location = new System.Drawing.Point(57, 47);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(75, 17);
-            this.label21.TabIndex = 69;
-            this.label21.Text = "Supplier ID:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label25.Location = new System.Drawing.Point(42, 110);
-            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(90, 17);
-            this.label25.TabIndex = 87;
-            this.label25.Text = "Bank Number:";
-            // 
-            // btnEditSupplier
-            // 
-            this.btnEditSupplier.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditSupplier.Location = new System.Drawing.Point(220, 273);
-            this.btnEditSupplier.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnEditSupplier.Name = "btnEditSupplier";
-            this.btnEditSupplier.Size = new System.Drawing.Size(127, 30);
-            this.btnEditSupplier.TabIndex = 70;
-            this.btnEditSupplier.Text = "Update Supplier";
-            this.btnEditSupplier.UseVisualStyleBackColor = true;
-            this.btnEditSupplier.Click += new System.EventHandler(this.btnEditSupplier_Click);
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label26.Location = new System.Drawing.Point(23, 172);
-            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(109, 17);
-            this.label26.TabIndex = 79;
-            this.label26.Text = "Building Number:";
-            // 
-            // btnRemoveSupplier
-            // 
-            this.btnRemoveSupplier.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRemoveSupplier.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemoveSupplier.Location = new System.Drawing.Point(158, 305);
-            this.btnRemoveSupplier.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnRemoveSupplier.Name = "btnRemoveSupplier";
-            this.btnRemoveSupplier.Size = new System.Drawing.Size(127, 30);
-            this.btnRemoveSupplier.TabIndex = 84;
-            this.btnRemoveSupplier.Text = "Remove Supplier";
-            this.btnRemoveSupplier.UseVisualStyleBackColor = true;
-            this.btnRemoveSupplier.Click += new System.EventHandler(this.btnRemoveSupplier_Click);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label27.Location = new System.Drawing.Point(26, 23);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(71, 21);
-            this.label27.TabIndex = 92;
-            this.label27.Text = "Supplier:";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(588, 405);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(436, 23);
-            this.progressBar1.TabIndex = 82;
-            // 
             // FormDepotManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1143,6 +782,7 @@ namespace AdminBackups
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormDepotManager";
             this.Text = "DepotManager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDepotManager_FormClosing);
             this.tabPlanning.ResumeLayout(false);
             this.tabPlanning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).EndInit();
@@ -1159,14 +799,8 @@ namespace AdminBackups
             this.tabControl1.ResumeLayout(false);
             this.tabOverview.ResumeLayout(false);
             this.tabOverview.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewRestock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgOverviewSchedule)).EndInit();
-            this.tabSupplier.ResumeLayout(false);
-            this.tabSupplier.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSupplier)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1201,7 +835,6 @@ namespace AdminBackups
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabPage tabOverview;
         private System.Windows.Forms.ListBox lstEmployeesWorkingToday;
         private System.Windows.Forms.Label label12;
@@ -1214,36 +847,10 @@ namespace AdminBackups
         private System.Windows.Forms.DataGridView dgRestock;
         private System.Windows.Forms.DataGridView dgOverviewRestock;
         private System.Windows.Forms.Label txtBarcode;
-        private System.Windows.Forms.Label txtProductID;
         private System.Windows.Forms.Label txtRestockID;
         private System.Windows.Forms.Label lbScheduleDay;
-        private System.Windows.Forms.TabPage tabSupplier;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridView dgOverviewSupplier;
-        private System.Windows.Forms.DataGridView dgSupplier;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtBuildingNumber;
-        private System.Windows.Forms.TextBox txtBankNumber;
-        private System.Windows.Forms.TextBox txtSupplierName;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Button btnEditSupplier;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button btnRemoveSupplier;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label txtSupplierID;
-        private System.Windows.Forms.TextBox txtPostalCode;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox txtCountry;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label txtCurrentAmount;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnAddSupplier;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtYear;
@@ -1256,8 +863,6 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnDecreasePlanningWeek;
         private System.Windows.Forms.Button btnIncreasePlanningWeek;
         private System.Windows.Forms.Label lblPlanningWeek;
-        private System.Windows.Forms.Button btnOrderInfo;
-        private System.Windows.Forms.Button btnAddNewOrder;
         private System.Windows.Forms.ComboBox cbDepartments;
         private System.Windows.Forms.Button btnAutoSchedule;
         private System.Windows.Forms.ComboBox cbSchebuleByDepartment;
