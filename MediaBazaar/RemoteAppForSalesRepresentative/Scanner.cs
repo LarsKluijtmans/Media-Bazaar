@@ -50,7 +50,10 @@ namespace RemoteAppForSalesRepresentative
                     return false;
                 }
             }
-            catch { return false; }
+            catch (Exception)
+            { 
+                return false;
+            }
         }
         private void btnRequest_Click(object sender, EventArgs e)
         {

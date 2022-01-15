@@ -54,7 +54,10 @@ namespace RemoteAppForDepotEmployee
                     return false;
                 }
             }
-            catch { return false; }
+            catch 
+            { 
+                return false;
+            }
         }
         private void timerUpdate_Tick(object sender, EventArgs e)
         {
