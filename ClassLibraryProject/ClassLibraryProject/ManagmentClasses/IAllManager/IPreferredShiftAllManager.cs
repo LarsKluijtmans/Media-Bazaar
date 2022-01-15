@@ -7,6 +7,6 @@ namespace ClassLibraryProject.ManagmentClasses.IAllManager
 {
     public interface IPreferredShiftAllManager
     {
-        PreferredShift GetPreferredShift(int week, string day, string shift);
+        PreferredShift GetPreferredShift(string day, string shift);
     }
 }

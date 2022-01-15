@@ -353,7 +353,7 @@ namespace AdminBackups
             string shift = Convert.ToString(selectedColumn.Name);
 
             lstEmpCanWork.Items.Clear();
-            foreach (Employee employee in c.GetPreferredShift(week, day, shift).Employees)
+            foreach (Employee employee in c.GetPreferredShift(day, shift).Employees)
             {
                 lstEmpCanWork.Items.Add(employee);
             }

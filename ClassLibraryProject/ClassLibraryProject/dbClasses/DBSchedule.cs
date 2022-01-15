@@ -137,6 +137,22 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numAffectedRows > 0)
                 {
+                    Schedule schedule1 = new Schedule(department, year, week, "Sunday");
+                    Schedule schedule2 = new Schedule(department, year, week, "Monday");
+                    Schedule schedule3 = new Schedule(department, year, week, "Tuesday");
+                    Schedule schedule4 = new Schedule(department, year, week, "Wednesday");
+                    Schedule schedule5 = new Schedule(department, year, week, "Thursday");
+                    Schedule schedule6 = new Schedule(department, year, week, "Friday");
+                    Schedule schedule7 = new Schedule(department, year, week, "Saturday");
+
+                    schedules.Add(schedule1);
+                    schedules.Add(schedule2);
+                    schedules.Add(schedule3);
+                    schedules.Add(schedule4);
+                    schedules.Add(schedule5);
+                    schedules.Add(schedule6);
+                    schedules.Add(schedule7);
+
                     return true;
                 }
                 return false;
@@ -148,7 +164,6 @@ namespace ClassLibraryProject.dbClasses
             finally
             {
                 conn.Close();
-                GetAllSchedules();
             }
         }
     }
