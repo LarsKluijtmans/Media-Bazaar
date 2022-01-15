@@ -63,6 +63,7 @@ namespace ClassLibraryProject.ManagmentClasses
             {
                 if (db.DeleteRestock(id) == true)
                 {
+                    db.GetRestockRequests().Remove(GetRestockByID(id));
                     return true;
                 }
                 return false;

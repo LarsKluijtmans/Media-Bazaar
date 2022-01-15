@@ -151,7 +151,17 @@ namespace MediaBazaar
                 MessageBox.Show("Selling Price cannot be empty");
                 return false;
             }
-            product.SellingPrice = Convert.ToDouble(tbxSellingPrice.Text);
+
+            try
+            {
+                product.SellingPrice = Convert.ToDouble(tbxSellingPrice.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid selling Price");
+                return false;
+            }
+
             if (product.SellingPrice == 0)
             {
                 MessageBox.Show("Please enter a selling price");

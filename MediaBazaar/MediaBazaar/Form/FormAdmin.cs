@@ -2,9 +2,9 @@
 using ClassLibraryProject.Class;
 using System;
 using System.Data;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Linq;
 
 namespace AdminBackups
 {
@@ -143,7 +143,17 @@ namespace AdminBackups
                 MessageBox.Show("Please enter a valid BSN");
                 return;
             }
-            int bsn = Convert.ToInt32(tbxBSN.Text);
+
+            int bsn = 0;
+            try
+            {
+                bsn = Convert.ToInt32(tbxBSN.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid bsne");
+                return;
+            }
 
             string username = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
             string password = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
@@ -200,18 +210,28 @@ namespace AdminBackups
 
             string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
 
-           // get job title
-           string jobTitle = cbxJobTitle.Text;
+            // get job title
+            string jobTitle = cbxJobTitle.Text;
 
-           Employee newEmployee = admin.EmployeeManagerAdmin.GetEmployeeID(email, jobTitle);
+            Employee newEmployee = admin.EmployeeManagerAdmin.GetEmployeeID(email, jobTitle);
 
-           // get input for contract
+            // get input for contract
             if (string.IsNullOrEmpty(tbxWorkHours.Text))
             {
                 MessageBox.Show("Please enter work hours per week");
                 return false;
             }
-            int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+
+            int workHoursPerWeek = 0;
+            try
+            {
+                workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid work hours");
+                return false;
+            }
             if (workHoursPerWeek % 4 != 0)
             {
                 MessageBox.Show("Work hours has to be a multiple of 4");
@@ -233,8 +253,17 @@ namespace AdminBackups
                 MessageBox.Show("Please enter salary per hour");
                 return false;
             }
-            double salaryPerHour = Convert.ToDouble(tbxSalary.Text);
 
+            double salaryPerHour = 0;
+            try
+            {
+                salaryPerHour = Convert.ToDouble(tbxSalary.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid work hours");
+                return false;
+            }
 
             DateTime startDate = new DateTime(1000, 1, 1);
             try

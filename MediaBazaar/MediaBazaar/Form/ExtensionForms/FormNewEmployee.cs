@@ -127,7 +127,17 @@ namespace AdminBackups
                 MessageBox.Show("Please enter a valid BSN");
                 return;
             }
-            int bsn = Convert.ToInt32(tbxBSN.Text);
+
+            int bsn = 0;
+            try
+            {
+                bsn = Convert.ToInt32(tbxBSN.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid BSN");
+                return;
+            }
 
             string username = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
             string password = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
@@ -352,7 +362,17 @@ namespace AdminBackups
                 return false;
             }
 
-            int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+            int workHoursPerWeek = 0;
+            try
+            {
+                workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter valid work hours per week");
+                return false;
+            }
+
             if (workHoursPerWeek < 8)
             {
                 MessageBox.Show("Work hours has to be atleast 8");
@@ -448,9 +468,16 @@ namespace AdminBackups
                 }
 
                 var contractDays = (endDate - startDate).TotalDays;
-                if (contractDays > 365)
+                if (contractDays > 3650)
                 {
-                    MessageBox.Show("Contract length can be max 1 year");
+                    MessageBox.Show("Contract length can be max 10 year");
+                    return false;
+                }
+
+                var contractMonth = (endDate.Month - startDate.Month);
+                if (contractDays > 3)
+                {
+                    MessageBox.Show("Contract length can be min 3 months");
                     return false;
                 }
             }

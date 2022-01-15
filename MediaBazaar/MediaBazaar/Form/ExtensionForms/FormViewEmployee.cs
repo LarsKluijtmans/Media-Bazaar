@@ -244,7 +244,17 @@ namespace AdminBackups
                 MessageBox.Show("Please enter work hours per week");
                 return false;
             }
-            int workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+
+            int workHoursPerWeek = 0;
+            try
+            {
+                workHoursPerWeek = Convert.ToInt32(tbxWorkHours.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter valid work hours");
+                return false;
+            }
             if (workHoursPerWeek % 4 != 0)
             {
                 MessageBox.Show("Work hours has to be a multiple of 4");
@@ -271,7 +281,17 @@ namespace AdminBackups
                 MessageBox.Show("Please enter salary per hour");
                 return false;
             }
-            double salaryPerHour = Convert.ToDouble(tbxSalary.Text);
+
+            double salaryPerHour = 0;
+            try 
+            { 
+                salaryPerHour = Convert.ToDouble(tbxSalary.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter valid work hours");
+                return false;
+            }
             if (salaryPerHour < 5)
             {
                 MessageBox.Show("Min salary is 5");
@@ -316,9 +336,16 @@ namespace AdminBackups
                 }
 
                 var contractDays = (endDate - startDate).TotalDays;
-                if (contractDays > 365)
+                if (contractDays > 3650)
                 {
-                    MessageBox.Show("Contract length can be max 1 year");
+                    MessageBox.Show("Contract length can be max 10 year");
+                    return false;
+                }
+
+                var contractMonth = (endDate.Month - startDate.Month);
+                if (contractDays < 3)
+                {
+                    MessageBox.Show("Contract length can be min 3 months");
                     return false;
                 }
             }
@@ -420,12 +447,18 @@ namespace AdminBackups
                         cbxDepartment.Items.Add("Other");
                     }
                 }
+                cbxDepartment.Text = cbxDepartment.Items[0].ToString();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
 
+        }
+
+        private void tbxJobTitle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddDepartment();
         }
     }
 }

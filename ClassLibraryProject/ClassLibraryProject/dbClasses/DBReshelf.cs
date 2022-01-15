@@ -186,13 +186,6 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    foreach(Reshelf reshelf in reshelves)
-                    {
-                        if(reshelf.ID == id)
-                        {
-                            reshelves.Remove(reshelf);
-                        }
-                    }
                     return true;
                 }
                 return false;

@@ -7,7 +7,6 @@ namespace ClassLibraryProject.Class
     public class RegisteredShift
     {
         //fields
-        private string department;
         private int year;
         private int week;
         private string day;

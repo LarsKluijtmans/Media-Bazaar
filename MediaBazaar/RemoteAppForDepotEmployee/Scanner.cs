@@ -35,20 +35,27 @@ namespace RemoteAppForDepotEmployee
         }
         private bool UpdateProduct()
         {
-            Product p = control.GetProduct(txtBarcode.Text);
-
-            if (p != null)
+            try
             {
-                lbName.Text = p.ProductName;
-                lbAmount.Text = Convert.ToString(p.AmountInDepot);
+                Product p = control.GetProduct(txtBarcode.Text);
 
-                return true;
+                if (p != null)
+                {
+                    lbName.Text = p.ProductName;
+                    lbAmount.Text = Convert.ToString(p.AmountInDepot);
+
+                    return true;
+                }
+                else
+                {
+                    lbName.Text = "";
+                    lbAmount.Text = "";
+
+                    return false;
+                }
             }
-            else
-            {
-                lbName.Text = "";
-                lbAmount.Text = "";
-
+            catch 
+            { 
                 return false;
             }
         }
