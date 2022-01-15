@@ -96,7 +96,7 @@ namespace ClassLibraryProject.dbClasses
                 {
                     foreach(Schedule schedule in schedules)
                     {
-                        if(schedule.Department == department && schedule.Year == year && schedule.Week == week)
+                        if(schedule.Department == department && schedule.Year == year && schedule.Week == week && schedule.Day == day)
                         {
                             schedule.MorningAmount = morningAmount;
                             schedule.AfternoonAmount = afternoonAmount;
