@@ -579,3 +579,4 @@ F:\Study\Semester 2\PRJ\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBac
 F:\Study\Semester 2\PRJ\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormOrderRestock.resources
 >>>>>>> 8dd6a86858e72af737cc7ea946337a076d32866f
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormOrderRestock.resources
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\AdminBackups.FormOrderRestock.resources

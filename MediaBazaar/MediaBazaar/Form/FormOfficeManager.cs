@@ -209,7 +209,28 @@ namespace AdminBackups
         }
         private void DeleteEmployee()
         {
+            int employeeID = 0;
+            if (string.IsNullOrEmpty(tbxActiveEmployeeID.Text))
+            {
+                MessageBox.Show("Please select an employee");
+                return;
+            }
 
+            try
+            {
+                employeeID = Convert.ToInt32(tbxActiveEmployeeID.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please select an employee");
+                return;
+            }
+
+            Employee selectedEmployee = officeManager.EmployeeManagerOffice.GetEmployeeByID(employeeID);
+            Contract activeContract = officeManager.ContractManager.ReadContract(selectedEmployee);
+
+            FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(officeManager, selectedEmployee, activeContract);
+            formRemoveEmployee.Show();
         }
         private void cbxEmployeeType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -224,6 +245,10 @@ namespace AdminBackups
         {
             UpdateEmployee();
         }
+        private void btnDeleteEmployee_Click(object sender, EventArgs e)
+        {
+            DeleteEmployee();
+        }
         private void dgvEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -236,7 +261,7 @@ namespace AdminBackups
             }
         }
         /* Search Bar for employees */
-        private void tbxSearchEmployee_TextChanged(object sender, EventArgs e)
+            private void tbxSearchEmployee_TextChanged(object sender, EventArgs e)
         {
             string search = tbxSearchEmployee.Text;
 
@@ -446,6 +471,7 @@ namespace AdminBackups
                 Debug.WriteLine(ex);
             }
         }
+        
         /* End Employees*/
 
 
@@ -885,9 +911,6 @@ namespace AdminBackups
 
         }
 
-        private void btnDeleteEmployee_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

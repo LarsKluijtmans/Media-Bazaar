@@ -232,7 +232,42 @@ namespace ClassLibraryProject
 
         public bool DeleteEmployee(Employee e)
         {
-            throw new NotImplementedException();
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = UPDATE_EMPLOYEE;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@EmployeeID", e.EmployeeID);
+
+                cmd.Parameters.AddWithValue("@Active", 0);
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+
+                if (numCreatedRows == 1)
+                {
+                    return true;
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
         }
 
         public bool UpdateEmployee(Employee e)
@@ -265,6 +300,11 @@ namespace ClassLibraryProject
                 cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
+
+                if (numCreatedRows == 1)
+                {
+                    return true;
+                }
             }
             catch (MySqlException msqEx)
             {
@@ -282,7 +322,7 @@ namespace ClassLibraryProject
                 }
             }
 
-            return true;
+            return false;
         }
 
         public Employee GetEmployeeID(string givenEmail, string jobTitle)
