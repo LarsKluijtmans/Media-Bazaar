@@ -197,6 +197,7 @@ namespace AdminBackups
             this.Controls.Add(this.tbFolder);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MakeBackups";
             this.Text = "MakeBackups";
             this.Resize += new System.EventHandler(this.MakeBackups_Resize);

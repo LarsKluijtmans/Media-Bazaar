@@ -48,6 +48,7 @@ namespace AdminBackups
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.tabSchedule = new System.Windows.Forms.TabPage();
+            this.txtYear = new System.Windows.Forms.NumericUpDown();
             this.cbSchebuleByDepartment = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -69,6 +70,7 @@ namespace AdminBackups
             this.lbScheduleAfternoon = new System.Windows.Forms.TextBox();
             this.lbScheduleMorning = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
+            this.txtPlanningYear = new System.Windows.Forms.NumericUpDown();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnAutoSchedule = new System.Windows.Forms.Button();
             this.cbDepartments = new System.Windows.Forms.ComboBox();
@@ -85,8 +87,6 @@ namespace AdminBackups
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.txtYear = new System.Windows.Forms.NumericUpDown();
-            this.txtPlanningYear = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNewProducts)).BeginInit();
@@ -95,12 +95,12 @@ namespace AdminBackups
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.tabSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPlanning.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanningYear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -315,6 +315,28 @@ namespace AdminBackups
             this.tabSchedule.TabIndex = 4;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
+            // 
+            // txtYear
+            // 
+            this.txtYear.Location = new System.Drawing.Point(453, 44);
+            this.txtYear.Maximum = new decimal(new int[] {
+            2050,
+            0,
+            0,
+            0});
+            this.txtYear.Minimum = new decimal(new int[] {
+            2010,
+            0,
+            0,
+            0});
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(97, 29);
+            this.txtYear.TabIndex = 84;
+            this.txtYear.Value = new decimal(new int[] {
+            2022,
+            0,
+            0,
+            0});
             // 
             // cbSchebuleByDepartment
             // 
@@ -544,6 +566,28 @@ namespace AdminBackups
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
             // 
+            // txtPlanningYear
+            // 
+            this.txtPlanningYear.Location = new System.Drawing.Point(440, 37);
+            this.txtPlanningYear.Maximum = new decimal(new int[] {
+            2050,
+            0,
+            0,
+            0});
+            this.txtPlanningYear.Minimum = new decimal(new int[] {
+            2010,
+            0,
+            0,
+            0});
+            this.txtPlanningYear.Name = "txtPlanningYear";
+            this.txtPlanningYear.Size = new System.Drawing.Size(93, 29);
+            this.txtPlanningYear.TabIndex = 85;
+            this.txtPlanningYear.Value = new decimal(new int[] {
+            2022,
+            0,
+            0,
+            0});
+            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(574, 402);
@@ -699,50 +743,6 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // txtYear
-            // 
-            this.txtYear.Location = new System.Drawing.Point(453, 44);
-            this.txtYear.Maximum = new decimal(new int[] {
-            2050,
-            0,
-            0,
-            0});
-            this.txtYear.Minimum = new decimal(new int[] {
-            2010,
-            0,
-            0,
-            0});
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(97, 29);
-            this.txtYear.TabIndex = 84;
-            this.txtYear.Value = new decimal(new int[] {
-            2022,
-            0,
-            0,
-            0});
-            // 
-            // txtPlanningYear
-            // 
-            this.txtPlanningYear.Location = new System.Drawing.Point(440, 37);
-            this.txtPlanningYear.Maximum = new decimal(new int[] {
-            2050,
-            0,
-            0,
-            0});
-            this.txtPlanningYear.Minimum = new decimal(new int[] {
-            2010,
-            0,
-            0,
-            0});
-            this.txtPlanningYear.Name = "txtPlanningYear";
-            this.txtPlanningYear.Size = new System.Drawing.Size(93, 29);
-            this.txtPlanningYear.TabIndex = 85;
-            this.txtPlanningYear.Value = new decimal(new int[] {
-            2022,
-            0,
-            0,
-            0});
-            // 
             // FormSalesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -765,14 +765,14 @@ namespace AdminBackups
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.tabSchedule.ResumeLayout(false);
             this.tabSchedule.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPlanning.ResumeLayout(false);
             this.tabPlanning.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanningYear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -29,6 +29,7 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrderInfo));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbxMaxAmount = new System.Windows.Forms.TextBox();
@@ -204,6 +205,7 @@ namespace AdminBackups
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormOrderInfo";
             this.Text = "FormOrderInfo";
             this.ResumeLayout(false);
