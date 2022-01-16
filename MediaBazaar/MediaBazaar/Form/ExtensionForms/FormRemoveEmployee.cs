@@ -26,6 +26,8 @@ namespace AdminBackups
 
             this.Text = $"Remove {e.FirstName} {e.LastName}";
             lblEmployee.Text = $"{e.EmployeeID} - {e.FirstName} {e.LastName}";
+
+            tbxEndDate.Value = DateTime.Now;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,6 +38,10 @@ namespace AdminBackups
                 {
                     this.Close();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Contract dosn't exist");
             }
         }
         public bool MakeEmployeeInactive()
