@@ -96,8 +96,7 @@ namespace AdminBackups
             this.btnLogin.Enter += new System.EventHandler(this.btnLogin_Enter);
             // 
             // pictureBox1
-            // 
-            //this.pictureBox1.Image = global::MediaBazaar.Properties.Resources.MicrosoftTeams_image__1_;
+
             this.pictureBox1.Location = new System.Drawing.Point(10, 4);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
