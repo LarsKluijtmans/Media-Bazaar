@@ -137,13 +137,13 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numAffectedRows > 0)
                 {
-                    Schedule schedule1 = new Schedule(department, year, week, "Sunday");
                     Schedule schedule2 = new Schedule(department, year, week, "Monday");
                     Schedule schedule3 = new Schedule(department, year, week, "Tuesday");
                     Schedule schedule4 = new Schedule(department, year, week, "Wednesday");
                     Schedule schedule5 = new Schedule(department, year, week, "Thursday");
                     Schedule schedule6 = new Schedule(department, year, week, "Friday");
                     Schedule schedule7 = new Schedule(department, year, week, "Saturday");
+                    Schedule schedule1 = new Schedule(department, year, week, "Sunday");
 
                     schedules.Add(schedule1);
                     schedules.Add(schedule2);

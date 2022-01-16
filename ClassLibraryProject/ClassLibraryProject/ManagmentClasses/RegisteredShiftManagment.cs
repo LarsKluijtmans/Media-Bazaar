@@ -16,6 +16,10 @@ namespace ClassLibraryProject.ManagmentClasses
             this.schedule = schedule;
         }
 
+        public void GetAllRegisteredShift()
+        {
+            db.GetAllRegisteredShifts();
+        }
         public bool RegisterEmployee(string department, int year, int week, string day, string shift, int employeeID)
         {
             if (!RegisteredEmployeeExist(year, week, day, shift, employeeID))
@@ -101,7 +105,7 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return null;
         }
-        private bool RegisteredEmployeeExist(int year, int week, string day, string shift, int employeeID)
+        public bool RegisteredEmployeeExist(int year, int week, string day, string shift, int employeeID)
         {
             if (RegisteredEmployee(year, week, day, shift, employeeID) != null)
             {

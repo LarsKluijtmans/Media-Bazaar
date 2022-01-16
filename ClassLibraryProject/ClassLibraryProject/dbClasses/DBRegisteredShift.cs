@@ -30,7 +30,7 @@ namespace ClassLibraryProject.dbClasses
             GetAllEmployees();
             GetAllRegisteredShifts();
         }
-        private void GetAllRegisteredShifts()
+        public void GetAllRegisteredShifts()
         {
             registeredShifts.Clear();
 
