@@ -411,7 +411,7 @@ namespace AdminBackups
                 return;
             }
 
-            //  salesManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
+            salesManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
 
             progressBar1.Maximum = 59;
 
