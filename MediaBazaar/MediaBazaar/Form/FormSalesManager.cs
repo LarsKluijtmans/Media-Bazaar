@@ -109,7 +109,7 @@ namespace AdminBackups
         /* Products */
         private void dgProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            tabControl1.SelectTab(1);
+            
         }
         public void ReadNewProducts()
         {
@@ -163,6 +163,10 @@ namespace AdminBackups
             }
         }
         private void tbProductSearch_TextChanged(object sender, EventArgs e)
+        {
+            UserSearchbar();
+        }
+        public void UserSearchbar()
         {
             string search = tbProductSearch.Text;
 
@@ -492,7 +496,29 @@ namespace AdminBackups
 
         private void dgSchedule_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvNewProducts.Rows[e.RowIndex];
 
+                string productID = row.Cells["ProductID"].Value.ToString();
+
+                tbxSelectedProduct.Text = productID;
+            }
+            UpdateProduct();
+        }
+
+        private void dgvNewProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvNewProducts.Rows[e.RowIndex];
+
+                string productID = row.Cells["ProductID"].Value.ToString();
+
+                tbxSelectedProduct.Text = productID;
+            }
+
+            UpdateProduct();
         }
     }
 }
