@@ -78,8 +78,8 @@ namespace MediaBazaar
                 } 
                 else if (dr == DialogResult.No)
                 {
+                    this.Close();
                     return true;
-                    Close();
                 }
             } 
             else

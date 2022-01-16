@@ -475,7 +475,7 @@ namespace AdminBackups
                 }
 
                 var contractMonth = (endDate.Month - startDate.Month);
-                if (contractDays > 3)
+                if (contractDays < 3)
                 {
                     MessageBox.Show("Contract length can be min 3 months");
                     return false;
