@@ -767,7 +767,7 @@ namespace ClassLibraryProject
             List<Employee> employees = new List<Employee>();
 
             MySqlConnection conn = Utils.GetConnection();
-            string sql = "SELECT * FROM Employee as e left JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = 1 and c.Active = 1 ;";
+            string sql = "SELECT * FROM Employee as e Inner JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = 1 and c.Active = 1 group by e.EmployeeID;";
 
             try
             {
