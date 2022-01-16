@@ -29,7 +29,6 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrderInfo));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbxMinAmount = new System.Windows.Forms.TextBox();
@@ -169,7 +168,7 @@ namespace AdminBackups
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 21);
             this.label7.TabIndex = 20;
-            this.label7.Text = "Purchase Prise:";
+            this.label7.Text = "Purchase Price:";
             // 
             // lbxSupplier
             // 
@@ -245,7 +244,6 @@ namespace AdminBackups
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormOrderInfo";
             this.Text = "FormOrderInfo";
             this.ResumeLayout(false);
