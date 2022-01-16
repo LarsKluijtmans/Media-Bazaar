@@ -499,6 +499,8 @@ namespace AdminBackups
 
                 foreach (Product p in allProducts)
                 {
+                    p.OrderInfos = productManager.OrderInfoManagerPM.GetOrderInfosForProduct(p);
+
                     if (p.OrderInfos.Count == 0)
                     {
                         productsNoOrderInfo.Add(p);
@@ -513,5 +515,5 @@ namespace AdminBackups
             }
         }
         /* Order Info End */
-     }
+    }
 }
