@@ -19,7 +19,7 @@ namespace ClassLibraryProject
     {
         // sql
         public string CREATE_EMPLOYEE = "INSERT INTO Employee (FirstName, LastName, UserName, Password, BSN, Active, City, Email, PhoneNumber, DateOfBirth, StreetName, ZipCode, PersonalEmail) VALUES (@FirstName, @LastName, @Username, @Password, @BSN, @Active, @City, @Email, @PhoneNumber, @DateOfBirth, @StreetName, @ZipCode, @PersonalEmail);";
-        public string READ_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = @Active GROUP BY e.FirstName, e.LastName LIMIT 100;";
+        public string READ_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = @Active GROUP BY e.FirstName,      e.LastName LIMIT 100;";
         public string UPDATE_EMPLOYEE = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode, PersonalEmail = @PersonalEmail WHERE EmployeeID = @EmployeeID;";
         public string DELETE_EMPLOYEE = "UPDATE Employee SET Active = @Active WHERE EmployeeID = @EmployeeID;";
 
@@ -233,7 +233,7 @@ namespace ClassLibraryProject
         public bool DeleteEmployee(Employee e)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = UPDATE_EMPLOYEE;
+            string sql = DELETE_EMPLOYEE;
 
             try
             {
