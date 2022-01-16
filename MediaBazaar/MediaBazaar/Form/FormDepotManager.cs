@@ -36,7 +36,7 @@ namespace AdminBackups
 
         }
 
-        //Initialize
+        //INITIALIZE----------------------------------------------------------------------
         DateTime date = DateTime.Now;
         public void Initialize()
         {
@@ -59,7 +59,8 @@ namespace AdminBackups
             cbDepartments.Text = cbDepartments.Items[0].ToString();
         }
 
-        //Overview
+
+        //OVERVIEW-----------------------------------------------------------------------
         private void btnLogout_Click(object sender, EventArgs e)
         {
             login.Show();
@@ -85,7 +86,7 @@ namespace AdminBackups
         }
 
 
-        //Restock
+        //RESTOCK-------------------------------------------------------------------------
         private void UpdatePendingRequests()
         {
             DataTable table = new DataTable();
@@ -205,7 +206,8 @@ namespace AdminBackups
             }
         }
 
-        //Schedule
+
+        //SCHEDULE------------------------------------------------------------------
         public static int GetCurrentWeekOfYear(DateTime time)
         {
             DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(time);
@@ -327,29 +329,53 @@ namespace AdminBackups
             UpdateSchedule();
         }
 
-        //Planning
+        //PLANNING--------------------------------------------------------------------------
         private void UpdateEmployeeList()
         {
             int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
             int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
             DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
             DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
-            int year = Convert.ToInt32( txtPlanningYear.Value);
+            int year = Convert.ToInt32(txtPlanningYear.Value);
             int week = Convert.ToInt32(lblPlanningWeek.Text);
             string day = Convert.ToString(selectedRow.Cells["Day"].Value);
             string shift = Convert.ToString(selectedColumn.Name);
+            string department = cbDepartments.Text;
 
-            lstEmpCanWork.Items.Clear();
-            foreach (Employee employee in c.GetPreferredShift(day, shift).Employees)
+            if(c.GetPreferredShift(day, shift) != null)
             {
-                lstEmpCanWork.Items.Add(employee);
+                lstEmpCanWork.Items.Clear();
+                foreach (Employee employee in c.GetPreferredShift(day, shift).Employees)
+                {
+                    if(DepartmentTrue(employee, department) == true)
+                    {
+                        lstEmpCanWork.Items.Add(employee);
+                    }
+                }
             }
 
-            lstEmpEnlisted.Items.Clear();
-            foreach (Employee employee in c.GetRegisteredShift(year, week, day, shift).Employees)
+            if(c.GetRegisteredShift(year, week, day, shift) != null)
             {
-                lstEmpEnlisted.Items.Add(employee);
+                lstEmpEnlisted.Items.Clear();
+                foreach (Employee employee in c.GetRegisteredShift(year, week, day, shift).Employees)
+                {
+                    if (DepartmentTrue(employee, department) == true)
+                    {
+                        lstEmpEnlisted.Items.Add(employee);
+                    }
+                }
+            }          
+        }
+        public bool DepartmentTrue(Employee employee, string department)
+        {
+            foreach (Contract contract in employee.Contracts)
+            {
+                if(contract.Department == department)
+                {
+                    return true;
+                }
             }
+            return false;
         }
         private void UpdatePlanningSchedule()
         {
@@ -406,7 +432,7 @@ namespace AdminBackups
             UpdatePlanningSchedule();
         }
         private void btnDecreasePlanningWeek_Click(object sender, EventArgs e)
-        {            
+        {
             if (pi > 1)
             {
                 pi--;
@@ -472,7 +498,7 @@ namespace AdminBackups
             {
                 MessageBox.Show("Invalid input!");
             }
-            
+
         }
         private void btnRemoveFromSchedule_Click(object sender, EventArgs e)
         {
@@ -508,6 +534,9 @@ namespace AdminBackups
                 MessageBox.Show("Invalid input!");
             }
         }
+
+
+        //AUTOMATED SCHEDULE--------------------------------------------------------------------
         private void btnAutoSchedule_Click(object sender, EventArgs e)
         {
             if (cbDepartments.Text == "")
