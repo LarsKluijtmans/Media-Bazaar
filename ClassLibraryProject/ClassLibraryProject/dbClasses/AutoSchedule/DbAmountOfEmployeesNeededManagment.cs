@@ -75,7 +75,7 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"SELECT `{shift}` FROM `schedule` WHERE `Year`= {year} AND `Week` = {week} AND `Day` = '{day}';";
+            string sql = $"SELECT {shift} FROM `schedule` WHERE `Year` = {year} AND `Week` = {week} AND `Day` = '{day}' AND Department = '{department}';";
 
             try
             {
