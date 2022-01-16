@@ -146,12 +146,12 @@ namespace AdminBackups
             }
             catch
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Please enter a number");
                 return;
             }
 
-            string zipCode = tbxPostalCode.Text;
-            if (string.IsNullOrEmpty(zipCode))
+            string postalCode = tbxPostalCode.Text;
+            if (string.IsNullOrEmpty(postalCode))
             {
                 MessageBox.Show("Please enter a zip code");
                 return;
@@ -191,7 +191,8 @@ namespace AdminBackups
             }
 
             // make the supplier object
-            Supplier supplier = new Supplier(name, country, buildingNumber, zipCode, email, phoneNumber, bankNumber, productType);
+            Supplier supplier = new Supplier(name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber, productType);
+
             if (productManager.SupplierManagerPM.CreateSupplier(supplier))
             {
                 tbxSupplierName.Clear();
@@ -422,9 +423,97 @@ namespace AdminBackups
         /* Order Info Start */
         public void ReadProductsNoOrderInfo()
         {
+            List<Product> productsNoOrderInfo = new List<Product>();
+
+            // get all products
             List<Product> allProducts = productManager.ProductManagerPM.ReadProductsPM();
 
-            dgvProductsNoOrderInfo.DataSource = allProducts;
+            // get order infos for products
+            foreach (Product p in allProducts)
+            {
+                p.OrderInfos = productManager.OrderInfoManagerPM.GetOrderInfosForProduct(p);
+
+                if (p.OrderInfos.Count == 0)
+                {
+                    productsNoOrderInfo.Add(p);
+                }
+            }
+
+            dgvProductsNoOrderInfo.DataSource = productsNoOrderInfo;
+        }
+
+        private void dgvProductsNoOrderInfo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvProductsNoOrderInfo.Rows[e.RowIndex];
+
+                string productID = row.Cells["ProductID"].Value.ToString();
+
+                tbxSelectedProductOrderInfo.Text = productID;
+            }
+        }
+        private void CreateOrderInfo()
+        {
+            // get selected product
+            int productID = 0;
+
+            if (string.IsNullOrEmpty(tbxSelectedProductOrderInfo.Text))
+            {
+                MessageBox.Show("Please select a product");
+                return;
+            }
+
+            try
+            {
+                productID = Convert.ToInt32(tbxSelectedProductOrderInfo.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+                return;
+            }
+
+            Product selectedProduct = productManager.ProductManagerPM.GetProductByID(productID);
+
+            if (selectedProduct != null)
+            {
+                FormOrderInfo formOrderInfo = new FormOrderInfo(productManager, selectedProduct);
+                formOrderInfo.Show();
+            }
+        }
+
+        private void btnAddOrderInfo_Click(object sender, EventArgs e)
+        {
+            CreateOrderInfo();
+        }
+
+        private void tbxSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            List<Product> productsNoOrderInfo = new List<Product>();
+
+            string search = tbxSearchBar.Text;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                List<Product> allProducts = productManager.ProductManagerPM.SearchProductsPM(search);
+
+                foreach (Product p in allProducts)
+                {
+                    p.OrderInfos = productManager.OrderInfoManagerPM.GetOrderInfosForProduct(p);
+
+                    if (p.OrderInfos.Count == 0)
+                    {
+                        productsNoOrderInfo.Add(p);
+                    }
+                }
+
+                dgvProductsNoOrderInfo.DataSource = productsNoOrderInfo;
+            }
+            else
+            {
+                ReadProductsNoOrderInfo();
+            }
         }
         /* Order Info End */
     }

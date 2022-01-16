@@ -178,7 +178,5 @@ namespace ClassLibraryProject
 
             return true;
         }
-
-        // Send Email for new contract
     }
 }

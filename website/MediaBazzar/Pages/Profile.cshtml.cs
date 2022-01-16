@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ClassLibraryProject.ChildClasses;
 using System;
+using ClassLibraryProject;
 
 namespace MediaBazzar.Pages
 {
@@ -15,90 +16,44 @@ namespace MediaBazzar.Pages
     {
         [BindProperty]
         public Admin employee { get; set; }
+        DBEmployeeManager updateporfile = new DBEmployeeManager();
+
+        [BindProperty]
+        public string Password { get; set; }
 
         public void OnGet()
         {
-            MySqlConnection conn = Utils.GetConnection();
+            updateporfile = new DBEmployeeManager();
+            Employee a = updateporfile.GetEmployeeByID(Convert.ToInt32(Login.EmployeeID));
 
-            string sql = EmployeeManagement.GET_EMPLOYEE_BY_USERNAME;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@UserName", User.Identity.Name.ToString());
-
-                conn.Open();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    if (reader.GetInt32("Active") == 1)
-                    {
-                        employee = new Admin();
-
-                        employee.EmployeeID = reader.GetInt32("EmployeeID");
-                        employee.FirstName = reader.GetString("FirstName");
-                        employee.LastName = reader.GetString("LastName");
-                        employee.Username = reader.GetString("UserName");
-                        employee.Password = reader.GetString("Password");
-                        employee.BSN = reader.GetInt32("BSN");
-                        employee.City = reader.GetString("City");
-                        employee.Email = reader.GetString("Email");
-                        employee.PhoneNumber = reader.GetString("PhoneNumber");
-                    }
-                    else
-                    {
-                        ViewData["Message"] = "Whats worng whight you, get out of here!!!";
-                    }
-                }
-            }
-            catch (MySqlException)
-            {
-                ViewData["Message"] = "Error please try again later.";
-            }
-            finally
-            {
-                conn.Close();
-            }
+            employee.EmployeeID = a.EmployeeID;
+            employee.FirstName = a.FirstName;
+            employee.LastName = a.LastName;
+            employee.PhoneNumber = a.PhoneNumber;
+            employee.Email = a.Email;
+            employee.City = a.City;
+            employee.BSN = a.BSN;
+            employee.Username = a.Username;
+            employee.Password = a.Password;
+            employee.ZipCode = a.ZipCode;
+            employee.Address = a.Address;
+            employee.DateOfBirth = a.DateOfBirth;
+            employee.PersonalEmail = a.PersonalEmail;
         }
         public void OnPost()
         {
-            MySqlConnection conn = Utils.GetConnection();
 
-            string sql = EmployeeManagement.EDIT_EMPLOYEE_BY_ID;
-
-            try
+            if (employee.Password == Password)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
-                cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
-                cmd.Parameters.AddWithValue("@LastName", employee.LastName);
-                cmd.Parameters.AddWithValue("@UserName", employee.Username);
-                cmd.Parameters.AddWithValue("@Password", employee.Password);
-                cmd.Parameters.AddWithValue("@BSN", employee.BSN);
-                cmd.Parameters.AddWithValue("@City", employee.City);
-                cmd.Parameters.AddWithValue("@Email", employee.Email);
-                cmd.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
-
-                conn.Open();
-
-                int numCreatedRows = cmd.ExecuteNonQuery();
-
+                if (ModelState.IsValid)
+                {
+                    updateporfile = new DBEmployeeManager();
+                    updateporfile.UpdateOwnInfo(employee);
+                }
             }
-            catch (MySqlException)
+            else
             {
-                ViewData["Message"] = "Error!! There is aproblem with the database. ";
-            }
-            catch
-            { 
-                ViewData["Message"] = "Error please try again later."; 
-            }
-            finally
-            {
-                conn.Close();
+                ViewData["Message"] = "Passwords not the same.";
             }
         }
 

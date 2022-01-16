@@ -19,7 +19,7 @@ namespace AdminBackups
 
         int i;
         int pi;
-
+        DateTime date;
         public FormDepotManager(DepotManager depotManager, Store store, FormLogin login)
         {
             InitializeComponent();
@@ -28,6 +28,7 @@ namespace AdminBackups
             this.depotManager = depotManager;
             this.store = store;
             c = depotManager.Control;
+            date = DateTime.Now;
 
             Initialize();
             UpdatePendingRequests();
@@ -37,7 +38,6 @@ namespace AdminBackups
         }
 
         //INITIALIZE----------------------------------------------------------------------
-        DateTime date = DateTime.Now;
         public void Initialize()
         {
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
@@ -83,12 +83,10 @@ namespace AdminBackups
         {
             tabControl1.SelectTab(2);
         }
-
         private void dgOverviewRestock_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             tabControl1.SelectTab(1);
         }
-
         private void lstEmployeesWorkingToday_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             tabControl1.SelectTab(3);
@@ -242,7 +240,6 @@ namespace AdminBackups
 
                 dgSchedule.DataSource = table;
                 dgOverviewSchedule.DataSource = table;
-                dgPlanningSchedule.DataSource = table;
             }
             catch (Exception)
             {
@@ -333,6 +330,7 @@ namespace AdminBackups
             }
 
             UpdateSchedule();
+            UpdatePlanningSchedule();
         }
 
 
@@ -349,9 +347,10 @@ namespace AdminBackups
             string shift = Convert.ToString(selectedColumn.Name);
             string department = cbDepartments.Text;
 
-            if(c.GetPreferredShift(day, shift) != null)
-            {
-                lstEmpCanWork.Items.Clear();
+            lstEmpCanWork.Items.Clear();
+
+            if (c.GetPreferredShift(day, shift) != null)
+            {        
                 foreach (Employee employee in c.GetPreferredShift(day, shift).Employees)
                 {
                     if(DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(year, week, day, shift, employee.EmployeeID) == false)
@@ -361,9 +360,10 @@ namespace AdminBackups
                 }
             }
 
-            if(c.GetRegisteredShift(year, week, day, shift) != null)
-            {
-                lstEmpEnlisted.Items.Clear();
+            lstEmpEnlisted.Items.Clear();
+
+            if (c.GetRegisteredShift(year, week, day, shift) != null)
+            { 
                 foreach (Employee employee in c.GetRegisteredShift(year, week, day, shift).Employees)
                 {
                     if (DepartmentTrue(employee, department) == true)
@@ -409,8 +409,6 @@ namespace AdminBackups
                     table.Rows.Add(schedule.Day, schedule.MorningAmount, schedule.AfternoonAmount, schedule.EveningAmount);
                 }
 
-                dgSchedule.DataSource = table;
-                dgOverviewSchedule.DataSource = table;
                 dgPlanningSchedule.DataSource = table;
             }
             catch (Exception)
@@ -554,6 +552,8 @@ namespace AdminBackups
         //AUTOMATED SCHEDULE--------------------------------------------------------------------
         private void btnAutoSchedule_Click(object sender, EventArgs e)
         {
+            UpdatePlanningSchedule();
+
             if (cbDepartments.Text == "")
             {
                 MessageBox.Show("Please select a department");
@@ -569,11 +569,13 @@ namespace AdminBackups
                 year = Convert.ToInt32(txtPlanningYear.Value);
             }
             catch
-            { }
+            {
+                MessageBox.Show("Please select a week and year");
+                return; }
 
-            depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
+          depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
 
-            progressBar1.Maximum = 59;
+            progressBar1.Maximum = 55;
 
             for (int loop = 0; loop < 3; loop++)
             {
@@ -637,7 +639,7 @@ namespace AdminBackups
                             }
                         }
 
-                        if (progressBar1.Value != 58)
+                        if (progressBar1.Value != 55)
                         {
                             progressBar1.Value++;
                         }

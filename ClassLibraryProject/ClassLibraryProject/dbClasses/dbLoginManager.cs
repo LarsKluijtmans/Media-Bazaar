@@ -72,7 +72,7 @@ namespace ClassLibraryProject.dbClasses
                     }
                     else if (jobTitle == "DEPOT MANAGER")
                     {
-                        IDBRestock dbRestock = new DBRestock();
+                        IDBRestock dbRestock = new DBRestock();// Porblem
                         IRestockDepotManager restock = new RestockManagment(dbRestock);
 
                         IDBSchedule dbSchedule = new DBSchedule();
@@ -151,10 +151,7 @@ namespace ClassLibraryProject.dbClasses
             }
             finally
             {
-                if (conn != null)
-                {
                     conn.Close();
-                }
             }
 
             return null;

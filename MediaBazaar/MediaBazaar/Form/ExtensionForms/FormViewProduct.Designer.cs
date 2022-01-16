@@ -29,7 +29,6 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormViewProduct));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnProduct = new System.Windows.Forms.Button();
             this.tbxType = new System.Windows.Forms.TextBox();
@@ -156,6 +155,7 @@ namespace MediaBazaar
             // 
             this.tbxBarcode.Location = new System.Drawing.Point(118, 90);
             this.tbxBarcode.Name = "tbxBarcode";
+            this.tbxBarcode.ReadOnly = true;
             this.tbxBarcode.Size = new System.Drawing.Size(146, 23);
             this.tbxBarcode.TabIndex = 11;
             // 
@@ -382,7 +382,6 @@ namespace MediaBazaar
             this.ClientSize = new System.Drawing.Size(578, 339);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormViewProduct";
             this.Text = "ViewProduct";
             this.groupBox1.ResumeLayout(false);
