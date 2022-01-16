@@ -486,6 +486,32 @@ namespace AdminBackups
         {
             CreateOrderInfo();
         }
+
+        private void tbxSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            List<Product> productsNoOrderInfo = new List<Product>();
+
+            string search = tbxSearchBar.Text;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                List<Product> allProducts = productManager.ProductManagerPM.SearchProductsPM(search);
+
+                foreach (Product p in allProducts)
+                {
+                    if (p.OrderInfos.Count == 0)
+                    {
+                        productsNoOrderInfo.Add(p);
+                    }
+                }
+
+                dgvProductsNoOrderInfo.DataSource = productsNoOrderInfo;
+            }
+            else
+            {
+                ReadProductsNoOrderInfo();
+            }
+        }
         /* Order Info End */
-    }
+     }
 }

@@ -9,5 +9,6 @@ namespace ClassLibraryProject
     {
         public List<OrderInfo> GetOrderInfosForProduct(Product p);
         public bool CreateOrderInfo(OrderInfo oi);
+        public bool DeleteOrderInfo(OrderInfo oi);
     }
 }

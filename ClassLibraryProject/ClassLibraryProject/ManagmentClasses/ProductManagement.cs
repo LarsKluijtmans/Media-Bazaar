@@ -26,11 +26,6 @@ namespace ClassLibraryProject.ManagmentClasses
             return DBProductManagerPM.CreateProduct(p);
         }
 
-        public bool DeleteProduct(Product p)
-        {
-            return DBProductManagerPM.DeleteProduct(p);
-        }
-
         public List<Product> ReadProductsPM()
         {
             return DBProductManagerPM.ReadProductsPM();
