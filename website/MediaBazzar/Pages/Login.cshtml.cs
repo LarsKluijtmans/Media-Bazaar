@@ -1,4 +1,5 @@
 
+using ClassLibraryProject;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses;
 using Microsoft.AspNetCore.Authentication;
@@ -25,9 +26,10 @@ namespace MediaBazzar.Pages
 
 
         public Employee Login { get; set; }
+
         private dbLoginManager dbLogin = new dbLoginManager();
 
-        public static string EmployeeID;
+        public static Contract emplContract;
 
         public void OnGet(string returnUrl)
         {
@@ -43,7 +45,11 @@ namespace MediaBazzar.Pages
                 var user = dbLogin.checkLogin(Username , Password);
                 if (user != null)
                 {
+                    EmployeeManager emp = new EmployeeManager();
+                    ContractManager contract = new ContractManager();
 
+                    emplContract = contract.ReadContract(emp.GetEmployeeByID(user.EmployeeID));
+                    
                     var claims = new List<Claim>();
                     claims.Add(new Claim("username", user.Username));
                     claims.Add(new Claim(ClaimTypes.NameIdentifier, user.EmployeeID.ToString()));
@@ -54,8 +60,6 @@ namespace MediaBazzar.Pages
 
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-
-                    EmployeeID = user.EmployeeID.ToString();
                     await HttpContext.SignInAsync(claimsPrincipal);
                    
                     return Redirect(returnUrl);
