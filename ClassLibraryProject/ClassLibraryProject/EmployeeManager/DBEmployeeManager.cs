@@ -761,5 +761,99 @@ namespace ClassLibraryProject
 
             return employees;
         }
+
+        public List<Employee> GetAllEmployees()
+        {
+            List<Employee> employees = new List<Employee>();
+
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = "SELECT * FROM Employee as e left JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = 1 and c.Active = 1 ;";
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Employee employee;
+
+                while (reader.Read())
+                {
+                    int employeeID = reader.GetInt32(0);
+                    string firstName = reader.GetString(1);
+                    string lastName = reader.GetString(2);
+                    string username = reader.GetString(3);
+                    string password = reader.GetString(4);
+                    int bsn = reader.GetInt32(5);
+                    string city = reader.GetString(7);
+                    string email = reader.GetString(8);
+                    string phoneNumber = reader.GetString(9);
+                    DateTime dateOfBirth = reader.GetDateTime(10);
+                    string streetName = reader.GetString(12);
+                    string zipCode = reader.GetString(13);
+                    string jobTitle = reader.GetString(17);
+                    string personalEmail = reader.GetString(14);
+
+                    if (jobTitle == "ADMIN")
+                    {
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        employees.Add(employee);
+                    }
+                    else if (jobTitle == "CEO")
+                    {
+                        employee = new CEO(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        employees.Add(employee);
+                    }
+                    else if (jobTitle == "DEPOT MANAGER")
+                    {
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        employees.Add(employee);
+                    }
+                    else if (jobTitle == "DEPOT EMPLOYEE")
+                    {
+                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        employees.Add(employee);
+                    }
+                    else if (jobTitle == "OFFICE MANAGER")
+                    {
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        employees.Add(employee);
+                    }
+                    else if (jobTitle == "PRODUCT MANAGER")
+                    {
+                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        employees.Add(employee);
+                    }
+                    else if (jobTitle == "SALES MANAGER")
+                    {
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        employees.Add(employee);
+                    }
+                    else if (jobTitle == "SALES REPRESENTATIVE")
+                    {
+                        employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
+                        employees.Add(employee);
+                    }
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return employees;
+        }
     }
 }

@@ -33,7 +33,6 @@ namespace AdminBackups
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MakeBackups));
             this.niMakingBackups = new System.Windows.Forms.NotifyIcon(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.tbAmount = new System.Windows.Forms.TextBox();
             this.btnFolder = new System.Windows.Forms.Button();
             this.tbFolder = new System.Windows.Forms.TextBox();
             this.btnStartMakingBackups = new System.Windows.Forms.Button();
@@ -46,6 +45,8 @@ namespace AdminBackups
             this.rbDays = new System.Windows.Forms.RadioButton();
             this.labTimeTillBackup = new System.Windows.Forms.Label();
             this.labFolder = new System.Windows.Forms.Label();
+            this.tbAmount = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // niMakingBackups
@@ -63,14 +64,6 @@ namespace AdminBackups
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(590, 30);
             this.progressBar1.TabIndex = 10;
-            // 
-            // tbAmount
-            // 
-            this.tbAmount.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbAmount.Location = new System.Drawing.Point(497, 242);
-            this.tbAmount.Name = "tbAmount";
-            this.tbAmount.Size = new System.Drawing.Size(108, 33);
-            this.tbAmount.TabIndex = 9;
             // 
             // btnFolder
             // 
@@ -105,10 +98,6 @@ namespace AdminBackups
             this.btnStartMakingBackups.UseVisualStyleBackColor = true;
             this.btnStartMakingBackups.Click += new System.EventHandler(this.btnStartMakingBackups_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // timer2
             // 
             this.timer2.Interval = 1000;
@@ -136,6 +125,7 @@ namespace AdminBackups
             this.rbMinutes.TabStop = true;
             this.rbMinutes.Text = "Minutes";
             this.rbMinutes.UseVisualStyleBackColor = true;
+            this.rbMinutes.CheckedChanged += new System.EventHandler(this.rbMinutes_CheckedChanged);
             // 
             // rbHours
             // 
@@ -147,6 +137,7 @@ namespace AdminBackups
             this.rbHours.TabIndex = 13;
             this.rbHours.Text = "Hours";
             this.rbHours.UseVisualStyleBackColor = true;
+            this.rbHours.CheckedChanged += new System.EventHandler(this.rbHours_CheckedChanged);
             // 
             // rbDays
             // 
@@ -158,6 +149,7 @@ namespace AdminBackups
             this.rbDays.TabIndex = 14;
             this.rbDays.Text = "Days";
             this.rbDays.UseVisualStyleBackColor = true;
+            this.rbDays.CheckedChanged += new System.EventHandler(this.rbDays_CheckedChanged);
             // 
             // labTimeTillBackup
             // 
@@ -179,11 +171,35 @@ namespace AdminBackups
             this.labFolder.TabIndex = 16;
             this.labFolder.Text = "Folder location:";
             // 
+            // tbAmount
+            // 
+            this.tbAmount.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbAmount.Location = new System.Drawing.Point(497, 243);
+            this.tbAmount.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.tbAmount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tbAmount.Name = "tbAmount";
+            this.tbAmount.Size = new System.Drawing.Size(120, 33);
+            this.tbAmount.TabIndex = 17;
+            this.tbAmount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // MakeBackups
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(653, 415);
+            this.Controls.Add(this.tbAmount);
             this.Controls.Add(this.labFolder);
             this.Controls.Add(this.labTimeTillBackup);
             this.Controls.Add(this.rbDays);
@@ -191,7 +207,6 @@ namespace AdminBackups
             this.Controls.Add(this.rbMinutes);
             this.Controls.Add(this.labAmount);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.tbAmount);
             this.Controls.Add(this.btnStartMakingBackups);
             this.Controls.Add(this.btnFolder);
             this.Controls.Add(this.tbFolder);
@@ -201,6 +216,7 @@ namespace AdminBackups
             this.Name = "MakeBackups";
             this.Text = "MakeBackups";
             this.Resize += new System.EventHandler(this.MakeBackups_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.tbAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,13 +231,13 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnFolder;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.TextBox tbAmount;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label labAmount;
-        private System.Windows.Forms.RadioButton rbMinutes;
         private System.Windows.Forms.RadioButton rbHours;
         private System.Windows.Forms.RadioButton rbDays;
         private System.Windows.Forms.Label labTimeTillBackup;
         private System.Windows.Forms.Label labFolder;
+        private System.Windows.Forms.NumericUpDown tbAmount;
+        internal System.Windows.Forms.RadioButton rbMinutes;
     }
 }

@@ -21,9 +21,9 @@ namespace ClassLibraryProject.ManagmentClasses.IProductManager
         {
             return orderInfo.GetOrderInfos();
         }
-        public bool AddOrderInfo(Supplier supplier, Product product, int minAmount, int maxAmount, int multiples)
+        public bool AddOrderInfo(OrderInfo oi)
         {
-            return orderInfo.AddOrderInfo(supplier, product, minAmount, maxAmount, multiples);
+            return orderInfo.AddOrderInfo(oi);
         }
         public bool UpdateOrderInfo(int id, int minAmount, int maxAmount, int multiples)
         {

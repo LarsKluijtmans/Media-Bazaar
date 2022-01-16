@@ -29,13 +29,11 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductManager));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tbxSelectedProduct = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.bntUpdateProduct = new System.Windows.Forms.Button();
-            this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.btnCreateProduct = new System.Windows.Forms.Button();
             this.labProductSearch = new System.Windows.Forms.Label();
             this.tbProductSearch = new System.Windows.Forms.TextBox();
@@ -43,6 +41,7 @@ namespace AdminBackups
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cbxProductType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -69,8 +68,12 @@ namespace AdminBackups
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSuppliers = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnAddOrderInfo = new System.Windows.Forms.Button();
+            this.tbxSelectedProductOrderInfo = new System.Windows.Forms.TextBox();
+            this.tbxSearchBar = new System.Windows.Forms.TextBox();
+            this.dgvProductsNoOrderInfo = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -78,6 +81,8 @@ namespace AdminBackups
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductsNoOrderInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -94,7 +99,6 @@ namespace AdminBackups
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.tbxSelectedProduct);
             this.tabPage3.Controls.Add(this.groupBox4);
             this.tabPage3.Controls.Add(this.labProductSearch);
             this.tabPage3.Controls.Add(this.tbProductSearch);
@@ -111,7 +115,7 @@ namespace AdminBackups
             // 
             // tbxSelectedProduct
             // 
-            this.tbxSelectedProduct.Location = new System.Drawing.Point(904, 21);
+            this.tbxSelectedProduct.Location = new System.Drawing.Point(6, 27);
             this.tbxSelectedProduct.Name = "tbxSelectedProduct";
             this.tbxSelectedProduct.PlaceholderText = "Selected Product";
             this.tbxSelectedProduct.ReadOnly = true;
@@ -120,21 +124,21 @@ namespace AdminBackups
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.tbxSelectedProduct);
             this.groupBox4.Controls.Add(this.bntUpdateProduct);
-            this.groupBox4.Controls.Add(this.btnDeleteProduct);
             this.groupBox4.Controls.Add(this.btnCreateProduct);
             this.groupBox4.Location = new System.Drawing.Point(899, 57);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(182, 133);
+            this.groupBox4.Size = new System.Drawing.Size(182, 135);
             this.groupBox4.TabIndex = 102;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Manage Products";
             // 
             // bntUpdateProduct
             // 
-            this.bntUpdateProduct.Location = new System.Drawing.Point(6, 56);
+            this.bntUpdateProduct.Location = new System.Drawing.Point(6, 99);
             this.bntUpdateProduct.Name = "bntUpdateProduct";
             this.bntUpdateProduct.Size = new System.Drawing.Size(167, 31);
             this.bntUpdateProduct.TabIndex = 9;
@@ -142,19 +146,9 @@ namespace AdminBackups
             this.bntUpdateProduct.UseVisualStyleBackColor = true;
             this.bntUpdateProduct.Click += new System.EventHandler(this.bntUpdateProduct_Click);
             // 
-            // btnDeleteProduct
-            // 
-            this.btnDeleteProduct.Location = new System.Drawing.Point(5, 92);
-            this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(168, 31);
-            this.btnDeleteProduct.TabIndex = 7;
-            this.btnDeleteProduct.Text = "Delete Product";
-            this.btnDeleteProduct.UseVisualStyleBackColor = true;
-            // 
             // btnCreateProduct
             // 
-            this.btnCreateProduct.Location = new System.Drawing.Point(6, 20);
+            this.btnCreateProduct.Location = new System.Drawing.Point(6, 63);
             this.btnCreateProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreateProduct.Name = "btnCreateProduct";
             this.btnCreateProduct.Size = new System.Drawing.Size(168, 31);
@@ -249,6 +243,17 @@ namespace AdminBackups
             this.groupBox3.TabIndex = 94;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Supplier Management";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnClear.Location = new System.Drawing.Point(76, 321);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(127, 29);
+            this.btnClear.TabIndex = 115;
+            this.btnClear.Text = "Clear Input";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // label4
             // 
@@ -465,7 +470,7 @@ namespace AdminBackups
             // 
             this.cbxSupplierType.FormattingEnabled = true;
             this.cbxSupplierType.Items.AddRange(new object[] {
-            "All suppliers",
+            "All Suppliers",
             "KITCHEN_HOME",
             "PHOTO_VIDEO_NAVIGATION",
             "SMART_HOME_APPLIANCES",
@@ -474,6 +479,7 @@ namespace AdminBackups
             this.cbxSupplierType.Name = "cbxSupplierType";
             this.cbxSupplierType.Size = new System.Drawing.Size(163, 25);
             this.cbxSupplierType.TabIndex = 3;
+            this.cbxSupplierType.Text = "All Suppliers";
             this.cbxSupplierType.SelectedIndexChanged += new System.EventHandler(this.cbxSupplierType_SelectedIndexChanged);
             // 
             // tbxSupplierSearch
@@ -507,12 +513,66 @@ namespace AdminBackups
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnAddOrderInfo);
+            this.tabPage2.Controls.Add(this.tbxSelectedProductOrderInfo);
+            this.tabPage2.Controls.Add(this.tbxSearchBar);
+            this.tabPage2.Controls.Add(this.dgvProductsNoOrderInfo);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(1130, 499);
             this.tabPage2.TabIndex = 12;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Order Info";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnAddOrderInfo
+            // 
+            this.btnAddOrderInfo.Location = new System.Drawing.Point(903, 94);
+            this.btnAddOrderInfo.Name = "btnAddOrderInfo";
+            this.btnAddOrderInfo.Size = new System.Drawing.Size(115, 32);
+            this.btnAddOrderInfo.TabIndex = 4;
+            this.btnAddOrderInfo.Text = "Add Order Info";
+            this.btnAddOrderInfo.UseVisualStyleBackColor = true;
+            this.btnAddOrderInfo.Click += new System.EventHandler(this.btnAddOrderInfo_Click);
+            // 
+            // tbxSelectedProductOrderInfo
+            // 
+            this.tbxSelectedProductOrderInfo.Location = new System.Drawing.Point(903, 63);
+            this.tbxSelectedProductOrderInfo.Name = "tbxSelectedProductOrderInfo";
+            this.tbxSelectedProductOrderInfo.PlaceholderText = "Selected Product";
+            this.tbxSelectedProductOrderInfo.ReadOnly = true;
+            this.tbxSelectedProductOrderInfo.Size = new System.Drawing.Size(115, 25);
+            this.tbxSelectedProductOrderInfo.TabIndex = 3;
+            // 
+            // tbxSearchBar
+            // 
+            this.tbxSearchBar.Location = new System.Drawing.Point(713, 28);
+            this.tbxSearchBar.Name = "tbxSearchBar";
+            this.tbxSearchBar.PlaceholderText = "Search Product Name";
+            this.tbxSearchBar.Size = new System.Drawing.Size(172, 25);
+            this.tbxSearchBar.TabIndex = 2;
+            this.tbxSearchBar.TextChanged += new System.EventHandler(this.tbxSearchBar_TextChanged);
+            // 
+            // dgvProductsNoOrderInfo
+            // 
+            this.dgvProductsNoOrderInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvProductsNoOrderInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductsNoOrderInfo.Location = new System.Drawing.Point(16, 63);
+            this.dgvProductsNoOrderInfo.Name = "dgvProductsNoOrderInfo";
+            this.dgvProductsNoOrderInfo.RowTemplate.Height = 25;
+            this.dgvProductsNoOrderInfo.Size = new System.Drawing.Size(869, 385);
+            this.dgvProductsNoOrderInfo.TabIndex = 1;
+            this.dgvProductsNoOrderInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductsNoOrderInfo_CellClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(16, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(221, 25);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Add Order Info Products:";
             // 
             // btnLogout
             // 
@@ -526,17 +586,6 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnClear
-            // 
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnClear.Location = new System.Drawing.Point(76, 321);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(127, 29);
-            this.btnClear.TabIndex = 115;
-            this.btnClear.Text = "Clear Input";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // FormProductManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -544,7 +593,6 @@ namespace AdminBackups
             this.ClientSize = new System.Drawing.Size(1162, 583);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormProductManager";
             this.Text = "ProductManager";
@@ -552,12 +600,16 @@ namespace AdminBackups
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductsNoOrderInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -576,7 +628,6 @@ namespace AdminBackups
         private System.Windows.Forms.TextBox tbProductSearch;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button bntUpdateProduct;
-        private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.Button btnCreateProduct;
         private System.Windows.Forms.TextBox tbxSelectedProduct;
         private System.Windows.Forms.TabPage tabPage1;
@@ -608,5 +659,10 @@ namespace AdminBackups
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbxProductType;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dgvProductsNoOrderInfo;
+        private System.Windows.Forms.Button btnAddOrderInfo;
+        private System.Windows.Forms.TextBox tbxSelectedProductOrderInfo;
+        private System.Windows.Forms.TextBox tbxSearchBar;
     }
 }

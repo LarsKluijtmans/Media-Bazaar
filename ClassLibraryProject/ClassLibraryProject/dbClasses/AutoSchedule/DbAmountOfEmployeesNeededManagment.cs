@@ -16,7 +16,7 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"SELECT Count(`EmployeeID`) FROM `planning` WHERE `Year` = {year} AND `Week` = {week} AND `Day` = '{day}' AND `Shift` = '{shift}';";
+            string sql = $"SELECT Count(planning.EmployeeID) FROM `planning` left join contract on contract.EmployeeID = planning.EmployeeID WHERE `Year` = {year} AND `Week` = {week} AND `Day` = '{day}' AND `Shift` = '{shift}' and Department = '{department}';";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -42,7 +42,7 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
                 }
             }
 
-            sql = $"SELECT {shift} FROM `schedule` WHERE `Year` = {year} AND `Week` = {week} AND `Day` = '{day}';";
+            sql = $"SELECT {shift} FROM `schedule` WHERE `Year` = {year} AND `Week` = {week} AND `Day` = '{day}' AND Department = '{department}';";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -73,10 +73,13 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
 
         public int AmountOfEmployeesToSchedule(string shift, string day, int week, int year, string department)
         {
+            int AmountScheduled = 0;
+            int AmountNeeded = 0;
+            int AmountLeft = 0;
+
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"SELECT `{shift}` FROM `schedule` WHERE `Year`= {year} AND `Week` = {week} AND `Day` = '{day}';";
-
+            string sql = $"SELECT Count(planning.EmployeeID) FROM `planning` left join contract on contract.EmployeeID = planning.EmployeeID WHERE `Year` = {year} AND `Week` = {week} AND `Day` = '{day}' AND `Shift` = '{shift}' and Department = '{department}';";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -86,7 +89,8 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
 
                 while (reader.Read())
                 {
-                    return Convert.ToInt32(reader[0]);
+                    AmountScheduled = Convert.ToInt32(reader[0]);
+                    break;
                 }
             }
             catch (MySqlException a)
@@ -100,7 +104,34 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
                     conn.Close();
                 }
             }
-            return 0;
+
+            sql = $"SELECT {shift} FROM `schedule` WHERE `Year` = {year} AND `Week` = {week} AND `Day` = '{day}' AND Department = '{department}';";
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    AmountNeeded = Convert.ToInt32(reader[0]);
+                    break;
+                }
+            }
+            catch (MySqlException a)
+            { Debug.WriteLine(a.Message); }
+            catch (Exception a)
+            { Debug.WriteLine(a.Message); }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            AmountLeft = AmountNeeded - AmountScheduled;
+            return AmountLeft;
         }
     }
 }

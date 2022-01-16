@@ -26,11 +26,6 @@ namespace ClassLibraryProject.ManagmentClasses
             return DBProductManagerPM.CreateProduct(p);
         }
 
-        public bool DeleteProduct(Product p)
-        {
-            return DBProductManagerPM.DeleteProduct(p);
-        }
-
         public List<Product> ReadProductsPM()
         {
             return DBProductManagerPM.ReadProductsPM();
@@ -38,7 +33,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
         public List<Product> SearchProductsPM(string search)
         {
-            return DBProductManagerPM.SearchProductsPM(search);
+            return DBProductManagerPM.SearchProducts(search);
         }
 
         public bool UpdateProductPM(Product p)

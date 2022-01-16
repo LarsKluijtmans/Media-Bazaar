@@ -12,7 +12,7 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"DELETE FROM `planning` WHERE `Year` = {year} and `Week`= {week};";
+            string sql = $"DELETE FROM `planning` WHERE `Year` = {year} and `Week`= {week} AND (EmployeeID) IN (SELECT EmployeeID FROM contract WHERE department = '{department}');";
 
             try
             {
