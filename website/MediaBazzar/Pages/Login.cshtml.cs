@@ -43,7 +43,7 @@ namespace MediaBazzar.Pages
                 var user = dbLogin.checkLogin(Username , Password);
                 if (user != null)
                 {
-                    EmployeeID = user.EmployeeID.ToString();
+
                     var claims = new List<Claim>();
                     claims.Add(new Claim("username", user.Username));
                     claims.Add(new Claim(ClaimTypes.NameIdentifier, user.EmployeeID.ToString()));
@@ -54,7 +54,8 @@ namespace MediaBazzar.Pages
 
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-                    
+
+                    EmployeeID = user.EmployeeID.ToString();
                     await HttpContext.SignInAsync(claimsPrincipal);
                    
                     return Redirect(returnUrl);

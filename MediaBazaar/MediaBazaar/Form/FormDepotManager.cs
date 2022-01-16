@@ -330,6 +330,7 @@ namespace AdminBackups
             }
 
             UpdateSchedule();
+            UpdatePlanningSchedule();
         }
 
 
