@@ -22,5 +22,10 @@ namespace ClassLibraryProject
         {
             return DBOrderInfoManager.CreateOrderInfo(oi);
         }
+
+        public bool DeleteOrderInfo(OrderInfo oi)
+        {
+            return DBOrderInfoManager.DeleteOrderInfo(oi);
+        }
     }
 }

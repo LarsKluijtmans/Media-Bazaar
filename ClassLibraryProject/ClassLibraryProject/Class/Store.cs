@@ -13,7 +13,6 @@ namespace ClassLibraryProject.Class
         public PlanningManagment planningManagment;
         public EmployeeManagement employeeManagement;
         public SupplierManagment supplierManagment;
-        public OrderInfoManagment orderInfoManagment;
         public EmailManager emailManager;
         public BackUpManagment backUpManagment;
 

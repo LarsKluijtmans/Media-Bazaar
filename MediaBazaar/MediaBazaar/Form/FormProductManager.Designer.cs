@@ -558,11 +558,12 @@ namespace AdminBackups
             // 
             // tbxSearchBar
             // 
-            this.tbxSearchBar.Location = new System.Drawing.Point(738, 28);
+            this.tbxSearchBar.Location = new System.Drawing.Point(713, 28);
             this.tbxSearchBar.Name = "tbxSearchBar";
             this.tbxSearchBar.PlaceholderText = "Search Product Name";
-            this.tbxSearchBar.Size = new System.Drawing.Size(147, 25);
+            this.tbxSearchBar.Size = new System.Drawing.Size(172, 25);
             this.tbxSearchBar.TabIndex = 2;
+            this.tbxSearchBar.TextChanged += new System.EventHandler(this.tbxSearchBar_TextChanged);
             // 
             // dgvProductsNoOrderInfo
             // 
