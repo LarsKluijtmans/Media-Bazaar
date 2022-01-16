@@ -12,6 +12,7 @@ namespace ClassLibraryProject
         // sql
         public string GET_ORDER_INFOS_FOR_PRODUCT = "SELECT * FROM OrderInfo as o INNER JOIN Supplier as s on o.SupplierID = s.ID WHERE o.ProductBarcode = @ProductBarcode;";
         public string CREATE_ORDER_INFO = "INSERT INTO orderinfo (SupplierID, ProductBarcode, MinAmount, MaxAmount, Multiples, PurchasePrice) VALUES (@SupplierID, @Barcode, @MinAmount, @MaxAmount, @Multiples, @PurchasePrice);";
+        public string UPDATE_ORDER_INFO = "UPDATE OrderInfo SET MinAmount = @MinAmount, MaxAmount = @MaxAmount, Multiples = @Multiples, PurchasePrice = @PurchasePrice WHERE ID = @ID;";
         public string DELETE_ORDER_INFO = "DELETE FROM OrderInfo WHERE ID = @ID;";
 
         public List<OrderInfo> GetOrderInfosForProduct(Product p)
@@ -118,10 +119,52 @@ namespace ClassLibraryProject
 
             return false;
         }
+        public bool UpdateOrderInfo(OrderInfo oi)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = UPDATE_ORDER_INFO;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@ID", oi.ID);
+
+                cmd.Parameters.AddWithValue("@MinAmount", oi.MinAmount);
+                cmd.Parameters.AddWithValue("@MaxAmount", oi.MaxAmount);
+                cmd.Parameters.AddWithValue("@Multiples", oi.Multiples);
+                cmd.Parameters.AddWithValue("@PurchasePrice", oi.PurchasePrice);
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+
+                if (numCreatedRows == 1)
+                {
+                    return true;
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
         public bool DeleteOrderInfo(OrderInfo oi)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = CREATE_ORDER_INFO;
+            string sql = DELETE_ORDER_INFO;
 
             try
             {

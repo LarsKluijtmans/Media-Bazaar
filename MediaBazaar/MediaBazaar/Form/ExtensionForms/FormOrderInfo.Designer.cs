@@ -46,6 +46,8 @@ namespace AdminBackups
             this.lbxSupplier = new System.Windows.Forms.ListBox();
             this.tbxSearchSupplier = new System.Windows.Forms.TextBox();
             this.tbxSupplier = new System.Windows.Forms.TextBox();
+            this.btnUpdateOrderInfo = new System.Windows.Forms.Button();
+            this.btnDeleteOrderInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -135,7 +137,7 @@ namespace AdminBackups
             // btnAddNewOrder
             // 
             this.btnAddNewOrder.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddNewOrder.Location = new System.Drawing.Point(637, 280);
+            this.btnAddNewOrder.Location = new System.Drawing.Point(637, 243);
             this.btnAddNewOrder.Name = "btnAddNewOrder";
             this.btnAddNewOrder.Size = new System.Drawing.Size(151, 32);
             this.btnAddNewOrder.TabIndex = 14;
@@ -198,11 +200,35 @@ namespace AdminBackups
             this.tbxSupplier.Size = new System.Drawing.Size(135, 23);
             this.tbxSupplier.TabIndex = 23;
             // 
+            // btnUpdateOrderInfo
+            // 
+            this.btnUpdateOrderInfo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnUpdateOrderInfo.Location = new System.Drawing.Point(637, 281);
+            this.btnUpdateOrderInfo.Name = "btnUpdateOrderInfo";
+            this.btnUpdateOrderInfo.Size = new System.Drawing.Size(151, 31);
+            this.btnUpdateOrderInfo.TabIndex = 24;
+            this.btnUpdateOrderInfo.Text = "Update Order Info";
+            this.btnUpdateOrderInfo.UseVisualStyleBackColor = true;
+            this.btnUpdateOrderInfo.Click += new System.EventHandler(this.btnUpdateOrderInfo_Click);
+            // 
+            // btnDeleteOrderInfo
+            // 
+            this.btnDeleteOrderInfo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDeleteOrderInfo.Location = new System.Drawing.Point(480, 281);
+            this.btnDeleteOrderInfo.Name = "btnDeleteOrderInfo";
+            this.btnDeleteOrderInfo.Size = new System.Drawing.Size(151, 31);
+            this.btnDeleteOrderInfo.TabIndex = 25;
+            this.btnDeleteOrderInfo.Text = "Delete Order Info";
+            this.btnDeleteOrderInfo.UseVisualStyleBackColor = true;
+            this.btnDeleteOrderInfo.Click += new System.EventHandler(this.btnDeleteOrderInfo_Click);
+            // 
             // FormOrderInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 332);
+            this.Controls.Add(this.btnDeleteOrderInfo);
+            this.Controls.Add(this.btnUpdateOrderInfo);
             this.Controls.Add(this.tbxSupplier);
             this.Controls.Add(this.tbxSearchSupplier);
             this.Controls.Add(this.lbxSupplier);
@@ -245,5 +271,7 @@ namespace AdminBackups
         private System.Windows.Forms.ListBox lbxSupplier;
         private System.Windows.Forms.TextBox tbxSearchSupplier;
         private System.Windows.Forms.TextBox tbxSupplier;
+        private System.Windows.Forms.Button btnUpdateOrderInfo;
+        private System.Windows.Forms.Button btnDeleteOrderInfo;
     }
 }

@@ -68,11 +68,26 @@ namespace MediaBazaar
                 cbxStatus.Text = "Available";
             }
         }
-        private void LoadSuppliersForProduct()
+        public void LoadSuppliersForProduct()
         {
+            List<Supplier> suppliersWithOrderInfos = new List<Supplier>();
             List<Supplier> productSuppliers = ((ProductManager)employee).SupplierManagerPM.GetSuppliersForProduct(product);
 
-            cbxSupplier.DataSource = productSuppliers;
+            // check if supplier has order infos
+            product.OrderInfos = ((ProductManager)employee).OrderInfoManagerPM.GetOrderInfosForProduct(product);
+
+            foreach (Supplier s in productSuppliers)
+            {
+                foreach (OrderInfo oi in product.OrderInfos)
+                {
+                    if (oi.Supplier.ID == s.ID)
+                    {
+                        suppliersWithOrderInfos.Add(s);
+                    }
+                }
+            }
+
+            cbxSupplier.DataSource = suppliersWithOrderInfos;
         }
         private void GetOrderInfoForSupplier()
         {
@@ -102,6 +117,7 @@ namespace MediaBazaar
                     tbxMinAmount.Text = oi.MinAmount.ToString();
                     tbxMaxAmount.Text = oi.MaxAmount.ToString();
                     tbxMultiples.Text = oi.Multiples.ToString();
+                    tbxPurchasePrice.Text = oi.PurchasePrice.ToString();
                     OrderInfound = true;
                 }
 
@@ -110,6 +126,7 @@ namespace MediaBazaar
                     tbxMinAmount.Text = "";
                     tbxMaxAmount.Text = "";
                     tbxMultiples.Text = "";
+                    tbxPurchasePrice.Text = "";
                 }
             }
         }
