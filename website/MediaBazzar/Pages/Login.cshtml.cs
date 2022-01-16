@@ -26,6 +26,7 @@ namespace MediaBazzar.Pages
 
 
         public Employee Login { get; set; }
+
         private dbLoginManager dbLogin = new dbLoginManager();
 
         public static Contract emplContract;

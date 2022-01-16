@@ -11,7 +11,7 @@ namespace ClassLibraryProject.ManagmentClasses
         // prefered time
         public static string CREATE_PWT = "INSERT INTO preferedtime (EmployeeID, Prefered, Day, Time) VALUES (@EmployeeID, @Prefered, @Day, @Time) WHERE EmployeeID = @EmployeeID;";
         public static string GET_PWT = "SELECT Shift, Day, Prefered FROM preferedtime  WHERE EmployeeID = EmployeeID;";
-        public static string UPDATE_PWT = "UPDATE preferedtime SET Time = @Time, Prefered = @Prefered WHERE EmployeeID = @EmployeeID where Day = @Day;";
+        public static string UPDATE_PWT = "UPDATE preferedtime SET Shift = @Shift, Prefered = @Prefered WHERE EmployeeID = @EmployeeID and Day = @Day;";
         public static string DELETE_PWT_BY_ID = "DELETE FROM preferedtime WHERE EmployeeID = @EmployeeID";
 
         public static string VIEW_PWT_BY_ID = "SELECT * FROM preferedtime WHERE EmployeeID = @EmployeeID;";
@@ -71,7 +71,7 @@ namespace ClassLibraryProject.ManagmentClasses
             return null;
         }
 
-        public void EditPreferedWorkTimeForEmployee(string day, string shift, bool prefered)
+        public void EditPreferedWorkTimeForEmployee(int employeeID,string day, string shift, bool prefered)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -81,7 +81,8 @@ namespace ClassLibraryProject.ManagmentClasses
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-                
+                cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                cmd.Parameters.AddWithValue("@Day", day);
                 cmd.Parameters.AddWithValue("@Shift", shift);
                 cmd.Parameters.AddWithValue("@Prefered", prefered);
 
