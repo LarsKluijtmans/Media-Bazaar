@@ -10,7 +10,7 @@ namespace ClassLibraryProject.dbClasses
 {
    public class dbSalesDepartments : IDBViewAllDepartments
     {
-          private string GET_SALES_DEPARTMENTS = "SELECT `DepartmentID`,`HeadDepatment`,`DepartmentName` FROM `departments` WHERE `DepartmentID`> 4 AND HeadDepatment = 'sales';";
+        private string GET_SALES_DEPARTMENTS = "SELECT `DepartmentID`,`HeadDepatment`,`DepartmentName` FROM `departments` WHERE `DepartmentID`> 4 AND HeadDepatment = 'sales';";
 
         public List<Department> ViewAllDepartments()
         {
