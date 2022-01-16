@@ -195,6 +195,7 @@ namespace ClassLibraryProject.dbClasses
                     {
                         orderinfo = new OrderInfo(id, GetSupplier(supplierID), GetProduct(barcode), minAmount, maxAmount, multiples, purchasePrice);
                         orderInfos.Add(orderinfo);
+                        GetProduct(barcode).OrderInfos.Add(orderinfo);
                     }
                 }
             }

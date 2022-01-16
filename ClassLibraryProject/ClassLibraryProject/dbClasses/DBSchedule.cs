@@ -58,10 +58,6 @@ namespace ClassLibraryProject.dbClasses
                     schedules.Add(schedule);
                 }
             }
-            catch (MySqlException)
-            {
-
-            }
             catch (Exception)
             {
             }
