@@ -51,8 +51,9 @@ namespace MediaBazaarWebsite.Pages
 
         public void OnGet()
         {
+
             PreferedWorkTimeManagement workTimeManagement = new PreferedWorkTimeManagement();
-            pwt = workTimeManagement.GetPreferedWorkTimeForEmployee(LoginModel.EmployeeID);
+            pwt = workTimeManagement.GetPreferedWorkTimeForEmployee(LoginModel.emplContract.Employee.EmployeeID.ToString());
             this.Prefereds = new SelectList(pwt, "Day", "Shift");
 
         }
@@ -61,7 +62,7 @@ namespace MediaBazaarWebsite.Pages
         public void OnPostSubmit()
         {
             PreferedWorkTimeManagement preferedWorkTime = new PreferedWorkTimeManagement();
-            foreach (PreferedWorkTime p in pwt)
+            foreach (PreferedWorkTime p in pwt) // returnimg null?
             {
                 preferedWorkTime.EditPreferedWorkTimeForEmployee(p.Day,p.Shift, p.Prefered);
             }

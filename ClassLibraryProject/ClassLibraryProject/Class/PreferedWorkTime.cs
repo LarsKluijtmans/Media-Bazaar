@@ -8,6 +8,8 @@
         private bool prefered;
         private string day;
         private string shift;
+        private int year;
+        private int week;
 
 
 
@@ -61,6 +63,14 @@
 
             public PreferedWorkTime()
         {
+        }
+
+        public PreferedWorkTime(int year, int week, string shift, string day)
+        {
+            this.year = year;
+            this.week = week;
+            this.shift = shift;
+            this.day = day;
         }
 
 

@@ -8,14 +8,17 @@ namespace ClassLibraryProject.ManagmentClasses
 {
     public class PreferedWorkTimeManagement
     {
-        // sql
+        // prefered time
         public static string CREATE_PWT = "INSERT INTO preferedtime (EmployeeID, Prefered, Day, Time) VALUES (@EmployeeID, @Prefered, @Day, @Time) WHERE EmployeeID = @EmployeeID;";
-        public static string GET_PWT = "SELECT Shift, Day, Prefered FROM preferedtime WHERE EmployeeID = @EmployeeID";
+        public static string GET_PWT = "SELECT Shift, Day, Prefered FROM preferedtime  WHERE EmployeeID = EmployeeID;";
         public static string UPDATE_PWT = "UPDATE preferedtime SET Time = @Time, Prefered = @Prefered WHERE EmployeeID = @EmployeeID where Day = @Day;";
         public static string DELETE_PWT_BY_ID = "DELETE FROM preferedtime WHERE EmployeeID = @EmployeeID";
 
         public static string VIEW_PWT_BY_ID = "SELECT * FROM preferedtime WHERE EmployeeID = @EmployeeID;";
 
+        // Availability
+        public static string GET_AVAILABLE = "SELECT Year, Week, Day, Shift FROM availability  WHERE EmployeeID = @EmployeeID;";
+        public static string UPDATE_AVAILABLE = "UPDATE availability SET Year =@Year, Week = @Week, Shift = @Shift, Day = @Day WHERE EmployeeID = @EmployeeID where Day = @Day;";
 
 
 
@@ -26,7 +29,7 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
 
-        // methods
+        // methods for prefered work time
         public List<PreferedWorkTime> GetPreferedWorkTimeForEmployee(string employeeId)
         {
             List<PreferedWorkTime> preferedWorks = new List<PreferedWorkTime>();
@@ -94,5 +97,80 @@ namespace ClassLibraryProject.ManagmentClasses
                 conn.Close();
             }
         }
+
+
+        // Availability
+
+        public List<PreferedWorkTime> GetAvailableEmployee(string employeeId)
+        {
+            List<PreferedWorkTime> preferedWorks = new List<PreferedWorkTime>();
+            MySqlConnection conn = Utils.GetConnection();
+
+            try
+            {
+                int id = Convert.ToInt32(employeeId);
+                MySqlCommand cmd = new MySqlCommand(GET_AVAILABLE, conn);
+                cmd.Parameters.AddWithValue("@EmployeeID", id);
+                conn.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    int year  = reader.GetInt32("Year");
+                    int week = reader.GetInt32("Week");
+                    string day = reader.GetString("Day");
+                    string shift = reader.GetString("Shift");
+
+                    PreferedWorkTime preferedwork = new PreferedWorkTime(year, week, shift, day);
+                    preferedWorks.Add(preferedwork);
+
+                }
+                return preferedWorks;
+            }
+            catch (MySqlException)
+            {
+
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return null;
+        }
+
+        public void EditAvailableEmployee(int year, int week, string day, string shift)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = UPDATE_AVAILABLE;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@Year", year);
+                cmd.Parameters.AddWithValue("@Week", week);
+                cmd.Parameters.AddWithValue("@Day", day);
+                cmd.Parameters.AddWithValue("@Shift", shift);
+                
+
+                conn.Open();
+                int numAffectedRows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException)
+            { }
+            catch (Exception)
+            { }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
     }
 }
