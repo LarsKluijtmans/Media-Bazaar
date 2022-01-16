@@ -17,31 +17,43 @@ namespace MediaBazzar.Pages
         [BindProperty]
         public Admin employee { get; set; }
         DBEmployeeManager updateporfile = new DBEmployeeManager();
+
+        [BindProperty]
+        public string Password { get; set; }
+
         public void OnGet()
         {
-            updateporfile = new DBEmployeeManager();
-            Employee a = updateporfile.GetEmployeeByID(Convert.ToInt32(Login.EmployeeID));
+            //updateporfile = new DBEmployeeManager();
+            //Employee a =  updateporfile.GetEmployeeByID(Convert.ToInt32(Login.EmployeeID));
 
-            employee.EmployeeID = a.EmployeeID;
-            employee.FirstName = a.FirstName;
-            employee.LastName = a.LastName;
-            employee.PhoneNumber = a.PhoneNumber;
-            employee.Email = a.Email;
-            employee.City = a.City;
-            employee.BSN = a.BSN;
-            employee.Username = a.Username;
-            employee.Password = a.Password;
-            employee.ZipCode = a.ZipCode;
-            employee.Address = a.Address;
-            employee.DateOfBirth = a.DateOfBirth;
-            employee.PersonalEmail = a.PersonalEmail;
+            //employee.EmployeeID = a.EmployeeID;
+            //employee.FirstName = a.FirstName;
+            //employee.LastName = a.LastName;
+            //employee.PhoneNumber = a.PhoneNumber;
+            //employee.Email = a.Email;
+            //employee.City = a.City;
+            //employee.BSN = a.BSN;
+            //employee.Username = a.Username;
+            //employee.Password = a.Password;
+            //employee.ZipCode = a.ZipCode;
+            //employee.Address = a.Address;
+            //employee.DateOfBirth = a.DateOfBirth;
+            //employee.PersonalEmail = a.PersonalEmail;
         }
         public void OnPost()
         {
-            if (ModelState.IsValid)
+
+            if (employee.Password == Password)
             {
-                updateporfile = new DBEmployeeManager();
-                updateporfile.UpdateOwnInfo(employee);
+                if (ModelState.IsValid)
+                {
+                    updateporfile = new DBEmployeeManager();
+                    updateporfile.UpdateOwnInfo(employee);
+                }
+            }
+            else
+            {
+                ViewData["Message"] = "Passwords not the same.";
             }
         }
 

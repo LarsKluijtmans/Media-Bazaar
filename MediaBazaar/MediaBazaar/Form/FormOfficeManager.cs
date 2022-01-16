@@ -167,9 +167,12 @@ namespace AdminBackups
                     }
                 }
             }
-            dgvEmployees.DataSource = departmentEmployees;
 
-            if (cbxEmployeeType.SelectedIndex == 0)
+            if (cbxEmployeeType.SelectedIndex != 0)
+            {
+                dgvEmployees.DataSource = departmentEmployees;
+            }
+            else if (cbxEmployeeType.SelectedIndex == 0)
             {
                 dgvEmployees.DataSource = employees;
             }
