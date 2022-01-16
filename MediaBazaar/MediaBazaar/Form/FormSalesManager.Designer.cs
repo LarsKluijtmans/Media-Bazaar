@@ -686,7 +686,7 @@ namespace AdminBackups
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(574, 3);
+            this.label9.Location = new System.Drawing.Point(574, 44);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(122, 21);
             this.label9.TabIndex = 19;
@@ -716,9 +716,9 @@ namespace AdminBackups
             this.lstEmpCanWork.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmpCanWork.FormattingEnabled = true;
             this.lstEmpCanWork.ItemHeight = 17;
-            this.lstEmpCanWork.Location = new System.Drawing.Point(574, 24);
+            this.lstEmpCanWork.Location = new System.Drawing.Point(574, 75);
             this.lstEmpCanWork.Name = "lstEmpCanWork";
-            this.lstEmpCanWork.Size = new System.Drawing.Size(345, 361);
+            this.lstEmpCanWork.Size = new System.Drawing.Size(345, 310);
             this.lstEmpCanWork.TabIndex = 16;
             // 
             // lstEmpEnlisted
