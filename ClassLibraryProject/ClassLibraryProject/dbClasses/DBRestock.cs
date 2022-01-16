@@ -59,7 +59,7 @@ namespace ClassLibraryProject.dbClasses
             }
             return null;
         }
-        private void GetAllProducts()
+        private void GetAllProducts() //Conn not closing
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -100,10 +100,7 @@ namespace ClassLibraryProject.dbClasses
             }
             finally
             {
-                if (conn != null)
-                {
-                    conn.Close();
-                }
+                conn.Close();
             }
         }
 
