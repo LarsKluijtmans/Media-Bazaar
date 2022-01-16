@@ -324,7 +324,7 @@ namespace AdminBackups
             DateTime dateOfBirth = new DateTime(1000, 1, 1);
             try
             {
-                DateTime MakeDate = Convert.ToDateTime(tbxDateOfBirth.Text.);
+                DateTime MakeDate = Convert.ToDateTime(tbxDateOfBirth.Text);
 
                 dateOfBirth = Convert.ToDateTime(MakeDate.ToString("yyyy/MM/dd"));
 
