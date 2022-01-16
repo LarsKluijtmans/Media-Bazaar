@@ -29,6 +29,7 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductManager));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tbxSelectedProduct = new System.Windows.Forms.TextBox();
@@ -605,6 +606,7 @@ namespace AdminBackups
             this.ClientSize = new System.Drawing.Size(1162, 583);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormProductManager";
             this.Text = "ProductManager";

@@ -19,7 +19,7 @@ namespace AdminBackups
 
         int i;
         int pi;
-
+        DateTime date;
         public FormDepotManager(DepotManager depotManager, Store store, FormLogin login)
         {
             InitializeComponent();
@@ -28,6 +28,7 @@ namespace AdminBackups
             this.depotManager = depotManager;
             this.store = store;
             c = depotManager.Control;
+            date = DateTime.Now;
 
             Initialize();
             UpdatePendingRequests();
@@ -37,7 +38,6 @@ namespace AdminBackups
         }
 
         //INITIALIZE----------------------------------------------------------------------
-        DateTime date = DateTime.Now;
         public void Initialize()
         {
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
@@ -83,12 +83,10 @@ namespace AdminBackups
         {
             tabControl1.SelectTab(2);
         }
-
         private void dgOverviewRestock_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             tabControl1.SelectTab(1);
         }
-
         private void lstEmployeesWorkingToday_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             tabControl1.SelectTab(3);
@@ -242,7 +240,6 @@ namespace AdminBackups
 
                 dgSchedule.DataSource = table;
                 dgOverviewSchedule.DataSource = table;
-                dgPlanningSchedule.DataSource = table;
             }
             catch (Exception)
             {
@@ -411,8 +408,6 @@ namespace AdminBackups
                     table.Rows.Add(schedule.Day, schedule.MorningAmount, schedule.AfternoonAmount, schedule.EveningAmount);
                 }
 
-                dgSchedule.DataSource = table;
-                dgOverviewSchedule.DataSource = table;
                 dgPlanningSchedule.DataSource = table;
             }
             catch (Exception)
@@ -556,6 +551,8 @@ namespace AdminBackups
         //AUTOMATED SCHEDULE--------------------------------------------------------------------
         private void btnAutoSchedule_Click(object sender, EventArgs e)
         {
+            UpdatePlanningSchedule();
+
             if (cbDepartments.Text == "")
             {
                 MessageBox.Show("Please select a department");

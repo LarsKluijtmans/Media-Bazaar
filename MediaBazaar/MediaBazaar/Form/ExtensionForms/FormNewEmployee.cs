@@ -49,7 +49,35 @@ namespace AdminBackups
                 return;
             }
 
-            
+            bool employeeEmailUnique = true;
+            // check if info is unique
+
+
+            foreach (Employee e in officeManager.EmployeeManagerOffice.GetAllEmployees())
+            {
+                try
+                {
+                    if (e.BSN == Convert.ToInt32(tbxBSN.Text))
+                    {
+                        MessageBox.Show("This BSN is already in use.");
+                        return;
+                    }
+                    if (e.PersonalEmail == tbxPersonalEmail.Text)
+                    {
+                        MessageBox.Show("This PersonalEmail is already in use.");
+                        return;
+                    }
+                    if (e.Email == $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com")
+                    {
+                        employeeEmailUnique = false; 
+                    }
+                }
+                catch
+                { 
+
+                }
+            }
+
             string phoneNumber = tbxPhoneNumber.Text;
             if (string.IsNullOrEmpty(phoneNumber))
             {
@@ -62,7 +90,18 @@ namespace AdminBackups
                 return;
             }
 
-            string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
+            string email = "";
+
+
+            if (employeeEmailUnique)
+            {
+                email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
+            }
+            else
+            {
+                Random r = new Random();
+                email = $"{ char.ToLower(firstName[0])}{lastName.ToLower()}{r.Next(1, 1000)}@mb.com";
+            }
             
             
             string zipCode = tbxZipCode.Text;
@@ -166,7 +205,7 @@ namespace AdminBackups
                 newEmployee = new Admin(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    if (CreateContract())
+                    if (CreateContract(email))
                     {
                         store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
@@ -175,7 +214,8 @@ namespace AdminBackups
                         {
                             this.Close();
                         }
-                    } else
+                    }
+                    else
                     {
                         return;
                     }
@@ -186,7 +226,7 @@ namespace AdminBackups
                 newEmployee = new CEO(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    if (CreateContract())
+                    if (CreateContract(email))
                     {
                         store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
@@ -206,7 +246,7 @@ namespace AdminBackups
                 newEmployee = new SalesRepresentative(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    if (CreateContract())
+                    if (CreateContract(email))
                     {
                         store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
@@ -227,7 +267,7 @@ namespace AdminBackups
                 newEmployee = new SalesManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    if (CreateContract())
+                    if (CreateContract(email))
                     {
                         store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
@@ -248,7 +288,7 @@ namespace AdminBackups
                 newEmployee = new DepotEmployee(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    if (CreateContract())
+                    if (CreateContract(email))
                     {
                         store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
@@ -269,7 +309,7 @@ namespace AdminBackups
                 newEmployee = new DepotManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    if (CreateContract())
+                    if (CreateContract(email))
                     {
                          store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
@@ -290,7 +330,7 @@ namespace AdminBackups
                 newEmployee = new OfficeManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    if (CreateContract())
+                    if (CreateContract(email))
                     {
                         store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
@@ -311,7 +351,7 @@ namespace AdminBackups
                 newEmployee = new ProductManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    if (CreateContract())
+                    if (CreateContract(email))
                     {
                         store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
@@ -328,7 +368,7 @@ namespace AdminBackups
                 }
             }
         }
-        private bool CreateContract()
+        private bool CreateContract(string email)
         {
             // get employee id for contract
 
@@ -346,8 +386,6 @@ namespace AdminBackups
                 MessageBox.Show("Please enter a last name");
                 return false;
             }
-
-            string email = $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com";
 
             // get job title
             string jobTitle = cbxJobTitle.Text;
