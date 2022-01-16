@@ -49,10 +49,16 @@ namespace ClassLibraryProject.ManagmentClasses
             {
                 if (db.CompleteReshelf(id))
                 {
-                    int newAmount = product.AmountInDepot + GetReshelfByID(id).AmountRequested;
-                    db.ChangeAmount(product, newAmount);
+                    if(CheckAmount(product, GetReshelfByID(id).AmountRequested) == true)
+                    {
+                        int newAmountDepot = product.AmountInDepot - GetReshelfByID(id).AmountRequested;
+                        int newAmountStore = product.AmountInStore + GetReshelfByID(id).AmountRequested;
+                        db.ChangeAmountDepot(product, newAmountDepot);
+                        db.ChangeAmountStore(product, newAmountStore);
 
-                    return true;
+                        return true;
+                    }
+                    return false;
                 }
                 return false;
             }
@@ -92,6 +98,14 @@ namespace ClassLibraryProject.ManagmentClasses
         }
 
         //check
+        public bool CheckAmount(Product product, int amount)
+        {
+            if(product.AmountInDepot > amount)
+            {
+                return true;
+            }
+            return false;
+        }
         private Reshelf GetReshelf(Product product)
         {
             foreach (Reshelf reshelf in db.GetReshelfRequests())
