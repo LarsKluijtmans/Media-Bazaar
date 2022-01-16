@@ -30,6 +30,7 @@ namespace ClassLibraryProject.Class
         public string Email { get; set; }
         public string ZipCode { get; set; }
         public string Address { get; set; }
+        public string StreetName { get; set; }
         public string City { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int BSN { get; set; }

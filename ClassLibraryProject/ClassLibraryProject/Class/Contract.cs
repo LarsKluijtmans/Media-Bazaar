@@ -33,6 +33,11 @@ namespace ClassLibraryProject.Class
         public bool IsActive { get; set; }
 
         // constructor
+
+        public Contract()
+        {
+
+        }
         public Contract(Employee employee, string jobTitle, int workHoursPerWeek, double salaryPerHour, DateTime startDate, DateTime endDate, string department)
         {
             this.Employee = employee;

@@ -29,25 +29,27 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrderInfo));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbxMinAmount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbxMaxAmount = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbxMultiples = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblProductName = new System.Windows.Forms.Label();
             this.btnAddNewOrder = new System.Windows.Forms.Button();
             this.tbxBarcode = new System.Windows.Forms.TextBox();
-            this.tbxPurchasePrice = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lbxSupplier = new System.Windows.Forms.ListBox();
             this.tbxSearchSupplier = new System.Windows.Forms.TextBox();
             this.tbxSupplier = new System.Windows.Forms.TextBox();
             this.btnUpdateOrderInfo = new System.Windows.Forms.Button();
             this.btnDeleteOrderInfo = new System.Windows.Forms.Button();
+            this.tbxMinAmount = new System.Windows.Forms.NumericUpDown();
+            this.tbxMaxAmount = new System.Windows.Forms.NumericUpDown();
+            this.tbxMultiples = new System.Windows.Forms.NumericUpDown();
+            this.tbxPurchasePrice = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxMinAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxMaxAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxMultiples)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -70,14 +72,6 @@ namespace AdminBackups
             this.label2.TabIndex = 2;
             this.label2.Text = "Barcode:";
             // 
-            // tbxMinAmount
-            // 
-            this.tbxMinAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxMinAmount.Location = new System.Drawing.Point(408, 129);
-            this.tbxMinAmount.Name = "tbxMinAmount";
-            this.tbxMinAmount.Size = new System.Drawing.Size(135, 29);
-            this.tbxMinAmount.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -88,14 +82,6 @@ namespace AdminBackups
             this.label3.TabIndex = 4;
             this.label3.Text = "Max Amount:";
             // 
-            // tbxMaxAmount
-            // 
-            this.tbxMaxAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxMaxAmount.Location = new System.Drawing.Point(408, 165);
-            this.tbxMaxAmount.Name = "tbxMaxAmount";
-            this.tbxMaxAmount.Size = new System.Drawing.Size(135, 29);
-            this.tbxMaxAmount.TabIndex = 7;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -105,14 +91,6 @@ namespace AdminBackups
             this.label4.Size = new System.Drawing.Size(100, 21);
             this.label4.TabIndex = 6;
             this.label4.Text = "Min Amount:";
-            // 
-            // tbxMultiples
-            // 
-            this.tbxMultiples.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxMultiples.Location = new System.Drawing.Point(624, 129);
-            this.tbxMultiples.Name = "tbxMultiples";
-            this.tbxMultiples.Size = new System.Drawing.Size(164, 29);
-            this.tbxMultiples.TabIndex = 9;
             // 
             // label5
             // 
@@ -153,14 +131,6 @@ namespace AdminBackups
             this.tbxBarcode.Size = new System.Drawing.Size(164, 23);
             this.tbxBarcode.TabIndex = 18;
             // 
-            // tbxPurchasePrice
-            // 
-            this.tbxPurchasePrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxPurchasePrice.Location = new System.Drawing.Point(669, 165);
-            this.tbxPurchasePrice.Name = "tbxPurchasePrice";
-            this.tbxPurchasePrice.Size = new System.Drawing.Size(119, 29);
-            this.tbxPurchasePrice.TabIndex = 19;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -169,7 +139,7 @@ namespace AdminBackups
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 21);
             this.label7.TabIndex = 20;
-            this.label7.Text = "Purchase Prise:";
+            this.label7.Text = "Purchase Price:";
             // 
             // lbxSupplier
             // 
@@ -222,32 +192,111 @@ namespace AdminBackups
             this.btnDeleteOrderInfo.UseVisualStyleBackColor = true;
             this.btnDeleteOrderInfo.Click += new System.EventHandler(this.btnDeleteOrderInfo_Click);
             // 
+            // tbxMinAmount
+            // 
+            this.tbxMinAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxMinAmount.Location = new System.Drawing.Point(408, 130);
+            this.tbxMinAmount.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.tbxMinAmount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tbxMinAmount.Name = "tbxMinAmount";
+            this.tbxMinAmount.Size = new System.Drawing.Size(135, 29);
+            this.tbxMinAmount.TabIndex = 26;
+            this.tbxMinAmount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // tbxMaxAmount
+            // 
+            this.tbxMaxAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxMaxAmount.Location = new System.Drawing.Point(408, 166);
+            this.tbxMaxAmount.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.tbxMaxAmount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tbxMaxAmount.Name = "tbxMaxAmount";
+            this.tbxMaxAmount.Size = new System.Drawing.Size(135, 29);
+            this.tbxMaxAmount.TabIndex = 27;
+            this.tbxMaxAmount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // tbxMultiples
+            // 
+            this.tbxMultiples.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxMultiples.Location = new System.Drawing.Point(624, 130);
+            this.tbxMultiples.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.tbxMultiples.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tbxMultiples.Name = "tbxMultiples";
+            this.tbxMultiples.Size = new System.Drawing.Size(164, 29);
+            this.tbxMultiples.TabIndex = 28;
+            this.tbxMultiples.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // tbxPurchasePrice
+            // 
+            this.tbxPurchasePrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxPurchasePrice.Location = new System.Drawing.Point(669, 165);
+            this.tbxPurchasePrice.Name = "tbxPurchasePrice";
+            this.tbxPurchasePrice.Size = new System.Drawing.Size(119, 29);
+            this.tbxPurchasePrice.TabIndex = 29;
+            // 
             // FormOrderInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 332);
+            this.Controls.Add(this.tbxPurchasePrice);
+            this.Controls.Add(this.tbxMultiples);
+            this.Controls.Add(this.tbxMaxAmount);
+            this.Controls.Add(this.tbxMinAmount);
             this.Controls.Add(this.btnDeleteOrderInfo);
             this.Controls.Add(this.btnUpdateOrderInfo);
             this.Controls.Add(this.tbxSupplier);
             this.Controls.Add(this.tbxSearchSupplier);
             this.Controls.Add(this.lbxSupplier);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.tbxPurchasePrice);
             this.Controls.Add(this.tbxBarcode);
             this.Controls.Add(this.btnAddNewOrder);
             this.Controls.Add(this.lblProductName);
-            this.Controls.Add(this.tbxMultiples);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.tbxMaxAmount);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbxMinAmount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormOrderInfo";
             this.Text = "FormOrderInfo";
+            ((System.ComponentModel.ISupportInitialize)(this.tbxMinAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxMaxAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxMultiples)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,21 +306,21 @@ namespace AdminBackups
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbxMinAmount;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbxMaxAmount;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbxMultiples;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.Button btnAddNewOrder;
         private System.Windows.Forms.TextBox tbxBarcode;
-        private System.Windows.Forms.TextBox tbxPurchasePrice;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox lbxSupplier;
         private System.Windows.Forms.TextBox tbxSearchSupplier;
         private System.Windows.Forms.TextBox tbxSupplier;
         private System.Windows.Forms.Button btnUpdateOrderInfo;
         private System.Windows.Forms.Button btnDeleteOrderInfo;
+        private System.Windows.Forms.NumericUpDown tbxMinAmount;
+        private System.Windows.Forms.NumericUpDown tbxMaxAmount;
+        private System.Windows.Forms.NumericUpDown tbxMultiples;
+        private System.Windows.Forms.TextBox tbxPurchasePrice;
     }
 }

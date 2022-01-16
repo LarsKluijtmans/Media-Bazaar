@@ -32,6 +32,9 @@ namespace AdminBackups
 
             LoadEmployeeInfo();
             AddDepartment();
+
+            tbxStartDate.Value = DateTime.Now;
+            tbxEndDate.Value = DateTime.Now;
         }
 
         private void btnEditData_Click(object sender, EventArgs e)
@@ -238,7 +241,7 @@ namespace AdminBackups
 
             return officeManager.EmployeeManagerOffice.UpdateEmployee(employee);
         }
-        public bool CreateNewContract() // make bool
+        public bool CreateNewContract()
         {
             if (contract != null)
             {

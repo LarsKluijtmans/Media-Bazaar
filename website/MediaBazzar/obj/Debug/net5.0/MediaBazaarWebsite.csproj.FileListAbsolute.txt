@@ -272,3 +272,5 @@ C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohamm
 C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\ref\MediaBazaarWebsite.dll
 C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazaarWebsite.pdb
 C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazaarWebsite.genruntimeconfig.cache
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\Razor\Pages\Availability.cshtml.g.cs
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\Razor\Pages\Available.cshtml.g.cs

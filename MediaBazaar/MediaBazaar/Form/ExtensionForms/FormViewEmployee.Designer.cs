@@ -29,7 +29,6 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormViewEmployee));
             this.lblEmployeeName = new System.Windows.Forms.Label();
             this.btnEditData = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -492,7 +491,6 @@ namespace AdminBackups
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.lblEmployeeName);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormViewEmployee";
             this.Text = "FormViewEmployee";
             this.groupBox3.ResumeLayout(false);

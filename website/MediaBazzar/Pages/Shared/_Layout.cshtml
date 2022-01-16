@@ -20,16 +20,24 @@
                     {
                         <li><a asp-area="" asp-page="/Profile">LOGIN</a></li>
                     }
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.Identity.IsAuthenticated && !User.IsInRole("Manager") && !User.IsInRole("Admin"))
                     {
-                        <li><a asp-area="" asp-page="/Profile">PROFILE</a></li>
                         <li><a asp-area="" asp-page="/Schedule">SCHEDULE</a></li>
                         <li><a asp-area="" asp-page="/Preferedtime">PREFERED TIME</a></li>
+                        <li><a asp-area="" asp-page="/Availability">AVAILABLE</a></li>
+                        <li><a asp-area="" asp-page="/Profile">PROFILE</a></li>
                         <li><a asp-area="" asp-page="/Logout" asp-page-handler="Logout">LOGOUT</a></li>
                     }
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Manager") && !User.IsInRole("Admin"))
+                    {
+                        <li><a asp-area="" asp-page="/Profile">PROFILE</a></li>
+                        <li><a asp-area="" asp-page="/Logout" asp-page-handler="Logout">LOGOUT</a></li>
+                    }
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin") && !User.IsInRole("Manager"))
                     {
                         <li><a asp-area="" asp-page="/Admin">ADMIN</a></li>
+                        <li><a asp-area="" asp-page="/Profile">PROFILE</a></li>
+                        <li><a asp-area="" asp-page="/Logout" asp-page-handler="Logout">LOGOUT</a></li>
                     }
                 </ul>
             </div>

@@ -16,9 +16,9 @@ namespace ClassLibraryProject.dbClasses
         private string UPDATE_SUPPLIER = "UPDATE supplier SET Name = @Name, Country = @Country, BuildingNumber = @BuildingNumber, PostalCode = @PostalCode, Email = @Email, PhoneNumber = @PhoneNumber, BankNumber = @BankNumber, ProductType = @ProductType WHERE ID = @ID;";
         private string DELETE_SUPPLIER = "DELETE FROM supplier WHERE ID = @ID;";
 
-        private string GET_SUPPLIERS_FOR_PRODUCT = "SELECT * FROM Supplier WHERE ProductType = @ProductType;";
-        private string GET_SUPPLIER_BY_ID = "SELECT * FROM Supplier WHERE ID = @ID;";
-        public string SEARCH_SUPPLIER = "SELECT * FROM Supplier WHERE Name LIKE @Search;";
+        private string GET_SUPPLIERS_FOR_PRODUCT = "SELECT * FROM Supplier WHERE ProductType = @ProductType  LIMIT 50;";
+        private string GET_SUPPLIER_BY_ID = "SELECT * FROM Supplier WHERE ID = @ID  LIMIT 50;";
+        public string SEARCH_SUPPLIER = "SELECT * FROM Supplier WHERE Name LIKE @Search  LIMIT 50;";
         
         public bool CreateSupplier(Supplier s)
         {
