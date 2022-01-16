@@ -203,11 +203,19 @@ namespace MediaBazaar
                     return;
                 }
 
-                var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
-                formProductManager.ReadProducts();
-                formProductManager.ReadProductsNoOrderInfo();
+                DialogResult dr = MessageBox.Show("Do you want to view the order info", "Product Updated", MessageBoxButtons.YesNo);
 
-                this.Close();
+                if (dr == DialogResult.Yes)
+                {
+                    return;
+                } else if (dr == DialogResult.No)
+                {
+                    var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
+                    formProductManager.ReadProducts();
+                    formProductManager.ReadProductsNoOrderInfo();
+
+                    this.Close();
+                }
             } else if (employee is SalesManager)
             {
                 if (!UpdateProductSM())
@@ -216,12 +224,35 @@ namespace MediaBazaar
                     return;
                 }
 
-                var formSalesManager = Application.OpenForms.OfType<FormSalesManager>().FirstOrDefault();
-                formSalesManager.ReadProducts();
-                formSalesManager.ReadNewProducts();
+                DialogResult dr = MessageBox.Show("Do you want to view the order info", "Product Updated", MessageBoxButtons.YesNo);
+
+                if (dr == DialogResult.Yes)
+                {
+                    return;
+                }
+                else if (dr == DialogResult.No)
+                {
+                    var formSalesManager = Application.OpenForms.OfType<FormSalesManager>().FirstOrDefault();
+                    formSalesManager.ReadProducts();
+                    formSalesManager.ReadNewProducts();
+
+                    this.Close();
+                }
+            }
+
+            /*DialogResult dr = MessageBox.Show("Do you want to update the contract?", "Employee updated", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                return;
+            }
+            else if (dr == DialogResult.No)
+            {
+                var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
+                formOfficeManager.ReadEmployees();
 
                 this.Close();
-            }
+            }*/
         }
 
         private void btnCreateOrderInfo_Click(object sender, EventArgs e)

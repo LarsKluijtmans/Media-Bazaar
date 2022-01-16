@@ -29,13 +29,11 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductManager));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tbxSelectedProduct = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.bntUpdateProduct = new System.Windows.Forms.Button();
-            this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.btnCreateProduct = new System.Windows.Forms.Button();
             this.labProductSearch = new System.Windows.Forms.Label();
             this.tbProductSearch = new System.Windows.Forms.TextBox();
@@ -101,7 +99,6 @@ namespace AdminBackups
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.tbxSelectedProduct);
             this.tabPage3.Controls.Add(this.groupBox4);
             this.tabPage3.Controls.Add(this.labProductSearch);
             this.tabPage3.Controls.Add(this.tbProductSearch);
@@ -118,7 +115,7 @@ namespace AdminBackups
             // 
             // tbxSelectedProduct
             // 
-            this.tbxSelectedProduct.Location = new System.Drawing.Point(904, 21);
+            this.tbxSelectedProduct.Location = new System.Drawing.Point(6, 27);
             this.tbxSelectedProduct.Name = "tbxSelectedProduct";
             this.tbxSelectedProduct.PlaceholderText = "Selected Product";
             this.tbxSelectedProduct.ReadOnly = true;
@@ -127,21 +124,21 @@ namespace AdminBackups
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.tbxSelectedProduct);
             this.groupBox4.Controls.Add(this.bntUpdateProduct);
-            this.groupBox4.Controls.Add(this.btnDeleteProduct);
             this.groupBox4.Controls.Add(this.btnCreateProduct);
             this.groupBox4.Location = new System.Drawing.Point(899, 57);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(182, 133);
+            this.groupBox4.Size = new System.Drawing.Size(182, 135);
             this.groupBox4.TabIndex = 102;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Manage Products";
             // 
             // bntUpdateProduct
             // 
-            this.bntUpdateProduct.Location = new System.Drawing.Point(6, 56);
+            this.bntUpdateProduct.Location = new System.Drawing.Point(6, 99);
             this.bntUpdateProduct.Name = "bntUpdateProduct";
             this.bntUpdateProduct.Size = new System.Drawing.Size(167, 31);
             this.bntUpdateProduct.TabIndex = 9;
@@ -149,19 +146,9 @@ namespace AdminBackups
             this.bntUpdateProduct.UseVisualStyleBackColor = true;
             this.bntUpdateProduct.Click += new System.EventHandler(this.bntUpdateProduct_Click);
             // 
-            // btnDeleteProduct
-            // 
-            this.btnDeleteProduct.Location = new System.Drawing.Point(5, 92);
-            this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(168, 31);
-            this.btnDeleteProduct.TabIndex = 7;
-            this.btnDeleteProduct.Text = "Delete Product";
-            this.btnDeleteProduct.UseVisualStyleBackColor = true;
-            // 
             // btnCreateProduct
             // 
-            this.btnCreateProduct.Location = new System.Drawing.Point(6, 20);
+            this.btnCreateProduct.Location = new System.Drawing.Point(6, 63);
             this.btnCreateProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreateProduct.Name = "btnCreateProduct";
             this.btnCreateProduct.Size = new System.Drawing.Size(168, 31);
@@ -606,7 +593,6 @@ namespace AdminBackups
             this.ClientSize = new System.Drawing.Size(1162, 583);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormProductManager";
             this.Text = "ProductManager";
@@ -614,6 +600,7 @@ namespace AdminBackups
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -641,7 +628,6 @@ namespace AdminBackups
         private System.Windows.Forms.TextBox tbProductSearch;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button bntUpdateProduct;
-        private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.Button btnCreateProduct;
         private System.Windows.Forms.TextBox tbxSelectedProduct;
         private System.Windows.Forms.TabPage tabPage1;
