@@ -280,10 +280,12 @@ namespace AdminBackups
                         }
                         oi.PurchasePrice = Convert.ToDouble(tbxPurchasePrice.Text);
 
-                        if (productManager.OrderInfoManagerPM.UpdateOrderInfo(oi))
-                        {
-                            MessageBox.Show("Order Info Updated");
-                        }
+                        MessageBox.Show(oi.MaxAmount.ToString());
+
+                        //if (productManager.OrderInfoManagerPM.UpdateOrderInfo(oi))
+                        //{
+                        //    MessageBox.Show("Order Info Updated");
+                        //}
                     }
                 }
             }
