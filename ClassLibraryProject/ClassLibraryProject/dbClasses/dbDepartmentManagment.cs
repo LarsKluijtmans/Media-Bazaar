@@ -94,6 +94,8 @@ namespace ClassLibraryProject.dbClasses
 
           int result =  UpdateEmployeeInfo(GetDepartmentName( Convert.ToInt32(DepartmetnID)), Name);
 
+            UpdateScheduleInfo(GetDepartmentName(Convert.ToInt32(DepartmetnID)), Name);
+
             MySqlConnection conn = Utils.GetConnection();
             string sql = EDIT_DEPARTMENT;
             try
@@ -281,20 +283,52 @@ namespace ClassLibraryProject.dbClasses
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            //string sql = UPDATE_EMPLOYEES_DEPARTMENT;
             string sql = $"UPDATE Contract SET Department = '{NewDepartmentName}' WHERE Department = '{OldDepartmentName}' ;";
 
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-               // cmd.Parameters.AddWithValue("@OldDepartmentName", OldDepartmentName);
-                //cmd.Parameters.AddWithValue("@NewDepartmentName", NewDepartmentName);
 
                 conn.Open();
 
                 int AmountAfacted =  cmd.ExecuteNonQuery();
 
                 return AmountAfacted; 
+
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return 0;
+        }
+
+        private int UpdateScheduleInfo(string OldDepartmentName, string NewDepartmentName)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = $"UPDATE schedule SET Department = '{NewDepartmentName}' WHERE Department = '{OldDepartmentName}' ;";
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                conn.Open();
+
+                int AmountAfacted = cmd.ExecuteNonQuery();
+
+                return AmountAfacted;
 
             }
             catch (MySqlException msqEx)

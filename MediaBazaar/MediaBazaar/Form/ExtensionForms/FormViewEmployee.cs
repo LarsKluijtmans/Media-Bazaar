@@ -173,12 +173,30 @@ namespace AdminBackups
                 MessageBox.Show("Phone number cannot be empty");
                 return false;
             }
+
+
+            // check if info is unique
+
+            foreach (Employee e in officeManager.EmployeeManagerOffice.GetAllEmployees())
+            {
+                if (e.PersonalEmail == tbxPersonalEmail.Text)
+                {
+                    MessageBox.Show("This PersonalEmail is already in use.");
+                    return false;
+                }
+            }
+
+            employee.PhoneNumber = tbxPhoneNumber.Text;
+            if (string.IsNullOrEmpty(employee.PhoneNumber))
+            {
+                MessageBox.Show("Please enter a phone number");
+                return false;
+            }
             if (!Regex.IsMatch(tbxPhoneNumber.Text, @"^(\+)316[0-9]{8}$"))
             {
                 MessageBox.Show("Please enter a valid phone number");
                 return false;
             }
-            employee.PhoneNumber = tbxPhoneNumber.Text;
 
             if (string.IsNullOrEmpty(tbxPersonalEmail.Text))
             {
@@ -283,8 +301,8 @@ namespace AdminBackups
             }
 
             double salaryPerHour = 0;
-            try 
-            { 
+            try
+            {
                 salaryPerHour = Convert.ToDouble(tbxSalary.Text);
             }
             catch
