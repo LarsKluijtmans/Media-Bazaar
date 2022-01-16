@@ -62,7 +62,7 @@ namespace MediaBazaarWebsite.Pages
         public void OnPostSubmit()
         {
             PreferedWorkTimeManagement preferedWorkTime = new PreferedWorkTimeManagement();
-            foreach (PreferedWorkTime p in pwt) // returnimg null?
+            foreach (PreferedWorkTime p in pwt)
             {
                 preferedWorkTime.EditPreferedWorkTimeForEmployee(currecntEmployeeID,p.Day,p.Shift, p.Prefered);
             }

@@ -24,7 +24,7 @@ namespace MediaBazzar.Pages
         public void OnGet()
         {
             updateporfile = new DBEmployeeManager();
-            Employee a = updateporfile.GetEmployeeByID(Convert.ToInt32(Login.EmployeeID));
+            Employee a = updateporfile.GetEmployeeByID(LoginModel.emplContract.Employee.EmployeeID);
 
             employee.EmployeeID = a.EmployeeID;
             employee.FirstName = a.FirstName;

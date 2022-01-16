@@ -1,4 +1,52 @@
-﻿@page
-@model MediaBazaarWebsite.Pages.AvailabilityModel
-@{
-}
+﻿@*@page
+    @model MediaBazaarWebsite.Pages.AvailableModel
+    @{
+    }
+
+    <!DOCTYPE html>
+
+    <style>
+    </style>
+    <body>
+        <div class="container">
+            <div>
+
+                <p>  Welcome, @User.Identity.Name</p>
+
+                <h2>Employee Prefered Work Time</h2>
+                <form class="prefered-time" method="post">
+                    <table cellpadding="10" cellspacing="10">
+                        <tr>
+                            <th>Day</th>
+                            <th>Shift</th>
+                        </tr>
+                        @foreach (var item in Model.pwt)
+                        {
+
+                            <tr>
+                                <td>@item.Day</td>
+                                <td>
+                                    <select id="Shift" name="Shift" asp-items="@Model.Prefereds">
+                                        <option value="0">@item.Shift</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                    <input type="submit" value="Submit" asp-page-handler="Submit" />
+                </form>
+            </div>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        $("body").on("change", "#shift", function () {
+            $("input[name=ShiftType]").val($(this).find("option:selected").text());
+        });
+    </script>
+    <script type="text/javascript">
+        $("body").on("change", "#prefered", function () {
+            $("input[name=preferedType]").val($(this).find("option:selected").text());
+        });
+    </script>*@
