@@ -11,6 +11,7 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotEmployee
         List<Reshelf> GetReshelfRequest();
         bool CompleteReshelf(int id, Product product);
         bool DeleteReshelf(int id);
+        bool CheckAmount(Product product, int amount);
 
         //restock
         List<Restock> GetOrderedRestockRequests();
