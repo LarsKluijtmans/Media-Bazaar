@@ -203,6 +203,10 @@ namespace MediaBazaar
                     return;
                 }
 
+                var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
+                formProductManager.ReadProducts();
+                formProductManager.ReadProductsNoOrderInfo();
+
                 DialogResult dr = MessageBox.Show("Do you want to view the order info", "Product Updated", MessageBoxButtons.YesNo);
 
                 if (dr == DialogResult.Yes)
@@ -210,10 +214,6 @@ namespace MediaBazaar
                     return;
                 } else if (dr == DialogResult.No)
                 {
-                    var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
-                    formProductManager.ReadProducts();
-                    formProductManager.ReadProductsNoOrderInfo();
-
                     this.Close();
                 }
             } else if (employee is SalesManager)
@@ -224,6 +224,10 @@ namespace MediaBazaar
                     return;
                 }
 
+                var formSalesManager = Application.OpenForms.OfType<FormSalesManager>().FirstOrDefault();
+                formSalesManager.ReadProducts();
+                formSalesManager.ReadNewProducts();
+
                 DialogResult dr = MessageBox.Show("Do you want to view the order info", "Product Updated", MessageBoxButtons.YesNo);
 
                 if (dr == DialogResult.Yes)
@@ -232,10 +236,6 @@ namespace MediaBazaar
                 }
                 else if (dr == DialogResult.No)
                 {
-                    var formSalesManager = Application.OpenForms.OfType<FormSalesManager>().FirstOrDefault();
-                    formSalesManager.ReadProducts();
-                    formSalesManager.ReadNewProducts();
-
                     this.Close();
                 }
             }
