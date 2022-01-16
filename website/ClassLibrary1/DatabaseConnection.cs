@@ -22,19 +22,30 @@ namespace ClassLibrary1
         public bool IsEmployeeExist( Employee employee)
         {
 
-            String CheckUserEXIST = "SELECT * FROM employee WHERE Username=?user AND Password = ?pass;";
             MySqlConnection conn = GetConnected();
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand(CheckUserEXIST, conn);
-
-            cmd.Parameters.AddWithValue("pass", employee.Password);
-            cmd.Parameters.AddWithValue("user", employee.Username);
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
+            string CheckUserEXIST = "SELECT * FROM employee WHERE Username=?user AND Password = ?pass;";
+            try
             {
-                return true;
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(CheckUserEXIST, conn);
+
+                cmd.Parameters.AddWithValue("pass", employee.Password);
+                cmd.Parameters.AddWithValue("user", employee.Username);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch 
+            { }
+            finally 
+            {
+                if (conn != null)
+                { conn.Close(); }
             }
             return false;
         }

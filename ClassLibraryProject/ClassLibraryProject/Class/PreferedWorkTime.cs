@@ -60,6 +60,7 @@
             this.Day = day;
         }
 
+<<<<<<< HEAD
 
             public PreferedWorkTime()
         {
@@ -74,6 +75,8 @@
         }
 
 
+=======
+>>>>>>> 61843fd81bc8f94fdbdd16a323aedbf6973e1929
         //methods
         public override string ToString()
         {

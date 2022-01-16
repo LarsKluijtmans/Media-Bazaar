@@ -14,5 +14,6 @@ namespace ClassLibraryProject
         public Employee GetEmployeeID(string givenEmail, string jobTitle);
         public Employee GetEmployeeByID(int givenEmployeeID);
         public List<Employee> SearchEmployee(string search);
+        public List<Employee> GetAllEmployees();
     }
 }

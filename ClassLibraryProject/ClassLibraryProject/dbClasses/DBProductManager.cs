@@ -9,7 +9,7 @@ using System.Text;
 
 namespace ClassLibraryProject.dbClasses
 {
-    public class DBProductManager: IDBProduct, IDBProductManagerPM, IDBProductManagerSM
+    public class DBProductManager: IDBProductManagerPM, IDBProductManagerSM
     {
         /* Product Manager*/
         public string CREATE_PRODUCT = "INSERT INTO Product (Name, Barcode, Type, SellingPrice, AmountInDepot, AmountInStore, Discontinued) VALUES (@Name, @Barcode, @Type, @SellingPrice, @AmountInDepot, @AmountInStore, @IsDiscontinued);";
@@ -169,12 +169,7 @@ namespace ClassLibraryProject.dbClasses
             return false;
         }
 
-        public bool DeleteProduct(Product p)
-        {
-            return true;
-        }
-
-        public List<Product> SearchProductsPM(string search)
+        public List<Product> SearchProducts(string search)
         {
             List<Product> products = new List<Product>();
 
@@ -482,34 +477,5 @@ namespace ClassLibraryProject.dbClasses
             Products = new List<Product>();
             RemoteProducts = new List<Product>();
         }
-
-        public void DiscontinueProduct(string ID)
-        {
-            MySqlConnection conn = Utils.GetConnection();
-            string sql = DISCONTINUE_PRODUCT_BY_ID;
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ProductID", ID);
-                cmd.Parameters.AddWithValue("@IsDiscontinued", 1);
-                conn.Open();
-
-                int numAffectedRows = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException msqEx)
-            {
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        
     }
 }

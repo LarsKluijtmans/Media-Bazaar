@@ -64,5 +64,10 @@ namespace ClassLibraryProject
         {
             return DBEmployeeManagerOffice.SearchEmployee(search);
         }
+
+        public List<Employee> GetAllEmployees()
+        {
+            return DBEmployeeManagerOffice.GetAllEmployees();
+        }
     }
 }

@@ -36,16 +36,18 @@ namespace acr122_demo {
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::CardReader.Properties.Resources.MicrosoftTeams_image__1_;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(451, 278);
+            this.pictureBox1.Size = new System.Drawing.Size(370, 260);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(217, 373);
+            this.btnLogin.Location = new System.Drawing.Point(170, 356);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(148, 30);
             this.btnLogin.TabIndex = 17;
@@ -57,7 +59,7 @@ namespace acr122_demo {
             // tbPassword
             // 
             this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.tbPassword.Location = new System.Drawing.Point(217, 330);
+            this.tbPassword.Location = new System.Drawing.Point(170, 313);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '⬤';
             this.tbPassword.Size = new System.Drawing.Size(148, 33);
@@ -66,7 +68,7 @@ namespace acr122_demo {
             // tbUsername
             // 
             this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUsername.Location = new System.Drawing.Point(217, 296);
+            this.tbUsername.Location = new System.Drawing.Point(170, 279);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(148, 33);
             this.tbUsername.TabIndex = 15;
@@ -76,7 +78,7 @@ namespace acr122_demo {
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(127)))), ((int)(((byte)(39)))));
-            this.label1.Location = new System.Drawing.Point(110, 333);
+            this.label1.Location = new System.Drawing.Point(64, 316);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 25);
             this.label1.TabIndex = 14;
@@ -87,7 +89,7 @@ namespace acr122_demo {
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(162)))), ((int)(((byte)(232)))));
-            this.label2.Location = new System.Drawing.Point(104, 299);
+            this.label2.Location = new System.Drawing.Point(58, 282);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 25);
             this.label2.TabIndex = 13;
@@ -97,7 +99,8 @@ namespace acr122_demo {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 418);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(392, 401);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);

@@ -16,13 +16,17 @@ namespace ClassLibraryProject.ManagmentClasses
             this.schedule = schedule;
         }
 
-        public bool RegisterEmployee(string department, int year, int week, string day, string shift, Employee employee)
+        public void GetAllRegisteredShift()
         {
-            if (!RegisteredEmployeeExist(year, week, day, shift, employee))
+            db.GetAllRegisteredShifts();
+        }
+        public bool RegisterEmployee(string department, int year, int week, string day, string shift, int employeeID)
+        {
+            if (!RegisteredEmployeeExist(year, week, day, shift, employeeID))
             {
                 if (CheckAmount(department, year, week, day, shift) == true)
                 {
-                    if(db.RegisterEmployee(year,week,day,shift,employee) == true)
+                    if(db.RegisterEmployee(year,week,day,shift,employeeID) == true)
                     {
                         return true;
                     }
@@ -32,11 +36,11 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return false;
         }
-        public bool DeRegisterEmployee(int year, int week, string day, string shift, Employee employee)
+        public bool DeRegisterEmployee(int year, int week, string day, string shift, int employeeID)
         {
-            if (RegisteredEmployeeExist(year, week, day, shift, employee))
+            if (RegisteredEmployeeExist(year, week, day, shift, employeeID))
             {
-                if (db.DeRegisterEmployee(year, week, day, shift, employee))
+                if (db.DeRegisterEmployee(year, week, day, shift, employeeID))
                 {
                     return true;
                 }
@@ -48,9 +52,9 @@ namespace ClassLibraryProject.ManagmentClasses
         public bool CheckAmount(string department, int year, int week, string day, string shift)
         {
             int amountRegistered = GetRegisteredShift(year, week, day, shift).Employees.Count;
-            int morningAmount = schedule.GetSchedule(department, year, week).MorningAmount;
-            int afternoonAmount = schedule.GetSchedule(department, year, week).AfternoonAmount;
-            int eveningAmount = schedule.GetSchedule(department, year, week).EveningAmount;
+            int morningAmount = schedule.GetSchedule(department, year, week, day).MorningAmount;
+            int afternoonAmount = schedule.GetSchedule(department, year, week, day).AfternoonAmount;
+            int eveningAmount = schedule.GetSchedule(department, year, week, day).EveningAmount;
 
 
             if (shift == "Morning")
@@ -59,6 +63,7 @@ namespace ClassLibraryProject.ManagmentClasses
                 {
                     return true;
                 }
+                return false;
             }
             else
             {
@@ -68,6 +73,7 @@ namespace ClassLibraryProject.ManagmentClasses
                     {
                         return true;
                     }
+                    return false;
                 }
                 else
                 {
@@ -80,28 +86,28 @@ namespace ClassLibraryProject.ManagmentClasses
                         return false;
                     }
                 }
+                return false;
             }
-            return false;
         }
         public RegisteredShift GetRegisteredShift(int year, int week, string day, string shift)
         {
             return db.GetRegisteredShift(year, week, day, shift);
         }
-        private Employee RegisteredEmployee(int year, int week, string day, string shift, Employee employee)
+        private Employee RegisteredEmployee(int year, int week, string day, string shift, int employeeID)
         {
             RegisteredShift rs = GetRegisteredShift(year, week, day, shift);
             foreach (Employee e in rs.Employees)
             {
-                if (e == employee)
+                if (e.EmployeeID == employeeID)
                 {
                     return e;
                 }
             }
             return null;
         }
-        private bool RegisteredEmployeeExist(int year, int week, string day, string shift, Employee employee)
+        public bool RegisteredEmployeeExist(int year, int week, string day, string shift, int employeeID)
         {
-            if (RegisteredEmployee(year, week, day, shift, employee) != null)
+            if (RegisteredEmployee(year, week, day, shift, employeeID) != null)
             {
                 return true;
             }

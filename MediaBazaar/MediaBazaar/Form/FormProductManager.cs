@@ -1,12 +1,9 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
-using ClassLibraryProject.dbClasses;
 using MediaBazaar;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace AdminBackups
@@ -24,6 +21,7 @@ namespace AdminBackups
 
             ReadProducts();
             ReadSuppliers();
+            ReadProductsNoOrderInfo();
         }
 
         //Logout 
@@ -70,15 +68,19 @@ namespace AdminBackups
         private void UpdateProduct()
         {
             // get selected product
-            int productID = Convert.ToInt32(tbxSelectedProduct.Text);
+            int productID = 0;
             if (string.IsNullOrEmpty(tbxSelectedProduct.Text))
             {
                 MessageBox.Show("Please select a product");
                 return;
             }
+            try
+            {
+                productID = Convert.ToInt32(tbxSelectedProduct.Text);
+            }
+            catch { MessageBox.Show("Error"); return; }
 
             Product selectedProduct = productManager.ProductManagerPM.GetProductByID(productID);
-
 
             // open new form
             if (selectedProduct != null)
@@ -132,15 +134,24 @@ namespace AdminBackups
                 return;
             }
 
-            int buildingNumber = Convert.ToInt32(tbxBuildingNumber.Text);
+            int buildingNumber = 0;
             if (string.IsNullOrEmpty(tbxBuildingNumber.Text))
             {
                 MessageBox.Show("Please enter a building number");
                 return;
             }
+            try
+            {
+                buildingNumber = Convert.ToInt32(tbxBuildingNumber.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a number");
+                return;
+            }
 
-            string zipCode = tbxPostalCode.Text;
-            if (string.IsNullOrEmpty(zipCode))
+            string postalCode = tbxPostalCode.Text;
+            if (string.IsNullOrEmpty(postalCode))
             {
                 MessageBox.Show("Please enter a zip code");
                 return;
@@ -180,7 +191,8 @@ namespace AdminBackups
             }
 
             // make the supplier object
-            Supplier supplier = new Supplier(name, country, buildingNumber, zipCode, email, phoneNumber, bankNumber, productType);
+            Supplier supplier = new Supplier(name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber, productType);
+
             if (productManager.SupplierManagerPM.CreateSupplier(supplier))
             {
                 tbxSupplierName.Clear();
@@ -203,7 +215,7 @@ namespace AdminBackups
             if (cbxSupplierType.SelectedIndex == 1)
             {
                 supplierType.Clear();
-                foreach(Supplier s in suppliers)
+                foreach (Supplier s in suppliers)
                 {
                     if (s.ProductType == "KITCHEN_HOME")
                     {
@@ -250,24 +262,40 @@ namespace AdminBackups
             {
                 dgvSuppliers.DataSource = suppliers;
             }
-        } 
+        }
         private void UpdateSupplier()
         {
-            int supplierID = Convert.ToInt32(tbxSupplierID.Text);
+            int supplierID = 0;
             if (string.IsNullOrEmpty(tbxSupplierID.Text))
             {
                 MessageBox.Show("Please select a supplier");
                 return;
             }
-
+            try
+            {
+                supplierID = Convert.ToInt32(tbxSupplierID.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+                return;
+            }
             // get supplier by id
             Supplier supplier = productManager.SupplierManagerPM.GetSupplierByID(supplierID);
-            
+
             if (supplier != null)
             {
                 supplier.Name = tbxSupplierName.Text;
                 supplier.Country = tbxCountry.Text;
-                supplier.BuildingNumber = Convert.ToInt32(tbxBuildingNumber.Text);
+                try
+                {
+                    supplier.BuildingNumber = Convert.ToInt32(tbxBuildingNumber.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                    return;
+                }
                 supplier.PostalCode = tbxPostalCode.Text;
                 supplier.Email = tbxEmail.Text;
                 supplier.PhoneNumber = tbxPhoneNumber.Text;
@@ -291,7 +319,40 @@ namespace AdminBackups
         }
         private void DeleteSupplier()
         {
+            int supplierID = 0;
+            if (string.IsNullOrEmpty(tbxSupplierID.Text))
+            {
+                MessageBox.Show("Please select a supplier");
+                return;
+            }
+            try
+            {
+                supplierID = Convert.ToInt32(tbxSupplierID.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+                return;
+            }
+            // get supplier by id
+            Supplier supplier = productManager.SupplierManagerPM.GetSupplierByID(supplierID);
 
+            if (supplier != null)
+            {
+                if (productManager.SupplierManagerPM.DeleteSupplier(supplier))
+                {
+                    tbxSupplierName.Clear();
+                    tbxCountry.Clear();
+                    tbxBuildingNumber.Clear();
+                    tbxPostalCode.Clear();
+                    tbxEmail.Clear();
+                    tbxPhoneNumber.Clear();
+                    tbxBankNumber.Clear();
+
+                    MessageBox.Show("Supplier removed");
+                    ReadSuppliers();
+                }
+            }
         }
         private void dgvSuppliers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -318,20 +379,12 @@ namespace AdminBackups
         private void btnEditSupplier_Click(object sender, EventArgs e)
         {
             UpdateSupplier();
-            // fixed?? cant test
+            // not working
         }
 
         private void btnRemoveSupplier_Click(object sender, EventArgs e)
         {
             DeleteSupplier();
-            tbxSupplierID.Clear();
-            tbxSupplierName.Clear();
-            tbxCountry.Clear();
-            tbxBuildingNumber.Clear();
-            tbxPostalCode.Clear();
-            tbxEmail.Clear();
-            tbxPhoneNumber.Clear();
-            tbxBankNumber.Clear();
         }
         /* Search Bar*/
         private void tbxSupplierSearch_TextChanged(object sender, EventArgs e)
@@ -342,7 +395,8 @@ namespace AdminBackups
             {
                 List<Supplier> suppliers = productManager.SupplierManagerPM.SearchSuppliers(search);
                 dgvSuppliers.DataSource = suppliers;
-            } else
+            }
+            else
             {
                 ReadSuppliers();
             }
@@ -352,6 +406,115 @@ namespace AdminBackups
         {
             ReadSuppliers();
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            tbxSupplierID.Clear();
+            tbxSupplierName.Clear();
+            tbxCountry.Clear();
+            tbxBuildingNumber.Clear();
+            tbxPostalCode.Clear();
+            tbxEmail.Clear();
+            tbxPhoneNumber.Clear();
+            tbxBankNumber.Clear();
+        }
         /* Supplier End */
+
+        /* Order Info Start */
+        public void ReadProductsNoOrderInfo()
+        {
+            List<Product> productsNoOrderInfo = new List<Product>();
+
+            // get all products
+            List<Product> allProducts = productManager.ProductManagerPM.ReadProductsPM();
+
+            // get order infos for products
+            foreach (Product p in allProducts)
+            {
+                p.OrderInfos = productManager.OrderInfoManagerPM.GetOrderInfosForProduct(p);
+
+                if (p.OrderInfos.Count == 0)
+                {
+                    productsNoOrderInfo.Add(p);
+                }
+            }
+
+            dgvProductsNoOrderInfo.DataSource = productsNoOrderInfo;
+        }
+
+        private void dgvProductsNoOrderInfo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvProductsNoOrderInfo.Rows[e.RowIndex];
+
+                string productID = row.Cells["ProductID"].Value.ToString();
+
+                tbxSelectedProductOrderInfo.Text = productID;
+            }
+        }
+        private void CreateOrderInfo()
+        {
+            // get selected product
+            int productID = 0;
+
+            if (string.IsNullOrEmpty(tbxSelectedProductOrderInfo.Text))
+            {
+                MessageBox.Show("Please select a product");
+                return;
+            }
+
+            try
+            {
+                productID = Convert.ToInt32(tbxSelectedProductOrderInfo.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+                return;
+            }
+
+            Product selectedProduct = productManager.ProductManagerPM.GetProductByID(productID);
+
+            if (selectedProduct != null)
+            {
+                FormOrderInfo formOrderInfo = new FormOrderInfo(productManager, selectedProduct);
+                formOrderInfo.Show();
+            }
+        }
+
+        private void btnAddOrderInfo_Click(object sender, EventArgs e)
+        {
+            CreateOrderInfo();
+        }
+
+        private void tbxSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            List<Product> productsNoOrderInfo = new List<Product>();
+
+            string search = tbxSearchBar.Text;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                List<Product> allProducts = productManager.ProductManagerPM.SearchProductsPM(search);
+
+                foreach (Product p in allProducts)
+                {
+                    p.OrderInfos = productManager.OrderInfoManagerPM.GetOrderInfosForProduct(p);
+
+                    if (p.OrderInfos.Count == 0)
+                    {
+                        productsNoOrderInfo.Add(p);
+                    }
+                }
+
+                dgvProductsNoOrderInfo.DataSource = productsNoOrderInfo;
+            }
+            else
+            {
+                ReadProductsNoOrderInfo();
+            }
+        }
+        /* Order Info End */
     }
 }

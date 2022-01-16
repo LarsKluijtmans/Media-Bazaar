@@ -17,5 +17,20 @@ namespace ClassLibraryProject
         {
             return DBOrderInfoManager.GetOrderInfosForProduct(p);
         }
+
+        public bool CreateOrderInfo(OrderInfo oi)
+        {
+            return DBOrderInfoManager.CreateOrderInfo(oi);
+        }
+
+        public bool DeleteOrderInfo(OrderInfo oi)
+        {
+            return DBOrderInfoManager.DeleteOrderInfo(oi);
+        }
+
+        public bool UpdateOrderInfo(OrderInfo oi)
+        {
+            return DBOrderInfoManager.UpdateOrderInfo(oi);
+        }
     }
 }

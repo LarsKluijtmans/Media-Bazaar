@@ -29,14 +29,15 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewProduct));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbxProductName = new System.Windows.Forms.TextBox();
-            this.tbxBarcode = new System.Windows.Forms.TextBox();
-            this.cbxProductType = new System.Windows.Forms.ComboBox();
             this.btnCreateProduct = new System.Windows.Forms.Button();
+            this.cbxProductType = new System.Windows.Forms.ComboBox();
+            this.tbxBarcode = new System.Windows.Forms.TextBox();
+            this.tbxProductName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,46 +57,15 @@ namespace MediaBazaar
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Info:";
             // 
-            // label1
+            // btnCreateProduct
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Product Name:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Barcode:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 15);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Product Type:";
-            // 
-            // tbxProductName
-            // 
-            this.tbxProductName.Location = new System.Drawing.Point(127, 23);
-            this.tbxProductName.Name = "tbxProductName";
-            this.tbxProductName.Size = new System.Drawing.Size(202, 23);
-            this.tbxProductName.TabIndex = 3;
-            // 
-            // tbxBarcode
-            // 
-            this.tbxBarcode.Location = new System.Drawing.Point(127, 53);
-            this.tbxBarcode.Name = "tbxBarcode";
-            this.tbxBarcode.Size = new System.Drawing.Size(202, 23);
-            this.tbxBarcode.TabIndex = 4;
+            this.btnCreateProduct.Location = new System.Drawing.Point(234, 112);
+            this.btnCreateProduct.Name = "btnCreateProduct";
+            this.btnCreateProduct.Size = new System.Drawing.Size(95, 23);
+            this.btnCreateProduct.TabIndex = 6;
+            this.btnCreateProduct.Text = "Add Product";
+            this.btnCreateProduct.UseVisualStyleBackColor = true;
+            this.btnCreateProduct.Click += new System.EventHandler(this.btnCreateProduct_Click);
             // 
             // cbxProductType
             // 
@@ -110,15 +80,46 @@ namespace MediaBazaar
             this.cbxProductType.Size = new System.Drawing.Size(202, 23);
             this.cbxProductType.TabIndex = 5;
             // 
-            // btnCreateProduct
+            // tbxBarcode
             // 
-            this.btnCreateProduct.Location = new System.Drawing.Point(234, 112);
-            this.btnCreateProduct.Name = "btnCreateProduct";
-            this.btnCreateProduct.Size = new System.Drawing.Size(95, 23);
-            this.btnCreateProduct.TabIndex = 6;
-            this.btnCreateProduct.Text = "Add Product";
-            this.btnCreateProduct.UseVisualStyleBackColor = true;
-            this.btnCreateProduct.Click += new System.EventHandler(this.btnCreateProduct_Click);
+            this.tbxBarcode.Location = new System.Drawing.Point(127, 53);
+            this.tbxBarcode.Name = "tbxBarcode";
+            this.tbxBarcode.Size = new System.Drawing.Size(202, 23);
+            this.tbxBarcode.TabIndex = 4;
+            // 
+            // tbxProductName
+            // 
+            this.tbxProductName.Location = new System.Drawing.Point(127, 23);
+            this.tbxProductName.Name = "tbxProductName";
+            this.tbxProductName.Size = new System.Drawing.Size(202, 23);
+            this.tbxProductName.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 15);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Product Type:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Barcode:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Product Name:";
             // 
             // FormNewProduct
             // 
@@ -126,6 +127,7 @@ namespace MediaBazaar
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 166);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormNewProduct";
             this.Text = "Add new product";
             this.groupBox1.ResumeLayout(false);

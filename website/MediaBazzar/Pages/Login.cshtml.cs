@@ -1,5 +1,4 @@
 
-using ClassLibraryProject;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses;
 using Microsoft.AspNetCore.Authentication;
@@ -60,7 +59,8 @@ namespace MediaBazzar.Pages
 
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-                    
+
+                    EmployeeID = user.EmployeeID.ToString();
                     await HttpContext.SignInAsync(claimsPrincipal);
                    
                     return Redirect(returnUrl);

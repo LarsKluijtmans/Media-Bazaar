@@ -3,6 +3,7 @@ using ClassLibraryProject.dbClasses.IDB;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ClassLibraryProject.dbClasses
 {
@@ -58,16 +59,20 @@ namespace ClassLibraryProject.dbClasses
                     schedules.Add(schedule);
                 }
             }
-            catch (MySqlException)
+            catch (MySqlException msqEx)
             {
-
+                Debug.WriteLine(msqEx);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -107,14 +112,23 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return false;
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
-                return false;
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
+
+            return false;
         }
 
         //Create
@@ -137,19 +151,43 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numAffectedRows > 0)
                 {
+                    Schedule schedule2 = new Schedule(department, year, week, "Monday");
+                    Schedule schedule3 = new Schedule(department, year, week, "Tuesday");
+                    Schedule schedule4 = new Schedule(department, year, week, "Wednesday");
+                    Schedule schedule5 = new Schedule(department, year, week, "Thursday");
+                    Schedule schedule6 = new Schedule(department, year, week, "Friday");
+                    Schedule schedule7 = new Schedule(department, year, week, "Saturday");
+                    Schedule schedule1 = new Schedule(department, year, week, "Sunday");
+
+                    schedules.Add(schedule1);
+                    schedules.Add(schedule2);
+                    schedules.Add(schedule3);
+                    schedules.Add(schedule4);
+                    schedules.Add(schedule5);
+                    schedules.Add(schedule6);
+                    schedules.Add(schedule7);
+
                     return true;
                 }
                 return false;
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
-                return false;
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
-                GetAllSchedules();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
+
+            return false;
         }
     }
 }

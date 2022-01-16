@@ -32,6 +32,17 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return schedules;
         }
+        public Schedule GetSchedule(string department, int year, int week, string day)
+        {
+            foreach (Schedule schedule in db.GetSchedules())
+            {
+                if (schedule.Department == department && schedule.Year == year && schedule.Week == week && schedule.Day == day)
+                {
+                    return schedule;
+                }
+            }
+            return null;
+        }
         public Schedule GetSchedule(string department, int year, int week)
         {
             foreach (Schedule schedule in db.GetSchedules())

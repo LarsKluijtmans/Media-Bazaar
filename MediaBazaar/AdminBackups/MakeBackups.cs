@@ -17,8 +17,13 @@ namespace AdminBackups
 
             progressBar1.Minimum = 0;
 
-            timer1.Start();
             timer2.Stop();
+        }
+
+        //On close
+        protected override void OnClosed(EventArgs e)
+        {
+            Application.Exit();
         }
 
         //NotifyIcon
@@ -58,60 +63,71 @@ namespace AdminBackups
         //Make backup
         private void btnStartMakingBackups_Click(object sender, EventArgs e)
         {
-            try
+            if (btnStartMakingBackups.Text == "Start")
             {
-                amount = Convert.ToInt32(tbAmount.Text);
-            }
-            catch
-            {
-                MessageBox.Show("Please enter a int.");
-                return;
-            }
+                try
+                {
+                    amount = Convert.ToInt32(tbAmount.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Please enter a int.");
+                    return;
+                }
 
-            if (rbMinutes.Checked == true)
-            {
-                date = DateTime.Now.AddMinutes(amount);
-                progressBar1.Value = 0;
-                progressBar1.Maximum = amount * 60;
-                Type = "Minute";
-            }
-            else if (rbHours.Checked == true)
-            {
-                date = DateTime.Now.AddHours(amount);
-                progressBar1.Value = 0;
-                progressBar1.Maximum = amount * 60 *60;
-                Type = "Hours";
-            }
-            else if (rbDays.Checked == true)
-            {
-                date = DateTime.Now.AddDays(amount);
-                progressBar1.Value = 0;
-                progressBar1.Maximum = amount * 60 * 60 * 24;
-                Type = "Days";
-            }
+                if (rbMinutes.Checked == true)
+                {
+                    date = DateTime.Now.AddMinutes(amount);
+                    progressBar1.Value = 0;
+                    progressBar1.Maximum = amount * 60;
+                    Type = "Minute";
+                }
+                else if (rbHours.Checked == true)
+                {
+                    date = DateTime.Now.AddHours(amount);
+                    progressBar1.Value = 0;
+                    progressBar1.Maximum = amount * 60 * 60;
+                    Type = "Hours";
+                }
+                else if (rbDays.Checked == true)
+                {
+                    date = DateTime.Now.AddDays(amount);
+                    progressBar1.Value = 0;
+                    progressBar1.Maximum = amount * 60 * 60 * 24;
+                    Type = "Days";
+                }
 
-            timer2.Start();
+                if (string.IsNullOrEmpty(path))
+                {
+                    MessageBox.Show("Please select a folder.");
+                    return;
+                }
+
+                tbFolder.Text = path;
+
+                timer2.Start();
+
+                btnStartMakingBackups.Text = "Stop";
+
+                rbHours.Enabled = false;
+                rbDays.Enabled = false;
+                rbMinutes.Enabled = false;
+                tbAmount.Enabled = false;
+            }
+            else if (btnStartMakingBackups.Text == "Stop")
+            {
+                btnStartMakingBackups.Text = "Start";
+
+                timer2.Stop();
+
+                rbHours.Enabled = true;
+                rbDays.Enabled = true;
+                rbMinutes.Enabled = true;
+                tbAmount.Enabled = true;
+            }
         }
 
         //Timers
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-            if (rbMinutes.Checked == true)
-            {
-                labAmount.Text = "Minutes: ";
-            }
-            else if (rbHours.Checked == true)
-            {
-                labAmount.Text = "Hours: ";
-            }
-            else if (rbDays.Checked == true)
-            {
-                labAmount.Text = "Days: ";
-            }
-            tbFolder.Text = path;
-        }
-
         private void timer2_Tick(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(path))
@@ -158,9 +174,15 @@ namespace AdminBackups
                         using (MySqlBackup mb = new MySqlBackup(cmd))
                         {
                             cmd.Connection = conn;
-                            conn.Open();
-                            mb.ExportToFile(FileLocation);
-                            conn.Close();
+                            try
+                            {
+                                conn.Open();
+                                mb.ExportToFile(FileLocation);
+                            }
+                            finally
+                            {
+                                conn.Close();
+                            }
                         }
                     }
                 }
@@ -179,6 +201,24 @@ namespace AdminBackups
                     date = DateTime.Now.AddDays(amount);
                 }
             }
+        }
+
+
+        //Check change
+        private void rbMinutes_CheckedChanged(object sender, EventArgs e)
+        {
+            labAmount.Text = "Minutes: ";
+            tbAmount.Maximum = 60;
+        }
+        private void rbHours_CheckedChanged(object sender, EventArgs e)
+        {
+            labAmount.Text = "Hours: ";
+            tbAmount.Maximum = 24;
+        }
+        private void rbDays_CheckedChanged(object sender, EventArgs e)
+        {
+            labAmount.Text = "Days: ";
+            tbAmount.Maximum = 30;
         }
     }
 }

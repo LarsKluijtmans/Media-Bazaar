@@ -12,8 +12,8 @@ namespace ClassLibraryProject.dbClasses
     public class DBSupplierManager: IDBSupplierManagerPM
     {
         private string CREATE_SUPPLIER = "INSERT INTO Supplier (Name, Country, BuildingNumber, PostalCode, Email, PhoneNumber, BankNumber, ProductType) VALUES (@Name, @Country, @BuildingNumber, @PostalCode, @Email, @PhoneNumber, @BankNumber, @ProductType);";
-        private string READ_SUPPLIERS = "SELECT * FROM Supplier;";
-        private string UPDATE_SUPPLIER = "UPDATE supplier SET Name = @Name, Country = @Country, BuildingNumber = @BuildingNumber, PostalCode = @PostalCode, Email = @Email, PhoneNumber = @PhoneNumber, BankNumber = @BankNumber WHERE ID = @ID;";
+        private string READ_SUPPLIERS = "SELECT * FROM Supplier LIMIT 50;";
+        private string UPDATE_SUPPLIER = "UPDATE supplier SET Name = @Name, Country = @Country, BuildingNumber = @BuildingNumber, PostalCode = @PostalCode, Email = @Email, PhoneNumber = @PhoneNumber, BankNumber = @BankNumber, ProductType = @ProductType WHERE ID = @ID;";
         private string DELETE_SUPPLIER = "DELETE FROM supplier WHERE ID = @ID;";
 
         private string GET_SUPPLIERS_FOR_PRODUCT = "SELECT * FROM Supplier WHERE ProductType = @ProductType;";
@@ -27,7 +27,7 @@ namespace ClassLibraryProject.dbClasses
                 return false;
             }*/
 
-        MySqlConnection conn = Utils.GetConnection();
+            MySqlConnection conn = Utils.GetConnection();
             string sql = CREATE_SUPPLIER;
 
             try
@@ -72,7 +72,40 @@ namespace ClassLibraryProject.dbClasses
 
         public bool DeleteSupplier(Supplier s)
         {
-            throw new NotImplementedException();
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = DELETE_SUPPLIER;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@ID", s.ID);
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+
+                if (numCreatedRows == 1)
+                {
+                    return true;
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
         }
 
         public List<Supplier> ReadSuppliers()
@@ -97,13 +130,13 @@ namespace ClassLibraryProject.dbClasses
                     string supplierName = reader.GetString(1);
                     string country = reader.GetString(2);
                     int buildingNr = reader.GetInt32(3);
-                    string zipCode = reader.GetString(4);
+                    string postalCode = reader.GetString(4);
                     string email = reader.GetString(5);
                     string phoneNumber = reader.GetString(6);
                     string bankNumber = reader.GetString(7);
                     string productType = reader.GetString(8);
 
-                    supplier = new Supplier(supplierID, supplierName, country, buildingNr, bankNumber, zipCode, email, phoneNumber, productType);
+                    supplier = new Supplier(supplierID, supplierName, country, buildingNr, postalCode, email, phoneNumber, bankNumber, productType);
                     suppliers.Add(supplier);
                 }
             }
@@ -198,6 +231,7 @@ namespace ClassLibraryProject.dbClasses
                 cmd.Parameters.AddWithValue("@Email", s.Email);
                 cmd.Parameters.AddWithValue("@PhoneNumber", s.PhoneNumber);
                 cmd.Parameters.AddWithValue("@BankNumber", s.BankNumber);
+                cmd.Parameters.AddWithValue("@ProductType", s.ProductType);
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
 

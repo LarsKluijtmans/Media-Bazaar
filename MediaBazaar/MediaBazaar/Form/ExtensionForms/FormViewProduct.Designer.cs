@@ -155,6 +155,7 @@ namespace MediaBazaar
             // 
             this.tbxBarcode.Location = new System.Drawing.Point(118, 90);
             this.tbxBarcode.Name = "tbxBarcode";
+            this.tbxBarcode.ReadOnly = true;
             this.tbxBarcode.Size = new System.Drawing.Size(146, 23);
             this.tbxBarcode.TabIndex = 11;
             // 

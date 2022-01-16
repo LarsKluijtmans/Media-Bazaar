@@ -28,6 +28,7 @@ namespace MediaBazaar
             {
                 var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
                 formProductManager.ReadProducts();
+                formProductManager.ReadProductsNoOrderInfo();
             }
         }
         private bool CreateProduct()
@@ -78,8 +79,8 @@ namespace MediaBazaar
                 } 
                 else if (dr == DialogResult.No)
                 {
+                    this.Close();
                     return true;
-                    Close();
                 }
             } 
             else

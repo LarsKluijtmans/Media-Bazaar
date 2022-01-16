@@ -41,13 +41,19 @@
             <label asp-for="employee.Password">Password: </label>
             <br />
             <span asp-validation-for="employee.Password"></span>
-            <input asp-for="employee.Password" />
+            <input asp-for="employee.Password" type="password" />
+            <br />
+
+            <label asp-for="Password">Confirm Password: </label>
+            <br />
+            <span asp-validation-for="Password"></span>
+            <input asp-for="Password" type="password" value="employee.Password" />
             <br />
 
             <label asp-for="employee.Email">Email: </label>
             <br />
             <span asp-validation-for="employee.Email"></span>
-            <input asp-for="employee.Email" />
+            <input asp-for="employee.Email" readonly />
             <br />
 
             <label asp-for="employee.PhoneNumber">PhoneNumber: </label>
@@ -59,7 +65,7 @@
             <label asp-for="employee.BSN">BSN: </label>
             <br />
             <span asp-validation-for="employee.BSN"></span>
-            <input asp-for="employee.BSN" />
+            <input asp-for="employee.BSN" readonly />
             <br />
 
             <label asp-for="employee.StreetName">StreetName: </label>
@@ -78,6 +84,30 @@
             <br />
             <span asp-validation-for="employee.City"></span>
             <input asp-for="employee.City" />
+            <br />
+
+            <label asp-for="employee.ZipCode">ZipCode: </label>
+            <br />
+            <span asp-validation-for="employee.ZipCode"></span>
+            <input asp-for="employee.ZipCode" />
+            <br />
+
+            <label asp-for="employee.Address">Address: </label>
+            <br />
+            <span asp-validation-for="employee.Address"></span>
+            <input asp-for="employee.Address" />
+            <br />
+
+            <label asp-for="employee.DateOfBirth">DateOfBirth: </label>
+            <br />
+            <span asp-validation-for="employee.DateOfBirth"></span>
+            <input asp-for="employee.DateOfBirth" readonly />
+            <br />
+
+            <label asp-for="employee.PersonalEmail">PersonalEmail: </label>
+            <br />
+            <span asp-validation-for="employee.PersonalEmail"></span>
+            <input asp-for="employee.PersonalEmail" />
             <br />
 
             <button> Update Account </button>

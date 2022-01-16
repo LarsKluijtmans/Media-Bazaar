@@ -13,6 +13,7 @@ namespace ClassLibraryProject
         public bool DeleteEmployee(Employee e);
         public Employee GetEmployeeID(string givenEmail, string jobTitle);
         public Employee GetEmployeeByID(int givenEmployeeID);
+        public List<Employee> GetAllEmployees(); 
         public List<Employee> SearchEmployee(string search);
     }
 }

@@ -4,7 +4,6 @@ using ClassLibraryProject.Enum;
 using MediaBazaar;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -26,10 +25,10 @@ namespace AdminBackups
             InitializeComponent();
             this.salesManager = salesManager;
             store = s;
-           
+
             date = DateTime.Now;
 
-            txtYear.Text = date.Year.ToString();
+            txtYear.Value = date.Year;
 
             if (salesManager is SalesManager)
             {
@@ -65,7 +64,15 @@ namespace AdminBackups
 
         private void UpdateEmployeesWorkingToday()
         {
-            store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
+            try
+            {
+                store.employeeManagement.GetEmployeesWorkingToday(date.Year, Convert.ToInt32(GetCurrentWeekOfYear(date)), date.DayOfWeek.ToString());
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+                return;
+            }
             lstEmployeesWorkingToday.Items.Clear();
             foreach (Employee employee in store.employeeManagement.EmployeeWorkingToday)
             {
@@ -77,13 +84,22 @@ namespace AdminBackups
             DateTime date = DateTime.Now;
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
             lblPlanningWeek.Text = GetCurrentWeekOfYear(date).ToString();
-            i = Convert.ToInt32(lblWeek.Text);
-            pi = Convert.ToInt32(lblPlanningWeek.Text);
-            txtYear.Text = date.Year.ToString();
-            txtPlanningYear.Text = date.Year.ToString();
+
+            try
+            {
+                i = Convert.ToInt32(lblWeek.Text);
+                pi = Convert.ToInt32(lblPlanningWeek.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+                return;
+            }
+            txtYear.Value = date.Year;
+            txtPlanningYear.Value = date.Year;
         }
 
-        
+
 
         //Overview
         private void dgOverviewSchedule_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -122,8 +138,17 @@ namespace AdminBackups
         }
         private void UpdateProduct()
         {
-            int productID = Convert.ToInt32(tbxSelectedProduct.Text);
             if (string.IsNullOrEmpty(tbxSelectedProduct.Text))
+            {
+                MessageBox.Show("Please select a product");
+                return;
+            }
+            int productID = 0;
+            try
+            {
+                productID = Convert.ToInt32(tbxSelectedProduct.Text);
+            }
+            catch
             {
                 MessageBox.Show("Please select a product");
                 return;
@@ -244,21 +269,19 @@ namespace AdminBackups
                 return;
             }
 
-            //store.scheduleManagment.EditSalesSchedule(Day, Morning, Afternoon, Evening, Convert.ToInt32(lblWeek.Text), Convert.ToInt32(txtYear.Text), Department);
-
             UpdateSchedule();
         }
         private void btnIncreaseWeek_Click(object sender, EventArgs e)
         {
             try
             {
-                if (i < ISOWeek.GetWeeksInYear(Convert.ToInt32(txtYear.Text)))
+                if (i < ISOWeek.GetWeeksInYear(Convert.ToInt32(txtYear.Value)))
                 {
                     i++;
                 }
-                else if (i >= ISOWeek.GetWeeksInYear(Convert.ToInt32(txtYear.Text)))
+                else if (i >= ISOWeek.GetWeeksInYear(Convert.ToInt32(txtYear.Value)))
                 {
-                    i = ISOWeek.GetWeeksInYear(Convert.ToInt32(txtYear.Text));
+                    i = ISOWeek.GetWeeksInYear(Convert.ToInt32(txtYear.Value));
                 }
                 lblWeek.Text = i.ToString();
             }
@@ -302,13 +325,13 @@ namespace AdminBackups
         {
             try
             {
-                if (pi < ISOWeek.GetWeeksInYear(Convert.ToInt32(txtPlanningYear.Text)))
+                if (pi < ISOWeek.GetWeeksInYear(Convert.ToInt32(txtPlanningYear.Value)))
                 {
                     pi++;
                 }
-                else if (pi >= ISOWeek.GetWeeksInYear(Convert.ToInt32(txtPlanningYear.Text)))
+                else if (pi >= ISOWeek.GetWeeksInYear(Convert.ToInt32(txtPlanningYear.Value)))
                 {
-                    pi = ISOWeek.GetWeeksInYear(Convert.ToInt32(txtPlanningYear.Text));
+                    pi = ISOWeek.GetWeeksInYear(Convert.ToInt32(txtPlanningYear.Value));
                 }
                 lblPlanningWeek.Text = pi.ToString();
             }
@@ -339,7 +362,7 @@ namespace AdminBackups
                 int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
                 DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
                 DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
-                int year = Convert.ToInt32(txtPlanningYear.Text);
+                int year = Convert.ToInt32(txtPlanningYear.Value);
                 int week = Convert.ToInt32(lblPlanningWeek.Text);
                 string day = Convert.ToString(selectedRow.Cells["Day"].Value);
                 string shift = Convert.ToString(selectedColumn.Name);
@@ -380,10 +403,13 @@ namespace AdminBackups
             try
             {
                 week = Convert.ToInt32(lblPlanningWeek.Text);
-                year = Convert.ToInt32(txtPlanningYear.Text);
+                year = Convert.ToInt32(txtPlanningYear.Value);
             }
             catch
-            { }
+            {
+                MessageBox.Show("Please select a week and year");
+                return;
+            }
 
             salesManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
 
@@ -468,7 +494,5 @@ namespace AdminBackups
         {
 
         }
-
-        
     }
 }

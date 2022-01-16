@@ -91,9 +91,11 @@ namespace Statistics
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::Statistics.Properties.Resources.MicrosoftTeams_image__1_;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(451, 278);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
@@ -101,6 +103,7 @@ namespace Statistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(475, 421);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogin);

@@ -6,12 +6,13 @@ using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ClassLibraryProject.dbClasses
 {
     public class DBPreferredShift: IDBPreferredShift
     {
-        public string GET_ALL_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.EmployeeID = @EmployeeID AND e.Active = 1;";
+        public string GET_ALL_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = 1 AND c.Active = 1;";
 
         private string GET_PREFERRED_SHIFTS = "SELECT * FROM preferedtime;";
         private string PREFER_SHIFT = "INSERT INTO preferedtime (Week, Day, Shift, EmployeeID) VALUES (@Week, @Day, @Shift, @Employee);";
@@ -48,39 +49,42 @@ namespace ClassLibraryProject.dbClasses
 
                 while (reader.Read())
                 {
-                    int week = reader.GetInt32("Week");
                     string day = reader.GetString("Day");
                     string shift = reader.GetString("Shift");
                     int employeeID = reader.GetInt32("EmployeeID");
 
-                    if (PreferredShiftExist(week, day, shift) == true)
+                    if (PreferredShiftExist(day, shift) == true)
                     {
                         if (GetEmployee(employeeID) != null)
                         {
-                            GetPreferredShift(week, day, shift).Employees.Add(GetEmployee(employeeID));
+                            GetPreferredShift(day, shift).Employees.Add(GetEmployee(employeeID));
                         }
                     }
                     else
                     {
                         if (GetEmployee(employeeID) != null)
                         {
-                            preferredShift = new PreferredShift(week, day, shift);
+                            preferredShift = new PreferredShift(day, shift);
                             preferredShifts.Add(preferredShift);
                             preferredShift.Employees.Add(GetEmployee(employeeID));
                         }
                     }
                 }
             }
-            catch (MySqlException)
+            catch (MySqlException msqEx)
             {
-
+                Debug.WriteLine(msqEx);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -129,51 +133,25 @@ namespace ClassLibraryProject.dbClasses
 
                     IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
 
-                    if (jobTitle == "ADMIN")
-                    {
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
-                        employees.Add(employee);
-                    }
-                    else if (jobTitle == "CEO")
-                    {
-                        employee = new CEO(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
-                        employees.Add(employee);
-                    }
-                    else if (jobTitle == "DEPOT MANAGER")
-                    {
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
-                        employees.Add(employee);
-                    }
-                    else if (jobTitle == "DEPOT EMPLOYEE")
+                    if (jobTitle == "DEPOT EMPLOYEE")
                     {
                         employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
                         employees.Add(employee);
                     }
-                    else if (jobTitle == "OFFICE MANAGER")
-                    {
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
-                        employees.Add(employee);
-                    }
-                    else if (jobTitle == "PRODUCT MANAGER")
-                    {
-                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
-                        employees.Add(employee);
-                    }
-                    else if (jobTitle == "SALES MANAGER")
-                    {
-                        AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule, employeeManagerAll);
-                        employees.Add(employee);
-                    }
-                    else if (jobTitle == "SALES REPRESENTATIVE")
+                    if (jobTitle == "SALES REPRESENTATIVE")
                     {
                         employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
                         employees.Add(employee);
                     }
                 }
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
@@ -184,7 +162,7 @@ namespace ClassLibraryProject.dbClasses
             }
         }
 
-        public bool PreferAShift(int week, string day, string shift, Employee employee)
+        public bool PreferAShift(string day, string shift, Employee employee)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -194,7 +172,6 @@ namespace ClassLibraryProject.dbClasses
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("@Week", week);
                 cmd.Parameters.AddWithValue("@Day", day);
                 cmd.Parameters.AddWithValue("@Shift", shift);
                 cmd.Parameters.AddWithValue("@Employee", employee.EmployeeID);
@@ -205,22 +182,31 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    PreferredShift preferredShift = new PreferredShift(week, day, shift);
+                    PreferredShift preferredShift = new PreferredShift(day, shift);
                     preferredShift.Employees.Add(employee);
                     return true;
                 }
                 return false;
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
-                return false;
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
+
+            return false;
         }
-        public bool DeletePreferredShift(int week, string day, string shift, Employee employee)
+        public bool DeletePreferredShift(string day, string shift, Employee employee)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -230,7 +216,6 @@ namespace ClassLibraryProject.dbClasses
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("@Week", week);
                 cmd.Parameters.AddWithValue("@Day", day);
                 cmd.Parameters.AddWithValue("@Shift", shift);
                 cmd.Parameters.AddWithValue("@Employee", employee.EmployeeID);
@@ -241,36 +226,43 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    GetPreferredShift(week, day, shift).Employees.Remove(employee);
+                    GetPreferredShift(day, shift).Employees.Remove(employee);
                     return true;
                 }
                 return false;
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
-                return false;
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
+            return false;
         }
 
-
-        public PreferredShift GetPreferredShift(int week, string day, string shift)
+        public PreferredShift GetPreferredShift(string day, string shift)
         {
             foreach (PreferredShift ps in preferredShifts)
             {
-                if (ps.Week == week && ps.Day == day && ps.Shift == shift)
+                if (ps.Day == day && ps.Shift == shift)
                 {
                     return ps;
                 }
             }
             return null;
         }
-        public bool PreferredShiftExist(int week, string day, string shift)
+        public bool PreferredShiftExist(string day, string shift)
         {
-            if (GetPreferredShift(week, day, shift) != null)
+            if (GetPreferredShift(day, shift) != null)
             {
                 return true;
             }

@@ -68,11 +68,26 @@ namespace MediaBazaar
                 cbxStatus.Text = "Available";
             }
         }
-        private void LoadSuppliersForProduct()
+        public void LoadSuppliersForProduct()
         {
+            List<Supplier> suppliersWithOrderInfos = new List<Supplier>();
             List<Supplier> productSuppliers = ((ProductManager)employee).SupplierManagerPM.GetSuppliersForProduct(product);
 
-            cbxSupplier.DataSource = productSuppliers;
+            // check if supplier has order infos
+            product.OrderInfos = ((ProductManager)employee).OrderInfoManagerPM.GetOrderInfosForProduct(product);
+
+            foreach (Supplier s in productSuppliers)
+            {
+                foreach (OrderInfo oi in product.OrderInfos)
+                {
+                    if (oi.Supplier.ID == s.ID)
+                    {
+                        suppliersWithOrderInfos.Add(s);
+                    }
+                }
+            }
+
+            cbxSupplier.DataSource = suppliersWithOrderInfos;
         }
         private void GetOrderInfoForSupplier()
         {
@@ -102,6 +117,7 @@ namespace MediaBazaar
                     tbxMinAmount.Text = oi.MinAmount.ToString();
                     tbxMaxAmount.Text = oi.MaxAmount.ToString();
                     tbxMultiples.Text = oi.Multiples.ToString();
+                    tbxPurchasePrice.Text = oi.PurchasePrice.ToString();
                     OrderInfound = true;
                 }
 
@@ -110,9 +126,8 @@ namespace MediaBazaar
                     tbxMinAmount.Text = "";
                     tbxMaxAmount.Text = "";
                     tbxMultiples.Text = "";
+                    tbxPurchasePrice.Text = "";
                 }
-                // if there is no order info for selected supplier make tbx empty to add order info
-                // ???? if I clear the tbx it doesn't update the tbx when selecting a new supplier ????
             }
         }
         private void cbxSupplier_SelectedIndexChanged(object sender, EventArgs e)
@@ -190,8 +205,17 @@ namespace MediaBazaar
 
                 var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
                 formProductManager.ReadProducts();
+                formProductManager.ReadProductsNoOrderInfo();
 
-                this.Close();
+                DialogResult dr = MessageBox.Show("Do you want to view the order info", "Product Updated", MessageBoxButtons.YesNo);
+
+                if (dr == DialogResult.Yes)
+                {
+                    return;
+                } else if (dr == DialogResult.No)
+                {
+                    this.Close();
+                }
             } else if (employee is SalesManager)
             {
                 if (!UpdateProductSM())
@@ -204,8 +228,31 @@ namespace MediaBazaar
                 formSalesManager.ReadProducts();
                 formSalesManager.ReadNewProducts();
 
-                this.Close();
+                DialogResult dr = MessageBox.Show("Do you want to view the order info", "Product Updated", MessageBoxButtons.YesNo);
+
+                if (dr == DialogResult.Yes)
+                {
+                    return;
+                }
+                else if (dr == DialogResult.No)
+                {
+                    this.Close();
+                }
             }
+
+            /*DialogResult dr = MessageBox.Show("Do you want to update the contract?", "Employee updated", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                return;
+            }
+            else if (dr == DialogResult.No)
+            {
+                var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
+                formOfficeManager.ReadEmployees();
+
+                this.Close();
+            }*/
         }
 
         private void btnCreateOrderInfo_Click(object sender, EventArgs e)

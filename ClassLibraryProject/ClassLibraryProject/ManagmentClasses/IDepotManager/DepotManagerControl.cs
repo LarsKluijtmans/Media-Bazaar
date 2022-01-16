@@ -58,9 +58,13 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         }
 
         //registered shift
+        public void GetAllRegisteredShift()
+        {
+            registeredShift.GetAllRegisteredShift();
+        }
         public bool RegisterEmployee(string department, int year, int week, string day, string shift, Employee employee)
         {
-            return registeredShift.RegisterEmployee(department, year, week, day, shift, employee);
+            return registeredShift.RegisterEmployee(department, year, week, day, shift, employee.EmployeeID);
         }
         public bool CheckAmount(string department, int year, int week, string day, string shift)
         {
@@ -68,17 +72,21 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         }
         public bool DeRegisterEmployee(int year, int week, string day, string shift, Employee employee)
         {
-            return registeredShift.DeRegisterEmployee(year, week, day, shift, employee);
+            return registeredShift.DeRegisterEmployee(year, week, day, shift, employee.EmployeeID);
         }
         public RegisteredShift GetRegisteredShift(int year, int week, string day, string shift)
         {
             return registeredShift.GetRegisteredShift(year, week, day, shift);
         }
+        public bool RegisteredEmployeeExist(int year, int week, string day, string shift, int employeeID)
+        {
+            return registeredShift.RegisteredEmployeeExist(year, week, day, shift, employeeID);
+        }
 
         //preferred shift
-        public PreferredShift GetPreferredShift(int week, string day, string shift)
+        public PreferredShift GetPreferredShift(string day, string shift)
         {
-            return preferredShift.GetPreferredShift(week, day, shift);
+            return preferredShift.GetPreferredShift(day, shift);
         }
     }
 }
