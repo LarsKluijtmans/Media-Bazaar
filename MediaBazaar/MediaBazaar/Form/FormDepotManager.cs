@@ -349,9 +349,10 @@ namespace AdminBackups
             string shift = Convert.ToString(selectedColumn.Name);
             string department = cbDepartments.Text;
 
-            if(c.GetPreferredShift(day, shift) != null)
-            {
-                lstEmpCanWork.Items.Clear();
+            lstEmpCanWork.Items.Clear();
+
+            if (c.GetPreferredShift(day, shift) != null)
+            {        
                 foreach (Employee employee in c.GetPreferredShift(day, shift).Employees)
                 {
                     if(DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(year, week, day, shift, employee.EmployeeID) == false)
@@ -361,9 +362,10 @@ namespace AdminBackups
                 }
             }
 
-            if(c.GetRegisteredShift(year, week, day, shift) != null)
-            {
-                lstEmpEnlisted.Items.Clear();
+            lstEmpEnlisted.Items.Clear();
+
+            if (c.GetRegisteredShift(year, week, day, shift) != null)
+            { 
                 foreach (Employee employee in c.GetRegisteredShift(year, week, day, shift).Employees)
                 {
                     if (DepartmentTrue(employee, department) == true)
@@ -569,9 +571,11 @@ namespace AdminBackups
                 year = Convert.ToInt32(txtPlanningYear.Value);
             }
             catch
-            { }
+            {
+                MessageBox.Show("Please select a week and year");
+                return; }
 
-            depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
+          //  depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
 
             progressBar1.Maximum = 55;
 
