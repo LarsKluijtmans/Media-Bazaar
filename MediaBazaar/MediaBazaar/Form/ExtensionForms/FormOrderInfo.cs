@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
+using MediaBazaar;
+
 namespace AdminBackups
 {
     public partial class FormOrderInfo : Form
@@ -86,6 +88,34 @@ namespace AdminBackups
 
             tbxSupplier.Text = supplier.ToString();
 
+
+            // check if supplier already has order info
+
+            bool orderInfound = false;
+
+            product.OrderInfos = productManager.OrderInfoManagerPM.GetOrderInfosForProduct(product);
+
+            foreach (OrderInfo oi in product.OrderInfos)
+            {
+                if (oi.Supplier.ID == supplier.ID)
+                {
+                    tbxMinAmount.Text = oi.MinAmount.ToString();
+                    tbxMaxAmount.Text = oi.MaxAmount.ToString();
+                    tbxMultiples.Text = oi.Multiples.ToString();
+                    tbxPurchasePrice.Text = oi.PurchasePrice.ToString();
+
+                    orderInfound = true;
+                }
+
+                if (!orderInfound)
+                {
+                    tbxMinAmount.Text = "";
+                    tbxMaxAmount.Text = "";
+                    tbxMultiples.Text = "";
+                    tbxPurchasePrice.Text = "";
+                }
+            }
+
             return supplier;
         }
 
@@ -105,6 +135,12 @@ namespace AdminBackups
                 var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
                 formProductManager.ReadProducts();
                 formProductManager.ReadProductsNoOrderInfo();
+
+                var formViewProduct = Application.OpenForms.OfType<FormViewProduct>().FirstOrDefault();
+                if (formViewProduct != null)
+                {
+                    formViewProduct.LoadSuppliersForProduct();
+                }
             }
         }
         private bool CreateOrderInfo()
@@ -202,6 +238,91 @@ namespace AdminBackups
             }
 
             return false;
+        }
+        private void UpdateOrderInfo()
+        {
+            Supplier supplier = SelectSupplier();
+
+            // check if supplier has order info
+            product.OrderInfos = productManager.OrderInfoManagerPM.GetOrderInfosForProduct(product);
+
+            foreach (OrderInfo oi in product.OrderInfos)
+            {
+                if (oi.Supplier.ID == supplier.ID)
+                {
+                    if (oi != null)
+                    {
+                        if (string.IsNullOrEmpty(tbxMinAmount.Text))
+                        {
+                            MessageBox.Show("Min amount cannot be empty");
+                            return;
+                        }
+                        oi.MinAmount = Convert.ToInt32(tbxMinAmount.Text);
+
+                        if (string.IsNullOrEmpty(tbxMaxAmount.Text))
+                        {
+                            MessageBox.Show("Max amount cannot be empty");
+                            return;
+                        }
+                        oi.MaxAmount = Convert.ToInt32(tbxMaxAmount.Text);
+
+                        if (string.IsNullOrEmpty(tbxMultiples.Text))
+                        {
+                            MessageBox.Show("Multiples cannot be empty");
+                            return;
+                        }
+                        oi.Multiples = Convert.ToInt32(tbxMultiples.Text);
+
+                        if (string.IsNullOrEmpty(tbxPurchasePrice.Text))
+                        {
+                            MessageBox.Show("Purchase price cannot be empty");
+                            return;
+                        }
+                        oi.PurchasePrice = Convert.ToDouble(tbxPurchasePrice.Text);
+
+                        if (productManager.OrderInfoManagerPM.UpdateOrderInfo(oi))
+                        {
+                            MessageBox.Show("Order Info Updated");
+                        }
+                    }
+                }
+            }
+        }
+        private void DeleteOrderInfo()
+        {
+            Supplier supplier = SelectSupplier();
+
+            // check if supplier has order info
+            product.OrderInfos = productManager.OrderInfoManagerPM.GetOrderInfosForProduct(product);
+
+            foreach (OrderInfo oi in product.OrderInfos)
+            {
+                if (oi.Supplier.ID == supplier.ID)
+                {
+                    if (oi != null)
+                    {
+                        if (productManager.OrderInfoManagerPM.DeleteOrderInfo(oi))
+                        {
+                            MessageBox.Show("Order Info deleted");
+
+                            tbxMinAmount.Clear();
+                            tbxMaxAmount.Clear();
+                            tbxMultiples.Clear();
+                            tbxPurchasePrice.Clear();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnUpdateOrderInfo_Click(object sender, EventArgs e)
+        {
+            UpdateOrderInfo();
+        }
+
+        private void btnDeleteOrderInfo_Click(object sender, EventArgs e)
+        {
+            DeleteOrderInfo();
         }
     }
 }

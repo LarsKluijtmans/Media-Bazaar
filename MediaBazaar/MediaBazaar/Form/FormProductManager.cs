@@ -146,12 +146,12 @@ namespace AdminBackups
             }
             catch
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Please enter a number");
                 return;
             }
 
-            string zipCode = tbxPostalCode.Text;
-            if (string.IsNullOrEmpty(zipCode))
+            string postalCode = tbxPostalCode.Text;
+            if (string.IsNullOrEmpty(postalCode))
             {
                 MessageBox.Show("Please enter a zip code");
                 return;
@@ -191,7 +191,8 @@ namespace AdminBackups
             }
 
             // make the supplier object
-            Supplier supplier = new Supplier(name, country, buildingNumber, zipCode, email, phoneNumber, bankNumber, productType);
+            Supplier supplier = new Supplier(name, country, buildingNumber, postalCode, email, phoneNumber, bankNumber, productType);
+
             if (productManager.SupplierManagerPM.CreateSupplier(supplier))
             {
                 tbxSupplierName.Clear();

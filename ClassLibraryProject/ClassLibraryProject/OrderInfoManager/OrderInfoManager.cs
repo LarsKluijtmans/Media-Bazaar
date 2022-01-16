@@ -27,5 +27,10 @@ namespace ClassLibraryProject
         {
             return DBOrderInfoManager.DeleteOrderInfo(oi);
         }
+
+        public bool UpdateOrderInfo(OrderInfo oi)
+        {
+            return DBOrderInfoManager.UpdateOrderInfo(oi);
+        }
     }
 }
