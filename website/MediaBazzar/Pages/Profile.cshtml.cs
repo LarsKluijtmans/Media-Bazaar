@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ClassLibraryProject.ChildClasses;
 using System;
+using ClassLibraryProject;
 
 namespace MediaBazzar.Pages
 {
@@ -65,40 +66,10 @@ namespace MediaBazzar.Pages
         }
         public void OnPost()
         {
-            MySqlConnection conn = Utils.GetConnection();
-
-            string sql = EmployeeManagement.EDIT_EMPLOYEE_BY_ID;
-
-            try
+            if (ModelState.IsValid)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
-                cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
-                cmd.Parameters.AddWithValue("@LastName", employee.LastName);
-                cmd.Parameters.AddWithValue("@UserName", employee.Username);
-                cmd.Parameters.AddWithValue("@Password", employee.Password);
-                cmd.Parameters.AddWithValue("@BSN", employee.BSN);
-                cmd.Parameters.AddWithValue("@City", employee.City);
-                cmd.Parameters.AddWithValue("@Email", employee.Email);
-                cmd.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
-
-                conn.Open();
-
-                int numCreatedRows = cmd.ExecuteNonQuery();
-
-            }
-            catch (MySqlException)
-            {
-                ViewData["Message"] = "Error!! There is aproblem with the database. ";
-            }
-            catch
-            { 
-                ViewData["Message"] = "Error please try again later."; 
-            }
-            finally
-            {
-                conn.Close();
+                DBEmployeeManager updateporfile = new DBEmployeeManager();
+                updateporfile.UpdateOwnInfo(employee);
             }
         }
 

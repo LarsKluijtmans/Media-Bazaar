@@ -573,7 +573,7 @@ namespace AdminBackups
 
             depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
 
-            progressBar1.Maximum = 59;
+            progressBar1.Maximum = 55;
 
             for (int loop = 0; loop < 3; loop++)
             {
@@ -637,7 +637,7 @@ namespace AdminBackups
                             }
                         }
 
-                        if (progressBar1.Value != 58)
+                        if (progressBar1.Value != 55)
                         {
                             progressBar1.Value++;
                         }
