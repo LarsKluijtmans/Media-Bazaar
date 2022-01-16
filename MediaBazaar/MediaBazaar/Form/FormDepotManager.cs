@@ -575,7 +575,7 @@ namespace AdminBackups
                 MessageBox.Show("Please select a week and year");
                 return; }
 
-          //  depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
+          depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
 
             progressBar1.Maximum = 55;
 
