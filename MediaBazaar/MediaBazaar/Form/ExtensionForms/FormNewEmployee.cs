@@ -271,7 +271,7 @@ namespace AdminBackups
                 {
                     if (CreateContract())
                     {
-                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
+                         store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
