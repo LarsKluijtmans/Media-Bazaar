@@ -21,6 +21,7 @@ namespace AdminBackups
 
             ReadProducts();
             ReadSuppliers();
+            ReadProductsNoOrderInfo();
         }
 
         //Logout 
@@ -417,5 +418,14 @@ namespace AdminBackups
             tbxBankNumber.Clear();
         }
         /* Supplier End */
+
+        /* Order Info Start */
+        public void ReadProductsNoOrderInfo()
+        {
+            List<Product> allProducts = productManager.ProductManagerPM.ReadProductsPM();
+
+            dgvProductsNoOrderInfo.DataSource = allProducts;
+        }
+        /* Order Info End */
     }
 }

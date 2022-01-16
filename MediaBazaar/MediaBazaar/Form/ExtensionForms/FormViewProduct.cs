@@ -111,8 +111,7 @@ namespace MediaBazaar
                     tbxMaxAmount.Text = "";
                     tbxMultiples.Text = "";
                 }
-                // if there is no order info for selected supplier make tbx empty to add order info
-                // ???? if I clear the tbx it doesn't update the tbx when selecting a new supplier ????
+                
             }
         }
         private void cbxSupplier_SelectedIndexChanged(object sender, EventArgs e)

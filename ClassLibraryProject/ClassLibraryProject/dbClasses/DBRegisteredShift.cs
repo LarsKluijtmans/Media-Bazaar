@@ -13,7 +13,7 @@ namespace ClassLibraryProject.dbClasses
 {
     public class DBRegisteredShift: IDBRegisteredShift
     {
-        public string GET_ALL_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = 1;";
+        public string GET_ALL_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = 1 AND c.Active = 1;";
 
         private string GET_REGISTERED_SHIFTS = "SELECT * FROM planning;";
         private string REGISTER_EMPLOYEE = "INSERT INTO planning (Year, Week, Day, Shift, EmployeeID) VALUES (@Year, @Week, @Day, @Shift, @Employee);";
@@ -30,7 +30,7 @@ namespace ClassLibraryProject.dbClasses
             GetAllEmployees();
             GetAllRegisteredShifts();
         }
-        private void GetAllRegisteredShifts()
+        public void GetAllRegisteredShifts()
         {
             registeredShifts.Clear();
 
@@ -129,48 +129,22 @@ namespace ClassLibraryProject.dbClasses
                     string zipCode = reader.GetString(13);
                     string personalEmail = reader.GetString(14);
                     string jobTitle = reader.GetString(17);
+                    string department = reader.GetString("Department");
 
                     IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
 
-                    if (jobTitle == "ADMIN")
-                    {
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
-                        employees.Add(employee);
-                    }
-                    else if (jobTitle == "CEO")
-                    {
-                        employee = new CEO(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
-                        employees.Add(employee);
-                    }
-                    else if (jobTitle == "DEPOT MANAGER")
-                    {
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
-                        employees.Add(employee);
-                    }
-                    else if (jobTitle == "DEPOT EMPLOYEE")
+                    if (jobTitle == "DEPOT EMPLOYEE")
                     {
                         employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
+                        Contract contract = new Contract(department);
+                        employee.Contracts.Add(contract);
                         employees.Add(employee);
                     }
-                    else if (jobTitle == "OFFICE MANAGER")
-                    {
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
-                        employees.Add(employee);
-                    }
-                    else if (jobTitle == "PRODUCT MANAGER")
-                    {
-                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
-                        employees.Add(employee);
-                    }
-                    else if (jobTitle == "SALES MANAGER")
-                    {
-                        AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule, employeeManagerAll);
-                        employees.Add(employee);
-                    }
-                    else if (jobTitle == "SALES REPRESENTATIVE")
+                    if (jobTitle == "SALES REPRESENTATIVE")
                     {
                         employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
+                        Contract contract = new Contract(department);
+                        employee.Contracts.Add(contract);
                         employees.Add(employee);
                     }
                 }

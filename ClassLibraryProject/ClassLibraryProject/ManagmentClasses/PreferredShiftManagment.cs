@@ -15,7 +15,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
         public bool PreferAShift(string day, string shift, Employee employee)
         {
-            if (!EmployeeWantsToWorkExist(day, shift, employee))
+            if (!EmployeeWantsToWorkExist(day, shift, employee.EmployeeID))
             {
                 if (db.PreferAShift(day, shift, employee) == true)
                 {
@@ -27,7 +27,7 @@ namespace ClassLibraryProject.ManagmentClasses
         }
         public bool DeRegisterEmployee(string day, string shift, Employee employee)
         {
-            if (EmployeeWantsToWorkExist(day, shift, employee))
+            if (EmployeeWantsToWorkExist(day, shift, employee.EmployeeID))
             {
                 if (db.DeletePreferredShift(day, shift, employee))
                 {
@@ -42,21 +42,21 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             return db.GetPreferredShift(day, shift);
         }
-        private Employee EmployeeWantsToWork(string day, string shift, Employee employee)
+        private Employee EmployeeWantsToWork(string day, string shift, int employeeID)
         {
             PreferredShift rs = GetPreferredShift(day, shift);
             foreach (Employee e in rs.Employees)
             {
-                if (e == employee)
+                if (e.EmployeeID == employeeID)
                 {
                     return e;
                 }
             }
             return null;
         }
-        private bool EmployeeWantsToWorkExist(string day, string shift, Employee employee)
+        private bool EmployeeWantsToWorkExist(string day, string shift, int employeeID)
         {
-            if (EmployeeWantsToWork(day, shift, employee) != null)
+            if (EmployeeWantsToWork(day, shift, employeeID) != null)
             {
                 return true;
             }

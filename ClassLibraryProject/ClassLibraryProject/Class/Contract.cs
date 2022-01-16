@@ -25,7 +25,11 @@ namespace ClassLibraryProject.Class
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string ReasonForTermination { get; set; }
-        public string Department { get; set; }
+        public string Department
+        {
+            get { return department; }
+            set { department = value; }
+        }
         public bool IsActive { get; set; }
 
         // constructor
@@ -65,6 +69,12 @@ namespace ClassLibraryProject.Class
             this.ReasonForTermination = null;
             this.Department = department;
             this.IsActive = isActive;
+        }
+
+        //dont remove
+        public Contract(string department)
+        {
+            Department = department;
         }
     }
 }

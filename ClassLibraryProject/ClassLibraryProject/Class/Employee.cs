@@ -23,7 +23,7 @@ namespace ClassLibraryProject.Class
         private List<Contract> contracts; // list of contracts for employee (only 1 can be active)
 
         // properties
-        public int EmployeeID { get;  set; }
+        public int EmployeeID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
@@ -36,7 +36,11 @@ namespace ClassLibraryProject.Class
         public string Username { get; set; }
         public string Password { get; set; }
         public string PersonalEmail { get; set; }
-        public List<Contract> Contracts { get; set; }
+        public List<Contract> Contracts
+        {
+            get { return contracts; }
+            set { contracts = value; }
+        }
 
         public IEmployeeManagerAll EmployeeManagerAll { get; set; }
 
@@ -46,7 +50,7 @@ namespace ClassLibraryProject.Class
 
         }
         public Employee(string firstName, string lastName, string phoneNumber, string email, string zipCode, string address, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
-         {
+        {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.PhoneNumber = phoneNumber;
@@ -59,7 +63,7 @@ namespace ClassLibraryProject.Class
             this.ZipCode = zipCode;
             this.Address = address;
             this.PersonalEmail = personalEmail;
-         }
+        }
 
         public Employee(int employeeID, string firstName, string lastName, string phoneNumber, string email, string zipCode, string address, string city, DateTime dateOfBirth, int bsn, string username, string password, string personalEmail)
         {
@@ -110,6 +114,8 @@ namespace ClassLibraryProject.Class
             this.Address = address;
             this.PersonalEmail = personalEmail;
             this.EmployeeManagerAll = employeeManagerAll;
+
+            Contracts = new List<Contract>();
         }
         // methodes
         public override string ToString()
