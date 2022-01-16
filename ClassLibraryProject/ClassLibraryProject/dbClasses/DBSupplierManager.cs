@@ -12,7 +12,7 @@ namespace ClassLibraryProject.dbClasses
     public class DBSupplierManager: IDBSupplierManagerPM
     {
         private string CREATE_SUPPLIER = "INSERT INTO Supplier (Name, Country, BuildingNumber, PostalCode, Email, PhoneNumber, BankNumber, ProductType) VALUES (@Name, @Country, @BuildingNumber, @PostalCode, @Email, @PhoneNumber, @BankNumber, @ProductType);";
-        private string READ_SUPPLIERS = "SELECT * FROM Supplier;";
+        private string READ_SUPPLIERS = "SELECT * FROM Supplier LIMIT 50;";
         private string UPDATE_SUPPLIER = "UPDATE supplier SET Name = @Name, Country = @Country, BuildingNumber = @BuildingNumber, PostalCode = @PostalCode, Email = @Email, PhoneNumber = @PhoneNumber, BankNumber = @BankNumber WHERE ID = @ID;";
         private string DELETE_SUPPLIER = "DELETE FROM supplier WHERE ID = @ID;";
 
@@ -27,7 +27,7 @@ namespace ClassLibraryProject.dbClasses
                 return false;
             }*/
 
-        MySqlConnection conn = Utils.GetConnection();
+            MySqlConnection conn = Utils.GetConnection();
             string sql = CREATE_SUPPLIER;
 
             try

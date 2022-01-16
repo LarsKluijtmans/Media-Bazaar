@@ -8,5 +8,6 @@ namespace ClassLibraryProject
     public interface IDBOrderInfoManagerPM
     {
         public List<OrderInfo> GetOrderInfosForProduct(Product p);
+        public bool CreateOrderInfo(OrderInfo oi);
     }
 }

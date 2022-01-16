@@ -42,7 +42,7 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             return db.GetOrderInfos();
         }
-        public bool AddOrderInfo(Supplier supplier, Product product, int minAmount, int maxAmount, int multiples)
+        public bool AddOrderInfo(OrderInfo oi)
         {
             return false;
         }

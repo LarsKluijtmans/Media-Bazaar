@@ -422,9 +422,69 @@ namespace AdminBackups
         /* Order Info Start */
         public void ReadProductsNoOrderInfo()
         {
+            List<Product> productsNoOrderInfo = new List<Product>();
+
+            // get all products
             List<Product> allProducts = productManager.ProductManagerPM.ReadProductsPM();
 
-            dgvProductsNoOrderInfo.DataSource = allProducts;
+            // get order infos for products
+            foreach (Product p in allProducts)
+            {
+                p.OrderInfos = productManager.OrderInfoManagerPM.GetOrderInfosForProduct(p);
+
+                if (p.OrderInfos.Count == 0)
+                {
+                    productsNoOrderInfo.Add(p);
+                }
+            }
+
+            dgvProductsNoOrderInfo.DataSource = productsNoOrderInfo;
+        }
+
+        private void dgvProductsNoOrderInfo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvProductsNoOrderInfo.Rows[e.RowIndex];
+
+                string productID = row.Cells["ProductID"].Value.ToString();
+
+                tbxSelectedProductOrderInfo.Text = productID;
+            }
+        }
+        private void CreateOrderInfo()
+        {
+            // get selected product
+            int productID = 0;
+
+            if (string.IsNullOrEmpty(tbxSelectedProductOrderInfo.Text))
+            {
+                MessageBox.Show("Please select a product");
+                return;
+            }
+
+            try
+            {
+                productID = Convert.ToInt32(tbxSelectedProductOrderInfo.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+                return;
+            }
+
+            Product selectedProduct = productManager.ProductManagerPM.GetProductByID(productID);
+
+            if (selectedProduct != null)
+            {
+                FormOrderInfo formOrderInfo = new FormOrderInfo(productManager, selectedProduct);
+                formOrderInfo.Show();
+            }
+        }
+
+        private void btnAddOrderInfo_Click(object sender, EventArgs e)
+        {
+            CreateOrderInfo();
         }
         /* Order Info End */
     }

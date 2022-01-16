@@ -4,6 +4,7 @@ using ClassLibraryProject.dbClasses.IGetObject;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace ClassLibraryProject.dbClasses
@@ -11,7 +12,7 @@ namespace ClassLibraryProject.dbClasses
     public class DBOrderInfo: IDBOrderInfo
     {
         private string GET_ALL_ORDER_INFOS = "SELECT * FROM orderinfo;";
-        private string ADD_ORDER_INFO = "INSERT INTO orderinfo (ID, SupplierID, ProductBarcode, MinAmount, MaxAmount, Multiples) VALUES (@SupplierID, @Barcode, @MinAmount, @MaxAmount, @Multiples);";
+        private string ADD_ORDER_INFO = "INSERT INTO orderinfo (SupplierID, ProductBarcode, MinAmount, MaxAmount, Multiples, PurchasePrice) VALUES (@SupplierID, @Barcode, @MinAmount, @MaxAmount, @Multiples, @PurchasePrice);";
         private string UPDATE_ORDER_INFO = "UPDATE orderinfo SET MaxAmount = @MaxAmount, MinAmount = @MinAmount, Multiples = @Multiples WHERE ID = @ID;";
         private string DELETE_ORDER_INFO = "DELETE FROM orderinfo WHERE ID = @ID;";
 
@@ -80,7 +81,6 @@ namespace ClassLibraryProject.dbClasses
         public bool AddOrderInfo(OrderInfo oi)
         {
             MySqlConnection conn = Utils.GetConnection();
-
             string sql = ADD_ORDER_INFO;
 
             try
@@ -88,22 +88,37 @@ namespace ClassLibraryProject.dbClasses
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 conn.Open();
 
+                cmd.Parameters.AddWithValue("@SupplierID", oi.Supplier.ID);
+                cmd.Parameters.AddWithValue("@Barcode", oi.Product.Barcode);
+                cmd.Parameters.AddWithValue("@MinAmount", oi.MinAmount);
+                cmd.Parameters.AddWithValue("@MaxAmount", oi.MaxAmount);
+                cmd.Parameters.AddWithValue("@Multiples", oi.Multiples);
+                cmd.Parameters.AddWithValue("@PurchasePrice", oi.PurchasePrice);
+
                 int numCreatedRows = cmd.ExecuteNonQuery();
 
-                if (numCreatedRows > 0)
+                if (numCreatedRows == 1)
                 {
                     return true;
                 }
-                return false;
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
-                return false;
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
+
+            return false;
         }
         public bool UpdateOrderInfo(int id, int minAmount, int maxAmount, int multiples)
         {

@@ -11,6 +11,7 @@ namespace ClassLibraryProject
     {
         // sql
         public string GET_ORDER_INFOS_FOR_PRODUCT = "SELECT * FROM OrderInfo as o INNER JOIN Supplier as s on o.SupplierID = s.ID WHERE o.ProductBarcode = @ProductBarcode;";
+        private string CREATE_ORDER_INFO = "INSERT INTO orderinfo (SupplierID, ProductBarcode, MinAmount, MaxAmount, Multiples, PurchasePrice) VALUES (@SupplierID, @Barcode, @MinAmount, @MaxAmount, @Multiples, @PurchasePrice);";
 
 
         public List<OrderInfo> GetOrderInfosForProduct(Product p)
@@ -74,6 +75,48 @@ namespace ClassLibraryProject
             }
 
             return orderInfos;
+        }
+        public bool CreateOrderInfo(OrderInfo oi)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+            string sql = CREATE_ORDER_INFO;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+
+                cmd.Parameters.AddWithValue("@SupplierID", oi.Supplier.ID);
+                cmd.Parameters.AddWithValue("@Barcode", oi.Product.Barcode);
+                cmd.Parameters.AddWithValue("@MinAmount", oi.MinAmount);
+                cmd.Parameters.AddWithValue("@MaxAmount", oi.MaxAmount);
+                cmd.Parameters.AddWithValue("@Multiples", oi.Multiples);
+                cmd.Parameters.AddWithValue("@PurchasePrice", oi.PurchasePrice);
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+
+                if (numCreatedRows == 1)
+                {
+                    return true;
+                }
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
         }
     }
 }
