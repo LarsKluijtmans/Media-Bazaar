@@ -3,7 +3,6 @@ using ClassLibraryProject.dbClasses.IDB;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace ClassLibraryProject.dbClasses
 {
@@ -59,20 +58,12 @@ namespace ClassLibraryProject.dbClasses
                     schedules.Add(schedule);
                 }
             }
-            catch (MySqlException msqEx)
+            catch (Exception)
             {
-                Debug.WriteLine(msqEx);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
             }
             finally
             {
-                if (conn != null)
-                {
-                    conn.Close();
-                }
+                conn.Close();
             }
         }
 
@@ -112,23 +103,14 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return false;
             }
-            catch (MySqlException msqEx)
+            catch (Exception)
             {
-                Debug.WriteLine(msqEx);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
+                return false;
             }
             finally
             {
-                if (conn != null)
-                {
-                    conn.Close();
-                }
+                conn.Close();
             }
-
-            return false;
         }
 
         //Create
@@ -171,23 +153,14 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return false;
             }
-            catch (MySqlException msqEx)
+            catch (Exception)
             {
-                Debug.WriteLine(msqEx);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
+                return false;
             }
             finally
             {
-                if (conn != null)
-                {
-                    conn.Close();
-                }
+                conn.Close();
             }
-
-            return false;
         }
     }
 }
