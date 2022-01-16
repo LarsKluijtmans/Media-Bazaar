@@ -76,7 +76,22 @@ namespace AdminBackups
         }
         public void ReadEmployees()
         {
-            List<Employee> employees = officeManager.EmployeeManagerOffice.ReadEmployees();
+            List<Employee> employees = new List<Employee>();
+
+            if (cbxEmployeeType.SelectedIndex == 0)
+            {
+                employees = officeManager.EmployeeManagerOffice.ReadEmployees();
+            }
+
+            else if (tbxSearchEmployee.Text != "")
+            {
+                employees = officeManager.EmployeeManagerOffice.SearchEmployee(tbxSearchEmployee.Text);
+            }
+            else if (cbxEmployeeType.SelectedIndex != 0)
+            {
+                employees = officeManager.EmployeeManagerOffice.GetAllEmployees();
+            }
+
             List<Employee> departmentEmployees = new List<Employee>();
 
             if (cbxEmployeeType.SelectedIndex == 1)
@@ -167,7 +182,6 @@ namespace AdminBackups
                     }
                 }
             }
-
             if (cbxEmployeeType.SelectedIndex != 0)
             {
                 dgvEmployees.DataSource = departmentEmployees;
@@ -176,6 +190,7 @@ namespace AdminBackups
             {
                 dgvEmployees.DataSource = employees;
             }
+
 
             dgvEmployees.Columns["Password"].Visible = false;
             dgvEmployees.Columns["EmployeeManagerAll"].Visible = false;

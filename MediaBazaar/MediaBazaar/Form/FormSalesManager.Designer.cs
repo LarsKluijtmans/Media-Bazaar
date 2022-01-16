@@ -29,7 +29,6 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalesManager));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabOverview = new System.Windows.Forms.TabPage();
             this.label13 = new System.Windows.Forms.Label();
@@ -42,7 +41,6 @@ namespace AdminBackups
             this.tbxSelectedProduct = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.bntUpdateProduct = new System.Windows.Forms.Button();
-            this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.labProductSearch = new System.Windows.Forms.Label();
             this.tbProductSearch = new System.Windows.Forms.TextBox();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
@@ -153,6 +151,7 @@ namespace AdminBackups
             this.dgvNewProducts.RowTemplate.Height = 25;
             this.dgvNewProducts.Size = new System.Drawing.Size(488, 190);
             this.dgvNewProducts.TabIndex = 99;
+            this.dgvNewProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNewProducts_CellContentClick);
             this.dgvNewProducts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProduct_CellDoubleClick);
             // 
             // lstEmployeesWorkingToday
@@ -197,7 +196,6 @@ namespace AdminBackups
             // 
             // txtProductID
             // 
-            this.txtProductID.Controls.Add(this.tbxSelectedProduct);
             this.txtProductID.Controls.Add(this.groupBox4);
             this.txtProductID.Controls.Add(this.labProductSearch);
             this.txtProductID.Controls.Add(this.tbProductSearch);
@@ -214,45 +212,35 @@ namespace AdminBackups
             // 
             // tbxSelectedProduct
             // 
-            this.tbxSelectedProduct.Location = new System.Drawing.Point(796, 62);
+            this.tbxSelectedProduct.Location = new System.Drawing.Point(7, 37);
             this.tbxSelectedProduct.Name = "tbxSelectedProduct";
             this.tbxSelectedProduct.PlaceholderText = "Selected Product";
             this.tbxSelectedProduct.ReadOnly = true;
-            this.tbxSelectedProduct.Size = new System.Drawing.Size(169, 29);
+            this.tbxSelectedProduct.Size = new System.Drawing.Size(195, 29);
             this.tbxSelectedProduct.TabIndex = 107;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.tbxSelectedProduct);
             this.groupBox4.Controls.Add(this.bntUpdateProduct);
-            this.groupBox4.Controls.Add(this.btnDeleteProduct);
-            this.groupBox4.Location = new System.Drawing.Point(791, 98);
+            this.groupBox4.Location = new System.Drawing.Point(765, 78);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(182, 102);
+            this.groupBox4.Size = new System.Drawing.Size(208, 114);
             this.groupBox4.TabIndex = 106;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Manage Products";
             // 
             // bntUpdateProduct
             // 
-            this.bntUpdateProduct.Location = new System.Drawing.Point(5, 27);
+            this.bntUpdateProduct.Location = new System.Drawing.Point(6, 72);
             this.bntUpdateProduct.Name = "bntUpdateProduct";
-            this.bntUpdateProduct.Size = new System.Drawing.Size(167, 31);
+            this.bntUpdateProduct.Size = new System.Drawing.Size(197, 31);
             this.bntUpdateProduct.TabIndex = 9;
             this.bntUpdateProduct.Text = "Update Product";
             this.bntUpdateProduct.UseVisualStyleBackColor = true;
             this.bntUpdateProduct.Click += new System.EventHandler(this.bntUpdateProduct_Click);
-            // 
-            // btnDeleteProduct
-            // 
-            this.btnDeleteProduct.Location = new System.Drawing.Point(4, 63);
-            this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(168, 31);
-            this.btnDeleteProduct.TabIndex = 7;
-            this.btnDeleteProduct.Text = "Delete Product";
-            this.btnDeleteProduct.UseVisualStyleBackColor = true;
             // 
             // labProductSearch
             // 
@@ -268,7 +256,7 @@ namespace AdminBackups
             this.tbProductSearch.Location = new System.Drawing.Point(512, 23);
             this.tbProductSearch.Name = "tbProductSearch";
             this.tbProductSearch.PlaceholderText = "Product Name or Barcode";
-            this.tbProductSearch.Size = new System.Drawing.Size(268, 29);
+            this.tbProductSearch.Size = new System.Drawing.Size(247, 29);
             this.tbProductSearch.TabIndex = 104;
             this.tbProductSearch.TextChanged += new System.EventHandler(this.tbProductSearch_TextChanged);
             // 
@@ -281,7 +269,7 @@ namespace AdminBackups
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowHeadersWidth = 51;
             this.dgvProducts.RowTemplate.Height = 25;
-            this.dgvProducts.Size = new System.Drawing.Size(764, 392);
+            this.dgvProducts.Size = new System.Drawing.Size(743, 392);
             this.dgvProducts.TabIndex = 103;
             this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
             // 
@@ -750,7 +738,6 @@ namespace AdminBackups
             this.ClientSize = new System.Drawing.Size(1029, 600);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSalesManager";
             this.Text = "FormSalesManager";
@@ -762,6 +749,7 @@ namespace AdminBackups
             this.txtProductID.ResumeLayout(false);
             this.txtProductID.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.tabSchedule.ResumeLayout(false);
             this.tabSchedule.PerformLayout();
@@ -827,7 +815,6 @@ namespace AdminBackups
         private System.Windows.Forms.ComboBox cbSchebuleByDepartment;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label labProductSearch;
-        private System.Windows.Forms.TextBox tbProductSearch;
         private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxSelectedProduct;
@@ -836,5 +823,6 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.NumericUpDown txtYear;
         private System.Windows.Forms.NumericUpDown txtPlanningYear;
+        public System.Windows.Forms.TextBox tbProductSearch;
     }
 }

@@ -225,8 +225,15 @@ namespace MediaBazaar
                 }
 
                 var formSalesManager = Application.OpenForms.OfType<FormSalesManager>().FirstOrDefault();
-                formSalesManager.ReadProducts();
-                formSalesManager.ReadNewProducts();
+                if (formSalesManager.tbProductSearch.Text == "")
+                {
+                    formSalesManager.ReadProducts();
+                    formSalesManager.ReadNewProducts();
+                }
+                else 
+                {
+                    formSalesManager.UserSearchbar();
+                }
 
                 DialogResult dr = MessageBox.Show("Do you want to view the order info", "Product Updated", MessageBoxButtons.YesNo);
 
@@ -239,20 +246,6 @@ namespace MediaBazaar
                     this.Close();
                 }
             }
-
-            /*DialogResult dr = MessageBox.Show("Do you want to update the contract?", "Employee updated", MessageBoxButtons.YesNo);
-
-            if (dr == DialogResult.Yes)
-            {
-                return;
-            }
-            else if (dr == DialogResult.No)
-            {
-                var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
-                formOfficeManager.ReadEmployees();
-
-                this.Close();
-            }*/
         }
 
         private void btnCreateOrderInfo_Click(object sender, EventArgs e)
