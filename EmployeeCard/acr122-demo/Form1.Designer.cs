@@ -36,18 +36,22 @@ namespace acr122_demo {
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Image = global::CardReader.Properties.Resources.MicrosoftTeams_image__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(451, 278);
+            this.pictureBox1.Size = new System.Drawing.Size(493, 320);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(217, 373);
+            this.btnLogin.Location = new System.Drawing.Point(227, 438);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(148, 30);
+            this.btnLogin.Size = new System.Drawing.Size(197, 37);
             this.btnLogin.TabIndex = 17;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -57,18 +61,20 @@ namespace acr122_demo {
             // tbPassword
             // 
             this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.tbPassword.Location = new System.Drawing.Point(217, 330);
+            this.tbPassword.Location = new System.Drawing.Point(227, 385);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '⬤';
-            this.tbPassword.Size = new System.Drawing.Size(148, 33);
+            this.tbPassword.Size = new System.Drawing.Size(196, 33);
             this.tbPassword.TabIndex = 16;
             // 
             // tbUsername
             // 
             this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUsername.Location = new System.Drawing.Point(217, 296);
+            this.tbUsername.Location = new System.Drawing.Point(227, 343);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(148, 33);
+            this.tbUsername.Size = new System.Drawing.Size(196, 33);
             this.tbUsername.TabIndex = 15;
             // 
             // label1
@@ -76,7 +82,8 @@ namespace acr122_demo {
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(127)))), ((int)(((byte)(39)))));
-            this.label1.Location = new System.Drawing.Point(110, 333);
+            this.label1.Location = new System.Drawing.Point(85, 389);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 25);
             this.label1.TabIndex = 14;
@@ -87,7 +94,8 @@ namespace acr122_demo {
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(162)))), ((int)(((byte)(232)))));
-            this.label2.Location = new System.Drawing.Point(104, 299);
+            this.label2.Location = new System.Drawing.Point(77, 347);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 25);
             this.label2.TabIndex = 13;
@@ -95,9 +103,9 @@ namespace acr122_demo {
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 418);
+            this.ClientSize = new System.Drawing.Size(523, 494);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
@@ -105,6 +113,7 @@ namespace acr122_demo {
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
