@@ -24,13 +24,14 @@
                     {
                         <li><a asp-area="" asp-page="/Profile">PROFILE</a></li>
                         <li><a asp-area="" asp-page="/Logout" asp-page-handler="Logout">LOGOUT</a></li>
+                        <li><a asp-area="" asp-page="/Schedule">SCHEDULE</a></li>
+                        <li><a asp-area="" asp-page="/Preferedtime">PREFERED TIME</a></li>
+                        <li><a asp-area="" asp-page="/Availability">AVAILABLE</a></li>
 
-                        @if (LoginModel.emplContract.JobTitle == "SALES REPRESENTATIVE" || LoginModel.emplContract.JobTitle == "DEPOT EMPLOYEE")
-                        {
-                            <li><a asp-area="" asp-page="/Schedule">SCHEDULE</a></li>
-                            <li><a asp-area="" asp-page="/Preferedtime">PREFERED TIME</a></li>
-                            <li><a asp-area="" asp-page="/Availability">AVAILABLE</a></li>
-                        }
+                        @*@if (LoginModel.emplContract.JobTitle == "SALES REPRESENTATIVE" || LoginModel.emplContract.JobTitle == "DEPOT EMPLOYEE")
+            {
+                
+            }*@
                         <li><a asp-area="" asp-page="/Logout" asp-page-handler="Logout">LOGOUT</a></li>
                     }
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
