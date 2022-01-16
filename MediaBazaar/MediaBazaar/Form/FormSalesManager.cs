@@ -406,9 +406,12 @@ namespace AdminBackups
                 year = Convert.ToInt32(txtPlanningYear.Value);
             }
             catch
-            { }
+            {
+                MessageBox.Show("Please select a week and year");
+                return;
+            }
 
-            salesManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
+            //  salesManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
 
             progressBar1.Maximum = 59;
 

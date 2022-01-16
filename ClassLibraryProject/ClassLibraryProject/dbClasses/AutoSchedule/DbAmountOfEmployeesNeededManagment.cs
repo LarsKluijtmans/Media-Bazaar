@@ -16,7 +16,7 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"SELECT Count(`EmployeeID`) FROM `planning` WHERE `Year` = {year} AND `Week` = {week} AND `Day` = '{day}' AND `Shift` = '{shift}';";
+            string sql = $"SELECT Count(planning.EmployeeID) FROM `planning` left join contract on contract.EmployeeID = planning.EmployeeID WHERE `Year` = {year} AND `Week` = {week} AND `Day` = '{day}' AND `Shift` = '{shift}' and Department = '{department}';";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -42,7 +42,7 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
                 }
             }
 
-            sql = $"SELECT {shift} FROM `schedule` WHERE `Year` = {year} AND `Week` = {week} AND `Day` = '{day}';";
+            sql = $"SELECT {shift} FROM `schedule` WHERE `Year` = {year} AND `Week` = {week} AND `Day` = '{day}' AND Department = '{department}';";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
