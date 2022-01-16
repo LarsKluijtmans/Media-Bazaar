@@ -58,12 +58,6 @@
             this.Day = day;
         }
 
-
-            public PreferedWorkTime()
-        {
-        }
-
-
         //methods
         public override string ToString()
         {

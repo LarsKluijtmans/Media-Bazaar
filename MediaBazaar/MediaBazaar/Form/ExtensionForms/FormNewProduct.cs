@@ -28,6 +28,7 @@ namespace MediaBazaar
             {
                 var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
                 formProductManager.ReadProducts();
+                formProductManager.ReadProductsNoOrderInfo();
             }
         }
         private bool CreateProduct()

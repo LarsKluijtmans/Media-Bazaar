@@ -3,6 +3,7 @@ using ClassLibraryProject.dbClasses.IDB;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ClassLibraryProject.dbClasses
 {
@@ -89,12 +90,20 @@ namespace ClassLibraryProject.dbClasses
                     products.Add(product);
                 }
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -143,12 +152,20 @@ namespace ClassLibraryProject.dbClasses
                     suppliers.Add(supplier);
                 }
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -198,12 +215,20 @@ namespace ClassLibraryProject.dbClasses
                     }
                 }
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -250,12 +275,20 @@ namespace ClassLibraryProject.dbClasses
                     }
                 }
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -282,14 +315,23 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return false;
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
-                return false;
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
+
+            return false;
         }
         public bool OrderRestock(int id, OrderInfo orderInfo, int amount)
         {
@@ -324,14 +366,23 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return false;
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
-                return false;
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
+
+            return false;
         }
 
         //employee
@@ -360,14 +411,23 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return false;
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
-                return false;
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
+
+            return false;
         }
         public bool ReceiveRestock(int id)
         {
@@ -398,14 +458,23 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return false;
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
-                return false;
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
+
+            return false;
         }
         public bool ChangeAmount(Product product, int amount)
         {
@@ -431,14 +500,23 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return false;
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
-                return false;
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
+
+            return false;
         }
     }
 }

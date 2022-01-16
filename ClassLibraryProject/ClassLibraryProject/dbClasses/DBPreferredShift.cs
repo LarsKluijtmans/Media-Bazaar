@@ -6,6 +6,7 @@ using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ClassLibraryProject.dbClasses
 {
@@ -70,16 +71,20 @@ namespace ClassLibraryProject.dbClasses
                     }
                 }
             }
-            catch (MySqlException)
+            catch (MySqlException msqEx)
             {
-
+                Debug.WriteLine(msqEx);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -140,8 +145,13 @@ namespace ClassLibraryProject.dbClasses
                     }
                 }
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
@@ -178,14 +188,23 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return false;
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
-                return false;
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
+
+            return false;
         }
         public bool DeletePreferredShift(string day, string shift, Employee employee)
         {
@@ -212,16 +231,23 @@ namespace ClassLibraryProject.dbClasses
                 }
                 return false;
             }
-            catch (Exception)
+            catch (MySqlException msqEx)
             {
-                return false;
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             finally
             {
-                conn.Close();
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
+            return false;
         }
-
 
         public PreferredShift GetPreferredShift(string day, string shift)
         {

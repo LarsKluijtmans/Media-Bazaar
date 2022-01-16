@@ -29,7 +29,6 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductManager));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tbxSelectedProduct = new System.Windows.Forms.TextBox();
@@ -70,9 +69,12 @@ namespace AdminBackups
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSuppliers = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.btnAddOrderInfo = new System.Windows.Forms.Button();
+            this.tbxSelectedProductOrderInfo = new System.Windows.Forms.TextBox();
+            this.tbxSearchBar = new System.Windows.Forms.TextBox();
             this.dgvProductsNoOrderInfo = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -480,7 +482,7 @@ namespace AdminBackups
             // 
             this.cbxSupplierType.FormattingEnabled = true;
             this.cbxSupplierType.Items.AddRange(new object[] {
-            "All suppliers",
+            "All Suppliers",
             "KITCHEN_HOME",
             "PHOTO_VIDEO_NAVIGATION",
             "SMART_HOME_APPLIANCES",
@@ -489,6 +491,7 @@ namespace AdminBackups
             this.cbxSupplierType.Name = "cbxSupplierType";
             this.cbxSupplierType.Size = new System.Drawing.Size(163, 25);
             this.cbxSupplierType.TabIndex = 3;
+            this.cbxSupplierType.Text = "All Suppliers";
             this.cbxSupplierType.SelectedIndexChanged += new System.EventHandler(this.cbxSupplierType_SelectedIndexChanged);
             // 
             // tbxSupplierSearch
@@ -522,6 +525,9 @@ namespace AdminBackups
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnAddOrderInfo);
+            this.tabPage2.Controls.Add(this.tbxSelectedProductOrderInfo);
+            this.tabPage2.Controls.Add(this.tbxSearchBar);
             this.tabPage2.Controls.Add(this.dgvProductsNoOrderInfo);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
@@ -530,6 +536,54 @@ namespace AdminBackups
             this.tabPage2.TabIndex = 12;
             this.tabPage2.Text = "Order Info";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnAddOrderInfo
+            // 
+            this.btnAddOrderInfo.Location = new System.Drawing.Point(903, 94);
+            this.btnAddOrderInfo.Name = "btnAddOrderInfo";
+            this.btnAddOrderInfo.Size = new System.Drawing.Size(115, 32);
+            this.btnAddOrderInfo.TabIndex = 4;
+            this.btnAddOrderInfo.Text = "Add Order Info";
+            this.btnAddOrderInfo.UseVisualStyleBackColor = true;
+            this.btnAddOrderInfo.Click += new System.EventHandler(this.btnAddOrderInfo_Click);
+            // 
+            // tbxSelectedProductOrderInfo
+            // 
+            this.tbxSelectedProductOrderInfo.Location = new System.Drawing.Point(903, 63);
+            this.tbxSelectedProductOrderInfo.Name = "tbxSelectedProductOrderInfo";
+            this.tbxSelectedProductOrderInfo.PlaceholderText = "Selected Product";
+            this.tbxSelectedProductOrderInfo.ReadOnly = true;
+            this.tbxSelectedProductOrderInfo.Size = new System.Drawing.Size(115, 25);
+            this.tbxSelectedProductOrderInfo.TabIndex = 3;
+            // 
+            // tbxSearchBar
+            // 
+            this.tbxSearchBar.Location = new System.Drawing.Point(738, 28);
+            this.tbxSearchBar.Name = "tbxSearchBar";
+            this.tbxSearchBar.PlaceholderText = "Search Product Name";
+            this.tbxSearchBar.Size = new System.Drawing.Size(147, 25);
+            this.tbxSearchBar.TabIndex = 2;
+            // 
+            // dgvProductsNoOrderInfo
+            // 
+            this.dgvProductsNoOrderInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvProductsNoOrderInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductsNoOrderInfo.Location = new System.Drawing.Point(16, 63);
+            this.dgvProductsNoOrderInfo.Name = "dgvProductsNoOrderInfo";
+            this.dgvProductsNoOrderInfo.RowTemplate.Height = 25;
+            this.dgvProductsNoOrderInfo.Size = new System.Drawing.Size(869, 385);
+            this.dgvProductsNoOrderInfo.TabIndex = 1;
+            this.dgvProductsNoOrderInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductsNoOrderInfo_CellClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(16, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(221, 25);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Add Order Info Products:";
             // 
             // btnLogout
             // 
@@ -543,25 +597,6 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(16, 25);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(221, 25);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Add Order Info Products:";
-            // 
-            // dgvProductsNoOrderInfo
-            // 
-            this.dgvProductsNoOrderInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductsNoOrderInfo.Location = new System.Drawing.Point(16, 63);
-            this.dgvProductsNoOrderInfo.Name = "dgvProductsNoOrderInfo";
-            this.dgvProductsNoOrderInfo.RowTemplate.Height = 25;
-            this.dgvProductsNoOrderInfo.Size = new System.Drawing.Size(637, 385);
-            this.dgvProductsNoOrderInfo.TabIndex = 1;
-            // 
             // FormProductManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -569,7 +604,6 @@ namespace AdminBackups
             this.ClientSize = new System.Drawing.Size(1162, 583);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormProductManager";
             this.Text = "ProductManager";
@@ -638,5 +672,8 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvProductsNoOrderInfo;
+        private System.Windows.Forms.Button btnAddOrderInfo;
+        private System.Windows.Forms.TextBox tbxSelectedProductOrderInfo;
+        private System.Windows.Forms.TextBox tbxSearchBar;
     }
 }

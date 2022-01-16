@@ -111,7 +111,6 @@ namespace MediaBazaar
                     tbxMaxAmount.Text = "";
                     tbxMultiples.Text = "";
                 }
-                
             }
         }
         private void cbxSupplier_SelectedIndexChanged(object sender, EventArgs e)
@@ -189,6 +188,7 @@ namespace MediaBazaar
 
                 var formProductManager = Application.OpenForms.OfType<FormProductManager>().FirstOrDefault();
                 formProductManager.ReadProducts();
+                formProductManager.ReadProductsNoOrderInfo();
 
                 this.Close();
             } else if (employee is SalesManager)
