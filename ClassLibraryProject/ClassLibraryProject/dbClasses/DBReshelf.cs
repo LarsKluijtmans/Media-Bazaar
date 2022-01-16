@@ -18,7 +18,8 @@ namespace ClassLibraryProject.dbClasses
         //depot
         private string COMPLETE_RESHELF = "UPDATE reshelf SET Status = 'Fulfilled'  WHERE ID = @ID;";
         private string DELETE_RESHELF = "DELETE FROM reshelf WHERE ID = @ID;";
-        private string CHANGE_AMOUNT = "UPDATE product SET AmountInDepot = @Amount WHERE Barcode = @Barcode;";
+        private string CHANGE_AMOUNT_DEPOT = "UPDATE product SET AmountInDepot = @Amount WHERE Barcode = @Barcode;";
+        private string CHANGE_AMOUNT_STORE = "UPDATE product SET AmountInStore = @Amount WHERE Barcode = @Barcode;";
 
         //sales
         private string REQUEST_RESHELF = "INSERT INTO reshelf (ID, ProductBarcode, Amount, Status) VALUES (@ID, @Barcode, @Amount, 'Pending');";
@@ -279,11 +280,53 @@ namespace ClassLibraryProject.dbClasses
 
             return false;
         }
-        public bool ChangeAmount(Product product, int amount)
+        public bool ChangeAmountDepot(Product product, int amount)
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = CHANGE_AMOUNT;
+            string sql = CHANGE_AMOUNT_DEPOT;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@Barcode", product.Barcode);
+                cmd.Parameters.AddWithValue("@Amount", amount);
+
+                conn.Open();
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+
+                if (numCreatedRows > 0)
+                {
+                    product.AmountInDepot = amount;
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
+        public bool ChangeAmountStore(Product product, int amount)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = CHANGE_AMOUNT_STORE;
 
             try
             {

@@ -12,6 +12,7 @@ namespace ClassLibraryProject.dbClasses.IDB
         bool RequestReshelf(int id, Product product, int amount);
         bool DeleteReshelf(int id);
         bool CompleteReshelf(int id);
-        bool ChangeAmount(Product product, int amount);
+        bool ChangeAmountDepot(Product product, int amount);
+        bool ChangeAmountStore(Product product, int amount);
     }
 }

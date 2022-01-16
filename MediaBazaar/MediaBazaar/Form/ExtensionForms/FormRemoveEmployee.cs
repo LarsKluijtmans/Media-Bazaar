@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ClassLibraryProject.ChildClasses;
@@ -36,6 +37,9 @@ namespace AdminBackups
             {
                 if (officeManager.EmployeeManagerOffice.DeleteEmployee(selectedEmployee))
                 {
+                    var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
+                    formOfficeManager.ReadEmployees();
+
                     this.Close();
                 }
             }
