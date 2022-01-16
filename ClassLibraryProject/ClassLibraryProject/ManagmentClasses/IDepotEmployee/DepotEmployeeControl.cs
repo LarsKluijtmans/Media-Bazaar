@@ -29,6 +29,10 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotEmployee
         {
             return reshelf.DeleteReshelf(id);
         }
+        public bool CheckAmount(Product product, int amount)
+        {
+            return reshelf.CheckAmount(product, amount);
+        }
 
         //restock
         public Product GetProduct(string barcode)
