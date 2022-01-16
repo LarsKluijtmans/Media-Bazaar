@@ -38,7 +38,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
         public List<Product> SearchProductsPM(string search)
         {
-            return DBProductManagerPM.SearchProductsPM(search);
+            return DBProductManagerPM.SearchProducts(search);
         }
 
         public bool UpdateProductPM(Product p)

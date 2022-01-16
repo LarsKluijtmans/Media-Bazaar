@@ -174,7 +174,7 @@ namespace ClassLibraryProject.dbClasses
             return true;
         }
 
-        public List<Product> SearchProductsPM(string search)
+        public List<Product> SearchProducts(string search)
         {
             List<Product> products = new List<Product>();
 

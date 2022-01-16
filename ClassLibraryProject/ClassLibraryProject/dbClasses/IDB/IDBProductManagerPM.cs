@@ -11,7 +11,7 @@ namespace ClassLibraryProject
         public List<Product> ReadProductsPM();
         public bool UpdateProductPM(Product p);
         public bool DeleteProduct(Product p);
-        public List<Product> SearchProductsPM(string search);
+        public List<Product> SearchProducts(string search);
         public Product GetProductByID(int productID);
     }
 }
