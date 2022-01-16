@@ -83,10 +83,8 @@ namespace AdminBackups
         {
             tabControl1.SelectTab(3);
         }
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            tabControl1.SelectTab(4);
-        }
+
+
         //Restock
         private void UpdatePendingRequests()
         {
@@ -422,6 +420,23 @@ namespace AdminBackups
         }
         private void dgPlanningSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
+                int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
+                DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
+                DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
+                int year = Convert.ToInt32(txtPlanningYear.Value);
+                int week = Convert.ToInt32(lblPlanningWeek.Text);
+                string day = Convert.ToString(selectedRow.Cells["Day"].Value);
+                string shift = Convert.ToString(selectedColumn.Name);
+
+                UpdateEmployeeList();
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong!");
+            }
 
         }
         private void lstEmpCanWork_DoubleClick(object sender, EventArgs e)

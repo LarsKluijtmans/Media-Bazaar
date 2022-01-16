@@ -261,7 +261,7 @@ namespace AdminBackups
             this.dgPlanningSchedule.RowTemplate.Height = 25;
             this.dgPlanningSchedule.Size = new System.Drawing.Size(525, 275);
             this.dgPlanningSchedule.TabIndex = 14;
-            this.dgPlanningSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewSchedule_CellDoubleClick);
+            this.dgPlanningSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPlanningSchedule_CellClick);
             // 
             // label4
             // 
