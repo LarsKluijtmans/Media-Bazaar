@@ -205,7 +205,7 @@ namespace AdminBackups
                 newEmployee = new Admin(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
                 {
-                    if (CreateContract(email)))
+                    if (CreateContract(email))
                     {
                         store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
@@ -214,7 +214,8 @@ namespace AdminBackups
                         {
                             this.Close();
                         }
-                    } else
+                    }
+                    else
                     {
                         return;
                     }

@@ -321,6 +321,26 @@ namespace AdminBackups
                 return false;
             }
 
+            DateTime dateOfBirth = new DateTime(1000, 1, 1);
+            try
+            {
+                DateTime MakeDate = Convert.ToDateTime(tbxDateOfBirth.Text.);
+
+                dateOfBirth = Convert.ToDateTime(MakeDate.ToString("yyyy/MM/dd"));
+
+                DateTime firstBirthDay = DateTime.Now.AddYears(-16);
+                if (dateOfBirth > firstBirthDay)
+                {
+                    MessageBox.Show("New employee should be at least 16 years old");
+                    return false;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid date of birth");
+                return false;
+            }
+
             DateTime startDate = new DateTime(1000, 1, 1);
             try
             {
@@ -477,6 +497,61 @@ namespace AdminBackups
         private void tbxJobTitle_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddDepartment();
+        }
+
+        private double CalculateMinWage(DateTime dateOfBirth)
+        {
+            /* 21: 11.06
+             * 20: 8.85
+             * 19: 6.64
+             * 18: 5.53
+             * 17: 4.37
+             * 16: 3.82
+             */
+
+            // check age of employee
+            DateTime today = DateTime.Now;
+            int age = today.Year - dateOfBirth.Year;
+            if (dateOfBirth.Date > today.AddYears(-age))
+            {
+                age--;
+            }
+
+            // calculate min wage based on info above
+            double minWage;
+
+            if (age == 16)
+            {
+                minWage = 3.82;
+                return minWage;
+            }
+            else if (age == 17)
+            {
+                minWage = 4.37;
+                return minWage;
+            }
+            else if (age == 18)
+            {
+                minWage = 5.53;
+                return minWage;
+            }
+            else if (age == 19)
+            {
+                minWage = 6.64;
+                return minWage;
+            }
+            else if (age == 20)
+            {
+                minWage = 8.85;
+                return minWage;
+            }
+            else if (age >= 21)
+            {
+                minWage = 11.06;
+                return minWage;
+            }
+
+            return 0;
         }
     }
 }
