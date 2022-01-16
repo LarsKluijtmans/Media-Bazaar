@@ -89,15 +89,13 @@ namespace ClassLibraryProject
         public Contract ReadContract(Employee e)
         {
             MySqlConnection conn = Utils.GetConnection();
-            string sql = READ_CONTRACT;
+            string sql = $"SELECT * FROM Contract WHERE EmployeeID = {e.EmployeeID} AND Active = 1;";
 
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
 
-                cmd.Parameters.AddWithValue("@EmployeeID", e.EmployeeID);
-                cmd.Parameters.AddWithValue("@Active", 1);
+                conn.Open();
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -111,11 +109,7 @@ namespace ClassLibraryProject
                     double salaryPerHour = reader.GetDouble(4);
                     DateTime startDate = reader.GetDateTime(5);
 
-                    DateTime endDate = new DateTime(1700, 1, 1);
-                        if (reader.ToString() != "")
-                    {
-                        endDate = reader.GetDateTime(6);
-                    }
+                    DateTime endDate = DateTime.Now;
 
                     string department = reader.GetString(8);
                     bool isActive = reader.GetBoolean(9);

@@ -82,7 +82,6 @@ namespace AdminBackups
             {
                 employees = officeManager.EmployeeManagerOffice.ReadEmployees();
             }
-
             else if (tbxSearchEmployee.Text != "")
             {
                 employees = officeManager.EmployeeManagerOffice.SearchEmployee(tbxSearchEmployee.Text);
@@ -244,11 +243,21 @@ namespace AdminBackups
                 return;
             }
 
-            Employee selectedEmployee = officeManager.EmployeeManagerOffice.GetEmployeeByID(employeeID);
-            Contract activeContract = officeManager.ContractManager.ReadContract(selectedEmployee);
 
-            FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(officeManager, selectedEmployee, activeContract);
-            formRemoveEmployee.Show();
+            Employee selectedEmployee = officeManager.EmployeeManagerOffice.GetEmployeeByID(employeeID);
+
+            if (selectedEmployee != null)
+            {
+                Contract activeContract = officeManager.ContractManager.ReadContract(selectedEmployee);
+
+                FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(officeManager, selectedEmployee, activeContract);
+                formRemoveEmployee.Show();
+            }
+            else 
+            { 
+
+            }
+            
         }
         private void cbxEmployeeType_SelectedIndexChanged(object sender, EventArgs e)
         {
