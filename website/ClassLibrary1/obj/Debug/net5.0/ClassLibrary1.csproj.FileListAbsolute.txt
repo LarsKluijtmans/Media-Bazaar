@@ -85,22 +85,6 @@ C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\we
 C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.dll
 C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ref\ClassLibrary1.dll
 C:\Users\esthe\OneDrive\Bureaublad\GIT NEW\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.pdb
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.deps.json
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.dll
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ref\ClassLibrary1.dll
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.pdb
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibraryProject.dll
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibraryProject.pdb
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.AssemblyReference.cache
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.AssemblyInfoInputs.cache
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.AssemblyInfo.cs
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.CoreCompileInputs.cache
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.CopyComplete
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.dll
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ref\ClassLibrary1.dll
-C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.pdb
-<<<<<<< HEAD
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.deps.json
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.dll
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ref\ClassLibrary1.dll
@@ -116,8 +100,33 @@ C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debu
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.dll
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ref\ClassLibrary1.dll
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.pdb
-=======
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.deps.json
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.dll
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ref\ClassLibrary1.dll
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.pdb
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibraryProject.dll
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibraryProject.pdb
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.AssemblyReference.cache
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.AssemblyInfoInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.AssemblyInfo.cs
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.CoreCompileInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.CopyComplete
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.dll
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ref\ClassLibrary1.dll
+C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.pdb
 C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.dll
 C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ref\ClassLibrary1.dll
 C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.pdb
->>>>>>> aca5aad332772e22f6d6c8027414213b76f2cf69
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.deps.json
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.dll
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ref\ClassLibrary1.dll
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibrary1.pdb
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibraryProject.dll
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\bin\Debug\net5.0\ClassLibraryProject.pdb
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.AssemblyReference.cache
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.AssemblyInfoInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.AssemblyInfo.cs
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.CoreCompileInputs.cache
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.CopyComplete
