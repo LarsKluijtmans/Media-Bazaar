@@ -253,20 +253,21 @@ nav .fa {
     align-items: center;
 }
 
-.profile-form{
+.profile-form {
     position: relative;
-    width: 100%;
-    max-width: 380px;
+    width: 90%;
+    /*max-width: 500px;*/
     padding: 80px 40px 40px;
-    background: #eeeff1;
+    background: #73CEF0;
     border-radius: 10px;
-    color: #444;
+    color: #fff;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
 }
 .profile-form h2{
     text-align: center;
     letter-spacing: 1px;
     margin-bottom: 2rem;
+    color: #FF7F27;
 }
 .profile-form .input{
     position: relative;
@@ -278,13 +279,13 @@ nav .fa {
     letter-spacing: 1px;
     margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #fff;
     outline: none;
     background-color: transparent;
     color: inherit;
 }
 .sub-form{
-    width: 50%;
+    width: 33%;
     float: left;
 }
 .button{
