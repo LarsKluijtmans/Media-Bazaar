@@ -115,3 +115,6 @@ C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohamm
 C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.dll
 C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ref\ClassLibrary1.dll
 C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.pdb
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.dll
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ref\ClassLibrary1.dll
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.pdb

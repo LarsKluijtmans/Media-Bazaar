@@ -1,3 +1,7 @@
 is_global = true
 build_property.RootNamespace = RemoteAppForDepotEmployee
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\RemoteAppForDepotEmployee\
+=======
+build_property.ProjectDir = C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\RemoteAppForDepotEmployee\
+>>>>>>> 45175f7ec36e32ebabd7dbe774f231cd3bf7b0e2

@@ -279,6 +279,12 @@ C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\
 C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\Razor\Pages\Availability.cshtml.g.cs
 C:\Users\esthe\OneDrive\Bureaublad\Media Bazaar\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\Razor\Pages\Available.cshtml.g.cs
 >>>>>>> e35dd195f20ea8b4885cfcd5ebadbf86b0b67b7a
+<<<<<<< HEAD
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\bin\Debug\net5.0\MySqlConnector.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\obj\Debug\net5.0\Razor\Pages\Availability.cshtml.g.cs
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\obj\Debug\net5.0\Razor\Pages\Available.cshtml.g.cs
+=======
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazaarWebsite.dll
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\ref\MediaBazaarWebsite.dll
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazaarWebsite.pdb
+>>>>>>> 45175f7ec36e32ebabd7dbe774f231cd3bf7b0e2
