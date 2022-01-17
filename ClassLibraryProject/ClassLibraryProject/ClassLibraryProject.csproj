@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MySql.Data" Version="8.0.26" />
+    <PackageReference Include="MySql.Data" Version="8.0.27" />
     <PackageReference Include="MySqlBackup.Net.DevartExpress" Version="2.3.6" />
     <PackageReference Include="MySqlConnector" Version="2.1.2" />
   </ItemGroup>
