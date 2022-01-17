@@ -1,8 +1,6 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
-using ClassLibraryProject.dbClasses.AutoSchedule;
 using ClassLibraryProject.dbClasses.IDB;
-using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -10,17 +8,22 @@ using System.Diagnostics;
 
 namespace ClassLibraryProject.dbClasses
 {
-    public class DBPreferredShift: IDBPreferredShift
+    public class DBPreferredShift : IDBPreferredShift
     {
         public string GET_ALL_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = 1 AND c.Active = 1;";
 
         private string GET_PREFERRED_SHIFTS = "SELECT * FROM preferedtime;";
-        private string PREFER_SHIFT = "INSERT INTO preferedtime (Week, Day, Shift, EmployeeID) VALUES (@Week, @Day, @Shift, @Employee);";
+        private string PREFER_SHIFT = "INSERT INTO preferedtime (Day, Shift, EmployeeID, Prefered) VALUES (@Day, @Shift, @EmployeeID, @Prefered);";
+        private string UPDATE_PREFERRED_SHIFT = "UPDATE preferedtime SET Prefered = @Prefered WHERE Day = @Day AND Shift = @Shift AND EmployeeID = @EmployeeID;";
         private string DELETE_PREFERRED_SHIFT = "DELETE FROM preferedtime WHERE Week = @Week AND Day = @Day AND Shift = @Shift AND EmployeeID = @EmployeeID;";
 
         private List<PreferredShift> preferredShifts;
         private List<Employee> employees;
 
+        public List<PreferredShift> GetPreferredShifts()
+        {
+            return preferredShifts;
+        }
         public DBPreferredShift()
         {
             preferredShifts = new List<PreferredShift>();
@@ -52,6 +55,17 @@ namespace ClassLibraryProject.dbClasses
                     string day = reader.GetString("Day");
                     string shift = reader.GetString("Shift");
                     int employeeID = reader.GetInt32("EmployeeID");
+                    int preferred = reader.GetInt32("Prefered");
+
+                    bool isPreferred = true;
+                    if (preferred == 1)
+                    {
+                        isPreferred = true;
+                    }
+                    else
+                    {
+                        isPreferred = false;
+                    }
 
                     if (PreferredShiftExist(day, shift) == true)
                     {
@@ -64,7 +78,7 @@ namespace ClassLibraryProject.dbClasses
                     {
                         if (GetEmployee(employeeID) != null)
                         {
-                            preferredShift = new PreferredShift(day, shift);
+                            preferredShift = new PreferredShift(day, shift, isPreferred);
                             preferredShifts.Add(preferredShift);
                             preferredShift.Employees.Add(GetEmployee(employeeID));
                         }
@@ -167,7 +181,7 @@ namespace ClassLibraryProject.dbClasses
             }
         }
 
-        public bool PreferAShift(string day, string shift, Employee employee)
+        public bool PreferAShift(string day, string shift, Employee employee, bool isPreferred)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -179,7 +193,19 @@ namespace ClassLibraryProject.dbClasses
 
                 cmd.Parameters.AddWithValue("@Day", day);
                 cmd.Parameters.AddWithValue("@Shift", shift);
-                cmd.Parameters.AddWithValue("@Employee", employee.EmployeeID);
+                cmd.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
+
+                int preferred = 0;
+                if (isPreferred == true)
+                {
+                    preferred = 1;
+                }
+                else
+                {
+                    preferred = 0;
+                }
+
+                cmd.Parameters.AddWithValue("@Prefered", preferred);
 
                 conn.Open();
 
@@ -187,8 +213,69 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    PreferredShift preferredShift = new PreferredShift(day, shift);
-                    preferredShift.Employees.Add(employee);
+                    if (PreferredShiftExist(day, shift) == true)
+                    {
+                        GetPreferredShift(day, shift).Employees.Add(employee);
+                    }
+                    else
+                    {
+                        PreferredShift preferredShift = new PreferredShift(day, shift, isPreferred);
+                        preferredShifts.Add(preferredShift);
+                        preferredShift.Employees.Add(employee);
+                    }
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException msqEx)
+            {
+                Debug.WriteLine(msqEx);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return false;
+        }
+        public bool UpdatePreferredShift(string day, string shift, Employee employee, bool isPreferred)
+        {
+            MySqlConnection conn = Utils.GetConnection();
+
+            string sql = UPDATE_PREFERRED_SHIFT;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@Day", day);
+                cmd.Parameters.AddWithValue("@Shift", shift);
+                cmd.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
+
+                int preferred = 0;
+                if (isPreferred == true)
+                {
+                    preferred = 1;
+                }
+                else
+                {
+                    preferred = 0;
+                }
+
+                cmd.Parameters.AddWithValue("@Prefered", preferred);
+
+                conn.Open();
+
+                int numCreatedRows = cmd.ExecuteNonQuery();
+
+                if (numCreatedRows > 0)
+                {
                     return true;
                 }
                 return false;

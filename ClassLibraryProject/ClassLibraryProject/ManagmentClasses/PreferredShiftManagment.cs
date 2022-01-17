@@ -13,50 +13,48 @@ namespace ClassLibraryProject.ManagmentClasses
             db = dbPreferredShift;
         }
 
-        public bool PreferAShift(string day, string shift, Employee employee)
+        public bool PreferAShift(string day, string shift, Employee employee, bool isPreferred)
         {
-            if (!EmployeeWantsToWorkExist(day, shift, employee.EmployeeID))
+            if (!EmployeeWantsToWorkExist(day, shift, employee.EmployeeID, isPreferred))
             {
-                if (db.PreferAShift(day, shift, employee) == true)
+                if (db.PreferAShift(day, shift, employee, isPreferred) == true)
                 {
                     return true;
                 }
                 return false;
             }
-            return false;
-        }
-        public bool DeRegisterEmployee(string day, string shift, Employee employee)
-        {
-            if (EmployeeWantsToWorkExist(day, shift, employee.EmployeeID))
+            else
             {
-                if (db.DeletePreferredShift(day, shift, employee))
+                if (db.UpdatePreferredShift(day, shift, employee, isPreferred) == true)
                 {
                     return true;
                 }
                 return false;
             }
-            return false;
         }
 
         public PreferredShift GetPreferredShift(string day, string shift)
         {
             return db.GetPreferredShift(day, shift);
         }
-        private Employee EmployeeWantsToWork(string day, string shift, int employeeID)
+        private Employee EmployeeWantsToWork(string day, string shift, int employeeID, bool isPreferred)
         {
-            PreferredShift rs = GetPreferredShift(day, shift);
-            foreach (Employee e in rs.Employees)
+            if(GetPreferredShift(day, shift) != null)
             {
-                if (e.EmployeeID == employeeID)
+                PreferredShift rs = GetPreferredShift(day, shift);
+                foreach (Employee e in rs.Employees)
                 {
-                    return e;
+                    if (e.EmployeeID == employeeID && rs.IsPreferred == isPreferred)
+                    {
+                        return e;
+                    }
                 }
             }
             return null;
         }
-        private bool EmployeeWantsToWorkExist(string day, string shift, int employeeID)
+        private bool EmployeeWantsToWorkExist(string day, string shift, int employeeID, bool isPreferred)
         {
-            if (EmployeeWantsToWork(day, shift, employeeID) != null)
+            if (EmployeeWantsToWork(day, shift, employeeID, isPreferred) != null)
             {
                 return true;
             }
