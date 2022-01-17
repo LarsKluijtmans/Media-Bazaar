@@ -5,42 +5,73 @@
 }
 
 <div class="preferred-time">
-    <form class="preferred-time-form" method="post">
-        <h2>Select your preferred work time</h2>
-        <div class="input">
-            <label asp-for="WeekDay">Select day:</label>
-            <select asp-for="WeekDay" name="Day">
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednesday">Wednesday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-                <option value="Saturday">Saturday</option>
-                <option value="Sunday">Sunday</option>
-            </select>
+    <div class="row">
+        <div class="pt-left">
+            <form class="preferred-time-form" method="post">
+                <h2>Select your preferred work time</h2>
+                <div class="input">
+                    <label asp-for="WeekDay">Select day:</label>
+                    <select asp-for="WeekDay" name="Day">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <label asp-for="Shift">Select shift:</label>
+                    <select asp-for="Shift" name="Shift">
+                        <option value="Morning">Morning</option>
+                        <option value="Afternoon">Afternoon</option>
+                        <option value="Evening">Evening</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <label asp-for="Preferred">Select day:</label>
+                    <select asp-for="Preferred" name="Preferred">
+                        <option value="Preferred">Preferred</option>
+                        <option value="LeastPreferred">Least Preferred</option>
+                    </select>
+                </div>
+                <input type="submit" class="submit-btn" value="Submit">
+            </form>
         </div>
-        <div class="input">
-            <input type="radio" name="Morning" value="Morning" />
-            <label asp-for="Morning">Morning</label>
+        <div class="pt-right">
+            <h2>Work Preference:</h2>
+            <table class="pwt-preference">
+                <tr>
+                    <th>Day</th>
+                    <th>Morning</th>
+                    <th>Afternoon</th>
+                    <th>Evening</th>
+                </tr>
+                <tr>
+                    <td>Monday</td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                </tr>
+                <tr>
+                    <td>Thursday</td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                </tr>
+            </table>
         </div>
-        <div class="input">
-            <input type="radio" name="Afternoon" value="Afternoon" />
-            <label asp-for="Afternoon">Afternoon</label>
-        </div>
-        <div class="input">
-            <input type="radio" name="Evening" value="Evening" />
-            <label asp-for="Evening">Evening</label>
-        </div>
-        <br />
-        <div class="input">
-            <input type="radio" name="Preferred" value="Preferred" />
-            <label asp-for="Preferred">Preferred</label>
-        </div>
-        <div class="input">
-            <input type="radio" name="LeastPreferred" value="LeastPreferred" />
-            <label asp-for="LeastPreferred">Least Preferred</label>
-        </div>
-    </form>
+    </div>
 </div>
 
 

@@ -204,10 +204,23 @@ namespace AdminBackups
                 tbxSelectedProduct.Text = productID;
             }
         }
+        private void dgvNewProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvNewProducts.Rows[e.RowIndex];
+
+                string productID = row.Cells["ProductID"].Value.ToString();
+
+                tbxSelectedProduct.Text = productID;
+            }
+
+            UpdateProduct();
+        }
 
 
         //SCHEDULE-------------------------------------------------------------------
-        
+
         public void UpdateSchedule()
         {
             DataTable table = new DataTable();
@@ -271,6 +284,15 @@ namespace AdminBackups
                 i = 1;
             }
             lblWeek.Text = i.ToString();
+            UpdateSchedule();
+        }
+        private void cbSchebuleByDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateSchedule();
+        }
+
+        private void txtYear_ValueChanged(object sender, EventArgs e)
+        {
             UpdateSchedule();
         }
         private void dgSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -435,6 +457,14 @@ namespace AdminBackups
             lblPlanningWeek.Text = pi.ToString();
             UpdatePlanningSchedule();
         }
+        private void cbDepartments_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdatePlanningSchedule();
+        }
+        private void txtPlanningYear_ValueChanged(object sender, EventArgs e)
+        {
+            UpdatePlanningSchedule();
+        }
         private void dgPlanningSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -455,7 +485,81 @@ namespace AdminBackups
                 MessageBox.Show("Something went wrong!");
             }
         }
+        private void lstEmpCanWork_DoubleClick(object sender, EventArgs e)
+        {
+            Object EmployeeObject = lstEmpCanWork.SelectedItem;
+            if (!(EmployeeObject is Employee))
+            {
+                return;
+            }
+            try
+            {
+                string department = cbDepartments.Text;
+                Employee employee = (Employee)EmployeeObject;
+                int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
+                int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
+                DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
+                DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
+                int year = Convert.ToInt32(txtPlanningYear.Value);
+                int week = Convert.ToInt32(lblPlanningWeek.Text);
+                string day = Convert.ToString(selectedRow.Cells["Day"].Value);
+                string shift = Convert.ToString(selectedColumn.Name);
 
+                if (c.CheckAmount(department, year, week, day, shift) == false)
+                {
+                    MessageBox.Show("Limit reached! Update schedule if you want to add more employee.");
+                }
+                else
+                {
+                    if (c.RegisterEmployee(department, year, week, day, shift, employee))
+                    {
+                        UpdateEmployeeList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went wrong!");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid input!");
+            }
+        }
+        private void btnRemoveFromSchedule_Click(object sender, EventArgs e)
+        {
+            Object EmployeeObject = lstEmpEnlisted.SelectedItem;
+            if (!(EmployeeObject is Employee))
+            {
+                return;
+            }
+            try
+            {
+                string department = cbDepartments.Text;
+                Employee employee = (Employee)EmployeeObject;
+                int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
+                int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
+                DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
+                DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
+                int year = Convert.ToInt32(txtPlanningYear.Value);
+                int week = Convert.ToInt32(lblPlanningWeek.Text);
+                string day = Convert.ToString(selectedRow.Cells["Day"].Value);
+                string shift = Convert.ToString(selectedColumn.Name);
+
+                if (c.DeRegisterEmployee(year, week, day, shift, employee))
+                {
+                    UpdateEmployeeList();
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong!");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid input!");
+            }
+        }
 
         //AUTOMATED SCHEDULE------------------------------------------------------------------
         private void btnAutoSchedule_Click(object sender, EventArgs e)
@@ -562,33 +666,6 @@ namespace AdminBackups
             UpdateEmployeeList();
 
             MessageBox.Show("Schedule has been completed");
-        }
-
-        private void dgSchedule_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvNewProducts.Rows[e.RowIndex];
-
-                string productID = row.Cells["ProductID"].Value.ToString();
-
-                tbxSelectedProduct.Text = productID;
-            }
-            UpdateProduct();
-        }
-
-        private void dgvNewProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvNewProducts.Rows[e.RowIndex];
-
-                string productID = row.Cells["ProductID"].Value.ToString();
-
-                tbxSelectedProduct.Text = productID;
-            }
-
-            UpdateProduct();
         }
     }
 }

@@ -106,19 +106,27 @@ namespace AdminBackups
             {
                 int id = Convert.ToInt32(txtReshelfID.Text);
                 Product p = c.GetProduct(txtBarcode.Text);
+                int amount = Convert.ToInt32(txtAmountRequested.Text);
 
-                if(c.CompleteReshelf(id, p))
+                if(c.CheckAmount(p, amount) == false)
                 {
-                    UpdatePendingRequests();
-
-                    txtAmountRequested.Text = "";
-                    txtBarcode.Text = "";
-                    txtReshelfID.Text = "";
+                    MessageBox.Show("Not enough amount of product in depot");
                 }
                 else
                 {
-                    MessageBox.Show("Something went wrong!");
-                }
+                    if (c.CompleteReshelf(id, p))
+                    {
+                        UpdatePendingRequests();
+
+                        txtAmountRequested.Text = "";
+                        txtBarcode.Text = "";
+                        txtReshelfID.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went wrong!");
+                    }
+                } 
             }
             catch (Exception)
             {

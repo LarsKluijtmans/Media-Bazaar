@@ -17,6 +17,7 @@ namespace AdminBackups
         Store store;
         IDepotManagerControl c;
         FormLogin login;
+        FormOrderRestock orderRestock;
 
         int i;
         int pi;
@@ -80,10 +81,36 @@ namespace AdminBackups
 
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
+        private void EmployeesWorkingToday()
+        {
+            int year = date.Year;
+            int week = GetCurrentWeekOfYear(date);
+            string day = date.DayOfWeek.ToString();
+
+
+            //if (c.GetRegisteredShift(year, week, day, "Moring") != null)
+            //{
+            //    foreach (Employee employee in c.GetRegisteredShift(year, week, day, shift).Employees)
+            //    {
+            //        if (DepartmentTrue(employee, department) == true)
+            //        {
+            //            lstEmpEnlisted.Items.Add(employee);
+            //        }
+            //    }
+            //}
+        }
 
         //OVERVIEW-----------------------------------------------------------------------
         private void btnLogout_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
+            if (orderRestock.Visible)
+            {
+                orderRestock.Close();
+            }
+            login.Show();
+>>>>>>> 6e99b8dca3f04a29f6eed5488555f28e59063ac3
             Close();
         }
 
@@ -106,6 +133,10 @@ namespace AdminBackups
         }
         private void FormDepotManager_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (orderRestock.Visible)
+            {
+                orderRestock.Close();
+            }
             login.Show();
         }
         private void dgOverviewSchedule_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -123,7 +154,7 @@ namespace AdminBackups
 
 
         //RESTOCK-------------------------------------------------------------------------
-        private void UpdatePendingRequests()
+        public void UpdatePendingRequests()
         {
             DataTable table = new DataTable();
 
@@ -141,7 +172,7 @@ namespace AdminBackups
             }
 
             dgRestock.DataSource = table;
-
+            dgOverviewRestock.DataSource = table;
         }
         private void UpdateHistory()
         {
@@ -203,7 +234,7 @@ namespace AdminBackups
                 if(c.GetRestockByID(restockID)!= null)
                 {
                     Restock restock = c.GetRestockByID(restockID);
-                    FormOrderRestock orderRestock = new FormOrderRestock(restock, c);
+                    orderRestock = new FormOrderRestock(restock, c, this);
                     orderRestock.Show();
                 }
             }
@@ -542,7 +573,6 @@ namespace AdminBackups
             {
                 MessageBox.Show("Invalid input!");
             }
-
         }
         private void btnRemoveFromSchedule_Click(object sender, EventArgs e)
         {
