@@ -326,8 +326,13 @@ namespace AdminBackups
                 tbxActiveEmployeeID.Text = employeeID;
             }
         }
+
         /* Search Bar for employees */
         private void tbxSearchEmployee_TextChanged(object sender, EventArgs e)
+        {
+            UserSearchBar();
+        }
+        public void UserSearchBar()
         {
             string search = tbxSearchEmployee.Text;
 
@@ -440,6 +445,7 @@ namespace AdminBackups
                 ReadEmployees();
             }
         }
+
         /* Departments for search */
         private void AddDepartment()
         {

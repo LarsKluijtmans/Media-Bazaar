@@ -34,17 +34,11 @@ namespace MediaBazaarWebsite.Pages
         public int prefered;
 
         [BindProperty]
-        public string WeekDay { get; set; }
-        [BindProperty]
-        public string Morning { get; set; }
-        [BindProperty]
-        public string Afternoon { get; set; }
-        [BindProperty]
-        public string Evening { get; set; }
-        [BindProperty]
         public string Preferred { get; set; }
+
         [BindProperty]
-        public string LeastPreferred { get; set; }
+        [Required]
+        public string WeekDay { get; set; }
 
         [BindProperty]
         [Required]
@@ -140,7 +134,21 @@ namespace MediaBazaarWebsite.Pages
 
         public void OnPost()
         {
+            DBPreferredShift dbPreferredShift = new DBPreferredShift();
+            PreferredShiftManagment prm = new PreferredShiftManagment(dbPreferredShift);
 
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
+
+            Employee ee = dbLogin.GetEmployeeByEmail(userEmail);
+
+            if (Preferred == "Preferred")
+            {
+                prm.PreferAShift(WeekDay, shift, ee, true);
+            }
+            else 
+            { 
+                prm.PreferAShift(WeekDay, shift, ee, false); 
+            }
         }
     }
 }

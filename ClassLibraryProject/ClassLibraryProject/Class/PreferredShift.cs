@@ -9,6 +9,7 @@ namespace ClassLibraryProject.Class
         //fields
         private string day;
         private string shift;
+        private bool isPreferred;
         private List<Employee> employees;
 
         //properties
@@ -22,6 +23,11 @@ namespace ClassLibraryProject.Class
             get { return shift; }
             set { shift = value; }
         }
+        public bool IsPreferred
+        {
+            get { return isPreferred; }
+            set { isPreferred = value; }
+        }
         public List<Employee> Employees
         {
             get { return employees; }
@@ -29,10 +35,11 @@ namespace ClassLibraryProject.Class
         }
 
         //constructor
-        public PreferredShift(string day, string shift)
+        public PreferredShift(string day, string shift, bool isPreferred)
         {
             Day = day;
             Shift = shift;
+            IsPreferred = isPreferred;
             Employees = new List<Employee>();
         }
     }

@@ -46,7 +46,7 @@ namespace AdminBackups
             this.tbxMinAmount = new System.Windows.Forms.NumericUpDown();
             this.tbxMaxAmount = new System.Windows.Forms.NumericUpDown();
             this.tbxMultiples = new System.Windows.Forms.NumericUpDown();
-            this.tbxPurchasePrice = new System.Windows.Forms.TextBox();
+            this.tbxPurchasePrice = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.tbxMinAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxMaxAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxMultiples)).BeginInit();
@@ -56,7 +56,7 @@ namespace AdminBackups
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(331, 98);
+            this.label1.Location = new System.Drawing.Point(331, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 21);
             this.label1.TabIndex = 0;
@@ -66,7 +66,7 @@ namespace AdminBackups
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(549, 98);
+            this.label2.Location = new System.Drawing.Point(549, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 21);
             this.label2.TabIndex = 2;
@@ -76,7 +76,7 @@ namespace AdminBackups
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(300, 168);
+            this.label3.Location = new System.Drawing.Point(300, 164);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 21);
             this.label3.TabIndex = 4;
@@ -86,7 +86,7 @@ namespace AdminBackups
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(302, 132);
+            this.label4.Location = new System.Drawing.Point(302, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 21);
             this.label4.TabIndex = 6;
@@ -96,7 +96,7 @@ namespace AdminBackups
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(549, 132);
+            this.label5.Location = new System.Drawing.Point(549, 129);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 21);
             this.label5.TabIndex = 8;
@@ -125,7 +125,7 @@ namespace AdminBackups
             // 
             // tbxBarcode
             // 
-            this.tbxBarcode.Location = new System.Drawing.Point(624, 100);
+            this.tbxBarcode.Location = new System.Drawing.Point(624, 98);
             this.tbxBarcode.Name = "tbxBarcode";
             this.tbxBarcode.ReadOnly = true;
             this.tbxBarcode.Size = new System.Drawing.Size(164, 23);
@@ -135,7 +135,7 @@ namespace AdminBackups
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(549, 168);
+            this.label7.Location = new System.Drawing.Point(549, 164);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 21);
             this.label7.TabIndex = 20;
@@ -164,7 +164,7 @@ namespace AdminBackups
             // 
             // tbxSupplier
             // 
-            this.tbxSupplier.Location = new System.Drawing.Point(408, 100);
+            this.tbxSupplier.Location = new System.Drawing.Point(408, 98);
             this.tbxSupplier.Name = "tbxSupplier";
             this.tbxSupplier.ReadOnly = true;
             this.tbxSupplier.Size = new System.Drawing.Size(135, 23);
@@ -195,7 +195,7 @@ namespace AdminBackups
             // tbxMinAmount
             // 
             this.tbxMinAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxMinAmount.Location = new System.Drawing.Point(408, 130);
+            this.tbxMinAmount.Location = new System.Drawing.Point(408, 127);
             this.tbxMinAmount.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -218,7 +218,7 @@ namespace AdminBackups
             // tbxMaxAmount
             // 
             this.tbxMaxAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxMaxAmount.Location = new System.Drawing.Point(408, 166);
+            this.tbxMaxAmount.Location = new System.Drawing.Point(408, 162);
             this.tbxMaxAmount.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -241,7 +241,7 @@ namespace AdminBackups
             // tbxMultiples
             // 
             this.tbxMultiples.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxMultiples.Location = new System.Drawing.Point(624, 130);
+            this.tbxMultiples.Location = new System.Drawing.Point(624, 127);
             this.tbxMultiples.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -264,10 +264,24 @@ namespace AdminBackups
             // tbxPurchasePrice
             // 
             this.tbxPurchasePrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxPurchasePrice.Location = new System.Drawing.Point(669, 166);
+            this.tbxPurchasePrice.FormattingEnabled = true;
+            this.tbxPurchasePrice.Items.AddRange(new object[] {
+            "1",
+            "1.50",
+            "2",
+            "2.50",
+            "5",
+            "7.50",
+            "10",
+            "12.50",
+            "15",
+            "20",
+            "25",
+            "30"});
+            this.tbxPurchasePrice.Location = new System.Drawing.Point(667, 161);
             this.tbxPurchasePrice.Name = "tbxPurchasePrice";
-            this.tbxPurchasePrice.Size = new System.Drawing.Size(119, 29);
-            this.tbxPurchasePrice.TabIndex = 29;
+            this.tbxPurchasePrice.Size = new System.Drawing.Size(121, 29);
+            this.tbxPurchasePrice.TabIndex = 30;
             // 
             // FormOrderInfo
             // 
@@ -320,7 +334,7 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnDeleteOrderInfo;
         private System.Windows.Forms.NumericUpDown tbxMinAmount;
         private System.Windows.Forms.NumericUpDown tbxMaxAmount;
-        private System.Windows.Forms.NumericUpDown tbxMultiples;
-        private System.Windows.Forms.TextBox tbxPurchasePrice;
+        public System.Windows.Forms.NumericUpDown tbxMultiples;
+        private System.Windows.Forms.ComboBox tbxPurchasePrice;
     }
 }

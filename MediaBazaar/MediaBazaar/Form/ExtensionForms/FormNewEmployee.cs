@@ -29,8 +29,19 @@ namespace AdminBackups
         private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
             CreateEmployee();
+
             var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
-            formOfficeManager.ReadEmployees();
+
+            if (formOfficeManager.tbxSearchEmployee.Text == "")
+            {
+                formOfficeManager.ReadEmployees();
+            }
+            else
+            {
+                formOfficeManager.UserSearchBar();
+            }
+
+            this.Close();
         }
         private void CreateEmployee()
         {
@@ -69,11 +80,11 @@ namespace AdminBackups
                     }
                     if (e.Email == $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com")
                     {
-                        employeeEmailUnique = false; 
+                        employeeEmailUnique = false;
                     }
                 }
                 catch
-                { 
+                {
 
                 }
             }
@@ -102,8 +113,8 @@ namespace AdminBackups
                 Random r = new Random();
                 email = $"{ char.ToLower(firstName[0])}{lastName.ToLower()}{r.Next(1, 1000)}@mb.com";
             }
-            
-            
+
+
             string zipCode = tbxZipCode.Text;
             if (string.IsNullOrEmpty(zipCode))
             {
@@ -241,7 +252,8 @@ namespace AdminBackups
                         return;
                     }
                 }
-            } else if (cbxJobTitle.SelectedIndex == 2)
+            }
+            else if (cbxJobTitle.SelectedIndex == 2)
             {
                 newEmployee = new SalesRepresentative(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
@@ -311,7 +323,7 @@ namespace AdminBackups
                 {
                     if (CreateContract(email))
                     {
-                         store.emailManager.NewEmployeeInfoEmail(newEmployee);
+                        store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
                         if (dr == DialogResult.No)
@@ -335,7 +347,7 @@ namespace AdminBackups
                         store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
-                         if (dr == DialogResult.No)
+                        if (dr == DialogResult.No)
                         {
                             this.Close();
                         }
@@ -356,7 +368,7 @@ namespace AdminBackups
                         store.emailManager.NewEmployeeInfoEmail(newEmployee);
                         DialogResult dr = MessageBox.Show("Do you want to add another employee?", "Employee Added", MessageBoxButtons.YesNo);
 
-                         if (dr == DialogResult.No)
+                        if (dr == DialogResult.No)
                         {
                             this.Close();
                         }
@@ -433,7 +445,7 @@ namespace AdminBackups
                 return false;
             }
             double salaryPerHour = Convert.ToDouble(tbxSalary.Text);
-            
+
             if (salaryPerHour > 200)
             {
                 MessageBox.Show("Max salary is 200");
@@ -620,11 +632,12 @@ namespace AdminBackups
                     }
                 }
                 cbxDepartment.Text = cbxDepartment.Items[0].ToString();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
-            
+
         }
         private void cbxJobTitle_SelectedIndexChanged(object sender, EventArgs e)
         {
