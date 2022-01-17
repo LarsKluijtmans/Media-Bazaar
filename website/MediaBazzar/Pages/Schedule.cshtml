@@ -47,16 +47,16 @@
 
                             @if (@Model.IsWorkingToday().morning)
                             {
-                                <td style="background-color: green"> </td>
+                                <td style="background-color: green"> 08:00 - 12:00 </td>
                             }
                             else
                             {
-                                <td style="background-color: red"> </td>
+                               <td style="background-color: red">  </td>
                             }
 
                             @if (@Model.IsWorkingToday().afternoon)
                             {
-                                <td style="background-color: green"> </td>
+                                <td style="background-color: green"> 12:00 - 16:00 </td>
                             }
                             else
                             {
@@ -64,7 +64,7 @@
                             }
                             @if (@Model.IsWorkingToday().evening)
                             {
-                                <td style="background-color: green"> </td>
+                                <td style="background-color: green"> 16:00 to 20:00 </td>
                             }
                             else
                             {

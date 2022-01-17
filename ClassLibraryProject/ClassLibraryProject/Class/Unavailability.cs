@@ -28,19 +28,23 @@ namespace ClassLibraryProject.Class
             get { return week; }
             set { week = value; }
         }
-        public Employee Employees
+        public Employee Employee
         {
             get { return employee; }
             set { employee = value; }
         }
 
         //constructor
+        public Unavailability()
+        {
+
+        }
         public Unavailability(int year, int week, string day, Employee employee)
         {
             Year = year;
             Week = week;
             Day = day;
-            Employees = employee;
+            Employee = employee;
         }
     }
 }

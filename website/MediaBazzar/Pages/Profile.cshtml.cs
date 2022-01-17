@@ -10,6 +10,7 @@ using System;
 using ClassLibraryProject;
 using System.Security.Claims;
 using ClassLibraryProject.dbClasses;
+using System.Text.RegularExpressions;
 
 namespace MediaBazzar.Pages
 {
@@ -19,10 +20,7 @@ namespace MediaBazzar.Pages
         public dbLoginManager dbLogin = new dbLoginManager();
 
         [BindProperty]
-        public DepotEmployee Employee { get; set; }
-
-        [BindProperty]
-        public int EmployeeID { get; set; }
+        public Employee Employee { get; set; }
 
         [BindProperty]
         public string FirstName { get; set; }
@@ -56,7 +54,25 @@ namespace MediaBazzar.Pages
             // get current user
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
-            Employee = (DepotEmployee)dbLogin.GetEmployeeByEmail(userEmail);
+            Employee a = dbLogin.GetEmployeeByEmail(userEmail);
+
+            Employee = new DepotEmployee();
+
+            Employee.EmployeeID = a.EmployeeID;
+            Employee.FirstName = a.FirstName;
+            Employee.LastName = a.LastName;
+            Employee.PhoneNumber = a.PhoneNumber;
+            Employee.Email = a.Email;
+            Employee.ZipCode = a.ZipCode;
+            Employee.Address = a.Address;
+            Employee.City = a.City;
+            Employee.DateOfBirth = a.DateOfBirth;
+            Employee.BSN = a.BSN;
+            Employee.Username = a.Username;
+            Employee.Password = a.Password;
+            Employee.PersonalEmail = a.PersonalEmail;
+
+            Employee = dbLogin.GetEmployeeByEmail(userEmail);
 
             return Page();
         }
@@ -64,7 +80,56 @@ namespace MediaBazzar.Pages
         {
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
-            Employee = (DepotEmployee)dbLogin.GetEmployeeByEmail(userEmail);
+
+
+            Employee a = dbLogin.GetEmployeeByEmail(userEmail);
+
+            Employee = new DepotEmployee();
+
+            Employee.EmployeeID = a.EmployeeID;
+            Employee.FirstName = a.FirstName;
+            Employee.LastName = a.LastName;
+            Employee.PhoneNumber = a.PhoneNumber;
+            Employee.Email = a.Email;
+            Employee.ZipCode = a.ZipCode;
+            Employee.Address = a.Address;
+            Employee.City = a.City;
+            Employee.DateOfBirth = a.DateOfBirth;
+            Employee.BSN = a.BSN;
+            Employee.Username = a.Username;
+            Employee.Password = a.Password;
+            Employee.PersonalEmail = a.PersonalEmail;
+            Employee = dbLogin.GetEmployeeByEmail(userEmail);
+
+            if (!Regex.IsMatch(Employee.PhoneNumber, @"^(\+)316[0-9]{8}$"))
+            {
+                ViewData["Message"] = "PhoneNumber has to start with +316.";
+                return Page();
+            }
+            if (!Regex.IsMatch(Employee.Password, @"^[a-zA-Z][0-9]{7}$"))
+            {
+                ViewData["Message"] = "Password has to have at least 8 characters.";
+                return Page();
+            }
+
+            IEmployeeManagerOffice OF = new EmployeeManager();
+
+            foreach (Employee e in OF.GetAllEmployees())
+            {
+                try
+                {
+                    if (e.PersonalEmail == Employee.PersonalEmail)
+                    {
+                        ViewData["Message"] = "Persenal email already exists.";
+                        return Page();
+                    }
+                }
+                catch
+                {
+                    ViewData["Message"] = "Persenal email already exists.";
+                    return Page();
+                }
+            }
 
             if (Employee != null)
             {
@@ -77,16 +142,13 @@ namespace MediaBazzar.Pages
                 Employee.PersonalEmail = PersonalEmail;
                 Employee.Password = Password;
 
-                /*cmd.Parameters.AddWithValue("@FirstName", e.FirstName);
-                cmd.Parameters.AddWithValue("@LastName", e.LastName);
-                cmd.Parameters.AddWithValue("@City", e.City);
-                cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
-                cmd.Parameters.AddWithValue("@StreetName", e.Address);
-                cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
-                cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
-                cmd.Parameters.AddWithValue("@Password", e.Password);*/
+
                 IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
-                employeeManagerAll.UpdateOwnInfo(Employee);
+
+                if (Employee is SalesRepresentative)
+                {
+                    employeeManagerAll.UpdateOwnInfo(Employee);
+                }
 
             } else
             {
@@ -95,6 +157,5 @@ namespace MediaBazzar.Pages
 
             return Page();
         }
-
     }
 }
