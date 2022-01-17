@@ -59,8 +59,6 @@ namespace MediaBazzar.Pages
             Shift = Shifts.Morning;
             pws = new List<PreferedWorkTime>();
             PlanningManagment planning = new PlanningManagment();
-            List<PreferedWorkTime> schedules = planning.GetPlanningForEmployee(LoginModel.employeeID.ToString());
-            pws.AddRange(schedules);
         }
 
 
@@ -87,7 +85,7 @@ namespace MediaBazzar.Pages
         {
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"SELECT shift FROM `planning` WHERE `Week` = {week} and `Year`= {year} and `Day` = '{Day}' and `EmployeeID` = {LoginModel.employeeID}";
+            string sql = $"SELECT shift FROM `planning` WHERE `Week` = {week} and `Year`= {year} and `Day` = '{Day}' and `EmployeeID` =";
 
             try
             {

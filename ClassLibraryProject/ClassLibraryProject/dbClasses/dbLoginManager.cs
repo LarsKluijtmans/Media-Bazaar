@@ -245,12 +245,7 @@ namespace ClassLibraryProject.dbClasses
 
                     if (jobTitle == "ADMIN")
                     {
-                        IEmployeeManagerAdmin employeeManagerAdmin = new EmployeeManager();
-                        IContractManager contractManager = new ContractManager();
-                        IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
-                        IDepartment department = new DepartmentManagment(new dbDepartmentManagment());
-
-                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAdmin, contractManager, employeeManagerAll, department);
+                        employee = new Admin(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "CEO")
@@ -260,66 +255,27 @@ namespace ClassLibraryProject.dbClasses
                     }
                     else if (jobTitle == "DEPOT MANAGER")
                     {
-                        IDBRestock dbRestock = new DBRestock();// Porblem
-                        IRestockDepotManager restock = new RestockManagment(dbRestock);
-
-                        IDBSchedule dbSchedule = new DBSchedule();
-                        IScheduleAllManager schedule = new ScheduleManagment(dbSchedule);
-                        IGetSchedule getSchedule = new ScheduleManagment(dbSchedule);
-
-                        IDBRegisteredShift dbRegisteredShift = new DBRegisteredShift();
-                        IRegisteredShiftAllManager registeredShift = new RegisteredShiftManagment(dbRegisteredShift, getSchedule);
-
-                        IDBPreferredShift dbPreferredShift = new DBPreferredShift();
-                        IPreferredShiftAllManager preferredShift = new PreferredShiftManagment(dbPreferredShift);
-
-                        AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
-                        IDepotManagerControl control = new DepotManagerControl(restock, schedule, registeredShift, preferredShift);
-
-                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new DepotDepartmentsManagment(new dbDepotDepartments()), autoSchedule, employeeManagerAll, control);
+                        employee = new DepotManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "DEPOT EMPLOYEE")
                     {
-                        IDBRestock dbRestock = new DBRestock();
-                        IRestockDepotEmployee restock = new RestockManagment(dbRestock);
-
-                        IDBReshelf dbReshelf = new DBReshelf();
-                        IReshelfDepotEmployee reshelf = new ReshelfManagment(dbReshelf);
-
-                        IDepotEmployeeControl control = new DepotEmployeeControl(reshelf, restock);
-
-                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, control);
+                        employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "OFFICE MANAGER")
                     {
-                        IEmployeeManagerOffice employeeManagerOffice = new EmployeeManager();
-                        IContractManager contractManager = new ContractManager();
-                        IDepartment department = new DepartmentManagment(new dbDepartmentManagment());
-                        ICompany company = new CompanyManagment(new dbCompanyManagment());
-                        ICheckin checkin = new CheckinManagment(new dbCheckinManagment());
-
-                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerOffice, department, company, contractManager, checkin);
+                        employee = new OfficeManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "PRODUCT MANAGER")
                     {
-                        IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
-                        IProductManagerPM productManagerPM = new ProductManagement();
-                        ISupplierManagerPM supplierManagerPM = new SupplierManagment();
-                        IOrderInfoManagerPM orderInfoManagerPM = new OrderInfoManager();
-
-                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll, productManagerPM, supplierManagerPM, orderInfoManagerPM);
+                        employee = new ProductManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "SALES MANAGER")
                     {
-                        IProductManagerSM productManagerSM = new ProductManagement();
-
-                        AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule, productManagerSM);
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                         return employee;
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")
