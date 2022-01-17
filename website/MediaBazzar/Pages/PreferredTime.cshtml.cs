@@ -140,7 +140,14 @@ namespace MediaBazaarWebsite.Pages
 
         public void OnPost()
         {
+            DBPreferredShift dbPreferredShift = new DBPreferredShift();
+            PreferredShiftManagment prm = new PreferredShiftManagment(dbPreferredShift);
 
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
+
+            Employee ee = dbLogin.GetEmployeeByEmail(userEmail);
+
+            prm.PreferAShift(WeekDay, shift, ee, Prefered);
         }
     }
 }
