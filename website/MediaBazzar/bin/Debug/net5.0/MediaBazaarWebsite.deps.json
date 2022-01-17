@@ -463,6 +463,17 @@
           "lib/net5.0/MySqlBackupNet.DevartExpress.dll": {}
         }
       },
+      "MySqlConnector/2.1.2": {
+        "runtime": {
+          "lib/net5.0/MySqlConnector.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.2.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/MySqlConnector.dll": {}
+        }
+      },
       "System.Buffers/4.5.1": {},
       "System.Configuration.ConfigurationManager/4.4.1": {
         "dependencies": {
@@ -539,7 +550,8 @@
       "ClassLibraryProject/1.0.0": {
         "dependencies": {
           "MySql.Data": "8.0.26",
-          "MySqlBackup.Net.DevartExpress": "2.3.6"
+          "MySqlBackup.Net.DevartExpress": "2.3.6",
+          "MySqlConnector": "2.1.2"
         },
         "runtime": {
           "ClassLibraryProject.dll": {}
@@ -2323,6 +2335,13 @@
       "sha512": "sha512-UMmuzi64MplDilQJadzlow0Yos+6AH+ONawoF9DYzAZd49f9wloa29A/oi8qxP9ruwciP/S0B7YPYmHLp8ncTw==",
       "path": "mysqlbackup.net.devartexpress/2.3.6",
       "hashPath": "mysqlbackup.net.devartexpress.2.3.6.nupkg.sha512"
+    },
+    "MySqlConnector/2.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JVokQTUNN3WHAu9Vw8ieeq1dXTFokJiig5P0VJ4f439UxRrsPo6SaVWC8Zdm6mkPeQFhZ0/9afdWa02EY/1j/w==",
+      "path": "mysqlconnector/2.1.2",
+      "hashPath": "mysqlconnector.2.1.2.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",

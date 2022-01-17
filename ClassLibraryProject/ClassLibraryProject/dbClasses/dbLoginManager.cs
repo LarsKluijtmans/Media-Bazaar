@@ -11,6 +11,7 @@ using ClassLibraryProject.ManagmentClasses.IAllManager;
 using ClassLibraryProject.ManagmentClasses.IDepotEmployee;
 using ClassLibraryProject.ManagmentClasses.IDepotManager;
 using ClassLibraryProject.ManagmentClasses.IProductManager;
+using ClassLibraryProject.ManagmentClasses.ISalesManager;
 using MySql.Data.MySqlClient;
 
 namespace ClassLibraryProject.dbClasses
@@ -128,10 +129,22 @@ namespace ClassLibraryProject.dbClasses
                     }
                     else if (jobTitle == "SALES MANAGER")
                     {
+                        IDBSchedule dbSchedule = new DBSchedule();
+                        IScheduleAllManager schedule = new ScheduleManagment(dbSchedule);
+                        IGetSchedule getSchedule = new ScheduleManagment(dbSchedule);
+
+                        IDBRegisteredShift dbRegisteredShift = new DBRegisteredShift();
+                        IRegisteredShiftAllManager registeredShift = new RegisteredShiftManagment(dbRegisteredShift, getSchedule);
+
+                        IDBPreferredShift dbPreferredShift = new DBPreferredShift();
+                        IPreferredShiftAllManager preferredShift = new PreferredShiftManagment(dbPreferredShift);
+
                         IProductManagerSM productManagerSM = new ProductManagement();
 
                         AutoScheduleManagment autoSchedule = new AutoScheduleManagment(new AsignShiftManagment(new DbAsignShiftManagment()), new EmployeesAvailibleManagment(new DbEmployeesAvailibleManagment()), new DeletePlanningForTheWeekManagment(new DbDeletePlanningForTheWeekManagment()), new AmountOfEmployeesNeededManagment(new DbAmountOfEmployeesNeededManagment()));
-                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule, productManagerSM);
+                        ISalesManagerControl control = new SalesManagerControl(schedule, registeredShift, preferredShift);
+
+                        employee = new SalesManager(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, new SalesDepartmentsManagment(new dbSalesDepartments()), autoSchedule, productManagerSM, control);
                         return employee;
                     }
                     else if (jobTitle == "SALES REPRESENTATIVE")

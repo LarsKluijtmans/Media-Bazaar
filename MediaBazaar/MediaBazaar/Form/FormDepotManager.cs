@@ -27,14 +27,15 @@ namespace AdminBackups
             this.login = login;
             this.depotManager = depotManager;
             this.store = store;
+
             c = depotManager.Control;
+
             date = DateTime.Now;
 
             Initialize();
             UpdatePendingRequests();
             UpdateSchedule();
             UpdatePlanningSchedule();
-
         }
 
         //INITIALIZE----------------------------------------------------------------------
@@ -42,8 +43,18 @@ namespace AdminBackups
         {
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
             lblPlanningWeek.Text = GetCurrentWeekOfYear(date).ToString();
-            i = Convert.ToInt32(lblWeek.Text);
-            pi = Convert.ToInt32(lblPlanningWeek.Text);
+
+            try
+            {
+                i = Convert.ToInt32(lblWeek.Text);
+                pi = Convert.ToInt32(lblPlanningWeek.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+                return;
+            }
+
             txtYear.Value = date.Year;
             txtPlanningYear.Value = date.Year;
 
@@ -169,19 +180,10 @@ namespace AdminBackups
         {
             try
             {
-                //int id = Convert.ToInt32(txtRestockID.Text);
-                //if (c.DeleteRestock(id))
-                //{
-                //    UpdatePendingRequests();
+                int restockID = Convert.ToInt32(txtRestockID.Text);
 
-                //    txtBarcode.Text = "";
-                //    txtCurrentAmount.Text = "";
-                //    txtRestockID.Text = "";
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Something went wrong!");
-                //}
+                FormOrderRestock orderRestock = new FormOrderRestock(restockID, c);
+                orderRestock.Show();
             }
             catch
             {
@@ -498,13 +500,20 @@ namespace AdminBackups
                 string day = Convert.ToString(selectedRow.Cells["Day"].Value);
                 string shift = Convert.ToString(selectedColumn.Name);
 
-                if (c.RegisterEmployee(department, year, week, day, shift, employee))
+                if(c.CheckAmount(department, year, week, day, shift) == false)
                 {
-                    UpdateEmployeeList();
+                    MessageBox.Show("Limit reached! Update schedule if you want to add more employee.");
                 }
                 else
                 {
-                    MessageBox.Show("Something went wrong!");
+                    if (c.RegisterEmployee(department, year, week, day, shift, employee))
+                    {
+                        UpdateEmployeeList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went wrong!");
+                    }
                 }
             }
             catch (Exception)

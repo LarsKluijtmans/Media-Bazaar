@@ -36,8 +36,6 @@ namespace MediaBazaarWebsite.Pages
 
         public List<PreferedWorkTime> pwt { get; set; }
 
-        int currecntEmployeeID = LoginModel.emplContract.Employee.EmployeeID;
-
         private CookieOptions cookieOptions = new CookieOptions
         {
             Expires = DateTime.Now.AddMinutes(5)
@@ -53,7 +51,7 @@ namespace MediaBazaarWebsite.Pages
         {
 
             PreferedWorkTimeManagement workTimeManagement = new PreferedWorkTimeManagement();
-            pwt = workTimeManagement.GetPreferedWorkTimeForEmployee(currecntEmployeeID.ToString());
+            pwt = workTimeManagement.GetPreferedWorkTimeForEmployee(LoginModel.employeeID.ToString());
             this.Prefereds = new SelectList(pwt, "Day", "Shift");
 
         }
@@ -64,7 +62,7 @@ namespace MediaBazaarWebsite.Pages
             PreferedWorkTimeManagement preferedWorkTime = new PreferedWorkTimeManagement();
             foreach (PreferedWorkTime p in pwt)
             {
-                preferedWorkTime.EditPreferedWorkTimeForEmployee(currecntEmployeeID,p.Day,p.Shift, p.Prefered);
+                preferedWorkTime.EditPreferedWorkTimeForEmployee(LoginModel.employeeID, p.Day,p.Shift, p.Prefered);
             }
         }
 
