@@ -1,7 +1,3 @@
 is_global = true
 build_property.RootNamespace = ClassLibraryProject
-<<<<<<< HEAD
-build_property.ProjectDir = C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\ClassLibraryProject\ClassLibraryProject\
-=======
 build_property.ProjectDir = C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\ClassLibraryProject\ClassLibraryProject\
->>>>>>> 45175f7ec36e32ebabd7dbe774f231cd3bf7b0e2

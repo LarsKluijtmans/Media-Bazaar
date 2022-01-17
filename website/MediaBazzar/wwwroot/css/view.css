@@ -243,8 +243,55 @@ nav .fa {
 
 /* idk */
 
+/* Profile Page */
+/* Form */
+.profile-main{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
+.profile-form{
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    padding: 80px 40px 40px;
+    background: #eeeff1;
+    border-radius: 10px;
+    color: #444;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+.profile-form h2{
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+.profile-form .input{
+    position: relative;
+}
+.profile-form .input input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #444;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+}
+.sub-form{
+    width: 50%;
+    float: left;
+}
+.button{
+    text-align: center;
+    padding-top: 20px;
+    clear: both;
+}
     /*Main Body*/
 .content-container {
     width: 100%;
