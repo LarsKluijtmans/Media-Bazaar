@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "Mvay4EoIoEhtmShDIYuLuS8C532CY48iuHzFG/T3YIGV+WQ6RjonFYSIEnjMzz++R53HUhtUX5sIWTEsFgRTWQ==",
+=======
   "dgSpecHash": "TwgwmckNxJcLovhOFd4u4ISaJ/hIYMQ4RCkDt+xrrqrysSYt1sUI63/jQKnIYPiCx0vqxuYZJ6c5zf0K0LhYBQ==",
+>>>>>>> b284011b394a617649738365ddc006e7bb126009
   "success": true,
   "projectFilePath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\TestGit\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
   "expectedPackageFiles": [

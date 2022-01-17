@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "projectName": "ClassLibraryProject",
+        "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
+=======
     "C:\\Users\\esthe\\OneDrive\\Bureaublad\\TestGit\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {}
   },
   "projects": {
@@ -12,16 +25,22 @@
         "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\TestGit\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
         "packagesPath": "C:\\Users\\esthe\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\TestGit\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
+>>>>>>> b284011b394a617649738365ddc006e7bb126009
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
           "C:\\Users\\esthe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> b284011b394a617649738365ddc006e7bb126009
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -48,7 +67,7 @@
           "dependencies": {
             "MySql.Data": {
               "target": "Package",
-              "version": "[8.0.26, )"
+              "version": "[8.0.27, )"
             },
             "MySqlBackup.Net.DevartExpress": {
               "target": "Package",
@@ -74,6 +93,20 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+        "projectName": "MediaBazaar",
+        "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
+        "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\MediaBazaar\\obj\\",
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
@@ -86,16 +119,22 @@
         "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\TestGit\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\MediaBazaar.csproj",
         "packagesPath": "C:\\Users\\esthe\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\TestGit\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\MediaBazaar\\obj\\",
+>>>>>>> b284011b394a617649738365ddc006e7bb126009
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
           "C:\\Users\\esthe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> b284011b394a617649738365ddc006e7bb126009
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -108,8 +147,13 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
+<<<<<<< HEAD
+              "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+                "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+=======
               "C:\\Users\\esthe\\OneDrive\\Bureaublad\\TestGit\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
                 "projectPath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\TestGit\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+>>>>>>> b284011b394a617649738365ddc006e7bb126009
               }
             }
           }
@@ -155,7 +199,11 @@
               "privateAssets": "none"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+>>>>>>> b284011b394a617649738365ddc006e7bb126009
         }
       }
     }

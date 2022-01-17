@@ -37,6 +37,9 @@ namespace AdminBackups
             this.rbHistory = new System.Windows.Forms.RadioButton();
             this.rbPending = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtAmountRequested = new System.Windows.Forms.TextBox();
+            this.txtBarcode = new System.Windows.Forms.TextBox();
+            this.txtReshelfID = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFufillReshelveRequest = new System.Windows.Forms.Button();
@@ -46,17 +49,14 @@ namespace AdminBackups
             this.tabReceivingGood = new System.Windows.Forms.TabPage();
             this.dgOrder = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtAmountRestock = new System.Windows.Forms.TextBox();
+            this.txtBarcodeRestock = new System.Windows.Forms.TextBox();
+            this.txtRestockID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnReceiveProduct = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtRestockID = new System.Windows.Forms.TextBox();
-            this.txtBarcodeRestock = new System.Windows.Forms.TextBox();
-            this.txtAmountRestock = new System.Windows.Forms.TextBox();
-            this.txtReshelfID = new System.Windows.Forms.TextBox();
-            this.txtBarcode = new System.Windows.Forms.TextBox();
-            this.txtAmountRequested = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabReshelves.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgReshelve)).BeginInit();
@@ -69,7 +69,7 @@ namespace AdminBackups
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogout.Location = new System.Drawing.Point(845, 11);
+            this.btnLogout.Location = new System.Drawing.Point(802, 11);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(82, 33);
@@ -96,7 +96,7 @@ namespace AdminBackups
             this.tabControl1.Location = new System.Drawing.Point(12, 49);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(988, 522);
+            this.tabControl1.Size = new System.Drawing.Size(902, 522);
             this.tabControl1.TabIndex = 3;
             // 
             // tabReshelves
@@ -109,7 +109,7 @@ namespace AdminBackups
             this.tabReshelves.Location = new System.Drawing.Point(4, 30);
             this.tabReshelves.Name = "tabReshelves";
             this.tabReshelves.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReshelves.Size = new System.Drawing.Size(980, 488);
+            this.tabReshelves.Size = new System.Drawing.Size(894, 488);
             this.tabReshelves.TabIndex = 0;
             this.tabReshelves.Text = "Reshelf";
             this.tabReshelves.UseVisualStyleBackColor = true;
@@ -121,7 +121,7 @@ namespace AdminBackups
             this.dgReshelve.Name = "dgReshelve";
             this.dgReshelve.RowHeadersWidth = 51;
             this.dgReshelve.RowTemplate.Height = 25;
-            this.dgReshelve.Size = new System.Drawing.Size(603, 386);
+            this.dgReshelve.Size = new System.Drawing.Size(603, 406);
             this.dgReshelve.TabIndex = 96;
             this.dgReshelve.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgReshelve_CellClick_1);
             // 
@@ -162,12 +162,39 @@ namespace AdminBackups
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.btnDeleteReshelveRequest);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(658, 26);
+            this.groupBox1.Location = new System.Drawing.Point(648, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(220, 263);
+            this.groupBox1.Size = new System.Drawing.Size(220, 220);
             this.groupBox1.TabIndex = 93;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Restock Management";
+            // 
+            // txtAmountRequested
+            // 
+            this.txtAmountRequested.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtAmountRequested.Location = new System.Drawing.Point(132, 109);
+            this.txtAmountRequested.Name = "txtAmountRequested";
+            this.txtAmountRequested.ReadOnly = true;
+            this.txtAmountRequested.Size = new System.Drawing.Size(78, 23);
+            this.txtAmountRequested.TabIndex = 97;
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBarcode.Location = new System.Drawing.Point(110, 73);
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.ReadOnly = true;
+            this.txtBarcode.Size = new System.Drawing.Size(100, 23);
+            this.txtBarcode.TabIndex = 97;
+            // 
+            // txtReshelfID
+            // 
+            this.txtReshelfID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtReshelfID.Location = new System.Drawing.Point(110, 34);
+            this.txtReshelfID.Name = "txtReshelfID";
+            this.txtReshelfID.ReadOnly = true;
+            this.txtReshelfID.Size = new System.Drawing.Size(100, 23);
+            this.txtReshelfID.TabIndex = 97;
             // 
             // label14
             // 
@@ -194,10 +221,10 @@ namespace AdminBackups
             // btnFufillReshelveRequest
             // 
             this.btnFufillReshelveRequest.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnFufillReshelveRequest.Location = new System.Drawing.Point(55, 147);
+            this.btnFufillReshelveRequest.Location = new System.Drawing.Point(21, 147);
             this.btnFufillReshelveRequest.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnFufillReshelveRequest.Name = "btnFufillReshelveRequest";
-            this.btnFufillReshelveRequest.Size = new System.Drawing.Size(155, 30);
+            this.btnFufillReshelveRequest.Size = new System.Drawing.Size(189, 30);
             this.btnFufillReshelveRequest.TabIndex = 70;
             this.btnFufillReshelveRequest.Text = "Fufill reshelve request";
             this.btnFufillReshelveRequest.UseVisualStyleBackColor = true;
@@ -218,10 +245,10 @@ namespace AdminBackups
             // 
             this.btnDeleteReshelveRequest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnDeleteReshelveRequest.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDeleteReshelveRequest.Location = new System.Drawing.Point(36, 179);
+            this.btnDeleteReshelveRequest.Location = new System.Drawing.Point(21, 179);
             this.btnDeleteReshelveRequest.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnDeleteReshelveRequest.Name = "btnDeleteReshelveRequest";
-            this.btnDeleteReshelveRequest.Size = new System.Drawing.Size(174, 30);
+            this.btnDeleteReshelveRequest.Size = new System.Drawing.Size(189, 30);
             this.btnDeleteReshelveRequest.TabIndex = 84;
             this.btnDeleteReshelveRequest.Text = "Delete reshelve request";
             this.btnDeleteReshelveRequest.UseVisualStyleBackColor = true;
@@ -245,7 +272,7 @@ namespace AdminBackups
             this.tabReceivingGood.Location = new System.Drawing.Point(4, 30);
             this.tabReceivingGood.Name = "tabReceivingGood";
             this.tabReceivingGood.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReceivingGood.Size = new System.Drawing.Size(980, 488);
+            this.tabReceivingGood.Size = new System.Drawing.Size(894, 488);
             this.tabReceivingGood.TabIndex = 1;
             this.tabReceivingGood.Text = "ReceivingGoods";
             this.tabReceivingGood.UseVisualStyleBackColor = true;
@@ -257,7 +284,7 @@ namespace AdminBackups
             this.dgOrder.Name = "dgOrder";
             this.dgOrder.RowHeadersWidth = 51;
             this.dgOrder.RowTemplate.Height = 25;
-            this.dgOrder.Size = new System.Drawing.Size(603, 386);
+            this.dgOrder.Size = new System.Drawing.Size(620, 398);
             this.dgOrder.TabIndex = 96;
             this.dgOrder.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOrder_CellClick);
             // 
@@ -271,18 +298,45 @@ namespace AdminBackups
             this.groupBox2.Controls.Add(this.btnReceiveProduct);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(658, 32);
+            this.groupBox2.Location = new System.Drawing.Point(662, 43);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(232, 210);
+            this.groupBox2.Size = new System.Drawing.Size(206, 176);
             this.groupBox2.TabIndex = 93;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Order Management";
+            // 
+            // txtAmountRestock
+            // 
+            this.txtAmountRestock.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtAmountRestock.Location = new System.Drawing.Point(101, 91);
+            this.txtAmountRestock.Name = "txtAmountRestock";
+            this.txtAmountRestock.ReadOnly = true;
+            this.txtAmountRestock.Size = new System.Drawing.Size(89, 23);
+            this.txtAmountRestock.TabIndex = 97;
+            // 
+            // txtBarcodeRestock
+            // 
+            this.txtBarcodeRestock.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBarcodeRestock.Location = new System.Drawing.Point(101, 62);
+            this.txtBarcodeRestock.Name = "txtBarcodeRestock";
+            this.txtBarcodeRestock.ReadOnly = true;
+            this.txtBarcodeRestock.Size = new System.Drawing.Size(89, 23);
+            this.txtBarcodeRestock.TabIndex = 97;
+            // 
+            // txtRestockID
+            // 
+            this.txtRestockID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtRestockID.Location = new System.Drawing.Point(101, 34);
+            this.txtRestockID.Name = "txtRestockID";
+            this.txtRestockID.ReadOnly = true;
+            this.txtRestockID.Size = new System.Drawing.Size(89, 23);
+            this.txtRestockID.TabIndex = 94;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(42, 51);
+            this.label5.Location = new System.Drawing.Point(24, 35);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 17);
@@ -293,7 +347,7 @@ namespace AdminBackups
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(55, 79);
+            this.label6.Location = new System.Drawing.Point(37, 63);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 17);
@@ -303,10 +357,10 @@ namespace AdminBackups
             // btnReceiveProduct
             // 
             this.btnReceiveProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnReceiveProduct.Location = new System.Drawing.Point(80, 157);
+            this.btnReceiveProduct.Location = new System.Drawing.Point(13, 132);
             this.btnReceiveProduct.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnReceiveProduct.Name = "btnReceiveProduct";
-            this.btnReceiveProduct.Size = new System.Drawing.Size(128, 30);
+            this.btnReceiveProduct.Size = new System.Drawing.Size(185, 30);
             this.btnReceiveProduct.TabIndex = 70;
             this.btnReceiveProduct.Text = "Receive Product";
             this.btnReceiveProduct.UseVisualStyleBackColor = true;
@@ -316,7 +370,7 @@ namespace AdminBackups
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(58, 108);
+            this.label7.Location = new System.Drawing.Point(40, 92);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 17);
@@ -333,65 +387,11 @@ namespace AdminBackups
             this.label10.TabIndex = 92;
             this.label10.Text = "Restock Ordered:";
             // 
-            // txtRestockID
-            // 
-            this.txtRestockID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtRestockID.Location = new System.Drawing.Point(119, 50);
-            this.txtRestockID.Name = "txtRestockID";
-            this.txtRestockID.ReadOnly = true;
-            this.txtRestockID.Size = new System.Drawing.Size(89, 23);
-            this.txtRestockID.TabIndex = 94;
-            // 
-            // txtBarcodeRestock
-            // 
-            this.txtBarcodeRestock.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBarcodeRestock.Location = new System.Drawing.Point(119, 78);
-            this.txtBarcodeRestock.Name = "txtBarcodeRestock";
-            this.txtBarcodeRestock.ReadOnly = true;
-            this.txtBarcodeRestock.Size = new System.Drawing.Size(89, 23);
-            this.txtBarcodeRestock.TabIndex = 97;
-            // 
-            // txtAmountRestock
-            // 
-            this.txtAmountRestock.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAmountRestock.Location = new System.Drawing.Point(119, 107);
-            this.txtAmountRestock.Name = "txtAmountRestock";
-            this.txtAmountRestock.ReadOnly = true;
-            this.txtAmountRestock.Size = new System.Drawing.Size(89, 23);
-            this.txtAmountRestock.TabIndex = 97;
-            // 
-            // txtReshelfID
-            // 
-            this.txtReshelfID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtReshelfID.Location = new System.Drawing.Point(110, 34);
-            this.txtReshelfID.Name = "txtReshelfID";
-            this.txtReshelfID.ReadOnly = true;
-            this.txtReshelfID.Size = new System.Drawing.Size(100, 23);
-            this.txtReshelfID.TabIndex = 97;
-            // 
-            // txtBarcode
-            // 
-            this.txtBarcode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBarcode.Location = new System.Drawing.Point(110, 73);
-            this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.ReadOnly = true;
-            this.txtBarcode.Size = new System.Drawing.Size(100, 23);
-            this.txtBarcode.TabIndex = 97;
-            // 
-            // txtAmountRequested
-            // 
-            this.txtAmountRequested.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAmountRequested.Location = new System.Drawing.Point(132, 109);
-            this.txtAmountRequested.Name = "txtAmountRequested";
-            this.txtAmountRequested.ReadOnly = true;
-            this.txtAmountRequested.Size = new System.Drawing.Size(78, 23);
-            this.txtAmountRequested.TabIndex = 97;
-            // 
             // FormDepotEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1072, 588);
+            this.ClientSize = new System.Drawing.Size(929, 588);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnLogout);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

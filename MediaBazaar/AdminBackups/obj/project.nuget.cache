@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "X+Iv9NJxSMXuKEepPlSNJium/FqT7brPHbxuS9hnkFQabOGTkUc9ISTbbqlDcg1tiUockha6BXroKKl/T1392w==",
+=======
   "dgSpecHash": "3fsEXlFbXcgF8tO+bnGZhQffs2BnEfMVvcg97An/XXyWH09I0P/h7zQBYGWqKzFR8LOicbM5pEU2B/0yzbwmJg==",
+>>>>>>> b284011b394a617649738365ddc006e7bb126009
   "success": true,
   "projectFilePath": "C:\\Users\\esthe\\OneDrive\\Bureaublad\\TestGit\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\AdminBackups\\AdminBackups.csproj",
   "expectedPackageFiles": [
