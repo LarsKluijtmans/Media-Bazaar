@@ -193,7 +193,22 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    GetRegisteredShift(year, week, day, shift).Employees.Add(GetEmployee(employeeID));
+                    if (RegisteredShiftExist(year, week, day, shift) == true)
+                    {
+                        if (GetEmployee(employeeID) != null)
+                        {
+                            GetRegisteredShift(year, week, day, shift).Employees.Add(GetEmployee(employeeID));
+                        }
+                    }
+                    else
+                    {
+                        if (GetEmployee(employeeID) != null)
+                        {
+                            RegisteredShift registeredShift = new RegisteredShift(year, week, day, shift);
+                            registeredShifts.Add(registeredShift);
+                            registeredShift.Employees.Add(GetEmployee(employeeID));
+                        }
+                    }
                     return true;
                 }
                 return false;
@@ -238,22 +253,8 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    if (RegisteredShiftExist(year, week, day, shift) == true)
-                    {
-                        if (GetEmployee(employeeID) != null)
-                        {
-                            GetRegisteredShift(year, week, day, shift).Employees.Add(GetEmployee(employeeID));
-                        }
-                    }
-                    else
-                    {
-                        if (GetEmployee(employeeID) != null)
-                        {
-                            RegisteredShift registeredShift = new RegisteredShift(year, week, day, shift);
-                            registeredShifts.Add(registeredShift);
-                            registeredShift.Employees.Add(GetEmployee(employeeID));
-                        }
-                    }
+                    GetRegisteredShift(year, week, day, shift).Employees.Remove(GetEmployee(employeeID));
+                    return true;
                 }
                 return false;
             }

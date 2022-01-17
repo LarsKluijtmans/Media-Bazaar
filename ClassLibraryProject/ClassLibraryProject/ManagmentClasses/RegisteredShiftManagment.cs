@@ -95,12 +95,15 @@ namespace ClassLibraryProject.ManagmentClasses
         }
         private Employee RegisteredEmployee(int year, int week, string day, string shift, int employeeID)
         {
-            RegisteredShift rs = GetRegisteredShift(year, week, day, shift);
-            foreach (Employee e in rs.Employees)
+            if(GetRegisteredShift(year, week, day, shift) != null)
             {
-                if (e.EmployeeID == employeeID)
+                RegisteredShift rs = GetRegisteredShift(year, week, day, shift);
+                foreach (Employee e in rs.Employees)
                 {
-                    return e;
+                    if (e.EmployeeID == employeeID)
+                    {
+                        return e;
+                    }
                 }
             }
             return null;

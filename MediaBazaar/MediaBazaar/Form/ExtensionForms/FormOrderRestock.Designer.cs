@@ -43,8 +43,8 @@ namespace AdminBackups
             this.txtMin = new System.Windows.Forms.TextBox();
             this.txtMultiples = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtRestockID = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -59,6 +59,7 @@ namespace AdminBackups
             this.lstOrderInfo.Name = "lstOrderInfo";
             this.lstOrderInfo.Size = new System.Drawing.Size(211, 304);
             this.lstOrderInfo.TabIndex = 0;
+            this.lstOrderInfo.Click += new System.EventHandler(this.lstOrderInfo_Click);
             // 
             // btnOrderRestock
             // 
@@ -199,6 +200,13 @@ namespace AdminBackups
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selected Order Info";
             // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(155, 230);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(100, 27);
+            this.txtAmount.TabIndex = 14;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -208,13 +216,6 @@ namespace AdminBackups
             this.label7.Size = new System.Drawing.Size(56, 17);
             this.label7.TabIndex = 13;
             this.label7.Text = "Amount:";
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.Location = new System.Drawing.Point(155, 230);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(100, 27);
-            this.txtAmount.TabIndex = 14;
             // 
             // label8
             // 
