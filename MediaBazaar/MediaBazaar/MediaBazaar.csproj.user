@@ -7,16 +7,19 @@
     <Compile Update="Form\ExtensionForms\FormNewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\ExtensionForms\FormOrderInfo.cs">
+    <Compile Update="Form\ExtensionForms\FormNewProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form\ExtensionForms\FormOrderInfo2.cs">
+    <Compile Update="Form\ExtensionForms\FormOrderInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\ExtensionForms\FormRemoveEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\ExtensionForms\FormViewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\ExtensionForms\FormViewProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\FormAdmin.cs">
