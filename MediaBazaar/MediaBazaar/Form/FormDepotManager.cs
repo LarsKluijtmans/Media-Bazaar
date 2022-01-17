@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace AdminBackups
@@ -42,8 +43,18 @@ namespace AdminBackups
         {
             lblWeek.Text = GetCurrentWeekOfYear(date).ToString();
             lblPlanningWeek.Text = GetCurrentWeekOfYear(date).ToString();
-            i = Convert.ToInt32(lblWeek.Text);
-            pi = Convert.ToInt32(lblPlanningWeek.Text);
+
+            try
+            {
+                i = Convert.ToInt32(lblWeek.Text);
+                pi = Convert.ToInt32(lblPlanningWeek.Text);
+            }
+            catch
+            {
+                MessageBox.Show("i and ip are not convertible");
+                return;
+            }
+
             txtYear.Value = date.Year;
             txtPlanningYear.Value = date.Year;
 
@@ -70,9 +81,26 @@ namespace AdminBackups
         }
 
         //OVERVIEW-----------------------------------------------------------------------
+        protected override void OnClosed(EventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i < Application.OpenForms.OfType<FormOrderRestock>().Count(); i++)
+                {
+                    var FormOrderRestock = Application.OpenForms.OfType<FormOrderRestock>().FirstOrDefault();
+                    if (FormOrderRestock != null)
+                    {
+                        FormOrderRestock.Close();
+                    }
+                }
+            }
+            catch { }
+
+            login.Show();
+        }
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            login.Show();
             Close();
         }
         private void FormDepotManager_FormClosing(object sender, FormClosingEventArgs e)
@@ -202,7 +230,7 @@ namespace AdminBackups
                 MessageBox.Show("Select any restock request you want to reject.");
             }
         }
-        
+
 
         //SCHEDULE------------------------------------------------------------------       
         private void UpdateSchedule()
@@ -332,19 +360,33 @@ namespace AdminBackups
             int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
             DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
             DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
-            int year = Convert.ToInt32(txtPlanningYear.Value);
-            int week = Convert.ToInt32(lblPlanningWeek.Text);
-            string day = Convert.ToString(selectedRow.Cells["Day"].Value);
-            string shift = Convert.ToString(selectedColumn.Name);
+
+            int year = 0;
+            int week = 0;
+            string day = "";
+            string shift = "";
+
+            try
+            {
+                year = Convert.ToInt32(txtPlanningYear.Value);
+                week = Convert.ToInt32(lblPlanningWeek.Text);
+                day = Convert.ToString(selectedRow.Cells["Day"].Value);
+                shift = Convert.ToString(selectedColumn.Name);
+            }
+            catch
+            {
+                MessageBox.Show("i and ip are not convertible");
+                return;
+            }
             string department = cbDepartments.Text;
 
             lstEmpCanWork.Items.Clear();
 
             if (c.GetPreferredShift(day, shift) != null)
-            {        
+            {
                 foreach (Employee employee in c.GetPreferredShift(day, shift).Employees)
                 {
-                    if(DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(year, week, day, shift, employee.EmployeeID) == false)
+                    if (DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(year, week, day, shift, employee.EmployeeID) == false)
                     {
                         lstEmpCanWork.Items.Add(employee);
                     }
@@ -354,7 +396,7 @@ namespace AdminBackups
             lstEmpEnlisted.Items.Clear();
 
             if (c.GetRegisteredShift(year, week, day, shift) != null)
-            { 
+            {
                 foreach (Employee employee in c.GetRegisteredShift(year, week, day, shift).Employees)
                 {
                     if (DepartmentTrue(employee, department) == true)
@@ -362,13 +404,13 @@ namespace AdminBackups
                         lstEmpEnlisted.Items.Add(employee);
                     }
                 }
-            }          
+            }
         }
         public bool DepartmentTrue(Employee employee, string department)
         {
             foreach (Contract contract in employee.Contracts)
             {
-                if(contract.Department == department)
+                if (contract.Department == department)
                 {
                     return true;
                 }
@@ -562,9 +604,10 @@ namespace AdminBackups
             catch
             {
                 MessageBox.Show("Please select a week and year");
-                return; }
+                return;
+            }
 
-          depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
+            depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
 
             progressBar1.Maximum = 55;
 
@@ -650,7 +693,7 @@ namespace AdminBackups
 
 
         //Update schedule
-        
-        
+
+
     }
 }
