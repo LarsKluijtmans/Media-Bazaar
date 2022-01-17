@@ -455,7 +455,7 @@ namespace AdminBackups
             {        
                 foreach (Employee employee in c.GetPreferredShift(day, shift).Employees)
                 {
-                    if(DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(year, week, day, shift, employee.EmployeeID) == false)
+                    if(c.GetPreferredShift(day, shift).IsPreferred == true && DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(year, week, day, shift, employee.EmployeeID) == false)
                     {
                         lstEmpCanWork.Items.Add(employee);
                     }
