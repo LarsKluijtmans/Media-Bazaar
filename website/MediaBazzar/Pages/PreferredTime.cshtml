@@ -11,7 +11,7 @@
                 <h2>Select your preferred work time</h2>
                 <div class="input">
                     <label asp-for="WeekDay">Select day:</label>
-                    <select asp-for="WeekDay" name="Day">
+                    <select asp-for="WeekDay">
                         <option value="Monday">Monday</option>
                         <option value="Tuesday">Tuesday</option>
                         <option value="Wednesday">Wednesday</option>
@@ -34,6 +34,7 @@
                     <select asp-for="Preferred" name="Preferred">
                         <option value="Preferred">Preferred</option>
                         <option value="LeastPreferred">Least Preferred</option>
+                        <option value="Not specified">Not specified</option>
                     </select>
                 </div>
                 <input type="submit" class="submit-btn" value="Submit">

@@ -112,10 +112,10 @@ namespace AdminBackups
 
                 if (!orderInfound)
                 {
-                    tbxMinAmount.Text = "";
-                    tbxMaxAmount.Text = "";
-                    tbxMultiples.Text = "";
-                    tbxPurchasePrice.Text = "";
+                    tbxMinAmount.Value = 0;
+                    tbxMaxAmount.Value = 0;
+                    tbxMultiples.Value = 0;
+                    tbxPurchasePrice.Text = "0";
                 }
             }
 
@@ -148,13 +148,6 @@ namespace AdminBackups
         }
         private bool CreateOrderInfo()
         {
-            Supplier supplier = SelectSupplier();
-            if (supplier == null)
-            {
-                MessageBox.Show("Please select a supplier first");
-                return false;
-            }
-
             int minAmount = 0;
             int maxAmount = 0;
             int multiples = 0;
@@ -172,6 +165,12 @@ namespace AdminBackups
                 return false;
             }
 
+            if (string.IsNullOrEmpty(tbxPurchasePrice.Text))
+            {
+                MessageBox.Show("Please enter a purchase price");
+                return false;
+            }
+
             try
             {
                 purchasePrice = Convert.ToDouble(tbxPurchasePrice.Text);
@@ -179,6 +178,14 @@ namespace AdminBackups
             catch
             {
                 MessageBox.Show("Please enter a purchase price");
+                return false;
+            }
+
+            Supplier supplier = SelectSupplier();
+
+            if (supplier == null)
+            {
+                MessageBox.Show("Please select a supplier first");
                 return false;
             }
 
@@ -190,14 +197,14 @@ namespace AdminBackups
 
                 if (dr == DialogResult.Yes)
                 {
-                    tbxMinAmount.Value = 1;
-                    tbxMaxAmount.Value = 1;
-                    tbxMultiples.Value = 1;
-                    tbxPurchasePrice.Text = "0";
+                    SelectSupplier();
+
                     return true;
                 }
                 else if (dr == DialogResult.No)
                 {
+                     SelectSupplier();
+
                     this.Close();
                     return true;
                 }
@@ -209,10 +216,22 @@ namespace AdminBackups
         {
             try
             {
-                Supplier supplier = SelectSupplier();
-
                 // check if supplier has order info
                 product.OrderInfos = productManager.OrderInfoManagerPM.GetOrderInfosForProduct(product);
+
+                int MinAmount = Convert.ToInt32(tbxMinAmount.Value);
+                int MaxAmount = Convert.ToInt32(tbxMaxAmount.Value);
+                int Multiples = Convert.ToInt32(tbxMultiples.Value);
+
+                if (string.IsNullOrEmpty(tbxPurchasePrice.Text))
+                {
+                    MessageBox.Show("Purchase price cannot be empty");
+                    return;
+                }
+
+                 double PurchasePrice = Convert.ToDouble(tbxPurchasePrice.Text);
+
+                Supplier supplier = SelectSupplier();
 
                 foreach (OrderInfo oi in product.OrderInfos)
                 {
@@ -220,19 +239,14 @@ namespace AdminBackups
                     {
                         if (oi != null)
                         {
-                            oi.MinAmount = Convert.ToInt32(tbxMinAmount.Value);
-                            oi.MaxAmount = Convert.ToInt32(tbxMaxAmount.Value);
-                            oi.Multiples = Convert.ToInt32(tbxMultiples.Value);
-
-                            if (string.IsNullOrEmpty(tbxPurchasePrice.Text))
-                            {
-                                MessageBox.Show("Purchase price cannot be empty");
-                                return;
-                            }
-                            oi.PurchasePrice = Convert.ToDouble(tbxPurchasePrice.Text);
+                            oi.MinAmount = MinAmount;
+                            oi.MaxAmount = MaxAmount;
+                            oi.Multiples = Multiples;
+                            oi.PurchasePrice = PurchasePrice;
 
                             if (productManager.OrderInfoManagerPM.UpdateOrderInfo(oi))
                             {
+                                SelectSupplier();
                                 MessageBox.Show("Order info has been updated");
                             }
                             else 

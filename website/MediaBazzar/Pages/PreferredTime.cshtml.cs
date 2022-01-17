@@ -34,17 +34,11 @@ namespace MediaBazaarWebsite.Pages
         public int prefered;
 
         [BindProperty]
-        public string WeekDay { get; set; }
-        [BindProperty]
-        public string Morning { get; set; }
-        [BindProperty]
-        public string Afternoon { get; set; }
-        [BindProperty]
-        public string Evening { get; set; }
-        [BindProperty]
         public string Preferred { get; set; }
+
         [BindProperty]
-        public string LeastPreferred { get; set; }
+        [Required]
+        public string WeekDay { get; set; }
 
         [BindProperty]
         [Required]
@@ -147,8 +141,43 @@ namespace MediaBazaarWebsite.Pages
 
             Employee ee = dbLogin.GetEmployeeByEmail(userEmail);
 
-            prm.PreferAShift(WeekDay, shift, ee, Prefered);
+            if (Preferred == "Not specified")
+            {
+                MySqlConnection conn = Utils.GetConnection();
+                string sql = $"DELETE FROM preferedtime Where day = '{WeekDay}' AND shift= '{shift}' AND employeeID = {ee.EmployeeID}";
 
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    conn.Open();
+
+                    int numCreatedRows = cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException msqEx)
+                {
+                    Debug.WriteLine(msqEx);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+                finally
+                {
+                    if (conn != null)
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+
+            else if (Preferred == "Preferred")
+            {
+                prm.PreferAShift(WeekDay, shift, ee, true);
+            }
+            else 
+            { 
+                prm.PreferAShift(WeekDay, shift, ee, false); 
+            }
         }
     }
 }
