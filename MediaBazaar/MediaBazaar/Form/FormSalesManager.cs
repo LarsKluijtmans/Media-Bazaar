@@ -92,7 +92,7 @@ namespace AdminBackups
         {
             try
             {
-                for (int i = 0; i < Application.OpenForms.OfType<FormViewProduct>().Count(); i++)
+                for (int i = 0; i < 1000; i++)
                 {
                     var FormViewProduct = Application.OpenForms.OfType<FormViewProduct>().FirstOrDefault();
                     if (FormViewProduct != null)

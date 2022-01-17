@@ -350,3 +350,8 @@ C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\we
 C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazaarWebsite.Views.pdb
 C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazaarWebsite.csproj.CopyComplete
 C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\MediaBazaarWebsite.genruntimeconfig.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\bin\Debug\net5.0\ZstdNet.dll
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\obj\Debug\net5.0\Razor\Pages\PreferredTime.cshtml.g.cs
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\bin\Debug\net5.0\ZstdNet.dll
+C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\obj\Debug\net5.0\Razor\Pages\PreferredTime.cshtml.g.cs
+>>>>>>> 6e99b8dca3f04a29f6eed5488555f28e59063ac3

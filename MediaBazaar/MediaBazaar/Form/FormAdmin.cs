@@ -36,9 +36,12 @@ namespace AdminBackups
         //Logout
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            Close();
+        }
+        protected override void OnClosed(EventArgs e)
+        {
             var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
             logout.Show();
-            Close();
         }
 
         //Create Employee

@@ -6,31 +6,75 @@
 <body>
     <div class="container">
         <div>
-
-            <p>  Welcome, @User.Identity.Name</p>
-
-
-
             <h2>Employee schedule</h2>
 
             <hr />
-            <table cellpadding="10" cellspacing="10">
-                <tr>
-                    <th>Day</th>
-                    <th>Shift</th>
-                </tr>
-                    @foreach (var item in Model.pws)
-                    {
 
+            <form class="profile-form" method="post">
+                <div>
+                    <label asp-for="week"> week:</label>
+                    <input asp-for="week" name="week" />
+                </div>
+                <div>
+                    <label asp-for="year"> year:</label>
+                    <input asp-for="year" name="year" />
+                </div>
+
+                <div class="button">
+                    <input type="submit" class="subtmit-btn" value="Update Profile">
+                </div>
+            </form>
+
+            <hr />
+
+            <table>
+                <tr>
+                    <th>Days</th>
+                    @for (int i = 0; i < 3; i++)
+                    {
+                        <th>
+                            @Model.Shift.ToString()
+                            <p style="visibility:hidden"> @Model.ShiftIncrease()</p>
+                        </th>
+                    }
+                </tr>
+                @for (int i = 0; i < 7; i++)
+                {
                     <tr>
-                        <td>@item.Day</td>
-                        <td>@item.Shift</td>
+                        <td>
+                            @Model.Day.ToString()
+                            <p style="visibility:hidden"> @Model.DayIncrease()</p>
+                        </td>
+
+
+                        @if (@Model.IsWorkingToday().morning)
+                        {
+                            <td style="background-color: green"> </td>
+                        }
+                        else
+                        {
+                            <td style="background-color: red"> </td>
+                        }
+
+                        @if (@Model.IsWorkingToday().afternoon)
+                        {
+                            <td style="background-color: green"> </td>
+                        }
+                        else
+                        {
+                            <td style="background-color: red"> </td>
+                        }
+                        @if (@Model.IsWorkingToday().evening)
+                        {
+                            <td style="background-color: green"> </td>
+                        }
+                        else
+                        {
+                            <td style="background-color: red"> </td>
+                        }
                     </tr>
                 }
-                </table>
-           
-            </div>
+            </table>
+        </div>
     </div>
-
-
 </body>

@@ -54,30 +54,30 @@ namespace MediaBazaarWebsite.Pages
             Expires = DateTime.Now.AddMinutes(5)
         };
 
-        public IActionResult OnGetLogout()
-        {
-            HttpContext.Session.Remove("User");
-            return new RedirectToPageResult("Login");
-        }
+        //public IActionResult OnGetLogout()
+        //{
+        //    HttpContext.Session.Remove("User");
+        //    return new RedirectToPageResult("Login");
+        //}
 
-        public void OnGet()
-        {
+        //public void OnGet()
+        //{
 
-            PreferedWorkTimeManagement workTimeManagement = new PreferedWorkTimeManagement();
-            //pwt = workTimeManagement.GetPreferedWorkTimeForEmployee(LoginModel.employeeID.ToString());
-            //this.Prefereds = new SelectList(pwt, "Day", "Shift");
+        //    PreferedWorkTimeManagement workTimeManagement = new PreferedWorkTimeManagement();
+        //    //pwt = workTimeManagement.GetPreferedWorkTimeForEmployee(LoginModel.employeeID.ToString());
+        //    //this.Prefereds = new SelectList(pwt, "Day", "Shift");
 
-        }
+        //}
 
    
-        public void OnPostSubmit()
-        {
-            PreferedWorkTimeManagement preferedWorkTime = new PreferedWorkTimeManagement();
-            //foreach (PreferedWorkTime p in pwt)
-            //{
-            //    preferedWorkTime.EditPreferedWorkTimeForEmployee(LoginModel.employeeID, p.Day, p.Shift, p.Prefered);
-            //}
-        }
+        //public void OnPostSubmit()
+        //{
+        //    PreferedWorkTimeManagement preferedWorkTime = new PreferedWorkTimeManagement();
+        //    //foreach (PreferedWorkTime p in pwt)
+        //    //{
+        //    //    preferedWorkTime.EditPreferedWorkTimeForEmployee(LoginModel.employeeID, p.Day, p.Shift, p.Prefered);
+        //    //}
+        //}
 
     }
 }
