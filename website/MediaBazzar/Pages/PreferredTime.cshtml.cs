@@ -147,7 +147,7 @@ namespace MediaBazaarWebsite.Pages
 
             Employee ee = dbLogin.GetEmployeeByEmail(userEmail);
 
-            prm.PreferAShift(WeekDay, shift, ee, Prefered);
+            //prm.PreferAShift(WeekDay, shift, ee, Prefered);
         }
     }
 }
