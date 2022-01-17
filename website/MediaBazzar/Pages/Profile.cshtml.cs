@@ -56,7 +56,23 @@ namespace MediaBazzar.Pages
             // get current user
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
-            Employee = (DepotEmployee)dbLogin.GetEmployeeByEmail(userEmail);
+            Employee a = dbLogin.GetEmployeeByEmail(userEmail);
+
+            Employee = new DepotEmployee();
+
+            Employee.EmployeeID = a.EmployeeID;
+            Employee.FirstName = a.FirstName;
+            Employee.LastName = a.LastName;
+            Employee.PhoneNumber = a.PhoneNumber;
+            Employee.Email = a.Email;
+            Employee.ZipCode = a.ZipCode;
+            Employee.Address = a.Address;
+            Employee.City = a.City;
+            Employee.DateOfBirth = a.DateOfBirth;
+            Employee.BSN = a.BSN;
+            Employee.Username = a.Username;
+            Employee.Password = a.Password;
+            Employee.PersonalEmail = a.PersonalEmail;
 
             return Page();
         }
@@ -64,7 +80,24 @@ namespace MediaBazzar.Pages
         {
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
-            Employee = (DepotEmployee)dbLogin.GetEmployeeByEmail(userEmail);
+
+            Employee a = dbLogin.GetEmployeeByEmail(userEmail);
+
+            Employee = new DepotEmployee();
+
+            Employee.EmployeeID = a.EmployeeID;
+            Employee.FirstName = a.FirstName;
+            Employee.LastName = a.LastName;
+            Employee.PhoneNumber = a.PhoneNumber;
+            Employee.Email = a.Email;
+            Employee.ZipCode = a.ZipCode;
+            Employee.Address = a.Address;
+            Employee.City = a.City;
+            Employee.DateOfBirth = a.DateOfBirth;
+            Employee.BSN = a.BSN;
+            Employee.Username = a.Username;
+            Employee.Password = a.Password;
+            Employee.PersonalEmail = a.PersonalEmail;
 
             if (Employee != null)
             {

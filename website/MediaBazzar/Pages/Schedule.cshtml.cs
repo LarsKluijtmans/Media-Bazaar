@@ -58,6 +58,8 @@ namespace MediaBazzar.Pages
             }
             week = CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
             year = time.Year;
+
+
             Day = Days.Monday;
             Shift = Shifts.Morning;
 
