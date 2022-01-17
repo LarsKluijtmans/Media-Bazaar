@@ -60,7 +60,7 @@ namespace AdminBackups
         {
             try
             {
-                for (int i = 0; i < Application.OpenForms.OfType<FormNewEmployee>().Count(); i++)
+                for (int i = 0; i < 1000; i++)
                 {
                     var FormNewEmployee = Application.OpenForms.OfType<FormNewEmployee>().FirstOrDefault();
                     if (FormNewEmployee != null)
@@ -73,7 +73,7 @@ namespace AdminBackups
 
             try
             {
-                for (int i = 0; i < Application.OpenForms.OfType<FormRemoveEmployee>().Count(); i++)
+                for (int i = 0; i < 1000; i++)
                 {
                     var FormRemoveEmployee = Application.OpenForms.OfType<FormRemoveEmployee>().FirstOrDefault();
                     if (FormRemoveEmployee != null)
@@ -86,7 +86,7 @@ namespace AdminBackups
 
             try
             {
-                for (int i = 0; i < Application.OpenForms.OfType<FormViewEmployee>().Count(); i++)
+                for (int i = 0; i < 1000; i++)
                 {
                     var FormViewEmployee = Application.OpenForms.OfType<FormViewEmployee>().FirstOrDefault();
                     if (FormViewEmployee != null)

@@ -6,31 +6,58 @@
 <body>
     <div class="container">
         <div>
-
-            <p>  Welcome, @User.Identity.Name</p>
-
-
-
             <h2>Employee schedule</h2>
 
             <hr />
-            <table cellpadding="10" cellspacing="10">
+
+            <table>
                 <tr>
-                    <th>Day</th>
-                    <th>Shift</th>
-                </tr>
-                    @foreach (var item in Model.pws)
+                    <th>Days</th>
+                    @for (int i = 0; i < 3; i++)
                     {
+                        <th>
+                            @Model.Shift.ToString()
+                            <p style="visibility:hidden"> @Model.ShiftIncrease()</p>
+                        </th>
+                    }
+                </tr>
+                    @for (int i = 0; i < 7; i++)
+                    {
+                            <tr>
+                                <td>
+                                    @Model.Day.ToString()
+                                    <p style="visibility:hidden"> @Model.DayIncrease()</p>
+                                </td>
 
-                    <tr>
-                        <td>@item.Day</td>
-                        <td>@item.Shift</td>
-                    </tr>
-                }
+
+                                @if (@Model.IsWorkingToday().morning)
+                                {
+                                    <td style="background-color: green"> </td>
+                                }
+                                else
+                                {
+                                    <td style="background-color: red"> </td>
+                                }
+
+                                @if (@Model.IsWorkingToday().afternoon)
+                                {
+                                    <td style="background-color: green"> </td>
+                                }
+                                else
+                                {
+                                    <td style="background-color: red"> </td>
+                                }
+                                @if (@Model.IsWorkingToday().evening)
+                                {
+                                    <td style="background-color: green"> </td>
+                                }
+                                else
+                                {
+                                    <td style="background-color: red"> </td>
+                                }
+                            </tr>
+                      }
                 </table>
-           
-            </div>
+        </div>
     </div>
-
-
 </body>

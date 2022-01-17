@@ -30,7 +30,7 @@ namespace AdminBackups
         {
             try
             {
-                for (int i = 0; i < Application.OpenForms.OfType<FormNewProduct>().Count(); i++)
+                for (int i = 0; i < 1000; i++)
                 {
                     var FormNewProduct = Application.OpenForms.OfType<FormNewProduct>().FirstOrDefault();
                     if (FormNewProduct != null)
@@ -43,7 +43,7 @@ namespace AdminBackups
 
             try
             {
-                for (int i = 0; i < Application.OpenForms.OfType<FormViewProduct>().Count(); i++)
+                for (int i = 0; i < 1000; i++)
                 {
                     var FormViewProduct = Application.OpenForms.OfType<FormViewProduct>().FirstOrDefault();
                     if (FormViewProduct != null)
@@ -56,7 +56,7 @@ namespace AdminBackups
 
             try
             {
-                for (int i = 0; i < Application.OpenForms.OfType<FormOrderInfo>().Count(); i++)
+                for (int i = 0; i < 1000; i++)
                 {
                     var FormOrderInfo = Application.OpenForms.OfType<FormOrderInfo>().FirstOrDefault();
                     if (FormOrderInfo != null)

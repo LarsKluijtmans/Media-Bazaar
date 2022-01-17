@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace AdminBackups
@@ -83,8 +84,25 @@ namespace AdminBackups
         //OVERVIEW-----------------------------------------------------------------------
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            login.Show();
             Close();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i < 1000; i++)
+                {
+                    var FormOrderRestock = Application.OpenForms.OfType<FormOrderRestock>().FirstOrDefault();
+                    if (FormOrderRestock != null)
+                    {
+                        FormOrderRestock.Close();
+                    }
+                }
+            }
+            catch { }
+
+            login.Show();
         }
         private void FormDepotManager_FormClosing(object sender, FormClosingEventArgs e)
         {
