@@ -14,12 +14,14 @@ namespace AdminBackups
     {
         Restock r;
         IDepotManagerControl c;
-        public FormOrderRestock(Restock restock, IDepotManagerControl control)
+        FormDepotManager depot;
+        public FormOrderRestock(Restock restock, IDepotManagerControl control, FormDepotManager depot)
         {
             InitializeComponent();
 
             r = restock;
             c = control;
+            this.depot = depot;
 
             txtRestockID.Text = restock.ID.ToString();
             UpdateOrderInfoList();
@@ -53,6 +55,7 @@ namespace AdminBackups
                 {
                     if (c.OrderRestock(r.ID, orderInfo, amount))
                     {
+                        depot.UpdatePendingRequests();
                         Close();
                     }
                     else
