@@ -264,7 +264,7 @@ namespace AdminBackups
             // tbxPurchasePrice
             // 
             this.tbxPurchasePrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxPurchasePrice.Location = new System.Drawing.Point(669, 165);
+            this.tbxPurchasePrice.Location = new System.Drawing.Point(669, 166);
             this.tbxPurchasePrice.Name = "tbxPurchasePrice";
             this.tbxPurchasePrice.Size = new System.Drawing.Size(119, 29);
             this.tbxPurchasePrice.TabIndex = 29;
