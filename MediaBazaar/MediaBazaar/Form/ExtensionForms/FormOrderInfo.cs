@@ -212,54 +212,43 @@ namespace AdminBackups
         }
         private void UpdateOrderInfo()
         {
-            Supplier supplier = SelectSupplier();
-
-            // check if supplier has order info
-            product.OrderInfos = productManager.OrderInfoManagerPM.GetOrderInfosForProduct(product);
-
-            foreach (OrderInfo oi in product.OrderInfos)
+            try
             {
-                if (oi.Supplier.ID == supplier.ID)
+                Supplier supplier = SelectSupplier();
+
+                // check if supplier has order info
+                product.OrderInfos = productManager.OrderInfoManagerPM.GetOrderInfosForProduct(product);
+
+                foreach (OrderInfo oi in product.OrderInfos)
                 {
-                    if (oi != null)
+                    if (oi.Supplier.ID == supplier.ID)
                     {
-                        if (string.IsNullOrEmpty(tbxMinAmount.Text))
+                        if (oi != null)
                         {
-                            MessageBox.Show("Min amount cannot be empty");
-                            return;
+                            oi.MinAmount = Convert.ToInt32(tbxMinAmount.Value);
+                            oi.MaxAmount = Convert.ToInt32(tbxMaxAmount.Value);
+                            oi.Multiples = Convert.ToInt32(tbxMultiples.Value);
+
+                            if (string.IsNullOrEmpty(tbxPurchasePrice.Text))
+                            {
+                                MessageBox.Show("Purchase price cannot be empty");
+                                return;
+                            }
+                            oi.PurchasePrice = Convert.ToDouble(tbxPurchasePrice.Text);
+
+                            if (productManager.OrderInfoManagerPM.UpdateOrderInfo(oi))
+                            {
+                                MessageBox.Show("Order info has been updated");
+                            }
+                            else 
+                            {
+                                MessageBox.Show("Update failed");
+                            }
                         }
-                        oi.MinAmount = Convert.ToInt32(tbxMinAmount.Text);
-
-                        if (string.IsNullOrEmpty(tbxMaxAmount.Text))
-                        {
-                            MessageBox.Show("Max amount cannot be empty");
-                            return;
-                        }
-                        oi.MaxAmount = Convert.ToInt32(tbxMaxAmount.Text);
-
-                        if (string.IsNullOrEmpty(tbxMultiples.Text))
-                        {
-                            MessageBox.Show("Multiples cannot be empty");
-                            return;
-                        }
-                        oi.Multiples = Convert.ToInt32(tbxMultiples.Text);
-
-                        if (string.IsNullOrEmpty(tbxPurchasePrice.Text))
-                        {
-                            MessageBox.Show("Purchase price cannot be empty");
-                            return;
-                        }
-                        oi.PurchasePrice = Convert.ToDouble(tbxPurchasePrice.Text);
-
-                        MessageBox.Show(oi.MaxAmount.ToString());
-
-                        //if (productManager.OrderInfoManagerPM.UpdateOrderInfo(oi))
-                        //{
-                        //    MessageBox.Show("Order Info Updated");
-                        //}
                     }
                 }
             }
+            catch { }
         }
         private void DeleteOrderInfo()
         {

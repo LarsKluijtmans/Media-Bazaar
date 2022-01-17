@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LTTExRmSXPn3Wb087sdbmsi8Tr/LhK7yRvW6EShOAYQfEA2TEHDuXxNNN7A9IlIjpKHZMb4MtkPNgMhmoSw37w==",
+  "dgSpecHash": "0VGD+SmgU8tfwuNL8VGd6G/rAvcgG18Vcc7FaBOs/whJwAkNUW3b+uUAwjMSQBbHHLu547oT6XvheW9V56+/1w==",
   "success": true,
   "projectFilePath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\AdminBackups\\AdminBackups.csproj",
   "expectedPackageFiles": [
@@ -15,8 +15,10 @@
     "C:\\Users\\csten\\.nuget\\packages\\mysql.data\\8.0.27\\mysql.data.8.0.27.nupkg.sha512",
     "C:\\Users\\csten\\.nuget\\packages\\mysqlbackup.net\\2.3.6.1\\mysqlbackup.net.2.3.6.1.nupkg.sha512",
     "C:\\Users\\csten\\.nuget\\packages\\mysqlbackup.net.devartexpress\\2.3.6\\mysqlbackup.net.devartexpress.2.3.6.nupkg.sha512",
+    "C:\\Users\\csten\\.nuget\\packages\\mysqlconnector\\2.1.2\\mysqlconnector.2.1.2.nupkg.sha512",
     "C:\\Users\\csten\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\csten\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
+    "C:\\Users\\csten\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
     "C:\\Users\\csten\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
     "C:\\Users\\csten\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\csten\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
@@ -28,6 +30,12 @@
     "C:\\Users\\csten\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\MediaBazaar\\AdminBackups\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

@@ -142,6 +142,15 @@
           }
         }
       },
+      "MySqlConnector/2.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/MySqlConnector.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/MySqlConnector.dll": {}
+        }
+      },
       "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
@@ -311,7 +320,8 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "MySql.Data": "8.0.26",
-          "MySqlBackup.Net.DevartExpress": "2.3.6"
+          "MySqlBackup.Net.DevartExpress": "2.3.6",
+          "MySqlConnector": "2.1.2"
         },
         "compile": {
           "bin/placeholder/ClassLibraryProject.dll": {}
@@ -548,6 +558,35 @@
         "logo128.png",
         "mysqlbackup.net.devartexpress.2.3.6.nupkg.sha512",
         "mysqlbackup.net.devartexpress.nuspec"
+      ]
+    },
+    "MySqlConnector/2.1.2": {
+      "sha512": "JVokQTUNN3WHAu9Vw8ieeq1dXTFokJiig5P0VJ4f439UxRrsPo6SaVWC8Zdm6mkPeQFhZ0/9afdWa02EY/1j/w==",
+      "type": "package",
+      "path": "mysqlconnector/2.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net45/MySqlConnector.dll",
+        "lib/net45/MySqlConnector.xml",
+        "lib/net461/MySqlConnector.dll",
+        "lib/net461/MySqlConnector.xml",
+        "lib/net471/MySqlConnector.dll",
+        "lib/net471/MySqlConnector.xml",
+        "lib/net5.0/MySqlConnector.dll",
+        "lib/net5.0/MySqlConnector.xml",
+        "lib/net6.0/MySqlConnector.dll",
+        "lib/net6.0/MySqlConnector.xml",
+        "lib/netcoreapp3.1/MySqlConnector.dll",
+        "lib/netcoreapp3.1/MySqlConnector.xml",
+        "lib/netstandard2.0/MySqlConnector.dll",
+        "lib/netstandard2.0/MySqlConnector.xml",
+        "lib/netstandard2.1/MySqlConnector.dll",
+        "lib/netstandard2.1/MySqlConnector.xml",
+        "logo.png",
+        "mysqlconnector.2.1.2.nupkg.sha512",
+        "mysqlconnector.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -936,19 +975,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\csten\\.nuget\\packages\\": {}
+    "C:\\Users\\nazib\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\ClassLibrary1.csproj",
+      "projectUniqueName": "F:\\Study\\Semester 2\\PRJ\\website\\ClassLibrary1\\ClassLibrary1.csproj",
       "projectName": "ClassLibrary1",
-      "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\ClassLibrary1.csproj",
-      "packagesPath": "C:\\Users\\csten\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\website\\ClassLibrary1\\obj\\",
+      "projectPath": "F:\\Study\\Semester 2\\PRJ\\website\\ClassLibrary1\\ClassLibrary1.csproj",
+      "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
+      "outputPath": "F:\\Study\\Semester 2\\PRJ\\website\\ClassLibrary1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\csten\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -962,8 +1001,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
-              "projectPath": "C:\\Users\\csten\\cbo3-1-soleil-lars-esther-mohammad\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+            "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+              "projectPath": "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
             }
           }
         }
@@ -992,7 +1031,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   },

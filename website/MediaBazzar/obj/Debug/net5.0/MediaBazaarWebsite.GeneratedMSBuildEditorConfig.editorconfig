@@ -7,4 +7,8 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = MediaBazaarWebsite
-build_property.ProjectDir = C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\
+<<<<<<< HEAD
+build_property.ProjectDir = C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\
+=======
+build_property.ProjectDir = C:\Users\esthe\OneDrive\Bureaublad\TestGit\cbo3-1-soleil-lars-esther-mohammad\website\MediaBazzar\
+>>>>>>> 45175f7ec36e32ebabd7dbe774f231cd3bf7b0e2

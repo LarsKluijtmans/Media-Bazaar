@@ -58,6 +58,45 @@ namespace AdminBackups
 
         protected override void OnClosed(EventArgs e)
         {
+            try
+            {
+                for (int i = 0; i < Application.OpenForms.OfType<FormNewEmployee>().Count(); i++)
+                {
+                    var FormNewEmployee = Application.OpenForms.OfType<FormNewEmployee>().FirstOrDefault();
+                    if (FormNewEmployee != null)
+                    {
+                        FormNewEmployee.Close();
+                    }
+                }
+            }
+            catch { }
+
+            try
+            {
+                for (int i = 0; i < Application.OpenForms.OfType<FormRemoveEmployee>().Count(); i++)
+                {
+                    var FormRemoveEmployee = Application.OpenForms.OfType<FormRemoveEmployee>().FirstOrDefault();
+                    if (FormRemoveEmployee != null)
+                    {
+                        FormRemoveEmployee.Close();
+                    }
+                }
+            }
+            catch { }
+
+            try
+            {
+                for (int i = 0; i < Application.OpenForms.OfType<FormViewEmployee>().Count(); i++)
+                {
+                    var FormViewEmployee = Application.OpenForms.OfType<FormViewEmployee>().FirstOrDefault();
+                    if (FormViewEmployee != null)
+                    {
+                        FormViewEmployee.Close();
+                    }
+                }
+            }
+            catch { }
+
             var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
             logout.Show();
         }
@@ -253,11 +292,11 @@ namespace AdminBackups
                 FormRemoveEmployee formRemoveEmployee = new FormRemoveEmployee(officeManager, selectedEmployee, activeContract);
                 formRemoveEmployee.Show();
             }
-            else 
-            { 
+            else
+            {
 
             }
-            
+
         }
         private void cbxEmployeeType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -288,7 +327,7 @@ namespace AdminBackups
             }
         }
         /* Search Bar for employees */
-            private void tbxSearchEmployee_TextChanged(object sender, EventArgs e)
+        private void tbxSearchEmployee_TextChanged(object sender, EventArgs e)
         {
             string search = tbxSearchEmployee.Text;
 
@@ -498,7 +537,7 @@ namespace AdminBackups
                 Debug.WriteLine(ex);
             }
         }
-        
+
         /* End Employees*/
 
 
@@ -658,7 +697,13 @@ namespace AdminBackups
                     oSheet.Cells[index, 4] = c[i].WorkHoursPerWeek;
                     oSheet.Cells[index, 5] = c[i].SalaryPerHour;
                     oSheet.Cells[index, 6] = c[i].JobTitle;
-                    oSheet.Cells[index, 7] = Convert.ToInt32(c[i].SalaryPerHour) * Convert.ToInt32(c[i].TimeWork);
+                    try
+                    {
+                        oSheet.Cells[index, 7] = Convert.ToInt32(c[i].SalaryPerHour) * Convert.ToInt32(c[i].TimeWork);
+                    }
+                    catch
+                    {
+                    }
 
                     //AutoFit columns A:F.
                     oRng = oSheet.get_Range("A" + index, "F" + index);
@@ -784,7 +829,7 @@ namespace AdminBackups
 
                 ViewAllDepartments();
             }
-            catch { MessageBox.Show("Please select a department."); }  
+            catch { MessageBox.Show("Please select a department."); }
         }
         private void dgvDepartments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -938,6 +983,6 @@ namespace AdminBackups
 
         }
 
-        
+
     }
 }

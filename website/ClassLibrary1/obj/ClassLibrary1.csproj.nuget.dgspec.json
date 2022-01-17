@@ -47,6 +47,10 @@
             "MySqlBackup.Net.DevartExpress": {
               "target": "Package",
               "version": "[2.3.6, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.1.2, )"
             }
           },
           "imports": [
