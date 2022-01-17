@@ -36,6 +36,8 @@ namespace MediaBazaarWebsite.Pages
 
         public List<PreferedWorkTime> pwt { get; set; }
 
+        int currecntEmployeeID = LoginModel.employeeID;
+
         private CookieOptions cookieOptions = new CookieOptions
         {
             Expires = DateTime.Now.AddMinutes(5)
