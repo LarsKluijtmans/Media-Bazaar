@@ -28,15 +28,11 @@ namespace MediaBazaarWebsite.Pages
         [BindProperty]
         [Required]
         public bool Prefered { get; set; }
-<<<<<<< HEAD
 
         public dbLoginManager dbLogin = new dbLoginManager();
 
         public int prefered;
 
-=======
-        
->>>>>>> 881ffd6d8ae450c000b49d8ed109b4b1cb57bc13
         [BindProperty]
         public string WeekDay { get; set; }
         [BindProperty]
@@ -66,7 +62,6 @@ namespace MediaBazaarWebsite.Pages
         {
             Expires = DateTime.Now.AddMinutes(5)
         };
-<<<<<<< HEAD
 
         public IActionResult OnGetLogout()
         {
@@ -147,8 +142,5 @@ namespace MediaBazaarWebsite.Pages
         {
 
         }
-
-=======
->>>>>>> 881ffd6d8ae450c000b49d8ed109b4b1cb57bc13
     }
 }

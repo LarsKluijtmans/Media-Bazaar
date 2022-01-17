@@ -53,7 +53,6 @@ namespace MediaBazzar.Pages
             // get current user
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
-<<<<<<< HEAD
             Employee a = dbLogin.GetEmployeeByEmail(userEmail);
 
             Employee = new DepotEmployee();
@@ -71,9 +70,8 @@ namespace MediaBazzar.Pages
             Employee.Username = a.Username;
             Employee.Password = a.Password;
             Employee.PersonalEmail = a.PersonalEmail;
-=======
+
             Employee = dbLogin.GetEmployeeByEmail(userEmail);
->>>>>>> 881ffd6d8ae450c000b49d8ed109b4b1cb57bc13
 
             return Page();
         }
@@ -81,7 +79,7 @@ namespace MediaBazzar.Pages
         {
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
-<<<<<<< HEAD
+
 
             Employee a = dbLogin.GetEmployeeByEmail(userEmail);
 
@@ -100,9 +98,7 @@ namespace MediaBazzar.Pages
             Employee.Username = a.Username;
             Employee.Password = a.Password;
             Employee.PersonalEmail = a.PersonalEmail;
-=======
             Employee = dbLogin.GetEmployeeByEmail(userEmail);
->>>>>>> 881ffd6d8ae450c000b49d8ed109b4b1cb57bc13
 
             if (Employee != null)
             {
