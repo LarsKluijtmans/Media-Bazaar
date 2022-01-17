@@ -61,10 +61,14 @@ namespace MediaBazzar.Pages
             Day = Days.Monday;
             Shift = Shifts.Morning;
 
+
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
+            Employee ee = dbLogin.GetEmployeeByEmail(userEmail);
+
             // on get
             pws = new List<PreferedWorkTime>();
             PlanningManagment planning = new PlanningManagment();
-            List<PreferedWorkTime> schedules = planning.GetPlanningForEmployee(LoginModel.employeeID.ToString());
+            List<PreferedWorkTime> schedules = planning.GetPlanningForEmployee(ee.EmployeeID.ToString());
             pws.AddRange(schedules);
         }
 
