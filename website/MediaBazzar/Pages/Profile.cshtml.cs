@@ -10,6 +10,7 @@ using System;
 using ClassLibraryProject;
 using System.Security.Claims;
 using ClassLibraryProject.dbClasses;
+using System.Text.RegularExpressions;
 
 namespace MediaBazzar.Pages
 {
@@ -100,6 +101,36 @@ namespace MediaBazzar.Pages
             Employee.PersonalEmail = a.PersonalEmail;
             Employee = dbLogin.GetEmployeeByEmail(userEmail);
 
+            if (!Regex.IsMatch(Employee.PhoneNumber, @"^(\+)316[0-9]{8}$"))
+            {
+                ViewData["Message"] = "PhoneNumber has to start with +316.";
+                return Page();
+            }
+            if (!Regex.IsMatch(Employee.Password, @"^[a-zA-Z][0-9]{7}$"))
+            {
+                ViewData["Message"] = "Password has to have at least 8 characters.";
+                return Page();
+            }
+
+            IEmployeeManagerOffice OF = new EmployeeManager();
+
+            foreach (Employee e in OF.GetAllEmployees())
+            {
+                try
+                {
+                    if (e.PersonalEmail == Employee.PersonalEmail)
+                    {
+                        ViewData["Message"] = "Persenal email already exists.";
+                        return Page();
+                    }
+                }
+                catch
+                {
+                    ViewData["Message"] = "Persenal email already exists.";
+                    return Page();
+                }
+            }
+
             if (Employee != null)
             {
                 Employee.FirstName = FirstName;
@@ -110,6 +141,7 @@ namespace MediaBazzar.Pages
                 Employee.Address = Address;
                 Employee.PersonalEmail = PersonalEmail;
                 Employee.Password = Password;
+
 
                 IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
 
