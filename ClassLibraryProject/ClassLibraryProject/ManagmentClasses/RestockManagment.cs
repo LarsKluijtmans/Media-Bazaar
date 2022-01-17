@@ -136,7 +136,7 @@ namespace ClassLibraryProject.ManagmentClasses
             }
             return null;
         }
-        private Restock GetRestockByID(int id)
+        public Restock GetRestockByID(int id)
         {
             foreach (Restock restock in db.GetRestockRequests())
             {
