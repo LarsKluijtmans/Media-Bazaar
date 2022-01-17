@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Study\\Semester 2\\PRJ\\website\\MediaBazzar\\MediaBazaarWebsite.csproj": {}
+    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj": {}
   },
   "projects": {
-    "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
         "projectName": "ClassLibraryProject",
-        "projectPath": "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
-        "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
-        "outputPath": "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
+        "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj",
+        "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,7 +42,7 @@
           "dependencies": {
             "MySql.Data": {
               "target": "Package",
-              "version": "[8.0.26, )"
+              "version": "[8.0.27, )"
             },
             "MySqlBackup.Net.DevartExpress": {
               "target": "Package",
@@ -68,21 +68,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Study\\Semester 2\\PRJ\\website\\ClassLibrary1\\ClassLibrary1.csproj": {
+    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Study\\Semester 2\\PRJ\\website\\ClassLibrary1\\ClassLibrary1.csproj",
+        "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj",
         "projectName": "ClassLibrary1",
-        "projectPath": "F:\\Study\\Semester 2\\PRJ\\website\\ClassLibrary1\\ClassLibrary1.csproj",
-        "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
-        "outputPath": "F:\\Study\\Semester 2\\PRJ\\website\\ClassLibrary1\\obj\\",
+        "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj",
+        "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,8 +96,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
-                "projectPath": "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+              "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+                "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
               }
             }
           }
@@ -111,6 +111,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.27, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -126,21 +132,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Study\\Semester 2\\PRJ\\website\\MediaBazzar\\MediaBazaarWebsite.csproj": {
+    "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Study\\Semester 2\\PRJ\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
+        "projectUniqueName": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
         "projectName": "MediaBazaarWebsite",
-        "projectPath": "F:\\Study\\Semester 2\\PRJ\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
-        "packagesPath": "C:\\Users\\nazib\\.nuget\\packages\\",
-        "outputPath": "F:\\Study\\Semester 2\\PRJ\\website\\MediaBazzar\\obj\\",
+        "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\MediaBazaarWebsite.csproj",
+        "packagesPath": "C:\\Users\\lars\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\MediaBazzar\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nazib\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lars\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -154,11 +160,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
-                "projectPath": "F:\\Study\\Semester 2\\PRJ\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
+              "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj": {
+                "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\ClassLibraryProject\\ClassLibraryProject\\ClassLibraryProject.csproj"
               },
-              "F:\\Study\\Semester 2\\PRJ\\website\\ClassLibrary1\\ClassLibrary1.csproj": {
-                "projectPath": "F:\\Study\\Semester 2\\PRJ\\website\\ClassLibrary1\\ClassLibrary1.csproj"
+              "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj": {
+                "projectPath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\website\\ClassLibrary1\\ClassLibrary1.csproj"
               }
             }
           }
@@ -172,6 +178,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.27, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -190,7 +202,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

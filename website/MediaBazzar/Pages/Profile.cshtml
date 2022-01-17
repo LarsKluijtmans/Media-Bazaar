@@ -2,115 +2,67 @@
 @model ProfileModel
 @{
     ViewData["Title"] = "Profile";
+
+    var returnUrl = ViewData["ReturnUrl"] as string;
+    var error = TempData["Error"] as string;
 }
 
-<div class="container">
-    <div>
-        <h4 class="title">Profile page</h4>
 
-        <p>  Welcome, @User.Identity.Name</p>
-
-        <form method="post">
-
-            <p style="text-align: center">    @ViewData["Message"] </p>
-
-            <label asp-for="employee.EmployeeID">ID: </label>
-            <br />
-            <span asp-validation-for="employee.EmployeeID"></span>
-            <input asp-for="employee.EmployeeID" readonly />
-            <br />
-
-            <label asp-for="employee.FirstName">FirstName: </label>
-            <br />
-            <span asp-validation-for="employee.FirstName"></span>
-            <input asp-for="employee.FirstName" />
-            <br />
-
-            <label asp-for="employee.LastName">LastName: </label>
-            <br />
-            <span asp-validation-for="employee.LastName"></span>
-            <input asp-for="employee.LastName" />
-            <br />
-
-            <label asp-for="employee.Username">UserName: </label>
-            <br />
-            <span asp-validation-for="employee.Username"></span>
-            <input asp-for="employee.Username" />
-            <br />
-
-            <label asp-for="employee.Password">Password: </label>
-            <br />
-            <span asp-validation-for="employee.Password"></span>
-            <input asp-for="employee.Password"  value="@Model.employee.Password" />
-            <br />
-
-            <label asp-for="Password">Confirm Password: </label>
-            <br />
-            <span asp-validation-for="Password"></span>
-            <input asp-for="Password"  value="@Model.employee.Password"/>
-            <br />
-
-            <label asp-for="employee.Email">Email: </label>
-            <br />
-            <span asp-validation-for="employee.Email"></span>
-            <input asp-for="employee.Email" readonly />
-            <br />
-
-            <label asp-for="employee.PhoneNumber">PhoneNumber: </label>
-            <br />
-            <span asp-validation-for="employee.PhoneNumber"></span>
-            <input asp-for="employee.PhoneNumber" />
-            <br />
-
-            <label asp-for="employee.BSN">BSN: </label>
-            <br />
-            <span asp-validation-for="employee.BSN"></span>
-            <input asp-for="employee.BSN" readonly />
-            <br />
-
-            <label asp-for="employee.StreetName">StreetName: </label>
-            <br />
-            <span asp-validation-for="employee.StreetName"></span>
-            <input asp-for="employee.StreetName" />
-            <br />
-
-            <label asp-for="employee.ZipCode">ZipCode: </label>
-            <br />
-            <span asp-validation-for="employee.ZipCode"></span>
-            <input asp-for="employee.ZipCode" />
-            <br />
-
-            <label asp-for="employee.City">City: </label>
-            <br />
-            <span asp-validation-for="employee.City"></span>
-            <input asp-for="employee.City" />
-            <br />
-
-            <label asp-for="employee.ZipCode">ZipCode: </label>
-            <br />
-            <span asp-validation-for="employee.ZipCode"></span>
-            <input asp-for="employee.ZipCode" />
-            <br />
-
-            <label asp-for="employee.Address">Address: </label>
-            <br />
-            <span asp-validation-for="employee.Address"></span>
-            <input asp-for="employee.Address" />
-            <br />
-
-            <label asp-for="employee.DateOfBirth">DateOfBirth: </label>
-            <br />
-            <span asp-validation-for="employee.DateOfBirth"></span>
-            <input asp-for="employee.DateOfBirth" readonly />
-            <br />
-
-            <label asp-for="employee.PersonalEmail">PersonalEmail: </label>
-            <br />
-            <span asp-validation-for="employee.PersonalEmail"></span>
-            <input asp-for="employee.PersonalEmail" />
-            <br />
-
-            <button> Update Account </button>
+    <div class="profile-main">
+        <form class="profile-form" method="post">
+            <h2>Profile</h2>
+            @if (!string.IsNullOrEmpty(error))
+            {
+                <h2>@error</h2>
+            }
+            <div class="sub-form">
+                <div class="input">
+                    <label asp-for="Employee.FirstName"> First Name:</label>
+                    <input asp-for="Employee.FirstName" type="text" name="FirstName" />
+                </div>
+                <div class="input">
+                    <label asp-for="Employee.LastName"> Last Name:</label>
+                    <input asp-for="Employee.LastName" type="text" name="LastName" />
+                </div>
+                <div class="input">
+                    <label asp-for="Employee.Email"> Email:</label>
+                    <input asp-for="Employee.Email" type="text" name="Email" readonly />
+                </div>
+                <div class="input">
+                    <label asp-for="Employee.Username"> Username:</label>
+                    <input asp-for="Employee.Username" type="text" name="Username" readonly />
+                </div>
+            </div>
+            <div class="sub-form">
+                <div class="input">
+                    <label asp-for="Employee.Password"> Password:</label>
+                    <input asp-for="Employee.Password" type="text" name="Password" />
+                </div>
+                <div class="input">
+                    <label asp-for="Employee.BSN"> Username:</label>
+                    <input asp-for="Employee.BSN" type="text" name="Username" readonly />
+                </div>
+                <div class="input">
+                    <label asp-for="Employee.Address"> Address:</label>
+                    <input asp-for="Employee.Address" type="text" name="Address" />
+                </div>
+            </div>
+            <div class="sub-form">
+                <div class="input">
+                    <label asp-for="Employee.ZipCode"> ZipCode:</label>
+                    <input asp-for="Employee.ZipCode" type="text" name="ZipCode" />
+                </div>
+                <div class="input">
+                    <label asp-for="Employee.City"> City:</label>
+                    <input asp-for="Employee.City" type="text" name="City" />
+                </div>
+                <div class="input">
+                    <label asp-for="Employee.PersonalEmail"> Personal Email:</label>
+                    <input asp-for="Employee.PersonalEmail" type="text" name="PersonalEmail" />
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" class="subtmit-btn" value="Update Profile">
+            </div>
         </form>
     </div>
-</div>

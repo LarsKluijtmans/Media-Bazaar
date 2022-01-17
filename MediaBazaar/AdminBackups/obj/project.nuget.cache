@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YdDXafLaXY6ahBZ4K2MizIBaa72oAy1B0833fWSATHxevu9jUR6n5qufv/86Bf4g1wPaRt0CB9AeoZsVtxwyTg==",
+  "dgSpecHash": "X+Iv9NJxSMXuKEepPlSNJium/FqT7brPHbxuS9hnkFQabOGTkUc9ISTbbqlDcg1tiUockha6BXroKKl/T1392w==",
   "success": true,
   "projectFilePath": "C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\AdminBackups\\AdminBackups.csproj",
   "expectedPackageFiles": [
@@ -30,6 +30,12 @@
     "C:\\Users\\lars\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\lars\\Desktop\\ict\\sem2\\PROJECT\\Project\\MediaBazaar\\AdminBackups\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

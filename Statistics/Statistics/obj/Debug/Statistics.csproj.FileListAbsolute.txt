@@ -57,6 +57,7 @@ C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\Statistics\Statistics\bin\Debu
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\Statistics\Statistics\bin\Debug\System.Memory.xml
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\Statistics\Statistics\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\Statistics\Statistics\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\Statistics\Statistics\obj\Debug\Statistics.csproj.AssemblyReference.cache
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\Statistics\Statistics\obj\Debug\Statistics.Login.resources
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\Statistics\Statistics\obj\Debug\Statistics.Properties.Resources.resources
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\Statistics\Statistics\obj\Debug\Statistics.Statistics.resources

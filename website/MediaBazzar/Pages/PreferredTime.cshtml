@@ -1,0 +1,89 @@
+﻿@page
+@model MediaBazaarWebsite.Pages.PreferedtimeModel
+@{ 
+    ViewData["Title"] = "Preferedtime"; 
+}
+
+<div class="preferred-time">
+    <form class="preferred-time-form" method="post">
+        <h2>Select your preferred work time</h2>
+        <div class="input">
+            <label asp-for="WeekDay">Select day:</label>
+            <select asp-for="WeekDay" name="Day">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+        </div>
+        <div class="input">
+            <input type="radio" name="Morning" value="Morning" />
+            <label asp-for="Morning">Morning</label>
+        </div>
+        <div class="input">
+            <input type="radio" name="Afternoon" value="Afternoon" />
+            <label asp-for="Afternoon">Afternoon</label>
+        </div>
+        <div class="input">
+            <input type="radio" name="Evening" value="Evening" />
+            <label asp-for="Evening">Evening</label>
+        </div>
+        <br />
+        <div class="input">
+            <input type="radio" name="Preferred" value="Preferred" />
+            <label asp-for="Preferred">Preferred</label>
+        </div>
+        <div class="input">
+            <input type="radio" name="LeastPreferred" value="LeastPreferred" />
+            <label asp-for="LeastPreferred">Least Preferred</label>
+        </div>
+    </form>
+</div>
+
+
+@*<body>
+    <div class="container">
+        <div>
+
+            <p>  Welcome, @User.Identity.Name</p>
+
+            <h2>Employee Prefered Work Time</h2>
+            <form class="prefered-time"  method="post">
+                <table cellpadding="10" cellspacing="10">
+                    <tr>
+                        <th>Day</th>
+                        <th>Shift</th>
+                    </tr>
+                    @foreach (var item in Model.pwt)
+                    {
+
+                        <tr>
+                            <td>@item.Day</td>
+                            <td>
+                                <select id="Shift" name="Shift" asp-items="@Model.Prefereds">
+                                    <option value="0">@item.Shift</option>
+                                </select>
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+                <input type="submit" value="Submit" asp-page-handler="Submit" />
+            </form>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    $("body").on("change", "#shift", function () {
+        $("input[name=ShiftType]").val($(this).find("option:selected").text());
+    });
+</script>
+<script type="text/javascript">
+    $("body").on("change", "#prefered", function () {
+        $("input[name=preferedType]").val($(this).find("option:selected").text());
+    });
+</script>*@
