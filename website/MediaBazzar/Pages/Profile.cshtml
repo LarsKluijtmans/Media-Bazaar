@@ -41,13 +41,13 @@
             <label asp-for="employee.Password">Password: </label>
             <br />
             <span asp-validation-for="employee.Password"></span>
-            <input asp-for="employee.Password" type="password" />
+            <input asp-for="employee.Password"  value="@Model.employee.Password" />
             <br />
 
             <label asp-for="Password">Confirm Password: </label>
             <br />
             <span asp-validation-for="Password"></span>
-            <input asp-for="Password" type="password" value="employee.Password" />
+            <input asp-for="Password"  value="@Model.employee.Password"/>
             <br />
 
             <label asp-for="employee.Email">Email: </label>
