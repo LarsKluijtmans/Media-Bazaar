@@ -13,7 +13,7 @@ namespace ClassLibraryProject.dbClasses
         public string GET_ALL_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = 1 AND c.Active = 1;";
 
         private string GET_PREFERRED_SHIFTS = "SELECT * FROM preferedtime;";
-        private string PREFER_SHIFT = "INSERT INTO preferedtime (Day, Shift, EmployeeID, Prefered) VALUES (@Day, @Shift, @EmployeeID, @Prefered);";
+        private string PREFER_SHIFT = "INSERT INTO preferedtime (Day, Shift, EmployeeID, Prefered) VALUES ('@Day', '@Shift', @EmployeeID, @Prefered);";
         private string UPDATE_PREFERRED_SHIFT = "UPDATE preferedtime SET Prefered = @Prefered WHERE Day = @Day AND Shift = @Shift AND EmployeeID = @EmployeeID;";
         private string DELETE_PREFERRED_SHIFT = "DELETE FROM preferedtime WHERE Week = @Week AND Day = @Day AND Shift = @Shift AND EmployeeID = @EmployeeID;";
 
@@ -184,28 +184,40 @@ namespace ClassLibraryProject.dbClasses
         public bool PreferAShift(string day, string shift, Employee employee, bool isPreferred)
         {
             MySqlConnection conn = Utils.GetConnection();
+            
+            int preferred = 0;
+            if (isPreferred == true)
+            {
+                preferred = 1;
+            }
+            else
+            {
+                preferred = 0;
+            }
 
-            string sql = PREFER_SHIFT;
-
+            //string sql = PREFER_SHIFT;
+          
+            string sql = $"INSERT INTO preferedtime (Day, Shift, EmployeeID, Prefered) VALUES ('{day}', '{shift}', {employee.EmployeeID}, {preferred});";
+           
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("@Day", day);
-                cmd.Parameters.AddWithValue("@Shift", shift);
-                cmd.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
+                //cmd.Parameters.AddWithValue("@Day", day);
+                //cmd.Parameters.AddWithValue("@Shift", shift);
+                //cmd.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
 
-                int preferred = 0;
-                if (isPreferred == true)
-                {
-                    preferred = 1;
-                }
-                else
-                {
-                    preferred = 0;
-                }
+                //int preferred = 0;
+                //if (isPreferred == true)
+                //{
+                //    preferred = 1;
+                //}
+                //else
+                //{
+                //    preferred = 0;
+                //}
 
-                cmd.Parameters.AddWithValue("@Prefered", preferred);
+                //cmd.Parameters.AddWithValue("@Prefered", preferred);
 
                 conn.Open();
 
