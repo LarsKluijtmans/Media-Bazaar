@@ -34,7 +34,7 @@ namespace MediaBazzar.Pages
         {
             pws = new List<PreferedWorkTime>();
             PlanningManagment planning = new PlanningManagment();
-            List<PreferedWorkTime> schedules = planning.GetPlanningForEmployee(LoginModel.emplContract.Employee.EmployeeID.ToString());
+            List<PreferedWorkTime> schedules = planning.GetPlanningForEmployee(LoginModel.employeeID.ToString());
             pws.AddRange(schedules);
         }
     }

@@ -1,7 +1,5 @@
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
-using MySql.Data;
-using MySql.Data.MySqlClient;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -24,7 +22,7 @@ namespace MediaBazzar.Pages
         public void OnGet()
         {
             updateporfile = new DBEmployeeManager();
-            Employee a = updateporfile.GetEmployeeByID(LoginModel.emplContract.Employee.EmployeeID);
+            Employee a = updateporfile.GetEmployeeByID(LoginModel.employeeID);
 
             employee.EmployeeID = a.EmployeeID;
             employee.FirstName = a.FirstName;
