@@ -10,6 +10,15 @@
 
             <hr />
 
+            <div class="input">
+                <label asp-for="week"> week:</label>
+                <input asp-for="week" name="week" />
+            </div>
+            <div class="input">
+                <label asp-for="year"> year:</label>
+                <input asp-for="year" name="year" />
+            </div>
+
             <table>
                 <tr>
                     <th>Days</th>
@@ -21,43 +30,43 @@
                         </th>
                     }
                 </tr>
-                    @for (int i = 0; i < 7; i++)
-                    {
-                            <tr>
-                                <td>
-                                    @Model.Day.ToString()
-                                    <p style="visibility:hidden"> @Model.DayIncrease()</p>
-                                </td>
+                @for (int i = 0; i < 7; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.Day.ToString()
+                            <p style="visibility:hidden"> @Model.DayIncrease()</p>
+                        </td>
 
 
-                                @if (@Model.IsWorkingToday().morning)
-                                {
-                                    <td style="background-color: green"> </td>
-                                }
-                                else
-                                {
-                                    <td style="background-color: red"> </td>
-                                }
+                        @if (@Model.IsWorkingToday().morning)
+                        {
+                            <td style="background-color: green"> </td>
+                        }
+                        else
+                        {
+                            <td style="background-color: red"> </td>
+                        }
 
-                                @if (@Model.IsWorkingToday().afternoon)
-                                {
-                                    <td style="background-color: green"> </td>
-                                }
-                                else
-                                {
-                                    <td style="background-color: red"> </td>
-                                }
-                                @if (@Model.IsWorkingToday().evening)
-                                {
-                                    <td style="background-color: green"> </td>
-                                }
-                                else
-                                {
-                                    <td style="background-color: red"> </td>
-                                }
-                            </tr>
-                      }
-                </table>
+                        @if (@Model.IsWorkingToday().afternoon)
+                        {
+                            <td style="background-color: green"> </td>
+                        }
+                        else
+                        {
+                            <td style="background-color: red"> </td>
+                        }
+                        @if (@Model.IsWorkingToday().evening)
+                        {
+                            <td style="background-color: green"> </td>
+                        }
+                        else
+                        {
+                            <td style="background-color: red"> </td>
+                        }
+                    </tr>
+                }
+            </table>
         </div>
     </div>
 </body>
