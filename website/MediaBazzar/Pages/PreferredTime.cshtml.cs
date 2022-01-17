@@ -23,9 +23,22 @@ namespace MediaBazaarWebsite.Pages
         [BindProperty]
         [Required]
         public bool Prefered { get; set; }
+        
+
         [BindProperty]
-        [Required]
-        public int Day { get; set; }
+        public string WeekDay { get; set; }
+        [BindProperty]
+        public string Morning { get; set; }
+        [BindProperty]
+        public string Afternoon { get; set; }
+        [BindProperty]
+        public string Evening { get; set; }
+        [BindProperty]
+        public string Preferred { get; set; }
+        [BindProperty]
+        public string LeastPreferred { get; set; }
+
+
         [BindProperty]
         [Required]
         public string Shift { get; set; }
@@ -62,7 +75,7 @@ namespace MediaBazaarWebsite.Pages
             PreferedWorkTimeManagement preferedWorkTime = new PreferedWorkTimeManagement();
             //foreach (PreferedWorkTime p in pwt)
             //{
-            //    preferedWorkTime.EditPreferedWorkTimeForEmployee(LoginModel.employeeID, p.Day,p.Shift, p.Prefered);
+            //    preferedWorkTime.EditPreferedWorkTimeForEmployee(LoginModel.employeeID, p.Day, p.Shift, p.Prefered);
             //}
         }
 
