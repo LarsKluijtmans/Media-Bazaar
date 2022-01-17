@@ -7,6 +7,7 @@ namespace ClassLibraryProject.Class
     public class RegisteredShift
     {
         //fields
+        private string department;
         private int year;
         private int week;
         private string day;
@@ -14,15 +15,20 @@ namespace ClassLibraryProject.Class
         private List<Employee> employees;
 
         //properties
-        public int Week
+        public string Department
         {
-            get { return week; }
-            set { week = value; }
+            get { return department; }
+            set { department = value; }
         }
         public int Year
         {
             get { return year; }
             set { year = value; }
+        }
+        public int Week
+        {
+            get { return week; }
+            set { week = value; }
         }
         public string Day
         {
@@ -41,8 +47,9 @@ namespace ClassLibraryProject.Class
         }
 
         //constructor
-        public RegisteredShift(int year, int week, string day, string shift)
+        public RegisteredShift(string department, int year, int week, string day, string shift)
         {
+            Department = department;
             Year = year;
             Week = week;
             Day = day;

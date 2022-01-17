@@ -1,18 +1,14 @@
 ﻿using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
-using ClassLibraryProject.dbClasses.AutoSchedule;
 using ClassLibraryProject.dbClasses.IDB;
-using ClassLibraryProject.dbClasses.IGetObject;
-using ClassLibraryProject.ManagmentClasses;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 
 namespace ClassLibraryProject.dbClasses
 {
-    public class DBRegisteredShift: IDBRegisteredShift
+    public class DBRegisteredShift : IDBRegisteredShift
     {
         public string GET_ALL_EMPLOYEES = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.Active = 1 AND c.Active = 1;";
 
@@ -57,18 +53,16 @@ namespace ClassLibraryProject.dbClasses
                     string shift = reader.GetString("Shift");
                     int employeeID = reader.GetInt32("EmployeeID");
 
-                    if(RegisteredShiftExist(year, week, day, shift) == true)
+                    Employee employee = GetEmployee(employeeID);
+                    if (employee != null)
                     {
-                        if (GetEmployee(employeeID) != null)
+                        if (RegisteredShiftExist(Department(employee), year, week, day, shift) == true)
                         {
-                            GetRegisteredShift(year, week, day, shift).Employees.Add(GetEmployee(employeeID));
+                            GetRegisteredShift(Department(employee), year, week, day, shift).Employees.Add(GetEmployee(employeeID));
                         }
-                    }
-                    else
-                    {
-                        if (GetEmployee(employeeID) != null)
+                        else
                         {
-                            registeredShift = new RegisteredShift(year, week, day, shift);
+                            registeredShift = new RegisteredShift(Department(employee), year, week, day, shift);
                             registeredShifts.Add(registeredShift);
                             registeredShift.Employees.Add(GetEmployee(employeeID));
                         }
@@ -94,7 +88,7 @@ namespace ClassLibraryProject.dbClasses
 
         public Employee GetEmployee(int id)
         {
-            foreach(Employee employee in employees)
+            foreach (Employee employee in employees)
             {
                 if (employee.EmployeeID == id)
                 {
@@ -171,7 +165,7 @@ namespace ClassLibraryProject.dbClasses
             }
         }
 
-        public bool RegisterEmployee(int year, int week, string day, string shift, int employeeID)
+        public bool RegisterEmployee(string department, int year, int week, string day, string shift, int employeeID)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -193,18 +187,16 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    if (RegisteredShiftExist(year, week, day, shift) == true)
+                    Employee employee = GetEmployee(employeeID);
+                    if (employee != null)
                     {
-                        if (GetEmployee(employeeID) != null)
+                        if (RegisteredShiftExist(department, year, week, day, shift) == true)
                         {
-                            GetRegisteredShift(year, week, day, shift).Employees.Add(GetEmployee(employeeID));
+                            GetRegisteredShift(department, year, week, day, shift).Employees.Add(GetEmployee(employeeID));
                         }
-                    }
-                    else
-                    {
-                        if (GetEmployee(employeeID) != null)
+                        else
                         {
-                            RegisteredShift registeredShift = new RegisteredShift(year, week, day, shift);
+                            RegisteredShift registeredShift = new RegisteredShift(department, year, week, day, shift);
                             registeredShifts.Add(registeredShift);
                             registeredShift.Employees.Add(GetEmployee(employeeID));
                         }
@@ -231,7 +223,7 @@ namespace ClassLibraryProject.dbClasses
 
             return false;
         }
-        public bool DeRegisterEmployee(int year, int week, string day, string shift, int employeeID)
+        public bool DeRegisterEmployee(string department, int year, int week, string day, string shift, int employeeID)
         {
             MySqlConnection conn = Utils.GetConnection();
 
@@ -253,7 +245,8 @@ namespace ClassLibraryProject.dbClasses
 
                 if (numCreatedRows > 0)
                 {
-                    GetRegisteredShift(year, week, day, shift).Employees.Remove(GetEmployee(employeeID));
+                    Employee employee = GetEmployee(employeeID);
+                    GetRegisteredShift(department, year, week, day, shift).Employees.Remove(employee);
                     return true;
                 }
                 return false;
@@ -277,21 +270,28 @@ namespace ClassLibraryProject.dbClasses
             return false;
         }
 
-
-        public RegisteredShift GetRegisteredShift(int year, int week, string day, string shift)
+        public string Department(Employee employee)
         {
-            foreach(RegisteredShift rs in registeredShifts)
+            foreach (Contract contract in employee.Contracts)
             {
-                if(rs.Year == year && rs.Week == week && rs.Day == day && rs.Shift == shift)
+                return contract.Department;
+            }
+            return "";
+        }
+        public RegisteredShift GetRegisteredShift(string department, int year, int week, string day, string shift)
+        {
+            foreach (RegisteredShift rs in registeredShifts)
+            {
+                if (rs.Department == department && rs.Year == year && rs.Week == week && rs.Day == day && rs.Shift == shift)
                 {
                     return rs;
                 }
             }
             return null;
         }
-        public bool RegisteredShiftExist(int year, int week, string day, string shift)
+        public bool RegisteredShiftExist(string department, int year, int week, string day, string shift)
         {
-            if(GetRegisteredShift(year, week, day, shift) != null)
+            if (GetRegisteredShift(department, year, week, day, shift) != null)
             {
                 return true;
             }

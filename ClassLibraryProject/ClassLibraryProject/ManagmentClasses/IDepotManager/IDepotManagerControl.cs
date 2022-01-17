@@ -24,9 +24,9 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         void GetAllRegisteredShift();
         bool RegisterEmployee(string department, int year, int week, string day, string shift, Employee employee);
         bool CheckAmount(string department, int year, int week, string day, string shift);
-        bool DeRegisterEmployee(int year, int week, string day, string shift, Employee employee);
-        RegisteredShift GetRegisteredShift(int year, int week, string day, string shift);
-        bool RegisteredEmployeeExist(int year, int week, string day, string shift, int employeeID);
+        bool DeRegisterEmployee(string department, int year, int week, string day, string shift, Employee employee);
+        RegisteredShift GetRegisteredShift(string department, int year, int week, string day, string shift);
+        bool RegisteredEmployeeExist(string department, int year, int week, string day, string shift, int employeeID);
 
         //preferred shift
         PreferredShift GetPreferredShift(string day, string shift);
