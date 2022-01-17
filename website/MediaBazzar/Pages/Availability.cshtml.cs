@@ -9,6 +9,8 @@ namespace MediaBazaarWebsite.Pages
 {
     public class AvailabilityModel : PageModel
     {
+        [BindProperty]
+        public DateTime Unavailable { get; set; }
         public void OnGet()
         {
         }
