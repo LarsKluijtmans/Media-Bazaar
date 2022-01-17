@@ -31,6 +31,8 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\bin\Debu
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\bin\Debug\netcoreapp3.1\MySqlBackupNet.DevartExpress.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.csproj.CopyComplete
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.FormLogin.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.FormOrderRestock.resources
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.Properties.Resources.resources
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\bin\Debug\netcoreapp3.1\AdminBackups.exe
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\bin\Debug\netcoreapp3.1\AdminBackups.deps.json
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\bin\Debug\netcoreapp3.1\AdminBackups.runtimeconfig.json
@@ -52,9 +54,9 @@ C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\bin\D
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\bin\Debug\netcoreapp3.1\ClassLibraryProject.dll
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\bin\Debug\netcoreapp3.1\ClassLibraryProject.pdb
-C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.csproj.AssemblyReference.cache
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.FormLogin.resources
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.MakeBackups.resources
+C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.Properties.Resources.resources
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.csproj.GenerateResource.cache
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.AssemblyInfoInputs.cache
@@ -64,5 +66,3 @@ C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\obj\D
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.dll
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.pdb
 C:\Users\csten\cbo3-1-soleil-lars-esther-mohammad\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.genruntimeconfig.cache
-C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.FormOrderRestock.resources
-C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\AdminBackups\obj\Debug\netcoreapp3.1\AdminBackups.Properties.Resources.resources
