@@ -51,25 +51,17 @@ namespace ClassLibraryProject.ManagmentClasses
 
         public bool CheckAmount(string department, int year, int week, string day, string shift)
         {
-            int amountRegistered = GetRegisteredShift(year, week, day, shift).Employees.Count;
-            int morningAmount = schedule.GetSchedule(department, year, week, day).MorningAmount;
-            int afternoonAmount = schedule.GetSchedule(department, year, week, day).AfternoonAmount;
-            int eveningAmount = schedule.GetSchedule(department, year, week, day).EveningAmount;
+            if(GetRegisteredShift(year, week, day, shift)!=null && schedule.GetSchedule(department, year, week, day) != null)
+            {
+                int amountRegistered = GetRegisteredShift(year, week, day, shift).Employees.Count;
+                int morningAmount = schedule.GetSchedule(department, year, week, day).MorningAmount;
+                int afternoonAmount = schedule.GetSchedule(department, year, week, day).AfternoonAmount;
+                int eveningAmount = schedule.GetSchedule(department, year, week, day).EveningAmount;
 
 
-            if (shift == "Morning")
-            {
-                if (morningAmount > amountRegistered)
+                if (shift == "Morning")
                 {
-                    return true;
-                }
-                return false;
-            }
-            else
-            {
-                if (shift == "Afternoon")
-                {
-                    if (afternoonAmount > amountRegistered)
+                    if (morningAmount > amountRegistered)
                     {
                         return true;
                     }
@@ -77,17 +69,29 @@ namespace ClassLibraryProject.ManagmentClasses
                 }
                 else
                 {
-                    if (shift == "Evening")
+                    if (shift == "Afternoon")
                     {
-                        if (eveningAmount > amountRegistered)
+                        if (afternoonAmount > amountRegistered)
                         {
                             return true;
                         }
                         return false;
                     }
+                    else
+                    {
+                        if (shift == "Evening")
+                        {
+                            if (eveningAmount > amountRegistered)
+                            {
+                                return true;
+                            }
+                            return false;
+                        }
+                    }
+                    return false;
                 }
-                return false;
             }
+            return false;
         }
         public RegisteredShift GetRegisteredShift(int year, int week, string day, string shift)
         {

@@ -12,19 +12,27 @@ namespace AdminBackups
 {
     public partial class FormOrderRestock : Form
     {
-        int id;
+        Restock r;
         IDepotManagerControl c;
-        public FormOrderRestock(int id, IDepotManagerControl control)
+        public FormOrderRestock(Restock restock, IDepotManagerControl control)
         {
             InitializeComponent();
 
-            this.id = id;
+            r = restock;
             c = control;
 
-            txtRestockID.Text = id.ToString();
+            txtRestockID.Text = restock.ID.ToString();
+            UpdateOrderInfoList();
         }
 
-
+        private void UpdateOrderInfoList()
+        {
+            lstOrderInfo.Items.Clear();
+            foreach(OrderInfo orderInfo in r.Product.OrderInfos)
+            {
+                lstOrderInfo.Items.Add(orderInfo);
+            }
+        }
         private void btnOrderRestock_Click(object sender, EventArgs e)
         {
             Object orderinfoObject = lstOrderInfo.SelectedItem;
@@ -36,13 +44,21 @@ namespace AdminBackups
             {
                 int amount = Convert.ToInt32(txtAmount.Text);
                 OrderInfo orderInfo = (OrderInfo)orderinfoObject;
-                if (c.OrderRestock(id, orderInfo, amount))
+
+                if(c.IsValid(orderInfo, amount) == false)
                 {
-                    Close();
+                    MessageBox.Show("Invalid Amount!");
                 }
                 else
                 {
-                    MessageBox.Show("Something went wrong!");
+                    if (c.OrderRestock(r.ID, orderInfo, amount))
+                    {
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went wrong!");
+                    }
                 }
             }
             catch (Exception)
