@@ -130,17 +130,22 @@ namespace ClassLibraryProject.dbClasses
                     string zipCode = reader.GetString(13);
                     string personalEmail = reader.GetString(14);
                     string jobTitle = reader.GetString(17);
+                    string department = reader.GetString("Department");
 
                     IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
 
                     if (jobTitle == "DEPOT EMPLOYEE")
                     {
                         employee = new DepotEmployee(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
+                        Contract contract = new Contract(department);
+                        employee.Contracts.Add(contract);
                         employees.Add(employee);
                     }
                     if (jobTitle == "SALES REPRESENTATIVE")
                     {
                         employee = new SalesRepresentative(employeeID, firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail, employeeManagerAll);
+                        Contract contract = new Contract(department);
+                        employee.Contracts.Add(contract);
                         employees.Add(employee);
                     }
                 }

@@ -49,6 +49,7 @@ namespace MediaBazzar.Pages
                     employeeID = user.EmployeeID;
                     var claims = new List<Claim>();
                     claims.Add(new Claim("username", user.Username));
+                    claims.Add(new Claim(ClaimTypes.Email, user.Email));
                     claims.Add(new Claim(ClaimTypes.NameIdentifier, user.EmployeeID.ToString()));
                     claims.Add(new Claim(ClaimTypes.Name, user.Username));
 

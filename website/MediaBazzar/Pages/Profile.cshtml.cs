@@ -1,58 +1,62 @@
 using ClassLibraryProject.Class;
 using ClassLibraryProject.ManagmentClasses;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ClassLibraryProject.ChildClasses;
 using System;
 using ClassLibraryProject;
+using System.Security.Claims;
+using ClassLibraryProject.dbClasses;
 
 namespace MediaBazzar.Pages
 {
     [Authorize]
     public class ProfileModel : PageModel
     {
-        [BindProperty]
-        public Admin employee { get; set; }
-        DBEmployeeManager updateporfile = new DBEmployeeManager();
+        public dbLoginManager dbLogin = new dbLoginManager();
 
         [BindProperty]
-        public string Password { get; set; }
+        public Employee Employee { get; set; }
 
-        public void OnGet()
+        [BindProperty]
+        public string FirstName { get; set; }
+        [BindProperty]
+        public string LastName { get; set; }
+        [BindProperty]
+        public string Email { get; set; }
+
+        public IActionResult OnGet()
         {
-            updateporfile = new DBEmployeeManager();
-            Employee a = updateporfile.GetEmployeeByID(LoginModel.employeeID);
+            // get current user
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
-            employee.EmployeeID = a.EmployeeID;
-            employee.FirstName = a.FirstName;
-            employee.LastName = a.LastName;
-            employee.PhoneNumber = a.PhoneNumber;
-            employee.Email = a.Email;
-            employee.City = a.City;
-            employee.BSN = a.BSN;
-            employee.Username = a.Username;
-            employee.Password = a.Password;
-            employee.ZipCode = a.ZipCode;
-            employee.Address = a.Address;
-            employee.DateOfBirth = a.DateOfBirth;
-            employee.PersonalEmail = a.PersonalEmail;
+            Employee = dbLogin.GetEmployeeByEmail(userEmail);
+             
+            if (Employee is DepotEmployee)
+            {
+                this.FirstName = Employee.FirstName;
+                this.LastName = Employee.LastName;
+                this.Email = Employee.Email;
+            }
+
+            return Page();
         }
-        public void OnPost()
+        public IActionResult OnPost()
         {
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
-            if (employee.Password == Password)
-            {
-                if (ModelState.IsValid)
-                {
-                    updateporfile = new DBEmployeeManager();
-                    updateporfile.UpdateOwnInfo(employee);
-                }
-            }
-            else
-            {
-                ViewData["Message"] = "Passwords not the same.";
-            }
+            Employee = dbLogin.GetEmployeeByEmail(userEmail);
+
+            Employee.FirstName = FirstName;
+            Employee.LastName = LastName;
+            Employee.Email = Email;
+
+            Employee.EmployeeManagerAll.UpdateOwnInfo(Employee);
+
+            return Page();
         }
 
     }
