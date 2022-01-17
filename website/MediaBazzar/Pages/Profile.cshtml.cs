@@ -58,9 +58,6 @@ namespace MediaBazzar.Pages
 
             Employee = (DepotEmployee)dbLogin.GetEmployeeByEmail(userEmail);
 
-            ViewData["Message"] = Employee.EmployeeID.ToString();
-
-
             return Page();
         }
         public IActionResult OnPost()
@@ -71,10 +68,26 @@ namespace MediaBazzar.Pages
 
             if (Employee != null)
             {
+                Employee.FirstName = FirstName;
+                Employee.LastName = LastName;
+                Employee.City = City;
+                Employee.PhoneNumber = PhoneNumber;
+                Employee.ZipCode = ZipCode;
                 Employee.Address = Address;
-                ViewData["Message"] = $"{Employee.EmployeeID} {Employee.Address}";
+                Employee.PersonalEmail = PersonalEmail;
+                Employee.Password = Password;
 
-                //Employee.EmployeeManagerAll.UpdateOwnInfo(Employee);
+                /*cmd.Parameters.AddWithValue("@FirstName", e.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", e.LastName);
+                cmd.Parameters.AddWithValue("@City", e.City);
+                cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
+                cmd.Parameters.AddWithValue("@StreetName", e.Address);
+                cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
+                cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
+                cmd.Parameters.AddWithValue("@Password", e.Password);*/
+                IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
+                employeeManagerAll.UpdateOwnInfo(Employee);
+
             } else
             {
                 ViewData["Message"] = "Error";
