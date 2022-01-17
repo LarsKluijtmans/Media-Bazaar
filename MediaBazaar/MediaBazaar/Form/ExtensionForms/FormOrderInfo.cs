@@ -172,11 +172,6 @@ namespace AdminBackups
                 return false;
             }
 
-            if (string.IsNullOrEmpty(tbxPurchasePrice.Text))
-            {
-                MessageBox.Show("Please enter a purchase price");
-                return false;
-            }
             try
             {
                 purchasePrice = Convert.ToDouble(tbxPurchasePrice.Text);

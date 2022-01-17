@@ -29,7 +29,6 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOfficeManager));
             this.Comapny = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -788,7 +787,6 @@ namespace AdminBackups
             this.ClientSize = new System.Drawing.Size(1154, 549);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.Comapny);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormOfficeManager";
             this.Text = "FormOfficeManager";
@@ -855,7 +853,6 @@ namespace AdminBackups
         private System.Windows.Forms.Label labCompanyID;
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox tbxSearchEmployee;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage WorkHours;
         private System.Windows.Forms.Button btnMakeExcelSheet;
@@ -883,5 +880,6 @@ namespace AdminBackups
         private System.Windows.Forms.ComboBox cbxDepartment;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.CheckBox rbColor;
+        public System.Windows.Forms.TextBox tbxSearchEmployee;
     }
 }

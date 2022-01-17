@@ -38,7 +38,15 @@ namespace AdminBackups
                 if (officeManager.EmployeeManagerOffice.DeleteEmployee(selectedEmployee))
                 {
                     var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
-                    formOfficeManager.ReadEmployees();
+                   
+                    if (formOfficeManager.tbxSearchEmployee.Text == "")
+                    {
+                        formOfficeManager.ReadEmployees();
+                    }
+                    else
+                    {
+                        formOfficeManager.UserSearchBar();
+                    }
 
                     this.Close();
                 }

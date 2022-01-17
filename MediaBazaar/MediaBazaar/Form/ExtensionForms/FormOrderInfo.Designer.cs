@@ -320,7 +320,7 @@ namespace AdminBackups
         private System.Windows.Forms.Button btnDeleteOrderInfo;
         private System.Windows.Forms.NumericUpDown tbxMinAmount;
         private System.Windows.Forms.NumericUpDown tbxMaxAmount;
-        private System.Windows.Forms.NumericUpDown tbxMultiples;
-        private System.Windows.Forms.TextBox tbxPurchasePrice;
+        public System.Windows.Forms.NumericUpDown tbxMultiples;
+        public System.Windows.Forms.TextBox tbxPurchasePrice;
     }
 }

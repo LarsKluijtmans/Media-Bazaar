@@ -53,7 +53,16 @@ namespace AdminBackups
             else if (dr == DialogResult.No)
             {
                 var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
-                formOfficeManager.ReadEmployees();
+
+                if (formOfficeManager.tbxSearchEmployee.Text == "")
+                {
+                    formOfficeManager.ReadEmployees();
+                }
+                else
+                {
+                    formOfficeManager.UserSearchBar();
+                }
+
 
                 this.Close();
             }
@@ -74,7 +83,16 @@ namespace AdminBackups
             else if (dr == DialogResult.No)
             {
                 var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
-                formOfficeManager.ReadEmployees();
+
+                if (formOfficeManager.tbxSearchEmployee.Text == "")
+                {
+                    formOfficeManager.ReadEmployees();
+                }
+                else
+                {
+                    formOfficeManager.UserSearchBar();
+                }
+
 
                 this.Close();
             }
@@ -182,7 +200,7 @@ namespace AdminBackups
 
             foreach (Employee e in officeManager.EmployeeManagerOffice.GetAllEmployees())
             {
-                if (e.PersonalEmail == tbxPersonalEmail.Text)
+                if (e.PersonalEmail == tbxPersonalEmail.Text && e.EmployeeID != employee.EmployeeID )
                 {
                     MessageBox.Show("This PersonalEmail is already in use.");
                     return false;

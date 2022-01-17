@@ -94,7 +94,7 @@ namespace AdminBackups
             lstEmployeesWorkingToday.Items.Clear();
             lstEmployeesWorkingToday.Items.Add("Morning:");
             lstEmployeesWorkingToday.Items.Add("----------------");
-            if (c.GetRegisteredShift(year, week, day, "Moring") != null)
+            if (c.GetRegisteredShift(year, week, day, "Morning") != null)
             {
                 foreach (Employee employee in c.GetRegisteredShift(year, week, day, "Morning").Employees)
                 {
@@ -138,23 +138,7 @@ namespace AdminBackups
         //OVERVIEW-----------------------------------------------------------------------
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if (orderRestock == null)
-            {
-                login.Show();
-                Close();
-            }
-            else
-            {
-                if (orderRestock.Visible)
-
-                {
-                    orderRestock.Close();
-                    login.Show();
-                    Close();
-                }
-                login.Show();
-                Close();
-            }
+           Close();   
         }
 
         protected override void OnClosed(EventArgs e)
