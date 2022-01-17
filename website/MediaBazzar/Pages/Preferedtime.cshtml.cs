@@ -36,7 +36,7 @@ namespace MediaBazaarWebsite.Pages
 
         public List<PreferedWorkTime> pwt { get; set; }
 
-        int currecntEmployeeID = LoginModel.emplContract.Employee.EmployeeID;
+        int currecntEmployeeID = LoginModel.employeeID;
 
         private CookieOptions cookieOptions = new CookieOptions
         {

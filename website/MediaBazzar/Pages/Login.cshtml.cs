@@ -30,7 +30,7 @@ namespace MediaBazzar.Pages
 
         private dbLoginManager dbLogin = new dbLoginManager();
 
-        public static Contract emplContract;
+        public static int employeeID;
 
         public void OnGet(string returnUrl)
         {
@@ -46,6 +46,7 @@ namespace MediaBazzar.Pages
                 var user = dbLogin.checkLogin(Username , Password);
                 if (user != null)
                 {
+                    employeeID = user.EmployeeID;
                     var claims = new List<Claim>();
                     claims.Add(new Claim("username", user.Username));
                     claims.Add(new Claim(ClaimTypes.NameIdentifier, user.EmployeeID.ToString()));
