@@ -29,12 +29,10 @@ namespace AdminBackups
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDepotManager));
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
             this.txtPlanningYear = new System.Windows.Forms.NumericUpDown();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.cbDepartments = new System.Windows.Forms.ComboBox();
             this.btnAutoSchedule = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
@@ -91,6 +89,9 @@ namespace AdminBackups
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanningYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
@@ -129,8 +130,10 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.label7);
             this.tabPlanning.Controls.Add(this.txtPlanningYear);
             this.tabPlanning.Controls.Add(this.progressBar1);
+            this.tabPlanning.Controls.Add(this.comboBox1);
             this.tabPlanning.Controls.Add(this.cbDepartments);
             this.tabPlanning.Controls.Add(this.btnAutoSchedule);
             this.tabPlanning.Controls.Add(this.label28);
@@ -148,7 +151,7 @@ namespace AdminBackups
             this.tabPlanning.Location = new System.Drawing.Point(4, 30);
             this.tabPlanning.Name = "tabPlanning";
             this.tabPlanning.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPlanning.Size = new System.Drawing.Size(1051, 529);
+            this.tabPlanning.Size = new System.Drawing.Size(1051, 530);
             this.tabPlanning.TabIndex = 11;
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
@@ -176,13 +179,6 @@ namespace AdminBackups
             0});
             this.txtPlanningYear.ValueChanged += new System.EventHandler(this.txtPlanningYear_ValueChanged);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(588, 405);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(436, 23);
-            this.progressBar1.TabIndex = 82;
-            // 
             // cbDepartments
             // 
             this.cbDepartments.FormattingEnabled = true;
@@ -195,7 +191,7 @@ namespace AdminBackups
             // btnAutoSchedule
             // 
             this.btnAutoSchedule.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAutoSchedule.Location = new System.Drawing.Point(604, 452);
+            this.btnAutoSchedule.Location = new System.Drawing.Point(602, 442);
             this.btnAutoSchedule.Name = "btnAutoSchedule";
             this.btnAutoSchedule.Size = new System.Drawing.Size(405, 61);
             this.btnAutoSchedule.TabIndex = 80;
@@ -266,7 +262,7 @@ namespace AdminBackups
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 367);
+            this.label4.Location = new System.Drawing.Point(33, 371);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(151, 21);
             this.label4.TabIndex = 13;
@@ -275,7 +271,7 @@ namespace AdminBackups
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(588, 27);
+            this.label3.Location = new System.Drawing.Point(588, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 21);
             this.label3.TabIndex = 12;
@@ -293,7 +289,7 @@ namespace AdminBackups
             // btnRemoveFromSchedule
             // 
             this.btnRemoveFromSchedule.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemoveFromSchedule.Location = new System.Drawing.Point(453, 485);
+            this.btnRemoveFromSchedule.Location = new System.Drawing.Point(453, 489);
             this.btnRemoveFromSchedule.Name = "btnRemoveFromSchedule";
             this.btnRemoveFromSchedule.Size = new System.Drawing.Size(105, 28);
             this.btnRemoveFromSchedule.TabIndex = 10;
@@ -306,9 +302,9 @@ namespace AdminBackups
             this.lstEmpCanWork.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmpCanWork.FormattingEnabled = true;
             this.lstEmpCanWork.ItemHeight = 17;
-            this.lstEmpCanWork.Location = new System.Drawing.Point(588, 52);
+            this.lstEmpCanWork.Location = new System.Drawing.Point(588, 98);
             this.lstEmpCanWork.Name = "lstEmpCanWork";
-            this.lstEmpCanWork.Size = new System.Drawing.Size(436, 327);
+            this.lstEmpCanWork.Size = new System.Drawing.Size(436, 276);
             this.lstEmpCanWork.TabIndex = 8;
             this.lstEmpCanWork.DoubleClick += new System.EventHandler(this.lstEmpCanWork_DoubleClick);
             // 
@@ -317,7 +313,7 @@ namespace AdminBackups
             this.lstEmpEnlisted.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmpEnlisted.FormattingEnabled = true;
             this.lstEmpEnlisted.ItemHeight = 17;
-            this.lstEmpEnlisted.Location = new System.Drawing.Point(33, 391);
+            this.lstEmpEnlisted.Location = new System.Drawing.Point(33, 395);
             this.lstEmpEnlisted.Name = "lstEmpEnlisted";
             this.lstEmpEnlisted.Size = new System.Drawing.Size(525, 89);
             this.lstEmpEnlisted.TabIndex = 7;
@@ -729,7 +725,7 @@ namespace AdminBackups
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1059, 563);
+            this.tabControl1.Size = new System.Drawing.Size(1059, 564);
             this.tabControl1.TabIndex = 0;
             // 
             // tabOverview
@@ -809,14 +805,37 @@ namespace AdminBackups
             this.dgOverviewSchedule.TabIndex = 13;
             this.dgOverviewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewSchedule_CellDoubleClick);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(588, 34);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(436, 29);
+            this.comboBox1.TabIndex = 84;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(588, 395);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(436, 23);
+            this.progressBar1.TabIndex = 82;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(588, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(227, 21);
+            this.label7.TabIndex = 85;
+            this.label7.Text = "Days that still need employees: ";
+            // 
             // FormDepotManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 604);
+            this.ClientSize = new System.Drawing.Size(1125, 601);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormDepotManager";
             this.Text = "DepotManager";
@@ -907,5 +926,7 @@ namespace AdminBackups
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.NumericUpDown txtYear;
         private System.Windows.Forms.NumericUpDown txtPlanningYear;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

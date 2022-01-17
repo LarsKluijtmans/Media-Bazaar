@@ -1,11 +1,9 @@
 ﻿using ClassLibraryProject.Class;
-using MySql.Data.MySqlClient;
-using System;
-using System.Data;
-using System.Collections.Generic;
+using ClassLibraryProject.dbClasses.IDB;
 using ClassLibraryProject.ManagmentClasses.IDepotEmployee;
 using ClassLibraryProject.ManagmentClasses.ISalesEmployee;
-using ClassLibraryProject.dbClasses.IDB;
+using System;
+using System.Collections.Generic;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
@@ -47,14 +45,15 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             if (ReshelfByIDExist(id))
             {
-                if (db.CompleteReshelf(id))
+                if (CheckAmount(product, GetReshelfByID(id).AmountRequested) == true)
                 {
-                    if(CheckAmount(product, GetReshelfByID(id).AmountRequested) == true)
+                    int newAmountDepot = product.AmountInDepot - GetReshelfByID(id).AmountRequested;
+                    int newAmountStore = product.AmountInStore + GetReshelfByID(id).AmountRequested;
+                    db.ChangeAmountDepot(product, newAmountDepot);
+                    db.ChangeAmountStore(product, newAmountStore);
+
+                    if (db.CompleteReshelf(id))
                     {
-                        int newAmountDepot = product.AmountInDepot - GetReshelfByID(id).AmountRequested;
-                        int newAmountStore = product.AmountInStore + GetReshelfByID(id).AmountRequested;
-                        db.ChangeAmountDepot(product, newAmountDepot);
-                        db.ChangeAmountStore(product, newAmountStore);
 
                         return true;
                     }
@@ -100,7 +99,7 @@ namespace ClassLibraryProject.ManagmentClasses
         //check
         public bool CheckAmount(Product product, int amount)
         {
-            if(product.AmountInDepot > amount)
+            if (product.AmountInDepot > amount)
             {
                 return true;
             }

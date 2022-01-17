@@ -182,8 +182,12 @@ namespace AdminBackups
             {
                 int restockID = Convert.ToInt32(txtRestockID.Text);
 
-                FormOrderRestock orderRestock = new FormOrderRestock(restockID, c);
-                orderRestock.Show();
+                if(c.GetRestockByID(restockID)!= null)
+                {
+                    Restock restock = c.GetRestockByID(restockID);
+                    FormOrderRestock orderRestock = new FormOrderRestock(restock, c);
+                    orderRestock.Show();
+                }
             }
             catch
             {
@@ -668,7 +672,7 @@ namespace AdminBackups
 
 
         //Update schedule
-        
-        
+
+
     }
 }

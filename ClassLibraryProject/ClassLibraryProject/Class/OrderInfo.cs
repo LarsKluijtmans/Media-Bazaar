@@ -66,7 +66,7 @@
         }
         public override string ToString()
         {
-            return ID.ToString();
+            return ID.ToString() +": "+ Supplier.Name;
         }
     }
 }

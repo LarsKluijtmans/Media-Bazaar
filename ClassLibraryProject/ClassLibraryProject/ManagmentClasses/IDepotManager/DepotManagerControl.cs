@@ -22,6 +22,10 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         }
 
         //restock
+        public Restock GetRestockByID(int id)
+        {
+            return restock.GetRestockByID(id);
+        }
         public List<Restock> GetRestockRequests()
         {
             return restock.GetRestockRequests();
