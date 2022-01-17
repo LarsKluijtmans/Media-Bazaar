@@ -88,6 +88,29 @@ namespace AdminBackups
 
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
+        protected override void OnClosed(EventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i < Application.OpenForms.OfType<FormViewProduct>().Count(); i++)
+                {
+                    var FormViewProduct = Application.OpenForms.OfType<FormViewProduct>().FirstOrDefault();
+                    if (FormViewProduct != null)
+                    {
+                        FormViewProduct.Close();
+                    }
+                }
+            }
+            catch { }
+
+            var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
+            logout.Show();
+        }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
 
 
         //OVERVIEW-------------------------------------------------------------------------
@@ -98,10 +121,6 @@ namespace AdminBackups
         private void dgProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             
-        }
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            Close();
         }
         private void lstEmployeesWorkingToday_MouseDoubleClick(object sender, MouseEventArgs e)
         {
