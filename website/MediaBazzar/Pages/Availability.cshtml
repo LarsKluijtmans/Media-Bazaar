@@ -8,6 +8,7 @@
         <div class="availability-left">
             <form class="availability-form" method="post">
                 <h2>Select the day you are unavailable</h2>
+                <h2>@ViewData["Message"]</h2>
                 <div class="input">
                     <label asp-for="Unavailable">Unavailable Date:</label>
                     <input asp-for="Unavailable" type="datetime-local" name="Unavailable" />
@@ -16,7 +17,7 @@
             </form>
         </div>
         <div class="availability-right">
-            <h2>Work Preference:</h2>
+            <h2>Unavailable days:</h2>
             <table class="availability-table">
                 
             </table>

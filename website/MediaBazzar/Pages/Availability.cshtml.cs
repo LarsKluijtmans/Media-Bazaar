@@ -28,7 +28,7 @@ namespace MediaBazaarWebsite.Pages
 
             Employee = dbLogin.GetEmployeeByEmail(userEmail);
         }
-        public void OnPost()
+        public IActionResult OnPost()
         {
             // get current user
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
@@ -37,13 +37,21 @@ namespace MediaBazaarWebsite.Pages
 
             /* Week, Day and Year based on entered date */
             int weekNumber = GetWeekOfYear(Unavailable);
-            int day = Convert.ToInt32(Unavailable.DayOfWeek);
+            string day = Unavailable.DayOfWeek.ToString();
             int year = Unavailable.Year;
 
+            /* Create Unavailability */
+            Unavailability unavailability = new Unavailability(year, weekNumber, day, Employee);
+
             /* Add Unavailability to database */
+            IAvailabilityManager availabilityManager = new AvailabilityManager();
+            
+            if (availabilityManager.EnterAvailability(unavailability))
+            {
+                ViewData["Message"] = "Unavailability Entered";
+            }
 
-
-
+            return Page();
         }
         public int GetWeekOfYear(DateTime time)
         {

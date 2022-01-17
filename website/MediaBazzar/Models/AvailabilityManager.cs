@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibraryProject.Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,9 +13,9 @@ namespace MediaBazaarWebsite
         {
             DBAvailabilityManager = new DBAvailabilityManager();
         }
-        public bool EnterAvailability()
+        public bool EnterAvailability(Unavailability u)
         {
-            return DBAvailabilityManager.EnterAvailability();
+            return DBAvailabilityManager.EnterAvailability(u);
         }
     }
 }
