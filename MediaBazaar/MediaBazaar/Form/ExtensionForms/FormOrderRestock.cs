@@ -27,8 +27,9 @@ namespace AdminBackups
             try
             {
                 int amount = Convert.ToInt32(txtAmount.Text);
-                if(c.OrderRestock(id, ))
+               // if (c.OrderRestock(id, '')) ;
             }
+            catch{ }
         }
     }
 }

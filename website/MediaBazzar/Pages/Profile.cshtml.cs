@@ -24,19 +24,26 @@ namespace MediaBazzar.Pages
             updateporfile = new DBEmployeeManager();
             Employee a = updateporfile.GetEmployeeByID(LoginModel.employeeID);
 
-            employee.EmployeeID = a.EmployeeID;
-            employee.FirstName = a.FirstName;
-            employee.LastName = a.LastName;
-            employee.PhoneNumber = a.PhoneNumber;
-            employee.Email = a.Email;
-            employee.City = a.City;
-            employee.BSN = a.BSN;
-            employee.Username = a.Username;
-            employee.Password = a.Password;
-            employee.ZipCode = a.ZipCode;
-            employee.Address = a.Address;
-            employee.DateOfBirth = a.DateOfBirth;
-            employee.PersonalEmail = a.PersonalEmail;
+            try
+            {
+                employee = new Admin();
+
+                employee.EmployeeID = a.EmployeeID;
+                employee.FirstName = a.FirstName;
+                employee.LastName = a.LastName;
+                employee.PhoneNumber = a.PhoneNumber;
+                employee.Email = a.Email;
+                employee.City = a.City;
+                employee.BSN = a.BSN;
+                employee.Username = a.Username;
+                employee.Password = a.Password;
+                employee.ZipCode = a.ZipCode;
+                employee.Address = a.Address;
+                employee.DateOfBirth = a.DateOfBirth;
+                employee.PersonalEmail = a.PersonalEmail;
+            }
+            catch
+            { }
         }
         public void OnPost()
         {
