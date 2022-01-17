@@ -30,18 +30,42 @@ namespace AdminBackups
         {
             try
             {
-                var FormNewProduct = Application.OpenForms.OfType<FormNewProduct>().FirstOrDefault();
-                if (FormNewProduct != null)
+                for (int i = 0; i < Application.OpenForms.OfType<FormNewProduct>().Count(); i++)
                 {
-                    FormNewProduct.Close();
-                }
-                var FormViewProduct = Application.OpenForms.OfType<FormViewProduct>().FirstOrDefault();
-                if (FormViewProduct != null)
-                {
-                    FormViewProduct.Close();
+                    var FormNewProduct = Application.OpenForms.OfType<FormNewProduct>().FirstOrDefault();
+                    if (FormNewProduct != null)
+                    {
+                        FormNewProduct.Close();
+                    }
                 }
             }
-            catch {  }
+            catch { }
+
+            try
+            {
+                for (int i = 0; i < Application.OpenForms.OfType<FormViewProduct>().Count(); i++)
+                {
+                    var FormViewProduct = Application.OpenForms.OfType<FormViewProduct>().FirstOrDefault();
+                    if (FormViewProduct != null)
+                    {
+                        FormViewProduct.Close();
+                    }
+                }
+            }
+            catch { }
+
+            try
+            {
+                for (int i = 0; i < Application.OpenForms.OfType<FormOrderInfo>().Count(); i++)
+                {
+                    var FormOrderInfo = Application.OpenForms.OfType<FormOrderInfo>().FirstOrDefault();
+                    if (FormOrderInfo != null)
+                    {
+                        FormOrderInfo.Close();
+                    }
+                }
+            }
+            catch { }
 
             var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
             logout.Show();
@@ -108,7 +132,6 @@ namespace AdminBackups
                 formViewProduct.Show();
             }
         }
-
         private void tbProductSearch_TextChanged(object sender, EventArgs e)
         {
             string search = tbProductSearch.Text;
@@ -123,12 +146,10 @@ namespace AdminBackups
                 ReadProducts();
             }
         }
-
         private void btnCreateProduct_Click(object sender, EventArgs e)
         {
             CreateProduct();
         }
-
         private void bntUpdateProduct_Click(object sender, EventArgs e)
         {
             UpdateProduct();

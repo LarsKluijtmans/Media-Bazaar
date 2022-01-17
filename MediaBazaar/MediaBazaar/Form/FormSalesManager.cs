@@ -59,15 +59,26 @@ namespace AdminBackups
         {
             try
             {
-                var FormNewProduct = Application.OpenForms.OfType<FormNewProduct>().FirstOrDefault();
-                if (FormNewProduct != null)
+                for (int i = 0; i < Application.OpenForms.OfType<FormOrderInfo>().Count(); i++)
                 {
-                    FormNewProduct.Close();
+                    var orderInfo = Application.OpenForms.OfType<FormOrderInfo>().FirstOrDefault();
+                    if (orderInfo != null)
+                    {
+                        orderInfo.Close();
+                    }
                 }
-                var FormViewProduct = Application.OpenForms.OfType<FormViewProduct>().FirstOrDefault();
-                if (FormViewProduct != null)
+            }
+            catch { }
+
+            try
+            {
+                for (int i = 0; i < Application.OpenForms.OfType<FormViewProduct>().Count(); i++)
                 {
-                    FormViewProduct.Close();
+                    var viewProduct = Application.OpenForms.OfType<FormViewProduct>().FirstOrDefault();
+                    if (viewProduct != null)
+                    {
+                        viewProduct.Close();
+                    }
                 }
             }
             catch { }
@@ -128,7 +139,7 @@ namespace AdminBackups
         /* Products */
         private void dgProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
         public void ReadNewProducts()
         {

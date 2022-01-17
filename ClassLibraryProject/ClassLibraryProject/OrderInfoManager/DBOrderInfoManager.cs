@@ -136,9 +136,9 @@ namespace ClassLibraryProject
                 cmd.Parameters.AddWithValue("@Multiples", oi.Multiples);
                 cmd.Parameters.AddWithValue("@PurchasePrice", oi.PurchasePrice);
 
-                int numCreatedRows = cmd.ExecuteNonQuery();
+                int numUpdatedRows = cmd.ExecuteNonQuery();
 
-                if (numCreatedRows == 1)
+                if (numUpdatedRows == 1)
                 {
                     return true;
                 }
