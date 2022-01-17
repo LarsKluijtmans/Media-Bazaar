@@ -35,7 +35,6 @@
                     }
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin") && !User.IsInRole("Manager"))
                     {
-                        <li><a asp-area="" asp-page="/Admin">ADMIN</a></li>
                         <li><a asp-area="" asp-page="/Profile">PROFILE</a></li>
                         <li><a asp-area="" asp-page="/Logout" asp-page-handler="Logout">LOGOUT</a></li>
                     }

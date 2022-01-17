@@ -17,5 +17,10 @@ namespace MediaBazaarWebsite
         {
             return DBAvailabilityManager.EnterAvailability(u);
         }
+
+        public List<Unavailability> ReadAvailability(Employee e)
+        {
+            return DBAvailabilityManager.ReadAvailability(e);
+        }
     }
 }
