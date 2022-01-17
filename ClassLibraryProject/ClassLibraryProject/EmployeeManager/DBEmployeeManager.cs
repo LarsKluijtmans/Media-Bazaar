@@ -30,8 +30,8 @@ namespace ClassLibraryProject
         public string GET_EMPLOYEE_CONTRACTS = "SELECT * FROM Contract WHERE EmployeeID = @EmployeeID";
         public string SEARCH_EMPLOYEE = "SELECT * FROM Employee as e INNER JOIN Contract as c on e.EmployeeID = c.EmployeeID WHERE e.FirstName LIKE @Search  AND e.Active = @Active OR e.LastName LIKE @Search AND e.Active = @Active GROUP BY e.FirstName, e.LastName LIMIT 100;";
 
-        public string UPDATE_OWN_INFO = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName WHERE EmployeeID = @EmployeeID;";
-        //public string UPDATE_OWN_INFO = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode, PersonalEmail = @PersonalEmail, Password = @Password WHERE EmployeeID = @EmployeeID;";
+        //public string UPDATE_OWN_INFO = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName WHERE EmployeeID = @EmployeeID;";
+        public string UPDATE_OWN_INFO = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, City = @City, PhoneNumber = @PhoneNumber, StreetName = @StreetName, ZipCode = @ZipCode, PersonalEmail = @PersonalEmail, Password = @Password WHERE EmployeeID = @EmployeeID;";
         public int AmountOfOfficeManagers()
         {
             MySqlConnection conn = Utils.GetConnection();
@@ -578,12 +578,12 @@ namespace ClassLibraryProject
 
                 cmd.Parameters.AddWithValue("@FirstName", e.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", e.LastName);
-                //cmd.Parameters.AddWithValue("@City", e.City);
-                //cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
-                //cmd.Parameters.AddWithValue("@StreetName", e.Address);
-                //cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
-                //cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
-                //cmd.Parameters.AddWithValue("@Password", e.Password);
+                cmd.Parameters.AddWithValue("@City", e.City);
+                cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
+                cmd.Parameters.AddWithValue("@StreetName", e.Address);
+                cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
+                cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
+                cmd.Parameters.AddWithValue("@Password", e.Password);
 
                 int numCreatedRows = cmd.ExecuteNonQuery();
             }

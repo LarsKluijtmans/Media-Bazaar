@@ -30,8 +30,6 @@ namespace MediaBazzar.Pages
 
         private dbLoginManager dbLogin = new dbLoginManager();
 
-        public static int employeeID;
-
         public void OnGet(string returnUrl)
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -44,9 +42,10 @@ namespace MediaBazzar.Pages
             if (ModelState.IsValid)
             {
                 var user = dbLogin.checkLogin(Username , Password);
+
+
                 if (user != null)
                 {
-                    employeeID = user.EmployeeID;
                     var claims = new List<Claim>();
                     claims.Add(new Claim("username", user.Username));
                     claims.Add(new Claim(ClaimTypes.Email, user.Email));

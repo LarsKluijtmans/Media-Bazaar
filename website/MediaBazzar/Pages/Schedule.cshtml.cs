@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Security.Claims;
 using ClassLibrary1;
+using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses;
 using ClassLibraryProject.Enum;
@@ -63,8 +64,8 @@ namespace MediaBazzar.Pages
             // on get
             pws = new List<PreferedWorkTime>();
             PlanningManagment planning = new PlanningManagment();
-            List<PreferedWorkTime> schedules = planning.GetPlanningForEmployee(LoginModel.employeeID.ToString());
-            pws.AddRange(schedules);
+            //List<PreferedWorkTime> schedules = planning.GetPlanningForEmployee(LoginModel.employeeID.ToString());
+            //pws.AddRange(schedules);
         }
 
 
@@ -116,7 +117,7 @@ namespace MediaBazzar.Pages
                     if (reader[0].ToString() == "Afternoon")
                     { WorkingToday.afternoon = true; }
                     if (reader[0].ToString() == "Evening")
-                    { WorkingToday.evening = true; }
+                    { WorkingToday.evening = true;                    }
 
                 }
             }

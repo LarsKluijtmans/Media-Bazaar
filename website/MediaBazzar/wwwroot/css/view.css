@@ -560,3 +560,18 @@ action {
 * {
     box-sizing: border-box;
 }
+
+
+/*Scheudle*/
+.Form-Schedule {
+    flex-basis: 65%;
+    margin: 50px 30px;
+    position: sticky;
+    padding: 80px 40px 40px;
+    text-align: center;
+    background: #73CEF0;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    height: 60%;
+}

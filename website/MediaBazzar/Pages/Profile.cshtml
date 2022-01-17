@@ -15,6 +15,7 @@
             {
                 <h2>@error</h2>
             }
+            <h2>@ViewData["Message"]</h2>
             <div class="sub-form">
                 <div class="input">
                     <label asp-for="Employee.FirstName"> First Name*:</label>
@@ -45,6 +46,10 @@
                 <div class="input">
                     <label asp-for="Employee.Address"> Address*:</label>
                     <input asp-for="Employee.Address" type="text" name="Address" />
+                </div>
+                <div class="input">
+                    <label asp-for="Employee.PhoneNumber"> PhoneNumber*:</label>
+                    <input asp-for="Employee.PhoneNumber" type="text" name="PhoneNumber" />
                 </div>
             </div>
             <div class="sub-form">

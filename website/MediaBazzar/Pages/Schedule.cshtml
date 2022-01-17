@@ -25,56 +25,57 @@
                 </div>
             </form>
 
-            <hr />
-
-            <table>
-                <tr>
-                    <th>Days</th>
-                    @for (int i = 0; i < 3; i++)
-                    {
-                        <th>
-                            @Model.Shift.ToString()
-                            <p style="visibility:hidden"> @Model.ShiftIncrease()</p>
-                        </th>
-                    }
-                </tr>
-                @for (int i = 0; i < 7; i++)
-                {
+            <div class="Form-Schedule">
+                <table class="pwt-preference">
                     <tr>
-                        <td>
-                            @Model.Day.ToString()
-                            <p style="visibility:hidden"> @Model.DayIncrease()</p>
-                        </td>
-
-
-                        @if (@Model.IsWorkingToday().morning)
+                        <th>Days</th>
+                        @for (int i = 0; i < 3; i++)
                         {
-                            <td style="background-color: green"> </td>
-                        }
-                        else
-                        {
-                            <td style="background-color: red"> </td>
-                        }
-
-                        @if (@Model.IsWorkingToday().afternoon)
-                        {
-                            <td style="background-color: green"> </td>
-                        }
-                        else
-                        {
-                            <td style="background-color: red"> </td>
-                        }
-                        @if (@Model.IsWorkingToday().evening)
-                        {
-                            <td style="background-color: green"> </td>
-                        }
-                        else
-                        {
-                            <td style="background-color: red"> </td>
+                            <th>
+                                @Model.Shift.ToString()
+                                <p style="visibility:hidden"> @Model.ShiftIncrease()</p>
+                            </th>
                         }
                     </tr>
-                }
-            </table>
+                    @for (int i = 0; i < 7; i++)
+                    {
+                        <tr>
+                            <td>
+                                @Model.Day.ToString()
+                            </td>
+
+
+                            @if (@Model.IsWorkingToday().morning)
+                            {
+                                <td style="background-color: green"> </td>
+                            }
+                            else
+                            {
+                                <td style="background-color: red"> </td>
+                            }
+
+                            @if (@Model.IsWorkingToday().afternoon)
+                            {
+                                <td style="background-color: green"> </td>
+                            }
+                            else
+                            {
+                                <td style="background-color: red"> </td>
+                            }
+                            @if (@Model.IsWorkingToday().evening)
+                            {
+                                <td style="background-color: green"> </td>
+                            }
+                            else
+                            {
+                                <td style="background-color: red"> </td>
+                            }
+
+                            <p style="visibility:hidden"> @Model.DayIncrease()</p>
+                        </tr>
+                    }
+                </table>
+                </div>
+            </div>
         </div>
-    </div>
 </body>
