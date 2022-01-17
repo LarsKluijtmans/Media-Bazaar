@@ -32,7 +32,10 @@ namespace AdminBackups
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtPlanningYear = new System.Windows.Forms.NumericUpDown();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cbDepartments = new System.Windows.Forms.ComboBox();
             this.btnAutoSchedule = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
@@ -83,15 +86,13 @@ namespace AdminBackups
             this.label15 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabOverview = new System.Windows.Forms.TabPage();
+            this.cbOverviewDepartment = new System.Windows.Forms.ComboBox();
             this.dgOverviewRestock = new System.Windows.Forms.DataGridView();
             this.lstEmployeesWorkingToday = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label7 = new System.Windows.Forms.Label();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanningYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
@@ -156,6 +157,15 @@ namespace AdminBackups
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(588, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(227, 21);
+            this.label7.TabIndex = 85;
+            this.label7.Text = "Days that still need employees: ";
+            // 
             // txtPlanningYear
             // 
             this.txtPlanningYear.Location = new System.Drawing.Point(461, 34);
@@ -178,6 +188,21 @@ namespace AdminBackups
             0,
             0});
             this.txtPlanningYear.ValueChanged += new System.EventHandler(this.txtPlanningYear_ValueChanged);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(588, 395);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(436, 23);
+            this.progressBar1.TabIndex = 82;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(588, 34);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(436, 29);
+            this.comboBox1.TabIndex = 84;
             // 
             // cbDepartments
             // 
@@ -334,7 +359,7 @@ namespace AdminBackups
             this.tabSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabSchedule.Name = "tabSchedule";
             this.tabSchedule.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabSchedule.Size = new System.Drawing.Size(1051, 529);
+            this.tabSchedule.Size = new System.Drawing.Size(1051, 530);
             this.tabSchedule.TabIndex = 0;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
@@ -553,7 +578,7 @@ namespace AdminBackups
             this.tabRestock.Location = new System.Drawing.Point(4, 30);
             this.tabRestock.Name = "tabRestock";
             this.tabRestock.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRestock.Size = new System.Drawing.Size(1051, 529);
+            this.tabRestock.Size = new System.Drawing.Size(1051, 530);
             this.tabRestock.TabIndex = 5;
             this.tabRestock.Text = "Restock";
             this.tabRestock.UseVisualStyleBackColor = true;
@@ -730,6 +755,7 @@ namespace AdminBackups
             // 
             // tabOverview
             // 
+            this.tabOverview.Controls.Add(this.cbOverviewDepartment);
             this.tabOverview.Controls.Add(this.dgOverviewRestock);
             this.tabOverview.Controls.Add(this.lstEmployeesWorkingToday);
             this.tabOverview.Controls.Add(this.label12);
@@ -739,10 +765,19 @@ namespace AdminBackups
             this.tabOverview.Location = new System.Drawing.Point(4, 30);
             this.tabOverview.Name = "tabOverview";
             this.tabOverview.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOverview.Size = new System.Drawing.Size(1051, 529);
+            this.tabOverview.Size = new System.Drawing.Size(1051, 530);
             this.tabOverview.TabIndex = 12;
             this.tabOverview.Text = "Overview";
             this.tabOverview.UseVisualStyleBackColor = true;
+            // 
+            // cbOverviewDepartment
+            // 
+            this.cbOverviewDepartment.FormattingEnabled = true;
+            this.cbOverviewDepartment.Location = new System.Drawing.Point(729, 27);
+            this.cbOverviewDepartment.Name = "cbOverviewDepartment";
+            this.cbOverviewDepartment.Size = new System.Drawing.Size(240, 29);
+            this.cbOverviewDepartment.TabIndex = 91;
+            this.cbOverviewDepartment.SelectedIndexChanged += new System.EventHandler(this.cbOverviewDepartment_SelectedIndexChanged);
             // 
             // dgOverviewRestock
             // 
@@ -760,16 +795,16 @@ namespace AdminBackups
             this.lstEmployeesWorkingToday.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmployeesWorkingToday.FormattingEnabled = true;
             this.lstEmployeesWorkingToday.ItemHeight = 17;
-            this.lstEmployeesWorkingToday.Location = new System.Drawing.Point(528, 27);
+            this.lstEmployeesWorkingToday.Location = new System.Drawing.Point(528, 61);
             this.lstEmployeesWorkingToday.Name = "lstEmployeesWorkingToday";
-            this.lstEmployeesWorkingToday.Size = new System.Drawing.Size(402, 463);
+            this.lstEmployeesWorkingToday.Size = new System.Drawing.Size(441, 429);
             this.lstEmployeesWorkingToday.TabIndex = 89;
             this.lstEmployeesWorkingToday.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstEmployeesWorkingToday_MouseDoubleClick);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(528, 3);
+            this.label12.Location = new System.Drawing.Point(528, 27);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(195, 21);
             this.label12.TabIndex = 88;
@@ -804,30 +839,6 @@ namespace AdminBackups
             this.dgOverviewSchedule.Size = new System.Drawing.Size(487, 251);
             this.dgOverviewSchedule.TabIndex = 13;
             this.dgOverviewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewSchedule_CellDoubleClick);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(588, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(436, 29);
-            this.comboBox1.TabIndex = 84;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(588, 395);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(436, 23);
-            this.progressBar1.TabIndex = 82;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(588, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(227, 21);
-            this.label7.TabIndex = 85;
-            this.label7.Text = "Days that still need employees: ";
             // 
             // FormDepotManager
             // 
@@ -928,5 +939,6 @@ namespace AdminBackups
         private System.Windows.Forms.NumericUpDown txtPlanningYear;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbOverviewDepartment;
     }
 }

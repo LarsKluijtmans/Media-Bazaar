@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace AdminBackups
@@ -38,6 +37,7 @@ namespace AdminBackups
             UpdatePendingRequests();
             UpdateSchedule();
             UpdatePlanningSchedule();
+            EmployeesWorkingToday();
         }
 
         //INITIALIZE----------------------------------------------------------------------
@@ -66,10 +66,12 @@ namespace AdminBackups
                 {
                     cbSchebuleByDepartment.Items.Add(d);
                     cbDepartments.Items.Add(d);
+                    cbOverviewDepartment.Items.Add(d);
                 }
             }
             cbSchebuleByDepartment.Text = cbSchebuleByDepartment.Items[0].ToString();
             cbDepartments.Text = cbDepartments.Items[0].ToString();
+            cbOverviewDepartment.Text = cbOverviewDepartment.Items[0].ToString();
         }
         public int GetCurrentWeekOfYear(DateTime time)
         {
@@ -86,58 +88,78 @@ namespace AdminBackups
             int year = date.Year;
             int week = GetCurrentWeekOfYear(date);
             string day = date.DayOfWeek.ToString();
+            string department = cbOverviewDepartment.Text;
 
-
-            //if (c.GetRegisteredShift(year, week, day, "Moring") != null)
-            //{
-            //    foreach (Employee employee in c.GetRegisteredShift(year, week, day, shift).Employees)
-            //    {
-            //        if (DepartmentTrue(employee, department) == true)
-            //        {
-            //            lstEmpEnlisted.Items.Add(employee);
-            //        }
-            //    }
-            //}
+            lstEmployeesWorkingToday.Items.Clear();
+            lstEmployeesWorkingToday.Items.Add("Morning:");
+            lstEmployeesWorkingToday.Items.Add("----------------");
+            if (c.GetRegisteredShift(year, week, day, "Moring") != null)
+            {
+                foreach (Employee employee in c.GetRegisteredShift(year, week, day, "Morning").Employees)
+                {
+                    if (DepartmentTrue(employee, department) == true)
+                    {
+                        lstEmployeesWorkingToday.Items.Add(employee);
+                    }
+                }
+            }
+            lstEmployeesWorkingToday.Items.Add("Afternoon:");
+            lstEmployeesWorkingToday.Items.Add("----------------");
+            if (c.GetRegisteredShift(year, week, day, "Afternoon") != null)
+            {
+                foreach (Employee employee in c.GetRegisteredShift(year, week, day, "Afternoon").Employees)
+                {
+                    if (DepartmentTrue(employee, department) == true)
+                    {
+                        lstEmployeesWorkingToday.Items.Add(employee);
+                    }
+                }
+            }
+            lstEmployeesWorkingToday.Items.Add("Evening:");
+            lstEmployeesWorkingToday.Items.Add("----------------");
+            if (c.GetRegisteredShift(year, week, day, "Evening") != null)
+            {
+                foreach (Employee employee in c.GetRegisteredShift(year, week, day, "Evening").Employees)
+                {
+                    if (DepartmentTrue(employee, department) == true)
+                    {
+                        lstEmployeesWorkingToday.Items.Add(employee);
+                    }
+                }
+            }
         }
+        private void cbOverviewDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EmployeesWorkingToday();
+        }
+
 
         //OVERVIEW-----------------------------------------------------------------------
         private void btnLogout_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
-            if (orderRestock.Visible)
+            if (orderRestock == null)
+            {
+                login.Show();
+                Close();
+            }
+            else
             {
                 orderRestock.Close();
+                login.Show();
+                Close();
             }
-            login.Show();
->>>>>>> 6e99b8dca3f04a29f6eed5488555f28e59063ac3
-            Close();
-        }
-
-        protected override void OnClosed(EventArgs e)
-        {
-            try
-            {
-                for (int i = 0; i < 1000; i++)
-                {
-                    var FormOrderRestock = Application.OpenForms.OfType<FormOrderRestock>().FirstOrDefault();
-                    if (FormOrderRestock != null)
-                    {
-                        FormOrderRestock.Close();
-                    }
-                }
-            }
-            catch { }
-
-            login.Show();
         }
         private void FormDepotManager_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (orderRestock.Visible)
+            if(orderRestock == null)
+            {
+                login.Show();
+            }
+            else
             {
                 orderRestock.Close();
+                login.Show();
             }
-            login.Show();
         }
         private void dgOverviewSchedule_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -717,10 +739,5 @@ namespace AdminBackups
 
             MessageBox.Show("Schedule has been completed");
         }
-
-
-        //Update schedule
-
-
     }
 }

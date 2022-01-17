@@ -169,7 +169,6 @@ namespace ClassLibraryProject.dbClasses
 
             return null;
         }
-
         public int GetID(string UserName, string Password)
         {
             MySqlConnection conn = Utils.GetConnection();
