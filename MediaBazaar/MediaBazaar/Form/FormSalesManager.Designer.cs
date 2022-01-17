@@ -38,8 +38,8 @@ namespace AdminBackups
             this.label14 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
             this.txtProductID = new System.Windows.Forms.TabPage();
-            this.tbxSelectedProduct = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tbxSelectedProduct = new System.Windows.Forms.TextBox();
             this.bntUpdateProduct = new System.Windows.Forms.Button();
             this.labProductSearch = new System.Windows.Forms.Label();
             this.tbProductSearch = new System.Windows.Forms.TextBox();
@@ -210,15 +210,6 @@ namespace AdminBackups
             this.txtProductID.Text = "Products ";
             this.txtProductID.UseVisualStyleBackColor = true;
             // 
-            // tbxSelectedProduct
-            // 
-            this.tbxSelectedProduct.Location = new System.Drawing.Point(7, 37);
-            this.tbxSelectedProduct.Name = "tbxSelectedProduct";
-            this.tbxSelectedProduct.PlaceholderText = "Selected Product";
-            this.tbxSelectedProduct.ReadOnly = true;
-            this.tbxSelectedProduct.Size = new System.Drawing.Size(195, 29);
-            this.tbxSelectedProduct.TabIndex = 107;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.tbxSelectedProduct);
@@ -231,6 +222,15 @@ namespace AdminBackups
             this.groupBox4.TabIndex = 106;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Manage Products";
+            // 
+            // tbxSelectedProduct
+            // 
+            this.tbxSelectedProduct.Location = new System.Drawing.Point(7, 37);
+            this.tbxSelectedProduct.Name = "tbxSelectedProduct";
+            this.tbxSelectedProduct.PlaceholderText = "Selected Product";
+            this.tbxSelectedProduct.ReadOnly = true;
+            this.tbxSelectedProduct.Size = new System.Drawing.Size(195, 29);
+            this.tbxSelectedProduct.TabIndex = 107;
             // 
             // bntUpdateProduct
             // 
@@ -325,6 +325,7 @@ namespace AdminBackups
             0,
             0,
             0});
+            this.txtYear.ValueChanged += new System.EventHandler(this.txtYear_ValueChanged);
             // 
             // cbSchebuleByDepartment
             // 
@@ -333,6 +334,7 @@ namespace AdminBackups
             this.cbSchebuleByDepartment.Name = "cbSchebuleByDepartment";
             this.cbSchebuleByDepartment.Size = new System.Drawing.Size(289, 29);
             this.cbSchebuleByDepartment.TabIndex = 83;
+            this.cbSchebuleByDepartment.SelectedIndexChanged += new System.EventHandler(this.cbSchebuleByDepartment_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -575,6 +577,7 @@ namespace AdminBackups
             0,
             0,
             0});
+            this.txtPlanningYear.ValueChanged += new System.EventHandler(this.txtPlanningYear_ValueChanged);
             // 
             // progressBar1
             // 
@@ -601,6 +604,7 @@ namespace AdminBackups
             this.cbDepartments.Name = "cbDepartments";
             this.cbDepartments.Size = new System.Drawing.Size(289, 29);
             this.cbDepartments.TabIndex = 82;
+            this.cbDepartments.SelectedIndexChanged += new System.EventHandler(this.cbDepartments_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -698,6 +702,7 @@ namespace AdminBackups
             this.btnRemoveFromSchedule.TabIndex = 17;
             this.btnRemoveFromSchedule.Text = "Remove Employee";
             this.btnRemoveFromSchedule.UseVisualStyleBackColor = true;
+            this.btnRemoveFromSchedule.Click += new System.EventHandler(this.btnRemoveFromSchedule_Click);
             // 
             // lstEmpCanWork
             // 
@@ -708,6 +713,7 @@ namespace AdminBackups
             this.lstEmpCanWork.Name = "lstEmpCanWork";
             this.lstEmpCanWork.Size = new System.Drawing.Size(345, 310);
             this.lstEmpCanWork.TabIndex = 16;
+            this.lstEmpCanWork.DoubleClick += new System.EventHandler(this.lstEmpCanWork_DoubleClick);
             // 
             // lstEmpEnlisted
             // 
