@@ -18,13 +18,10 @@ namespace MediaBazaarWebsite.Pages
     [Authorize]
     public class PreferedtimeModel : PageModel
     {
-
-
         [BindProperty]
         [Required]
         public bool Prefered { get; set; }
         
-
         [BindProperty]
         public string WeekDay { get; set; }
         [BindProperty]
@@ -37,7 +34,6 @@ namespace MediaBazaarWebsite.Pages
         public string Preferred { get; set; }
         [BindProperty]
         public string LeastPreferred { get; set; }
-
 
         [BindProperty]
         [Required]
@@ -53,31 +49,5 @@ namespace MediaBazaarWebsite.Pages
         {
             Expires = DateTime.Now.AddMinutes(5)
         };
-
-        //public IActionResult OnGetLogout()
-        //{
-        //    HttpContext.Session.Remove("User");
-        //    return new RedirectToPageResult("Login");
-        //}
-
-        //public void OnGet()
-        //{
-
-        //    PreferedWorkTimeManagement workTimeManagement = new PreferedWorkTimeManagement();
-        //    //pwt = workTimeManagement.GetPreferedWorkTimeForEmployee(LoginModel.employeeID.ToString());
-        //    //this.Prefereds = new SelectList(pwt, "Day", "Shift");
-
-        //}
-
-   
-        //public void OnPostSubmit()
-        //{
-        //    PreferedWorkTimeManagement preferedWorkTime = new PreferedWorkTimeManagement();
-        //    //foreach (PreferedWorkTime p in pwt)
-        //    //{
-        //    //    preferedWorkTime.EditPreferedWorkTimeForEmployee(LoginModel.employeeID, p.Day, p.Shift, p.Prefered);
-        //    //}
-        //}
-
     }
 }

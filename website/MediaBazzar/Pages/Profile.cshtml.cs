@@ -19,10 +19,7 @@ namespace MediaBazzar.Pages
         public dbLoginManager dbLogin = new dbLoginManager();
 
         [BindProperty]
-        public DepotEmployee Employee { get; set; }
-
-        [BindProperty]
-        public int EmployeeID { get; set; }
+        public Employee Employee { get; set; }
 
         [BindProperty]
         public string FirstName { get; set; }
@@ -56,7 +53,7 @@ namespace MediaBazzar.Pages
             // get current user
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
-            Employee = (DepotEmployee)dbLogin.GetEmployeeByEmail(userEmail);
+            Employee = dbLogin.GetEmployeeByEmail(userEmail);
 
             return Page();
         }
@@ -64,7 +61,7 @@ namespace MediaBazzar.Pages
         {
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
-            Employee = (DepotEmployee)dbLogin.GetEmployeeByEmail(userEmail);
+            Employee = dbLogin.GetEmployeeByEmail(userEmail);
 
             if (Employee != null)
             {
@@ -77,16 +74,12 @@ namespace MediaBazzar.Pages
                 Employee.PersonalEmail = PersonalEmail;
                 Employee.Password = Password;
 
-                /*cmd.Parameters.AddWithValue("@FirstName", e.FirstName);
-                cmd.Parameters.AddWithValue("@LastName", e.LastName);
-                cmd.Parameters.AddWithValue("@City", e.City);
-                cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
-                cmd.Parameters.AddWithValue("@StreetName", e.Address);
-                cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
-                cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
-                cmd.Parameters.AddWithValue("@Password", e.Password);*/
                 IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
-                employeeManagerAll.UpdateOwnInfo(Employee);
+
+                if (Employee is SalesRepresentative)
+                {
+                    employeeManagerAll.UpdateOwnInfo(Employee);
+                }
 
             } else
             {
@@ -95,6 +88,5 @@ namespace MediaBazzar.Pages
 
             return Page();
         }
-
     }
 }
