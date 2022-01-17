@@ -112,10 +112,10 @@ namespace AdminBackups
 
                 if (!orderInfound)
                 {
-                    tbxMinAmount.Text = "";
-                    tbxMaxAmount.Text = "";
-                    tbxMultiples.Text = "";
-                    tbxPurchasePrice.Text = "";
+                    tbxMinAmount.Value = 0;
+                    tbxMaxAmount.Value = 0;
+                    tbxMultiples.Value = 0;
+                    tbxPurchasePrice.Text = "0";
                 }
             }
 
@@ -182,6 +182,7 @@ namespace AdminBackups
             }
 
             Supplier supplier = SelectSupplier();
+
             if (supplier == null)
             {
                 MessageBox.Show("Please select a supplier first");
@@ -196,14 +197,14 @@ namespace AdminBackups
 
                 if (dr == DialogResult.Yes)
                 {
-                    tbxMinAmount.Value = 1;
-                    tbxMaxAmount.Value = 1;
-                    tbxMultiples.Value = 1;
-                    tbxPurchasePrice.Text = "1";
+                    SelectSupplier();
+
                     return true;
                 }
                 else if (dr == DialogResult.No)
                 {
+                     SelectSupplier();
+
                     this.Close();
                     return true;
                 }
@@ -245,6 +246,7 @@ namespace AdminBackups
 
                             if (productManager.OrderInfoManagerPM.UpdateOrderInfo(oi))
                             {
+                                SelectSupplier();
                                 MessageBox.Show("Order info has been updated");
                             }
                             else 

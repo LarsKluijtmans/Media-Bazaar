@@ -9,9 +9,9 @@ namespace ClassLibraryProject.ManagmentClasses.IAllManager
     {
         void GetAllRegisteredShift();
         bool RegisterEmployee(string department, int year, int week, string day, string shift, int employeeID);
-        bool DeRegisterEmployee(int year, int week, string day, string shift, int employeeID);
-        RegisteredShift GetRegisteredShift(int year, int week, string day, string shift);
+        bool DeRegisterEmployee(string department, int year, int week, string day, string shift, int employeeID);
+        RegisteredShift GetRegisteredShift(string department, int year, int week, string day, string shift);
         bool CheckAmount(string department, int year, int week, string day, string shift);
-        bool RegisteredEmployeeExist(int year, int week, string day, string shift, int employeeID);
+        bool RegisteredEmployeeExist(string department, int year, int week, string day, string shift, int employeeID);
     }
 }

@@ -74,17 +74,17 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         {
             return registeredShift.CheckAmount(department, year, week, day, shift);
         }
-        public bool DeRegisterEmployee(int year, int week, string day, string shift, Employee employee)
+        public bool DeRegisterEmployee(string department, int year, int week, string day, string shift, Employee employee)
         {
-            return registeredShift.DeRegisterEmployee(year, week, day, shift, employee.EmployeeID);
+            return registeredShift.DeRegisterEmployee(department, year, week, day, shift, employee.EmployeeID);
         }
-        public RegisteredShift GetRegisteredShift(int year, int week, string day, string shift)
+        public RegisteredShift GetRegisteredShift(string department, int year, int week, string day, string shift)
         {
-            return registeredShift.GetRegisteredShift(year, week, day, shift);
+            return registeredShift.GetRegisteredShift(department, year, week, day, shift);
         }
-        public bool RegisteredEmployeeExist(int year, int week, string day, string shift, int employeeID)
+        public bool RegisteredEmployeeExist(string department, int year, int week, string day, string shift, int employeeID)
         {
-            return registeredShift.RegisteredEmployeeExist(year, week, day, shift, employeeID);
+            return registeredShift.RegisteredEmployeeExist(department, year, week, day, shift, employeeID);
         }
 
         //preferred shift
