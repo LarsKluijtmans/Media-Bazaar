@@ -9,5 +9,6 @@ namespace MediaBazaarWebsite
     public interface IDBAvailabilityManager
     {
         public bool EnterAvailability(Unavailability u);
+        public List<Unavailability> ReadAvailability(Employee e);
     }
 }

@@ -20,19 +20,46 @@ namespace MediaBazaarWebsite.Pages
 
         [BindProperty]
         public DateTime Unavailable { get; set; }
-        
-        public void OnGet()
-        { 
+
+        [BindProperty]
+        public List<Unavailability> Unavailabilities { get; set; }
+
+        public IActionResult OnGet()
+        {
+            Unavailabilities = new List<Unavailability>();
             // get current user
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
             Employee = dbLogin.GetEmployeeByEmail(userEmail);
+
+            IAvailabilityManager availabilityManager = new AvailabilityManager();
+
+            List<Unavailability> checkUnavailabilites = availabilityManager.ReadAvailability(Employee);
+
+            /* Check Date */
+            DateTime today = DateTime.Now;
+            DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(today);
+            if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
+            {
+                today = today.AddDays(3);
+            }
+            int week = CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(today, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+            
+
+            foreach(Unavailability u in checkUnavailabilites)
+            {
+                if (u.Week > week && u.Year >= today.Year)
+                {
+                    Unavailabilities.Add(u);
+                }
+            }
+
+            return Page();
         }
-        public IActionResult OnPost()
+        public void OnPost()
         {
             // get current user
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
-
             Employee = dbLogin.GetEmployeeByEmail(userEmail);
 
             /* Week, Day and Year based on entered date */
@@ -41,17 +68,17 @@ namespace MediaBazaarWebsite.Pages
             int year = Unavailable.Year;
 
             /* Create Unavailability */
+            IAvailabilityManager availabilityManager = new AvailabilityManager();
+
             Unavailability unavailability = new Unavailability(year, weekNumber, day, Employee);
 
             /* Add Unavailability to database */
-            IAvailabilityManager availabilityManager = new AvailabilityManager();
-            
             if (availabilityManager.EnterAvailability(unavailability))
             {
                 ViewData["Message"] = "Unavailability Entered";
             }
 
-            return Page();
+            //return Page();
         }
         public int GetWeekOfYear(DateTime time)
         {
