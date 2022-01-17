@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ClassLibraryProject.Class
 {
-    public abstract class Employee
+    public class Employee
     {
         // fields
         private int employeeID;

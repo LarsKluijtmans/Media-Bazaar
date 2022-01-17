@@ -19,10 +19,7 @@ namespace MediaBazzar.Pages
         public dbLoginManager dbLogin = new dbLoginManager();
 
         [BindProperty]
-        public DepotEmployee Employee { get; set; }
-
-        [BindProperty]
-        public int EmployeeID { get; set; }
+        public Employee Employee { get; set; }
 
         [BindProperty]
         public string FirstName { get; set; }
@@ -56,6 +53,7 @@ namespace MediaBazzar.Pages
             // get current user
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
+<<<<<<< HEAD
             Employee a = dbLogin.GetEmployeeByEmail(userEmail);
 
             Employee = new DepotEmployee();
@@ -73,6 +71,9 @@ namespace MediaBazzar.Pages
             Employee.Username = a.Username;
             Employee.Password = a.Password;
             Employee.PersonalEmail = a.PersonalEmail;
+=======
+            Employee = dbLogin.GetEmployeeByEmail(userEmail);
+>>>>>>> 881ffd6d8ae450c000b49d8ed109b4b1cb57bc13
 
             return Page();
         }
@@ -80,6 +81,7 @@ namespace MediaBazzar.Pages
         {
             var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
+<<<<<<< HEAD
 
             Employee a = dbLogin.GetEmployeeByEmail(userEmail);
 
@@ -98,6 +100,9 @@ namespace MediaBazzar.Pages
             Employee.Username = a.Username;
             Employee.Password = a.Password;
             Employee.PersonalEmail = a.PersonalEmail;
+=======
+            Employee = dbLogin.GetEmployeeByEmail(userEmail);
+>>>>>>> 881ffd6d8ae450c000b49d8ed109b4b1cb57bc13
 
             if (Employee != null)
             {
@@ -110,16 +115,12 @@ namespace MediaBazzar.Pages
                 Employee.PersonalEmail = PersonalEmail;
                 Employee.Password = Password;
 
-                /*cmd.Parameters.AddWithValue("@FirstName", e.FirstName);
-                cmd.Parameters.AddWithValue("@LastName", e.LastName);
-                cmd.Parameters.AddWithValue("@City", e.City);
-                cmd.Parameters.AddWithValue("@PhoneNumber", e.PhoneNumber);
-                cmd.Parameters.AddWithValue("@StreetName", e.Address);
-                cmd.Parameters.AddWithValue("@ZipCode", e.ZipCode);
-                cmd.Parameters.AddWithValue("@PersonalEmail", e.PersonalEmail);
-                cmd.Parameters.AddWithValue("@Password", e.Password);*/
                 IEmployeeManagerAll employeeManagerAll = new EmployeeManager();
-                employeeManagerAll.UpdateOwnInfo(Employee);
+
+                if (Employee is SalesRepresentative)
+                {
+                    employeeManagerAll.UpdateOwnInfo(Employee);
+                }
 
             } else
             {
@@ -128,6 +129,5 @@ namespace MediaBazzar.Pages
 
             return Page();
         }
-
     }
 }
