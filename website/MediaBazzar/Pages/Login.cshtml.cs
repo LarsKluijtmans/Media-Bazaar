@@ -1,5 +1,6 @@
 
 using ClassLibraryProject;
+using ClassLibraryProject.ChildClasses;
 using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses;
 using Microsoft.AspNetCore.Authentication;
@@ -45,18 +46,18 @@ namespace MediaBazzar.Pages
                 var user = dbLogin.checkLogin(Username , Password);
                 if (user != null)
                 {
-                    EmployeeManager emp = new EmployeeManager();
-                    ContractManager contract = new ContractManager();
-
-                    emplContract = contract.ReadContract(emp.GetEmployeeByID(user.EmployeeID));
-                    
                     var claims = new List<Claim>();
                     claims.Add(new Claim("username", user.Username));
                     claims.Add(new Claim(ClaimTypes.NameIdentifier, user.EmployeeID.ToString()));
                     claims.Add(new Claim(ClaimTypes.Name, user.Username));
-                    //claims.Add(new Claim(ClaimTypes.Email, user.Email));
-                    //claims.Add(new Claim(ClaimTypes.GivenName, user.FirstName));
-                    //claims.Add(new Claim(ClaimTypes.Surname, user.LastName));
+
+                    if ((user is CEO) || (user is DepotManager) || (user is OfficeManager) || (user is ProductManager) || (user is SalesManager))
+                    {
+                        claims.Add(new Claim(ClaimTypes.Role, "Manager"));
+                    } else if ((user is Admin))
+                    {
+                        claims.Add(new Claim(ClaimTypes.Role, "Admin"));
+                    }
 
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);

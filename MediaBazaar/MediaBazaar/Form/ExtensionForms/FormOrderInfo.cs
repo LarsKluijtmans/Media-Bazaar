@@ -1,11 +1,10 @@
-﻿using System;
+﻿using ClassLibraryProject.ChildClasses;
+using ClassLibraryProject.Class;
+using MediaBazaar;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using ClassLibraryProject.ChildClasses;
-using ClassLibraryProject.Class;
-using ClassLibraryProject.ManagmentClasses;
-using MediaBazaar;
 
 namespace AdminBackups
 {
@@ -33,6 +32,7 @@ namespace AdminBackups
                 tbxBarcode.Text = product.Barcode;
             }
         }
+       
         /* Supplier Start */
         private void LoadSuppliers()
         {
@@ -48,6 +48,7 @@ namespace AdminBackups
                 }
             }
         }
+       
         /* Search Bar Supplier */
         private void tbxSearchSupplier_TextChanged(object sender, EventArgs e)
         {
@@ -65,11 +66,13 @@ namespace AdminBackups
                         lbxSupplier.Items.Add(s);
                     }
                 }
-            } else
+            }
+            else
             {
                 LoadSuppliers();
             }
         }
+       
         /* Select Supplier */
         private Supplier SelectSupplier()
         {
@@ -118,7 +121,6 @@ namespace AdminBackups
 
             return supplier;
         }
-
         private void lbxSupplier_DoubleClick(object sender, EventArgs e)
         {
             SelectSupplier();
@@ -127,6 +129,7 @@ namespace AdminBackups
         {
             SelectSupplier();
         }
+      
         /* Supplier End */
         private void btnAddNewOrder_Click(object sender, EventArgs e)
         {
@@ -153,46 +156,15 @@ namespace AdminBackups
             }
 
             int minAmount = 0;
-            if (string.IsNullOrEmpty(tbxMinAmount.Text))
-            {
-                MessageBox.Show("Please enter a minimum amount");
-                return false;
-            }
-            try
-            {
-                minAmount = Convert.ToInt32(tbxMinAmount.Text);
-            }
-            catch
-            {
-                MessageBox.Show("Please enter a number");
-                return false;
-            }
-
             int maxAmount = 0;
-            if (string.IsNullOrEmpty(tbxMaxAmount.Text))
-            {
-                MessageBox.Show("Please enter a maximum amount");
-                return false;
-            }
-            try
-            {
-                maxAmount = Convert.ToInt32(tbxMaxAmount.Text);
-            }
-            catch
-            {
-                MessageBox.Show("Please enter a number");
-                return false;
-            }
-
             int multiples = 0;
-            if (string.IsNullOrEmpty(tbxMultiples.Text))
-            {
-                MessageBox.Show("Please enter multiples amount");
-                return false;
-            }
+            double purchasePrice = 0;
+
             try
             {
-                multiples = Convert.ToInt32(tbxMultiples.Text);
+                minAmount = Convert.ToInt32(tbxMinAmount.Value);
+                maxAmount = Convert.ToInt32(tbxMaxAmount.Value);
+                multiples = Convert.ToInt32(tbxMultiples.Value);
             }
             catch
             {
@@ -200,7 +172,6 @@ namespace AdminBackups
                 return false;
             }
 
-            double purchasePrice = 0;
             if (string.IsNullOrEmpty(tbxPurchasePrice.Text))
             {
                 MessageBox.Show("Please enter a purchase price");
@@ -212,7 +183,7 @@ namespace AdminBackups
             }
             catch
             {
-                MessageBox.Show("Please enter a number");
+                MessageBox.Show("Please enter a purchase price");
                 return false;
             }
 
@@ -224,10 +195,10 @@ namespace AdminBackups
 
                 if (dr == DialogResult.Yes)
                 {
-                    tbxMinAmount.Clear();
-                    tbxMaxAmount.Clear();
-                    tbxMultiples.Clear();
-                    tbxPurchasePrice.Clear();
+                    tbxMinAmount.Value = 1;
+                    tbxMaxAmount.Value = 1;
+                    tbxMultiples.Value = 1;
+                    tbxPurchasePrice.Text = "0";
                     return true;
                 }
                 else if (dr == DialogResult.No)
@@ -307,21 +278,19 @@ namespace AdminBackups
                         {
                             MessageBox.Show("Order Info deleted");
 
-                            tbxMinAmount.Clear();
-                            tbxMaxAmount.Clear();
-                            tbxMultiples.Clear();
-                            tbxPurchasePrice.Clear();
+                            tbxMinAmount.Value = 1;
+                            tbxMaxAmount.Value = 1;
+                            tbxMultiples.Value = 1;
+                            tbxPurchasePrice.Text = "0";
                         }
                     }
                 }
             }
         }
-
         private void btnUpdateOrderInfo_Click(object sender, EventArgs e)
         {
             UpdateOrderInfo();
         }
-
         private void btnDeleteOrderInfo_Click(object sender, EventArgs e)
         {
             DeleteOrderInfo();

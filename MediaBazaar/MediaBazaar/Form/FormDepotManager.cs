@@ -169,19 +169,10 @@ namespace AdminBackups
         {
             try
             {
-                //int id = Convert.ToInt32(txtRestockID.Text);
-                //if (c.DeleteRestock(id))
-                //{
-                //    UpdatePendingRequests();
+                int restockID = Convert.ToInt32(txtRestockID.Text);
 
-                //    txtBarcode.Text = "";
-                //    txtCurrentAmount.Text = "";
-                //    txtRestockID.Text = "";
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Something went wrong!");
-                //}
+                FormOrderRestock orderRestock = new FormOrderRestock(restockID, c);
+                orderRestock.Show();
             }
             catch
             {

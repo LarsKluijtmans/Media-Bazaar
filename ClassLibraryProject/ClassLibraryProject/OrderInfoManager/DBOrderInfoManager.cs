@@ -10,7 +10,7 @@ namespace ClassLibraryProject
     public class DBOrderInfoManager : IDBOrderInfoManagerPM
     {
         // sql
-        public string GET_ORDER_INFOS_FOR_PRODUCT = "SELECT * FROM OrderInfo as o INNER JOIN Supplier as s on o.SupplierID = s.ID WHERE o.ProductBarcode = @ProductBarcode;";
+        public string GET_ORDER_INFOS_FOR_PRODUCT = "SELECT * FROM OrderInfo as o INNER JOIN Supplier as s on o.SupplierID = s.ID WHERE o.ProductBarcode = @ProductBarcode   LIMIT 50;";
         public string CREATE_ORDER_INFO = "INSERT INTO orderinfo (SupplierID, ProductBarcode, MinAmount, MaxAmount, Multiples, PurchasePrice) VALUES (@SupplierID, @Barcode, @MinAmount, @MaxAmount, @Multiples, @PurchasePrice);";
         public string UPDATE_ORDER_INFO = "UPDATE OrderInfo SET MinAmount = @MinAmount, MaxAmount = @MaxAmount, Multiples = @Multiples, PurchasePrice = @PurchasePrice WHERE ID = @ID;";
         public string DELETE_ORDER_INFO = "DELETE FROM OrderInfo WHERE ID = @ID;";

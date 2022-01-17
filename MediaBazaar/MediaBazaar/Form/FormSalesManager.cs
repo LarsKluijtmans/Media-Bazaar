@@ -54,10 +54,29 @@ namespace AdminBackups
 
 
         //Logout
-        private void btnLogout_Click(object sender, EventArgs e)
+
+        protected override void OnClosed(EventArgs e)
         {
+            try
+            {
+                var FormNewProduct = Application.OpenForms.OfType<FormNewProduct>().FirstOrDefault();
+                if (FormNewProduct != null)
+                {
+                    FormNewProduct.Close();
+                }
+                var FormViewProduct = Application.OpenForms.OfType<FormViewProduct>().FirstOrDefault();
+                if (FormViewProduct != null)
+                {
+                    FormViewProduct.Close();
+                }
+            }
+            catch { }
+
             var logout = Application.OpenForms.OfType<FormLogin>().FirstOrDefault();
             logout.Show();
+        }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
             Close();
         }
 
