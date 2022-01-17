@@ -361,7 +361,7 @@ namespace AdminBackups
             {
                 foreach (Employee employee in c.GetPreferredShift(day, shift).Employees)
                 {
-                    if (DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(year, week, day, shift, employee.EmployeeID) == false)
+                    if (c.GetPreferredShift(day, shift).IsPreferred == true && DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(department, year, week, day, shift, employee.EmployeeID) == false)
                     {
                         lstEmpCanWork.Items.Add(employee);
                     }
@@ -370,9 +370,9 @@ namespace AdminBackups
 
             lstEmpEnlisted.Items.Clear();
 
-            if (c.GetRegisteredShift(year, week, day, shift) != null)
+            if (c.GetRegisteredShift(department, year, week, day, shift) != null)
             {
-                foreach (Employee employee in c.GetRegisteredShift(year, week, day, shift).Employees)
+                foreach (Employee employee in c.GetRegisteredShift(department, year, week, day, shift).Employees)
                 {
                     if (DepartmentTrue(employee, department) == true)
                     {
@@ -505,11 +505,7 @@ namespace AdminBackups
                 string day = Convert.ToString(selectedRow.Cells["Day"].Value);
                 string shift = Convert.ToString(selectedColumn.Name);
 
-                if (c.CheckAmount(department, year, week, day, shift) == false)
-                {
-                    MessageBox.Show("Limit reached! Update schedule if you want to add more employee.");
-                }
-                else
+                if (c.GetRegisteredShift(department, year, week, day, shift) == null)
                 {
                     if (c.RegisterEmployee(department, year, week, day, shift, employee))
                     {
@@ -518,6 +514,24 @@ namespace AdminBackups
                     else
                     {
                         MessageBox.Show("Something went wrong!");
+                    }
+                }
+                else
+                {
+                    if (c.CheckAmount(department, year, week, day, shift) == false)
+                    {
+                        MessageBox.Show("Limit reached! Update schedule if you want to add more employee.");
+                    }
+                    else
+                    {
+                        if (c.RegisterEmployee(department, year, week, day, shift, employee))
+                        {
+                            UpdateEmployeeList();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Something went wrong!");
+                        }
                     }
                 }
             }
@@ -546,7 +560,7 @@ namespace AdminBackups
                 string day = Convert.ToString(selectedRow.Cells["Day"].Value);
                 string shift = Convert.ToString(selectedColumn.Name);
 
-                if (c.DeRegisterEmployee(year, week, day, shift, employee))
+                if (c.DeRegisterEmployee(department, year, week, day, shift, employee))
                 {
                     UpdateEmployeeList();
                 }

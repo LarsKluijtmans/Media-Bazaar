@@ -47,7 +47,7 @@ namespace ClassLibraryProject.ManagmentClasses
 
         public bool CheckAmount(string department, int year, int week, string day, string shift)
         {
-            if (GetRegisteredShift(department, year, week, day, shift) != null && schedule.GetSchedule(department, year, week, day) != null)
+            if (schedule.GetSchedule(department, year, week, day) != null)
             {
                 int amountRegistered = GetRegisteredShift(department, year, week, day, shift).Employees.Count;
                 int morningAmount = schedule.GetSchedule(department, year, week, day).MorningAmount;
