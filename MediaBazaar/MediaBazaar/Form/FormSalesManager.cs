@@ -684,7 +684,24 @@ namespace AdminBackups
 
                 if (c.DeRegisterEmployee(department, year, week, day, shift, employee))
                 {
-                    UpdateEmployeeList();
+                    if (rbNotPreferred.Checked)
+                    {
+                        UpdateNotPreferredEmployeeList();
+                    }
+                    else
+                    {
+                        if (rbPreferred.Checked)
+                        {
+                            UpdateEmployeeList();
+                        }
+                        else
+                        {
+                            if (rdNoPreference.Checked)
+                            {
+                                UpdateNoPreferenceEmployeeList();
+                            }
+                        }
+                    }
                 }
                 else
                 {
