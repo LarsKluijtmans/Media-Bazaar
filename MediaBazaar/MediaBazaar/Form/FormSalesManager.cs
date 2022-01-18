@@ -378,7 +378,7 @@ namespace AdminBackups
                 }
             }
         }
-        private void UpdateNonPreferredEmployeeList()
+        private void UpdateNotPreferredEmployeeList()
         {
             int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
             int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
@@ -397,6 +397,41 @@ namespace AdminBackups
                 foreach (Employee employee in c.GetPreferredShift(day, shift).Employees)
                 {
                     if (c.GetPreferredShift(day, shift).IsPreferred == false && DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(department, year, week, day, shift, employee.EmployeeID) == false)
+                    {
+                        lstEmpCanWork.Items.Add(employee);
+                    }
+                }
+            }
+
+            lstEmpEnlisted.Items.Clear();
+
+            if (c.GetRegisteredShift(department, year, week, day, shift) != null)
+            {
+                foreach (Employee employee in c.GetRegisteredShift(department, year, week, day, shift).Employees)
+                {
+                    lstEmpEnlisted.Items.Add(employee);
+                }
+            }
+        }
+        private void UpdateNoPreferenceEmployeeList()
+        {
+            int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
+            int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
+            DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
+            DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
+            int year = Convert.ToInt32(txtPlanningYear.Value);
+            int week = Convert.ToInt32(lblPlanningWeek.Text);
+            string day = Convert.ToString(selectedRow.Cells["Day"].Value);
+            string shift = Convert.ToString(selectedColumn.Name);
+            string department = cbDepartments.Text;
+
+            lstEmpCanWork.Items.Clear();
+
+            if (c.GetPreferredShift(day, shift) != null)
+            {
+                foreach (Employee employee in c.EmployeesWithNoPreference(day, shift))
+                {
+                    if (DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(department, year, week, day, shift, employee.EmployeeID) == false)
                     {
                         lstEmpCanWork.Items.Add(employee);
                     }
@@ -499,11 +534,15 @@ namespace AdminBackups
         }
         private void rbNotPreferred_CheckedChanged(object sender, EventArgs e)
         {
-            UpdateNonPreferredEmployeeList();
+            UpdateNotPreferredEmployeeList();
         }
         private void rbPreferred_CheckedChanged(object sender, EventArgs e)
         {
             UpdateEmployeeList();
+        }
+        private void rdNoPreference_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateNoPreferenceEmployeeList();
         }
         private void dgPlanningSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -520,13 +559,20 @@ namespace AdminBackups
 
                 if (rbNotPreferred.Checked)
                 {
-                    UpdateNonPreferredEmployeeList();
+                    UpdateNotPreferredEmployeeList();
                 }
                 else
                 {
                     if (rbPreferred.Checked)
                     {
                         UpdateEmployeeList();
+                    }
+                    else
+                    {
+                        if (rdNoPreference.Checked)
+                        {
+                            UpdateNoPreferenceEmployeeList();
+                        }
                     }
                 }
             }

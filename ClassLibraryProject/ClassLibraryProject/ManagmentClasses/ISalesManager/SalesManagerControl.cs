@@ -67,6 +67,10 @@ namespace ClassLibraryProject.ManagmentClasses.ISalesManager
         }
 
         //preferred shift
+        public List<Employee> EmployeesWithNoPreference(string day, string shift)
+        {
+            return preferredShift.EmployeesWithNoPreferrence(day, shift);
+        }
         public PreferredShift GetPreferredShift(string day, string shift)
         {
             return preferredShift.GetPreferredShift(day, shift);

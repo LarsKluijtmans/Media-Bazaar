@@ -7,6 +7,7 @@ namespace ClassLibraryProject.dbClasses.IDB
 {
     public interface IDBPreferredShift
     {
+        List<Employee> GetEmployees();
         List<PreferredShift> GetPreferredShifts();
         bool PreferAShift(string day, string shift, Employee employee, bool isPreferred);
         bool UpdatePreferredShift(string day, string shift, Employee employee, bool isPreferred);

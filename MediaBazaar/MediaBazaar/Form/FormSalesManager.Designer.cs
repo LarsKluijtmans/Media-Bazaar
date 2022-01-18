@@ -68,6 +68,8 @@ namespace AdminBackups
             this.lbScheduleAfternoon = new System.Windows.Forms.TextBox();
             this.lbScheduleMorning = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
+            this.rbNotPreferred = new System.Windows.Forms.RadioButton();
+            this.rbPreferred = new System.Windows.Forms.RadioButton();
             this.txtPlanningYear = new System.Windows.Forms.NumericUpDown();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnAutoSchedule = new System.Windows.Forms.Button();
@@ -85,8 +87,7 @@ namespace AdminBackups
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.rbNotPreferred = new System.Windows.Forms.RadioButton();
-            this.rbPreferred = new System.Windows.Forms.RadioButton();
+            this.rdNoPreference = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNewProducts)).BeginInit();
@@ -114,7 +115,7 @@ namespace AdminBackups
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1005, 563);
+            this.tabControl1.Size = new System.Drawing.Size(1039, 563);
             this.tabControl1.TabIndex = 0;
             // 
             // tabOverview
@@ -534,6 +535,7 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.rdNoPreference);
             this.tabPlanning.Controls.Add(this.rbNotPreferred);
             this.tabPlanning.Controls.Add(this.rbPreferred);
             this.tabPlanning.Controls.Add(this.txtPlanningYear);
@@ -555,10 +557,36 @@ namespace AdminBackups
             this.tabPlanning.Location = new System.Drawing.Point(4, 30);
             this.tabPlanning.Name = "tabPlanning";
             this.tabPlanning.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPlanning.Size = new System.Drawing.Size(997, 529);
+            this.tabPlanning.Size = new System.Drawing.Size(1031, 529);
             this.tabPlanning.TabIndex = 11;
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
+            // 
+            // rbNotPreferred
+            // 
+            this.rbNotPreferred.AutoSize = true;
+            this.rbNotPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbNotPreferred.Location = new System.Drawing.Point(789, 45);
+            this.rbNotPreferred.Name = "rbNotPreferred";
+            this.rbNotPreferred.Size = new System.Drawing.Size(107, 21);
+            this.rbNotPreferred.TabIndex = 89;
+            this.rbNotPreferred.Text = "Not Preferred";
+            this.rbNotPreferred.UseVisualStyleBackColor = true;
+            this.rbNotPreferred.CheckedChanged += new System.EventHandler(this.rbNotPreferred_CheckedChanged);
+            // 
+            // rbPreferred
+            // 
+            this.rbPreferred.AutoSize = true;
+            this.rbPreferred.Checked = true;
+            this.rbPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbPreferred.Location = new System.Drawing.Point(702, 45);
+            this.rbPreferred.Name = "rbPreferred";
+            this.rbPreferred.Size = new System.Drawing.Size(81, 21);
+            this.rbPreferred.TabIndex = 88;
+            this.rbPreferred.TabStop = true;
+            this.rbPreferred.Text = "Preferred";
+            this.rbPreferred.UseVisualStyleBackColor = true;
+            this.rbPreferred.CheckedChanged += new System.EventHandler(this.rbPreferred_CheckedChanged);
             // 
             // txtPlanningYear
             // 
@@ -715,7 +743,7 @@ namespace AdminBackups
             this.lstEmpCanWork.ItemHeight = 17;
             this.lstEmpCanWork.Location = new System.Drawing.Point(574, 75);
             this.lstEmpCanWork.Name = "lstEmpCanWork";
-            this.lstEmpCanWork.Size = new System.Drawing.Size(345, 310);
+            this.lstEmpCanWork.Size = new System.Drawing.Size(411, 310);
             this.lstEmpCanWork.TabIndex = 16;
             this.lstEmpCanWork.DoubleClick += new System.EventHandler(this.lstEmpCanWork_DoubleClick);
             // 
@@ -741,37 +769,23 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // rbNotPreferred
+            // rdNoPreference
             // 
-            this.rbNotPreferred.AutoSize = true;
-            this.rbNotPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbNotPreferred.Location = new System.Drawing.Point(805, 45);
-            this.rbNotPreferred.Name = "rbNotPreferred";
-            this.rbNotPreferred.Size = new System.Drawing.Size(107, 21);
-            this.rbNotPreferred.TabIndex = 89;
-            this.rbNotPreferred.Text = "Not Preferred";
-            this.rbNotPreferred.UseVisualStyleBackColor = true;
-            this.rbNotPreferred.CheckedChanged += new System.EventHandler(this.rbNotPreferred_CheckedChanged);
-            // 
-            // rbPreferred
-            // 
-            this.rbPreferred.AutoSize = true;
-            this.rbPreferred.Checked = true;
-            this.rbPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbPreferred.Location = new System.Drawing.Point(711, 44);
-            this.rbPreferred.Name = "rbPreferred";
-            this.rbPreferred.Size = new System.Drawing.Size(81, 21);
-            this.rbPreferred.TabIndex = 88;
-            this.rbPreferred.TabStop = true;
-            this.rbPreferred.Text = "Preferred";
-            this.rbPreferred.UseVisualStyleBackColor = true;
-            this.rbPreferred.CheckedChanged += new System.EventHandler(this.rbPreferred_CheckedChanged);
+            this.rdNoPreference.AutoSize = true;
+            this.rdNoPreference.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdNoPreference.Location = new System.Drawing.Point(902, 45);
+            this.rdNoPreference.Name = "rdNoPreference";
+            this.rdNoPreference.Size = new System.Drawing.Size(110, 21);
+            this.rdNoPreference.TabIndex = 90;
+            this.rdNoPreference.Text = "No Preference";
+            this.rdNoPreference.UseVisualStyleBackColor = true;
+            this.rdNoPreference.CheckedChanged += new System.EventHandler(this.rdNoPreference_CheckedChanged);
             // 
             // FormSalesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 600);
+            this.ClientSize = new System.Drawing.Size(1079, 600);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -862,5 +876,6 @@ namespace AdminBackups
         public System.Windows.Forms.TextBox tbProductSearch;
         private System.Windows.Forms.RadioButton rbNotPreferred;
         private System.Windows.Forms.RadioButton rbPreferred;
+        private System.Windows.Forms.RadioButton rdNoPreference;
     }
 }

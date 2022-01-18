@@ -1,6 +1,7 @@
 ﻿using ClassLibraryProject.Class;
 using ClassLibraryProject.dbClasses.IDB;
 using ClassLibraryProject.ManagmentClasses.IAllManager;
+using System.Collections.Generic;
 
 namespace ClassLibraryProject.ManagmentClasses
 {
@@ -12,7 +13,18 @@ namespace ClassLibraryProject.ManagmentClasses
         {
             db = dbPreferredShift;
         }
-
+        public List<Employee> EmployeesWithNoPreferrence(string day, string shift)
+        {
+            List<Employee> employees = new List<Employee>();
+            foreach(Employee employee in db.GetEmployees())
+            {
+                if(!EmployeeWantsToWorkExist(day, shift, employee.EmployeeID, true) || !EmployeeWantsToWorkExist(day, shift, employee.EmployeeID, false))
+                {
+                    employees.Add(employee);
+                }
+            }
+            return employees;
+        }
         public bool PreferAShift(string day, string shift, Employee employee, bool isPreferred)
         {
             if (!EmployeeWantsToWorkExist(day, shift, employee.EmployeeID, isPreferred))

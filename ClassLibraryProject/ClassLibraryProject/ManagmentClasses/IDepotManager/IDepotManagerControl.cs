@@ -30,6 +30,7 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         bool RegisteredEmployeeExist(string department, int year, int week, string day, string shift, int employeeID);
 
         //preferred shift
+        List<Employee> EmployeesWithNoPreference(string day, string shift);
         public  PreferredShift GetPreferredShift(string day, string shift);
     }
 }

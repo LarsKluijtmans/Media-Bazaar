@@ -93,6 +93,7 @@ namespace AdminBackups
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
+            this.rdNoPreference = new System.Windows.Forms.RadioButton();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanningYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
@@ -131,6 +132,7 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.rdNoPreference);
             this.tabPlanning.Controls.Add(this.rbNotPreferred);
             this.tabPlanning.Controls.Add(this.rbPreferred);
             this.tabPlanning.Controls.Add(this.txtPlanningYear);
@@ -161,7 +163,7 @@ namespace AdminBackups
             // 
             this.rbNotPreferred.AutoSize = true;
             this.rbNotPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbNotPreferred.Location = new System.Drawing.Point(845, 75);
+            this.rbNotPreferred.Location = new System.Drawing.Point(814, 74);
             this.rbNotPreferred.Name = "rbNotPreferred";
             this.rbNotPreferred.Size = new System.Drawing.Size(107, 21);
             this.rbNotPreferred.TabIndex = 87;
@@ -174,7 +176,7 @@ namespace AdminBackups
             this.rbPreferred.AutoSize = true;
             this.rbPreferred.Checked = true;
             this.rbPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbPreferred.Location = new System.Drawing.Point(751, 74);
+            this.rbPreferred.Location = new System.Drawing.Point(727, 74);
             this.rbPreferred.Name = "rbPreferred";
             this.rbPreferred.Size = new System.Drawing.Size(81, 21);
             this.rbPreferred.TabIndex = 86;
@@ -849,6 +851,18 @@ namespace AdminBackups
             this.dgOverviewSchedule.TabIndex = 13;
             this.dgOverviewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewSchedule_CellDoubleClick);
             // 
+            // rdNoPreference
+            // 
+            this.rdNoPreference.AutoSize = true;
+            this.rdNoPreference.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdNoPreference.Location = new System.Drawing.Point(927, 74);
+            this.rdNoPreference.Name = "rdNoPreference";
+            this.rdNoPreference.Size = new System.Drawing.Size(110, 21);
+            this.rdNoPreference.TabIndex = 88;
+            this.rdNoPreference.Text = "No Preference";
+            this.rdNoPreference.UseVisualStyleBackColor = true;
+            this.rdNoPreference.CheckedChanged += new System.EventHandler(this.rdNoPreference_CheckedChanged);
+            // 
             // FormDepotManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -949,5 +963,6 @@ namespace AdminBackups
         private System.Windows.Forms.ComboBox cbOverviewDepartment;
         private System.Windows.Forms.RadioButton rbNotPreferred;
         private System.Windows.Forms.RadioButton rbPreferred;
+        private System.Windows.Forms.RadioButton rdNoPreference;
     }
 }
