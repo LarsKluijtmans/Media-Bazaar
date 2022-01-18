@@ -68,6 +68,8 @@ namespace AdminBackups
             this.lbScheduleAfternoon = new System.Windows.Forms.TextBox();
             this.lbScheduleMorning = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
+            this.btnClearScheduleForTheWeek = new System.Windows.Forms.Button();
+            this.rdNoPreference = new System.Windows.Forms.RadioButton();
             this.rbNotPreferred = new System.Windows.Forms.RadioButton();
             this.rbPreferred = new System.Windows.Forms.RadioButton();
             this.txtPlanningYear = new System.Windows.Forms.NumericUpDown();
@@ -87,7 +89,6 @@ namespace AdminBackups
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.rdNoPreference = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNewProducts)).BeginInit();
@@ -129,7 +130,7 @@ namespace AdminBackups
             this.tabOverview.Location = new System.Drawing.Point(4, 30);
             this.tabOverview.Name = "tabOverview";
             this.tabOverview.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOverview.Size = new System.Drawing.Size(997, 529);
+            this.tabOverview.Size = new System.Drawing.Size(1031, 529);
             this.tabOverview.TabIndex = 12;
             this.tabOverview.Text = "Overview";
             this.tabOverview.UseVisualStyleBackColor = true;
@@ -208,7 +209,7 @@ namespace AdminBackups
             this.txtProductID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtProductID.Size = new System.Drawing.Size(997, 529);
+            this.txtProductID.Size = new System.Drawing.Size(1031, 529);
             this.txtProductID.TabIndex = 3;
             this.txtProductID.Text = "Products ";
             this.txtProductID.UseVisualStyleBackColor = true;
@@ -302,7 +303,7 @@ namespace AdminBackups
             this.tabSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabSchedule.Name = "tabSchedule";
             this.tabSchedule.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabSchedule.Size = new System.Drawing.Size(997, 529);
+            this.tabSchedule.Size = new System.Drawing.Size(1031, 529);
             this.tabSchedule.TabIndex = 4;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
@@ -535,6 +536,7 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.btnClearScheduleForTheWeek);
             this.tabPlanning.Controls.Add(this.rdNoPreference);
             this.tabPlanning.Controls.Add(this.rbNotPreferred);
             this.tabPlanning.Controls.Add(this.rbPreferred);
@@ -562,11 +564,34 @@ namespace AdminBackups
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
             // 
+            // btnClearScheduleForTheWeek
+            // 
+            this.btnClearScheduleForTheWeek.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnClearScheduleForTheWeek.Location = new System.Drawing.Point(20, 491);
+            this.btnClearScheduleForTheWeek.Name = "btnClearScheduleForTheWeek";
+            this.btnClearScheduleForTheWeek.Size = new System.Drawing.Size(138, 28);
+            this.btnClearScheduleForTheWeek.TabIndex = 91;
+            this.btnClearScheduleForTheWeek.Text = "Clear entire schedule";
+            this.btnClearScheduleForTheWeek.UseVisualStyleBackColor = true;
+            this.btnClearScheduleForTheWeek.Click += new System.EventHandler(this.btnClearScheduleForTheWeek_Click);
+            // 
+            // rdNoPreference
+            // 
+            this.rdNoPreference.AutoSize = true;
+            this.rdNoPreference.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdNoPreference.Location = new System.Drawing.Point(902, 58);
+            this.rdNoPreference.Name = "rdNoPreference";
+            this.rdNoPreference.Size = new System.Drawing.Size(110, 21);
+            this.rdNoPreference.TabIndex = 90;
+            this.rdNoPreference.Text = "No Preference";
+            this.rdNoPreference.UseVisualStyleBackColor = true;
+            this.rdNoPreference.CheckedChanged += new System.EventHandler(this.rdNoPreference_CheckedChanged);
+            // 
             // rbNotPreferred
             // 
             this.rbNotPreferred.AutoSize = true;
             this.rbNotPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbNotPreferred.Location = new System.Drawing.Point(789, 45);
+            this.rbNotPreferred.Location = new System.Drawing.Point(789, 58);
             this.rbNotPreferred.Name = "rbNotPreferred";
             this.rbNotPreferred.Size = new System.Drawing.Size(107, 21);
             this.rbNotPreferred.TabIndex = 89;
@@ -579,7 +604,7 @@ namespace AdminBackups
             this.rbPreferred.AutoSize = true;
             this.rbPreferred.Checked = true;
             this.rbPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbPreferred.Location = new System.Drawing.Point(702, 45);
+            this.rbPreferred.Location = new System.Drawing.Point(702, 58);
             this.rbPreferred.Name = "rbPreferred";
             this.rbPreferred.Size = new System.Drawing.Size(81, 21);
             this.rbPreferred.TabIndex = 88;
@@ -613,9 +638,9 @@ namespace AdminBackups
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(574, 402);
+            this.progressBar1.Location = new System.Drawing.Point(574, 419);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(345, 23);
+            this.progressBar1.Size = new System.Drawing.Size(411, 23);
             this.progressBar1.TabIndex = 84;
             // 
             // btnAutoSchedule
@@ -623,7 +648,7 @@ namespace AdminBackups
             this.btnAutoSchedule.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAutoSchedule.Location = new System.Drawing.Point(574, 448);
             this.btnAutoSchedule.Name = "btnAutoSchedule";
-            this.btnAutoSchedule.Size = new System.Drawing.Size(345, 61);
+            this.btnAutoSchedule.Size = new System.Drawing.Size(411, 61);
             this.btnAutoSchedule.TabIndex = 83;
             this.btnAutoSchedule.Text = "Auto schedule";
             this.btnAutoSchedule.UseVisualStyleBackColor = true;
@@ -710,7 +735,7 @@ namespace AdminBackups
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(574, 44);
+            this.label9.Location = new System.Drawing.Point(574, 57);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(122, 21);
             this.label9.TabIndex = 19;
@@ -741,7 +766,7 @@ namespace AdminBackups
             this.lstEmpCanWork.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmpCanWork.FormattingEnabled = true;
             this.lstEmpCanWork.ItemHeight = 17;
-            this.lstEmpCanWork.Location = new System.Drawing.Point(574, 75);
+            this.lstEmpCanWork.Location = new System.Drawing.Point(574, 88);
             this.lstEmpCanWork.Name = "lstEmpCanWork";
             this.lstEmpCanWork.Size = new System.Drawing.Size(411, 310);
             this.lstEmpCanWork.TabIndex = 16;
@@ -768,18 +793,6 @@ namespace AdminBackups
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // rdNoPreference
-            // 
-            this.rdNoPreference.AutoSize = true;
-            this.rdNoPreference.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rdNoPreference.Location = new System.Drawing.Point(902, 45);
-            this.rdNoPreference.Name = "rdNoPreference";
-            this.rdNoPreference.Size = new System.Drawing.Size(110, 21);
-            this.rdNoPreference.TabIndex = 90;
-            this.rdNoPreference.Text = "No Preference";
-            this.rdNoPreference.UseVisualStyleBackColor = true;
-            this.rdNoPreference.CheckedChanged += new System.EventHandler(this.rdNoPreference_CheckedChanged);
             // 
             // FormSalesManager
             // 
@@ -877,5 +890,6 @@ namespace AdminBackups
         private System.Windows.Forms.RadioButton rbNotPreferred;
         private System.Windows.Forms.RadioButton rbPreferred;
         private System.Windows.Forms.RadioButton rdNoPreference;
+        private System.Windows.Forms.Button btnClearScheduleForTheWeek;
     }
 }

@@ -904,6 +904,34 @@ namespace AdminBackups
             MessageBox.Show("Schedule has been completed");
         }
 
-        
+        private void btnClearScheduleForTheWeek_Click(object sender, EventArgs e)
+        {
+            if (cbDepartments.Text == "")
+            {
+                MessageBox.Show("Please select a department");
+                return;
+            }
+
+            int week = 0;
+            int year = 0;
+            string department = cbDepartments.Text;
+            try
+            {
+                week = Convert.ToInt32(lblPlanningWeek.Text);
+                year = Convert.ToInt32(txtPlanningYear.Value);
+            }
+            catch
+            {
+                MessageBox.Show("Please select a week and year");
+                return;
+            }
+
+            depotManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
+
+            UpdatePlanningSchedule();
+
+            c.GetAllRegisteredShift();
+            UpdateEmployeeList();
+        }
     }
 }

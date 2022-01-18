@@ -32,6 +32,7 @@ namespace AdminBackups
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
+            this.rdNoPreference = new System.Windows.Forms.RadioButton();
             this.rbNotPreferred = new System.Windows.Forms.RadioButton();
             this.rbPreferred = new System.Windows.Forms.RadioButton();
             this.txtPlanningYear = new System.Windows.Forms.NumericUpDown();
@@ -93,7 +94,7 @@ namespace AdminBackups
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
-            this.rdNoPreference = new System.Windows.Forms.RadioButton();
+            this.btnClearScheduleForTheWeek = new System.Windows.Forms.Button();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanningYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
@@ -132,6 +133,7 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.btnClearScheduleForTheWeek);
             this.tabPlanning.Controls.Add(this.rdNoPreference);
             this.tabPlanning.Controls.Add(this.rbNotPreferred);
             this.tabPlanning.Controls.Add(this.rbPreferred);
@@ -158,6 +160,18 @@ namespace AdminBackups
             this.tabPlanning.TabIndex = 11;
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
+            // 
+            // rdNoPreference
+            // 
+            this.rdNoPreference.AutoSize = true;
+            this.rdNoPreference.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdNoPreference.Location = new System.Drawing.Point(927, 74);
+            this.rdNoPreference.Name = "rdNoPreference";
+            this.rdNoPreference.Size = new System.Drawing.Size(110, 21);
+            this.rdNoPreference.TabIndex = 88;
+            this.rdNoPreference.Text = "No Preference";
+            this.rdNoPreference.UseVisualStyleBackColor = true;
+            this.rdNoPreference.CheckedChanged += new System.EventHandler(this.rdNoPreference_CheckedChanged);
             // 
             // rbNotPreferred
             // 
@@ -851,17 +865,16 @@ namespace AdminBackups
             this.dgOverviewSchedule.TabIndex = 13;
             this.dgOverviewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewSchedule_CellDoubleClick);
             // 
-            // rdNoPreference
+            // btnClearScheduleForTheWeek
             // 
-            this.rdNoPreference.AutoSize = true;
-            this.rdNoPreference.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rdNoPreference.Location = new System.Drawing.Point(927, 74);
-            this.rdNoPreference.Name = "rdNoPreference";
-            this.rdNoPreference.Size = new System.Drawing.Size(110, 21);
-            this.rdNoPreference.TabIndex = 88;
-            this.rdNoPreference.Text = "No Preference";
-            this.rdNoPreference.UseVisualStyleBackColor = true;
-            this.rdNoPreference.CheckedChanged += new System.EventHandler(this.rdNoPreference_CheckedChanged);
+            this.btnClearScheduleForTheWeek.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnClearScheduleForTheWeek.Location = new System.Drawing.Point(33, 489);
+            this.btnClearScheduleForTheWeek.Name = "btnClearScheduleForTheWeek";
+            this.btnClearScheduleForTheWeek.Size = new System.Drawing.Size(138, 28);
+            this.btnClearScheduleForTheWeek.TabIndex = 89;
+            this.btnClearScheduleForTheWeek.Text = "Clear entire schedule";
+            this.btnClearScheduleForTheWeek.UseVisualStyleBackColor = true;
+            this.btnClearScheduleForTheWeek.Click += new System.EventHandler(this.btnClearScheduleForTheWeek_Click);
             // 
             // FormDepotManager
             // 
@@ -964,5 +977,6 @@ namespace AdminBackups
         private System.Windows.Forms.RadioButton rbNotPreferred;
         private System.Windows.Forms.RadioButton rbPreferred;
         private System.Windows.Forms.RadioButton rdNoPreference;
+        private System.Windows.Forms.Button btnClearScheduleForTheWeek;
     }
 }

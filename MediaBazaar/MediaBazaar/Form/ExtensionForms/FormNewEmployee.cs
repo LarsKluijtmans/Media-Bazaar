@@ -25,11 +25,8 @@ namespace AdminBackups
             AddDepartment();
         }
 
-        //Create employee
-        private void BtnNewEmployee_Click(object sender, EventArgs e)
+        protected override void OnClosed(EventArgs e)
         {
-            CreateEmployee();
-
             var formOfficeManager = Application.OpenForms.OfType<FormOfficeManager>().FirstOrDefault();
 
             if (formOfficeManager.tbxSearchEmployee.Text == "")
@@ -40,24 +37,28 @@ namespace AdminBackups
             {
                 formOfficeManager.UserSearchBar();
             }
-
-            this.Close();
         }
-        private void CreateEmployee()
+
+        //Create employee
+        private void BtnNewEmployee_Click(object sender, EventArgs e)
+        {
+            CreateEmployee();
+        }
+        private bool CreateEmployee()
         {
             // get all input 
             string firstName = tbxFirstName.Text;
             if (string.IsNullOrEmpty(firstName))
             {
                 MessageBox.Show("Please enter a first name");
-                return;
+                return false;
             }
 
             string lastName = tbxLastName.Text;
             if (string.IsNullOrEmpty(lastName))
             {
                 MessageBox.Show("Please enter a last name");
-                return;
+                return false;
             }
 
             bool employeeEmailUnique = true;
@@ -71,12 +72,12 @@ namespace AdminBackups
                     if (e.BSN == Convert.ToInt32(tbxBSN.Text))
                     {
                         MessageBox.Show("This BSN is already in use.");
-                        return;
+                        return false;
                     }
                     if (e.PersonalEmail == tbxPersonalEmail.Text)
                     {
                         MessageBox.Show("This PersonalEmail is already in use.");
-                        return;
+                        return false;
                     }
                     if (e.Email == $"{char.ToLower(firstName[0])}{lastName.ToLower()}@mb.com")
                     {
@@ -93,12 +94,12 @@ namespace AdminBackups
             if (string.IsNullOrEmpty(phoneNumber))
             {
                 MessageBox.Show("Please enter a phone number");
-                return;
+                return false;
             }
             if (!Regex.IsMatch(tbxPhoneNumber.Text, @"^(\+)316[0-9]{8}$"))
             {
                 MessageBox.Show("Please enter a valid phone number");
-                return;
+                return false;
             }
 
             string email = "";
@@ -119,12 +120,12 @@ namespace AdminBackups
             if (string.IsNullOrEmpty(zipCode))
             {
                 MessageBox.Show("Please enter a zip code");
-                return;
+                return false;
             }
             if (!Regex.IsMatch(tbxZipCode.Text, @"^[0-9]{4}[A-Z]{2}$"))
             {
                 MessageBox.Show("Please enter a valid zip code");
-                return;
+                return false;
             }
 
 
@@ -132,20 +133,20 @@ namespace AdminBackups
             if (string.IsNullOrEmpty(streetName))
             {
                 MessageBox.Show("Please enter a street name");
-                return;
+                return false;
             }
 
             string city = tbxCity.Text;
             if (string.IsNullOrEmpty(city))
             {
                 MessageBox.Show("Please enter a city");
-                return;
+                return false;
             }
 
             if (string.IsNullOrEmpty(tbxDateOfBirth.Text))
             {
                 MessageBox.Show("Please enter a date of birth");
-                return;
+                return false;
             }
             DateTime dateOfBirth = new DateTime(1000, 1, 1);
             try
@@ -158,24 +159,24 @@ namespace AdminBackups
                 if (dateOfBirth > firstBirthDay)
                 {
                     MessageBox.Show("New employee should be at least 16 years old");
-                    return;
+                    return false;
                 }
             }
             catch
             {
                 MessageBox.Show("Please enter a valid date of birth");
-                return;
+                return false;
             }
 
             if (string.IsNullOrEmpty(tbxBSN.Text))
             {
                 MessageBox.Show("Please enter a BSN");
-                return;
+                return false;
             }
             if (!Regex.IsMatch(tbxBSN.Text, @"\b[0-9]{8,9}\b"))
             {
                 MessageBox.Show("Please enter a valid BSN");
-                return;
+                return false;
             }
 
             int bsn = 0;
@@ -186,7 +187,7 @@ namespace AdminBackups
             catch
             {
                 MessageBox.Show("Please enter a valid BSN");
-                return;
+                return false;
             }
 
             string username = $"{char.ToLower(firstName[0])}{lastName.ToLower()}";
@@ -196,12 +197,12 @@ namespace AdminBackups
             if (string.IsNullOrEmpty(personalEmail))
             {
                 MessageBox.Show("Please enter a personal email");
-                return;
+                return false;
             }
             if (!Regex.IsMatch(personalEmail, @"[a-z0-9]+(?:\.[a-z0-9]+)*@(?:[a-z](?:[a-z]*[a-z])?\.)nl|com"))
             {
                 MessageBox.Show("Please enter a valid personal email");
-                return;
+                return false;
             }
 
 
@@ -228,7 +229,7 @@ namespace AdminBackups
                     }
                     else
                     {
-                        return;
+                        return false;
                     }
                 }
             }
@@ -249,7 +250,7 @@ namespace AdminBackups
                     }
                     else
                     {
-                        return;
+                        return false;
                     }
                 }
             }
@@ -270,7 +271,7 @@ namespace AdminBackups
                     }
                     else
                     {
-                        return;
+                        return false;
                     }
                 }
             }
@@ -291,7 +292,7 @@ namespace AdminBackups
                     }
                     else
                     {
-                        return;
+                        return false;
                     }
                 }
             }
@@ -312,7 +313,7 @@ namespace AdminBackups
                     }
                     else
                     {
-                        return;
+                        return false;
                     }
                 }
             }
@@ -333,7 +334,7 @@ namespace AdminBackups
                     }
                     else
                     {
-                        return;
+                        return false;
                     }
                 }
             }
@@ -354,7 +355,7 @@ namespace AdminBackups
                     }
                     else
                     {
-                        return;
+                        return false;
                     }
                 }
             }
@@ -375,10 +376,11 @@ namespace AdminBackups
                     }
                     else
                     {
-                        return;
+                        return false;
                     }
                 }
             }
+            return false;
         }
         private bool CreateContract(string email)
         {
