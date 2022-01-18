@@ -878,5 +878,69 @@ namespace AdminBackups
 
             salesManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
+            int selectedcolumnindex = dgPlanningSchedule.SelectedCells[0].ColumnIndex;
+            DataGridViewRow selectedRow = dgPlanningSchedule.Rows[selectedrowindex];
+            DataGridViewColumn selectedColumn = dgPlanningSchedule.Columns[selectedcolumnindex];
+            int year = Convert.ToInt32(txtPlanningYear.Value);
+            int week = Convert.ToInt32(lblPlanningWeek.Text);
+            string day = Convert.ToString(selectedRow.Cells["Day"].Value);
+            string shift = Convert.ToString(selectedColumn.Name);
+            string department = cbDepartments.Text;
+
+            lstEmpCanWork.Items.Clear();
+
+            if (c.GetPreferredShift(day, shift) != null)
+            {
+                if (rdNoPreference.Checked)
+                {
+                    foreach (Employee employee in c.EmployeesWithNoPreference(day, shift))
+                    {
+                        if (DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(department, year, week, day, shift, employee.EmployeeID) == false)
+                        {
+                            if (employee.FirstName.Contains(txtSearch.Text))
+                            {
+                                lstEmpCanWork.Items.Add(employee);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (rbPreferred.Checked)
+                    {
+                        foreach (Employee employee in c.GetPreferredShift(day, shift).Employees)
+                        {
+                            if (c.GetPreferredShift(day, shift).IsPreferred == true && DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(department, year, week, day, shift, employee.EmployeeID) == false)
+                            {
+                                if (employee.FirstName.Contains(txtSearch.Text))
+                                {
+                                    lstEmpCanWork.Items.Add(employee);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (rbNotPreferred.Checked)
+                        {
+                            foreach (Employee employee in c.GetPreferredShift(day, shift).Employees)
+                            {
+                                if (c.GetPreferredShift(day, shift).IsPreferred == false && DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(department, year, week, day, shift, employee.EmployeeID) == false)
+                                {
+                                    if (employee.FirstName.Contains(txtSearch.Text))
+                                    {
+                                        lstEmpCanWork.Items.Add(employee);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

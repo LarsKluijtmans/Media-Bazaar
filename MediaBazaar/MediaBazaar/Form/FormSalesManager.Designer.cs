@@ -89,6 +89,7 @@ namespace AdminBackups
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNewProducts)).BeginInit();
@@ -536,6 +537,7 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.txtSearch);
             this.tabPlanning.Controls.Add(this.btnClearScheduleForTheWeek);
             this.tabPlanning.Controls.Add(this.rdNoPreference);
             this.tabPlanning.Controls.Add(this.rbNotPreferred);
@@ -794,6 +796,15 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Location = new System.Drawing.Point(574, 25);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(423, 25);
+            this.txtSearch.TabIndex = 92;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // FormSalesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -891,5 +902,6 @@ namespace AdminBackups
         private System.Windows.Forms.RadioButton rbPreferred;
         private System.Windows.Forms.RadioButton rdNoPreference;
         private System.Windows.Forms.Button btnClearScheduleForTheWeek;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }
