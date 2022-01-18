@@ -901,7 +901,7 @@ namespace AdminBackups
                     {
                         if (DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(department, year, week, day, shift, employee.EmployeeID) == false)
                         {
-                            if (employee.FirstName.Contains(txtSearch.Text))
+                            if (employee.FirstName.Contains(txtSearch.Text) || employee.LastName.Contains(txtSearch.Text))
                             {
                                 lstEmpCanWork.Items.Add(employee);
                             }
@@ -916,7 +916,7 @@ namespace AdminBackups
                         {
                             if (c.GetPreferredShift(day, shift).IsPreferred == true && DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(department, year, week, day, shift, employee.EmployeeID) == false)
                             {
-                                if (employee.FirstName.Contains(txtSearch.Text))
+                                if (employee.FirstName.Contains(txtSearch.Text) || employee.LastName.Contains(txtSearch.Text))
                                 {
                                     lstEmpCanWork.Items.Add(employee);
                                 }
@@ -931,7 +931,7 @@ namespace AdminBackups
                             {
                                 if (c.GetPreferredShift(day, shift).IsPreferred == false && DepartmentTrue(employee, department) == true && c.RegisteredEmployeeExist(department, year, week, day, shift, employee.EmployeeID) == false)
                                 {
-                                    if (employee.FirstName.Contains(txtSearch.Text))
+                                    if (employee.FirstName.Contains(txtSearch.Text) || employee.LastName.Contains(txtSearch.Text))
                                     {
                                         lstEmpCanWork.Items.Add(employee);
                                     }
