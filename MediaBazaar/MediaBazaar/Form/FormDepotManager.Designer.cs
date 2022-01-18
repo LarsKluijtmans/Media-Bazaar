@@ -32,10 +32,10 @@ namespace AdminBackups
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
+            this.rbNotPreferred = new System.Windows.Forms.RadioButton();
+            this.rbPreferred = new System.Windows.Forms.RadioButton();
             this.txtPlanningYear = new System.Windows.Forms.NumericUpDown();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cbDepartments = new System.Windows.Forms.ComboBox();
             this.btnAutoSchedule = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
@@ -131,10 +131,10 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
-            this.tabPlanning.Controls.Add(this.label7);
+            this.tabPlanning.Controls.Add(this.rbNotPreferred);
+            this.tabPlanning.Controls.Add(this.rbPreferred);
             this.tabPlanning.Controls.Add(this.txtPlanningYear);
             this.tabPlanning.Controls.Add(this.progressBar1);
-            this.tabPlanning.Controls.Add(this.comboBox1);
             this.tabPlanning.Controls.Add(this.cbDepartments);
             this.tabPlanning.Controls.Add(this.btnAutoSchedule);
             this.tabPlanning.Controls.Add(this.label28);
@@ -157,14 +157,31 @@ namespace AdminBackups
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // rbNotPreferred
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(588, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(227, 21);
-            this.label7.TabIndex = 85;
-            this.label7.Text = "Days that still need employees: ";
+            this.rbNotPreferred.AutoSize = true;
+            this.rbNotPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbNotPreferred.Location = new System.Drawing.Point(845, 75);
+            this.rbNotPreferred.Name = "rbNotPreferred";
+            this.rbNotPreferred.Size = new System.Drawing.Size(107, 21);
+            this.rbNotPreferred.TabIndex = 87;
+            this.rbNotPreferred.Text = "Not Preferred";
+            this.rbNotPreferred.UseVisualStyleBackColor = true;
+            this.rbNotPreferred.CheckedChanged += new System.EventHandler(this.rbNotPreferred_CheckedChanged);
+            // 
+            // rbPreferred
+            // 
+            this.rbPreferred.AutoSize = true;
+            this.rbPreferred.Checked = true;
+            this.rbPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbPreferred.Location = new System.Drawing.Point(751, 74);
+            this.rbPreferred.Name = "rbPreferred";
+            this.rbPreferred.Size = new System.Drawing.Size(81, 21);
+            this.rbPreferred.TabIndex = 86;
+            this.rbPreferred.TabStop = true;
+            this.rbPreferred.Text = "Preferred";
+            this.rbPreferred.UseVisualStyleBackColor = true;
+            this.rbPreferred.CheckedChanged += new System.EventHandler(this.rbPreferred_CheckedChanged);
             // 
             // txtPlanningYear
             // 
@@ -195,14 +212,6 @@ namespace AdminBackups
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(436, 23);
             this.progressBar1.TabIndex = 82;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(588, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(436, 29);
-            this.comboBox1.TabIndex = 84;
             // 
             // cbDepartments
             // 
@@ -937,8 +946,8 @@ namespace AdminBackups
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.NumericUpDown txtYear;
         private System.Windows.Forms.NumericUpDown txtPlanningYear;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox cbOverviewDepartment;
+        private System.Windows.Forms.RadioButton rbNotPreferred;
+        private System.Windows.Forms.RadioButton rbPreferred;
     }
 }

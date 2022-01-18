@@ -85,6 +85,8 @@ namespace AdminBackups
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.rbNotPreferred = new System.Windows.Forms.RadioButton();
+            this.rbPreferred = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNewProducts)).BeginInit();
@@ -532,6 +534,8 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.rbNotPreferred);
+            this.tabPlanning.Controls.Add(this.rbPreferred);
             this.tabPlanning.Controls.Add(this.txtPlanningYear);
             this.tabPlanning.Controls.Add(this.progressBar1);
             this.tabPlanning.Controls.Add(this.btnAutoSchedule);
@@ -737,6 +741,32 @@ namespace AdminBackups
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // rbNotPreferred
+            // 
+            this.rbNotPreferred.AutoSize = true;
+            this.rbNotPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbNotPreferred.Location = new System.Drawing.Point(805, 45);
+            this.rbNotPreferred.Name = "rbNotPreferred";
+            this.rbNotPreferred.Size = new System.Drawing.Size(107, 21);
+            this.rbNotPreferred.TabIndex = 89;
+            this.rbNotPreferred.Text = "Not Preferred";
+            this.rbNotPreferred.UseVisualStyleBackColor = true;
+            this.rbNotPreferred.CheckedChanged += new System.EventHandler(this.rbNotPreferred_CheckedChanged);
+            // 
+            // rbPreferred
+            // 
+            this.rbPreferred.AutoSize = true;
+            this.rbPreferred.Checked = true;
+            this.rbPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbPreferred.Location = new System.Drawing.Point(711, 44);
+            this.rbPreferred.Name = "rbPreferred";
+            this.rbPreferred.Size = new System.Drawing.Size(81, 21);
+            this.rbPreferred.TabIndex = 88;
+            this.rbPreferred.TabStop = true;
+            this.rbPreferred.Text = "Preferred";
+            this.rbPreferred.UseVisualStyleBackColor = true;
+            this.rbPreferred.CheckedChanged += new System.EventHandler(this.rbPreferred_CheckedChanged);
+            // 
             // FormSalesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -830,5 +860,7 @@ namespace AdminBackups
         private System.Windows.Forms.NumericUpDown txtYear;
         private System.Windows.Forms.NumericUpDown txtPlanningYear;
         public System.Windows.Forms.TextBox tbProductSearch;
+        private System.Windows.Forms.RadioButton rbNotPreferred;
+        private System.Windows.Forms.RadioButton rbPreferred;
     }
 }
