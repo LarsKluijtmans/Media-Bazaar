@@ -8,6 +8,7 @@ namespace ClassLibraryProject.ManagmentClasses.ISalesManager
     public interface ISalesManagerControl
     {
         //schedule
+        Schedule GetSchedule(string department, int year, int week, string day);
         List<Schedule> GetSchedules(string department, int year, int week);
         bool CreateWeek(string department, int year, int week);
         bool WeekExist(string department, int year, int week);

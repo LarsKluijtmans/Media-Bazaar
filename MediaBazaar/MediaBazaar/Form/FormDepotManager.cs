@@ -452,7 +452,7 @@ namespace AdminBackups
             {
                 foreach (Employee employee in c.GetRegisteredShift(department, year, week, day, shift).Employees)
                 {
-                        lstEmpEnlisted.Items.Add(employee);
+                    lstEmpEnlisted.Items.Add(employee);
                 }
             }
         }
@@ -634,6 +634,31 @@ namespace AdminBackups
                 string day = Convert.ToString(selectedRow.Cells["Day"].Value);
                 string shift = Convert.ToString(selectedColumn.Name);
 
+                if (shift == "Morning")
+                {
+                    if (c.GetSchedule(department, year, week, day).MorningAmount == 0)
+                    {
+                        MessageBox.Show("Limit reached! Update schedule if you want to add more employee.");
+                        return;
+                    }
+                }
+                if (shift == "Afternoon")
+                {
+                    if (c.GetSchedule(department, year, week, day).AfternoonAmount == 0)
+                    {
+                        MessageBox.Show("Limit reached! Update schedule if you want to add more employee.");
+                        return;
+                    }
+                }
+                if (shift == "Evening")
+                {
+                    if (c.GetSchedule(department, year, week, day).EveningAmount == 0)
+                    {
+                        MessageBox.Show("Limit reached! Update schedule if you want to add more employee.");
+                        return;
+                    }
+                }
+
                 if (c.GetRegisteredShift(department, year, week, day, shift) == null)
                 {
                     if (c.RegisterEmployee(department, year, week, day, shift, employee))
@@ -662,6 +687,7 @@ namespace AdminBackups
                             MessageBox.Show("Something went wrong!");
                         }
                     }
+
                 }
             }
             catch (Exception)

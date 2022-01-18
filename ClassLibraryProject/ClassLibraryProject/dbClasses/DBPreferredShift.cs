@@ -24,6 +24,10 @@ namespace ClassLibraryProject.dbClasses
         {
             return preferredShifts;
         }
+        public List<Employee> GetEmployees()
+        {
+            return employees;
+        }
         public DBPreferredShift()
         {
             preferredShifts = new List<PreferredShift>();
@@ -352,7 +356,6 @@ namespace ClassLibraryProject.dbClasses
             }
             return false;
         }
-
         public PreferredShift GetPreferredShift(string day, string shift)
         {
             foreach (PreferredShift ps in preferredShifts)

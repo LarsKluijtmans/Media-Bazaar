@@ -15,6 +15,7 @@ namespace ClassLibraryProject.ManagmentClasses.IDepotManager
         bool IsValid(OrderInfo orderInfo, int amount);
 
         //schedule
+        Schedule GetSchedule(string department, int year, int week, string day);
         List<Schedule> GetSchedules(string department, int year, int week);
         bool CreateWeek(string department, int year, int week);
         bool WeekExist(string department, int year, int week);

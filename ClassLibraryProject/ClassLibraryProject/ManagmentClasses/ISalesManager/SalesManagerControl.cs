@@ -19,6 +19,10 @@ namespace ClassLibraryProject.ManagmentClasses.ISalesManager
             this.preferredShift = preferredShift;
         }
         //schedule
+        public Schedule GetSchedule(string department, int year, int week, string day)
+        {
+            return schedule.GetSchedule(department, year, week, day);
+        }
         public List<Schedule> GetSchedules(string department, int year, int week)
         {
             return schedule.GetSchedules(department, year, week);
