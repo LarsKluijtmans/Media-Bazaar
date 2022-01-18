@@ -62,6 +62,7 @@ namespace AdminBackups
             this.label6 = new System.Windows.Forms.Label();
             this.dgSchedule = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbScheduleDay = new System.Windows.Forms.TextBox();
             this.btnEditschedule = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -75,6 +76,9 @@ namespace AdminBackups
             this.rbHistory = new System.Windows.Forms.RadioButton();
             this.rbPending = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCurrentAmount = new System.Windows.Forms.TextBox();
+            this.txtRestockID = new System.Windows.Forms.TextBox();
+            this.txtBarcode = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOrderRestock = new System.Windows.Forms.Button();
@@ -90,10 +94,7 @@ namespace AdminBackups
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
-            this.txtRestockID = new System.Windows.Forms.TextBox();
-            this.txtBarcode = new System.Windows.Forms.TextBox();
-            this.txtCurrentAmount = new System.Windows.Forms.TextBox();
-            this.lbScheduleDay = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanningYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
@@ -132,6 +133,7 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.txtSearch);
             this.tabPlanning.Controls.Add(this.rdNoPreference);
             this.tabPlanning.Controls.Add(this.rbNotPreferred);
             this.tabPlanning.Controls.Add(this.rbPreferred);
@@ -506,6 +508,15 @@ namespace AdminBackups
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Schedule Management";
             // 
+            // lbScheduleDay
+            // 
+            this.lbScheduleDay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbScheduleDay.Location = new System.Drawing.Point(108, 48);
+            this.lbScheduleDay.Name = "lbScheduleDay";
+            this.lbScheduleDay.ReadOnly = true;
+            this.lbScheduleDay.Size = new System.Drawing.Size(72, 23);
+            this.lbScheduleDay.TabIndex = 95;
+            // 
             // btnEditschedule
             // 
             this.btnEditschedule.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -650,6 +661,33 @@ namespace AdminBackups
             this.groupBox1.TabIndex = 88;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Restock Management";
+            // 
+            // txtCurrentAmount
+            // 
+            this.txtCurrentAmount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCurrentAmount.Location = new System.Drawing.Point(136, 103);
+            this.txtCurrentAmount.Name = "txtCurrentAmount";
+            this.txtCurrentAmount.ReadOnly = true;
+            this.txtCurrentAmount.Size = new System.Drawing.Size(72, 23);
+            this.txtCurrentAmount.TabIndex = 96;
+            // 
+            // txtRestockID
+            // 
+            this.txtRestockID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtRestockID.Location = new System.Drawing.Point(136, 41);
+            this.txtRestockID.Name = "txtRestockID";
+            this.txtRestockID.ReadOnly = true;
+            this.txtRestockID.Size = new System.Drawing.Size(72, 23);
+            this.txtRestockID.TabIndex = 94;
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBarcode.Location = new System.Drawing.Point(137, 74);
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.ReadOnly = true;
+            this.txtBarcode.Size = new System.Drawing.Size(72, 23);
+            this.txtBarcode.TabIndex = 95;
             // 
             // label14
             // 
@@ -820,41 +858,14 @@ namespace AdminBackups
             this.dgOverviewSchedule.TabIndex = 13;
             this.dgOverviewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewSchedule_CellDoubleClick);
             // 
-            // txtRestockID
+            // txtSearch
             // 
-            this.txtRestockID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtRestockID.Location = new System.Drawing.Point(136, 41);
-            this.txtRestockID.Name = "txtRestockID";
-            this.txtRestockID.ReadOnly = true;
-            this.txtRestockID.Size = new System.Drawing.Size(72, 23);
-            this.txtRestockID.TabIndex = 94;
-            // 
-            // txtBarcode
-            // 
-            this.txtBarcode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBarcode.Location = new System.Drawing.Point(137, 74);
-            this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.ReadOnly = true;
-            this.txtBarcode.Size = new System.Drawing.Size(72, 23);
-            this.txtBarcode.TabIndex = 95;
-            // 
-            // txtCurrentAmount
-            // 
-            this.txtCurrentAmount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCurrentAmount.Location = new System.Drawing.Point(136, 103);
-            this.txtCurrentAmount.Name = "txtCurrentAmount";
-            this.txtCurrentAmount.ReadOnly = true;
-            this.txtCurrentAmount.Size = new System.Drawing.Size(72, 23);
-            this.txtCurrentAmount.TabIndex = 96;
-            // 
-            // lbScheduleDay
-            // 
-            this.lbScheduleDay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbScheduleDay.Location = new System.Drawing.Point(108, 48);
-            this.lbScheduleDay.Name = "lbScheduleDay";
-            this.lbScheduleDay.ReadOnly = true;
-            this.lbScheduleDay.Size = new System.Drawing.Size(72, 23);
-            this.lbScheduleDay.TabIndex = 95;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Location = new System.Drawing.Point(588, 36);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(436, 25);
+            this.txtSearch.TabIndex = 89;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // FormDepotManager
             // 
@@ -957,5 +968,6 @@ namespace AdminBackups
         private System.Windows.Forms.TextBox txtCurrentAmount;
         private System.Windows.Forms.TextBox txtRestockID;
         private System.Windows.Forms.TextBox txtBarcode;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }
