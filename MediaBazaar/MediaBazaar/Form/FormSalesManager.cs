@@ -630,7 +630,24 @@ namespace AdminBackups
                 {
                     if (c.RegisterEmployee(department, year, week, day, shift, employee))
                     {
-                        UpdateEmployeeList();
+                        if (rbNotPreferred.Checked)
+                        {
+                            UpdateNotPreferredEmployeeList();
+                        }
+                        else
+                        {
+                            if (rbPreferred.Checked)
+                            {
+                                UpdateEmployeeList();
+                            }
+                            else
+                            {
+                                if (rdNoPreference.Checked)
+                                {
+                                    UpdateNoPreferenceEmployeeList();
+                                }
+                            }
+                        }
                     }
                     else
                     {
@@ -647,14 +664,30 @@ namespace AdminBackups
                     {
                         if (c.RegisterEmployee(department, year, week, day, shift, employee))
                         {
-                            UpdateEmployeeList();
+                            if (rbNotPreferred.Checked)
+                            {
+                                UpdateNotPreferredEmployeeList();
+                            }
+                            else
+                            {
+                                if (rbPreferred.Checked)
+                                {
+                                    UpdateEmployeeList();
+                                }
+                                else
+                                {
+                                    if (rdNoPreference.Checked)
+                                    {
+                                        UpdateNoPreferenceEmployeeList();
+                                    }
+                                }
+                            }
                         }
                         else
                         {
                             MessageBox.Show("Something went wrong!");
                         }
                     }
-
                 }
             }
             catch (Exception)

@@ -250,10 +250,14 @@ namespace AdminBackups
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgRestock.Rows[e.RowIndex];
-                txtRestockID.Text = row.Cells["ID"].Value.ToString();
-                txtBarcode.Text = row.Cells["Barcode"].Value.ToString();
-                txtCurrentAmount.Text = row.Cells["Amount"].Value.ToString();
+                try
+                {
+                    DataGridViewRow row = dgRestock.Rows[e.RowIndex];
+                    txtRestockID.Text = row.Cells["ID"].Value.ToString();
+                    txtBarcode.Text = row.Cells["Barcode"].Value.ToString();
+                    txtCurrentAmount.Text = c.GetRestockByID(Convert.ToInt32(row.Cells["ID"].Value)).Product.AmountInDepot.ToString();
+                }
+                catch { }
             }
         }
         private void btnOrderRestock_Click(object sender, EventArgs e)
@@ -710,7 +714,24 @@ namespace AdminBackups
                 {
                     if (c.RegisterEmployee(department, year, week, day, shift, employee))
                     {
-                        UpdateEmployeeList();
+                        if (rbNotPreferred.Checked)
+                        {
+                            UpdateNotPreferredEmployeeList();
+                        }
+                        else
+                        {
+                            if (rbPreferred.Checked)
+                            {
+                                UpdateEmployeeList();
+                            }
+                            else
+                            {
+                                if (rdNoPreference.Checked)
+                                {
+                                    UpdateNoPreferenceEmployeeList();
+                                }
+                            }
+                        }
                     }
                     else
                     {
@@ -727,7 +748,24 @@ namespace AdminBackups
                     {
                         if (c.RegisterEmployee(department, year, week, day, shift, employee))
                         {
-                            UpdateEmployeeList();
+                            if (rbNotPreferred.Checked)
+                            {
+                                UpdateNotPreferredEmployeeList();
+                            }
+                            else
+                            {
+                                if (rbPreferred.Checked)
+                                {
+                                    UpdateEmployeeList();
+                                }
+                                else
+                                {
+                                    if (rdNoPreference.Checked)
+                                    {
+                                        UpdateNoPreferenceEmployeeList();
+                                    }
+                                }
+                            }
                         }
                         else
                         {

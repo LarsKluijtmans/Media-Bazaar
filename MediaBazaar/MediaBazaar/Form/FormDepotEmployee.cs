@@ -167,6 +167,7 @@ namespace AdminBackups
                 txtReshelfID.Text = row.Cells["ID"].Value.ToString();
                 txtBarcode.Text = row.Cells["Barcode"].Value.ToString();
                 txtAmountRequested.Text = row.Cells["Amount"].Value.ToString();
+                txtDepot.Text = c.GetProduct(txtBarcode.Text).AmountInDepot.ToString();
             }
         }
 
