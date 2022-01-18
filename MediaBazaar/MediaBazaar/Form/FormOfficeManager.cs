@@ -632,99 +632,101 @@ namespace AdminBackups
         }
         private void btnMakeExcelSheet_Click_1(object sender, EventArgs e)
         {
-            Excel.Application oXL;
-            Excel._Workbook oWB;
-            Excel._Worksheet oSheet;
-            Excel.Range oRng;
-
-
-            //Start Excel and get Application object.
-            oXL = new Excel.Application();
-            oXL.Visible = true;
-
-            //Get a new workbook.
-            oWB = (Excel._Workbook)(oXL.Workbooks.Add(Missing.Value));
-            oSheet = (Excel._Worksheet)oWB.ActiveSheet;
-
-            //Add table headers going cell by cell.
-            oSheet.Cells[1, 1] = " EmployeeID ";
-            oSheet.Cells[1, 2] = " Name ";
-            oSheet.Cells[1, 3] = " Hours worked ";
-            oSheet.Cells[1, 4] = " Work hours per week ";
-            oSheet.Cells[1, 5] = " Salary per hour ";
-            oSheet.Cells[1, 6] = " Job ";
-            oSheet.Cells[1, 7] = " Salary this Month ";
-
-            //Format A1:D1 as bold, vertical alignment = center.
-            oSheet.get_Range("A1", "G1").Font.Bold = true;
-            oSheet.get_Range("A1", "G1").VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-            oSheet.get_Range("A1", "G1").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-            oSheet.get_Range("A1", "G1").Font.Size = 16;
-            //AutoFit columns A:D.
-            oRng = oSheet.get_Range("A1", "G1");
-            oRng.EntireColumn.AutoFit();
-
-            List<TimeWorked> c = null;
             try
             {
+                Excel.Application oXL;
+                Excel._Workbook oWB;
+                Excel._Worksheet oSheet;
+                Excel.Range oRng;
+
+
+                //Start Excel and get Application object.
+                oXL = new Excel.Application();
+                oXL.Visible = true;
+
+                //Get a new workbook.
+                oWB = (Excel._Workbook)(oXL.Workbooks.Add(Missing.Value));
+                oSheet = (Excel._Worksheet)oWB.ActiveSheet;
+
+                //Add table headers going cell by cell.
+                oSheet.Cells[1, 1] = " EmployeeID ";
+                oSheet.Cells[1, 2] = " Name ";
+                oSheet.Cells[1, 3] = " Hours worked ";
+                oSheet.Cells[1, 4] = " Work hours per week ";
+                oSheet.Cells[1, 5] = " Salary per hour ";
+                oSheet.Cells[1, 6] = " Job ";
+                oSheet.Cells[1, 7] = " Salary this Month ";
+
+                //Format A1:D1 as bold, vertical alignment = center.
+                oSheet.get_Range("A1", "G1").Font.Bold = true;
+                oSheet.get_Range("A1", "G1").VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                oSheet.get_Range("A1", "G1").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                oSheet.get_Range("A1", "G1").Font.Size = 16;
+                //AutoFit columns A:D.
+                oRng = oSheet.get_Range("A1", "G1");
+                oRng.EntireColumn.AutoFit();
+
+                List<TimeWorked> c = null;
+                
                 c = officeManager.checkinManagment.getAllAtendanceTime(Convert.ToInt32(labYear.Text), Convert.ToInt32(labMonth.Text));
+
+                bool Errors = false;
+
+                for (int i = 0; i < c.Count; i++)
+                {
+                    try
+                    {
+                        int index = i + 2;
+
+                        oSheet.get_Range("A" + index, "G" + index).HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
+                        oSheet.get_Range("A" + index, "G" + index).Font.Size = 12;
+
+                        if (rbColor.Checked)
+                        {
+                            if (Convert.ToInt32(c[i].TimeWork) >= Convert.ToInt32(c[i].WorkHoursPerWeek) * 4)
+                            {
+                                oSheet.get_Range("H" + index, "H" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
+                            }
+                            else
+                            {
+                                oSheet.get_Range("H" + index, "H" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                            }
+                        }
+
+                        oSheet.Cells[index, 1] = c[i].EmployeeID;
+                        oSheet.Cells[index, 2] = c[i].Name;
+                        oSheet.Cells[index, 3] = c[i].TimeWork;
+                        oSheet.Cells[index, 4] = c[i].WorkHoursPerWeek;
+                        oSheet.Cells[index, 5] = c[i].SalaryPerHour;
+                        oSheet.Cells[index, 6] = c[i].JobTitle;
+                        try
+                        {
+                            oSheet.Cells[index, 7] = Convert.ToInt32(c[i].SalaryPerHour) * Convert.ToInt32(c[i].TimeWork);
+                        }
+                        catch
+                        {
+                        }
+
+                        //AutoFit columns A:F.
+                        oRng = oSheet.get_Range("A" + index, "F" + index);
+                        oRng.EntireColumn.AutoFit();
+
+                    }
+                    catch
+                    {
+                        Errors = true;
+                    }
+                }
+
+                if (Errors)
+                {
+                    MessageBox.Show("A error occurred!");
+                }
             }
             catch
             {
                 MessageBox.Show("A error has occurred loading the data.");
                 return;
-            }
-            bool Errors = false;
-
-            for (int i = 0; i < c.Count; i++)
-            {
-                try
-                {
-                    int index = i + 2;
-
-                    oSheet.get_Range("A" + index, "G" + index).HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
-                    oSheet.get_Range("A" + index, "G" + index).Font.Size = 12;
-
-                    if (rbColor.Checked)
-                    {
-                        if (Convert.ToInt32(c[i].TimeWork) >= Convert.ToInt32(c[i].WorkHoursPerWeek) * 4)
-                        {
-                            oSheet.get_Range("H" + index, "H" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
-                        }
-                        else
-                        {
-                            oSheet.get_Range("H" + index, "H" + index).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
-                        }
-                    }
-
-                    oSheet.Cells[index, 1] = c[i].EmployeeID;
-                    oSheet.Cells[index, 2] = c[i].Name;
-                    oSheet.Cells[index, 3] = c[i].TimeWork;
-                    oSheet.Cells[index, 4] = c[i].WorkHoursPerWeek;
-                    oSheet.Cells[index, 5] = c[i].SalaryPerHour;
-                    oSheet.Cells[index, 6] = c[i].JobTitle;
-                    try
-                    {
-                        oSheet.Cells[index, 7] = Convert.ToInt32(c[i].SalaryPerHour) * Convert.ToInt32(c[i].TimeWork);
-                    }
-                    catch
-                    {
-                    }
-
-                    //AutoFit columns A:F.
-                    oRng = oSheet.get_Range("A" + index, "F" + index);
-                    oRng.EntireColumn.AutoFit();
-
-                }
-                catch
-                {
-                    Errors = true;
-                }
-            }
-
-            if (Errors)
-            {
-                MessageBox.Show("A error occurred!");
             }
 
         }
