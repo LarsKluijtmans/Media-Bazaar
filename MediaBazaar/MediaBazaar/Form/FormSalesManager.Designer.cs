@@ -68,6 +68,11 @@ namespace AdminBackups
             this.lbScheduleAfternoon = new System.Windows.Forms.TextBox();
             this.lbScheduleMorning = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
+            this.btnCheckForShifts = new System.Windows.Forms.Button();
+            this.labSearch = new System.Windows.Forms.Label();
+            this.labNeedEmploye = new System.Windows.Forms.Label();
+            this.cbUnregisteredShift = new System.Windows.Forms.ComboBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnClearScheduleForTheWeek = new System.Windows.Forms.Button();
             this.rdNoPreference = new System.Windows.Forms.RadioButton();
             this.rbNotPreferred = new System.Windows.Forms.RadioButton();
@@ -89,7 +94,6 @@ namespace AdminBackups
             this.lstEmpCanWork = new System.Windows.Forms.ListBox();
             this.lstEmpEnlisted = new System.Windows.Forms.ListBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNewProducts)).BeginInit();
@@ -537,6 +541,10 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.btnCheckForShifts);
+            this.tabPlanning.Controls.Add(this.labSearch);
+            this.tabPlanning.Controls.Add(this.labNeedEmploye);
+            this.tabPlanning.Controls.Add(this.cbUnregisteredShift);
             this.tabPlanning.Controls.Add(this.txtSearch);
             this.tabPlanning.Controls.Add(this.btnClearScheduleForTheWeek);
             this.tabPlanning.Controls.Add(this.rdNoPreference);
@@ -566,6 +574,53 @@ namespace AdminBackups
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
             // 
+            // btnCheckForShifts
+            // 
+            this.btnCheckForShifts.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCheckForShifts.Location = new System.Drawing.Point(919, 22);
+            this.btnCheckForShifts.Name = "btnCheckForShifts";
+            this.btnCheckForShifts.Size = new System.Drawing.Size(79, 25);
+            this.btnCheckForShifts.TabIndex = 97;
+            this.btnCheckForShifts.Text = "Check";
+            this.btnCheckForShifts.UseVisualStyleBackColor = true;
+            this.btnCheckForShifts.Click += new System.EventHandler(this.btnCheckForShifts_Click);
+            // 
+            // labSearch
+            // 
+            this.labSearch.AutoSize = true;
+            this.labSearch.Location = new System.Drawing.Point(574, 61);
+            this.labSearch.Name = "labSearch";
+            this.labSearch.Size = new System.Drawing.Size(60, 21);
+            this.labSearch.TabIndex = 96;
+            this.labSearch.Text = "Search:";
+            // 
+            // labNeedEmploye
+            // 
+            this.labNeedEmploye.AutoSize = true;
+            this.labNeedEmploye.Location = new System.Drawing.Point(575, 23);
+            this.labNeedEmploye.Name = "labNeedEmploye";
+            this.labNeedEmploye.Size = new System.Drawing.Size(137, 21);
+            this.labNeedEmploye.TabIndex = 95;
+            this.labNeedEmploye.Text = "Unregistered shift:";
+            // 
+            // cbUnregisteredShift
+            // 
+            this.cbUnregisteredShift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbUnregisteredShift.FormattingEnabled = true;
+            this.cbUnregisteredShift.Location = new System.Drawing.Point(718, 20);
+            this.cbUnregisteredShift.Name = "cbUnregisteredShift";
+            this.cbUnregisteredShift.Size = new System.Drawing.Size(195, 29);
+            this.cbUnregisteredShift.TabIndex = 94;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Location = new System.Drawing.Point(640, 61);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(358, 25);
+            this.txtSearch.TabIndex = 92;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // btnClearScheduleForTheWeek
             // 
             this.btnClearScheduleForTheWeek.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -581,7 +636,7 @@ namespace AdminBackups
             // 
             this.rdNoPreference.AutoSize = true;
             this.rdNoPreference.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rdNoPreference.Location = new System.Drawing.Point(902, 58);
+            this.rdNoPreference.Location = new System.Drawing.Point(903, 94);
             this.rdNoPreference.Name = "rdNoPreference";
             this.rdNoPreference.Size = new System.Drawing.Size(110, 21);
             this.rdNoPreference.TabIndex = 90;
@@ -593,7 +648,7 @@ namespace AdminBackups
             // 
             this.rbNotPreferred.AutoSize = true;
             this.rbNotPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbNotPreferred.Location = new System.Drawing.Point(789, 58);
+            this.rbNotPreferred.Location = new System.Drawing.Point(790, 94);
             this.rbNotPreferred.Name = "rbNotPreferred";
             this.rbNotPreferred.Size = new System.Drawing.Size(107, 21);
             this.rbNotPreferred.TabIndex = 89;
@@ -606,7 +661,7 @@ namespace AdminBackups
             this.rbPreferred.AutoSize = true;
             this.rbPreferred.Checked = true;
             this.rbPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbPreferred.Location = new System.Drawing.Point(702, 58);
+            this.rbPreferred.Location = new System.Drawing.Point(703, 94);
             this.rbPreferred.Name = "rbPreferred";
             this.rbPreferred.Size = new System.Drawing.Size(81, 21);
             this.rbPreferred.TabIndex = 88;
@@ -737,7 +792,7 @@ namespace AdminBackups
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(574, 57);
+            this.label9.Location = new System.Drawing.Point(575, 93);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(122, 21);
             this.label9.TabIndex = 19;
@@ -768,9 +823,9 @@ namespace AdminBackups
             this.lstEmpCanWork.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmpCanWork.FormattingEnabled = true;
             this.lstEmpCanWork.ItemHeight = 17;
-            this.lstEmpCanWork.Location = new System.Drawing.Point(574, 88);
+            this.lstEmpCanWork.Location = new System.Drawing.Point(574, 123);
             this.lstEmpCanWork.Name = "lstEmpCanWork";
-            this.lstEmpCanWork.Size = new System.Drawing.Size(411, 310);
+            this.lstEmpCanWork.Size = new System.Drawing.Size(411, 276);
             this.lstEmpCanWork.TabIndex = 16;
             this.lstEmpCanWork.DoubleClick += new System.EventHandler(this.lstEmpCanWork_DoubleClick);
             // 
@@ -795,15 +850,6 @@ namespace AdminBackups
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Location = new System.Drawing.Point(574, 25);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(423, 25);
-            this.txtSearch.TabIndex = 92;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // FormSalesManager
             // 
@@ -903,5 +949,9 @@ namespace AdminBackups
         private System.Windows.Forms.RadioButton rdNoPreference;
         private System.Windows.Forms.Button btnClearScheduleForTheWeek;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label labNeedEmploye;
+        private System.Windows.Forms.ComboBox cbUnregisteredShift;
+        private System.Windows.Forms.Label labSearch;
+        private System.Windows.Forms.Button btnCheckForShifts;
     }
 }

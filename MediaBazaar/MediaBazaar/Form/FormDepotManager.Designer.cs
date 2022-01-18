@@ -32,6 +32,12 @@ namespace AdminBackups
             this.btnLogout = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPlanning = new System.Windows.Forms.TabPage();
+            this.btnCheckForShifts = new System.Windows.Forms.Button();
+            this.labNeedEmploye = new System.Windows.Forms.Label();
+            this.cbUnregisteredShift = new System.Windows.Forms.ComboBox();
+            this.labSearch = new System.Windows.Forms.Label();
+            this.btnClearWeek = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.rdNoPreference = new System.Windows.Forms.RadioButton();
             this.rbNotPreferred = new System.Windows.Forms.RadioButton();
             this.rbPreferred = new System.Windows.Forms.RadioButton();
@@ -94,7 +100,6 @@ namespace AdminBackups
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgOverviewSchedule = new System.Windows.Forms.DataGridView();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.tabPlanning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanningYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanningSchedule)).BeginInit();
@@ -133,6 +138,11 @@ namespace AdminBackups
             // 
             // tabPlanning
             // 
+            this.tabPlanning.Controls.Add(this.btnCheckForShifts);
+            this.tabPlanning.Controls.Add(this.labNeedEmploye);
+            this.tabPlanning.Controls.Add(this.cbUnregisteredShift);
+            this.tabPlanning.Controls.Add(this.labSearch);
+            this.tabPlanning.Controls.Add(this.btnClearWeek);
             this.tabPlanning.Controls.Add(this.txtSearch);
             this.tabPlanning.Controls.Add(this.rdNoPreference);
             this.tabPlanning.Controls.Add(this.rbNotPreferred);
@@ -161,11 +171,69 @@ namespace AdminBackups
             this.tabPlanning.Text = "Planning";
             this.tabPlanning.UseVisualStyleBackColor = true;
             // 
+            // btnCheckForShifts
+            // 
+            this.btnCheckForShifts.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCheckForShifts.Location = new System.Drawing.Point(958, 18);
+            this.btnCheckForShifts.Name = "btnCheckForShifts";
+            this.btnCheckForShifts.Size = new System.Drawing.Size(79, 28);
+            this.btnCheckForShifts.TabIndex = 94;
+            this.btnCheckForShifts.Text = "Check";
+            this.btnCheckForShifts.UseVisualStyleBackColor = true;
+            this.btnCheckForShifts.Click += new System.EventHandler(this.btnCheckForShifts_Click);
+            // 
+            // labNeedEmploye
+            // 
+            this.labNeedEmploye.AutoSize = true;
+            this.labNeedEmploye.Location = new System.Drawing.Point(588, 21);
+            this.labNeedEmploye.Name = "labNeedEmploye";
+            this.labNeedEmploye.Size = new System.Drawing.Size(137, 21);
+            this.labNeedEmploye.TabIndex = 93;
+            this.labNeedEmploye.Text = "Unregistered shift:";
+            // 
+            // cbUnregisteredShift
+            // 
+            this.cbUnregisteredShift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbUnregisteredShift.FormattingEnabled = true;
+            this.cbUnregisteredShift.Location = new System.Drawing.Point(731, 18);
+            this.cbUnregisteredShift.Name = "cbUnregisteredShift";
+            this.cbUnregisteredShift.Size = new System.Drawing.Size(219, 29);
+            this.cbUnregisteredShift.TabIndex = 92;
+            // 
+            // labSearch
+            // 
+            this.labSearch.AutoSize = true;
+            this.labSearch.Location = new System.Drawing.Point(588, 68);
+            this.labSearch.Name = "labSearch";
+            this.labSearch.Size = new System.Drawing.Size(60, 21);
+            this.labSearch.TabIndex = 91;
+            this.labSearch.Text = "Search:";
+            // 
+            // btnClearWeek
+            // 
+            this.btnClearWeek.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnClearWeek.Location = new System.Drawing.Point(33, 496);
+            this.btnClearWeek.Name = "btnClearWeek";
+            this.btnClearWeek.Size = new System.Drawing.Size(112, 28);
+            this.btnClearWeek.TabIndex = 90;
+            this.btnClearWeek.Text = "Clear schedule";
+            this.btnClearWeek.UseVisualStyleBackColor = true;
+            this.btnClearWeek.Click += new System.EventHandler(this.btnClearWeek_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Location = new System.Drawing.Point(654, 68);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(370, 25);
+            this.txtSearch.TabIndex = 89;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // rdNoPreference
             // 
             this.rdNoPreference.AutoSize = true;
             this.rdNoPreference.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rdNoPreference.Location = new System.Drawing.Point(927, 74);
+            this.rdNoPreference.Location = new System.Drawing.Point(927, 103);
             this.rdNoPreference.Name = "rdNoPreference";
             this.rdNoPreference.Size = new System.Drawing.Size(110, 21);
             this.rdNoPreference.TabIndex = 88;
@@ -177,7 +245,7 @@ namespace AdminBackups
             // 
             this.rbNotPreferred.AutoSize = true;
             this.rbNotPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbNotPreferred.Location = new System.Drawing.Point(814, 74);
+            this.rbNotPreferred.Location = new System.Drawing.Point(814, 103);
             this.rbNotPreferred.Name = "rbNotPreferred";
             this.rbNotPreferred.Size = new System.Drawing.Size(107, 21);
             this.rbNotPreferred.TabIndex = 87;
@@ -190,7 +258,7 @@ namespace AdminBackups
             this.rbPreferred.AutoSize = true;
             this.rbPreferred.Checked = true;
             this.rbPreferred.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbPreferred.Location = new System.Drawing.Point(727, 74);
+            this.rbPreferred.Location = new System.Drawing.Point(727, 103);
             this.rbPreferred.Name = "rbPreferred";
             this.rbPreferred.Size = new System.Drawing.Size(81, 21);
             this.rbPreferred.TabIndex = 86;
@@ -224,7 +292,7 @@ namespace AdminBackups
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(588, 395);
+            this.progressBar1.Location = new System.Drawing.Point(588, 424);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(436, 23);
             this.progressBar1.TabIndex = 82;
@@ -241,9 +309,9 @@ namespace AdminBackups
             // btnAutoSchedule
             // 
             this.btnAutoSchedule.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAutoSchedule.Location = new System.Drawing.Point(602, 442);
+            this.btnAutoSchedule.Location = new System.Drawing.Point(602, 459);
             this.btnAutoSchedule.Name = "btnAutoSchedule";
-            this.btnAutoSchedule.Size = new System.Drawing.Size(405, 61);
+            this.btnAutoSchedule.Size = new System.Drawing.Size(403, 44);
             this.btnAutoSchedule.TabIndex = 80;
             this.btnAutoSchedule.Text = "Auto schedule";
             this.btnAutoSchedule.UseVisualStyleBackColor = true;
@@ -321,7 +389,7 @@ namespace AdminBackups
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(588, 74);
+            this.label3.Location = new System.Drawing.Point(588, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 21);
             this.label3.TabIndex = 12;
@@ -352,7 +420,7 @@ namespace AdminBackups
             this.lstEmpCanWork.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmpCanWork.FormattingEnabled = true;
             this.lstEmpCanWork.ItemHeight = 17;
-            this.lstEmpCanWork.Location = new System.Drawing.Point(588, 98);
+            this.lstEmpCanWork.Location = new System.Drawing.Point(588, 127);
             this.lstEmpCanWork.Name = "lstEmpCanWork";
             this.lstEmpCanWork.Size = new System.Drawing.Size(436, 276);
             this.lstEmpCanWork.TabIndex = 8;
@@ -858,15 +926,6 @@ namespace AdminBackups
             this.dgOverviewSchedule.TabIndex = 13;
             this.dgOverviewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOverviewSchedule_CellDoubleClick);
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Location = new System.Drawing.Point(588, 36);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(436, 25);
-            this.txtSearch.TabIndex = 89;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
             // FormDepotManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -969,5 +1028,10 @@ namespace AdminBackups
         private System.Windows.Forms.TextBox txtRestockID;
         private System.Windows.Forms.TextBox txtBarcode;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnClearWeek;
+        private System.Windows.Forms.Label labNeedEmploye;
+        private System.Windows.Forms.ComboBox cbUnregisteredShift;
+        private System.Windows.Forms.Label labSearch;
+        private System.Windows.Forms.Button btnCheckForShifts;
     }
 }

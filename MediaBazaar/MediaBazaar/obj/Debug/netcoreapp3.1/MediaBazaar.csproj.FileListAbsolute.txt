@@ -52,3 +52,4 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.pdb
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.genruntimeconfig.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\MediaBazaar\MediaBazaar\obj\Debug\netcoreapp3.1\MediaBazaar.csproj.AssemblyReference.cache

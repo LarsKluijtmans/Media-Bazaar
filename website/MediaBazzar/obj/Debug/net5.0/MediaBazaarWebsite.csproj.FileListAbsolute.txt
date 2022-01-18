@@ -63,3 +63,4 @@ C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\obj\Debug\net
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\obj\Debug\net5.0\ref\MediaBazaarWebsite.dll
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\obj\Debug\net5.0\MediaBazaarWebsite.pdb
 C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\obj\Debug\net5.0\MediaBazaarWebsite.genruntimeconfig.cache
+C:\Users\lars\Desktop\ict\sem2\PROJECT\Project\website\MediaBazzar\obj\Debug\net5.0\MediaBazaarWebsite.csproj.AssemblyReference.cache
