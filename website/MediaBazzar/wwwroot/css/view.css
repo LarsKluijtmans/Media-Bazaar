@@ -479,6 +479,20 @@ nav .fa {
     color: #fff;
 }
 
+/* Schedule */
+.Form-Schedule {
+    flex-basis: 65%;
+    margin: 50px 30px;
+    position: sticky;
+    padding: 80px 40px 40px;
+    text-align: center;
+    background: #73CEF0;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    height: 60%;
+}
+
 /*Main Body*/
 .content-container {
     width: 100%;
@@ -490,6 +504,7 @@ nav .fa {
     font-size: 14px;
     border-radius: 5px;
 }
+
 /* Contact Page*/
 
 .Title{
@@ -499,32 +514,7 @@ nav .fa {
     padding: 20px;
 }
 
-
-
-
-/*Other*/
-
-/*.button{
-     padding: 10px;
-     width: 30%;
-     height: 50px;
-     margin: 10px;
-
-}
-
-.login-box input[type="submit"]:hover {
-    background: #DDDBF1;
-} */
-/*.login-box input[type="text"],
-input[type="password"] {
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline: none;
-    height: 30px;
-    color: #fff;
-    font-size: 16px;
-}*/
+/* Login */
 .login-box {
     align-items: center;
     width: 320px;
@@ -562,16 +552,3 @@ action {
 }
 
 
-/*Scheudle*/
-.Form-Schedule {
-    flex-basis: 65%;
-    margin: 50px 30px;
-    position: sticky;
-    padding: 80px 40px 40px;
-    text-align: center;
-    background: #73CEF0;
-    border-radius: 10px;
-    color: #fff;
-    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
-    height: 60%;
-}
