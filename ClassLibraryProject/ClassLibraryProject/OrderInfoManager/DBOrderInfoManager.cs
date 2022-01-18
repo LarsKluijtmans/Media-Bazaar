@@ -53,7 +53,7 @@ namespace ClassLibraryProject
                     int minAmount = reader.GetInt32(3);
                     int maxAmount = reader.GetInt32(4);
                     int multiples = reader.GetInt32(5);
-                    double purchasePrice = reader.GetInt32(6);
+                    double purchasePrice = reader.GetDouble(6);
 
                     orderInfo = new OrderInfo(orderInfoID, supplier, p, minAmount, maxAmount, multiples, purchasePrice);
                     orderInfos.Add(orderInfo);

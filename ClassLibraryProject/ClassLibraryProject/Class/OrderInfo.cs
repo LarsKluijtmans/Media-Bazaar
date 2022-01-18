@@ -42,8 +42,11 @@
             get { return multiples; }
             set { multiples = value; }
         }
-        public double PurchasePrice { get; set; }
-
+        public double PurchasePrice
+        {
+            get { return purchasePrice; }
+            set { purchasePrice = value; }
+        }
         //constructor
         public OrderInfo(Supplier supplier, Product product, int minAmount, int maxAmount, int multiples, double purchasePrice)
         {

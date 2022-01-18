@@ -112,10 +112,10 @@ namespace AdminBackups
 
                 if (!orderInfound)
                 {
-                    tbxMinAmount.Value = 0;
-                    tbxMaxAmount.Value = 0;
-                    tbxMultiples.Value = 0;
-                    tbxPurchasePrice.Text = "0";
+                    tbxMinAmount.Value = 1;
+                    tbxMaxAmount.Value = 1;
+                    tbxMultiples.Value = 1;
+                    tbxPurchasePrice.Text = "1";
                 }
             }
 
