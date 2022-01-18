@@ -20,22 +20,22 @@
             <h2>Unavailable days:</h2>
             @if (Model.Unavailabilities.Count != 0)
             {
-        <table class="availability-table">
-            <tr>
-                <th>Day</th>
-                <th>Week</th>
-                <th>Year</th>
-            </tr>
+                <table class="availability-table">
+                        <tr>
+                            <th>Day</th>
+                            <th>Week</th>
+                            <th>Year</th>
+                        </tr>
 
-            @foreach (var u in Model.Unavailabilities)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => u.Day)</td>
-                    <td>@Html.DisplayFor(modelItem => u.Week)</td>
-                    <td>@Html.DisplayFor(modelItem => u.Year)</td>
-                </tr>
-            }
-        </table>
+                        @foreach (var u in Model.GetList())
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => u.Day)</td>
+                                <td>@Html.DisplayFor(modelItem => u.Week)</td>
+                                <td>@Html.DisplayFor(modelItem => u.Year)</td>
+                            </tr>
+                        }
+                </table>
             }
         </div>
     </div>
