@@ -212,7 +212,7 @@ namespace AdminBackups
 
             Employee newEmployee;
 
-            if (cbxJobTitle.SelectedIndex == 0)
+            if (cbxJobTitle.Text == "ADMIN")
             {
                 newEmployee = new Admin(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
@@ -233,7 +233,7 @@ namespace AdminBackups
                     }
                 }
             }
-            else if (cbxJobTitle.SelectedIndex == 1)
+            else if (cbxJobTitle.Text == "CEO")
             {
                 newEmployee = new CEO(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
@@ -254,7 +254,7 @@ namespace AdminBackups
                     }
                 }
             }
-            else if (cbxJobTitle.SelectedIndex == 2)
+            else if (cbxJobTitle.Text == "SALES REPRESENTATIVE")
             {
                 newEmployee = new SalesRepresentative(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
@@ -275,7 +275,7 @@ namespace AdminBackups
                     }
                 }
             }
-            else if (cbxJobTitle.SelectedIndex == 3)
+            else if (cbxJobTitle.Text == "SALES MANAGER")
             {
                 newEmployee = new SalesManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
@@ -296,7 +296,7 @@ namespace AdminBackups
                     }
                 }
             }
-            else if (cbxJobTitle.SelectedIndex == 4)
+            else if (cbxJobTitle.Text == "DEPOT EMPLOYEE")
             {
                 newEmployee = new DepotEmployee(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
@@ -317,7 +317,7 @@ namespace AdminBackups
                     }
                 }
             }
-            else if (cbxJobTitle.SelectedIndex == 5)
+            else if (cbxJobTitle.Text == "DEPOT MANAGER")
             {
                 newEmployee = new DepotManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
@@ -338,7 +338,7 @@ namespace AdminBackups
                     }
                 }
             }
-            else if (cbxJobTitle.SelectedIndex == 6)
+            else if (cbxJobTitle.Text == "OFFICE MANAGER")
             {
                 newEmployee = new OfficeManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))
@@ -359,7 +359,7 @@ namespace AdminBackups
                     }
                 }
             }
-            else if (cbxJobTitle.SelectedIndex == 7)
+            else if (cbxJobTitle.Text == "PRODUCT MANAGER")
             {
                 newEmployee = new ProductManager(firstName, lastName, phoneNumber, email, zipCode, streetName, city, dateOfBirth, bsn, username, password, personalEmail);
                 if (officeManager.EmployeeManagerOffice.CreateEmployee(newEmployee))

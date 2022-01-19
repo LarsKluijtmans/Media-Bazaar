@@ -72,26 +72,7 @@ namespace ClassLibraryProject
 
         public bool CreateEmployee(Employee e)
         {
-            if (!Regex.IsMatch(e.ZipCode, @"^[0-9]{4}[A-Z]{2}$"))
-            {
-                return false;
-            }
-            if (!Regex.IsMatch(e.Email, @"[a-z]@mb.com"))
-            {
-                return false;
-            }
-            if (!Regex.IsMatch(e.BSN.ToString(), @"\b[0-9]{8,9}\b"))
-            {
-                return false;
-            }
-            if (!Regex.IsMatch(e.PhoneNumber, @"^(\+)316[0-9]{8}$"))
-            {
-                return false;
-            }
-            if (!Regex.IsMatch(e.DateOfBirth.ToString("dd/MM/yyyy"), @"((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))\/((?:0[1-9])|(?:1[0-2]))\/(\d{4})"))
-            {
-                return false;
-            }
+
 
             MySqlConnection conn = Utils.GetConnection();
             string sql = CREATE_EMPLOYEE;

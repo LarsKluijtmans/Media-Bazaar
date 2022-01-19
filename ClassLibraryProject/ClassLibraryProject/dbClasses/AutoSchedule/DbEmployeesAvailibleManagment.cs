@@ -10,7 +10,7 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
     public class DbEmployeesAvailibleManagment : IDbEmployeesAvailibleManagment
     {
 
-      private string EMPLYEES_WITH_PREFERED_SHIFT = "SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek,preferedtime.Day,preferedtime.Shift FROM `employee`  INNER JOIN contract on employee.EmployeeID = contract.EmployeeID INNER JOIN preferedtime on Employee.EmployeeID = preferedtime.EmployeeID where contract.Department = '@department' AND Employee.Active = 1 AND preferedtime.Shift = '@shift' and preferedtime.Day = '@day' AND contract.JobTitle NOT LIKE '%Manager%' AND preferedtime.Prefered = 1 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '@day' AND WEEK = @week AND YEAR = @year) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = @week AND year = @year group by week, year ,EmployeeID) ;";
+      private string EMPLYEES_WITH_PREFERED_SHIFT = "SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek,preferedtime.Day,preferedtime.Shift FROM `employee`  INNER JOIN contract on employee.EmployeeID = contract.EmployeeID INNER JOIN preferedtime on Employee.EmployeeID = preferedtime.EmployeeID WHERE contract.active = 1 and contract.Department = '@department' AND Employee.Active = 1 AND preferedtime.Shift = '@shift' and preferedtime.Day = '@day' AND contract.JobTitle NOT LIKE '%Manager%' AND preferedtime.Prefered = 1 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '@day' AND WEEK = @week AND YEAR = @year) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = @week AND year = @year group by week, year ,EmployeeID) ;";
         
         //GET EMPLOYEES
 
@@ -21,17 +21,11 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = EMPLYEES_WITH_PREFERED_SHIFT;
+            string sql = $"SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek,preferedtime.Day,preferedtime.Shift FROM `employee` INNER JOIN contract on employee.EmployeeID = contract.EmployeeID INNER JOIN preferedtime on Employee.EmployeeID = preferedtime.EmployeeID WHERE Employee.Active = 1 AND contract.active = 1 AND contract.Department = '{department}' AND preferedtime.Shift = '{shift}' AND preferedtime.Day = '{day}' AND preferedtime.Prefered = 1 AND (employee.`EmployeeID`) NOT IN(select availability.EmployeeID from availability where day = 'Monday' AND WEEK = {week} AND YEAR = {year}) AND (contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = {week} AND year = {year} group by week, year ,EmployeeID); ";
 
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@department", department);
-                cmd.Parameters.AddWithValue("@day", day);
-                cmd.Parameters.AddWithValue("@shift", shift);
-                cmd.Parameters.AddWithValue("@week", week);
-                cmd.Parameters.AddWithValue("@year", year);
 
                 conn.Open();
 
@@ -62,7 +56,7 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek FROM `employee`  INNER JOIN contract on employee.EmployeeID = contract.EmployeeID where contract.Department = '{department}' AND contract.JobTitle NOT LIKE '%Manager%' AND Employee.Active = 1 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '{day}' AND WEEK = {week} AND YEAR = {year}) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = {week} AND YEAR = {year} group by week, EmployeeID);";
+            string sql = $"SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek FROM `employee`  INNER JOIN contract on employee.EmployeeID = contract.EmployeeID where  contract.active = 1 and  contract.Department = '{department}' AND contract.JobTitle NOT LIKE '%Manager%' AND Employee.Active = 1 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '{day}' AND WEEK = {week} AND YEAR = {year}) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = {week} AND YEAR = {year} group by week, EmployeeID) AND (Employee.EmployeeID) NOT IN (select employeeID from preferedTime where shift = '{shift}' and day = '{day}');";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -95,7 +89,7 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek,preferedtime.Day,preferedtime.Shift FROM `employee`  INNER JOIN contract on employee.EmployeeID = contract.EmployeeID INNER JOIN preferedtime on Employee.EmployeeID = preferedtime.EmployeeID where contract.Department = '{department}' AND contract.JobTitle NOT LIKE '%Manager%' AND Employee.Active = 1 AND preferedtime.Shift = '{shift}' and preferedtime.Day = '{day}' AND preferedtime.Prefered = 0 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '{day}'  AND WEEK = {week} AND YEAR = {year}) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = {week} group by week, EmployeeID);";
+            string sql = $"SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek,preferedtime.Day,preferedtime.Shift FROM `employee`  INNER JOIN contract on employee.EmployeeID = contract.EmployeeID INNER JOIN preferedtime on Employee.EmployeeID = preferedtime.EmployeeID where  contract.active = 1 and  contract.Department = '{department}' AND contract.JobTitle NOT LIKE '%Manager%' AND Employee.Active = 1 AND preferedtime.Shift = '{shift}' and preferedtime.Day = '{day}' AND preferedtime.Prefered = 0 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '{day}'  AND WEEK = {week} AND YEAR = {year}) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = {week} group by week, EmployeeID);";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -132,7 +126,7 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek,preferedtime.Day,preferedtime.Shift FROM `employee` INNER JOIN contract on employee.EmployeeID = contract.EmployeeID INNER JOIN preferedtime on Employee.EmployeeID = preferedtime.EmployeeID where contract.Department = '{department}' AND contract.JobTitle NOT LIKE '%Manager%' AND Employee.Active = 1 AND preferedtime.Shift = '{shift}' and preferedtime.Day = '{day}'AND preferedtime.Prefered = 1 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '{day}' AND WEEK = {week} AND YEAR = {year}) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = {week} AND YEAR = {year} group by week, EmployeeID) AND (employee.EmployeeID) NOT IN (select planning.EmployeeID from planning where year = {year} AND WEEK = {week} AND day = '{day}' And shift = 'Morning');";
+            string sql = $"SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek,preferedtime.Day,preferedtime.Shift FROM `employee` INNER JOIN contract on employee.EmployeeID = contract.EmployeeID INNER JOIN preferedtime on Employee.EmployeeID = preferedtime.EmployeeID WHERE  contract.active = 1 and  contract.Department = '{department}' AND contract.JobTitle NOT LIKE '%Manager%' AND Employee.Active = 1 AND preferedtime.Shift = '{shift}' and preferedtime.Day = '{day}'AND preferedtime.Prefered = 1 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '{day}' AND WEEK = {week} AND YEAR = {year}) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = {week} AND YEAR = {year} group by week, EmployeeID) AND (employee.EmployeeID) NOT IN (select planning.EmployeeID from planning where year = {year} AND WEEK = {week} AND day = '{day}' And shift = 'Morning');";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -165,7 +159,7 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek FROM `employee`  INNER JOIN contract on employee.EmployeeID = contract.EmployeeID where contract.Department = '{department}' AND contract.JobTitle NOT LIKE '%Manager%' AND Employee.Active = 1 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '{day}' AND WEEK = {week} AND YEAR = {year}) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = {week} AND YEAR = {year} group by week, EmployeeID)AND(employee.EmployeeID) NOT IN(select planning.EmployeeID from planning where year = {year} AND WEEK = {week} AND day = '{day}' And shift = 'Morning');";
+            string sql = $"SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek FROM `employee`  INNER JOIN contract on employee.EmployeeID = contract.EmployeeID WHERE  contract.active = 1 and contract.Department = '{department}' AND contract.JobTitle NOT LIKE '%Manager%' AND Employee.Active = 1 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '{day}' AND WEEK = {week} AND YEAR = {year}) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = {week} AND YEAR = {year} group by week, EmployeeID)AND(employee.EmployeeID) NOT IN(select planning.EmployeeID from planning where year = {year} AND WEEK = {week} AND day = '{day}' And shift = 'Morning') AND (Employee.EmployeeID) NOT IN (select employeeID from preferedTime where shift = '{shift}' and day = '{day}');";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -198,7 +192,7 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
 
             MySqlConnection conn = Utils.GetConnection();
 
-            string sql = $"SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek,preferedtime.Day,preferedtime.Shift FROM `employee` INNER JOIN contract on employee.EmployeeID = contract.EmployeeID INNER JOIN preferedtime on Employee.EmployeeID = preferedtime.EmployeeID where contract.Department = '{department}' AND contract.JobTitle NOT LIKE '%Manager%' AND Employee.Active = 1 AND preferedtime.Shift = '{shift}' and preferedtime.Day = '{day}'AND preferedtime.Prefered = 0 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '{day}' AND WEEK = {week} AND YEAR = {year}) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = {week} AND YEAR = {year} group by week, EmployeeID) AND (employee.EmployeeID) NOT IN (select planning.EmployeeID from planning where year = {year} AND WEEK = {week} AND day = '{day}' And shift = 'Morning');";
+            string sql = $"SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek,preferedtime.Day,preferedtime.Shift FROM `employee` INNER JOIN contract on employee.EmployeeID = contract.EmployeeID INNER JOIN preferedtime on Employee.EmployeeID = preferedtime.EmployeeID WHERE  contract.active = 1 and  contract.Department = '{department}' AND contract.JobTitle NOT LIKE '%Manager%' AND Employee.Active = 1 AND preferedtime.Shift = '{shift}' and preferedtime.Day = '{day}'AND preferedtime.Prefered = 0 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '{day}' AND WEEK = {week} AND YEAR = {year}) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = {week} AND YEAR = {year} group by week, EmployeeID) AND (employee.EmployeeID) NOT IN (select planning.EmployeeID from planning where year = {year} AND WEEK = {week} AND day = '{day}' And shift = 'Morning');";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);

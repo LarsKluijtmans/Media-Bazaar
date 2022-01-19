@@ -68,6 +68,7 @@ namespace acr122_demo
             foreach (Ckecks k in at.check)
             {
                 lbCheck.Items.Add(k);
+                return;
             }
         }
 
@@ -92,7 +93,7 @@ namespace acr122_demo
                         date = DateTime.Now;
                         acr122u.ReadId = null;
 
-                        labChekced.Text = "You have ckeckedout.";
+                        labChekced.Text = "You have checkedin!";
                         labChekced.ForeColor = System.Drawing.Color.Yellow;
 
                         check = true;
@@ -109,7 +110,7 @@ namespace acr122_demo
                         date = DateTime.Now;
                         acr122u.ReadId = null;
 
-                        labChekced.Text = "You have checkedin!";
+                        labChekced.Text = "You have ckeckedout.";
                         labChekced.ForeColor = System.Drawing.Color.Green;
 
                         check = true;

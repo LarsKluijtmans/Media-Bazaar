@@ -229,7 +229,7 @@ namespace AdminBackups
                 dgvEmployees.DataSource = employees;
             }
 
-
+            dgvEmployees.Columns["StreetName"].Visible = false;
             dgvEmployees.Columns["Password"].Visible = false;
             dgvEmployees.Columns["EmployeeManagerAll"].Visible = false;
         }

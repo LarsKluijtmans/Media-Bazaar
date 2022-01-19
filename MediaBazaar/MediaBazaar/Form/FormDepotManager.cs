@@ -140,7 +140,6 @@ namespace AdminBackups
         {
             Close();
         }
-
         protected override void OnClosed(EventArgs e)
         {
             try
@@ -335,7 +334,7 @@ namespace AdminBackups
             {
                 MessageBox.Show("Invalid input!");
             }
-             
+
         }
         private void btnIncreaseWeek_Click(object sender, EventArgs e)
         {
@@ -356,7 +355,7 @@ namespace AdminBackups
                 MessageBox.Show("Please insert year!");
             }
             UpdateSchedule();
-             
+
         }
         private void btnDecreaseWeek_Click(object sender, EventArgs e)
         {
@@ -370,15 +369,15 @@ namespace AdminBackups
             }
             lblWeek.Text = i.ToString();
             UpdateSchedule();
-             
+
         }
         private void cbSchebuleByDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UpdateSchedule();  
+            UpdateSchedule();
         }
         private void txtYear_ValueChanged(object sender, EventArgs e)
         {
-            UpdateSchedule();  
+            UpdateSchedule();
         }
         private void dgSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -390,7 +389,7 @@ namespace AdminBackups
                 lbScheduleMorning.Text = row.Cells["Morning"].Value.ToString();
                 lbScheduleAfternoon.Text = row.Cells["Afternoon"].Value.ToString();
             }
-             
+
         }
         private void btnEditschedule_Click(object sender, EventArgs e)
         {
@@ -463,7 +462,7 @@ namespace AdminBackups
                     lstEmpEnlisted.Items.Add(employee);
                 }
             }
-             
+
         }
         private void UpdateNotPreferredEmployeeList()
         {
@@ -499,7 +498,7 @@ namespace AdminBackups
                     lstEmpEnlisted.Items.Add(employee);
                 }
             }
-             
+
         }
         private void UpdateNoPreferenceEmployeeList()
         {
@@ -535,7 +534,7 @@ namespace AdminBackups
                     lstEmpEnlisted.Items.Add(employee);
                 }
             }
-             
+
         }
         public bool DepartmentTrue(Employee employee, string department)
         {
@@ -546,7 +545,7 @@ namespace AdminBackups
                     return true;
                 }
             }
-             
+
             return false;
         }
 
@@ -581,7 +580,7 @@ namespace AdminBackups
             {
                 MessageBox.Show("Invalid input!");
             }
-             
+
         }
         private void btnIncreasePlanningWeek_Click(object sender, EventArgs e)
         {
@@ -602,7 +601,7 @@ namespace AdminBackups
                 MessageBox.Show("Please insert year!");
             }
             UpdatePlanningSchedule();
-             
+
         }
         private void btnDecreasePlanningWeek_Click(object sender, EventArgs e)
         {
@@ -616,32 +615,32 @@ namespace AdminBackups
             }
             lblPlanningWeek.Text = pi.ToString();
             UpdatePlanningSchedule();
-             
+
         }
         private void cbDepartments_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdatePlanningSchedule();
-             
+
         }
         private void txtPlanningYear_ValueChanged(object sender, EventArgs e)
         {
             UpdatePlanningSchedule();
-             
+
         }
         private void rbNotPreferred_CheckedChanged(object sender, EventArgs e)
         {
             UpdateNotPreferredEmployeeList();
-             
+
         }
         private void rbPreferred_CheckedChanged(object sender, EventArgs e)
         {
             UpdateEmployeeList();
-             
+
         }
         private void rdNoPreference_CheckedChanged(object sender, EventArgs e)
         {
             UpdateNoPreferenceEmployeeList();
-             
+
         }
         private void dgPlanningSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -679,7 +678,7 @@ namespace AdminBackups
             {
                 MessageBox.Show("Something went wrong!");
             }
-             
+
         }
         private void lstEmpCanWork_DoubleClick(object sender, EventArgs e)
         {
@@ -795,7 +794,7 @@ namespace AdminBackups
             {
                 MessageBox.Show("Invalid input!");
             }
-             
+
         }
         private void btnRemoveFromSchedule_Click(object sender, EventArgs e)
         {
@@ -847,7 +846,7 @@ namespace AdminBackups
             {
                 MessageBox.Show("Invalid input!");
             }
-             
+
         }
 
 
@@ -956,11 +955,10 @@ namespace AdminBackups
 
             c.GetAllRegisteredShift();
             UpdateEmployeeList();
-             
+
 
             MessageBox.Show("Schedule has been completed");
         }
-
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             int selectedrowindex = dgPlanningSchedule.SelectedCells[0].RowIndex;
@@ -1023,9 +1021,8 @@ namespace AdminBackups
                     }
                 }
             }
-             
-        }
 
+        }
         private void btnClearWeek_Click(object sender, EventArgs e)
         {
             if (cbDepartments.Text == "")
@@ -1054,10 +1051,8 @@ namespace AdminBackups
 
             c.GetAllRegisteredShift();
             UpdateEmployeeList();
-             
+
         }
-
-
         private void ShiftsThatNeedEmployee()
         {
             try
@@ -1112,8 +1107,7 @@ namespace AdminBackups
                 }
             }
             catch { }
-            }
-
+        }
         private void btnCheckForShifts_Click(object sender, EventArgs e)
         {
             ShiftsThatNeedEmployee();

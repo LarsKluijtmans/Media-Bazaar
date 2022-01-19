@@ -47,7 +47,7 @@ namespace acr122_demo {
             this.lbCheck.Location = new System.Drawing.Point(24, 82);
             this.lbCheck.Margin = new System.Windows.Forms.Padding(4);
             this.lbCheck.Name = "lbCheck";
-            this.lbCheck.Size = new System.Drawing.Size(756, 180);
+            this.lbCheck.Size = new System.Drawing.Size(756, 70);
             this.lbCheck.TabIndex = 0;
             // 
             // labChekced
@@ -66,7 +66,7 @@ namespace acr122_demo {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 288);
+            this.ClientSize = new System.Drawing.Size(803, 186);
             this.Controls.Add(this.labChekced);
             this.Controls.Add(this.lbCheck);
             this.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -40,7 +40,7 @@ namespace AdminBackups
             Initialize();
             UpdateSchedule();
             UpdatePlanningSchedule();
-
+            EmployeesWorkingToday();
             ReadNewProducts();
             ReadProducts();
         }
@@ -73,10 +73,12 @@ namespace AdminBackups
                 {
                     cbSchebuleByDepartment.Items.Add(d);
                     cbDepartments.Items.Add(d);
+                    cbOverviewDepartment.Items.Add(d);
                 }
             }
             cbSchebuleByDepartment.Text = cbSchebuleByDepartment.Items[0].ToString();
             cbDepartments.Text = cbDepartments.Items[0].ToString();
+            cbOverviewDepartment.Text = cbDepartments.Items[0].ToString();
         }
         public int GetCurrentWeekOfYear(DateTime time)
         {
@@ -87,6 +89,51 @@ namespace AdminBackups
             }
 
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+        }
+        private void EmployeesWorkingToday()
+        {
+            int year = date.Year;
+            int week = GetCurrentWeekOfYear(date);
+            string day = date.DayOfWeek.ToString();
+            string department = cbOverviewDepartment.Text;
+
+            lstEmployeesWorkingToday.Items.Clear();
+            lstEmployeesWorkingToday.Items.Add("Morning:");
+            lstEmployeesWorkingToday.Items.Add("----------------");
+            if (c.GetRegisteredShift(department, year, week, day, "Morning") != null)
+            {
+                foreach (Employee employee in c.GetRegisteredShift(department, year, week, day, "Morning").Employees)
+                {
+                    if (DepartmentTrue(employee, department) == true)
+                    {
+                        lstEmployeesWorkingToday.Items.Add(employee);
+                    }
+                }
+            }
+            lstEmployeesWorkingToday.Items.Add("Afternoon:");
+            lstEmployeesWorkingToday.Items.Add("----------------");
+            if (c.GetRegisteredShift(department, year, week, day, "Afternoon") != null)
+            {
+                foreach (Employee employee in c.GetRegisteredShift(department, year, week, day, "Afternoon").Employees)
+                {
+                    if (DepartmentTrue(employee, department) == true)
+                    {
+                        lstEmployeesWorkingToday.Items.Add(employee);
+                    }
+                }
+            }
+            lstEmployeesWorkingToday.Items.Add("Evening:");
+            lstEmployeesWorkingToday.Items.Add("----------------");
+            if (c.GetRegisteredShift(department, year, week, day, "Evening") != null)
+            {
+                foreach (Employee employee in c.GetRegisteredShift(department, year, week, day, "Evening").Employees)
+                {
+                    if (DepartmentTrue(employee, department) == true)
+                    {
+                        lstEmployeesWorkingToday.Items.Add(employee);
+                    }
+                }
+            }
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -111,6 +158,11 @@ namespace AdminBackups
             Close();
         }
 
+
+        private void cbOverviewDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EmployeesWorkingToday();
+        }
 
 
         //OVERVIEW-------------------------------------------------------------------------
@@ -901,7 +953,10 @@ namespace AdminBackups
             }
 
             salesManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
-             
+
+            c.GetAllRegisteredShift();
+            UpdateEmployeeList();
+
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

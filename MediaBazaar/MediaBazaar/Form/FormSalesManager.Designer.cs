@@ -31,6 +31,8 @@ namespace AdminBackups
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabOverview = new System.Windows.Forms.TabPage();
+            this.cbOverviewDepartment = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dgvNewProducts = new System.Windows.Forms.DataGridView();
             this.lstEmployeesWorkingToday = new System.Windows.Forms.ListBox();
@@ -126,6 +128,8 @@ namespace AdminBackups
             // 
             // tabOverview
             // 
+            this.tabOverview.Controls.Add(this.cbOverviewDepartment);
+            this.tabOverview.Controls.Add(this.label4);
             this.tabOverview.Controls.Add(this.label13);
             this.tabOverview.Controls.Add(this.dgvNewProducts);
             this.tabOverview.Controls.Add(this.lstEmployeesWorkingToday);
@@ -139,6 +143,24 @@ namespace AdminBackups
             this.tabOverview.TabIndex = 12;
             this.tabOverview.Text = "Overview";
             this.tabOverview.UseVisualStyleBackColor = true;
+            // 
+            // cbOverviewDepartment
+            // 
+            this.cbOverviewDepartment.FormattingEnabled = true;
+            this.cbOverviewDepartment.Location = new System.Drawing.Point(732, 13);
+            this.cbOverviewDepartment.Name = "cbOverviewDepartment";
+            this.cbOverviewDepartment.Size = new System.Drawing.Size(240, 29);
+            this.cbOverviewDepartment.TabIndex = 102;
+            this.cbOverviewDepartment.SelectedIndexChanged += new System.EventHandler(this.cbOverviewDepartment_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(531, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(195, 21);
+            this.label4.TabIndex = 101;
+            this.label4.Text = "Employees Working Today:";
             // 
             // label13
             // 
@@ -168,16 +190,16 @@ namespace AdminBackups
             this.lstEmployeesWorkingToday.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstEmployeesWorkingToday.FormattingEnabled = true;
             this.lstEmployeesWorkingToday.ItemHeight = 17;
-            this.lstEmployeesWorkingToday.Location = new System.Drawing.Point(530, 38);
+            this.lstEmployeesWorkingToday.Location = new System.Drawing.Point(530, 72);
             this.lstEmployeesWorkingToday.Name = "lstEmployeesWorkingToday";
-            this.lstEmployeesWorkingToday.Size = new System.Drawing.Size(402, 463);
+            this.lstEmployeesWorkingToday.Size = new System.Drawing.Size(402, 429);
             this.lstEmployeesWorkingToday.TabIndex = 97;
             this.lstEmployeesWorkingToday.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstEmployeesWorkingToday_MouseDoubleClick);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(529, 13);
+            this.label12.Location = new System.Drawing.Point(530, 48);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(195, 21);
             this.label12.TabIndex = 96;
@@ -953,5 +975,7 @@ namespace AdminBackups
         private System.Windows.Forms.ComboBox cbUnregisteredShift;
         private System.Windows.Forms.Label labSearch;
         private System.Windows.Forms.Button btnCheckForShifts;
+        private System.Windows.Forms.ComboBox cbOverviewDepartment;
+        private System.Windows.Forms.Label label4;
     }
 }
