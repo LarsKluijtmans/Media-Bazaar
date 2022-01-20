@@ -9,9 +9,6 @@ namespace ClassLibraryProject.dbClasses.AutoSchedule
 {
     public class DbEmployeesAvailibleManagment : IDbEmployeesAvailibleManagment
     {
-
-      private string EMPLYEES_WITH_PREFERED_SHIFT = "SELECT employee.`EmployeeID`, contract.Department, Employee.Active, contract.WorkHoursPerWeek,preferedtime.Day,preferedtime.Shift FROM `employee`  INNER JOIN contract on employee.EmployeeID = contract.EmployeeID INNER JOIN preferedtime on Employee.EmployeeID = preferedtime.EmployeeID WHERE contract.active = 1 and contract.Department = '@department' AND Employee.Active = 1 AND preferedtime.Shift = '@shift' and preferedtime.Day = '@day' AND contract.JobTitle NOT LIKE '%Manager%' AND preferedtime.Prefered = 1 AND(employee.`EmployeeID`) NOT IN (select availability.EmployeeID from availability where day = '@day' AND WEEK = @week AND YEAR = @year) and(contract.WorkHoursPerWeek, contract.EmployeeID) NOT IN(Select Count(planning.EmployeeID)*4, planning.EmployeeID from planning where week = @week AND year = @year group by week, year ,EmployeeID) ;";
-        
         //GET EMPLOYEES
 
         //Prefered

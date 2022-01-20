@@ -9,7 +9,7 @@ namespace ClassLibrary1
         public MySqlConnection GetConnected()
         {
             MySqlConnection conn =
-            new MySqlConnection("Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=Nijlpaard;SslMode =none;");
+                 new MySqlConnection("Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=Lars123;SslMode =none;"); 
             return conn;
         }
     }

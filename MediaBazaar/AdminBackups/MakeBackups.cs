@@ -165,8 +165,7 @@ namespace AdminBackups
 
                 string FileLocation = path + @"\Database-" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"); ;
 
-                string constring = "Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=Nijlpaard;SslMode =none;";
-
+                string constring = "Server=studmysql01.fhict.local;Uid=dbi461266;Database=dbi461266;Pwd=Lars123;SslMode =none;";
                 using (MySqlConnection conn = new MySqlConnection(constring))
                 {
                     using (MySqlCommand cmd = new MySqlCommand())
