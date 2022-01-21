@@ -37,7 +37,7 @@ namespace RemoteAppForSalesRepresentative
                 if (p != null)
                 {
                     lbName.Text = p.ProductName;
-                    lbAmount.Text = Convert.ToString(p.AmountInDepot);
+                    lbAmount.Text = Convert.ToString(p.AmountInStore);
 
                     return true;
                 }

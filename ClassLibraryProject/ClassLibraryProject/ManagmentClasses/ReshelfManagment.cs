@@ -99,7 +99,7 @@ namespace ClassLibraryProject.ManagmentClasses
         //check
         public bool CheckAmount(Product product, int amount)
         {
-            if (product.AmountInDepot > amount)
+            if (product.AmountInDepot >= amount)
             {
                 return true;
             }

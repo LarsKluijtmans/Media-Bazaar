@@ -847,8 +847,9 @@ namespace AdminBackups
 
             salesManager.autoSchedule.deletePlanning.DeletePlaningThisWeek(week, year, department);
 
-            progressBar1.Maximum = 59;
+            progressBar1.Maximum = 63;
 
+            Prefrance prefrance = Prefrance.Prefered;
             for (int loop = 0; loop < 3; loop++)
             {
                 Days Day = Days.Monday;
@@ -860,42 +861,27 @@ namespace AdminBackups
                     for (int j = 0; j < 3; j++)
                     {
                         List<int> Employees = new List<int>();
-                        int AmountToSchedule = 0;
+                        int AmountToSchedule = salesManager.autoSchedule.amountOfEmployeesNeeded.AmountLeftToSchedule(Shift.ToString(), Day.ToString(), week, year, department); ;
 
-                        if (loop == 0)
+                        if (prefrance == Prefrance.Prefered)
                         {
-                            AmountToSchedule = salesManager.autoSchedule.amountOfEmployeesNeeded.AmountOfEmployeesToSchedule(Shift.ToString(), Day.ToString(), week, year, department);
-
                             if (AmountToSchedule != 0)
                             {
-                                if (Shift == Shifts.Evening)
-                                { Employees = salesManager.autoSchedule.employeesAvailible.EveningEmployeesShiftPrefered(Shift.ToString(), Day.ToString(), week, year, department); }
-                                else
-                                { Employees = salesManager.autoSchedule.employeesAvailible.EmployeesShiftPrefered(Shift.ToString(), Day.ToString(), week, year, department); }
+                                Employees = salesManager.autoSchedule.employeesAvailible.EmployeesAvailible(Shift, Day, week, year, department, prefrance);
                             }
                         }
-                        else if (loop == 1)
+                        else if (prefrance == Prefrance.No_Prefrance)
                         {
-                            AmountToSchedule = salesManager.autoSchedule.amountOfEmployeesNeeded.AmountLeftToSchedule(Shift.ToString(), Day.ToString(), week, year, department);
-
                             if (AmountToSchedule != 0)
                             {
-                                if (Shift == Shifts.Evening)
-                                { Employees = salesManager.autoSchedule.employeesAvailible.EveningShiftWithoughtPreference(Shift.ToString(), Day.ToString(), week, year, department); }
-                                else
-                                { Employees = salesManager.autoSchedule.employeesAvailible.EmployeesWithoughtPreference(Shift.ToString(), Day.ToString(), week, year, department); }
+                                Employees = salesManager.autoSchedule.employeesAvailible.EmployeesAvailible(Shift, Day, week, year, department, prefrance);
                             }
                         }
-                        else if (loop == 2)
+                        else if (prefrance == Prefrance.Not_Prefered)
                         {
-                            AmountToSchedule = salesManager.autoSchedule.amountOfEmployeesNeeded.AmountLeftToSchedule(Shift.ToString(), Day.ToString(), week, year, department);
-
                             if (AmountToSchedule != 0)
                             {
-                                if (Shift == Shifts.Evening)
-                                { Employees = salesManager.autoSchedule.employeesAvailible.EveningShiftUnPrefered(Shift.ToString(), Day.ToString(), week, year, department); }
-                                else
-                                { Employees = salesManager.autoSchedule.employeesAvailible.EmployeesUnPrefered(Shift.ToString(), Day.ToString(), week, year, department); }
+                                Employees = salesManager.autoSchedule.employeesAvailible.EmployeesAvailible(Shift, Day, week, year, department, prefrance);
                             }
                         }
 
@@ -911,7 +897,7 @@ namespace AdminBackups
                             }
                         }
 
-                        if (progressBar1.Value != 58)
+                        if (progressBar1.Value != 62)
                         {
                             progressBar1.Value++;
                         }
@@ -919,6 +905,7 @@ namespace AdminBackups
                     }
                     Day++;
                 }
+                prefrance++;
             }
 
             progressBar1.Value = 0;
